@@ -1,0 +1,47 @@
+{
+  "pagination": {
+    "per_page": 5,
+    "pages": 68,
+    "page": 1,
+    "urls": {
+      "last": "https://api.discogs.com/labels/1/releases?per_page=5&page=68",
+      "next": "https://api.discogs.com/labels/1/releases?per_page=5&page=2"
+    },
+    "items": 338
+  },
+  "releases": [
+    {
+      "artist": "Andrea Parker",
+      "catno": "!K7071CD",
+      "format": "CD, Mixed",
+      "id": 2801,
+      "resource_url": "http://api.discogs.com/releases/2801",
+      "status": "Accepted",
+      "thumb": "https://api-img.discogs.com/cYmCut4Yh99FaLFHyoqkFo-Md1E=/fit-in/150x150/filters:strip_icc():format(jpeg):mode_rgb()/discogs-images/L-1-1111053865.png.jpg",
+      "title": "DJ-Kicks",
+      "year": 1998
+    },
+    {
+      "artist": "Naomi Daniel",
+      "catno": "2INZ 00140",
+      "format": "12\"",
+      "id": 65040,
+      "resource_url": "http://api.discogs.com/releases/65040",
+      "status": "Accepted",
+      "thumb": "https://api-img.discogs.com/cYmCut4Yh99FaLFHyoqkFo-Md1E=/fit-in/150x150/filters:strip_icc():format(jpeg):mode_rgb()/discogs-images/L-1-1111053865.png.jpg",
+      "title": "Stars",
+      "year": 1993
+    },
+    {
+      "artist": "Innerzone Orchestra",
+      "catno": "546 137-2",
+      "format": "CD, Album, P/Mixed",
+      "id": 9922,
+      "resource_url": "http://api.discogs.com/releases/9922",
+      "status": "Accepted",
+      "thumb": "https://api-img.discogs.com/cYmCut4Yh99FaLFHyoqkFo-Md1E=/fit-in/150x150/filters:strip_icc():format(jpeg):mode_rgb()/discogs-images/L-1-1111053865.png.jpg",
+      "title": "Programmed",
+      "year": 1999
+    }
+  ]
+}

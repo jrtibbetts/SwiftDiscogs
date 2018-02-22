@@ -1,0 +1,56 @@
+{
+    "pagination": {
+        "per_page": 50,
+        "items": 4,
+        "page": 1,
+        "urls": {},
+        "pages": 1
+    },
+    "versions": [
+                 {
+                 "catno": "SPIRIT ZONE 027",
+                 "country": "Germany",
+                 "format": "CD, Album, Mixed",
+                 "id": 66785,
+                 "label": "Spirit Zone Recordings",
+                 "released": "1997-03-14",
+                 "resource_url": "http://api.discogs.com/releases/66785",
+                 "status": "Accepted",
+                 "major_formats": [
+                                   "CD"
+                                   ],
+                 "thumb": "https://api-img.discogs.com/sSWjXKczZseDjX2QohG1Lc77F-w=/fit-in/150x150/filters:strip_icc():format(jpeg):mode_rgb()/discogs-images/R-66785-1213949871.jpeg.jpg",
+                 "title": "Stardiver"
+                 },
+                 {
+                 "catno": "2078-2",
+                 "country": "Israel",
+                 "format": "CD, Album, Mixed",
+                 "id": 528753,
+                 "label": "Phonokol",
+                 "released": "1997",
+                 "resource_url": "http://api.discogs.com/releases/528753",
+                 "status": "Accepted",
+                 "major_formats": [
+                                   "CD"
+                                   ],
+                 "thumb": "https://api-img.discogs.com/53aTwkmfs6fwWZhq5ma7-vbU7TY=/fit-in/150x150/filters:strip_icc():format(jpeg):mode_rgb()/discogs-images/R-528753-1127942810.jpeg.jpg",
+                 "title": "Stardiver"
+                 },
+                 {
+                 "catno": "SUB 4841.2, SPIRIT ZONE 027",
+                 "country": "France",
+                 "format": "CD, Album, Mixed",
+                 "id": 93485,
+                 "label": "Distance, Spirit Zone Recordings",
+                 "released": "1997",
+                 "resource_url": "http://api.discogs.com/releases/93485",
+                 "status": "Accepted",
+                 "major_formats": [
+                                   "CD"
+                                   ],
+                 "thumb": "https://api-img.discogs.com/xDakT4H-4O6oBv6M7gVJteEl8p4=/fit-in/150x150/filters:strip_icc():format(jpeg):mode_rgb()/discogs-images/R-93485-1126739582.jpeg.jpg",
+                 "title": "Stardiver"
+                 }
+                 ]
+}

@@ -1,0 +1,13 @@
+Status: HTTP/1.1 401 Unauthorized
+Reproxy-Status: yes
+Access-Control-Allow-Origin: *
+Cache-Control: public, must-revalidate
+Content-Type: application/json
+WWW-Authenticate: OAuth realm="https://api.discogs.com"
+Server: lighttpd
+Content-Length: 61
+Date: Wed, 16 Jul 2014 18:42:38 GMT
+X-Varnish: 1718433436
+Age: 0
+Via: 1.1 varnish
+Connection: keep-alive

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>accessTokenUrl</key>
+	<string>https://api.discogs.com/oauth/access_token</string>
+	<key>authorizeUrl</key>
+	<string>https://www.discogs.com/oauth/authorize</string>
+	<key>clientKey</key>
+	<string>NdCJbPSNmBcLKokVYFik</string>
+	<key>clientSecret</key>
+	<string>CpCYcojLolJFlbodduwdJhpanpFqlhre</string>
+	<key>displayURLString</key>
+	<string>discogs.com</string>
+	<key>logoImageName</key>
+	<string>Discogs</string>
+	<key>requestTokenUrl</key>
+	<string>https://api.discogs.com/oauth/request_token</string>
+	<key>serviceName</key>
+	<string>Discogs</string>
+</dict>
+</plist>

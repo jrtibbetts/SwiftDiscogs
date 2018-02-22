@@ -1,0 +1,14 @@
+Status: HTTP/1.1 200 OK
+Reproxy-Status: yes
+Access-Control-Allow-Origin: *
+Cache-Control: public, must-revalidate
+Content-Type: application/json
+Content-Encoding: gzip
+Content-Location: https://api.discogs.com/oauth/identity?oauth_body_hash=some_hash&oauth_nonce=...
+Server: lighttpd
+Content-Length: 127
+Date: Tue, 15 Jul 2014 18:44:17 GMT
+X-Varnish: 1718276369
+Age: 0
+Via: 1.1 varnish
+Connection: keep-alive
