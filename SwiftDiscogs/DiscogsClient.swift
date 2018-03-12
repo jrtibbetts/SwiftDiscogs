@@ -7,67 +7,36 @@ import PromiseKit
 /// Swift implementation of the Discogs (https://www.discogs.com) API. Most
 /// calls return a `Promise`, which the API call will populate with either
 /// a populated `struct` of the expected type, or an error.
-open class DiscogsClient: JSONClient, Discogs {
+open class DiscogsClient: OAuth1JSONClient, Discogs {
 
     // MARK: - Private properties
 
-    /// The `OAuthSwift` implementation OAuth 1, which is the version that
-    /// Discogs supports.
-    fileprivate let oAuth: OAuth1Swift
-
     fileprivate var headers: OAuthSwift.Headers = [:]
 
-    fileprivate var presentingViewController: UIViewController?
-
-    fileprivate var userAgent: String // = "Immediate (https://github.com/jrtibbetts/Immediate)"
+    fileprivate var userAgent: String
 
     // MARK: - Initializers
     
     /// Initialize the Discogs API. This doesn't make any calls to the Discogs
     /// API; that happens in `authorize()`.
     ///
-    /// - parameter presentingViewController: The view controller from which
-    ///   the web view for signing in to Discogs is presented.
-    /// - parameter userDefaults: The `UserDefaults` for storing the
-    ///   `oauth_token` and `oauth_token_secret` values. By default, this is
-    ///   `UserDefaults.standard`.
     public init(consumerKey: String,
                 consumerSecret: String,
                 userAgent: String,
                 callbackUrl: URL) {
-        oAuth = OAuth1Swift(consumerKey: consumerKey,
-                            consumerSecret: consumerSecret,
-                            requestTokenUrl: "https://api.discogs.com/oauth/access_token",
-                            authorizeUrl: "https://www.discogs.com/oauth/authorize",
-                            accessTokenUrl: "https://api.discogs.com/oauth/request_token")
         self.userAgent = userAgent
         /// Discogs requires all API calls to include a custom `User-Agent`
         /// header.
-        super.init(baseUrl: URL(string: "https://api.discogs.com")!)
+        super.init(consumerKey: consumerKey,
+                   consumerSecret: consumerSecret,
+                   requestTokenUrl: "https://api.discogs.com/oauth/access_token",
+                   authorizeUrl: "https://www.discogs.com/oauth/authorize",
+                   accessTokenUrl: "https://api.discogs.com/oauth/request_token",
+                   baseUrl: URL(string: "https://api.discogs.com")!)
         headers["User-Agent"] = self.userAgent
     }
 
     // MARK: - Authorization & User Identity
-
-    open func authorize(presentingViewController: UIViewController) -> Promise<DiscogsUserIdentity> {
-        self.presentingViewController = presentingViewController
-
-        return authorize()
-    }
-
-    public func authorize() -> Promise<DiscogsUserIdentity> {
-        oAuth.authorizeURLHandler = SafariURLHandler(viewController: presentingViewController!, oauthSwift: oAuth)
-
-        return Promise<DiscogsUserIdentity>() { (fulfill, reject) in
-            _ = self.oAuth.authorize(withCallbackURL: "immediate://oauth-callback/discogs",
-                                     success: { [weak self] (credentials, response, parameters) in
-//                                        self?.set(oAuthCredentials: credentials, for: username)
-                                        self?.oAuthClient = OAuthSwiftClient(credential: credentials)
-                }, failure: { (error) in
-                    reject(error)
-            })
-        }
-    }
 
     public func userIdentity() -> Promise<DiscogsUserIdentity> {
         return get(path: "/oauth/identity", headers: headers)
@@ -102,7 +71,8 @@ open class DiscogsClient: JSONClient, Discogs {
     public func releasesForMasterRelease(id: Int,
                                          pageNumber: Int = 1,
                                          resultsPerPage: Int = 50) -> Promise<DiscogsMasterReleaseVersions> {
-        return get(path: "/masters/\(id)/versions", headers: headers, pageNumber: pageNumber, resultsPerPage: resultsPerPage)
+        // turn the pageNumber and resultsPerPage into query parameters
+        return get(path: "/masters/\(id)/versions", headers: headers)
     }
     
     public func release(id: Int) -> Promise<DiscogsRelease> {
@@ -133,7 +103,7 @@ open class DiscogsClient: JSONClient, Discogs {
         let path = "/users/\(userName)/collection/folders/\(folderName)"
         let endpoint = URL(string: path, relativeTo: baseUrl)!
         
-        return post(url: endpoint, headers: headers)
+        return authorizedPost(url: endpoint, headers: headers)
     }
     
     public func edit(_ folder: DiscogsCollectionFolder,
@@ -146,10 +116,9 @@ open class DiscogsClient: JSONClient, Discogs {
                                 userName: String,
                                 pageNumber: Int = 1,
                                 resultsPerPage: Int = 50) -> Promise<DiscogsCollectionFolderItems> {
+        // turn the pageNumber and resultsPerPage into query parameters
         return get(path: "/users/\(userName)/collection/folders/\(folderId)/releases",
-            headers: headers,
-            pageNumber: pageNumber,
-            resultsPerPage: resultsPerPage)
+            headers: headers)
     }
     
     public func addItem(_ itemId: Int,
@@ -158,16 +127,14 @@ open class DiscogsClient: JSONClient, Discogs {
         let path = "/users/\(userName)/collection/folders/\(folderId)/releases/{itemId}"
         let endpoint = URL(string: path, relativeTo: baseUrl)!
         
-        return post(url: endpoint, headers: headers)
+        return authorizedPost(url: endpoint, headers: headers)
     }
     
     public func search(for queryString: String,
                        type: String) -> Promise<DiscogsSearchResults> {
-        let endpoint = URL(string: "/database/search", relativeTo: baseUrl)!
-        var urlComponents = URLComponents(string: endpoint.absoluteString)!
-        urlComponents.queryItems = [URLQueryItem(name: "q", value: queryString)]
+        let params = [URLQueryItem(name: "q", value: queryString)]
         
-        return get(url: urlComponents.url!)
+        return get(path: "/database/search", headers: headers, params: params)
     }
 
 }

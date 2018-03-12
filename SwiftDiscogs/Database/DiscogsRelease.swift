@@ -119,7 +119,7 @@ public struct DiscogsRelease: Codable, HasDiscogsArtistSummaries, Unique {
     public var styles: [String]?
     public var thumb: String?
     public var title: String
-    public var         tracklist: [DiscogsTrack]
+    public var tracklist: [DiscogsTrack]
     public var uri: String
     public var videos: [DiscogsVideo]?
     public var year: Int?

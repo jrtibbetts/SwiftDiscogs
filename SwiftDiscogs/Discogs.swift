@@ -24,8 +24,6 @@ public enum DiscogsError: Error {
 /// Implemented by clients of a Discogs API server.
 public protocol Discogs {
     
-    func authorize() -> Promise<DiscogsUserIdentity>
-    
     // MARK: - Database
     
     /// Look up the artist with the specified ID and invoke the completion on

@@ -18,7 +18,7 @@ class DiscogsTestBase: ClientTestBase {
             let discogsError: DiscogsErrorResponse = try discogsObject(inLocalJsonFileNamed: jsonFilename)
             XCTAssertEqual(discogsError.message, expectedString)
         } catch {
-            XCTFail("Failed to assert the error message; got \(error.localizedDescription) instead.")
+            XCTFail("Failed to assert the error message; got \"\(error.localizedDescription)\" instead.")
         }
     }
     
