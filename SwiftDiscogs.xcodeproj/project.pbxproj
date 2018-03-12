@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		960368972056082400D24CE7 /* JSONClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96898489203DDA0200DE77BC /* JSONClient.framework */; };
 		968983B2203D427B00DE77BC /* SwiftDiscogs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 968983A8203D427A00DE77BC /* SwiftDiscogs.framework */; };
 		968983B9203D427B00DE77BC /* SwiftDiscogs.h in Headers */ = {isa = PBXBuildFile; fileRef = 968983AB203D427A00DE77BC /* SwiftDiscogs.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		96898419203DD4B500DE77BC /* DiscogsRelease.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968983C3203DD4B200DE77BC /* DiscogsRelease.swift */; };
@@ -80,7 +81,6 @@
 		9689845D203DD4B500DE77BC /* DiscogsPagination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9689840C203DD4B300DE77BC /* DiscogsPagination.swift */; };
 		9689845E203DD4B500DE77BC /* HasDiscogsArtistSummaries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9689840D203DD4B400DE77BC /* HasDiscogsArtistSummaries.swift */; };
 		9689845F203DD4B500DE77BC /* Discogs.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9689840E203DD4B400DE77BC /* Discogs.xcassets */; };
-		96898460203DD4B500DE77BC /* DiscogsClient.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9689840F203DD4B400DE77BC /* DiscogsClient.plist */; };
 		96898461203DD4B500DE77BC /* DiscogsCollectionFolderItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96898411203DD4B500DE77BC /* DiscogsCollectionFolderItem.swift */; };
 		96898462203DD4B500DE77BC /* DiscogsCollectionFolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96898412203DD4B500DE77BC /* DiscogsCollectionFolder.swift */; };
 		96898463203DD4B500DE77BC /* DiscogsCollectionValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96898413203DD4B500DE77BC /* DiscogsCollectionValue.swift */; };
@@ -108,7 +108,6 @@
 		96898491203DDB4A00DE77BC /* JSONTestBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9689848F203DDB4900DE77BC /* JSONTestBase.swift */; };
 		96898492203DDB4A00DE77BC /* ClientTestBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96898490203DDB4A00DE77BC /* ClientTestBase.swift */; };
 		96898494203DDBDE00DE77BC /* DiscogsTestBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96898493203DDBDE00DE77BC /* DiscogsTestBase.swift */; };
-		96898496203DDEB300DE77BC /* JSONClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96898489203DDA0200DE77BC /* JSONClient.framework */; };
 		96898497203DDEB300DE77BC /* OAuthSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9689848A203DDA0200DE77BC /* OAuthSwift.framework */; };
 		96898498203DDEB300DE77BC /* PromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9689848B203DDA0200DE77BC /* PromiseKit.framework */; };
 /* End PBXBuildFile section */
@@ -200,7 +199,6 @@
 		9689840C203DD4B300DE77BC /* DiscogsPagination.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscogsPagination.swift; sourceTree = "<group>"; };
 		9689840D203DD4B400DE77BC /* HasDiscogsArtistSummaries.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HasDiscogsArtistSummaries.swift; sourceTree = "<group>"; };
 		9689840E203DD4B400DE77BC /* Discogs.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Discogs.xcassets; sourceTree = "<group>"; };
-		9689840F203DD4B400DE77BC /* DiscogsClient.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DiscogsClient.plist; sourceTree = "<group>"; };
 		96898411203DD4B500DE77BC /* DiscogsCollectionFolderItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscogsCollectionFolderItem.swift; sourceTree = "<group>"; };
 		96898412203DD4B500DE77BC /* DiscogsCollectionFolder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscogsCollectionFolder.swift; sourceTree = "<group>"; };
 		96898413203DD4B500DE77BC /* DiscogsCollectionValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscogsCollectionValue.swift; sourceTree = "<group>"; };
@@ -245,7 +243,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				96898496203DDEB300DE77BC /* JSONClient.framework in Frameworks */,
+				960368972056082400D24CE7 /* JSONClient.framework in Frameworks */,
 				96898497203DDEB300DE77BC /* OAuthSwift.framework in Frameworks */,
 				96898498203DDEB300DE77BC /* PromiseKit.framework in Frameworks */,
 				968983B2203D427B00DE77BC /* SwiftDiscogs.framework in Frameworks */,
@@ -282,7 +280,6 @@
 				96898418203DD4B500DE77BC /* Discogs.swift */,
 				9689840E203DD4B400DE77BC /* Discogs.xcassets */,
 				96898409203DD4B300DE77BC /* DiscogsArtistRelease.swift */,
-				9689840F203DD4B400DE77BC /* DiscogsClient.plist */,
 				9689840A203DD4B300DE77BC /* DiscogsClient.swift */,
 				9689840B203DD4B300DE77BC /* DiscogsErrorResponse.swift */,
 				9689840C203DD4B300DE77BC /* DiscogsPagination.swift */,
@@ -603,7 +600,6 @@
 				96898425203DD4B500DE77BC /* get-release-200.json in Resources */,
 				9689843D203DD4B500DE77BC /* get-artist-404.json in Resources */,
 				96898441203DD4B500DE77BC /* get-artist-200.header in Resources */,
-				96898460203DD4B500DE77BC /* DiscogsClient.plist in Resources */,
 				96898447203DD4B500DE77BC /* post-create-folder-201.json in Resources */,
 				96898431203DD4B500DE77BC /* get-artist-releases-200.header in Resources */,
 				9689842F203DD4B500DE77BC /* search-500.header in Resources */,

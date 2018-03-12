@@ -8,23 +8,11 @@ public struct DiscogsCollectionCustomFields: Codable {
     /// A user-defined column in the collection database.
     public struct CustomField: Codable {
 
+        /// Determines what type of editing/display component to use when
+        /// entering data on Discogs.com.
         public enum FieldType: String {
             case dropdown
             case textarea
-        }
-
-        /// Customize the mapping of properties to JSON keys. Even though only
-        /// one field ("public", which can't be used as a property name because
-        /// it conflicts with the `public` keyword), ALL of the fields have
-        /// to be included in this `enum`.
-        private enum CodingKeys: String, CodingKey {
-            case id
-            case isPublic = "public"
-            case lines
-            case name
-            case options
-            case position
-            case type
         }
 
         /// The field's unique ID within the set of fields.
@@ -51,10 +39,24 @@ public struct DiscogsCollectionCustomFields: Codable {
         /// The field's type. Currently, the only valid values are `dropdown`
         /// for lists, and `textarea` for free-text entry.
         public var type: String
+
+        /// Customize the mapping of properties to JSON keys. Even though only
+        /// one field ("public", which can't be used as a property name because
+        /// it conflicts with the `public` keyword), ALL of the fields have
+        /// to be included in this `enum`.
+        private enum CodingKeys: String, CodingKey {
+            case id
+            case isPublic = "public"
+            case lines
+            case name
+            case options
+            case position
+            case type
+        }
+
     }
 
-    /// The custom fields. If the user hasn't defined any, then this will
-    /// either be empty or `nil`.
+    /// The custom fields that the user has defined, if any.
     public var fields: [CustomField]?
 
 }
