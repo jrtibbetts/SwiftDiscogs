@@ -66,7 +66,7 @@ public protocol Discogs {
     ///
     /// - parameter id: The unique ID of the master release.
     /// - parameter pageNumber: The number of the page (i.e. batch).
-    func releasesForMasterRelease(id: Int,
+    func releasesForMasterRelease(_ id: Int,
                                   pageNumber: Int,
                                   resultsPerPage: Int) -> Promise<DiscogsMasterReleaseVersions>
     

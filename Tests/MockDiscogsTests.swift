@@ -51,12 +51,12 @@ class MockDiscogsTests: DiscogsTestBase {
 
     func testReleasesForMasterReleaseById() {
         let discogs = MockDiscogs()
-        assert(validPromise: discogs.releasesForMasterRelease(id: 0))
+        assert(validPromise: discogs.releasesForMasterRelease(0))
     }
 
     func testReleasesForMasterReleaseByIdErrorMode() {
         let discogs = MockDiscogs(errorMode: true)
-        assert(invalidPromise: discogs.releasesForMasterRelease(id: 0))
+        assert(invalidPromise: discogs.releasesForMasterRelease(0))
     }
 
     func testReleaseById() {

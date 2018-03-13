@@ -56,7 +56,7 @@ public class MockDiscogs: MockClient, Discogs {
                      error: DiscogsError.masterReleaseNotFoundById(id))
     }
 
-    public func releasesForMasterRelease(id: Int,
+    public func releasesForMasterRelease(_ id: Int,
                                          pageNumber: Int = 0,
                                          resultsPerPage: Int = 50) -> Promise<DiscogsMasterReleaseVersions> {
         return apply(toJsonObjectIn: "get-master-release-versions-200",

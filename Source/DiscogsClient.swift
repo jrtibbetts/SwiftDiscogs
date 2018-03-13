@@ -72,7 +72,7 @@ open class DiscogsClient: OAuth1JSONClient, Discogs {
         return get(path: "/labels/\(labelId)/releases", headers: headers)
     }
 
-    public func releasesForMasterRelease(id: Int,
+    public func releasesForMasterRelease(_ id: Int,
                                          pageNumber: Int = 1,
                                          resultsPerPage: Int = 50) -> Promise<DiscogsMasterReleaseVersions> {
         // turn the pageNumber and resultsPerPage into query parameters

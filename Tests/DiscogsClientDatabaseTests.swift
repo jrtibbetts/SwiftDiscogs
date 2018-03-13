@@ -195,4 +195,19 @@ class DiscogsClientDatabaseTests: DiscogsTestBase {
         wait(for: [exp], timeout: 5.0)
     }
 
+    func testReleasesForMasterReleaseWithValidIdOk() {
+        let masterReleaseId = 51559    // "Mandinka"
+        let failureMessage = "Expected Discogs master release \(masterReleaseId) to have some releases"
+        let exp = expectation(description: failureMessage)
+        let promise: Promise<DiscogsMasterReleaseVersions> = unauthorizedClient.releasesForMasterRelease(masterReleaseId)
+        promise.then { (summaries) -> Void in
+            XCTAssertNotNil(summaries.pagination)
+            XCTAssertTrue(summaries.pagination!.items >= 20)
+            exp.fulfill()
+            }.catch { (error) in
+                XCTFail(failureMessage)
+        }
+        wait(for: [exp], timeout: 5.0)
+    }
+
 }
