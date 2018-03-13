@@ -4,21 +4,15 @@ import Foundation
 
 public struct DiscogsArtist: Codable, Unique {
 
-    public struct BandMember: Codable, Unique {
-
-        private enum CodingKeys: String, CodingKey {
-            case active
-            case id
-            case name
-            case resourceUrl = "resource_url"
-        }
-
-        public var active: Bool?
-        public var id: Int
-        public var name: String
-        public var resourceUrl: String
-
-    }
+    public var dataQuality: String?
+    public var id: Int
+    public var images: [DiscogsImage]?
+    public var members: [BandMember]?
+    public var nameVariations: [String]?
+    public var profile: String?
+    public var releasesUrl: URL
+    public var resourceUrl: URL
+    public var urls: [String]?
 
     private enum CodingKeys: String, CodingKey {
         case dataQuality = "data_quality"
@@ -32,14 +26,20 @@ public struct DiscogsArtist: Codable, Unique {
         case urls
     }
 
-    public var dataQuality: String?
-    public var id: Int
-    public var images: [DiscogsImage]?
-    public var members: [BandMember]?
-    public var nameVariations: [String]?
-    public var profile: String?
-    public var releasesUrl: String
-    public var resourceUrl: String
-    public var urls: [String]?
+    public struct BandMember: Codable, Unique {
+
+        public var active: Bool?
+        public var id: Int
+        public var name: String
+        public var resourceUrl: URL
+
+        private enum CodingKeys: String, CodingKey {
+            case active
+            case id
+            case name
+            case resourceUrl = "resource_url"
+        }
+
+    }
 
 }

@@ -2,9 +2,18 @@
 
 import Foundation
 
-public struct DiscogsUserIdentity: Codable {
+public struct DiscogsUserIdentity: Codable, Unique {
+
     public var id: Int
+    public var consumerName: String
+    public var resourceUrl: URL
     public var username: String
-    public var resource_url: String
-    public var consumer_name: String
+
+    fileprivate enum CodingKeys: String, CodingKey {
+        case id
+        case consumerName = "consumer_name"
+        case resourceUrl = "resource_url"
+        case username
+    }
+
 }

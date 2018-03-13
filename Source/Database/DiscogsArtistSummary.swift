@@ -4,6 +4,14 @@ import Foundation
 
 public struct DiscogsArtistSummary: Codable, Unique {
 
+    public var nameVariation: String?
+    public var id: Int
+    public var join: String?
+    public var name: String
+    public var resourceUrl: URL
+    public var role: String
+    public var tracks: String?
+
     private enum CodingKeys: String, CodingKey {
         case nameVariation = "anv"
         case id
@@ -13,13 +21,5 @@ public struct DiscogsArtistSummary: Codable, Unique {
         case role
         case tracks
     }
-
-    public var nameVariation: String?
-    public var id: Int
-    public var join: String?
-    public var name: String
-    public var resourceUrl: String
-    public var role: String
-    public var tracks: String?
 
 }

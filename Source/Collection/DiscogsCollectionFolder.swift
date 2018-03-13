@@ -15,7 +15,7 @@ public struct DiscogsCollectionFolder: Codable, Unique {
     public var id: Int
     public var count: Int
     public var name: String
-    public var resourceUrl: String
+    public var resourceUrl: URL
 
     private enum CodingKeys: String, CodingKey {
         case id

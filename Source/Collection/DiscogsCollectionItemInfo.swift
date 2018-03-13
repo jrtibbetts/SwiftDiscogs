@@ -3,6 +3,13 @@
 import Foundation
 
 public struct DiscogsCollectionItemInfo: Codable {
-    public var instance_id: Int
-    public var resource_url: String
+    
+    public var instanceId: Int
+    public var resourceUrl: String
+
+    fileprivate enum CodingKeys: String, CodingKey {
+        case instanceId = "instance_id"
+        case resourceUrl = "resource_url"
+    }
+
 }

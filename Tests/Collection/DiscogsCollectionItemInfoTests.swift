@@ -10,8 +10,8 @@ class DiscogsCollectionItemInfoTests: DiscogsTestBase {
     }
     
     fileprivate func assert(_ item: DiscogsCollectionItemInfo) {
-        XCTAssertEqual(item.instance_id, 3)
-        XCTAssertEqual(item.resource_url, "https://api.discogs.com/users/example/collection/folders/1/release/1/instance/3")
+        XCTAssertEqual(item.instanceId, 3)
+        XCTAssertEqual(item.resourceUrl, "https://api.discogs.com/users/example/collection/folders/1/release/1/instance/3")
     }
     
 }

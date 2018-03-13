@@ -13,41 +13,15 @@ public struct DiscogsCollectionFolderItem: Codable {
 
     public struct BasicInformation: Codable, HasDiscogsArtistSummaries, Unique {
 
-        public struct Format: Codable {
-
-            private enum CodingKeys: String, CodingKey {
-                case descriptions
-                case name
-                case quantity = "qty"
-                case text
-            }
-
-            public var descriptions: [String]?
-            public var name: String?
-            public var quantity: String?
-            public var text: String?
-
-        }
-
-        public struct Label: Codable, Unique {
-
-            private enum CodingKeys: String, CodingKey {
-                case catalogNumber = "catno"
-                case entityType = "entity_type"
-                case entityTypeName = "entity_type_name"
-                case id
-                case name
-                case resourceUrl = "resource_url"
-            }
-
-            public var catalogNumber: String?
-            public var entityType: String?
-            public var entityTypeName: String?
-            public var id: Int
-            public var name: String
-            public var resourceUrl: String
-
-        }
+        public var artists: [DiscogsArtistSummary]?
+        public var id: Int
+        public var coverImage: String?
+        public var formats: [Format]?
+        public var labels: [Label]?
+        public var resourceUrl: URL
+        public var thumb: String?
+        public var title: String
+        public var year: Int?
 
         private enum CodingKeys: String, CodingKey {
             case artists
@@ -61,15 +35,41 @@ public struct DiscogsCollectionFolderItem: Codable {
             case year
         }
 
-        public var artists: [DiscogsArtistSummary]?
-        public var id: Int
-        public var coverImage: String?
-        public var formats: [Format]?
-        public var labels: [Label]?
-        public var resourceUrl: String
-        public var thumb: String?
-        public var title: String
-        public var year: Int?
+        public struct Format: Codable {
+
+            public var descriptions: [String]?
+            public var name: String?
+            public var quantity: String?
+            public var text: String?
+
+            fileprivate enum CodingKeys: String, CodingKey {
+                case descriptions
+                case name
+                case quantity = "qty"
+                case text
+            }
+
+        }
+
+        public struct Label: Codable, Unique {
+
+            public var catalogNumber: String?
+            public var entityType: String?
+            public var entityTypeName: String?
+            public var id: Int
+            public var name: String
+            public var resourceUrl: URL
+
+            fileprivate enum CodingKeys: String, CodingKey {
+                case catalogNumber = "catno"
+                case entityType = "entity_type"
+                case entityTypeName = "entity_type_name"
+                case id
+                case name
+                case resourceUrl = "resource_url"
+            }
+
+        }
 
     }
 

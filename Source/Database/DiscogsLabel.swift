@@ -4,18 +4,17 @@ import Foundation
 
 public struct DiscogsLabel: Codable, Unique {
 
-    public struct Sublabel: Codable, Unique {
-
-        private enum CodingKeys: String, CodingKey {
-            case id
-            case name
-            case resourceUrl = "resource_url"
-        }
-
-        public var id: Int
-        public var name: String
-        public var resourceUrl: String
-    }
+    public var contactInfo: String?
+    public var dataQuality: String?
+    public var id: Int
+    public var images: [DiscogsImage]?
+    public var name: String
+    public var profile: String?
+    public var releasesUrl: URL
+    public var resourceUrl: URL
+    public var sublabels: [Sublabel]?
+    public var uri: String
+    public var urls: [String]?
 
     private enum CodingKeys: String, CodingKey {
         case contactInfo = "contact_info"
@@ -31,16 +30,18 @@ public struct DiscogsLabel: Codable, Unique {
         case urls
     }
 
-    public var contactInfo: String?
-    public var dataQuality: String?
-    public var id: Int
-    public var images: [DiscogsImage]?
-    public var name: String
-    public var profile: String?
-    public var releasesUrl: String
-    public var resourceUrl: String
-    public var sublabels: [Sublabel]?
-    public var uri: String
-    public var urls: [String]?
+    public struct Sublabel: Codable, Unique {
+
+        public var id: Int
+        public var name: String
+        public var resourceUrl: URL
+
+        fileprivate enum CodingKeys: String, CodingKey {
+            case id
+            case name
+            case resourceUrl = "resource_url"
+        }
+
+    }
 
 }

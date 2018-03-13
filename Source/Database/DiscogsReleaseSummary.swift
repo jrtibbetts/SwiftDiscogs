@@ -11,6 +11,28 @@ public struct DiscogsReleaseSummaries: Codable, Pageable {
 
 public struct DiscogsReleaseSummary: Codable, Unique {
 
+    public var artist: String
+    public var catalogNumber: String?
+    public var format: String?
+    public var id: Int
+    public var label: String?
+    public var mainReleaseId: Int?
+    public var resourceUrl: URL
+    public var role: String?
+    public var status: String?
+    public var thumb: String?
+    public var title: String
+    public var type: String?
+    public var year: Int
+
+    public var formats: [String]? {
+        return format?.components(separatedBy: ",").map { (substringChars) -> String in
+            let substring = String(substringChars)
+
+            return substring.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+        } 
+    }
+
     private enum CodingKeys: String, CodingKey {
         case artist
         case catalogNumber = "catno"
@@ -27,26 +49,5 @@ public struct DiscogsReleaseSummary: Codable, Unique {
         case year
     }
 
-    public var artist: String
-    public var catalogNumber: String?
-    public var format: String?
-    public var id: Int
-    public var label: String?
-    public var mainReleaseId: Int?
-    public var resourceUrl: String
-    public var role: String?
-    public var status: String?
-    public var thumb: String?
-    public var title: String
-    public var type: String?
-    public var year: Int
-
-    public var formats: [String]? {
-        return format?.components(separatedBy: ",").map { (substringChars) -> String in
-            let substring = String(substringChars)
-
-            return substring.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
-        } 
-    }
 }
 
