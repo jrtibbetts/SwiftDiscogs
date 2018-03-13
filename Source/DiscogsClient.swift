@@ -51,34 +51,34 @@ open class DiscogsClient: OAuth1JSONClient, Discogs {
     public func artist(id: Int) -> Promise<DiscogsArtist> {
         return get(path: "/artists/\(id)", headers: headers)
     }
-    
-    public func releases(forArtist artistId: Int) -> Promise<DiscogsReleaseSummaries> {
-        return get(path: "/artists/\(artistId)/releases", headers: headers)
-    }
-    
+
     public func label(id: Int) -> Promise<DiscogsLabel> {
         return get(path: "/labels/\(id)", headers: headers)
     }
-    
-    public func releases(forLabel labelId: Int) -> Promise<DiscogsReleaseSummaries> {
-        return get(path: "/labels/\(labelId)/releases", headers: headers)
-    }
-    
+
     public func masterRelease(id: Int) -> Promise<DiscogsMasterRelease> {
         return get(path: "/masters/\(id)", headers: headers)
     }
-    
+
+    public func release(id: Int) -> Promise<DiscogsRelease> {
+        return get(path: "/releases/\(id)", headers: headers)
+    }
+
+    public func releases(forArtist artistId: Int) -> Promise<DiscogsReleaseSummaries> {
+        return get(path: "/artists/\(artistId)/releases", headers: headers)
+    }
+
+    public func releases(forLabel labelId: Int) -> Promise<DiscogsReleaseSummaries> {
+        return get(path: "/labels/\(labelId)/releases", headers: headers)
+    }
+
     public func releasesForMasterRelease(id: Int,
                                          pageNumber: Int = 1,
                                          resultsPerPage: Int = 50) -> Promise<DiscogsMasterReleaseVersions> {
         // turn the pageNumber and resultsPerPage into query parameters
         return get(path: "/masters/\(id)/versions", headers: headers)
     }
-    
-    public func release(id: Int) -> Promise<DiscogsRelease> {
-        return get(path: "/releases/\(id)", headers: headers)
-    }
-    
+
     // MARK: - Collections
     
     public func customCollectionFields(for userName: String) -> Promise<DiscogsCollectionCustomFields> {

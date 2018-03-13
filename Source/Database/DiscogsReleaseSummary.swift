@@ -23,7 +23,7 @@ public struct DiscogsReleaseSummary: Codable, Unique {
     public var thumb: String?
     public var title: String
     public var type: String?
-    public var year: Int
+    public var year: Int?
 
     public var formats: [String]? {
         return format?.components(separatedBy: ",").map { (substringChars) -> String in
