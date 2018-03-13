@@ -18,7 +18,7 @@ public struct DiscogsCollectionFolderItem: Codable {
         public var coverImage: String?
         public var formats: [Format]?
         public var labels: [Label]?
-        public var resourceUrl: URL
+        public var resourceUrl: String
         public var thumb: String?
         public var title: String
         public var year: Int?
@@ -58,7 +58,7 @@ public struct DiscogsCollectionFolderItem: Codable {
             public var entityTypeName: String?
             public var id: Int
             public var name: String
-            public var resourceUrl: URL
+            public var resourceUrl: String
 
             fileprivate enum CodingKeys: String, CodingKey {
                 case catalogNumber = "catno"

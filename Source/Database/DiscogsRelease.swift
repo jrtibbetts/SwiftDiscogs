@@ -27,7 +27,7 @@ public struct DiscogsRelease: Codable, HasDiscogsArtistSummaries, Unique {
     public var numberForSale: Int
     public var released: String?
     public var releasedFormatted: String?
-    public var resourceUrl: URL
+    public var resourceUrl: String
     public var series: [String]?
     public var status: String?
     public var styles: [String]?
@@ -101,7 +101,7 @@ public struct DiscogsRelease: Codable, HasDiscogsArtistSummaries, Unique {
 
     public struct Contributor: Codable {
 
-        public var resourceUrl: URL
+        public var resourceUrl: String
         public var username: String
 
         fileprivate enum CodingKeys: String, CodingKey {
@@ -137,7 +137,7 @@ public struct DiscogsRelease: Codable, HasDiscogsArtistSummaries, Unique {
         public var entityType: String
         public var id: Int
         public var name: String
-        public var resourceUrl: URL
+        public var resourceUrl: String
 
         fileprivate enum CodingKeys: String, CodingKey {
             case catalogNumber = "catno"

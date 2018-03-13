@@ -8,7 +8,7 @@ public struct DiscogsArtistSummary: Codable, Unique {
     public var id: Int
     public var join: String?
     public var name: String
-    public var resourceUrl: URL
+    public var resourceUrl: String
     public var role: String
     public var tracks: String?
 

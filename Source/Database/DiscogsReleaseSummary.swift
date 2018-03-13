@@ -17,7 +17,7 @@ public struct DiscogsReleaseSummary: Codable, Unique {
     public var id: Int
     public var label: String?
     public var mainReleaseId: Int?
-    public var resourceUrl: URL
+    public var resourceUrl: String
     public var role: String?
     public var status: String?
     public var thumb: String?

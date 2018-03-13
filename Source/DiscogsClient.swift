@@ -13,7 +13,7 @@ open class DiscogsClient: OAuth1JSONClient, Discogs {
 
     fileprivate var headers: OAuthSwift.Headers = [:]
 
-    fileprivate var userAgent: String
+    public private(set) var userAgent: String
 
     // MARK: - Initializers
     
@@ -39,11 +39,11 @@ open class DiscogsClient: OAuth1JSONClient, Discogs {
     // MARK: - Authorization & User Identity
 
     public func userIdentity() -> Promise<DiscogsUserIdentity> {
-        return get(path: "/oauth/identity", headers: headers)
+        return authorizedGet(path: "/oauth/identity", headers: headers)
     }
     
     public func userProfile(userName: String) -> Promise<DiscogsUserProfile> {
-        return get(path: "/users/\(userName)", headers: headers)
+        return authorizedGet(path: "/users/\(userName)", headers: headers)
     }
 
     // MARK: - Database
@@ -82,20 +82,20 @@ open class DiscogsClient: OAuth1JSONClient, Discogs {
     // MARK: - Collections
     
     public func customCollectionFields(for userName: String) -> Promise<DiscogsCollectionCustomFields> {
-        return get(path: "/users/\(userName)/collection/fields", headers: headers)
+        return authorizedGet(path: "/users/\(userName)/collection/fields", headers: headers)
     }
     
     public func collectionValue(for userName: String) -> Promise<DiscogsCollectionValue> {
-        return get(path: "/users/\(userName)/collection/value", headers: headers)
+        return authorizedGet(path: "/users/\(userName)/collection/value", headers: headers)
     }
     
     public func collectionFolders(for userName: String) -> Promise<DiscogsCollectionFolders> {
-        return get(path: "/users/\(userName)/collection/folders", headers: headers)
+        return authorizedGet(path: "/users/\(userName)/collection/folders", headers: headers)
     }
     
     public func collectionFolderInfo(for folderId: Int,
                                      userName: String) -> Promise<DiscogsCollectionFolder> {
-        return get(path: "/users/\(userName)/collection/folders/\(folderId)", headers: headers)
+        return authorizedGet(path: "/users/\(userName)/collection/folders/\(folderId)", headers: headers)
     }
     
     public func createFolder(named folderName: String,
@@ -117,7 +117,7 @@ open class DiscogsClient: OAuth1JSONClient, Discogs {
                                 pageNumber: Int = 1,
                                 resultsPerPage: Int = 50) -> Promise<DiscogsCollectionFolderItems> {
         // turn the pageNumber and resultsPerPage into query parameters
-        return get(path: "/users/\(userName)/collection/folders/\(folderId)/releases",
+        return authorizedGet(path: "/users/\(userName)/collection/folders/\(folderId)/releases",
             headers: headers)
     }
     

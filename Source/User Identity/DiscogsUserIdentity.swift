@@ -6,7 +6,7 @@ public struct DiscogsUserIdentity: Codable, Unique {
 
     public var id: Int
     public var consumerName: String
-    public var resourceUrl: URL
+    public var resourceUrl: String
     public var username: String
 
     fileprivate enum CodingKeys: String, CodingKey {

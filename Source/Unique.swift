@@ -5,6 +5,6 @@ import Foundation
 public protocol Unique {
 
     var id: Int { get }
-    var resourceUrl: URL { get }
+    var resourceUrl: String { get }
 
 }

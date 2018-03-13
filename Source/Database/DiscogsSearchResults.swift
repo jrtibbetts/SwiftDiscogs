@@ -15,7 +15,7 @@ public struct DiscogsSearchResults: Codable {
         public var genre: [String]?
         public var id: Int
         public var label: [String]?
-        public var resourceUrl: URL
+        public var resourceUrl: String
         public var style: [String]?
         public var thumb: String?
         public var title: String

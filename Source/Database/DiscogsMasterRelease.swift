@@ -13,7 +13,7 @@ public struct DiscogsMasterRelease: Codable, Unique {
     public var mainReleaseId: Int
     public var mainReleaseUrl: String
     public var numberForSale: Int
-    public var resourceUrl: URL
+    public var resourceUrl: String
     public var styles: [String]
     public var title: String
     public var tracklist: [DiscogsTrack]
@@ -51,7 +51,7 @@ public struct DiscogsMasterRelease: Codable, Unique {
         public var label: String?
         public var majorFormats: [String]?
         public var released: String?
-        public var resourceUrl: URL
+        public var resourceUrl: String
         public var status: String?
         public var thumb: String?
         public var title: String

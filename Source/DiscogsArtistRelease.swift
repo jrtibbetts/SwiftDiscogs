@@ -13,7 +13,7 @@ public struct DiscogsArtistReleases: Codable {
         public var id: Int
         public var label: String?
         public var mainRelease: Int
-        public var resourceUrl: URL
+        public var resourceUrl: String
         public var role: String?
         public var status: String?
         public var thumb: String?
@@ -22,9 +22,9 @@ public struct DiscogsArtistReleases: Codable {
         public var year: Int
 
         public var formats: [String]? {
-            return format?.split(separator: ",").map({ (substring) -> String in
+            return format?.split(separator: ",").map { (substring) -> String in
                 return String(substring)
-            })
+            }
         }
 
         fileprivate enum CodingKeys: String, CodingKey {
