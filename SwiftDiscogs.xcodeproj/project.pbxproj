@@ -266,15 +266,15 @@
 		9689839E203D427A00DE77BC = {
 			isa = PBXGroup;
 			children = (
+				968983AA203D427A00DE77BC /* Source */,
+				968983B5203D427B00DE77BC /* Tests */,
+				968983A9203D427A00DE77BC /* Products */,
+				96898488203DDA0200DE77BC /* Frameworks */,
 				9603689F205764E200D24CE7 /* Cartfile */,
 				960368A0205764E200D24CE7 /* Cartfile.private */,
 				960368A3205764E300D24CE7 /* Cartfile.resolved */,
 				960368A2205764E300D24CE7 /* LICENSE */,
 				960368A1205764E300D24CE7 /* README.md */,
-				968983AA203D427A00DE77BC /* SwiftDiscogs */,
-				968983B5203D427B00DE77BC /* SwiftDiscogsTests */,
-				968983A9203D427A00DE77BC /* Products */,
-				96898488203DDA0200DE77BC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -287,7 +287,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		968983AA203D427A00DE77BC /* SwiftDiscogs */ = {
+		968983AA203D427A00DE77BC /* Source */ = {
 			isa = PBXGroup;
 			children = (
 				96898410203DD4B500DE77BC /* Collection */,
@@ -305,10 +305,10 @@
 				96898417203DD4B500DE77BC /* Unique.swift */,
 				968983CD203DD4B200DE77BC /* User Identity */,
 			);
-			path = SwiftDiscogs;
+			path = Source;
 			sourceTree = "<group>";
 		};
-		968983B5203D427B00DE77BC /* SwiftDiscogsTests */ = {
+		968983B5203D427B00DE77BC /* Tests */ = {
 			isa = PBXGroup;
 			children = (
 				96898493203DDBDE00DE77BC /* DiscogsTestBase.swift */,
@@ -320,7 +320,7 @@
 				96898469203DD4E400DE77BC /* MockDiscogsTests.swift */,
 				9689846A203DD4E500DE77BC /* User Identity */,
 			);
-			path = SwiftDiscogsTests;
+			path = Tests;
 			sourceTree = "<group>";
 		};
 		968983C2203DD4B200DE77BC /* Database */ = {
@@ -849,7 +849,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = SwiftDiscogs/Info.plist;
+				INFOPLIST_FILE = Source/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = net.poikile.SwiftDiscogs;
@@ -876,7 +876,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = SwiftDiscogs/Info.plist;
+				INFOPLIST_FILE = Source/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = net.poikile.SwiftDiscogs;
@@ -897,7 +897,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = SwiftDiscogsTests/Info.plist;
+				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks $(PROJECT_DIR)/Carthage/Build/iOS";
 				PRODUCT_BUNDLE_IDENTIFIER = net.poikile.SwiftDiscogsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -916,7 +916,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = SwiftDiscogsTests/Info.plist;
+				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks $(PROJECT_DIR)/Carthage/Build/iOS";
 				PRODUCT_BUNDLE_IDENTIFIER = net.poikile.SwiftDiscogsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";

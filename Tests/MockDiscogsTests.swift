@@ -143,13 +143,19 @@ class MockDiscogsTests: DiscogsTestBase {
 
     func testEditFolder() {
         let discogs = MockDiscogs()
-        let folder = DiscogsCollectionFolder(id: 99, count: 3, name: "Junk", resourceUrl: "https://api.discogs.com/foo")
+        let folder = DiscogsCollectionFolder(id: 99,
+                                             count: 3,
+                                             name: "Junk",
+                                             resourceUrl: URL(string: "https://api.discogs.com/foo")!)
         assert(validPromise: discogs.edit(folder, userName: "H. P. Lovecraft"))
     }
 
     func testEditFolderErrorMode() {
         let discogs = MockDiscogs(errorMode: true)
-        let folder = DiscogsCollectionFolder(id: 99, count: 3, name: "Junk", resourceUrl: "https://api.discogs.com/foo")
+        let folder = DiscogsCollectionFolder(id: 99,
+                                             count: 3,
+                                             name: "Junk",
+                                             resourceUrl: URL(string: "https://api.discogs.com/foo")!)
         assert(invalidPromise: discogs.edit(folder, userName: "H. P. Lovecraft"))
     }
 

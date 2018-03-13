@@ -4,13 +4,16 @@ import Foundation
 
 public struct DiscogsArtistReleases: Codable {
 
-    public struct Release: Codable {
+    public var releases: [Release]?
+
+    public struct Release: Codable, Unique {
+
         public var artist: String
         public var format: String?
         public var id: Int
         public var label: String?
-        public var main_release: Int
-        public var resource_url: String
+        public var mainRelease: Int
+        public var resourceUrl: URL
         public var role: String?
         public var status: String?
         public var thumb: String?
@@ -23,8 +26,21 @@ public struct DiscogsArtistReleases: Codable {
                 return String(substring)
             })
         }
-    }
 
-    public var releases: [Release]?
+        fileprivate enum CodingKeys: String, CodingKey {
+            case artist
+            case format
+            case id
+            case label
+            case mainRelease = "main_release"
+            case resourceUrl = "resource_url"
+            case role
+            case status
+            case thumb
+            case title
+            case type
+            case year
+        }
+    }
 
 }

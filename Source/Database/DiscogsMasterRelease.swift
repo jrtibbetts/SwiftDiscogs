@@ -4,6 +4,24 @@ import Foundation
 
 public struct DiscogsMasterRelease: Codable, Unique {
 
+    public var artists: [DiscogsArtistSummary]
+    public var dataQuality: String
+    public var genres: [String]
+    public var id: Int
+    public var images: [DiscogsImage]?
+    public var lowestPrice: Float
+    public var mainReleaseId: Int
+    public var mainReleaseUrl: String
+    public var numberForSale: Int
+    public var resourceUrl: URL
+    public var styles: [String]
+    public var title: String
+    public var tracklist: [DiscogsTrack]
+    public var uri: String
+    public var versionsUrl: String
+    public var videos: [DiscogsVideo]?
+    public var year: Int
+
     private enum CodingKeys: String, CodingKey {
         case artists
         case dataQuality = "data_quality"
@@ -24,25 +42,19 @@ public struct DiscogsMasterRelease: Codable, Unique {
         case year
     }
 
-    public var artists: [DiscogsArtistSummary]
-    public var dataQuality: String
-    public var genres: [String]
-    public var id: Int
-    public var images: [DiscogsImage]?
-    public var lowestPrice: Float
-    public var mainReleaseId: Int
-    public var mainReleaseUrl: String
-    public var numberForSale: Int
-    public var resourceUrl: String
-    public var styles: [String]
-    public var title: String
-    public var tracklist: [DiscogsTrack]
-    public var uri: String
-    public var versionsUrl: String
-    public var videos: [DiscogsVideo]?
-    public var year: Int
-
     public struct Version: Codable, Unique {
+
+        public var catalogNumber: String?
+        public var country: String?
+        public var formats: [String]?
+        public var id: Int
+        public var label: String?
+        public var majorFormats: [String]?
+        public var released: String?
+        public var resourceUrl: URL
+        public var status: String?
+        public var thumb: String?
+        public var title: String
 
         private enum CodingKeys: String, CodingKey {
             case catalogNumber = "catno"
@@ -58,17 +70,6 @@ public struct DiscogsMasterRelease: Codable, Unique {
             case title
         }
 
-        public var catalogNumber: String?
-        public var country: String?
-        public var formats: [String]?
-        public var id: Int
-        public var label: String?
-        public var majorFormats: [String]?
-        public var released: String?
-        public var resourceUrl: String
-        public var status: String?
-        public var thumb: String?
-        public var title: String
     }
 
 }

@@ -12,7 +12,7 @@ class DiscogsUserProfileTests: DiscogsTestBase {
     fileprivate func assert(_ userProfile: DiscogsUserProfile) {
         XCTAssertEqual(1578108, userProfile.id)
         XCTAssertEqual("2012-08-15T21:13:36-07:00", userProfile.registered)
-        XCTAssertEqual(100, userProfile.buyer_rating)
+        XCTAssertEqual(100, userProfile.buyerRating)
     }
     
 }
