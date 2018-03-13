@@ -13,13 +13,13 @@ extension HasDiscogsArtistSummaries {
     public var artistString: String {
         if let artists = artists {
             var artistNameString = ""
-            artists.forEach({ (artist) in
+            artists.forEach { (artist) in
                 artistNameString.append("\(artist.name)")
 
                 if let join = artist.join, join != "," {
                     artistNameString.append(" \(join) ")
                 }
-            })
+            }
 
             return artistNameString
         } else {

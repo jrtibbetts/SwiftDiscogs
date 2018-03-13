@@ -108,7 +108,7 @@ open class DiscogsClient: OAuth1JSONClient, Discogs {
     
     public func edit(_ folder: DiscogsCollectionFolder,
                      userName: String) -> Promise<DiscogsCollectionFolder> {
-        return Promise<DiscogsCollectionFolder>() { (fulfill, reject) in
+        return Promise<DiscogsCollectionFolder> { (_, _) in
         }
     }
     

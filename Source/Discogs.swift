@@ -7,18 +7,18 @@ import PromiseKit
 public enum DiscogsError: Error {
     
     /// Thrown when no artist was found when searching by its ID.
-    case ArtistNotFoundById(Int)
+    case artistNotFoundById(Int)
     
-    case DiscogsResponse(DiscogsErrorResponse)
+    case discogsResponse(DiscogsErrorResponse)
     
-    case LabelNotFoundById(Int)
+    case labelNotFoundById(Int)
     
     /// Thrown when no artist was found when searching by its name.
-    case MasterReleaseNotFoundById(Int)
-    case ReleaseNotFoundById(Int)
-    case UnauthenticatedUser()
-    case UnknownUser(username: String)
-    case Unknown(Error?)
+    case masterReleaseNotFoundById(Int)
+    case releaseNotFoundById(Int)
+    case unauthenticatedUser()
+    case unknownUser(username: String)
+    case unknown(Error?)
 }
 
 /// Implemented by clients of a Discogs API server.

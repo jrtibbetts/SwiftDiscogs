@@ -6,7 +6,7 @@ public struct DiscogsRelease: Codable, HasDiscogsArtistSummaries, Unique {
 
     public var artists: [DiscogsArtistSummary]?
     public var community: Community?
-    public var companies: [Company]?
+    public var companies: [Label]?
     public var country: String?
     public var dataQuality: String?
     public var dateAdded: String?
@@ -95,26 +95,6 @@ public struct DiscogsRelease: Codable, HasDiscogsArtistSummaries, Unique {
         public struct Rating: Codable {
             public var average: Float
             public var count: Int
-        }
-
-    }
-
-    public struct Company: Codable, Unique {
-
-        public var catalogNumber: String?
-        public var entityType: String?
-        public var entityTypeName: String?
-        public var id: Int
-        public var name: String
-        public var resourceUrl: URL
-
-        fileprivate enum CodingKeys: String, CodingKey {
-            case catalogNumber = "catno"
-            case entityType = "entity_type"
-            case entityTypeName = "entity_type_name"
-            case id
-            case name
-            case resourceUrl = "resource_url"
         }
 
     }
