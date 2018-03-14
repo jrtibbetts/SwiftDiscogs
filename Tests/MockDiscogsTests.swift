@@ -123,12 +123,12 @@ class MockDiscogsTests: DiscogsTestBase {
 
     func testCollectionFolderInfo() {
         let discogs = MockDiscogs()
-        assert(validPromise: discogs.collectionFolderInfo(for: 99, userName: "Kurt Vonnegut"))
+        assert(validPromise: discogs.collectionFolderInfo(forFolderId: 99, userName: "Kurt Vonnegut"))
     }
 
     func testCollectionFolderInfoErrorMode() {
         let discogs = MockDiscogs(errorMode: true)
-        assert(invalidPromise: discogs.collectionFolderInfo(for: 99, userName: "Kurt Vonnegut"))
+        assert(invalidPromise: discogs.collectionFolderInfo(forFolderId: 99, userName: "Kurt Vonnegut"))
     }
 
     func testCreateFolder() {

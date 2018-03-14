@@ -93,7 +93,7 @@ open class DiscogsClient: OAuth1JSONClient, Discogs {
         return authorizedGet(path: "/users/\(userName)/collection/folders", headers: headers)
     }
     
-    public func collectionFolderInfo(for folderId: Int,
+    public func collectionFolderInfo(forFolderId folderId: Int,
                                      userName: String) -> Promise<DiscogsCollectionFolder> {
         return authorizedGet(path: "/users/\(userName)/collection/folders/\(folderId)", headers: headers)
     }
@@ -129,7 +129,9 @@ open class DiscogsClient: OAuth1JSONClient, Discogs {
         
         return authorizedPost(url: endpoint, headers: headers)
     }
-    
+
+    // MARK: - Search
+
     public func search(for queryString: String,
                        type: String) -> Promise<DiscogsSearchResults> {
         let params = [URLQueryItem(name: "q", value: queryString)]

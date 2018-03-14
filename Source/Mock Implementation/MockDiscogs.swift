@@ -85,7 +85,7 @@ public class MockDiscogs: MockClient, Discogs {
                      error: DiscogsError.unknownUser(username: userName))
     }
     
-    public func collectionFolderInfo(for folderId: Int,
+    public func collectionFolderInfo(forFolderId folderId: Int,
                                      userName: String) -> Promise<DiscogsCollectionFolder> {
         return apply(toJsonObjectIn: "get-folder-metadata-200",
                      error: DiscogsError.unknownUser(username: userName))

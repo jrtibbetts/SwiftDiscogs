@@ -82,7 +82,7 @@ public protocol Discogs {
     func customCollectionFields(for userName: String) -> Promise<DiscogsCollectionCustomFields>
     func collectionValue(for userName: String) -> Promise<DiscogsCollectionValue>
     func collectionFolders(for userName: String) -> Promise<DiscogsCollectionFolders>
-    func collectionFolderInfo(for folderId: Int,
+    func collectionFolderInfo(forFolderId folderId: Int,
                               userName: String) -> Promise<DiscogsCollectionFolder>
     func createFolder(named folderName: String,
                       userName: String) -> Promise<DiscogsCollectionFolder>
