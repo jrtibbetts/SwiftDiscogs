@@ -29,11 +29,17 @@ open class DiscogsClient: OAuth1JSONClient, Discogs {
         /// header.
         super.init(consumerKey: consumerKey,
                    consumerSecret: consumerSecret,
-                   requestTokenUrl: "https://api.discogs.com/oauth/access_token",
+                   requestTokenUrl: "https://api.discogs.com/oauth/request_token",
                    authorizeUrl: "https://www.discogs.com/oauth/authorize",
-                   accessTokenUrl: "https://api.discogs.com/oauth/request_token",
+                   accessTokenUrl: "https://api.discogs.com/oauth/access_token",
                    baseUrl: URL(string: "https://api.discogs.com")!)
         headers["User-Agent"] = self.userAgent
+    }
+
+    open func authorize(presentingViewController: UIViewController, callbackUrlString: String) -> Promise<Any> {
+        let promise: Promise<Any> = super.authorize(presentingViewController: presentingViewController, callbackUrlString: callbackUrlString)
+
+        return promise
     }
 
     // MARK: - Authorization & User Identity
@@ -134,9 +140,9 @@ open class DiscogsClient: OAuth1JSONClient, Discogs {
 
     public func search(for queryString: String,
                        type: String) -> Promise<DiscogsSearchResults> {
-        let params = [URLQueryItem(name: "q", value: queryString)]
+        let params = ["q": queryString]
         
-        return get(path: "/database/search", headers: headers, params: params)
+        return authorizedGet(path: "/database/search", headers: headers, params: params)
     }
 
 }

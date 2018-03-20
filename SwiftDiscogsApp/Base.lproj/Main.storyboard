@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="slA-ou-6R0">
+    <device id="retina5_9" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Baseline standard spacing" minToolsVersion="9.0"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Discogs Database Search View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController storyboardIdentifier="searchDatabase" id="BYZ-38-t0r" customClass="DiscogsDatabaseSearchViewController" customModule="SwiftDiscogsApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Xt-fI-IrK">
+                                <rect key="frame" x="108.66666666666669" y="343.66666666666669" width="157" height="30"/>
+                                <state key="normal" title="Sign In to Discogs.com"/>
+                                <connections>
+                                    <action selector="signInToDiscogs" destination="BYZ-38-t0r" eventType="touchUpInside" id="Vy9-6I-T9g"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="7Xt-fI-IrK" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" constant="-50" id="aoW-zX-xVR"/>
+                            <constraint firstItem="7Xt-fI-IrK" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="gZF-yx-Tur"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="99a-Al-h2A"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2208.8000000000002" y="226.10837438423647"/>
+        </scene>
+        <!--Discogs Search Results Controller-->
+        <scene sceneID="wcu-lZ-hrt">
+            <objects>
+                <tableViewController storyboardIdentifier="searchResults" id="Bx3-Du-Gew" customClass="DiscogsSearchResultsController" customModule="SwiftDiscogsApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="0At-jF-2wb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="artistSearchResultCell" rowHeight="101" id="3PT-Qe-7Xn" userLabel="Artist Cell">
+                                <rect key="frame" x="0.0" y="28" width="375" height="101"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3PT-Qe-7Xn" id="Kez-Zj-jk7">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="100.66666666666667"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="e54-4e-sL3" userLabel="Cover Art">
+                                            <rect key="frame" x="16" y="11" width="79" height="79"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="e54-4e-sL3" secondAttribute="height" multiplier="1:1" id="0v3-QT-IO4"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yEI-Pr-zMs">
+                                            <rect key="frame" x="103" y="11" width="46.666666666666657" height="21"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10 albums, 29 singles" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H1F-p1-agD">
+                                            <rect key="frame" x="103" y="69" width="165" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottomMargin" secondItem="e54-4e-sL3" secondAttribute="bottom" id="S3g-Ln-TU6"/>
+                                        <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="H1F-p1-agD" secondAttribute="trailing" id="YeF-uQ-68o"/>
+                                        <constraint firstAttribute="topMargin" secondItem="e54-4e-sL3" secondAttribute="top" id="a9h-Jt-zIi"/>
+                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="yEI-Pr-zMs" secondAttribute="trailing" id="i0n-TP-jJH"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="H1F-p1-agD" secondAttribute="bottom" id="p2l-dE-H9C"/>
+                                        <constraint firstItem="H1F-p1-agD" firstAttribute="firstBaseline" relation="greaterThanOrEqual" secondItem="yEI-Pr-zMs" secondAttribute="baseline" constant="24" symbolType="layoutAnchor" id="qjr-lM-BHP"/>
+                                        <constraint firstItem="yEI-Pr-zMs" firstAttribute="leading" secondItem="e54-4e-sL3" secondAttribute="trailing" constant="8" id="r9W-w5-LkV"/>
+                                        <constraint firstItem="H1F-p1-agD" firstAttribute="leading" secondItem="yEI-Pr-zMs" secondAttribute="leading" id="riI-It-map"/>
+                                        <constraint firstItem="yEI-Pr-zMs" firstAttribute="top" secondItem="Kez-Zj-jk7" secondAttribute="topMargin" id="wYW-J4-645"/>
+                                        <constraint firstAttribute="leadingMargin" secondItem="e54-4e-sL3" secondAttribute="leading" id="zy9-QD-fV4"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Bx3-Du-Gew" id="aoT-E3-May"/>
+                            <outlet property="delegate" destination="Bx3-Du-Gew" id="gY0-BW-sxa"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Njo-Mf-W4x" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3117.5999999999999" y="226.84729064039411"/>
+        </scene>
+        <!--Database-->
+        <scene sceneID="20v-EU-wcr">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="si1-Xp-Qtq" userLabel="Database" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Database" id="7Ap-M4-zcX"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="qAw-Lw-G1P">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" cyan="0.0" magenta="0.0" yellow="0.0" black="0.050000000000000003" alpha="1" colorSpace="custom" customColorSpace="genericCMYKColorSpace"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="dNU-Qp-x6w"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="B3O-o3-fcP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1338.4000000000001" y="227.13643178410797"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="7Mm-Yf-eaC">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="slA-ou-6R0" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="eJv-bU-Ddr">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="si1-Xp-Qtq" kind="relationship" relationship="viewControllers" id="yyL-l2-PBV"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2xP-9p-Brg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="385" y="227"/>
+        </scene>
+    </scenes>
+</document>
