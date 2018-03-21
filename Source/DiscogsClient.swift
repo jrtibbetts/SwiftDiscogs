@@ -22,8 +22,7 @@ open class DiscogsClient: OAuth1JSONClient, Discogs {
     ///
     public init(consumerKey: String,
                 consumerSecret: String,
-                userAgent: String,
-                callbackUrl: URL) {
+                userAgent: String) {
         self.userAgent = userAgent
         /// Discogs requires all API calls to include a custom `User-Agent`
         /// header.

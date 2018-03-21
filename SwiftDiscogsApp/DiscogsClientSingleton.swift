@@ -18,8 +18,7 @@ public extension DiscogsClient {
         let properties = try! PropertyListDecoder().decode(Properties.self, from: propertyData)
         let client = DiscogsClient(consumerKey: properties.consumerKey,
                                    consumerSecret: properties.consumerSecret,
-                                   userAgent: properties.userAgent,
-                                   callbackUrl: AppDelegate.callbackUrl)
+                                   userAgent: properties.userAgent)
         
         return client
     }()

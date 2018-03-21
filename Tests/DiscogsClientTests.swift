@@ -15,8 +15,7 @@ class DiscogsClientTests: DiscogsTestBase {
         userAgent = "Mozilla/5.0 SwiftDiscogsTests (https://github.com/jrtibbetts/SwiftDiscogs)"
         unauthorizedClient = DiscogsClient(consumerKey: "one",
                                            consumerSecret: "two",
-                                           userAgent: userAgent,
-                                           callbackUrl: URL(string: "https://api.discogs.com")!)
+                                           userAgent: userAgent)
     }
 
     func testInitializerWithNonsenseValuesOk() {
