@@ -32,12 +32,15 @@ class DiscogsDatabaseSearchViewController: UIViewController, UISearchResultsUpda
         navigationItem.hidesSearchBarWhenScrolling = false
 
         searchBar.placeholder = "Search for artists, releases, or labels"
+        searchBar.scopeButtonTitles = ["All", "Releases", "Artists", "Labels"]
     }
 
     func updateSearchResults(for searchController: UISearchController) {
         if let searchTerms = searchBar.text, searchTerms.count > 5 {
-            let promise: Promise<DiscogsSearchResults> = DiscogsClient.singleton.search(for: searchTerms, type: "")
+//            let scope = searchBar.scopeButtonTitles?[searchBar.selectedScopeButtonIndex] ?? ""
+            let promise: Promise<DiscogsSearchResults> = DiscogsClient.singleton.search(for: searchTerms, type: "Artist")
             promise.then { (searchResults) -> Void in
+                self.searchResultsController?.results = searchResults
                 searchResults.results?.forEach { (result) in
                     print("Result: \(result.title)")
                 }
@@ -52,10 +55,11 @@ class DiscogsDatabaseSearchViewController: UIViewController, UISearchResultsUpda
         let bundle = Bundle(for: type(of: self))
         let storyboard = UIStoryboard(name: "Main", bundle:  bundle)
         searchResultsController = storyboard.instantiateViewController(withIdentifier: "searchResults") as! DiscogsSearchResultsController
+        searchResultsController.navigationItem.searchController = searchController
         searchController = UISearchController(searchResultsController: searchResultsController)
         searchController.delegate = self
         searchController.searchResultsUpdater = self
-        searchController.hidesNavigationBarDuringPresentation = true
+        searchController.hidesNavigationBarDuringPresentation = false
         searchController.dimsBackgroundDuringPresentation = true
         searchController.obscuresBackgroundDuringPresentation = true
     }

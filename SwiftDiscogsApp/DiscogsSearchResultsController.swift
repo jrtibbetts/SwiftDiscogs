@@ -6,6 +6,12 @@ import UIKit
 
 open class DiscogsSearchResultsController: UITableViewController {
 
+    open var results: DiscogsSearchResults? {
+        didSet {
+            tableView?.reloadData()
+        }
+    }
+
     fileprivate var pendingPromise: Promise<DiscogsSearchResults>?
 
     override open func viewDidLoad() {
@@ -18,22 +24,21 @@ open class DiscogsSearchResultsController: UITableViewController {
     // MARK: - Table view data source
 
     override open func numberOfSections(in tableView: UITableView) -> Int {
-        return 0
+        return 1
     }
 
     override open func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return results?.results?.count ?? 0
     }
 
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+    override open func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let artist = results?.results?[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "artistSearchResultCell", for: indexPath) as! ArtistSearchResultCell
 
-        // Configure the cell...
+        cell.nameLabel?.text = artist?.title
 
         return cell
     }
-    */
 
     /*
     // MARK: - Navigation
@@ -57,5 +62,12 @@ open class DiscogsSearchResultsController: UITableViewController {
 }
 
 open class DiscogsSearchResultsView: UITableView {
+
+}
+
+open class ArtistSearchResultCell: UITableViewCell {
+
+    @IBOutlet weak var thumbnailView: UIImageView?
+    @IBOutlet weak var nameLabel: UILabel?
 
 }
