@@ -8,9 +8,6 @@ open class DiscogsSearchResultsController: UITableViewController, UISearchResult
 
     open var results: [DiscogsSearchResult] = [] {
         didSet {
-            results.forEach { (result) in
-                print("Set result \(result.title), type: \(result.type)")
-            }
             tableView?.reloadData()
         }
     }

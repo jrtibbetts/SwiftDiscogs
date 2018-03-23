@@ -40,14 +40,13 @@ class DiscogsSearchViewController: UIViewController, UISearchControllerDelegate 
         let bundle = Bundle(for: type(of: self))
         let storyboard = UIStoryboard(name: "Main", bundle:  bundle)
         searchResultsController = storyboard.instantiateViewController(withIdentifier: "searchResults") as! DiscogsSearchResultsController
-        searchResultsController.navigationItem.searchController = searchController
         searchController = UISearchController(searchResultsController: searchResultsController)
         searchController.delegate = self
         searchController.searchResultsUpdater = searchResultsController
-        definesPresentationContext = true
         searchController.hidesNavigationBarDuringPresentation = true
         searchController.dimsBackgroundDuringPresentation = true
         searchController.obscuresBackgroundDuringPresentation = true
+        definesPresentationContext = true
     }
 
 }

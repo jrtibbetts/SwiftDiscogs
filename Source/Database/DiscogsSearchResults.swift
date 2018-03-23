@@ -48,4 +48,3 @@ public struct DiscogsCommunity: Codable {
     public var have: Int
     public var want: Int
 }
-
