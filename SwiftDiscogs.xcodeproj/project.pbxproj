@@ -23,7 +23,7 @@
 		960368E7205A012C00D24CE7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 960368E5205A012C00D24CE7 /* LaunchScreen.storyboard */; };
 		960368F2205A012C00D24CE7 /* SwiftDiscogsAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960368F1205A012C00D24CE7 /* SwiftDiscogsAppTests.swift */; };
 		960368FD205A012C00D24CE7 /* SwiftDiscogsAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960368FC205A012C00D24CE7 /* SwiftDiscogsAppUITests.swift */; };
-		9603690F205A1C7200D24CE7 /* DiscogsDatabaseSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9603690E205A1C7200D24CE7 /* DiscogsDatabaseSearchViewController.swift */; };
+		9603690F205A1C7200D24CE7 /* DiscogsSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9603690E205A1C7200D24CE7 /* DiscogsSearchViewController.swift */; };
 		96036911205B765100D24CE7 /* DiscogsSearchResultsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96036910205B765100D24CE7 /* DiscogsSearchResultsController.swift */; };
 		96036915205B92A700D24CE7 /* DiscogsClientSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96036914205B92A700D24CE7 /* DiscogsClientSingleton.swift */; };
 		96036917205B949500D24CE7 /* Discogs.plist in Resources */ = {isa = PBXBuildFile; fileRef = 96036916205B949500D24CE7 /* Discogs.plist */; };
@@ -227,7 +227,7 @@
 		960368F8205A012C00D24CE7 /* SwiftDiscogsAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftDiscogsAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		960368FC205A012C00D24CE7 /* SwiftDiscogsAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftDiscogsAppUITests.swift; sourceTree = "<group>"; };
 		960368FE205A012C00D24CE7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9603690E205A1C7200D24CE7 /* DiscogsDatabaseSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscogsDatabaseSearchViewController.swift; sourceTree = "<group>"; };
+		9603690E205A1C7200D24CE7 /* DiscogsSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscogsSearchViewController.swift; sourceTree = "<group>"; };
 		96036910205B765100D24CE7 /* DiscogsSearchResultsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscogsSearchResultsController.swift; sourceTree = "<group>"; };
 		96036914205B92A700D24CE7 /* DiscogsClientSingleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscogsClientSingleton.swift; sourceTree = "<group>"; };
 		96036916205B949500D24CE7 /* Discogs.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Discogs.plist; sourceTree = "<group>"; };
@@ -422,7 +422,7 @@
 				960368E3205A012C00D24CE7 /* Assets.xcassets */,
 				96036916205B949500D24CE7 /* Discogs.plist */,
 				96036914205B92A700D24CE7 /* DiscogsClientSingleton.swift */,
-				9603690E205A1C7200D24CE7 /* DiscogsDatabaseSearchViewController.swift */,
+				9603690E205A1C7200D24CE7 /* DiscogsSearchViewController.swift */,
 				96036910205B765100D24CE7 /* DiscogsSearchResultsController.swift */,
 				960368E8205A012C00D24CE7 /* Info.plist */,
 				960368E5205A012C00D24CE7 /* LaunchScreen.storyboard */,
@@ -1038,7 +1038,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9603690F205A1C7200D24CE7 /* DiscogsDatabaseSearchViewController.swift in Sources */,
+				9603690F205A1C7200D24CE7 /* DiscogsSearchViewController.swift in Sources */,
 				96036915205B92A700D24CE7 /* DiscogsClientSingleton.swift in Sources */,
 				96036911205B765100D24CE7 /* DiscogsSearchResultsController.swift in Sources */,
 				960368DD205A012C00D24CE7 /* AppDelegate.swift in Sources */,

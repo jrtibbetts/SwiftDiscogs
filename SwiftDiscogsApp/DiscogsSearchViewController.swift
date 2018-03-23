@@ -4,7 +4,7 @@ import PromiseKit
 import SwiftDiscogs
 import UIKit
 
-class DiscogsDatabaseSearchViewController: UIViewController, UISearchResultsUpdating, UISearchControllerDelegate {
+class DiscogsSearchViewController: UIViewController, UISearchControllerDelegate {
 
     var searchController: UISearchController!
 
@@ -35,21 +35,6 @@ class DiscogsDatabaseSearchViewController: UIViewController, UISearchResultsUpda
         searchBar.scopeButtonTitles = ["All", "Releases", "Artists", "Labels"]
     }
 
-    func updateSearchResults(for searchController: UISearchController) {
-        if let searchTerms = searchBar.text, searchTerms.count > 5 {
-//            let scope = searchBar.scopeButtonTitles?[searchBar.selectedScopeButtonIndex] ?? ""
-            let promise: Promise<DiscogsSearchResults> = DiscogsClient.singleton.search(for: searchTerms, type: "Artist")
-            promise.then { (searchResults) -> Void in
-                self.searchResultsController?.results = searchResults
-                searchResults.results?.forEach { (result) in
-                    print("Result: \(result.title)")
-                }
-                }.catch { (error) in
-                    print("Error: \(error.localizedDescription)")
-            }
-        }
-    }
-
     func setUpSearchController() {
         // Load the search results controller from the storyboard.
         let bundle = Bundle(for: type(of: self))
@@ -58,8 +43,9 @@ class DiscogsDatabaseSearchViewController: UIViewController, UISearchResultsUpda
         searchResultsController.navigationItem.searchController = searchController
         searchController = UISearchController(searchResultsController: searchResultsController)
         searchController.delegate = self
-        searchController.searchResultsUpdater = self
-        searchController.hidesNavigationBarDuringPresentation = false
+        searchController.searchResultsUpdater = searchResultsController
+        definesPresentationContext = true
+        searchController.hidesNavigationBarDuringPresentation = true
         searchController.dimsBackgroundDuringPresentation = true
         searchController.obscuresBackgroundDuringPresentation = true
     }

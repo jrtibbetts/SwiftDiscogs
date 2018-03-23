@@ -4,10 +4,13 @@ import PromiseKit
 import SwiftDiscogs
 import UIKit
 
-open class DiscogsSearchResultsController: UITableViewController {
+open class DiscogsSearchResultsController: UITableViewController, UISearchResultsUpdating {
 
-    open var results: DiscogsSearchResults? {
+    open var results: [DiscogsSearchResult] = [] {
         didSet {
+            results.forEach { (result) in
+                print("Set result \(result.title), type: \(result.type)")
+            }
             tableView?.reloadData()
         }
     }
@@ -21,6 +24,22 @@ open class DiscogsSearchResultsController: UITableViewController {
         self.clearsSelectionOnViewWillAppear = false
     }
 
+    // MARK: - UISearchResultsUpdating
+
+    public func updateSearchResults(for searchController: UISearchController) {
+        if let searchTerms = searchController.searchBar.text, searchTerms.count >= 3 {
+            //            let scope = searchBar.scopeButtonTitles?[searchBar.selectedScopeButtonIndex] ?? ""
+            let promise: Promise<DiscogsSearchResults> = DiscogsClient.singleton.search(for: searchTerms, type: "Artist")
+            promise.then { [weak self] (searchResults) -> Void in
+                if let results = searchResults.results {
+                    self?.results = results.filter { $0.type == "artist" }
+                }
+                }.catch { (error) in
+                    print("Error: \(error.localizedDescription)")
+            }
+        }
+    }
+
     // MARK: - Table view data source
 
     override open func numberOfSections(in tableView: UITableView) -> Int {
@@ -28,40 +47,17 @@ open class DiscogsSearchResultsController: UITableViewController {
     }
 
     override open func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return results?.results?.count ?? 0
+        return results.count
     }
 
     override open func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let artist = results?.results?[indexPath.row]
+        let artist = results[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "artistSearchResultCell", for: indexPath) as! ArtistSearchResultCell
 
-        cell.nameLabel?.text = artist?.title
+        cell.nameLabel?.text = artist.title
 
         return cell
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
-    // MARK: - UISearchResultsUpdating
-
-//    open func updateSearchResults(for searchController: UISearchController) {
-//        if let pendingPromise = pendingPromise {
-//        }
-//
-////        pendingPromise =
-//    }
-
-}
-
-open class DiscogsSearchResultsView: UITableView {
 
 }
 
