@@ -104,4 +104,3 @@ public struct DiscogsCollectionFolderNote: Codable {
     }
 
 }
-
