@@ -25,9 +25,9 @@ open class DiscogsSearchResultsController: UITableViewController, UISearchResult
 
     public func updateSearchResults(for searchController: UISearchController) {
         if let searchTerms = searchController.searchBar.text {
-            //            let scope = searchBar.scopeButtonTitles?[searchBar.selectedScopeButtonIndex] ?? ""
-            let promise: Promise<DiscogsSearchResults> = DiscogsClient.singleton.search(for: searchTerms, type: "Artist")
-            promise.then { [weak self] (searchResults) in
+            let promise: Promise<DiscogsSearchResults>
+                = DiscogsClient.singleton.search(for: searchTerms, type: "Artist")
+            promise.then { [weak self] (searchResults) -> Void in
                 if let results = searchResults.results {
                     self?.results = results.filter { $0.type == "artist" }
                 }
@@ -43,14 +43,17 @@ open class DiscogsSearchResultsController: UITableViewController, UISearchResult
         return 1
     }
 
-    override open func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override open func tableView(_ tableView: UITableView,
+                                 numberOfRowsInSection section: Int) -> Int {
         return results.count
     }
 
-    override open func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    override open func tableView(_ tableView: UITableView,
+                                 cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let artist = results[indexPath.row]
 
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "artistSearchResultCell", for: indexPath) as? ArtistSearchResultCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "artistSearchResultCell",
+                                                    for: indexPath) as? ArtistSearchResultCell {
             cell.nameLabel?.text = artist.title
 
             return cell

@@ -35,8 +35,10 @@ open class DiscogsClient: OAuth1JSONClient, Discogs {
         headers["User-Agent"] = self.userAgent
     }
 
-    open func authorize(presentingViewController: UIViewController, callbackUrlString: String) -> Promise<Any> {
-        let promise: Promise<Any> = super.authorize(presentingViewController: presentingViewController, callbackUrlString: callbackUrlString)
+    open func authorize(presentingViewController: UIViewController,
+                        callbackUrlString: String) -> Promise<Any> {
+        let promise: Promise<Any> = super.authorize(presentingViewController: presentingViewController,
+                                                    callbackUrlString: callbackUrlString)
 
         return promise
     }
@@ -110,7 +112,7 @@ open class DiscogsClient: OAuth1JSONClient, Discogs {
         if let endpoint = URL(string: path, relativeTo: baseUrl) {
             return authorizedPost(url: endpoint, headers: headers)
         } else {
-            return Promise<DiscogsCollectionFolder> { (fulfill, reject) in
+            return Promise<DiscogsCollectionFolder> { (_, reject) in
                 reject(JSONErr.invalidUrl(urlString: path))
             }
         }
@@ -138,7 +140,7 @@ open class DiscogsClient: OAuth1JSONClient, Discogs {
         if let endpoint = URL(string: path, relativeTo: baseUrl) {
             return authorizedPost(url: endpoint, headers: headers)
         } else {
-            return Promise<DiscogsCollectionItemInfo> { (fulfill, reject) in
+            return Promise<DiscogsCollectionItemInfo> { (_, reject) in
                 reject(JSONErr.invalidUrl(urlString: path))
             }
         }

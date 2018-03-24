@@ -50,4 +50,3 @@ public struct DiscogsReleaseSummary: Codable, Unique {
     }
 
 }
-

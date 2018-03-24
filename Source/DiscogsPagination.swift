@@ -2,8 +2,8 @@
 
 import Foundation
 
-public protocol Pageable
-{
+public protocol Pageable {
+
     var pagination: DiscogsPagination? { get }
 
 }
