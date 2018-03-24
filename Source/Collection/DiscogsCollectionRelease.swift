@@ -4,7 +4,7 @@ import Foundation
 
 public struct DiscogsCollectionRelease: Codable {
 
-    public var basicInformation: [DiscogsCollectionReleaseInformation]?
+    public var information: [DiscogsCollectionReleaseInformation]?
     public var folderId: Int
     public var identifier: Int
     public var instanceId: Int
@@ -12,7 +12,7 @@ public struct DiscogsCollectionRelease: Codable {
     public var rating: Int
 
     fileprivate enum CodingKeys: String, CodingKey {
-        case basicInformation = "basic_information"
+        case information = "basic_information"
         case folderId = "folder_id"
         case identifier = "id"
         case instanceId = "instance_id"
@@ -40,6 +40,7 @@ public struct DiscogsCollectionReleaseArtist: Codable {
         case role
         case tracks
     }
+
 }
 
 public struct DiscogsCollectionReleaseInformation: Codable {
@@ -64,6 +65,7 @@ public struct DiscogsCollectionReleaseInformation: Codable {
         case title
         case year
     }
+
 }
 
 public struct DiscogsCollectionReleaseFormat: Codable {
@@ -76,6 +78,7 @@ public struct DiscogsCollectionReleaseFormat: Codable {
         case name
         case quantity = "qty"
     }
+
 }
 
 public struct DiscogsCollectionReleaseLabel: Codable {
@@ -92,6 +95,7 @@ public struct DiscogsCollectionReleaseLabel: Codable {
         case name
         case resourceUrl = "resource_url"
     }
+    
 }
 
 public struct DiscogsCollectionReleaseNote: Codable {
@@ -102,4 +106,5 @@ public struct DiscogsCollectionReleaseNote: Codable {
         case fieldId = "field_id"
         case value
     }
+
 }

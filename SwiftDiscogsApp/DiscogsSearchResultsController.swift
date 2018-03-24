@@ -14,16 +14,9 @@ open class DiscogsSearchResultsController: UITableViewController, UISearchResult
 
     fileprivate var pendingPromise: Promise<DiscogsSearchResults>?
 
-    override open func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        self.clearsSelectionOnViewWillAppear = false
-    }
-
     // MARK: - UISearchResultsUpdating
 
-    public func updateSearchResults(for searchController: UISearchController) {
+    open func updateSearchResults(for searchController: UISearchController) {
         if let searchTerms = searchController.searchBar.text {
             let promise: Promise<DiscogsSearchResults>
                 = DiscogsClient.singleton.search(for: searchTerms, type: "Artist")
@@ -31,13 +24,14 @@ open class DiscogsSearchResultsController: UITableViewController, UISearchResult
                 if let results = searchResults.results {
                     self?.results = results.filter { $0.type == "artist" }
                 }
-                }.catch { (error) in
+                }.catch { [weak self] (error) in
                     print("Error: \(error.localizedDescription)")
+                    self?.results = []
             }
         }
     }
 
-    // MARK: - Table view data source
+    // MARK: - UITableViewDataSource
 
     override open func numberOfSections(in tableView: UITableView) -> Int {
         return 1
