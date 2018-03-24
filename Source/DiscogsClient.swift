@@ -53,20 +53,20 @@ open class DiscogsClient: OAuth1JSONClient, Discogs {
 
     // MARK: - Database
     
-    public func artist(id: Int) -> Promise<DiscogsArtist> {
-        return get(path: "/artists/\(id)", headers: headers)
+    public func artist(identifier: Int) -> Promise<DiscogsArtist> {
+        return get(path: "/artists/\(identifier)", headers: headers)
     }
 
-    public func label(id: Int) -> Promise<DiscogsLabel> {
-        return get(path: "/labels/\(id)", headers: headers)
+    public func label(identifier: Int) -> Promise<DiscogsLabel> {
+        return get(path: "/labels/\(identifier)", headers: headers)
     }
 
-    public func masterRelease(id: Int) -> Promise<DiscogsMasterRelease> {
-        return get(path: "/masters/\(id)", headers: headers)
+    public func masterRelease(identifier: Int) -> Promise<DiscogsMasterRelease> {
+        return get(path: "/masters/\(identifier)", headers: headers)
     }
 
-    public func release(id: Int) -> Promise<DiscogsRelease> {
-        return get(path: "/releases/\(id)", headers: headers)
+    public func release(identifier: Int) -> Promise<DiscogsRelease> {
+        return get(path: "/releases/\(identifier)", headers: headers)
     }
 
     public func releases(forArtist artistId: Int) -> Promise<DiscogsReleaseSummaries> {
@@ -77,11 +77,11 @@ open class DiscogsClient: OAuth1JSONClient, Discogs {
         return get(path: "/labels/\(labelId)/releases", headers: headers)
     }
 
-    public func releasesForMasterRelease(_ id: Int,
+    public func releasesForMasterRelease(_ identifier: Int,
                                          pageNumber: Int = 1,
                                          resultsPerPage: Int = 50) -> Promise<DiscogsMasterReleaseVersions> {
         // turn the pageNumber and resultsPerPage into query parameters
-        return get(path: "/masters/\(id)/versions", headers: headers)
+        return get(path: "/masters/\(identifier)/versions", headers: headers)
     }
 
     // MARK: - Collections
@@ -106,9 +106,14 @@ open class DiscogsClient: OAuth1JSONClient, Discogs {
     public func createFolder(named folderName: String,
                              userName: String) -> Promise<DiscogsCollectionFolder> {
         let path = "/users/\(userName)/collection/folders/\(folderName)"
-        let endpoint = URL(string: path, relativeTo: baseUrl)!
-        
-        return authorizedPost(url: endpoint, headers: headers)
+
+        if let endpoint = URL(string: path, relativeTo: baseUrl) {
+            return authorizedPost(url: endpoint, headers: headers)
+        } else {
+            return Promise<DiscogsCollectionFolder> { (fulfill, reject) in
+                reject(JSONErr.invalidUrl(urlString: path))
+            }
+        }
     }
     
     public func edit(_ folder: DiscogsCollectionFolder,
@@ -130,9 +135,13 @@ open class DiscogsClient: OAuth1JSONClient, Discogs {
                         toFolderId folderId: Int,
                         userName: String) -> Promise<DiscogsCollectionItemInfo> {
         let path = "/users/\(userName)/collection/folders/\(folderId)/releases/{itemId}"
-        let endpoint = URL(string: path, relativeTo: baseUrl)!
-        
-        return authorizedPost(url: endpoint, headers: headers)
+        if let endpoint = URL(string: path, relativeTo: baseUrl) {
+            return authorizedPost(url: endpoint, headers: headers)
+        } else {
+            return Promise<DiscogsCollectionItemInfo> { (fulfill, reject) in
+                reject(JSONErr.invalidUrl(urlString: path))
+            }
+        }
     }
 
     // MARK: - Search

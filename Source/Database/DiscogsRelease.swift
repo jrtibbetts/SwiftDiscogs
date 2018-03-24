@@ -18,7 +18,7 @@ public struct DiscogsRelease: Codable, HasDiscogsArtistSummaries, Unique {
     public var genres: [String]?
     public var identifiers: [DiscogsReleaseIdentifier]?
     public var images: [DiscogsImage]?
-    public var id: Int
+    public var identifier: Int
     public var labels: [DiscogsReleaseLabel]?
     public var lowestPrice: Float?
     public var masterId: Int
@@ -51,9 +51,9 @@ public struct DiscogsRelease: Codable, HasDiscogsArtistSummaries, Unique {
         case formatQuantity = "format_quantity"
         case formats
         case genres
-        case identifiers
+        case identifier = "id"
+        case identifiers = "ids"
         case images
-        case id
         case labels
         case lowestPrice = "lowest_price"
         case masterId = "master_id"
@@ -94,11 +94,6 @@ public struct DiscogsReleaseCommunity: Codable {
         case want
     }
 
-    public struct Rating: Codable {
-        public var average: Float
-        public var count: Int
-    }
-
 }
 
 public struct DiscogsReleaseContributor: Codable {
@@ -137,16 +132,21 @@ public struct DiscogsReleaseLabel: Codable, Unique {
 
     public var catalogNumber: String?
     public var entityType: String
-    public var id: Int
+    public var identifier: Int
     public var name: String
     public var resourceUrl: String
 
     fileprivate enum CodingKeys: String, CodingKey {
         case catalogNumber = "catno"
         case entityType = "entity_type"
-        case id
+        case identifier = "id"
         case name
         case resourceUrl = "resource_url"
     }
 
+}
+
+public struct DiscogsReleaseRating: Codable {
+    public var average: Float
+    public var count: Int
 }

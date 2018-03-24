@@ -15,7 +15,7 @@ public struct DiscogsSearchResult: Codable, Unique {
     public var country: String?
     public var format: [String]?
     public var genre: [String]?
-    public var id: Int
+    public var identifier: Int
     public var label: [String]?
     public var resourceUrl: String
     public var style: [String]?
@@ -31,7 +31,7 @@ public struct DiscogsSearchResult: Codable, Unique {
         case country
         case format
         case genre
-        case id
+        case identifier = "id"
         case label
         case resourceUrl = "resource_url"
         case style

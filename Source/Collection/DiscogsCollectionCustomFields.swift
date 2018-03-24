@@ -21,7 +21,7 @@ public struct DiscogsCollectionCustomField: Codable {
     }
 
     /// The field's unique ID within the set of fields.
-    public var id: Int
+    public var identifier: Int
 
     /// `true` if this field should be visible when other users view the
     /// collection.
@@ -50,7 +50,7 @@ public struct DiscogsCollectionCustomField: Codable {
     /// it conflicts with the `public` keyword), ALL of the fields have
     /// to be included in this `enum`.
     private enum CodingKeys: String, CodingKey {
-        case id
+        case identifier = "id"
         case isPublic = "public"
         case lines
         case name

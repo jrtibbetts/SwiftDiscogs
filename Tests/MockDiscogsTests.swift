@@ -11,22 +11,22 @@ class MockDiscogsTests: DiscogsTestBase {
 
     func testArtistById() {
         let discogs = MockDiscogs()
-        assert(validPromise: discogs.artist(id: 0))
+        assert(validPromise: discogs.artist(identifier: 0))
     }
 
     func testArtistByIdInErrorMode() {
         let discogs = MockDiscogs(errorMode: true)
-        assert(invalidPromise: discogs.artist(id: 0))
+        assert(invalidPromise: discogs.artist(identifier: 0))
     }
 
     func testLabelById() {
         let discogs = MockDiscogs()
-        assert(validPromise: discogs.label(id: 0))
+        assert(validPromise: discogs.label(identifier: 0))
     }
 
     func testLabelByIdErrorMode() {
         let discogs = MockDiscogs(errorMode: true)
-        assert(invalidPromise: discogs.label(id: 300))
+        assert(invalidPromise: discogs.label(identifier: 300))
     }
 
     func testLabelReleasesById() {
@@ -41,12 +41,12 @@ class MockDiscogsTests: DiscogsTestBase {
 
     func testMasterReleaseById() {
         let discogs = MockDiscogs()
-        assert(validPromise: discogs.masterRelease(id: 0))
+        assert(validPromise: discogs.masterRelease(identifier: 0))
     }
 
     func testMasterReleaseByIdErrorMode() {
         let discogs = MockDiscogs(errorMode: true)
-        assert(invalidPromise: discogs.masterRelease(id: 9))
+        assert(invalidPromise: discogs.masterRelease(identifier: 9))
     }
 
     func testReleasesForMasterReleaseById() {
@@ -61,12 +61,12 @@ class MockDiscogsTests: DiscogsTestBase {
 
     func testReleaseById() {
         let discogs = MockDiscogs()
-        assert(validPromise: discogs.release(id: 0))
+        assert(validPromise: discogs.release(identifier: 0))
     }
 
     func testReleaseByIdErrorMode() {
         let discogs = MockDiscogs(errorMode: true)
-        assert(invalidPromise: discogs.release(id: 9))
+        assert(invalidPromise: discogs.release(identifier: 9))
     }
 
     func testReleasesForArtistById() {
@@ -143,7 +143,7 @@ class MockDiscogsTests: DiscogsTestBase {
 
     func testEditFolder() {
         let discogs = MockDiscogs()
-        let folder = DiscogsCollectionFolder(id: 99,
+        let folder = DiscogsCollectionFolder(identifier: 99,
                                              count: 3,
                                              name: "Junk",
                                              resourceUrl: "https://api.discogs.com/foo")
@@ -152,7 +152,7 @@ class MockDiscogsTests: DiscogsTestBase {
 
     func testEditFolderErrorMode() {
         let discogs = MockDiscogs(errorMode: true)
-        let folder = DiscogsCollectionFolder(id: 99,
+        let folder = DiscogsCollectionFolder(identifier: 99,
                                              count: 3,
                                              name: "Junk",
                                              resourceUrl: "https://api.discogs.com/foo")

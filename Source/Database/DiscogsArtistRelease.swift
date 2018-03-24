@@ -6,7 +6,7 @@ public struct DiscogsArtistRelease: Codable, Unique {
 
     public var artist: String
     public var format: String?
-    public var id: Int
+    public var identifier: Int
     public var label: String?
     public var mainRelease: Int
     public var resourceUrl: String
@@ -26,7 +26,7 @@ public struct DiscogsArtistRelease: Codable, Unique {
     fileprivate enum CodingKeys: String, CodingKey {
         case artist
         case format
-        case id
+        case identifier = "id"
         case label
         case mainRelease = "main_release"
         case resourceUrl = "resource_url"

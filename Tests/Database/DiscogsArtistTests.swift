@@ -14,14 +14,14 @@ class DiscogsArtistTests: DiscogsTestBase {
     }
     
     fileprivate func assert(_ artist: DiscogsArtist) {
-        XCTAssertEqual(artist.id, 108713, "artist ID")
+        XCTAssertEqual(artist.identifier, 108713, "artist ID")
         XCTAssertEqual(artist.nameVariations![0], "Nickleback", "artist name")
         XCTAssertEqual(artist.images!.count, 2, "artist images")
         XCTAssertEqual(artist.members!.count, 5, "band members")
         
         let shittyMember = artist.members![0]
         XCTAssertEqual(shittyMember.active, true, "is band member still active")
-        XCTAssertEqual(shittyMember.id, 270222, "band member ID")
+        XCTAssertEqual(shittyMember.identifier, 270222, "band member ID")
         XCTAssertEqual(shittyMember.name, "Chad Kroeger")
     }
     

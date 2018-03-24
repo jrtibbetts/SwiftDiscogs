@@ -12,7 +12,7 @@ class DiscogsUserIdentityTests: DiscogsTestBase {
     }
     
     fileprivate func assert(_ userIdentity: DiscogsUserIdentity) {
-        XCTAssertEqual(1, userIdentity.id)
+        XCTAssertEqual(1, userIdentity.identifier)
         XCTAssertEqual("example", userIdentity.username)
         XCTAssertEqual("Your Application Name", userIdentity.consumerName)
     }

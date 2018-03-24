@@ -6,7 +6,7 @@ public struct DiscogsLabel: Codable, Unique {
 
     public var contactInfo: String?
     public var dataQuality: String?
-    public var id: Int
+    public var identifier: Int
     public var images: [DiscogsImage]?
     public var name: String
     public var profile: String?
@@ -19,7 +19,7 @@ public struct DiscogsLabel: Codable, Unique {
     private enum CodingKeys: String, CodingKey {
         case contactInfo = "contact_info"
         case dataQuality = "data_quality"
-        case id
+        case identifier = "id"
         case images
         case name
         case profile
@@ -34,12 +34,12 @@ public struct DiscogsLabel: Codable, Unique {
 
 public struct DiscogsSublabel: Codable, Unique {
     
-    public var id: Int
+    public var identifier: Int
     public var name: String
     public var resourceUrl: String
     
     fileprivate enum CodingKeys: String, CodingKey {
-        case id
+        case identifier = "id"
         case name
         case resourceUrl = "resource_url"
     }

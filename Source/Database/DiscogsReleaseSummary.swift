@@ -14,7 +14,7 @@ public struct DiscogsReleaseSummary: Codable, Unique {
     public var artist: String
     public var catalogNumber: String?
     public var format: String?
-    public var id: Int
+    public var identifier: Int
     public var label: String?
     public var mainReleaseId: Int?
     public var resourceUrl: String
@@ -37,7 +37,7 @@ public struct DiscogsReleaseSummary: Codable, Unique {
         case artist
         case catalogNumber = "catno"
         case format
-        case id
+        case identifier = "id"
         case label
         case mainReleaseId = "main_release"
         case resourceUrl = "resource_url"

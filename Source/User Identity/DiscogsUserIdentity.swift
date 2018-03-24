@@ -4,13 +4,13 @@ import Foundation
 
 public struct DiscogsUserIdentity: Codable, Unique {
 
-    public var id: Int
+    public var identifier: Int
     public var consumerName: String
     public var resourceUrl: String
     public var username: String
 
     fileprivate enum CodingKeys: String, CodingKey {
-        case id
+        case identifier = "id"
         case consumerName = "consumer_name"
         case resourceUrl = "resource_url"
         case username

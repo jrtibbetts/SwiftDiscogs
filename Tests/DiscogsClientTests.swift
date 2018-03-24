@@ -28,7 +28,7 @@ class DiscogsClientTests: DiscogsTestBase {
         let artistId = 42895    // Sinéad O'Connor, of course
         let failureMessage = "Expected Discogs artist \(artistId) to be valid"
         let exp = expectation(description: failureMessage)
-        let promise: Promise<DiscogsArtist> = unauthorizedClient.artist(id: artistId)
+        let promise: Promise<DiscogsArtist> = unauthorizedClient.artist(identifier: artistId)
         promise.then { (artist) -> Void in
             XCTAssertEqual(artist.name, "Sinéad O'Connor")
             exp.fulfill()
@@ -43,7 +43,7 @@ class DiscogsClientTests: DiscogsTestBase {
         let artistId = -2389
         let failureMessage = "Expected Discogs artist \(artistId) to be invalid"
         let exp = expectation(description: failureMessage)
-        let promise: Promise<DiscogsArtist> = unauthorizedClient.artist(id: artistId)
+        let promise: Promise<DiscogsArtist> = unauthorizedClient.artist(identifier: artistId)
         promise.then { (artist) -> Void in
             XCTFail(failureMessage)
             }.catch { (error) in
@@ -57,7 +57,7 @@ class DiscogsClientTests: DiscogsTestBase {
         let labelId = 3198    // Chrysalis
         let failureMessage = "Expected Discogs label \(labelId) to be valid"
         let exp = expectation(description: failureMessage)
-        let promise: Promise<DiscogsLabel> = unauthorizedClient.label(id: labelId)
+        let promise: Promise<DiscogsLabel> = unauthorizedClient.label(identifier: labelId)
         promise.then { (label) -> Void in
             XCTAssertEqual(label.name, "Chrysalis")
             exp.fulfill()
@@ -72,7 +72,7 @@ class DiscogsClientTests: DiscogsTestBase {
         let labelId = -1564
         let failureMessage = "Expected Discogs label \(labelId) to be invalid"
         let exp = expectation(description: failureMessage)
-        let promise: Promise<DiscogsArtist> = unauthorizedClient.artist(id: labelId)
+        let promise: Promise<DiscogsArtist> = unauthorizedClient.artist(identifier: labelId)
         promise.then { (label) -> Void in
             XCTFail(failureMessage)
             }.catch { (error) in
@@ -86,10 +86,10 @@ class DiscogsClientTests: DiscogsTestBase {
         let masterId = 51559    // "Mandinka"
         let failureMessage = "Expected Discogs master release \(masterId) to be valid"
         let exp = expectation(description: failureMessage)
-        let promise: Promise<DiscogsMasterRelease> = unauthorizedClient.masterRelease(id: masterId)
+        let promise: Promise<DiscogsMasterRelease> = unauthorizedClient.masterRelease(identifier: masterId)
         promise.then { (masterRelease) -> Void in
             XCTAssertEqual(masterRelease.title, "Mandinka")
-            XCTAssertEqual(masterRelease.id, masterId)
+            XCTAssertEqual(masterRelease.identifier, masterId)
             XCTAssertEqual(masterRelease.year, 1987)
             exp.fulfill()
             }.catch { (error) in
@@ -102,7 +102,7 @@ class DiscogsClientTests: DiscogsTestBase {
         let masterId = -1616
         let failureMessage = "Expected Discogs master release \(masterId) to be invalid"
         let exp = expectation(description: failureMessage)
-        let promise: Promise<DiscogsMasterRelease> = unauthorizedClient.masterRelease(id: masterId)
+        let promise: Promise<DiscogsMasterRelease> = unauthorizedClient.masterRelease(identifier: masterId)
         promise.then { (masterRelease) -> Void in
             XCTFail(failureMessage)
             }.catch { (error) in
@@ -115,10 +115,10 @@ class DiscogsClientTests: DiscogsTestBase {
         let releaseId = 565113    // "Mandinka" UK 12"
         let failureMessage = "Expected Discogs release \(releaseId) to be valid"
         let exp = expectation(description: failureMessage)
-        let promise: Promise<DiscogsRelease> = unauthorizedClient.release(id: releaseId)
+        let promise: Promise<DiscogsRelease> = unauthorizedClient.release(identifier: releaseId)
         promise.then { (release) -> Void in
             XCTAssertEqual(release.title, "Mandinka")
-            XCTAssertEqual(release.id, releaseId)
+            XCTAssertEqual(release.identifier, releaseId)
             XCTAssertEqual(release.year, 1987)
             exp.fulfill()
             }.catch { (error) in
@@ -131,7 +131,7 @@ class DiscogsClientTests: DiscogsTestBase {
         let releaseId = -1616
         let failureMessage = "Expected Discogs release \(releaseId) to be invalid"
         let exp = expectation(description: failureMessage)
-        let promise: Promise<DiscogsRelease> = unauthorizedClient.release(id: releaseId)
+        let promise: Promise<DiscogsRelease> = unauthorizedClient.release(identifier: releaseId)
         promise.then { (release) -> Void in
             XCTFail(failureMessage)
             }.catch { (error) in

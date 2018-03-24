@@ -14,7 +14,7 @@ public struct DiscogsUserProfile: Codable {
     public var contributedReleasesCount: Int
     public var currentAbbreviation: String
     public var forSaleCount: Int
-    public var id: Int
+    public var identifier: Int
     public var homePage: String?
     public var inventoryUrl: URL?
     public var location: String
@@ -47,8 +47,8 @@ public struct DiscogsUserProfile: Codable {
         case contributedReleasesCount = "releases_contributed"
         case currentAbbreviation = "curr_abbr"
         case forSaleCount = "num_for_sale"
-        case id
         case homePage = "home_page"
+        case identifier = "id"
         case inventoryUrl = "inventoryUrl"
         case location
         case name

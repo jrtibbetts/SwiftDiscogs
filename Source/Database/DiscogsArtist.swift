@@ -5,7 +5,7 @@ import Foundation
 public struct DiscogsArtist: Codable, Unique {
 
     public var dataQuality: String?
-    public var id: Int
+    public var identifier: Int
     public var images: [DiscogsImage]?
     public var members: [DiscogsBandMember]?
     public var name: String?
@@ -17,7 +17,7 @@ public struct DiscogsArtist: Codable, Unique {
 
     private enum CodingKeys: String, CodingKey {
         case dataQuality = "data_quality"
-        case id
+        case identifier = "id"
         case images
         case members
         case name
@@ -33,13 +33,13 @@ public struct DiscogsArtist: Codable, Unique {
 public struct DiscogsBandMember: Codable, Unique {
 
     public var active: Bool?
-    public var id: Int
+    public var identifier: Int
     public var name: String
     public var resourceUrl: String
 
     private enum CodingKeys: String, CodingKey {
         case active
-        case id
+        case identifier = "id"
         case name
         case resourceUrl = "resource_url"
     }

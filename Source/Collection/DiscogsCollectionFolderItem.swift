@@ -2,18 +2,11 @@
 
 import Foundation
 
-public struct DiscogsCollectionFolderItems: Codable, Pageable {
-
-    public var pagination: DiscogsPagination?
-    public var releases: [DiscogsCollectionFolderItem]?
-
-}
-
 public struct DiscogsCollectionFolderItem: Codable {
 
     public var basicInformation: DiscogsCollectionFolderItemInformation?
     public var folderId: Int
-    public var id: Int
+    public var identifier: Int
     public var instanceId: Int
     public var notes: [DiscogsCollectionFolderNote]?
     public var rating: Int
@@ -22,7 +15,7 @@ public struct DiscogsCollectionFolderItem: Codable {
 
         case basicInformation = "basic_information"
         case folderId = "folder_id"
-        case id
+        case identifier = "id"
         case instanceId = "instance_id"
         case notes
         case rating
@@ -50,7 +43,7 @@ public struct DiscogsCollectionFolderItemFormat: Codable {
 public struct DiscogsCollectionFolderItemInformation: Codable, HasDiscogsArtistSummaries, Unique {
 
     public var artists: [DiscogsArtistSummary]?
-    public var id: Int
+    public var identifier: Int
     public var coverImage: String?
     public var formats: [DiscogsCollectionFolderItemFormat]?
     public var labels: [DiscogsCollectionFolderItemLabel]?
@@ -61,7 +54,7 @@ public struct DiscogsCollectionFolderItemInformation: Codable, HasDiscogsArtistS
 
     private enum CodingKeys: String, CodingKey {
         case artists
-        case id
+        case identifier = "id"
         case coverImage = "cover_image"
         case formats
         case labels
@@ -78,7 +71,7 @@ public struct DiscogsCollectionFolderItemLabel: Codable, Unique {
     public var catalogNumber: String?
     public var entityType: String?
     public var entityTypeName: String?
-    public var id: Int
+    public var identifier: Int
     public var name: String
     public var resourceUrl: String
 
@@ -86,10 +79,17 @@ public struct DiscogsCollectionFolderItemLabel: Codable, Unique {
         case catalogNumber = "catno"
         case entityType = "entity_type"
         case entityTypeName = "entity_type_name"
-        case id
+        case identifier = "id"
         case name
         case resourceUrl = "resource_url"
     }
+
+}
+
+public struct DiscogsCollectionFolderItems: Codable, Pageable {
+
+    public var pagination: DiscogsPagination?
+    public var releases: [DiscogsCollectionFolderItem]?
 
 }
 

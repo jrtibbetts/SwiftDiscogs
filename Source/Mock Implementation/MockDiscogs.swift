@@ -20,9 +20,9 @@ public class MockDiscogs: MockClient, Discogs {
     
     // MARK: - Database
     
-    public func artist(id: Int) -> Promise<DiscogsArtist> {
+    public func artist(identifier: Int) -> Promise<DiscogsArtist> {
         return apply(toJsonObjectIn: "get-artist-200",
-                     error: DiscogsError.artistNotFoundById(id))
+                     error: DiscogsError.artistNotFoundById(identifier))
     }
 
     public func releases(forArtist artistId: Int) -> Promise<DiscogsReleaseSummaries> {
@@ -30,9 +30,9 @@ public class MockDiscogs: MockClient, Discogs {
                      error: DiscogsError.artistNotFoundById(artistId))
     }
 
-    public func label(id: Int) -> Promise<DiscogsLabel> {
+    public func label(identifier: Int) -> Promise<DiscogsLabel> {
         return apply(toJsonObjectIn: "get-label-200",
-                     error: DiscogsError.labelNotFoundById(id))
+                     error: DiscogsError.labelNotFoundById(identifier))
     }
     
     public func releases(forLabel labelId: Int) -> Promise<DiscogsReleaseSummaries> {
@@ -40,21 +40,21 @@ public class MockDiscogs: MockClient, Discogs {
                      error: DiscogsError.labelNotFoundById(labelId))
     }
     
-    public func masterRelease(id: Int) -> Promise<DiscogsMasterRelease> {
+    public func masterRelease(identifier: Int) -> Promise<DiscogsMasterRelease> {
         return apply(toJsonObjectIn: "get-master-200",
-                     error: DiscogsError.masterReleaseNotFoundById(id))
+                     error: DiscogsError.masterReleaseNotFoundById(identifier))
     }
 
-    public func releasesForMasterRelease(_ id: Int,
+    public func releasesForMasterRelease(_ identifier: Int,
                                          pageNumber: Int = 0,
                                          resultsPerPage: Int = 50) -> Promise<DiscogsMasterReleaseVersions> {
         return apply(toJsonObjectIn: "get-master-release-versions-200",
-                     error: DiscogsError.masterReleaseNotFoundById(id))
+                     error: DiscogsError.masterReleaseNotFoundById(identifier))
     }
 
-    public func release(id: Int) -> Promise<DiscogsRelease> {
+    public func release(identifier: Int) -> Promise<DiscogsRelease> {
         return apply(toJsonObjectIn: "get-release-200",
-                     error: DiscogsError.masterReleaseNotFoundById(id))
+                     error: DiscogsError.masterReleaseNotFoundById(identifier))
     }
 
     // MARK: - Collections

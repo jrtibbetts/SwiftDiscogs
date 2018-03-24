@@ -18,7 +18,7 @@ class DiscogsArtistReleasesTests: DiscogsTestBase {
 
         let release = artistReleases.releases[0]
         XCTAssertEqual(release.artist, "Nickelback", "artist name")
-        XCTAssertEqual(release.id, 173765, "release ID")
+        XCTAssertEqual(release.identifier, 173765, "release ID")
         XCTAssertEqual(release.role, "Main", "release role")
         XCTAssertEqual(release.title, "Curb", "release title")
         XCTAssertEqual(release.type, "master", "release type")

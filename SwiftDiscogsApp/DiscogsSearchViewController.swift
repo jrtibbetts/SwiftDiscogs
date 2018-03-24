@@ -39,7 +39,7 @@ class DiscogsSearchViewController: UIViewController, UISearchControllerDelegate 
         // Load the search results controller from the storyboard.
         let bundle = Bundle(for: type(of: self))
         let storyboard = UIStoryboard(name: "Main", bundle:  bundle)
-        searchResultsController = storyboard.instantiateViewController(withIdentifier: "searchResults") as! DiscogsSearchResultsController
+        searchResultsController = storyboard.instantiateViewController(withIdentifier: "searchResults") as? DiscogsSearchResultsController
         searchController = UISearchController(searchResultsController: searchResultsController)
         searchController.delegate = self
         searchController.searchResultsUpdater = searchResultsController

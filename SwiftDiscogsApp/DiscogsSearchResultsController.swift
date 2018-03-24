@@ -24,7 +24,7 @@ open class DiscogsSearchResultsController: UITableViewController, UISearchResult
     // MARK: - UISearchResultsUpdating
 
     public func updateSearchResults(for searchController: UISearchController) {
-        if let searchTerms = searchController.searchBar.text, searchTerms.count >= 3 {
+        if let searchTerms = searchController.searchBar.text {
             //            let scope = searchBar.scopeButtonTitles?[searchBar.selectedScopeButtonIndex] ?? ""
             let promise: Promise<DiscogsSearchResults> = DiscogsClient.singleton.search(for: searchTerms, type: "Artist")
             promise.then { [weak self] (searchResults) -> Void in
@@ -49,11 +49,14 @@ open class DiscogsSearchResultsController: UITableViewController, UISearchResult
 
     override open func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let artist = results[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "artistSearchResultCell", for: indexPath) as! ArtistSearchResultCell
 
-        cell.nameLabel?.text = artist.title
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "artistSearchResultCell", for: indexPath) as? ArtistSearchResultCell {
+            cell.nameLabel?.text = artist.title
 
-        return cell
+            return cell
+        } else {
+            return super.tableView(tableView, cellForRowAt: indexPath)
+        }
     }
 
 }

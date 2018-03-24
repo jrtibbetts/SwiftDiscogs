@@ -6,7 +6,7 @@ public struct DiscogsCollectionRelease: Codable {
 
     public var basicInformation: [DiscogsCollectionReleaseInformation]?
     public var folderId: Int
-    public var id: Int
+    public var identifier: Int
     public var instanceId: Int
     public var notes: [DiscogsCollectionReleaseNote]?
     public var rating: Int
@@ -14,7 +14,7 @@ public struct DiscogsCollectionRelease: Codable {
     fileprivate enum CodingKeys: String, CodingKey {
         case basicInformation = "basic_information"
         case folderId = "folder_id"
-        case id
+        case identifier = "id"
         case instanceId = "instance_id"
         case notes
         case rating
@@ -24,7 +24,7 @@ public struct DiscogsCollectionRelease: Codable {
 
 public struct DiscogsCollectionReleaseArtist: Codable {
     public var anv: String?
-    public var id: Int
+    public var identifier: Int
     public var join: String?
     public var name: String
     public var resourceUrl: String
@@ -33,7 +33,7 @@ public struct DiscogsCollectionReleaseArtist: Codable {
 
     fileprivate enum CodingKeys: String, CodingKey {
         case anv
-        case id
+        case identifier = "id"
         case join
         case name
         case resourceUrl = "resource_url"
@@ -43,7 +43,7 @@ public struct DiscogsCollectionReleaseArtist: Codable {
 }
 
 public struct DiscogsCollectionReleaseInformation: Codable {
-    public var id: Int
+    public var identifier: Int
     public var title: String
     public var year: Int?
     public var resourceUrl: String
@@ -57,7 +57,7 @@ public struct DiscogsCollectionReleaseInformation: Codable {
         case artists
         case coverImage = "cover_image"
         case formats
-        case id
+        case identifier = "id"
         case labels
         case resourceUrl = "resource_url"
         case thumb
@@ -81,14 +81,14 @@ public struct DiscogsCollectionReleaseFormat: Codable {
 public struct DiscogsCollectionReleaseLabel: Codable {
     public var catalogNumber: String?
     public var entityType: String?
-    public var id: Int
+    public var identifier: Int
     public var name: String
     public var resourceUrl: String
 
     fileprivate enum CodingKeys: String, CodingKey {
         case catalogNumber = "catno"
         case entityType = "entity_type"
-        case id
+        case identifier = "id"
         case name
         case resourceUrl = "resource_url"
     }

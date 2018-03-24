@@ -7,7 +7,7 @@ public struct DiscogsMasterRelease: Codable, Unique {
     public var artists: [DiscogsArtistSummary]
     public var dataQuality: String
     public var genres: [String]
-    public var id: Int
+    public var identifier: Int
     public var images: [DiscogsImage]?
     public var lowestPrice: Float
     public var mainReleaseId: Int
@@ -26,7 +26,7 @@ public struct DiscogsMasterRelease: Codable, Unique {
         case artists
         case dataQuality = "data_quality"
         case genres
-        case id
+        case identifier = "id"
         case images
         case lowestPrice = "lowest_price"
         case mainReleaseId = "main_release"
@@ -49,7 +49,7 @@ public struct DiscogsMasterReleaseVersion: Codable, Unique {
     public var catalogNumber: String?
     public var country: String?
     public var formats: [String]?
-    public var id: Int
+    public var identifier: Int
     public var label: String?
     public var majorFormats: [String]?
     public var released: String?
@@ -62,7 +62,7 @@ public struct DiscogsMasterReleaseVersion: Codable, Unique {
         case catalogNumber = "catno"
         case country
         case formats
-        case id
+        case identifier = "id"
         case label
         case majorFormats = "major_formats"
         case released
