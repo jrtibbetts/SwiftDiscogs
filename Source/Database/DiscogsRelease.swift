@@ -5,8 +5,8 @@ import Foundation
 public struct DiscogsRelease: Codable, HasDiscogsArtistSummaries, Unique {
 
     public var artists: [DiscogsArtistSummary]?
-    public var community: Community?
-    public var companies: [Label]?
+    public var community: DiscogsReleaseCommunity?
+    public var companies: [DiscogsReleaseLabel]?
     public var country: String?
     public var dataQuality: String?
     public var dateAdded: String?
@@ -14,12 +14,12 @@ public struct DiscogsRelease: Codable, HasDiscogsArtistSummaries, Unique {
     public var estimatedWeight: Int
     public var extraArtists: [DiscogsArtistSummary]?
     public var formatQuantity: Int?
-    public var formats: [Format]?
+    public var formats: [DiscogsReleaseFormat]?
     public var genres: [String]?
-    public var identifiers: [Identifier]?
+    public var identifiers: [DiscogsReleaseIdentifier]?
     public var images: [DiscogsImage]?
     public var id: Int
-    public var labels: [Label]?
+    public var labels: [DiscogsReleaseLabel]?
     public var lowestPrice: Float?
     public var masterId: Int
     public var masterUrl: String
@@ -74,79 +74,79 @@ public struct DiscogsRelease: Codable, HasDiscogsArtistSummaries, Unique {
         case year
     }
 
-    public struct Community: Codable {
+}
 
-        public var contributors: [Contributor]
-        public var dataQuality: String?
-        public var have: Int
-        public var status: String?
-        public var submitter: Contributor?
-        public var want: Int
+public struct DiscogsReleaseCommunity: Codable {
 
-        fileprivate enum CodingKeys: String, CodingKey {
-            case contributors
-            case dataQuality = "data_quality"
-            case have
-            case status
-            case submitter
-            case want
-        }
+    public var contributors: [DiscogsReleaseContributor]
+    public var dataQuality: String?
+    public var have: Int
+    public var status: String?
+    public var submitter: DiscogsReleaseContributor?
+    public var want: Int
 
-        public struct Rating: Codable {
-            public var average: Float
-            public var count: Int
-        }
-
+    fileprivate enum CodingKeys: String, CodingKey {
+        case contributors
+        case dataQuality = "data_quality"
+        case have
+        case status
+        case submitter
+        case want
     }
 
-    public struct Contributor: Codable {
-
-        public var resourceUrl: String
-        public var username: String
-
-        fileprivate enum CodingKeys: String, CodingKey {
-            case resourceUrl = "resource_url"
-            case username
-        }
-
+    public struct Rating: Codable {
+        public var average: Float
+        public var count: Int
     }
 
-    public struct Format: Codable {
+}
 
-        public var count: String
-        public var descriptions: [String]?
-        public var name: String
+public struct DiscogsReleaseContributor: Codable {
 
-        fileprivate enum CodingKeys: String, CodingKey {
-            case count = "qty"
-            case descriptions
-            case name
-        }
+    public var resourceUrl: String
+    public var username: String
+
+    fileprivate enum CodingKeys: String, CodingKey {
+        case resourceUrl = "resource_url"
+        case username
     }
 
-    public struct Identifier: Codable {
+}
 
-        public var type: String
-        public var value: String?
+public struct DiscogsReleaseFormat: Codable {
 
+    public var count: String
+    public var descriptions: [String]?
+    public var name: String
+
+    fileprivate enum CodingKeys: String, CodingKey {
+        case count = "qty"
+        case descriptions
+        case name
     }
+}
 
-    public struct Label: Codable, Unique {
+public struct DiscogsReleaseIdentifier: Codable {
 
-        public var catalogNumber: String?
-        public var entityType: String
-        public var id: Int
-        public var name: String
-        public var resourceUrl: String
+    public var type: String
+    public var value: String?
 
-        fileprivate enum CodingKeys: String, CodingKey {
-            case catalogNumber = "catno"
-            case entityType = "entity_type"
-            case id
-            case name
-            case resourceUrl = "resource_url"
-        }
+}
 
+public struct DiscogsReleaseLabel: Codable, Unique {
+
+    public var catalogNumber: String?
+    public var entityType: String
+    public var id: Int
+    public var name: String
+    public var resourceUrl: String
+
+    fileprivate enum CodingKeys: String, CodingKey {
+        case catalogNumber = "catno"
+        case entityType = "entity_type"
+        case id
+        case name
+        case resourceUrl = "resource_url"
     }
 
 }

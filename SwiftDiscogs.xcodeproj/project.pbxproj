@@ -490,7 +490,6 @@
 				968983C2203DD4B200DE77BC /* Database */,
 				96898418203DD4B500DE77BC /* Discogs.swift */,
 				9689840E203DD4B400DE77BC /* Discogs.xcassets */,
-				96898409203DD4B300DE77BC /* DiscogsArtistRelease.swift */,
 				9689840A203DD4B300DE77BC /* DiscogsClient.swift */,
 				9689840B203DD4B300DE77BC /* DiscogsErrorResponse.swift */,
 				9689840C203DD4B300DE77BC /* DiscogsPagination.swift */,
@@ -524,6 +523,7 @@
 			isa = PBXGroup;
 			children = (
 				968983CA203DD4B200DE77BC /* DiscogsArtist.swift */,
+				96898409203DD4B300DE77BC /* DiscogsArtistRelease.swift */,
 				968983C6203DD4B200DE77BC /* DiscogsArtistSummary.swift */,
 				968983C4203DD4B200DE77BC /* DiscogsImage.swift */,
 				968983C7203DD4B200DE77BC /* DiscogsLabel.swift */,

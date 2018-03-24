@@ -68,4 +68,5 @@ public struct DiscogsUserProfile: Codable {
         case wantlistCount = "num_wantlist"
         case wantlistUrl = "wantlist_url"
     }
+    
 }

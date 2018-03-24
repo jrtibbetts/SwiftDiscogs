@@ -7,7 +7,7 @@ public struct DiscogsArtist: Codable, Unique {
     public var dataQuality: String?
     public var id: Int
     public var images: [DiscogsImage]?
-    public var members: [BandMember]?
+    public var members: [DiscogsBandMember]?
     public var name: String?
     public var nameVariations: [String]?
     public var profile: String?
@@ -28,20 +28,20 @@ public struct DiscogsArtist: Codable, Unique {
         case urls
     }
 
-    public struct BandMember: Codable, Unique {
+}
 
-        public var active: Bool?
-        public var id: Int
-        public var name: String
-        public var resourceUrl: String
+public struct DiscogsBandMember: Codable, Unique {
 
-        private enum CodingKeys: String, CodingKey {
-            case active
-            case id
-            case name
-            case resourceUrl = "resource_url"
-        }
+    public var active: Bool?
+    public var id: Int
+    public var name: String
+    public var resourceUrl: String
 
+    private enum CodingKeys: String, CodingKey {
+        case active
+        case id
+        case name
+        case resourceUrl = "resource_url"
     }
 
 }

@@ -17,17 +17,6 @@ public class MockDiscogs: MockClient, Discogs {
             super.init(bundle: bundle)
         }
     }
-
-    public func authorize() -> Promise<DiscogsUserIdentity> {
-        return Promise<DiscogsUserIdentity> { (fulfill, reject) in
-            if errorMode {
-                reject(NSError())
-            } else {
-                let userIdentity: DiscogsUserIdentity? = try JSONUtils.jsonObject(forFileNamed: "get-user-identity-200", ofType: "json", inBundle: bundle)
-                fulfill(userIdentity!)
-            }
-        }
-    }
     
     // MARK: - Database
     

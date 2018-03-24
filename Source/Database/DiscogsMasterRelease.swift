@@ -42,34 +42,34 @@ public struct DiscogsMasterRelease: Codable, Unique {
         case year
     }
 
-    public struct Version: Codable, Unique {
+}
 
-        public var catalogNumber: String?
-        public var country: String?
-        public var formats: [String]?
-        public var id: Int
-        public var label: String?
-        public var majorFormats: [String]?
-        public var released: String?
-        public var resourceUrl: String
-        public var status: String?
-        public var thumb: String?
-        public var title: String
+public struct DiscogsMasterReleaseVersion: Codable, Unique {
 
-        private enum CodingKeys: String, CodingKey {
-            case catalogNumber = "catno"
-            case country
-            case formats
-            case id
-            case label
-            case majorFormats = "major_formats"
-            case released
-            case resourceUrl = "resource_url"
-            case status
-            case thumb
-            case title
-        }
+    public var catalogNumber: String?
+    public var country: String?
+    public var formats: [String]?
+    public var id: Int
+    public var label: String?
+    public var majorFormats: [String]?
+    public var released: String?
+    public var resourceUrl: String
+    public var status: String?
+    public var thumb: String?
+    public var title: String
 
+    private enum CodingKeys: String, CodingKey {
+        case catalogNumber = "catno"
+        case country
+        case formats
+        case id
+        case label
+        case majorFormats = "major_formats"
+        case released
+        case resourceUrl = "resource_url"
+        case status
+        case thumb
+        case title
     }
 
 }
@@ -77,6 +77,6 @@ public struct DiscogsMasterRelease: Codable, Unique {
 public struct DiscogsMasterReleaseVersions: Codable, Pageable {
 
     public var pagination: DiscogsPagination?
-    public var versions: [DiscogsMasterRelease.Version]
+    public var versions: [DiscogsMasterReleaseVersion]
 
 }

@@ -12,7 +12,7 @@ public struct DiscogsLabel: Codable, Unique {
     public var profile: String?
     public var releasesUrl: URL
     public var resourceUrl: String
-    public var sublabels: [Sublabel]?
+    public var sublabels: [DiscogsSublabel]?
     public var uri: String
     public var urls: [String]?
 
@@ -30,18 +30,18 @@ public struct DiscogsLabel: Codable, Unique {
         case urls
     }
 
-    public struct Sublabel: Codable, Unique {
+}
 
-        public var id: Int
-        public var name: String
-        public var resourceUrl: String
-
-        fileprivate enum CodingKeys: String, CodingKey {
-            case id
-            case name
-            case resourceUrl = "resource_url"
-        }
-
+public struct DiscogsSublabel: Codable, Unique {
+    
+    public var id: Int
+    public var name: String
+    public var resourceUrl: String
+    
+    fileprivate enum CodingKeys: String, CodingKey {
+        case id
+        case name
+        case resourceUrl = "resource_url"
     }
-
+    
 }
