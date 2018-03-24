@@ -27,7 +27,7 @@ open class DiscogsSearchResultsController: UITableViewController, UISearchResult
         if let searchTerms = searchController.searchBar.text {
             //            let scope = searchBar.scopeButtonTitles?[searchBar.selectedScopeButtonIndex] ?? ""
             let promise: Promise<DiscogsSearchResults> = DiscogsClient.singleton.search(for: searchTerms, type: "Artist")
-            promise.then { [weak self] (searchResults) -> Void in
+            promise.then { [weak self] (searchResults) in
                 if let results = searchResults.results {
                     self?.results = results.filter { $0.type == "artist" }
                 }
@@ -63,7 +63,8 @@ open class DiscogsSearchResultsController: UITableViewController, UISearchResult
 
 open class ArtistSearchResultCell: UITableViewCell {
 
-    @IBOutlet weak var thumbnailView: UIImageView?
+    @IBOutlet weak var detailsLabel: UILabel?
     @IBOutlet weak var nameLabel: UILabel?
+    @IBOutlet weak var thumbnailView: UIImageView?
 
 }
