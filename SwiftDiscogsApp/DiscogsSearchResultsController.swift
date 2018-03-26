@@ -17,17 +17,16 @@ open class DiscogsSearchResultsController: UITableViewController, UISearchResult
     // MARK: - UISearchResultsUpdating
 
     open func updateSearchResults(for searchController: UISearchController) {
-        if let searchTerms = searchController.searchBar.text {
-            let promise: Promise<DiscogsSearchResults>
-                = DiscogsClient.singleton.search(for: searchTerms, type: "Artist")
-            promise.then { [weak self] (searchResults) -> Void in
-                if let results = searchResults.results {
-                    self?.results = results.filter { $0.type == "artist" }
-                }
-                }.catch { [weak self] (error) in
-                    print("Error: \(error.localizedDescription)")
-                    self?.results = []
+        let searchTerms = searchController.searchBar.text ?? ""
+        let promise: Promise<DiscogsSearchResults>
+            = DiscogsClient.singleton.search(for: searchTerms, type: "Artist")
+        promise.then { [weak self] (searchResults) -> Void in
+            if let results = searchResults.results {
+                self?.results = results.filter { $0.type == "artist" }
             }
+            }.catch { [weak self] (error) in
+                print("Error: \(error.localizedDescription)")
+                self?.results = []
         }
     }
 

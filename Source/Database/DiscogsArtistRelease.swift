@@ -2,6 +2,12 @@
 
 import Foundation
 
+public struct DiscogsArtistReleases: Codable {
+
+    public var releases: [DiscogsArtistRelease]?
+
+}
+
 public struct DiscogsArtistRelease: Codable, Unique {
 
     public var artist: String
@@ -38,10 +44,4 @@ public struct DiscogsArtistRelease: Codable, Unique {
         case year
     }
     
-}
-
-public struct DiscogsArtistReleases: Codable {
-
-    public var releases: [DiscogsArtistRelease]?
-
 }
