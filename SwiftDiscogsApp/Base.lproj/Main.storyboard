@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="slA-ou-6R0">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14105" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="slA-ou-6R0">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Baseline standard spacing" minToolsVersion="9.0"/>
@@ -41,7 +41,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2208.8000000000002" y="226.10837438423647"/>
+            <point key="canvasLocation" x="2241" y="227"/>
         </scene>
         <!--Discogs Search Results Controller-->
         <scene sceneID="wcu-lZ-hrt">
@@ -51,6 +51,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <view key="tableFooterView" contentMode="scaleToFill" id="Pik-hc-wyf" userLabel="Empty Footer">
+                            <rect key="frame" x="0.0" y="129" width="375" height="0.0"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="artistSearchResultCell" rowHeight="101" id="3PT-Qe-7Xn" userLabel="Artist Cell" customClass="ArtistSearchResultCell" customModule="SwiftDiscogsApp" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="101"/>
@@ -66,7 +71,7 @@
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yEI-Pr-zMs">
-                                            <rect key="frame" x="103" y="11" width="46.666666666666657" height="21"/>
+                                            <rect key="frame" x="103" y="10.999999999999998" width="46.666666666666657" height="20.333333333333329"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -92,8 +97,10 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="detailsLabel" destination="H1F-p1-agD" id="OCW-OA-ev4"/>
                                     <outlet property="nameLabel" destination="yEI-Pr-zMs" id="Yez-cx-VXk"/>
                                     <outlet property="thumbnailView" destination="e54-4e-sL3" id="oPz-6x-ZM3"/>
+                                    <segue destination="RyP-Qg-Z7I" kind="showDetail" identifier="showDiscogsArtist" id="cCK-1V-oXF"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -106,6 +113,141 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Njo-Mf-W4x" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3117.5999999999999" y="226.84729064039411"/>
+        </scene>
+        <!--Discogs Artist-->
+        <scene sceneID="K4K-Kp-tYT">
+            <objects>
+                <tableViewController id="RyP-Qg-Z7I" userLabel="Discogs Artist" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="VV7-bX-xOm">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="n5Q-xf-N1Z" userLabel="Header">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Little Richard" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DFC-Zw-llF" userLabel="Artist Name">
+                                    <rect key="frame" x="8" y="8" width="110" height="21"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </view>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="artistBioCell" rowHeight="228" id="56p-Yd-qhX" userLabel="Bio Cell">
+                                <rect key="frame" x="0.0" y="77" width="375" height="228"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="56p-Yd-qhX" id="r3J-Fm-20h">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="227.66666666666666"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Wt-sS-i4l" userLabel="Bio">
+                                            <rect key="frame" x="16" y="11" width="343" height="206"/>
+                                            <string key="text">American singer, songwriter, pianist and recording artist, born 5 December 1932 in Macon, Georgia, USA. 
+
+Inducted into Rock And Roll Hall of Fame in 1986 (Performer). 
+Inducted into Songwriters Hall of Fame in 2003.</string>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="leadingMargin" secondItem="0Wt-sS-i4l" secondAttribute="leading" id="E88-wf-Pfz"/>
+                                        <constraint firstAttribute="topMargin" secondItem="0Wt-sS-i4l" secondAttribute="top" id="aG1-Pl-Xtb"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="0Wt-sS-i4l" secondAttribute="trailing" id="ajy-8u-Fjz"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="0Wt-sS-i4l" secondAttribute="bottom" id="w9b-SJ-PIZ"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="artistReleaseCell" rowHeight="88" id="XAn-L8-gFz" userLabel="Release Cell">
+                                <rect key="frame" x="0.0" y="305" width="375" height="88"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="XAn-L8-gFz" id="Nrz-nr-gv2">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="87.666666666666671"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="XhH-YC-NvO">
+                                            <rect key="frame" x="16" y="11" width="64" height="64"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="64" id="00h-uY-opZ"/>
+                                                <constraint firstAttribute="width" secondItem="XhH-YC-NvO" secondAttribute="height" multiplier="1:1" id="AfD-Zf-i1O"/>
+                                            </constraints>
+                                            <viewLayoutGuide key="safeArea" id="3Yo-RH-gRm"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="1957" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ISo-rB-xS6" userLabel="Album Year">
+                                            <rect key="frame" x="321" y="11" width="38" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" text="Here's Little Richard" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P3a-Gr-PG9" userLabel="Album Title">
+                                            <rect key="frame" x="88" y="11" width="155" height="21"/>
+                                            <fontDescription key="fontDescription" type="italicSystem" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="ISo-rB-xS6" firstAttribute="firstBaseline" secondItem="P3a-Gr-PG9" secondAttribute="firstBaseline" id="0f5-2X-NJS"/>
+                                        <constraint firstItem="P3a-Gr-PG9" firstAttribute="leading" secondItem="XhH-YC-NvO" secondAttribute="trailing" constant="8" symbolic="YES" id="38H-vD-MHA"/>
+                                        <constraint firstItem="ISo-rB-xS6" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="P3a-Gr-PG9" secondAttribute="trailing" constant="8" symbolic="YES" id="4fV-F4-9ME"/>
+                                        <constraint firstAttribute="topMargin" secondItem="P3a-Gr-PG9" secondAttribute="top" id="LfQ-8W-XUv"/>
+                                        <constraint firstItem="XhH-YC-NvO" firstAttribute="top" secondItem="Nrz-nr-gv2" secondAttribute="topMargin" id="Lnu-Mk-mJN"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="ISo-rB-xS6" secondAttribute="trailing" id="NYX-ow-wWj"/>
+                                        <constraint firstItem="XhH-YC-NvO" firstAttribute="leading" secondItem="Nrz-nr-gv2" secondAttribute="leadingMargin" id="jag-uY-T9W"/>
+                                        <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="P3a-Gr-PG9" secondAttribute="bottom" id="zbR-e0-PtC"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="430-Jq-t69" kind="showDetail" identifier="showDiscogsRelease" id="g9m-pO-C7p"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="RyP-Qg-Z7I" id="GV5-kM-tGB"/>
+                            <outlet property="delegate" destination="RyP-Qg-Z7I" id="M3M-EX-cku"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Little Richard" id="3mi-mj-Ljb"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vfF-QY-Xy6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3984.8000000000002" y="226.84729064039411"/>
+        </scene>
+        <!--Here's Little Richard-->
+        <scene sceneID="DdD-1V-EUe">
+            <objects>
+                <tableViewController id="430-Jq-t69" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="M7D-ro-FaS">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="zeq-Ra-s9P">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="zeq-Ra-s9P" id="QyW-8U-tMx">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="430-Jq-t69" id="57r-8n-7z7"/>
+                            <outlet property="delegate" destination="430-Jq-t69" id="pot-CO-GGx"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Here's Little Richard" id="D6Y-rS-sUk"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gZm-rk-WSG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4833" y="227"/>
         </scene>
         <!--Database-->
         <scene sceneID="20v-EU-wcr">
@@ -143,7 +285,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2xP-9p-Brg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="385" y="227"/>
+            <point key="canvasLocation" x="383" y="632"/>
         </scene>
     </scenes>
 </document>

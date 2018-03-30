@@ -14,22 +14,21 @@
 		960368A7205764E400D24CE7 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 960368A2205764E300D24CE7 /* LICENSE */; };
 		960368A8205764E400D24CE7 /* Cartfile.resolved in Resources */ = {isa = PBXBuildFile; fileRef = 960368A3205764E300D24CE7 /* Cartfile.resolved */; };
 		960368AA20578EAB00D24CE7 /* DiscogsClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960368A920578EAB00D24CE7 /* DiscogsClientTests.swift */; };
-		960368C8205A00E200D24CE7 /* SwiftDiscogsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 960368BF205A00E200D24CE7 /* SwiftDiscogsUI.framework */; };
-		960368CD205A00E200D24CE7 /* SwiftDiscogsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960368CC205A00E200D24CE7 /* SwiftDiscogsUITests.swift */; };
-		960368CF205A00E200D24CE7 /* SwiftDiscogsUI.h in Headers */ = {isa = PBXBuildFile; fileRef = 960368C1205A00E200D24CE7 /* SwiftDiscogsUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		960368DD205A012C00D24CE7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960368DC205A012C00D24CE7 /* AppDelegate.swift */; };
 		960368E2205A012C00D24CE7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 960368E0205A012C00D24CE7 /* Main.storyboard */; };
 		960368E4205A012C00D24CE7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 960368E3205A012C00D24CE7 /* Assets.xcassets */; };
 		960368E7205A012C00D24CE7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 960368E5205A012C00D24CE7 /* LaunchScreen.storyboard */; };
-		960368F2205A012C00D24CE7 /* SwiftDiscogsAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960368F1205A012C00D24CE7 /* SwiftDiscogsAppTests.swift */; };
+		960368F2205A012C00D24CE7 /* DiscogsArtistModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960368F1205A012C00D24CE7 /* DiscogsArtistModelTests.swift */; };
 		960368FD205A012C00D24CE7 /* SwiftDiscogsAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960368FC205A012C00D24CE7 /* SwiftDiscogsAppUITests.swift */; };
-		9603690F205A1C7200D24CE7 /* DiscogsSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9603690E205A1C7200D24CE7 /* DiscogsSearchViewController.swift */; };
-		96036911205B765100D24CE7 /* DiscogsSearchResultsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96036910205B765100D24CE7 /* DiscogsSearchResultsController.swift */; };
 		96036915205B92A700D24CE7 /* DiscogsClientSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96036914205B92A700D24CE7 /* DiscogsClientSingleton.swift */; };
 		96036917205B949500D24CE7 /* Discogs.plist in Resources */ = {isa = PBXBuildFile; fileRef = 96036916205B949500D24CE7 /* Discogs.plist */; };
 		96036919205C3BC500D24CE7 /* OAuthSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9689848A203DDA0200DE77BC /* OAuthSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9603691B205C3BC500D24CE7 /* PromiseKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9689848B203DDA0200DE77BC /* PromiseKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9603691E205C3BEA00D24CE7 /* JSONClient.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 96898489203DDA0200DE77BC /* JSONClient.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		96226AFB2069FF3D000EEC50 /* DiscogsArtistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96226AF62069F578000EEC50 /* DiscogsArtistViewController.swift */; };
+		96226AFC2069FF3D000EEC50 /* DiscogsSearchResultsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96036910205B765100D24CE7 /* DiscogsSearchResultsController.swift */; };
+		96226AFD2069FF3D000EEC50 /* DiscogsArtistModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969ADA6D2068A7D300A8BDD0 /* DiscogsArtistModel.swift */; };
+		96226AFE2069FF3D000EEC50 /* DiscogsSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9603690E205A1C7200D24CE7 /* DiscogsSearchViewController.swift */; };
 		968983B2203D427B00DE77BC /* SwiftDiscogs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 968983A8203D427A00DE77BC /* SwiftDiscogs.framework */; };
 		968983B9203D427B00DE77BC /* SwiftDiscogs.h in Headers */ = {isa = PBXBuildFile; fileRef = 968983AB203D427A00DE77BC /* SwiftDiscogs.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		96898419203DD4B500DE77BC /* DiscogsRelease.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968983C3203DD4B200DE77BC /* DiscogsRelease.swift */; };
@@ -132,7 +131,6 @@
 		96898494203DDBDE00DE77BC /* DiscogsTestBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96898493203DDBDE00DE77BC /* DiscogsTestBase.swift */; };
 		96898497203DDEB300DE77BC /* OAuthSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9689848A203DDA0200DE77BC /* OAuthSwift.framework */; };
 		96898498203DDEB300DE77BC /* PromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9689848B203DDA0200DE77BC /* PromiseKit.framework */; };
-		969ADA6E2068A7D300A8BDD0 /* DiscogsArtistModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969ADA6D2068A7D300A8BDD0 /* DiscogsArtistModel.swift */; };
 		969ADA702068D6E200A8BDD0 /* DiscogsMasterReleaseVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969ADA6F2068D6E200A8BDD0 /* DiscogsMasterReleaseVersion.swift */; };
 		969ADA722068D74800A8BDD0 /* DiscogsCommunity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969ADA712068D74800A8BDD0 /* DiscogsCommunity.swift */; };
 		969ADA742068D79800A8BDD0 /* DiscogsReleaseRating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969ADA732068D79800A8BDD0 /* DiscogsReleaseRating.swift */; };
@@ -146,13 +144,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		960368C9205A00E200D24CE7 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 9689839F203D427A00DE77BC /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 960368BE205A00E200D24CE7;
-			remoteInfo = SwiftDiscogsUI;
-		};
 		960368EE205A012C00D24CE7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 9689839F203D427A00DE77BC /* Project object */;
@@ -168,20 +159,6 @@
 			remoteInfo = SwiftDiscogsApp;
 		};
 		96036908205A015000D24CE7 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 9689839F203D427A00DE77BC /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 968983A7203D427A00DE77BC;
-			remoteInfo = SwiftDiscogsClient;
-		};
-		9603690A205A015200D24CE7 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 9689839F203D427A00DE77BC /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 960368BE205A00E200D24CE7;
-			remoteInfo = SwiftDiscogsUI;
-		};
-		9603690C205A015600D24CE7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 9689839F203D427A00DE77BC /* Project object */;
 			proxyType = 1;
@@ -220,12 +197,6 @@
 		960368A2205764E300D24CE7 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		960368A3205764E300D24CE7 /* Cartfile.resolved */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile.resolved; sourceTree = "<group>"; };
 		960368A920578EAB00D24CE7 /* DiscogsClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscogsClientTests.swift; sourceTree = "<group>"; };
-		960368BF205A00E200D24CE7 /* SwiftDiscogsUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftDiscogsUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		960368C1205A00E200D24CE7 /* SwiftDiscogsUI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftDiscogsUI.h; sourceTree = "<group>"; };
-		960368C2205A00E200D24CE7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		960368C7205A00E200D24CE7 /* SwiftDiscogsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftDiscogsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		960368CC205A00E200D24CE7 /* SwiftDiscogsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftDiscogsUITests.swift; sourceTree = "<group>"; };
-		960368CE205A00E200D24CE7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		960368DA205A012B00D24CE7 /* SwiftDiscogsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftDiscogsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		960368DC205A012C00D24CE7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		960368E1205A012C00D24CE7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -233,7 +204,7 @@
 		960368E6205A012C00D24CE7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		960368E8205A012C00D24CE7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		960368ED205A012C00D24CE7 /* SwiftDiscogsAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftDiscogsAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		960368F1205A012C00D24CE7 /* SwiftDiscogsAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftDiscogsAppTests.swift; sourceTree = "<group>"; };
+		960368F1205A012C00D24CE7 /* DiscogsArtistModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscogsArtistModelTests.swift; sourceTree = "<group>"; };
 		960368F3205A012C00D24CE7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		960368F8205A012C00D24CE7 /* SwiftDiscogsAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftDiscogsAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		960368FC205A012C00D24CE7 /* SwiftDiscogsAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftDiscogsAppUITests.swift; sourceTree = "<group>"; };
@@ -242,6 +213,7 @@
 		96036910205B765100D24CE7 /* DiscogsSearchResultsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscogsSearchResultsController.swift; sourceTree = "<group>"; };
 		96036914205B92A700D24CE7 /* DiscogsClientSingleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscogsClientSingleton.swift; sourceTree = "<group>"; };
 		96036916205B949500D24CE7 /* Discogs.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Discogs.plist; sourceTree = "<group>"; };
+		96226AF62069F578000EEC50 /* DiscogsArtistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscogsArtistViewController.swift; sourceTree = "<group>"; };
 		968983A8203D427A00DE77BC /* SwiftDiscogs.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftDiscogs.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		968983AB203D427A00DE77BC /* SwiftDiscogs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftDiscogs.h; sourceTree = "<group>"; };
 		968983AC203D427A00DE77BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -359,21 +331,6 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		960368BB205A00E200D24CE7 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		960368C4205A00E200D24CE7 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				960368C8205A00E200D24CE7 /* SwiftDiscogsUI.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		960368D7205A012B00D24CE7 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -419,34 +376,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		960368C0205A00E200D24CE7 /* SwiftDiscogsUI */ = {
-			isa = PBXGroup;
-			children = (
-				969ADA6D2068A7D300A8BDD0 /* DiscogsArtistModel.swift */,
-				960368C2205A00E200D24CE7 /* Info.plist */,
-				960368C1205A00E200D24CE7 /* SwiftDiscogsUI.h */,
-			);
-			path = SwiftDiscogsUI;
-			sourceTree = "<group>";
-		};
-		960368CB205A00E200D24CE7 /* SwiftDiscogsUITests */ = {
-			isa = PBXGroup;
-			children = (
-				960368CC205A00E200D24CE7 /* SwiftDiscogsUITests.swift */,
-				960368CE205A00E200D24CE7 /* Info.plist */,
-			);
-			path = SwiftDiscogsUITests;
-			sourceTree = "<group>";
-		};
 		960368DB205A012C00D24CE7 /* SwiftDiscogsApp */ = {
 			isa = PBXGroup;
 			children = (
 				960368DC205A012C00D24CE7 /* AppDelegate.swift */,
 				960368E3205A012C00D24CE7 /* Assets.xcassets */,
 				96036916205B949500D24CE7 /* Discogs.plist */,
+				969ADA6D2068A7D300A8BDD0 /* DiscogsArtistModel.swift */,
+				96226AF62069F578000EEC50 /* DiscogsArtistViewController.swift */,
 				96036914205B92A700D24CE7 /* DiscogsClientSingleton.swift */,
-				9603690E205A1C7200D24CE7 /* DiscogsSearchViewController.swift */,
 				96036910205B765100D24CE7 /* DiscogsSearchResultsController.swift */,
+				9603690E205A1C7200D24CE7 /* DiscogsSearchViewController.swift */,
 				960368E8205A012C00D24CE7 /* Info.plist */,
 				960368E5205A012C00D24CE7 /* LaunchScreen.storyboard */,
 				960368E0205A012C00D24CE7 /* Main.storyboard */,
@@ -457,7 +397,7 @@
 		960368F0205A012C00D24CE7 /* SwiftDiscogsAppTests */ = {
 			isa = PBXGroup;
 			children = (
-				960368F1205A012C00D24CE7 /* SwiftDiscogsAppTests.swift */,
+				960368F1205A012C00D24CE7 /* DiscogsArtistModelTests.swift */,
 				960368F3205A012C00D24CE7 /* Info.plist */,
 			);
 			path = SwiftDiscogsAppTests;
@@ -477,8 +417,6 @@
 			children = (
 				968983AA203D427A00DE77BC /* Source */,
 				968983B5203D427B00DE77BC /* Tests */,
-				960368C0205A00E200D24CE7 /* SwiftDiscogsUI */,
-				960368CB205A00E200D24CE7 /* SwiftDiscogsUITests */,
 				960368DB205A012C00D24CE7 /* SwiftDiscogsApp */,
 				960368F0205A012C00D24CE7 /* SwiftDiscogsAppTests */,
 				960368FB205A012C00D24CE7 /* SwiftDiscogsAppUITests */,
@@ -497,8 +435,6 @@
 			children = (
 				968983A8203D427A00DE77BC /* SwiftDiscogs.framework */,
 				968983B1203D427B00DE77BC /* SwiftDiscogsTests.xctest */,
-				960368BF205A00E200D24CE7 /* SwiftDiscogsUI.framework */,
-				960368C7205A00E200D24CE7 /* SwiftDiscogsUITests.xctest */,
 				960368DA205A012B00D24CE7 /* SwiftDiscogsApp.app */,
 				960368ED205A012C00D24CE7 /* SwiftDiscogsAppTests.xctest */,
 				960368F8205A012C00D24CE7 /* SwiftDiscogsAppUITests.xctest */,
@@ -722,14 +658,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		960368BC205A00E200D24CE7 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				960368CF205A00E200D24CE7 /* SwiftDiscogsUI.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		968983A5203D427A00DE77BC /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -741,43 +669,6 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		960368BE205A00E200D24CE7 /* SwiftDiscogsUI */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 960368D0205A00E200D24CE7 /* Build configuration list for PBXNativeTarget "SwiftDiscogsUI" */;
-			buildPhases = (
-				960368BA205A00E200D24CE7 /* Sources */,
-				960368BB205A00E200D24CE7 /* Frameworks */,
-				960368BC205A00E200D24CE7 /* Headers */,
-				960368BD205A00E200D24CE7 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				9603690D205A015600D24CE7 /* PBXTargetDependency */,
-			);
-			name = SwiftDiscogsUI;
-			productName = SwiftDiscogsUI;
-			productReference = 960368BF205A00E200D24CE7 /* SwiftDiscogsUI.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		960368C6205A00E200D24CE7 /* SwiftDiscogsUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 960368D3205A00E200D24CE7 /* Build configuration list for PBXNativeTarget "SwiftDiscogsUITests" */;
-			buildPhases = (
-				960368C3205A00E200D24CE7 /* Sources */,
-				960368C4205A00E200D24CE7 /* Frameworks */,
-				960368C5205A00E200D24CE7 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				960368CA205A00E200D24CE7 /* PBXTargetDependency */,
-			);
-			name = SwiftDiscogsUITests;
-			productName = SwiftDiscogsUITests;
-			productReference = 960368C7205A00E200D24CE7 /* SwiftDiscogsUITests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 		960368D9205A012B00D24CE7 /* SwiftDiscogsApp */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 960368FF205A012C00D24CE7 /* Build configuration list for PBXNativeTarget "SwiftDiscogsApp" */;
@@ -791,7 +682,6 @@
 			);
 			dependencies = (
 				96036909205A015000D24CE7 /* PBXTargetDependency */,
-				9603690B205A015200D24CE7 /* PBXTargetDependency */,
 			);
 			name = SwiftDiscogsApp;
 			productName = SwiftDiscogsApp;
@@ -880,15 +770,6 @@
 				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = "Poikile Creations";
 				TargetAttributes = {
-					960368BE205A00E200D24CE7 = {
-						CreatedOnToolsVersion = 9.2;
-						LastSwiftMigration = 0930;
-						ProvisioningStyle = Automatic;
-					};
-					960368C6205A00E200D24CE7 = {
-						CreatedOnToolsVersion = 9.2;
-						ProvisioningStyle = Automatic;
-					};
 					960368D9205A012B00D24CE7 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
@@ -929,8 +810,6 @@
 			targets = (
 				968983A7203D427A00DE77BC /* SwiftDiscogs */,
 				968983B0203D427B00DE77BC /* SwiftDiscogsTests */,
-				960368BE205A00E200D24CE7 /* SwiftDiscogsUI */,
-				960368C6205A00E200D24CE7 /* SwiftDiscogsUITests */,
 				960368D9205A012B00D24CE7 /* SwiftDiscogsApp */,
 				960368EC205A012C00D24CE7 /* SwiftDiscogsAppTests */,
 				960368F7205A012C00D24CE7 /* SwiftDiscogsAppUITests */,
@@ -939,20 +818,6 @@
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		960368BD205A00E200D24CE7 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		960368C5205A00E200D24CE7 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		960368D8205A012B00D24CE7 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1053,30 +918,16 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		960368BA205A00E200D24CE7 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				969ADA6E2068A7D300A8BDD0 /* DiscogsArtistModel.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		960368C3205A00E200D24CE7 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				960368CD205A00E200D24CE7 /* SwiftDiscogsUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		960368D6205A012B00D24CE7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9603690F205A1C7200D24CE7 /* DiscogsSearchViewController.swift in Sources */,
 				96036915205B92A700D24CE7 /* DiscogsClientSingleton.swift in Sources */,
-				96036911205B765100D24CE7 /* DiscogsSearchResultsController.swift in Sources */,
+				96226AFB2069FF3D000EEC50 /* DiscogsArtistViewController.swift in Sources */,
 				960368DD205A012C00D24CE7 /* AppDelegate.swift in Sources */,
+				96226AFE2069FF3D000EEC50 /* DiscogsSearchViewController.swift in Sources */,
+				96226AFD2069FF3D000EEC50 /* DiscogsArtistModel.swift in Sources */,
+				96226AFC2069FF3D000EEC50 /* DiscogsSearchResultsController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1084,7 +935,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				960368F2205A012C00D24CE7 /* SwiftDiscogsAppTests.swift in Sources */,
+				960368F2205A012C00D24CE7 /* DiscogsArtistModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1166,11 +1017,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		960368CA205A00E200D24CE7 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 960368BE205A00E200D24CE7 /* SwiftDiscogsUI */;
-			targetProxy = 960368C9205A00E200D24CE7 /* PBXContainerItemProxy */;
-		};
 		960368EF205A012C00D24CE7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 960368D9205A012B00D24CE7 /* SwiftDiscogsApp */;
@@ -1185,16 +1031,6 @@
 			isa = PBXTargetDependency;
 			target = 968983A7203D427A00DE77BC /* SwiftDiscogs */;
 			targetProxy = 96036908205A015000D24CE7 /* PBXContainerItemProxy */;
-		};
-		9603690B205A015200D24CE7 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 960368BE205A00E200D24CE7 /* SwiftDiscogsUI */;
-			targetProxy = 9603690A205A015200D24CE7 /* PBXContainerItemProxy */;
-		};
-		9603690D205A015600D24CE7 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 968983A7203D427A00DE77BC /* SwiftDiscogs */;
-			targetProxy = 9603690C205A015600D24CE7 /* PBXContainerItemProxy */;
 		};
 		968983B4203D427B00DE77BC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1223,81 +1059,6 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		960368D1205A00E200D24CE7 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "";
-				CODE_SIGN_STYLE = Automatic;
-				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 3MY7LL9G36;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = SwiftDiscogsUI/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = net.poikile.SwiftDiscogsUI;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		960368D2205A00E200D24CE7 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "";
-				CODE_SIGN_STYLE = Automatic;
-				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 3MY7LL9G36;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = SwiftDiscogsUI/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = net.poikile.SwiftDiscogsUI;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		960368D4205A00E200D24CE7 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3MY7LL9G36;
-				INFOPLIST_FILE = SwiftDiscogsUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = net.poikile.SwiftDiscogsUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		960368D5205A00E200D24CE7 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3MY7LL9G36;
-				INFOPLIST_FILE = SwiftDiscogsUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = net.poikile.SwiftDiscogsUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
 		96036900205A012C00D24CE7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1609,24 +1370,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		960368D0205A00E200D24CE7 /* Build configuration list for PBXNativeTarget "SwiftDiscogsUI" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				960368D1205A00E200D24CE7 /* Debug */,
-				960368D2205A00E200D24CE7 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		960368D3205A00E200D24CE7 /* Build configuration list for PBXNativeTarget "SwiftDiscogsUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				960368D4205A00E200D24CE7 /* Debug */,
-				960368D5205A00E200D24CE7 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		960368FF205A012C00D24CE7 /* Build configuration list for PBXNativeTarget "SwiftDiscogsApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
