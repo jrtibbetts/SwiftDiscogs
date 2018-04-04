@@ -16,12 +16,4 @@ public struct DiscogsPagination: Codable {
     public var perPage: Int
     public var urls: [String : URL]
 
-    fileprivate enum CodingKeys: String, CodingKey {
-        case items
-        case page
-        case pages
-        case perPage = "per_page"
-        case urls
-    }
-
 }

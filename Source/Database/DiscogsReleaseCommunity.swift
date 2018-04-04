@@ -11,13 +11,4 @@ public struct DiscogsReleaseCommunity: Codable {
     public var submitter: DiscogsReleaseContributor?
     public var want: Int
 
-    fileprivate enum CodingKeys: String, CodingKey {
-        case contributors
-        case dataQuality = "data_quality"
-        case have
-        case status
-        case submitter
-        case want
-    }
-
 }

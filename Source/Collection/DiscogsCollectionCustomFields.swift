@@ -21,11 +21,11 @@ public struct DiscogsCollectionCustomField: Codable {
     }
 
     /// The field's unique ID within the set of fields.
-    public var identifier: Int
+    public var id: Int
 
     /// `true` if this field should be visible when other users view the
     /// collection.
-    public var isPublic: Bool
+    public var `public`: Bool
 
     /// If this is a text-area field, this is the number of lines that
     /// should be displayed.
@@ -44,19 +44,5 @@ public struct DiscogsCollectionCustomField: Codable {
     /// The field's type. Currently, the only valid values are `dropdown`
     /// for lists, and `textarea` for free-text entry.
     public var type: String
-
-    /// Customize the mapping of properties to JSON keys. Even though only
-    /// one field ("public", which can't be used as a property name because
-    /// it conflicts with the `public` keyword), ALL of the fields have
-    /// to be included in this `enum`.
-    private enum CodingKeys: String, CodingKey {
-        case identifier = "id"
-        case isPublic = "public"
-        case lines
-        case name
-        case options
-        case position
-        case type
-    }
 
 }

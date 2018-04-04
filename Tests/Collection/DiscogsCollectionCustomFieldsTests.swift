@@ -21,7 +21,7 @@ class DiscogsCollectionCustomFieldsTests: DiscogsTestBase {
         let mediaField = fields[0]
         XCTAssertEqual(mediaField.name, "Media", "field 0's name")
         XCTAssertEqual(mediaField.type, "dropdown", "field 0's type")
-        XCTAssertEqual(mediaField.isPublic, true, "field 0's public flag")
+        XCTAssertEqual(mediaField.`public`, true, "field 0's public flag")
         
         let notesField = fields[2]
         XCTAssertEqual(notesField.name, "Notes")

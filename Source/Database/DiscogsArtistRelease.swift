@@ -12,7 +12,7 @@ public struct DiscogsArtistRelease: Codable, Unique {
 
     public var artist: String
     public var format: String?
-    public var identifier: Int
+    public var id: Int
     public var label: String?
     public var mainRelease: Int
     public var resourceUrl: String
@@ -27,21 +27,6 @@ public struct DiscogsArtistRelease: Codable, Unique {
         return format?.split(separator: ",").map { (substring) -> String in
             return String(substring)
         }
-    }
-
-    fileprivate enum CodingKeys: String, CodingKey {
-        case artist
-        case format
-        case identifier = "id"
-        case label
-        case mainRelease = "main_release"
-        case resourceUrl = "resource_url"
-        case role
-        case status
-        case thumb
-        case title
-        case type
-        case year
     }
     
 }

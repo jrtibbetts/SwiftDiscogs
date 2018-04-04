@@ -6,7 +6,12 @@ import XCTest
 class DiscogsArtistReleasesTests: DiscogsTestBase {
     
     func testDecodeArtistReleasesJson() throws {
+        do {
         assert(try discogsObject(inLocalJsonFileNamed: "get-artist-releases-200"))
+        } catch {
+            print(error.localizedDescription)
+            throw error
+        }
     }
     
     func testGetArtistReleasesNotFoundError() {
@@ -18,7 +23,7 @@ class DiscogsArtistReleasesTests: DiscogsTestBase {
 
         let release = artistReleases.releases[0]
         XCTAssertEqual(release.artist, "Nickelback", "artist name")
-        XCTAssertEqual(release.identifier, 173765, "release ID")
+        XCTAssertEqual(release.id, 173765, "release ID")
         XCTAssertEqual(release.role, "Main", "release role")
         XCTAssertEqual(release.title, "Curb", "release title")
         XCTAssertEqual(release.type, "master", "release type")

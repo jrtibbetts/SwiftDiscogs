@@ -7,9 +7,4 @@ public struct DiscogsReleaseContributor: Codable {
     public var resourceUrl: String
     public var username: String
 
-    fileprivate enum CodingKeys: String, CodingKey {
-        case resourceUrl = "resource_url"
-        case username
-    }
-
 }

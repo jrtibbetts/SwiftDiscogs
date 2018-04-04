@@ -4,13 +4,9 @@ import Foundation
 
 public struct DiscogsReleaseFormat: Codable {
 
-    public var count: String
+    public var count: String { return qty }
     public var descriptions: [String]?
     public var name: String
+    public var qty: String
 
-    fileprivate enum CodingKeys: String, CodingKey {
-        case count = "qty"
-        case descriptions
-        case name
-    }
 }

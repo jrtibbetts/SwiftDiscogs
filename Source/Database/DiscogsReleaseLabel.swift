@@ -4,18 +4,11 @@ import Foundation
 
 public struct DiscogsReleaseLabel: Codable, Unique {
 
-    public var catalogNumber: String?
+    public var catno: String?
+    public var catalogNumber: String? { return catno }
     public var entityType: String
-    public var identifier: Int
+    public var id: Int
     public var name: String
     public var resourceUrl: String
-
-    fileprivate enum CodingKeys: String, CodingKey {
-        case catalogNumber = "catno"
-        case entityType = "entity_type"
-        case identifier = "id"
-        case name
-        case resourceUrl = "resource_url"
-    }
 
 }

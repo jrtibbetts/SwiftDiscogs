@@ -4,7 +4,7 @@ import Foundation
 
 public protocol Unique {
 
-    var identifier: Int { get }
+    var id: Int { get }
     var resourceUrl: String { get }
 
 }

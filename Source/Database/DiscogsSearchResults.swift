@@ -10,12 +10,13 @@ public struct DiscogsSearchResults: Codable {
 
 public struct DiscogsSearchResult: Codable, Unique {
 
-    public var catalogNumber: String?
+    public var catno: String?
+    public var catalogNumber: String? { return catno }
     public var community: DiscogsCommunity?
     public var country: String?
     public var format: [String]?
     public var genre: [String]?
-    public var identifier: Int
+    public var id: Int
     public var label: [String]?
     public var resourceUrl: String
     public var style: [String]?
@@ -24,22 +25,5 @@ public struct DiscogsSearchResult: Codable, Unique {
     public var type: String
     public var uri: String
     public var year: String?
-
-    private enum CodingKeys: String, CodingKey {
-        case catalogNumber = "catno"
-        case community
-        case country
-        case format
-        case genre
-        case identifier = "id"
-        case label
-        case resourceUrl = "resource_url"
-        case style
-        case thumb
-        case title
-        case type
-        case uri
-        case year
-    }
 
 }

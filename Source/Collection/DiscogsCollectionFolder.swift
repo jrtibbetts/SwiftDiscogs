@@ -12,16 +12,9 @@ public struct DiscogsCollectionFolders: Codable {
 /// Information about a folder in a user's collection.
 public struct DiscogsCollectionFolder: Codable, Unique {
 
-    public var identifier: Int
+    public var id: Int
     public var count: Int
     public var name: String
     public var resourceUrl: String
-
-    private enum CodingKeys: String, CodingKey {
-        case identifier = "id"
-        case count
-        case name
-        case resourceUrl = "resource_url"
-    }
 
 }

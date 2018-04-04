@@ -62,7 +62,7 @@ class DiscogsClientTests: DiscogsTestBase {
             XCTAssertEqual(label.name, "Chrysalis")
             exp.fulfill()
             }.catch { (error) in
-                XCTFail(failureMessage)
+                XCTFail(failureMessage + "; \(error.localizedDescription)")
         }
 
         wait(for: [exp], timeout: 5.0)
@@ -89,7 +89,7 @@ class DiscogsClientTests: DiscogsTestBase {
         let promise: Promise<DiscogsMasterRelease> = unauthorizedClient.masterRelease(identifier: masterId)
         promise.then { (masterRelease) -> Void in
             XCTAssertEqual(masterRelease.title, "Mandinka")
-            XCTAssertEqual(masterRelease.identifier, masterId)
+            XCTAssertEqual(masterRelease.id, masterId)
             XCTAssertEqual(masterRelease.year, 1987)
             exp.fulfill()
             }.catch { (error) in
@@ -118,7 +118,7 @@ class DiscogsClientTests: DiscogsTestBase {
         let promise: Promise<DiscogsRelease> = unauthorizedClient.release(identifier: releaseId)
         promise.then { (release) -> Void in
             XCTAssertEqual(release.title, "Mandinka")
-            XCTAssertEqual(release.identifier, releaseId)
+            XCTAssertEqual(release.id, releaseId)
             XCTAssertEqual(release.year, 1987)
             exp.fulfill()
             }.catch { (error) in

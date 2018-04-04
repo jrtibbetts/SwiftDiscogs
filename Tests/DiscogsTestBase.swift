@@ -8,8 +8,22 @@ class DiscogsTestBase: ClientTestBase {
 
     func discogsObject<T: Codable>(inLocalJsonFileNamed fileName: String) throws -> T {
         let bundle = Bundle(for: MockDiscogs.self)
-        
-        return try jsonObject(inLocalJsonFileNamed: fileName, inBundle: bundle)
+
+        do {
+            return try jsonObject(inLocalJsonFileNamed: fileName, inBundle: bundle)
+        } catch {
+            if let decodingError = error as? DecodingError {
+                switch decodingError {
+                case let .keyNotFound(key, context):
+                    print("Key not found: \(key)")
+                default:
+                    break
+                }
+            }
+
+            print("Caught error while parsing \(fileName): \(error.localizedDescription)")
+            throw error
+        }
     }
 
     func assertDiscogsErrorMessage(in jsonFilename: String,
