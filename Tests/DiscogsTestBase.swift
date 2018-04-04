@@ -14,7 +14,7 @@ class DiscogsTestBase: ClientTestBase {
         } catch {
             if let decodingError = error as? DecodingError {
                 switch decodingError {
-                case let .keyNotFound(key, context):
+                case let .keyNotFound(key, _):
                     print("Key not found: \(key)")
                 default:
                     break

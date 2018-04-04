@@ -19,6 +19,7 @@ public enum DiscogsError: Error {
     case unauthenticatedUser()
     case unknownUser(username: String)
     case unknown(Error?)
+    
 }
 
 /// Implemented by clients of a Discogs API server.

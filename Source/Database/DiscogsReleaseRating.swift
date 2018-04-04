@@ -3,6 +3,8 @@
 import Foundation
 
 public struct DiscogsReleaseRating: Codable {
+    
     public var average: Float
     public var count: Int
+
 }

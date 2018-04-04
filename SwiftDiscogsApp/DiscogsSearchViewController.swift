@@ -15,9 +15,9 @@ class DiscogsSearchViewController: UIViewController, UISearchControllerDelegate 
     }
 
     @IBAction func signInToDiscogs() {
-        let promise = DiscogsClient.singleton.authorize(presentingViewController: self,
-                                                        callbackUrlString: AppDelegate.callbackUrl.absoluteString)
-        promise.catch { (error) in
+        let promise = DiscogsClient.singleton?.authorize(presentingViewController: self,
+                                                         callbackUrlString: AppDelegate.callbackUrl.absoluteString)
+        promise?.catch { (error) in
             assertionFailure("Failed to log in: \(error.localizedDescription)")
         }
     }

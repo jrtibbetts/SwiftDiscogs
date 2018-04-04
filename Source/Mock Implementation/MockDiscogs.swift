@@ -10,7 +10,7 @@ public class MockDiscogs: MockClient, Discogs {
     
     public init(errorMode: Bool = false) {
         let bundle = Bundle(for: MockDiscogs.self)
-
+        
         if errorMode {
             super.init(errorDomain: "net.immediate.MockDiscogs", bundle: bundle)
         } else {
@@ -24,12 +24,12 @@ public class MockDiscogs: MockClient, Discogs {
         return apply(toJsonObjectIn: "get-artist-200",
                      error: DiscogsError.artistNotFoundById(identifier))
     }
-
+    
     public func releases(forArtist artistId: Int) -> Promise<DiscogsReleaseSummaries> {
         return apply(toJsonObjectIn: "get-artist-releases-200",
                      error: DiscogsError.artistNotFoundById(artistId))
     }
-
+    
     public func label(identifier: Int) -> Promise<DiscogsLabel> {
         return apply(toJsonObjectIn: "get-label-200",
                      error: DiscogsError.labelNotFoundById(identifier))
@@ -44,19 +44,19 @@ public class MockDiscogs: MockClient, Discogs {
         return apply(toJsonObjectIn: "get-master-200",
                      error: DiscogsError.masterReleaseNotFoundById(identifier))
     }
-
+    
     public func releasesForMasterRelease(_ identifier: Int,
                                          pageNumber: Int = 0,
                                          resultsPerPage: Int = 50) -> Promise<DiscogsMasterReleaseVersions> {
         return apply(toJsonObjectIn: "get-master-release-versions-200",
                      error: DiscogsError.masterReleaseNotFoundById(identifier))
     }
-
+    
     public func release(identifier: Int) -> Promise<DiscogsRelease> {
         return apply(toJsonObjectIn: "get-release-200",
                      error: DiscogsError.masterReleaseNotFoundById(identifier))
     }
-
+    
     // MARK: - Collections
     
     public func customCollectionFields(for userName: String) -> Promise<DiscogsCollectionCustomFields> {
@@ -106,12 +106,12 @@ public class MockDiscogs: MockClient, Discogs {
         return apply(toJsonObjectIn: "add-item-to-collection-folder-200",
                      error: DiscogsError.unknownUser(username: userName))
     }
-
+    
     // MARK: - Search
-
+    
     public func search(for queryString: String, type: String = "title") -> Promise<DiscogsSearchResults> {
         return apply(toJsonObjectIn: "search-200",
                      error: DiscogsError.unknown(nil))
     }
-
+    
 }

@@ -2,12 +2,6 @@
 
 import Foundation
 
-public struct DiscogsSearchResults: Codable {
-
-    public var results: [DiscogsSearchResult]?
-
-}
-
 public struct DiscogsSearchResult: Codable, Unique {
 
     public var catno: String?
@@ -26,4 +20,10 @@ public struct DiscogsSearchResult: Codable, Unique {
     public var uri: String
     public var year: String?
 
+}
+
+public struct DiscogsSearchResults: Codable {
+    
+    public var results: [DiscogsSearchResult]?
+    
 }

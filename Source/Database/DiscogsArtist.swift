@@ -3,7 +3,7 @@
 import Foundation
 
 public struct DiscogsArtist: Codable, Unique {
-
+    
     public var dataQuality: String?
     public var id: Int
     public var images: [DiscogsImage]?
@@ -14,5 +14,5 @@ public struct DiscogsArtist: Codable, Unique {
     public var releasesUrl: URL
     public var resourceUrl: String
     public var urls: [String]?
-
+    
 }

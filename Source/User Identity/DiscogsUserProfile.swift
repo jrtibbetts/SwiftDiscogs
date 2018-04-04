@@ -3,6 +3,7 @@
 import Foundation
 
 public struct DiscogsUserProfile: Codable {
+    
     public var avatarUrl: String
     public var bannerUrl: String
     public var buyerNumRatings: Int

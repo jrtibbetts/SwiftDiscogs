@@ -3,13 +3,13 @@
 import Foundation
 
 public struct DiscogsArtistReleases: Codable {
-
+    
     public var releases: [DiscogsArtistRelease]?
-
+    
 }
 
 public struct DiscogsArtistRelease: Codable, Unique {
-
+    
     public var artist: String
     public var format: String?
     public var id: Int
@@ -22,7 +22,7 @@ public struct DiscogsArtistRelease: Codable, Unique {
     public var title: String
     public var type: String
     public var year: Int
-
+    
     public var formats: [String]? {
         return format?.split(separator: ",").map { (substring) -> String in
             return String(substring)

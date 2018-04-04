@@ -36,7 +36,7 @@ open class DiscogsClient: OAuth1JSONClient, Discogs {
     }
     
     override open func authorize(presentingViewController: UIViewController,
-                        callbackUrlString: String) -> Promise<OAuthSwiftCredential> {
+                                 callbackUrlString: String) -> Promise<OAuthSwiftCredential> {
         let promise: Promise<OAuthSwiftCredential> = super.authorize(presentingViewController: presentingViewController,
                                                                      callbackUrlString: callbackUrlString)
         
@@ -107,15 +107,7 @@ open class DiscogsClient: OAuth1JSONClient, Discogs {
     
     public func createFolder(named folderName: String,
                              userName: String) -> Promise<DiscogsCollectionFolder> {
-        let path = "/users/\(userName)/collection/folders/\(folderName)"
-        
-        if let endpoint = URL(string: path, relativeTo: baseUrl) {
-            return authorizedPost(url: endpoint, headers: headers)
-        } else {
-            return Promise<DiscogsCollectionFolder> { (_, reject) in
-                reject(JSONErr.invalidUrl(urlString: path))
-            }
-        }
+        return authorizedPost(path: "/users/\(userName)/collection/folders/\(folderName)", headers: headers)
     }
     
     public func edit(_ folder: DiscogsCollectionFolder,
@@ -136,14 +128,7 @@ open class DiscogsClient: OAuth1JSONClient, Discogs {
     public func addItem(_ itemId: Int,
                         toFolderId folderId: Int,
                         userName: String) -> Promise<DiscogsCollectionItemInfo> {
-        let path = "/users/\(userName)/collection/folders/\(folderId)/releases/{itemId}"
-        if let endpoint = URL(string: path, relativeTo: baseUrl) {
-            return authorizedPost(url: endpoint, headers: headers)
-        } else {
-            return Promise<DiscogsCollectionItemInfo> { (_, reject) in
-                reject(JSONErr.invalidUrl(urlString: path))
-            }
-        }
+        return authorizedPost(path: "/users/\(userName)/collection/folders/\(folderId)/releases/{itemId}", headers: headers)
     }
     
     // MARK: - Search

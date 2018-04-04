@@ -105,7 +105,7 @@
 		96898461203DD4B500DE77BC /* DiscogsCollectionFolderItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96898411203DD4B500DE77BC /* DiscogsCollectionFolderItem.swift */; };
 		96898462203DD4B500DE77BC /* DiscogsCollectionFolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96898412203DD4B500DE77BC /* DiscogsCollectionFolder.swift */; };
 		96898463203DD4B500DE77BC /* DiscogsCollectionValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96898413203DD4B500DE77BC /* DiscogsCollectionValue.swift */; };
-		96898464203DD4B500DE77BC /* DiscogsCollectionCustomFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96898414203DD4B500DE77BC /* DiscogsCollectionCustomFields.swift */; };
+		96898464203DD4B500DE77BC /* DiscogsCollectionCustomField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96898414203DD4B500DE77BC /* DiscogsCollectionCustomField.swift */; };
 		96898465203DD4B500DE77BC /* DiscogsCollectionItemInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96898415203DD4B500DE77BC /* DiscogsCollectionItemInfo.swift */; };
 		96898466203DD4B500DE77BC /* DiscogsCollectionRelease.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96898416203DD4B500DE77BC /* DiscogsCollectionRelease.swift */; };
 		96898467203DD4B500DE77BC /* Unique.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96898417203DD4B500DE77BC /* Unique.swift */; };
@@ -293,7 +293,7 @@
 		96898411203DD4B500DE77BC /* DiscogsCollectionFolderItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscogsCollectionFolderItem.swift; sourceTree = "<group>"; };
 		96898412203DD4B500DE77BC /* DiscogsCollectionFolder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscogsCollectionFolder.swift; sourceTree = "<group>"; };
 		96898413203DD4B500DE77BC /* DiscogsCollectionValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscogsCollectionValue.swift; sourceTree = "<group>"; };
-		96898414203DD4B500DE77BC /* DiscogsCollectionCustomFields.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscogsCollectionCustomFields.swift; sourceTree = "<group>"; };
+		96898414203DD4B500DE77BC /* DiscogsCollectionCustomField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscogsCollectionCustomField.swift; sourceTree = "<group>"; };
 		96898415203DD4B500DE77BC /* DiscogsCollectionItemInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscogsCollectionItemInfo.swift; sourceTree = "<group>"; };
 		96898416203DD4B500DE77BC /* DiscogsCollectionRelease.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscogsCollectionRelease.swift; sourceTree = "<group>"; };
 		96898417203DD4B500DE77BC /* Unique.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Unique.swift; sourceTree = "<group>"; };
@@ -602,7 +602,7 @@
 		96898410203DD4B500DE77BC /* Collection */ = {
 			isa = PBXGroup;
 			children = (
-				96898414203DD4B500DE77BC /* DiscogsCollectionCustomFields.swift */,
+				96898414203DD4B500DE77BC /* DiscogsCollectionCustomField.swift */,
 				96898412203DD4B500DE77BC /* DiscogsCollectionFolder.swift */,
 				96898411203DD4B500DE77BC /* DiscogsCollectionFolderItem.swift */,
 				96898415203DD4B500DE77BC /* DiscogsCollectionItemInfo.swift */,
@@ -971,7 +971,7 @@
 				969ADA762068D7B500A8BDD0 /* DiscogsReleaseLabel.swift in Sources */,
 				9689845D203DD4B500DE77BC /* DiscogsPagination.swift in Sources */,
 				9689841C203DD4B500DE77BC /* DiscogsArtistSummary.swift in Sources */,
-				96898464203DD4B500DE77BC /* DiscogsCollectionCustomFields.swift in Sources */,
+				96898464203DD4B500DE77BC /* DiscogsCollectionCustomField.swift in Sources */,
 				96898419203DD4B500DE77BC /* DiscogsRelease.swift in Sources */,
 				96898467203DD4B500DE77BC /* Unique.swift in Sources */,
 				969ADA742068D79800A8BDD0 /* DiscogsReleaseRating.swift in Sources */,

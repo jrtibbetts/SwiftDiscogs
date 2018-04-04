@@ -3,14 +3,14 @@
 import Foundation
 
 public struct DiscogsCollectionRelease: Codable {
-
+    
     public var basicInformation: [DiscogsCollectionReleaseInformation]?
     public var folderId: Int
     public var id: Int
     public var instanceId: Int
     public var notes: [DiscogsCollectionReleaseNote]?
     public var rating: Int
-
+    
 }
 
 public struct DiscogsCollectionReleaseArtist: Codable {
@@ -21,7 +21,7 @@ public struct DiscogsCollectionReleaseArtist: Codable {
     public var resourceUrl: String
     public var tracks: String?
     public var role: String?
-
+    
 }
 
 public struct DiscogsCollectionReleaseInformation: Codable {
@@ -34,7 +34,7 @@ public struct DiscogsCollectionReleaseInformation: Codable {
     public var formats: [DiscogsCollectionReleaseFormat]?
     public var labels: [DiscogsCollectionReleaseLabel]?
     public var artists: [DiscogsCollectionReleaseArtist]?
-
+    
 }
 
 public struct DiscogsCollectionReleaseFormat: Codable {
@@ -42,7 +42,7 @@ public struct DiscogsCollectionReleaseFormat: Codable {
     public var name: String?
     public var quantity: String? { return qty }
     public var qty: String?
-
+    
 }
 
 public struct DiscogsCollectionReleaseLabel: Codable {
@@ -52,11 +52,11 @@ public struct DiscogsCollectionReleaseLabel: Codable {
     public var id: Int
     public var name: String
     public var resourceUrl: String
-
+    
 }
 
 public struct DiscogsCollectionReleaseNote: Codable {
     public var fieldId: String
     public var value: String
-
+    
 }
