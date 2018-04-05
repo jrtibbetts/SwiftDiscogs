@@ -3,16 +3,21 @@
 @testable import SwiftDiscogs
 import XCTest
 
-class DiscogsArtistReleasesTests: DiscogsTestBase {
+class DiscogsReleaseSummaryTests: DiscogsTestBase {
     
     func testDecodeArtistReleasesJson() throws {
-        assert(try discogsObject(inLocalJsonFileNamed: "get-artist-releases-200"))
+        assert(try discogsObject(inLocalJsonFileNamed: "get-release-summaries-200"))
     }
 
     func testFormatsSplitsMultipleValuesCorrectly() throws {
-        let artistRelease: DiscogsArtistRelease = try discogsObject(inLocalJsonFileNamed: "get-artist-releases-200")
+        let artistReleases: DiscogsReleaseSummaries = try discogsObject(inLocalJsonFileNamed: "get-release-summaries-200")
 
-        if let formats = artistRelease.formats {
+        guard let releaseSummary = artistReleases.releases?[1] else {
+            XCTFail("There should have been at least 2 releases.")
+            return
+        }
+
+        if let formats = releaseSummary.formats {
             XCTAssertTrue(formats.contains("CD"))
             XCTAssertTrue(formats.contains("EP"))
             XCTAssertEqual(formats.count, 2)
@@ -22,13 +27,19 @@ class DiscogsArtistReleasesTests: DiscogsTestBase {
     }
     
     func testGetArtistReleasesNotFoundError() {
-        assertDiscogsErrorMessage(in: "get-artist-releases-404", is: "Artist not found.")
+        assertDiscogsErrorMessage(in: "get-release-summaries-404", is: "Artist not found.")
     }
 
     fileprivate func assert(_ artistReleases: DiscogsReleaseSummaries) {
-        XCTAssertEqual(artistReleases.releases.count, 3)
+        guard let releases = artistReleases.releases else {
+            XCTFail("There should be releases in the file.")
 
-        let release = artistReleases.releases[0]
+            return
+        }
+
+        XCTAssertEqual(releases.count, 3)
+
+        let release = releases[0]
         XCTAssertEqual(release.artist, "Nickelback", "artist name")
         XCTAssertEqual(release.id, 173765, "release ID")
         XCTAssertEqual(release.role, "Main", "release role")
@@ -36,7 +47,7 @@ class DiscogsArtistReleasesTests: DiscogsTestBase {
         XCTAssertEqual(release.type, "master", "release type")
         XCTAssertEqual(release.year, 1996, "release year")
 
-        let hesher = artistReleases.releases[1]
+        let hesher = releases[1]
 
         if let formats = hesher.formats {
             XCTAssertTrue(formats.contains("CD"), "CD format")

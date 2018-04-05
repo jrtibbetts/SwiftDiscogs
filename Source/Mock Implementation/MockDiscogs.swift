@@ -26,7 +26,7 @@ public class MockDiscogs: MockClient, Discogs {
     }
     
     public func releases(forArtist artistId: Int) -> Promise<DiscogsReleaseSummaries> {
-        return apply(toJsonObjectIn: "get-artist-releases-200",
+        return apply(toJsonObjectIn: "get-release-summaries-200",
                      error: DiscogsError.artistNotFoundById(artistId))
     }
     

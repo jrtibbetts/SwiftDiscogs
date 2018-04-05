@@ -32,6 +32,6 @@ public struct DiscogsReleaseSummary: Codable, Unique {
 public struct DiscogsReleaseSummaries: Codable, Pageable {
     
     public var pagination: DiscogsPagination?
-    public var releases: [DiscogsReleaseSummary]
+    public var releases: [DiscogsReleaseSummary]?
     
 }

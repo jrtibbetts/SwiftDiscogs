@@ -14,7 +14,11 @@ class DiscogsLabelReleasesTests: DiscogsTestBase {
     }
     
     fileprivate func assert(_ labelReleases: DiscogsReleaseSummaries) {
-        let release3 = labelReleases.releases[2]
+        guard let release3 = labelReleases.releases?[2] else {
+            XCTFail("There should be at least 3 releases in the file.")
+            return
+        }
+        
         XCTAssertEqual(release3.artist, "Innerzone Orchestra", "release artist name")
         XCTAssertEqual(release3.year, 1999, "release year")
     }
