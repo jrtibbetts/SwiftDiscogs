@@ -6,11 +6,18 @@ import XCTest
 class DiscogsArtistReleasesTests: DiscogsTestBase {
     
     func testDecodeArtistReleasesJson() throws {
-        do {
         assert(try discogsObject(inLocalJsonFileNamed: "get-artist-releases-200"))
-        } catch {
-            print(error.localizedDescription)
-            throw error
+    }
+
+    func testFormatsSplitsMultipleValuesCorrectly() throws {
+        let artistRelease: DiscogsArtistRelease = try discogsObject(inLocalJsonFileNamed: "get-artist-releases-200")
+
+        if let formats = artistRelease.formats {
+            XCTAssertTrue(formats.contains("CD"))
+            XCTAssertTrue(formats.contains("EP"))
+            XCTAssertEqual(formats.count, 2)
+        } else {
+            XCTFail("The release should have had 2 formats.")
         }
     }
     
