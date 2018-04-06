@@ -4,53 +4,74 @@ import PromiseKit
 import SwiftDiscogs
 import UIKit
 
-class DiscogsSearchViewController: UIViewController, UISearchControllerDelegate {
+/// Allows the user to search the Discogs database for artists, releases, and
+/// labels.
+final class DiscogsSearchViewController: UIViewController, UISearchControllerDelegate {
 
-    var searchController: UISearchController!
+    // MARK: - Outlets
 
-    var searchResultsController: DiscogsSearchResultsController!
+    /// A `UISearchBar` that's configured in the storyboard, and whose
+    /// properties are then copied into the search controller's search bar
+    /// when `viewDidLoad()` is called.
+    @IBOutlet weak var dummySearchBar: UISearchBar?
 
-    var searchBar: UISearchBar {
+    // MARK: - Other properties
+
+    /// The search bar that's managed and installed by the `searchController`.
+    fileprivate var searchBar: UISearchBar {
         return searchController.searchBar
     }
 
-    @IBOutlet weak var dummySearchBar: UISearchBar?
+    fileprivate lazy var searchController: UISearchController = {
+        // Load the search results controller from the storyboard.
+        let bundle = Bundle(for: type(of: self))
+        let storyboard = UIStoryboard(name: "Main", bundle:  bundle)
+        let searchResultsController
+            = storyboard.instantiateViewController(withIdentifier: "searchResults") as? DiscogsSearchResultsController
+        let searchController = UISearchController(searchResultsController: searchResultsController)
+        searchController.delegate = self
+        searchController.searchResultsUpdater = searchResultsController
+        searchController.hidesNavigationBarDuringPresentation = true
+        searchController.dimsBackgroundDuringPresentation = true
+        searchController.obscuresBackgroundDuringPresentation = true
 
-    @IBAction func signInToDiscogs() {
-        let promise = DiscogsClient.singleton?.authorize(presentingViewController: self,
-                                                         callbackUrlString: AppDelegate.callbackUrl.absoluteString)
-        promise?.catch { (error) in
-            assertionFailure("Failed to log in: \(error.localizedDescription)")
-        }
-    }
+        return searchController
+    }()
+
+    // MARK: - UIViewController
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        setUpSearchController()
-
+        // This is the iOS 11 way of adding the search bar. No more adding it
+        // to the table view's header view.
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
 
+        // Copy the dummySearchBar's settings over to the search controller's
+        // bar, then remove the dummy.
         searchBar.placeholder = dummySearchBar?.placeholder
         searchBar.scopeButtonTitles = dummySearchBar?.scopeButtonTitles
         dummySearchBar?.removeFromSuperview()
         dummySearchBar = nil
     }
 
-    func setUpSearchController() {
-        // Load the search results controller from the storyboard.
-        let bundle = Bundle(for: type(of: self))
-        let storyboard = UIStoryboard(name: "Main", bundle:  bundle)
-        searchResultsController
-            = storyboard.instantiateViewController(withIdentifier: "searchResults") as? DiscogsSearchResultsController
-        searchController = UISearchController(searchResultsController: searchResultsController)
-        searchController.delegate = self
-        searchController.searchResultsUpdater = searchResultsController
-        searchController.hidesNavigationBarDuringPresentation = true
-        searchController.dimsBackgroundDuringPresentation = true
-        searchController.obscuresBackgroundDuringPresentation = true
-        definesPresentationContext = true
+    // MARK: - Actions
+
+    @IBAction func signInToDiscogs() {
+        let promise = DiscogsClient.singleton?.authorize(presentingViewController: self,
+                                                         callbackUrlString: AppDelegate.callbackUrl.absoluteString)
+        promise?.catch { (error) in
+            let alertTitle = NSLocalizedString("discogsSignInFailed",
+                                               tableName: nil,
+                                               bundle: Bundle(for: type(of: self)),
+                                               value: "Discogs sign-in failed",
+                                               comment: "Title of the alert that appears when sign-in is unsuccessful.")
+            let alertController = UIAlertController(title: alertTitle,
+                                                    message: error.localizedDescription,
+                                                    preferredStyle: .alert)
+            self.present(alertController, animated: true, completion: nil)
+        }
     }
 
 }
