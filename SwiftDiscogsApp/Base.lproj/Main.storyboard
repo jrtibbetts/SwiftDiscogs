@@ -29,7 +29,7 @@
                                     <action selector="signInToDiscogs" destination="BYZ-38-t0r" eventType="touchUpInside" id="Vy9-6I-T9g"/>
                                 </connections>
                             </button>
-                            <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Search for artists, releases, or labels" showsCancelButton="YES" showsScopeBar="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nwK-Ua-mCf">
+                            <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Search for artists, releases, or labels" showsCancelButton="YES" showsScopeBar="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nwK-Ua-mCf" userLabel="Dummy Search Bar (REMOVED AT RUNTIME)">
                                 <rect key="frame" x="0.0" y="140" width="375" height="100"/>
                                 <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <textInputTraits key="textInputTraits"/>
