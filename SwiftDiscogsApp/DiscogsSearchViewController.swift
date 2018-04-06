@@ -14,6 +14,8 @@ class DiscogsSearchViewController: UIViewController, UISearchControllerDelegate 
         return searchController.searchBar
     }
 
+    @IBOutlet weak var dummySearchBar: UISearchBar?
+
     @IBAction func signInToDiscogs() {
         let promise = DiscogsClient.singleton?.authorize(presentingViewController: self,
                                                          callbackUrlString: AppDelegate.callbackUrl.absoluteString)
@@ -27,12 +29,13 @@ class DiscogsSearchViewController: UIViewController, UISearchControllerDelegate 
 
         setUpSearchController()
 
-        navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
 
-        searchBar.placeholder = "Search for artists, releases, or labels"
-        searchBar.scopeButtonTitles = ["All", "Releases", "Artists", "Labels"]
+        searchBar.placeholder = dummySearchBar?.placeholder
+        searchBar.scopeButtonTitles = dummySearchBar?.scopeButtonTitles
+        dummySearchBar?.removeFromSuperview()
+        dummySearchBar = nil
     }
 
     func setUpSearchController() {

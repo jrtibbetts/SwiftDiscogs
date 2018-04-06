@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14105" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="slA-ou-6R0">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="si1-Xp-Qtq">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -14,7 +14,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Discogs Search View Controller-->
+        <!--Discogs Search-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController storyboardIdentifier="searchDatabase" id="BYZ-38-t0r" customClass="DiscogsSearchViewController" customModule="SwiftDiscogsApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -23,21 +23,40 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Xt-fI-IrK">
-                                <rect key="frame" x="108.66666666666669" y="343.66666666666669" width="157" height="30"/>
+                                <rect key="frame" x="108.66666666666669" y="394" width="157" height="30"/>
                                 <state key="normal" title="Sign In to Discogs.com"/>
                                 <connections>
                                     <action selector="signInToDiscogs" destination="BYZ-38-t0r" eventType="touchUpInside" id="Vy9-6I-T9g"/>
                                 </connections>
                             </button>
+                            <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Search for artists, releases, or labels" showsCancelButton="YES" showsScopeBar="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nwK-Ua-mCf">
+                                <rect key="frame" x="0.0" y="140" width="375" height="100"/>
+                                <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <scopeButtonTitles>
+                                    <string>All</string>
+                                    <string>Artists</string>
+                                    <string>Releases</string>
+                                    <string>Labels</string>
+                                </scopeButtonTitles>
+                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="7Xt-fI-IrK" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" constant="-50" id="aoW-zX-xVR"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="nwK-Ua-mCf" secondAttribute="trailing" id="baN-Ya-3Dc"/>
                             <constraint firstItem="7Xt-fI-IrK" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="gZF-yx-Tur"/>
+                            <constraint firstItem="nwK-Ua-mCf" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="qmh-QC-uhs"/>
+                            <constraint firstItem="nwK-Ua-mCf" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="wNV-jN-PJ0"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="99a-Al-h2A"/>
+                    <navigationItem key="navigationItem" title="Discogs Search" largeTitleDisplayMode="always" id="99a-Al-h2A">
+                        <barButtonItem key="backBarButtonItem" title="Search" id="ewt-20-Fqj"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="dummySearchBar" destination="nwK-Ua-mCf" id="I8X-VI-UHz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -46,7 +65,7 @@
         <!--Discogs Search Results Controller-->
         <scene sceneID="wcu-lZ-hrt">
             <objects>
-                <tableViewController storyboardIdentifier="searchResults" id="Bx3-Du-Gew" customClass="DiscogsSearchResultsController" customModule="SwiftDiscogsApp" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="searchResults" modalPresentationStyle="pageSheet" id="Bx3-Du-Gew" customClass="DiscogsSearchResultsController" customModule="SwiftDiscogsApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="0At-jF-2wb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -100,7 +119,7 @@
                                     <outlet property="detailsLabel" destination="H1F-p1-agD" id="OCW-OA-ev4"/>
                                     <outlet property="nameLabel" destination="yEI-Pr-zMs" id="Yez-cx-VXk"/>
                                     <outlet property="thumbnailView" destination="e54-4e-sL3" id="oPz-6x-ZM3"/>
-                                    <segue destination="RyP-Qg-Z7I" kind="showDetail" identifier="showDiscogsArtist" id="cCK-1V-oXF"/>
+                                    <segue destination="RyP-Qg-Z7I" kind="show" identifier="showDiscogsArtist" id="cCK-1V-oXF"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -255,12 +274,15 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="si1-Xp-Qtq" userLabel="Database" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Database" id="7Ap-M4-zcX"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="qAw-Lw-G1P">
-                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="qAw-Lw-G1P">
+                        <rect key="frame" x="0.0" y="44" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" cyan="0.0" magenta="0.0" yellow="0.0" black="0.050000000000000003" alpha="1" colorSpace="custom" customColorSpace="genericCMYKColorSpace"/>
+                        <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="8Lv-um-Avf">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="dNU-Qp-x6w"/>
                     </connections>
@@ -269,23 +291,6 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
             </objects>
             <point key="canvasLocation" x="1338.4000000000001" y="227.13643178410797"/>
         </scene>
-        <!--Tab Bar Controller-->
-        <scene sceneID="7Mm-Yf-eaC">
-            <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="slA-ou-6R0" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="eJv-bU-Ddr">
-                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </tabBar>
-                    <connections>
-                        <segue destination="si1-Xp-Qtq" kind="relationship" relationship="viewControllers" id="yyL-l2-PBV"/>
-                    </connections>
-                </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="2xP-9p-Brg" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="383" y="632"/>
-        </scene>
     </scenes>
+    <color key="tintColor" red="0.0026941164399999998" green="0.097064159809999995" blue="0.57731443640000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
