@@ -39,21 +39,6 @@
                ReferencedContainer = "container:SwiftDiscogs.xcodeproj">
             </BuildableReference>
          </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "960368F7205A012C00D24CE7"
-               BuildableName = "SwiftDiscogsAppUITests.xctest"
-               BlueprintName = "SwiftDiscogsAppUITests"
-               ReferencedContainer = "container:SwiftDiscogs.xcodeproj">
-            </BuildableReference>
-            <SkippedTests>
-               <Test
-                  Identifier = "SwiftDiscogsAppUITests">
-               </Test>
-            </SkippedTests>
-         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference

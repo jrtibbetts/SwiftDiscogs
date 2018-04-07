@@ -11,25 +11,49 @@
         <capability name="Baseline standard spacing" minToolsVersion="9.0"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Discogs Search-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="searchDatabase" definesPresentationContext="YES" id="BYZ-38-t0r" customClass="DiscogsSearchViewController" customModule="SwiftDiscogsApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                <viewController storyboardIdentifier="discogsSearch" definesPresentationContext="YES" id="BYZ-38-t0r" customClass="DiscogsSearchViewController" customModule="SwiftDiscogsApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC" customClass="DiscogsSearchView" customModule="SwiftDiscogsApp" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Xt-fI-IrK">
-                                <rect key="frame" x="109" y="394" width="157" height="30"/>
-                                <state key="normal" title="Sign In to Discogs.com"/>
-                                <connections>
-                                    <action selector="signInToDiscogs" destination="BYZ-38-t0r" eventType="touchUpInside" id="Vy9-6I-T9g"/>
-                                </connections>
-                            </button>
-                            <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Search for artists, releases, or labels" showsCancelButton="YES" showsScopeBar="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nwK-Ua-mCf" userLabel="Dummy Search Bar (REMOVED AT RUNTIME)">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="TVS-ft-VpB">
+                                <rect key="frame" x="85.333333333333314" y="379.33333333333331" width="206" height="60"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Xt-fI-IrK" userLabel="Sign In Button">
+                                        <rect key="frame" x="0.0" y="0.0" width="206" height="30"/>
+                                        <state key="normal" title="Sign In to Discogs.com"/>
+                                        <connections>
+                                            <action selector="signInToDiscogs" destination="BYZ-38-t0r" eventType="touchUpInside" id="Vy9-6I-T9g"/>
+                                        </connections>
+                                    </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="4ue-8Y-dqI" userLabel="Sign Out View">
+                                        <rect key="frame" x="0.0" y="30" width="206" height="30"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Signed in as %@." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ebJ-IV-GIq" userLabel="Signed In Label">
+                                                <rect key="frame" x="0.0" y="0.0" width="131" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lfP-Jk-5RX" userLabel="Sign Out Button">
+                                                <rect key="frame" x="139" y="0.0" width="67" height="30"/>
+                                                <state key="normal" title="Sign Out?"/>
+                                                <connections>
+                                                    <action selector="signOutOfDiscogs" destination="BYZ-38-t0r" eventType="touchUpInside" id="RRC-50-MgJ"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <searchBar hidden="YES" clearsContextBeforeDrawing="NO" contentMode="redraw" searchBarStyle="minimal" placeholder="Search for artists, releases, or labels" showsCancelButton="YES" showsScopeBar="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nwK-Ua-mCf" userLabel="Dummy Search Bar (REMOVED AT RUNTIME)">
                                 <rect key="frame" x="0.0" y="140" width="375" height="100"/>
                                 <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -43,19 +67,26 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="7Xt-fI-IrK" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" constant="-50" id="aoW-zX-xVR"/>
+                            <constraint firstItem="TVS-ft-VpB" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="PnI-TB-O3x"/>
+                            <constraint firstItem="TVS-ft-VpB" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" constant="-50" id="Sq2-qT-hek"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="nwK-Ua-mCf" secondAttribute="trailing" id="baN-Ya-3Dc"/>
-                            <constraint firstItem="7Xt-fI-IrK" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="gZF-yx-Tur"/>
                             <constraint firstItem="nwK-Ua-mCf" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="qmh-QC-uhs"/>
                             <constraint firstItem="nwK-Ua-mCf" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="wNV-jN-PJ0"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <connections>
+                            <outlet property="dummySearchBar" destination="nwK-Ua-mCf" id="Yw9-4x-99C"/>
+                            <outlet property="signInButton" destination="7Xt-fI-IrK" id="43r-P4-TVF"/>
+                            <outlet property="signOutButton" destination="lfP-Jk-5RX" id="87S-Od-8Db"/>
+                            <outlet property="signOutView" destination="4ue-8Y-dqI" id="fDO-vp-8VS"/>
+                            <outlet property="signedInAsLabel" destination="ebJ-IV-GIq" id="yex-dD-Acs"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Discogs Search" largeTitleDisplayMode="always" id="99a-Al-h2A">
                         <barButtonItem key="backBarButtonItem" title="Search" id="ewt-20-Fqj"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="dummySearchBar" destination="nwK-Ua-mCf" id="I8X-VI-UHz"/>
+                        <outlet property="display" destination="8bC-Xf-vdC" id="4ay-Ko-2vC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
