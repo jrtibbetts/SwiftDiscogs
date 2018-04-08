@@ -28,6 +28,10 @@ open class DiscogsArtistModel: NSObject,
 
     // MARK: - UITableViewDataSource & UITableViewDelegate
 
+    public func numberOfSections(in tableView: UITableView) -> Int {
+        return numberOfSections()
+    }
+
     open func tableView(_ tableView: UITableView,
                         cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         return UITableViewCell(style: .default, reuseIdentifier: nil)
@@ -45,6 +49,10 @@ open class DiscogsArtistModel: NSObject,
 
     // MARK: - UICollectionViewDataSource & UICollectionViewDelegate
 
+    public func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return numberOfSections()
+    }
+    
     open func collectionView(_ collectionView: UICollectionView,
                                cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         return UICollectionViewCell(frame: CGRect())
@@ -68,6 +76,10 @@ open class DiscogsArtistModel: NSObject,
         case .releases:
             return 0 // discogsArtist
         }
+    }
+
+    fileprivate func numberOfSections() -> Int {
+        return Section.releases.rawValue + 1
     }
 
     fileprivate func headerTitle(forSection section: Int) -> String? {

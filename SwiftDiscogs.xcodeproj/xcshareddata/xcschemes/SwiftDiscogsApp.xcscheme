@@ -39,6 +39,16 @@
                ReferencedContainer = "container:SwiftDiscogs.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "968983B0203D427B00DE77BC"
+               BuildableName = "SwiftDiscogsTests.xctest"
+               BlueprintName = "SwiftDiscogsTests"
+               ReferencedContainer = "container:SwiftDiscogs.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
