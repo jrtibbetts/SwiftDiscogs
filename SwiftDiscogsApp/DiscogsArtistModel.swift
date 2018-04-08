@@ -34,6 +34,17 @@ open class DiscogsArtistModel: NSObject,
 
     open func tableView(_ tableView: UITableView,
                         cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        switch Section(rawValue: indexPath.section)! {
+        case .bio:
+            if let cell = tableView.dequeueReusableCell(withIdentifier: "artistBioCell") as? DiscogsArtistBioTableCell {
+                cell.bioText = artist.profile
+
+                return cell
+            }
+        default:
+            break
+        }
+
         return UITableViewCell(style: .default, reuseIdentifier: nil)
     }
 
