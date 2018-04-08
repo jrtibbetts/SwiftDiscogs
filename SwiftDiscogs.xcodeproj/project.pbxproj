@@ -143,6 +143,8 @@
 		969ADA7E2068D83400A8BDD0 /* DiscogsReleaseFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969ADA7D2068D83400A8BDD0 /* DiscogsReleaseFormat.swift */; };
 		969ADA802068D87D00A8BDD0 /* DiscogsSublabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969ADA7F2068D87D00A8BDD0 /* DiscogsSublabel.swift */; };
 		969ADA822068D8B100A8BDD0 /* DiscogsBandMember.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969ADA812068D8B100A8BDD0 /* DiscogsBandMember.swift */; };
+		96E8A14320795DBF00BFD508 /* DiscogsSearchViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E8A14220795DBF00BFD508 /* DiscogsSearchViewControllerTests.swift */; };
+		96E8A14420799EC800BFD508 /* PromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9689848B203DDA0200DE77BC /* PromiseKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -173,6 +175,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 968983A7203D427A00DE77BC;
 			remoteInfo = SwiftDiscogs;
+		};
+		96E8A14020795C6E00BFD508 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9689839F203D427A00DE77BC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 960368D9205A012B00D24CE7;
+			remoteInfo = SwiftDiscogsApp;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -332,6 +341,7 @@
 		969ADA7D2068D83400A8BDD0 /* DiscogsReleaseFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscogsReleaseFormat.swift; sourceTree = "<group>"; };
 		969ADA7F2068D87D00A8BDD0 /* DiscogsSublabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscogsSublabel.swift; sourceTree = "<group>"; };
 		969ADA812068D8B100A8BDD0 /* DiscogsBandMember.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscogsBandMember.swift; sourceTree = "<group>"; };
+		96E8A14220795DBF00BFD508 /* DiscogsSearchViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscogsSearchViewControllerTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -346,6 +356,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96E8A14420799EC800BFD508 /* PromiseKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -403,9 +414,10 @@
 			isa = PBXGroup;
 			children = (
 				960368F1205A012C00D24CE7 /* DiscogsArtistModelTests.swift */,
-				960368F3205A012C00D24CE7 /* Info.plist */,
 				9691A7302078504900A4936C /* DiscogsSearchViewTests.swift */,
+				96E8A14220795DBF00BFD508 /* DiscogsSearchViewControllerTests.swift */,
 				9691A7322078865800A4936C /* DiscogsSingletonTests.swift */,
+				960368F3205A012C00D24CE7 /* Info.plist */,
 			);
 			path = SwiftDiscogsAppTests;
 			sourceTree = "<group>";
@@ -760,6 +772,7 @@
 			);
 			dependencies = (
 				968983B4203D427B00DE77BC /* PBXTargetDependency */,
+				96E8A14120795C6E00BFD508 /* PBXTargetDependency */,
 			);
 			name = SwiftDiscogsTests;
 			productName = SwiftDiscogsTests;
@@ -943,6 +956,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				960368F2205A012C00D24CE7 /* DiscogsArtistModelTests.swift in Sources */,
+				96E8A14320795DBF00BFD508 /* DiscogsSearchViewControllerTests.swift in Sources */,
 				9691A7332078865800A4936C /* DiscogsSingletonTests.swift in Sources */,
 				9691A7312078504900A4936C /* DiscogsSearchViewTests.swift in Sources */,
 			);
@@ -1045,6 +1059,11 @@
 			target = 968983A7203D427A00DE77BC /* SwiftDiscogs */;
 			targetProxy = 968983B3203D427B00DE77BC /* PBXContainerItemProxy */;
 		};
+		96E8A14120795C6E00BFD508 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 960368D9205A012B00D24CE7 /* SwiftDiscogsApp */;
+			targetProxy = 96E8A14020795C6E00BFD508 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
@@ -1112,6 +1131,10 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3MY7LL9G36;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = SwiftDiscogsAppTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = net.poikile.SwiftDiscogsAppTests;
@@ -1129,6 +1152,10 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3MY7LL9G36;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = SwiftDiscogsAppTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = net.poikile.SwiftDiscogsAppTests;
