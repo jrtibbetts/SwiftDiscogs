@@ -1,6 +1,7 @@
 //  Copyright © 2017 nrith. All rights reserved.
 
 import Foundation
+import OAuthSwift
 import PromiseKit
 
 /// Error types for problems retrieving data from Discogs.
@@ -34,6 +35,9 @@ public protocol Discogs {
     /// - parameter completion: The completion block that will be applied to
     ///   the artist, if found, or the error, if one was thrown.
     func artist(identifier: Int) -> Promise<DiscogsArtist>
+
+    func authorize(presentingViewController: UIViewController,
+                   callbackUrlString: String) -> Promise<OAuthSwiftCredential>
     
     /// Look up the releases by the specified artist's ID.
     ///

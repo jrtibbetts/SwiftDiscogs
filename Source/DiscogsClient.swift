@@ -8,7 +8,7 @@ import PromiseKit
 /// calls return a `Promise`, which the API call will populate with either
 /// a populated `struct` of the expected type, or an error.
 open class DiscogsClient: OAuth1JSONClient, Discogs {
-    
+
     // MARK: - Private properties
     
     fileprivate var headers: OAuthSwift.Headers = [:]
@@ -34,7 +34,7 @@ open class DiscogsClient: OAuth1JSONClient, Discogs {
                    baseUrl: URL(string: "https://api.discogs.com")!)
         headers["User-Agent"] = self.userAgent
     }
-    
+
     override open func authorize(presentingViewController: UIViewController,
                                  callbackUrlString: String) -> Promise<OAuthSwiftCredential> {
         let promise: Promise<OAuthSwiftCredential> = super.authorize(presentingViewController: presentingViewController,

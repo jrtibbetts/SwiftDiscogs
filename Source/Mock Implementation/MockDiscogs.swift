@@ -1,6 +1,7 @@
 //  Copyright © 2017 nrith. All rights reserved.
 
 import JSONClient
+import OAuthSwift
 import PromiseKit
 import UIKit
 
@@ -15,6 +16,12 @@ public class MockDiscogs: MockClient, Discogs {
             super.init(errorDomain: "net.immediate.MockDiscogs", bundle: bundle)
         } else {
             super.init(bundle: bundle)
+        }
+    }
+
+    public func authorize(presentingViewController: UIViewController, callbackUrlString: String) -> Promise<OAuthSwiftCredential> {
+        return Promise<OAuthSwiftCredential> { (fulfill, reject) in
+            fulfill(OAuthSwiftCredential.init(consumerKey: "key", consumerSecret: "secret"))
         }
     }
     
