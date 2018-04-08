@@ -68,16 +68,13 @@ final class DiscogsSearchViewController: UIViewController, UISearchControllerDel
             // TODO: Use the user's real name.
             self?.display?.signedInAs(userName: "Fatty Arbuckle")
             completion?()
-            }.catch { (error) in
+            }.catch { (error) in    // not weak self because of Bundle(for:)
                 let alertTitle = NSLocalizedString("discogsSignInFailed",
                                                    tableName: nil,
                                                    bundle: Bundle(for: type(of: self)),
                                                    value: "Discogs sign-in failed",
                                                    comment: "Title of the alert that appears when sign-in is unsuccessful.")
-                let alertController = UIAlertController(title: alertTitle,
-                                                        message: error.localizedDescription,
-                                                        preferredStyle: .alert)
-                self.present(alertController, animated: true, completion: nil)
+                self.presentAlert(for: error, title: alertTitle)
         }
     }
 

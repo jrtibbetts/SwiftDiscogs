@@ -59,19 +59,22 @@ class DiscogsSearchView: UIView, DiscogsSearchDisplay {
         searchController.dimsBackgroundDuringPresentation = true
         searchController.obscuresBackgroundDuringPresentation = true
 
-        // Copy the dummySearchBar's settings over to the search controller's
-        // bar, then remove the dummy.
-        let searchBar = searchController.searchBar
-        searchBar.placeholder = dummySearchBar?.placeholder
-        searchBar.scopeButtonTitles = dummySearchBar?.scopeButtonTitles
-        searchBar.isHidden = true
-        dummySearchBar?.removeFromSuperview()
-        dummySearchBar = nil
+        setUp(searchBar: searchController.searchBar)
 
         // This is the iOS 11 way of adding the search bar. No more adding it
         // to the table view's header view.
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
+    }
+
+    // Copy the dummySearchBar's settings over to the search controller's
+    // bar, then remove the dummy.
+    fileprivate func setUp(searchBar: UISearchBar) {
+        searchBar.placeholder = dummySearchBar?.placeholder
+        searchBar.scopeButtonTitles = dummySearchBar?.scopeButtonTitles
+        searchBar.isHidden = true
+        dummySearchBar?.removeFromSuperview()
+        dummySearchBar = nil
     }
 
     func signedInAs(userName: String) {
