@@ -17,7 +17,7 @@ final class DiscogsSearchViewController: UIViewController, UISearchControllerDel
     // MARK: Properties
 
     /// The Discogs client.
-    var discogsClient: Discogs?
+    var discogs: Discogs?
 
     /// The `UISearchController`. It displays its results in a separate view
     /// controller (the `DiscogsSearchResultsController`).

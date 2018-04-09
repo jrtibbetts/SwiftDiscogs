@@ -45,7 +45,7 @@ class DiscogsSearchViewControllerTests: XCTestCase {
         searchViewController = DiscogsSearchViewController()
         mockSearchDisplay = MockSearchDisplay()
         searchViewController.display = mockSearchDisplay
-        searchViewController.discogsClient = MockDiscogs()
+        searchViewController.discogs = MockDiscogs()
     }
 
     func testSignInAndOutCallExpectedMethods() {
