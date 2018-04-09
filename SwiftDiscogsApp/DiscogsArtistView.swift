@@ -37,14 +37,12 @@ open class DiscogsArtistView: UIView {
     /// Reload the table or collection view, as appropriate.
     open func reload() {
         if let tableView = tableView {
-            tableView.dataSource = model
-            tableView.delegate = model
+            model?.tableView = tableView
             tableView.reloadData()
         }
 
         if let collectionView = collectionView {
-            //            collectionView.dataSource = model
-            //            collectionview.delegate = model
+            model?.collectionView = collectionView
             collectionView.reloadData()
         }
     }

@@ -16,14 +16,23 @@ class DiscogsArtistModelTests: XCTestCase {
     }()
 
     lazy var model: DiscogsArtistModel = {
-        return DiscogsArtistModel(artist: artist)
+        let model = DiscogsArtistModel(artist: artist)
+        model.tableView = tableView
+
+        return model
     }()
 
+    lazy var tableView: UITableView = {
+        let tableView = UITableView(frame: CGRect(x: 0.0, y: 0.0, width: 400.0, height: 700.0))
+        tableView.register(DiscogsArtistBioTableCell.self, forCellReuseIdentifier: DiscogsArtistModel.Section.bio.cellIdentifier)
+
+        return tableView
+    }()
     // MARK: init(artist:)
 
     func testInitializerWithArtist() {
         _ = discogsClient.artist(identifier: 99).then { (artist) -> Void in
-            XCTAssertEqual(self.model.artist.id, 99)
+            XCTAssertEqual(artist.id, 108713)
             }.catch { (error) in
                 XCTFail(error.localizedDescription)
         }
@@ -32,21 +41,20 @@ class DiscogsArtistModelTests: XCTestCase {
     // MARK: UITableViewDataSource
 
     func testTableViewNumberOfSectionsIs2() {
-        XCTAssertEqual(model.numberOfSections(in: UITableView()), 2)
+        XCTAssertEqual(model.numberOfSections(in: tableView), 2)
     }
 
     func testNumberOfRowsInTableSection1Is1() {
-        XCTAssertEqual(model.tableView(UITableView(), numberOfRowsInSection: 0), 1)
+        XCTAssertEqual(model.tableView(tableView, numberOfRowsInSection: 0), 1)
     }
 
     func testTitlesForTableSectionsAreBioAndRelease() {
-        let tableView = UITableView()
         XCTAssertEqual(model.tableView(tableView, titleForHeaderInSection: 0), "Bio")
         XCTAssertEqual(model.tableView(tableView, titleForHeaderInSection: 1), "Releases")
     }
 
     func testCellForTableAtIndexReturnsExpectedCell() {
-        let cell = model.tableView(UITableView(), cellForRowAt: IndexPath(row: 0, section: 0))
+        let cell = model.tableView(tableView, cellForRowAt: IndexPath(row: 0, section: 0))
 
         guard let bioCell = cell as? DiscogsArtistBioTableCell else {
             XCTFail("The cell at (0, 0) should be a DiscogsArtistBioTableCell.")

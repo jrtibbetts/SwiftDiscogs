@@ -31,10 +31,8 @@ open class DiscogsArtistViewController: UIViewController {
         if let artist = artist {
             let model = DiscogsArtistModel(artist: artist)
             artistView?.model = model
-            tableView?.delegate = model
-            tableView?.dataSource = model
-            collectionView?.delegate = model
-            collectionView?.dataSource = model
+            model.tableView = tableView
+            model.collectionView = collectionView
         }
     }
 

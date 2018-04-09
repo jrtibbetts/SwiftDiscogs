@@ -150,7 +150,7 @@
                                     <outlet property="detailsLabel" destination="H1F-p1-agD" id="OCW-OA-ev4"/>
                                     <outlet property="nameLabel" destination="yEI-Pr-zMs" id="Yez-cx-VXk"/>
                                     <outlet property="thumbnailView" destination="e54-4e-sL3" id="oPz-6x-ZM3"/>
-                                    <segue destination="RyP-Qg-Z7I" kind="show" identifier="showDiscogsArtist" id="cCK-1V-oXF"/>
+                                    <segue destination="cvK-7F-nVP" kind="show" identifier="showDiscogsArtist" id="3Vg-co-SyY"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -164,109 +164,120 @@
             </objects>
             <point key="canvasLocation" x="3117.5999999999999" y="226.84729064039411"/>
         </scene>
-        <!--Discogs Artist-->
-        <scene sceneID="K4K-Kp-tYT">
+        <!--Discogs Artist View Controller-->
+        <scene sceneID="Ah8-cD-mNe">
             <objects>
-                <tableViewController id="RyP-Qg-Z7I" userLabel="Discogs Artist" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="VV7-bX-xOm">
+                <viewController id="cvK-7F-nVP" customClass="DiscogsArtistViewController" customModule="SwiftDiscogsApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1SC-zu-66M">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <view key="tableHeaderView" contentMode="scaleToFill" id="n5Q-xf-N1Z" userLabel="Header">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Little Richard" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DFC-Zw-llF" userLabel="Artist Name">
-                                    <rect key="frame" x="8" y="8" width="110" height="21"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="iaE-Sd-FyD">
+                                <rect key="frame" x="0.0" y="44" width="375" height="734"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <view key="tableHeaderView" contentMode="scaleToFill" id="I5c-qH-Aaa" userLabel="Header">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                    <nil key="textColor"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                            </subviews>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        </view>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="artistBioCell" rowHeight="228" id="56p-Yd-qhX" userLabel="Bio Cell" customClass="DiscogsArtistBioTableCell" customModule="SwiftDiscogsApp" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="77" width="375" height="228"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="56p-Yd-qhX" id="r3J-Fm-20h">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="227.66666666666666"/>
-                                    <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" layoutMarginsFollowReadableWidth="YES" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Wt-sS-i4l" userLabel="Bio">
-                                            <rect key="frame" x="16" y="11" width="343" height="206"/>
-                                            <string key="text">American singer, songwriter, pianist and recording artist, born 5 December 1932 in Macon, Georgia, USA. 
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Little Richard" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WA8-Ij-biA" userLabel="Artist Name">
+                                            <rect key="frame" x="8" y="8" width="110" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </view>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="artistBioCell" rowHeight="228" id="osP-EA-1iJ" userLabel="Bio Cell" customClass="DiscogsArtistBioTableCell" customModule="SwiftDiscogsApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="77" width="375" height="228"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="osP-EA-1iJ" id="GOt-Af-he5">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="227.66666666666666"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" layoutMarginsFollowReadableWidth="YES" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GmX-2U-jW4" userLabel="Bio">
+                                                    <rect key="frame" x="15" y="11" width="345" height="206"/>
+                                                    <string key="text">American singer, songwriter, pianist and recording artist, born 5 December 1932 in Macon, Georgia, USA. 
 
 Inducted into Rock And Roll Hall of Fame in 1986 (Performer). 
 Inducted into Songwriters Hall of Fame in 2003.</string>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstAttribute="leadingMargin" secondItem="0Wt-sS-i4l" secondAttribute="leading" id="E88-wf-Pfz"/>
-                                        <constraint firstAttribute="topMargin" secondItem="0Wt-sS-i4l" secondAttribute="top" id="aG1-Pl-Xtb"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="0Wt-sS-i4l" secondAttribute="trailing" id="ajy-8u-Fjz"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="0Wt-sS-i4l" secondAttribute="bottom" id="w9b-SJ-PIZ"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="artistReleaseCell" rowHeight="88" id="XAn-L8-gFz" userLabel="Release Cell">
-                                <rect key="frame" x="0.0" y="305" width="375" height="88"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="XAn-L8-gFz" id="Nrz-nr-gv2">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="87.666666666666671"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="XhH-YC-NvO">
-                                            <rect key="frame" x="16" y="11" width="64" height="64"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="64" id="00h-uY-opZ"/>
-                                                <constraint firstAttribute="width" secondItem="XhH-YC-NvO" secondAttribute="height" multiplier="1:1" id="AfD-Zf-i1O"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="GmX-2U-jW4" secondAttribute="bottom" id="0jq-hF-j6h"/>
+                                                <constraint firstAttribute="leadingMargin" secondItem="GmX-2U-jW4" secondAttribute="leading" id="rtP-bE-qV9"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="GmX-2U-jW4" secondAttribute="trailing" id="z65-65-vKM"/>
+                                                <constraint firstAttribute="topMargin" secondItem="GmX-2U-jW4" secondAttribute="top" id="zq7-Sv-gj2"/>
                                             </constraints>
-                                            <viewLayoutGuide key="safeArea" id="3Yo-RH-gRm"/>
-                                        </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="1957" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ISo-rB-xS6" userLabel="Album Year">
-                                            <rect key="frame" x="321" y="11" width="38" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" text="Here's Little Richard" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P3a-Gr-PG9" userLabel="Album Title">
-                                            <rect key="frame" x="88" y="11" width="155" height="21"/>
-                                            <fontDescription key="fontDescription" type="italicSystem" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="ISo-rB-xS6" firstAttribute="firstBaseline" secondItem="P3a-Gr-PG9" secondAttribute="firstBaseline" id="0f5-2X-NJS"/>
-                                        <constraint firstItem="P3a-Gr-PG9" firstAttribute="leading" secondItem="XhH-YC-NvO" secondAttribute="trailing" constant="8" symbolic="YES" id="38H-vD-MHA"/>
-                                        <constraint firstItem="ISo-rB-xS6" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="P3a-Gr-PG9" secondAttribute="trailing" constant="8" symbolic="YES" id="4fV-F4-9ME"/>
-                                        <constraint firstAttribute="topMargin" secondItem="P3a-Gr-PG9" secondAttribute="top" id="LfQ-8W-XUv"/>
-                                        <constraint firstItem="XhH-YC-NvO" firstAttribute="top" secondItem="Nrz-nr-gv2" secondAttribute="topMargin" id="Lnu-Mk-mJN"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="ISo-rB-xS6" secondAttribute="trailing" id="NYX-ow-wWj"/>
-                                        <constraint firstItem="XhH-YC-NvO" firstAttribute="leading" secondItem="Nrz-nr-gv2" secondAttribute="leadingMargin" id="jag-uY-T9W"/>
-                                        <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="P3a-Gr-PG9" secondAttribute="bottom" id="zbR-e0-PtC"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="430-Jq-t69" kind="showDetail" identifier="showDiscogsRelease" id="g9m-pO-C7p"/>
-                                </connections>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="RyP-Qg-Z7I" id="GV5-kM-tGB"/>
-                            <outlet property="delegate" destination="RyP-Qg-Z7I" id="M3M-EX-cku"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Little Richard" id="3mi-mj-Ljb"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="vfF-QY-Xy6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="artistReleaseCell" rowHeight="88" id="zvy-eC-FLO" userLabel="Release Cell">
+                                        <rect key="frame" x="0.0" y="305" width="375" height="88"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="zvy-eC-FLO" id="33Q-IZ-u8S">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="87.666666666666671"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="CJD-wt-qtG">
+                                                    <rect key="frame" x="15" y="11" width="64" height="64"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="CJD-wt-qtG" secondAttribute="height" multiplier="1:1" id="ClY-s9-XA2"/>
+                                                        <constraint firstAttribute="width" constant="64" id="nLf-wP-V3f"/>
+                                                    </constraints>
+                                                    <viewLayoutGuide key="safeArea" id="Kfo-Xh-hkw"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="1957" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i8D-bh-YBu" userLabel="Album Year">
+                                                    <rect key="frame" x="322" y="11" width="38" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" text="Here's Little Richard" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RTP-xH-Qfi" userLabel="Album Title">
+                                                    <rect key="frame" x="87" y="11" width="155" height="21"/>
+                                                    <fontDescription key="fontDescription" type="italicSystem" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="RTP-xH-Qfi" secondAttribute="bottom" id="HAx-l0-5YA"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="i8D-bh-YBu" secondAttribute="trailing" id="eLp-RS-xxx"/>
+                                                <constraint firstItem="CJD-wt-qtG" firstAttribute="leading" secondItem="33Q-IZ-u8S" secondAttribute="leadingMargin" id="icl-Hz-f7a"/>
+                                                <constraint firstItem="i8D-bh-YBu" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="RTP-xH-Qfi" secondAttribute="trailing" constant="8" symbolic="YES" id="qm5-Dp-g32"/>
+                                                <constraint firstItem="CJD-wt-qtG" firstAttribute="top" secondItem="33Q-IZ-u8S" secondAttribute="topMargin" id="sMm-UM-Hrq"/>
+                                                <constraint firstItem="RTP-xH-Qfi" firstAttribute="leading" secondItem="CJD-wt-qtG" secondAttribute="trailing" constant="8" symbolic="YES" id="tme-Mh-ePZ"/>
+                                                <constraint firstItem="i8D-bh-YBu" firstAttribute="firstBaseline" secondItem="RTP-xH-Qfi" secondAttribute="firstBaseline" id="vQ9-Kb-M19"/>
+                                                <constraint firstAttribute="topMargin" secondItem="RTP-xH-Qfi" secondAttribute="top" id="wyS-Ka-4yp"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="430-Jq-t69" kind="show" identifier="showDiscogsRelease" id="g33-nN-pWB"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ShM-N3-p40" firstAttribute="top" secondItem="iaE-Sd-FyD" secondAttribute="top" id="ZTE-vH-5ST"/>
+                            <constraint firstItem="iaE-Sd-FyD" firstAttribute="bottom" secondItem="ShM-N3-p40" secondAttribute="bottom" id="e5i-gS-fve"/>
+                            <constraint firstItem="ShM-N3-p40" firstAttribute="trailing" secondItem="iaE-Sd-FyD" secondAttribute="trailing" id="vyu-rA-zSE"/>
+                            <constraint firstItem="iaE-Sd-FyD" firstAttribute="leading" secondItem="ShM-N3-p40" secondAttribute="leading" id="yUy-sx-rMU"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ShM-N3-p40"/>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="iaE-Sd-FyD" id="AzU-F2-dJa"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lOY-hj-4oC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3984.8000000000002" y="226.84729064039411"/>
+            <point key="canvasLocation" x="3993" y="227"/>
         </scene>
         <!--Here's Little Richard-->
         <scene sceneID="DdD-1V-EUe">

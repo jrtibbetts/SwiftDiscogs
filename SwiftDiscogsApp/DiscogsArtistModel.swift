@@ -12,9 +12,33 @@ open class DiscogsArtistModel: NSObject,
     public enum Section: Int {
         case bio = 0
         case releases
+
+        var cellIdentifier: String {
+            switch self {
+            case .bio:
+                return "artistBioCell"
+            case .releases:
+                return "artistReleasesCell"
+            }
+        }
+
     }
 
     // MARK: - Properties
+
+    open weak var tableView: UITableView? {
+        didSet {
+            tableView?.delegate = self
+            tableView?.dataSource = self
+        }
+    }
+
+    open weak var collectionView: UICollectionView? {
+        didSet {
+            tableView?.delegate = self
+            tableView?.dataSource = self
+        }
+    }
 
     open var artist: DiscogsArtist
 
@@ -34,15 +58,22 @@ open class DiscogsArtistModel: NSObject,
 
     open func tableView(_ tableView: UITableView,
                         cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        switch Section(rawValue: indexPath.section)! {
+        guard let section = Section(rawValue: indexPath.section) else {
+            return UITableViewCell(style: .default, reuseIdentifier: nil)
+        }
+
+        switch section {
         case .bio:
-            if let cell = tableView.dequeueReusableCell(withIdentifier: "artistBioCell") as? DiscogsArtistBioTableCell {
+            if let cell = tableView.dequeueReusableCell(withIdentifier: section.cellIdentifier) as? DiscogsArtistBioTableCell {
                 cell.bioText = artist.profile
 
                 return cell
             }
-        default:
+        case .releases:
             break
+//            if let cell = tableView.dequeueReusableCell(withIdentifier: section.cellIdentifier) as? DiscogsArtistReleaseTableCell {
+//
+//            }
         }
 
         return UITableViewCell(style: .default, reuseIdentifier: nil)
