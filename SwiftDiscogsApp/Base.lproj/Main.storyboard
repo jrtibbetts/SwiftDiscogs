@@ -24,32 +24,35 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="TVS-ft-VpB">
-                                <rect key="frame" x="85.333333333333314" y="379.33333333333331" width="206" height="60"/>
+                                <rect key="frame" x="92.333333333333329" y="379.33333333333331" width="192.33333333333337" height="60"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Xt-fI-IrK" userLabel="Sign In Button">
-                                        <rect key="frame" x="0.0" y="0.0" width="206" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="192.33333333333334" height="30"/>
                                         <state key="normal" title="Sign In to Discogs.com"/>
                                         <connections>
-                                            <action selector="signInToDiscogs" destination="BYZ-38-t0r" eventType="touchUpInside" id="Vy9-6I-T9g"/>
+                                            <action selector="signInTappedWithSource:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4ka-bm-NcE"/>
                                         </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="4ue-8Y-dqI" userLabel="Sign Out View">
-                                        <rect key="frame" x="0.0" y="30" width="206" height="30"/>
+                                        <rect key="frame" x="0.0" y="30" width="192.33333333333334" height="30"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Signed in as %@." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ebJ-IV-GIq" userLabel="Signed In Label">
-                                                <rect key="frame" x="0.0" y="0.0" width="131" height="30"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Signed in as %@." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ebJ-IV-GIq" userLabel="Signed In Label">
+                                                <rect key="frame" x="0.0" y="0.0" width="117.33333333333333" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lfP-Jk-5RX" userLabel="Sign Out Button">
-                                                <rect key="frame" x="139" y="0.0" width="67" height="30"/>
+                                                <rect key="frame" x="125.33333333333331" y="0.0" width="67" height="30"/>
                                                 <state key="normal" title="Sign Out?"/>
                                                 <connections>
-                                                    <action selector="signOutOfDiscogs" destination="BYZ-38-t0r" eventType="touchUpInside" id="RRC-50-MgJ"/>
+                                                    <action selector="signOutTappedWithSource:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xib-b8-Q56"/>
                                                 </connections>
                                             </button>
                                         </subviews>
+                                        <constraints>
+                                            <constraint firstItem="lfP-Jk-5RX" firstAttribute="firstBaseline" secondItem="ebJ-IV-GIq" secondAttribute="firstBaseline" id="zn8-tW-NH9"/>
+                                        </constraints>
                                     </stackView>
                                 </subviews>
                             </stackView>
