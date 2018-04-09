@@ -4,22 +4,25 @@ import PromiseKit
 import SwiftDiscogs
 import UIKit
 
-open class DiscogsSearchResultsController: UITableViewController, UISearchResultsUpdating {
-    
+open class DiscogsSearchResultsController: UITableViewController, UISearchResultsUpdating, DiscogsProvider {
+
+    // MARK: Properties
+
     open var results: [DiscogsSearchResult] = [] {
         didSet {
             tableView?.reloadData()
         }
     }
-    
+
+    public var discogs: Discogs?
+
     fileprivate var pendingPromise: Promise<DiscogsSearchResults>?
     
-    // MARK: - UISearchResultsUpdating
+    // MARK: UISearchResultsUpdating
     
     open func updateSearchResults(for searchController: UISearchController) {
         let searchTerms = searchController.searchBar.text ?? ""
-        let promise: Promise<DiscogsSearchResults>?
-            = DiscogsClient.singleton?.search(for: searchTerms, type: "Artist")
+        let promise: Promise<DiscogsSearchResults>? = discogs?.search(for: searchTerms, type: "Artist")
         promise?.then { [weak self] (searchResults) -> Void in
             guard let filteredResults = searchResults.results?.filter({ $0.type == "artist" }) else {
                 self?.results = []
@@ -32,7 +35,7 @@ open class DiscogsSearchResultsController: UITableViewController, UISearchResult
         }
     }
     
-    // MARK: - UITableViewDataSource
+    // MARK: UITableViewDataSource
     
     override open func numberOfSections(in tableView: UITableView) -> Int {
         return 1

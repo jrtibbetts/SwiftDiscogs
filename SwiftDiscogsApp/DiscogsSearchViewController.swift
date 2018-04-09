@@ -6,7 +6,7 @@ import UIKit
 
 /// Allows the user to search the Discogs database for artists, releases, and
 /// labels.
-final class DiscogsSearchViewController: UIViewController, UISearchControllerDelegate {
+final class DiscogsSearchViewController: UIViewController, UISearchControllerDelegate, DiscogsProvider {
 
     // MARK: Outlets
 
@@ -27,6 +27,7 @@ final class DiscogsSearchViewController: UIViewController, UISearchControllerDel
         let storyboard = UIStoryboard(name: "Main", bundle:  bundle)
         let searchResultsController
             = storyboard.instantiateViewController(withIdentifier: "searchResults") as? DiscogsSearchResultsController
+        searchResultsController?.discogs = discogs
         let searchController = UISearchController(searchResultsController: searchResultsController)
         searchController.delegate = self
         searchController.searchResultsUpdater = searchResultsController
@@ -38,7 +39,7 @@ final class DiscogsSearchViewController: UIViewController, UISearchControllerDel
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        discogs = MockDiscogs() // DiscogsClient.singleton
         display?.setUp(searchController: searchController, navigationItem: navigationItem)
     }
 
@@ -62,7 +63,7 @@ final class DiscogsSearchViewController: UIViewController, UISearchControllerDel
     func signInToDiscogs(completion: (() -> Void)? = nil) {
         display?.willSignIn()
         
-        let promise = discogsClient?.authorize(presentingViewController: self,
+        let promise = discogs?.authorize(presentingViewController: self,
                                                callbackUrlString: AppDelegate.callbackUrl.absoluteString)
         promise?.then { [weak self] (credential) -> Void in
             // TODO: Use the user's real name.
