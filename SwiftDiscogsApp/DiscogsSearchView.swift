@@ -43,11 +43,7 @@ class DiscogsSearchView: UIView, DiscogsSearchDisplay, UISearchBarDelegate {
 
     // MARK: Other properties
 
-    var searchController: UISearchController?
-
     var realSearchBar: UISearchBar?
-
-    var navigationItem: UINavigationItem?
 
     var signedIn: Bool = false
 
@@ -72,7 +68,6 @@ class DiscogsSearchView: UIView, DiscogsSearchDisplay, UISearchBarDelegate {
         searchController.hidesNavigationBarDuringPresentation = true
         searchController.dimsBackgroundDuringPresentation = true
         searchController.obscuresBackgroundDuringPresentation = true
-        self.searchController = searchController
 
         setUp(searchBar: searchController.searchBar)
 
@@ -80,7 +75,6 @@ class DiscogsSearchView: UIView, DiscogsSearchDisplay, UISearchBarDelegate {
         // to the table view's header view.
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
-        self.navigationItem = navigationItem
     }
 
     func signedInAs(userName: String) {
@@ -104,7 +98,6 @@ class DiscogsSearchView: UIView, DiscogsSearchDisplay, UISearchBarDelegate {
     }
 
     func willSignOut() {
-        navigationItem?.searchController = nil
         UIView.animate(withDuration: 0.5, delay: 0.0, options: .curveEaseIn, animations: { [weak self] in
             self?.realSearchBar?.alpha = CGFloat(0.5)
         }) { [weak self] (completed) in
