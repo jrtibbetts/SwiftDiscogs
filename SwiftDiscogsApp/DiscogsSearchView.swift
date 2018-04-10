@@ -19,7 +19,7 @@ import UIKit
 
 // MARK: -
 
-class DiscogsSearchView: UIView, DiscogsSearchDisplay {
+class DiscogsSearchView: UIView, DiscogsSearchDisplay, UISearchBarDelegate {
 
     // MARK: Outlets
 
@@ -43,11 +43,23 @@ class DiscogsSearchView: UIView, DiscogsSearchDisplay {
 
     // MARK: Other properties
 
-    var realSearchBar: UISearchBar!
+    var searchController: UISearchController?
+
+    var realSearchBar: UISearchBar?
+
+    var navigationItem: UINavigationItem?
+
+    var signedIn: Bool = false
 
     /// The string format for the `signedInAsLabel`. This value should be
     /// captured from the `signedInAsLabel` when this view is set up.
     fileprivate var signedInAsLabelFormat: String!
+
+    // MARK: UISearchBarDelegate
+
+    func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
+        return signedIn
+    }
 
     // MARK: DiscogsSearchDisplay
 
@@ -60,6 +72,7 @@ class DiscogsSearchView: UIView, DiscogsSearchDisplay {
         searchController.hidesNavigationBarDuringPresentation = true
         searchController.dimsBackgroundDuringPresentation = true
         searchController.obscuresBackgroundDuringPresentation = true
+        self.searchController = searchController
 
         setUp(searchBar: searchController.searchBar)
 
@@ -67,30 +80,23 @@ class DiscogsSearchView: UIView, DiscogsSearchDisplay {
         // to the table view's header view.
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
-    }
-
-    // Copy the dummySearchBar's settings over to the search controller's
-    // bar, then remove the dummy.
-    fileprivate func setUp(searchBar: UISearchBar) {
-        realSearchBar = searchBar
-        realSearchBar.placeholder = dummySearchBar?.placeholder
-        realSearchBar.scopeButtonTitles = dummySearchBar?.scopeButtonTitles
-        realSearchBar.isHidden = true
-        dummySearchBar?.removeFromSuperview()
-        dummySearchBar = nil
+        self.navigationItem = navigationItem
     }
 
     func signedInAs(userName: String) {
+        signedIn = true
         signInButton?.isHidden = true
         signOutView?.isHidden = false
         signedInAsLabel?.text = String(format: signedInAsLabelFormat, userName)
-        realSearchBar.isHidden = false
+
+        UIView.animate(withDuration: 0.5, delay: 0.0, options: .curveEaseIn, animations: {
+            self.realSearchBar?.alpha = CGFloat(1.0)
+        }, completion: nil)
     }
 
     func signedOut() {
         signInButton?.isHidden = false
         signOutView?.isHidden = true
-        realSearchBar.isHidden = true
     }
 
     func willSignIn() {
@@ -98,7 +104,25 @@ class DiscogsSearchView: UIView, DiscogsSearchDisplay {
     }
 
     func willSignOut() {
-        // Empty.
+        navigationItem?.searchController = nil
+        UIView.animate(withDuration: 0.5, delay: 0.0, options: .curveEaseIn, animations: { [weak self] in
+            self?.realSearchBar?.alpha = CGFloat(0.5)
+        }) { [weak self] (completed) in
+            self?.signedIn = false
+        }
+    }
+
+    // MARK: Other functions
+
+    // Copy the dummySearchBar's settings over to the search controller's
+    // bar, then remove the dummy.
+    fileprivate func setUp(searchBar: UISearchBar) {
+        searchBar.placeholder = dummySearchBar?.placeholder
+        searchBar.scopeButtonTitles = dummySearchBar?.scopeButtonTitles
+        searchBar.delegate = self
+        realSearchBar = searchBar
+        dummySearchBar?.removeFromSuperview()
+        dummySearchBar = nil
     }
 
 }
