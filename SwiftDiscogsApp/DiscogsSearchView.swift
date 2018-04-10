@@ -43,6 +43,8 @@ class DiscogsSearchView: UIView, DiscogsSearchDisplay {
 
     // MARK: Other properties
 
+    var realSearchBar: UISearchBar!
+
     /// The string format for the `signedInAsLabel`. This value should be
     /// captured from the `signedInAsLabel` when this view is set up.
     fileprivate var signedInAsLabelFormat: String!
@@ -70,9 +72,10 @@ class DiscogsSearchView: UIView, DiscogsSearchDisplay {
     // Copy the dummySearchBar's settings over to the search controller's
     // bar, then remove the dummy.
     fileprivate func setUp(searchBar: UISearchBar) {
-        searchBar.placeholder = dummySearchBar?.placeholder
-        searchBar.scopeButtonTitles = dummySearchBar?.scopeButtonTitles
-        searchBar.isHidden = true
+        realSearchBar = searchBar
+        realSearchBar.placeholder = dummySearchBar?.placeholder
+        realSearchBar.scopeButtonTitles = dummySearchBar?.scopeButtonTitles
+        realSearchBar.isHidden = true
         dummySearchBar?.removeFromSuperview()
         dummySearchBar = nil
     }
@@ -81,11 +84,13 @@ class DiscogsSearchView: UIView, DiscogsSearchDisplay {
         signInButton?.isHidden = true
         signOutView?.isHidden = false
         signedInAsLabel?.text = String(format: signedInAsLabelFormat, userName)
+        realSearchBar.isHidden = false
     }
 
     func signedOut() {
         signInButton?.isHidden = false
         signOutView?.isHidden = true
+        realSearchBar.isHidden = true
     }
 
     func willSignIn() {
