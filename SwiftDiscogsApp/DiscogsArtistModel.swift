@@ -35,8 +35,8 @@ open class DiscogsArtistModel: NSObject,
 
     open weak var collectionView: UICollectionView? {
         didSet {
-            tableView?.delegate = self
-            tableView?.dataSource = self
+            collectionView?.delegate = self
+            collectionView?.dataSource = self
         }
     }
 

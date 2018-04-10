@@ -146,6 +146,7 @@
 		969FBD48207A9B3000C32471 /* UIViewController+Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969FBD47207A9B3000C32471 /* UIViewController+Alerts.swift */; };
 		969FBD4A207AB29300C32471 /* DiscogsArtistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969FBD49207AB29300C32471 /* DiscogsArtistView.swift */; };
 		96A5577F207C19C1002590C7 /* DiscogsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A5577E207C19C1002590C7 /* DiscogsProvider.swift */; };
+		96A55783207C644E002590C7 /* DiscogsArtistViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A55782207C644E002590C7 /* DiscogsArtistViewTests.swift */; };
 		96E8A14320795DBF00BFD508 /* DiscogsSearchViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E8A14220795DBF00BFD508 /* DiscogsSearchViewControllerTests.swift */; };
 		96E8A14420799EC800BFD508 /* PromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9689848B203DDA0200DE77BC /* PromiseKit.framework */; };
 /* End PBXBuildFile section */
@@ -347,6 +348,7 @@
 		969FBD47207A9B3000C32471 /* UIViewController+Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alerts.swift"; sourceTree = "<group>"; };
 		969FBD49207AB29300C32471 /* DiscogsArtistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscogsArtistView.swift; sourceTree = "<group>"; };
 		96A5577E207C19C1002590C7 /* DiscogsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscogsProvider.swift; sourceTree = "<group>"; };
+		96A55782207C644E002590C7 /* DiscogsArtistViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscogsArtistViewTests.swift; sourceTree = "<group>"; };
 		96E8A14220795DBF00BFD508 /* DiscogsSearchViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscogsSearchViewControllerTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -423,8 +425,9 @@
 			isa = PBXGroup;
 			children = (
 				960368F1205A012C00D24CE7 /* DiscogsArtistModelTests.swift */,
-				9691A7302078504900A4936C /* DiscogsSearchViewTests.swift */,
+				96A55782207C644E002590C7 /* DiscogsArtistViewTests.swift */,
 				96E8A14220795DBF00BFD508 /* DiscogsSearchViewControllerTests.swift */,
+				9691A7302078504900A4936C /* DiscogsSearchViewTests.swift */,
 				9691A7322078865800A4936C /* DiscogsSingletonTests.swift */,
 				960368F3205A012C00D24CE7 /* Info.plist */,
 			);
@@ -969,6 +972,7 @@
 			files = (
 				960368F2205A012C00D24CE7 /* DiscogsArtistModelTests.swift in Sources */,
 				96E8A14320795DBF00BFD508 /* DiscogsSearchViewControllerTests.swift in Sources */,
+				96A55783207C644E002590C7 /* DiscogsArtistViewTests.swift in Sources */,
 				9691A7332078865800A4936C /* DiscogsSingletonTests.swift in Sources */,
 				9691A7312078504900A4936C /* DiscogsSearchViewTests.swift in Sources */,
 			);
