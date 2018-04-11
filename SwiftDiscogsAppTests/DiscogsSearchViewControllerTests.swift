@@ -7,6 +7,7 @@ import XCTest
 class MockSearchDisplay: DiscogsSearchDisplay {
 
     var setUpCalled = false
+    var tearDownCalled = false
     var signedInAsCalled = false
     var signedOutCalled = false
     var willSignInCalled = false
@@ -14,6 +15,10 @@ class MockSearchDisplay: DiscogsSearchDisplay {
 
     func setUp(searchController: UISearchController, navigationItem: UINavigationItem) {
         setUpCalled = true
+    }
+
+    func tearDown() {
+        tearDownCalled = true
     }
 
     func signedInAs(userName: String) {
@@ -70,6 +75,34 @@ class DiscogsSearchViewControllerTests: XCTestCase {
         }
 
         wait(for: [signOutExpectation], timeout: 2.0)
+    }
+
+    func testSignInAndSignOutTappedCallExpectedMethods() {
+        // Sign in
+        let signInExpectation = expectation(description: "Signing in to Discogs")
+        searchViewController.signInTapped(source: nil)
+
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2.0) {
+            XCTAssertTrue(self.mockSearchDisplay.willSignInCalled)
+            XCTAssertTrue(self.mockSearchDisplay.signedInAsCalled)
+            XCTAssertFalse(self.mockSearchDisplay.willSignOutCalled)
+            XCTAssertFalse(self.mockSearchDisplay.signedOutCalled)
+            signInExpectation.fulfill()
+        }
+
+        wait(for: [signInExpectation], timeout: 5.0)
+
+        // Sign out
+        let signOutExpectation = expectation(description: "Signing out of Discogs")
+        searchViewController.signOutTapped(source: nil)
+
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2.0) {
+            XCTAssertTrue(self.mockSearchDisplay.willSignOutCalled)
+            XCTAssertTrue(self.mockSearchDisplay.signedOutCalled)
+            signOutExpectation.fulfill()
+        }
+
+        wait(for: [signOutExpectation], timeout: 5.0)
     }
 
 }
