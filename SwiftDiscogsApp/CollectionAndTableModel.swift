@@ -5,21 +5,7 @@ import UIKit
 open class CollectionAndTableModel: NSObject,
     UICollectionViewDataSource, UICollectionViewDelegate,
 UITableViewDataSource, UITableViewDelegate {
-    
-    open var collectionView: UICollectionView? {
-        didSet {
-            collectionView?.dataSource = self
-            collectionView?.delegate = self
-        }
-    }
-    
-    open var tableView: UITableView? {
-        didSet {
-            tableView?.dataSource = self
-            tableView?.delegate = self
-        }
-    }
-    
+
     // MARK: UICollectionViewDataSource
     
     @objc public func collectionView(_ collectionView: UICollectionView,
@@ -58,7 +44,11 @@ UITableViewDataSource, UITableViewDelegate {
     }
     
     // MARK: Other functions to be overridden by subclasses
-    
+
+    open func headerTitle(forSection section: Int) -> String? {
+        return nil
+    }
+
     open func numberOfItems(inSection section: Int) -> Int {
         return -1
     }
@@ -66,9 +56,5 @@ UITableViewDataSource, UITableViewDelegate {
     open func numberOfSections() -> Int {
         return -1
     }
-    
-    open func headerTitle(forSection section: Int) -> String? {
-        return nil
-    }
-    
+
 }

@@ -16,13 +16,12 @@ class DiscogsArtistViewTests: XCTestCase {
         let view = DiscogsArtistView()
         let artist = DiscogsArtistModelTests().artist
         let model = DiscogsArtistModel(artist: artist)
-        view.model = model
+        view.artistModel = model
         XCTAssertNotNil(view.model)
 
         let tableView = UITableView()
         view.tableView = tableView
         XCTAssertNotNil(view.tableView)
-        XCTAssertTrue(view.model?.tableView === tableView)
         XCTAssertTrue(view.tableView?.dataSource === view.model)
         XCTAssertTrue(view.tableView?.delegate === view.model)
     }
@@ -35,9 +34,8 @@ class DiscogsArtistViewTests: XCTestCase {
         XCTAssertNotNil(view.tableView)
 
         let model = DiscogsArtistModel(artist: artist)
-        view.model = model
+        view.artistModel = model
         XCTAssertNotNil(view.model)
-        XCTAssertTrue(view.model?.tableView === tableView)
         XCTAssertTrue(view.tableView?.dataSource === view.model)
         XCTAssertTrue(view.tableView?.delegate === view.model)
     }
@@ -46,14 +44,13 @@ class DiscogsArtistViewTests: XCTestCase {
         let view = DiscogsArtistView()
         let artist = DiscogsArtistModelTests().artist
         let model = DiscogsArtistModel(artist: artist)
-        view.model = model
+        view.artistModel = model
         XCTAssertNotNil(view.model)
 
         let collectionView = UICollectionView(frame: CGRect(),
                                               collectionViewLayout: UICollectionViewFlowLayout())
         view.collectionView = collectionView
         XCTAssertNotNil(view.collectionView)
-        XCTAssertTrue(view.model?.collectionView === collectionView)
         XCTAssertTrue(view.collectionView?.dataSource === view.model)
         XCTAssertTrue(view.collectionView?.delegate === view.model)
     }
@@ -67,9 +64,8 @@ class DiscogsArtistViewTests: XCTestCase {
         XCTAssertNotNil(view.collectionView)
 
         let model = DiscogsArtistModel(artist: artist)
-        view.model = model
+        view.artistModel = model
         XCTAssertNotNil(view.model)
-        XCTAssertTrue(view.model?.collectionView === collectionView)
         XCTAssertTrue(view.collectionView?.dataSource === view.model)
         XCTAssertTrue(view.collectionView?.delegate === view.model)
     }

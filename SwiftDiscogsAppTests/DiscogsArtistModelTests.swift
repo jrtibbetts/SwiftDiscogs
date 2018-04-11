@@ -17,7 +17,6 @@ class DiscogsArtistModelTests: XCTestCase {
 
     lazy var model: DiscogsArtistModel = {
         let model = DiscogsArtistModel(artist: artist)
-        model.tableView = tableView
 
         return model
     }()

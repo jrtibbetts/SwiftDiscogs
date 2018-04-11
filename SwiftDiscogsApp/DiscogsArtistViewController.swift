@@ -4,21 +4,10 @@ import SwiftDiscogs
 import UIKit
 
 /// A view controller for displaying details about a `DiscogsArtist`.
-open class DiscogsArtistViewController: UIViewController {
+open class DiscogsArtistViewController: CollectionAndTableViewController {
 
     /// The artist in question.
     open var artist: DiscogsArtist?
-
-    @IBOutlet open weak var tableView: UITableView?
-
-    @IBOutlet open weak var collectionView: UICollectionView?
-
-    /// The user interface. All UI elements are contained and handled there.
-    /// Note that it's not an `IBOutlet`, since we already have an outlet to
-    /// the view.
-    open var artistView: DiscogsArtistView? {
-        return view as? DiscogsArtistView
-    }
 
     /// (Re-)set the artist model when the view controller reaches the top of
     /// the navigation stack.
@@ -30,9 +19,7 @@ open class DiscogsArtistViewController: UIViewController {
 
         if let artist = artist {
             let model = DiscogsArtistModel(artist: artist)
-            artistView?.model = model
-            model.tableView = tableView
-            model.collectionView = collectionView
+            display?.model = model
         }
     }
 
