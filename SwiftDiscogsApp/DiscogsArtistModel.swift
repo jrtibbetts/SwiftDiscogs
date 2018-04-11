@@ -5,9 +5,7 @@ import UIKit
 
 /// The data model for the `DiscogsArtistViewController`. It's both a table
 /// view and a collection view model.
-open class DiscogsArtistModel: NSObject,
-                               UITableViewDataSource, UITableViewDelegate,
-                               UICollectionViewDataSource, UICollectionViewDelegate {
+open class DiscogsArtistModel: LotsOfThingsModel {
 
     public enum Section: Int {
         case bio = 0
@@ -24,23 +22,7 @@ open class DiscogsArtistModel: NSObject,
 
     }
 
-    // MARK: - Properties
-
-    open weak var tableView: UITableView? {
-        didSet {
-            tableView?.delegate = self
-            tableView?.dataSource = self
-        }
-    }
-
-    open weak var collectionView: UICollectionView? {
-        didSet {
-            collectionView?.delegate = self
-            collectionView?.dataSource = self
-        }
-    }
-
-    open var artist: DiscogsArtist
+    fileprivate(set) open var artist: DiscogsArtist
 
     fileprivate let bundle = Bundle(for: DiscogsArtistModel.self)
 
@@ -50,14 +32,10 @@ open class DiscogsArtistModel: NSObject,
         self.artist = artist
     }
 
-    // MARK: - UITableViewDataSource & UITableViewDelegate
+    // MARK: - UITableViewDataSource
 
-    public func numberOfSections(in tableView: UITableView) -> Int {
-        return numberOfSections()
-    }
-
-    open func tableView(_ tableView: UITableView,
-                        cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    open override func tableView(_ tableView: UITableView,
+                                 cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let section = Section(rawValue: indexPath.section) else {
             return UITableViewCell(style: .default, reuseIdentifier: nil)
         }
@@ -71,43 +49,24 @@ open class DiscogsArtistModel: NSObject,
             }
         case .releases:
             break
-//            if let cell = tableView.dequeueReusableCell(withIdentifier: section.cellIdentifier) as? DiscogsArtistReleaseTableCell {
-//
-//            }
+            //            if let cell = tableView.dequeueReusableCell(withIdentifier: section.cellIdentifier) as? DiscogsArtistReleaseTableCell {
+            //
+            //            }
         }
 
         return UITableViewCell(style: .default, reuseIdentifier: nil)
     }
 
-    open func tableView(_ tableView: UITableView,
-                        numberOfRowsInSection section: Int) -> Int {
-        return numberOfItems(inSection: section)
-    }
+    // MARK: - UICollectionViewDataSource
 
-    open func tableView(_ tableView: UITableView,
-                        titleForHeaderInSection section: Int) -> String? {
-        return headerTitle(forSection: section)
-    }
-
-    // MARK: - UICollectionViewDataSource & UICollectionViewDelegate
-
-    public func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return numberOfSections()
-    }
-    
-    open func collectionView(_ collectionView: UICollectionView,
-                               cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    open override func collectionView(_ collectionView: UICollectionView,
+                                      cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         return UICollectionViewCell(frame: CGRect())
     }
 
-    open func collectionView(_ collectionView: UICollectionView,
-                               numberOfItemsInSection section: Int) -> Int {
-        return numberOfItems(inSection: section)
-    }
+    // MARK: - LotsOfThingsModel
 
-    // MARK: - Other Functions
-
-    fileprivate func numberOfItems(inSection section: Int) -> Int {
+    open override func numberOfItems(inSection section: Int) -> Int {
         guard let sectionCase = Section(rawValue: section) else {
             return 0
         }
@@ -120,11 +79,11 @@ open class DiscogsArtistModel: NSObject,
         }
     }
 
-    fileprivate func numberOfSections() -> Int {
+    open override func numberOfSections() -> Int {
         return Section.releases.rawValue + 1
     }
 
-    fileprivate func headerTitle(forSection section: Int) -> String? {
+    open override func headerTitle(forSection section: Int) -> String? {
         guard let sectionCase = Section(rawValue: section) else {
             return nil
         }
