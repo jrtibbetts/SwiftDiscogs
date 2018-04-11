@@ -17,7 +17,9 @@ final class DiscogsSearchViewController: UIViewController, UISearchControllerDel
     // MARK: Properties
 
     /// The Discogs client.
-    var discogs: Discogs?
+    lazy var discogs: Discogs? = {
+        return /* MockDiscogs() */ DiscogsClient.singleton
+    }()
 
     /// The `UISearchController`. It displays its results in a separate view
     /// controller (the `DiscogsSearchResultsController`).
@@ -39,11 +41,11 @@ final class DiscogsSearchViewController: UIViewController, UISearchControllerDel
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        discogs = MockDiscogs() // DiscogsClient.singleton
         
         // This is the iOS 11 way of adding the search bar. No more adding it
         // to the table view's header view.
         navigationItem.searchController = searchController
+
         display?.setUp(searchController: searchController, navigationItem: navigationItem)
     }
 

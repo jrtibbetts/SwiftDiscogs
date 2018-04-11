@@ -24,7 +24,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="TVS-ft-VpB">
-                                <rect key="frame" x="92.333333333333329" y="379.33333333333331" width="192.33333333333337" height="60"/>
+                                <rect key="frame" x="91.333333333333329" y="379.33333333333331" width="192.33333333333337" height="60"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Xt-fI-IrK" userLabel="Sign In Button">
                                         <rect key="frame" x="0.0" y="0.0" width="192.33333333333334" height="30"/>
@@ -274,9 +274,6 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ShM-N3-p40"/>
                     </view>
-                    <connections>
-                        <outlet property="tableView" destination="iaE-Sd-FyD" id="AzU-F2-dJa"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lOY-hj-4oC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
