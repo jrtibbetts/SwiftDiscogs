@@ -18,6 +18,6 @@ public protocol TableDisplay {
 
 }
 
-public protocol LotsOfThingsDisplay: CollectionDisplay, TableDisplay {
+public protocol CollectionAndTableDisplay: CollectionDisplay, TableDisplay {
 
 }

@@ -5,7 +5,7 @@ import UIKit
 
 /// The data model for the `DiscogsArtistViewController`. It's both a table
 /// view and a collection view model.
-open class DiscogsArtistModel: LotsOfThingsModel {
+open class DiscogsArtistModel: CollectionAndTableModel {
 
     public enum Section: Int {
         case bio = 0
