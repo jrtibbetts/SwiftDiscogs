@@ -36,6 +36,7 @@ class DiscogsSearchViewTests: XCTestCase {
         XCTAssertNotNil(discogsSearchView.signOutView)
         XCTAssertNotNil(discogsSearchView.signOutButton)
         XCTAssertNotNil(discogsSearchView.signedInAsLabel)
+        XCTAssertFalse(discogsSearchView.searchBarShouldBeginEditing(UISearchBar()))
     }
 
     func testSignInButtonIsInitiallyShown() {
@@ -49,6 +50,7 @@ class DiscogsSearchViewTests: XCTestCase {
         XCTAssertTrue(signInButton.isHidden)
         XCTAssertFalse(signOutView.isHidden)
         XCTAssertEqual(signedInAsLabel.text, "Signed in as \(userName).")
+        XCTAssertTrue(discogsSearchView.searchBarShouldBeginEditing(UISearchBar()))
     }
 
     func testSignInAndOutShowsSignInButtonAgain() {
@@ -56,6 +58,11 @@ class DiscogsSearchViewTests: XCTestCase {
         discogsSearchView.signedOut()
         XCTAssertFalse(signInButton.isHidden)
         XCTAssertTrue(signOutView.isHidden)
+        XCTAssertFalse(discogsSearchView.searchBarShouldBeginEditing(UISearchBar()))
+    }
+
+    func testTearDownDoesNothing() {
+        discogsSearchView.tearDown()
     }
 
 }

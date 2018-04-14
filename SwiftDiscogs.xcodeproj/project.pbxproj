@@ -150,6 +150,9 @@
 		96A55785207D90C2002590C7 /* CollectionAndTableDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A55784207D90C2002590C7 /* CollectionAndTableDisplay.swift */; };
 		96A55787207D99DD002590C7 /* CollectionAndTableModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A55786207D99DD002590C7 /* CollectionAndTableModel.swift */; };
 		96A55789207DC53F002590C7 /* CollectionAndTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A55788207DC53F002590C7 /* CollectionAndTableViewController.swift */; };
+		96CA185C2081A143006FF5F0 /* DiscogsSearchResultsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CA185B2081A143006FF5F0 /* DiscogsSearchResultsModel.swift */; };
+		96CA185E2081A18A006FF5F0 /* DiscogsSearchResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CA185D2081A18A006FF5F0 /* DiscogsSearchResultsView.swift */; };
+		96CA186220828A02006FF5F0 /* CollectionAndTableArrayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CA186120828A02006FF5F0 /* CollectionAndTableArrayModel.swift */; };
 		96E8A14320795DBF00BFD508 /* DiscogsSearchViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E8A14220795DBF00BFD508 /* DiscogsSearchViewControllerTests.swift */; };
 		96E8A14420799EC800BFD508 /* PromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9689848B203DDA0200DE77BC /* PromiseKit.framework */; };
 /* End PBXBuildFile section */
@@ -355,6 +358,9 @@
 		96A55784207D90C2002590C7 /* CollectionAndTableDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionAndTableDisplay.swift; sourceTree = "<group>"; };
 		96A55786207D99DD002590C7 /* CollectionAndTableModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionAndTableModel.swift; sourceTree = "<group>"; };
 		96A55788207DC53F002590C7 /* CollectionAndTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionAndTableViewController.swift; sourceTree = "<group>"; };
+		96CA185B2081A143006FF5F0 /* DiscogsSearchResultsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscogsSearchResultsModel.swift; sourceTree = "<group>"; };
+		96CA185D2081A18A006FF5F0 /* DiscogsSearchResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscogsSearchResultsView.swift; sourceTree = "<group>"; };
+		96CA186120828A02006FF5F0 /* CollectionAndTableArrayModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionAndTableArrayModel.swift; sourceTree = "<group>"; };
 		96E8A14220795DBF00BFD508 /* DiscogsSearchViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscogsSearchViewControllerTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -409,22 +415,19 @@
 			isa = PBXGroup;
 			children = (
 				960368DC205A012C00D24CE7 /* AppDelegate.swift */,
+				96CA18592081A0B6006FF5F0 /* Artist */,
 				960368E3205A012C00D24CE7 /* Assets.xcassets */,
+				96CA186120828A02006FF5F0 /* CollectionAndTableArrayModel.swift */,
 				96A55784207D90C2002590C7 /* CollectionAndTableDisplay.swift */,
 				96A55786207D99DD002590C7 /* CollectionAndTableModel.swift */,
 				96A55788207DC53F002590C7 /* CollectionAndTableViewController.swift */,
 				96036916205B949500D24CE7 /* Discogs.plist */,
-				969ADA6D2068A7D300A8BDD0 /* DiscogsArtistModel.swift */,
-				969FBD49207AB29300C32471 /* DiscogsArtistView.swift */,
-				96226AF62069F578000EEC50 /* DiscogsArtistViewController.swift */,
 				96036914205B92A700D24CE7 /* DiscogsClientSingleton.swift */,
 				96A5577E207C19C1002590C7 /* DiscogsProvider.swift */,
-				96036910205B765100D24CE7 /* DiscogsSearchResultsController.swift */,
-				961A6FFA20781DE600733953 /* DiscogsSearchView.swift */,
-				9603690E205A1C7200D24CE7 /* DiscogsSearchViewController.swift */,
 				960368E8205A012C00D24CE7 /* Info.plist */,
 				960368E5205A012C00D24CE7 /* LaunchScreen.storyboard */,
 				960368E0205A012C00D24CE7 /* Main.storyboard */,
+				96CA185A2081A0CC006FF5F0 /* Search */,
 				969FBD47207A9B3000C32471 /* UIViewController+Alerts.swift */,
 			);
 			path = SwiftDiscogsApp;
@@ -692,6 +695,28 @@
 				9689848B203DDA0200DE77BC /* PromiseKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		96CA18592081A0B6006FF5F0 /* Artist */ = {
+			isa = PBXGroup;
+			children = (
+				969ADA6D2068A7D300A8BDD0 /* DiscogsArtistModel.swift */,
+				969FBD49207AB29300C32471 /* DiscogsArtistView.swift */,
+				96226AF62069F578000EEC50 /* DiscogsArtistViewController.swift */,
+			);
+			path = Artist;
+			sourceTree = "<group>";
+		};
+		96CA185A2081A0CC006FF5F0 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				96036910205B765100D24CE7 /* DiscogsSearchResultsController.swift */,
+				96CA185B2081A143006FF5F0 /* DiscogsSearchResultsModel.swift */,
+				96CA185D2081A18A006FF5F0 /* DiscogsSearchResultsView.swift */,
+				961A6FFA20781DE600733953 /* DiscogsSearchView.swift */,
+				9603690E205A1C7200D24CE7 /* DiscogsSearchViewController.swift */,
+			);
+			path = Search;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -966,15 +991,18 @@
 				96036915205B92A700D24CE7 /* DiscogsClientSingleton.swift in Sources */,
 				961A6FFB20781DE600733953 /* DiscogsSearchView.swift in Sources */,
 				96226AFB2069FF3D000EEC50 /* DiscogsArtistViewController.swift in Sources */,
+				96CA186220828A02006FF5F0 /* CollectionAndTableArrayModel.swift in Sources */,
 				96A55787207D99DD002590C7 /* CollectionAndTableModel.swift in Sources */,
 				96A5577F207C19C1002590C7 /* DiscogsProvider.swift in Sources */,
 				969FBD4A207AB29300C32471 /* DiscogsArtistView.swift in Sources */,
+				96CA185E2081A18A006FF5F0 /* DiscogsSearchResultsView.swift in Sources */,
 				969FBD48207A9B3000C32471 /* UIViewController+Alerts.swift in Sources */,
 				960368DD205A012C00D24CE7 /* AppDelegate.swift in Sources */,
 				96A55785207D90C2002590C7 /* CollectionAndTableDisplay.swift in Sources */,
 				96226AFE2069FF3D000EEC50 /* DiscogsSearchViewController.swift in Sources */,
 				96226AFD2069FF3D000EEC50 /* DiscogsArtistModel.swift in Sources */,
 				96226AFC2069FF3D000EEC50 /* DiscogsSearchResultsController.swift in Sources */,
+				96CA185C2081A143006FF5F0 /* DiscogsSearchResultsModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -5,7 +5,7 @@ import UIKit
 /// A `UIView` that has outlets to an embedded collection view and table view,
 /// only one of which is displayed at a given time, depending on screen
 /// orientation and size.
-open class CollectionAndTableDisplay: UIView {
+open class CollectionAndTableDisplay<T: Any>: UIView {
 
     // MARK: Outlets
 
@@ -27,7 +27,9 @@ open class CollectionAndTableDisplay: UIView {
 
     // MARK: Other Properties
 
-    open var model: CollectionAndTableModel? {
+    /// The data provider for this view. It must be of the same data type as
+    /// this view.
+    open var model: CollectionAndTableModel<T>? {
         didSet {
             collectionView?.dataSource = model
             collectionView?.delegate = model

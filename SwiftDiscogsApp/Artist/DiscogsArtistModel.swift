@@ -5,7 +5,7 @@ import UIKit
 
 /// The data model for the `DiscogsArtistViewController`. It's both a table
 /// view and a collection view model.
-open class DiscogsArtistModel: CollectionAndTableModel {
+open class DiscogsArtistModel: CollectionAndTableModel<DiscogsArtist> {
 
     public enum Section: Int {
         case bio = 0
@@ -30,6 +30,7 @@ open class DiscogsArtistModel: CollectionAndTableModel {
 
     public init(artist: DiscogsArtist) {
         self.artist = artist
+        super.init(data: artist)
     }
 
     // MARK: - UITableViewDataSource

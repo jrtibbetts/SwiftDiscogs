@@ -16,6 +16,9 @@ public extension UIViewController {
         let alertController = UIAlertController(title: title,
                                                 message: error.localizedDescription,
                                                 preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "This ain't good.",
+                                                style: .cancel,
+                                                handler: nil))
         self.present(alertController, animated: true, completion: nil)
     }
 

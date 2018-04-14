@@ -4,15 +4,15 @@ import UIKit
 
 /// A view controller that can display both a table view and a collection view,
 /// perhaps depending on the screen size and orientation.
-open class CollectionAndTableViewController: UIViewController {
+open class CollectionAndTableViewController<T: Any>: UIViewController {
 
     // MARK: Outlets
 
-    open var display: CollectionAndTableDisplay?
+    open var display: CollectionAndTableDisplay<T>?
 
     // MARK: Properties
 
-    open var model: CollectionAndTableModel?
+    open var model: CollectionAndTableModel<T>?
     
     // MARK: UIViewController overrides
 

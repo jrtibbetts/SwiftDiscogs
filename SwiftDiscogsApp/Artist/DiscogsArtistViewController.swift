@@ -4,7 +4,7 @@ import SwiftDiscogs
 import UIKit
 
 /// A view controller for displaying details about a `DiscogsArtist`.
-open class DiscogsArtistViewController: CollectionAndTableViewController {
+open class DiscogsArtistViewController: CollectionAndTableViewController<DiscogsArtist> {
 
     /// The artist in question.
     open var artist: DiscogsArtist?

@@ -6,7 +6,7 @@ import UIKit
 
 /// Allows the user to search the Discogs database for artists, releases, and
 /// labels.
-final class DiscogsSearchViewController: UIViewController, UISearchControllerDelegate, DiscogsProvider {
+final class DiscogsSearchViewController: UIViewController, DiscogsProvider {
 
     // MARK: Outlets
 
@@ -28,10 +28,9 @@ final class DiscogsSearchViewController: UIViewController, UISearchControllerDel
         let bundle = Bundle(for: type(of: self))
         let storyboard = UIStoryboard(name: "Main", bundle:  bundle)
         let searchResultsController
-            = storyboard.instantiateViewController(withIdentifier: "searchResults") as? DiscogsSearchResultsController
+            = storyboard.instantiateViewController(withIdentifier: "discogsSearchResults") as? DiscogsSearchResultsController
         searchResultsController?.discogs = discogs
         let searchController = UISearchController(searchResultsController: searchResultsController)
-        searchController.delegate = self
         searchController.searchResultsUpdater = searchResultsController
 
         return searchController

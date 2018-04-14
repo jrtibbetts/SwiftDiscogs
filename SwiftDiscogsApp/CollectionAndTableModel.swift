@@ -2,39 +2,60 @@
 
 import UIKit
 
-open class CollectionAndTableModel: NSObject,
+/// A combined `UITableView` and `UICollectionView` data model and delegate. By
+/// default, it assumes that any collection view and table view that it's
+/// attached to will have the same number of sections and items in each section.
+/// Subclasses need only override `collectionView(:cellForItemAt:)`,
+/// `tableView(:cellForRowAt:)`, `numberOfSections()`,
+/// `numberOfItems(inSection:)`, and, if needed, `headerTitle(forSection:)`.
+/// The model has a generic `data` property which, although it's not used in
+/// this class directly, should be used by model subclasses to determine how
+/// many sections and items in each section there are.
+open class CollectionAndTableModel<T: Any>: NSObject,
     UICollectionViewDataSource, UICollectionViewDelegate,
 UITableViewDataSource, UITableViewDelegate {
 
+    // MARK: Properties
+
+    /// The object whose properties are the source of the data that this model
+    /// provides.
+    open var data: T?
+
+    // MARK: Initializers
+
+    public init(data: T?) {
+        self.data = data
+    }
+
     // MARK: UICollectionViewDataSource
     
-    @objc public func collectionView(_ collectionView: UICollectionView,
-                                     cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    open func collectionView(_ collectionView: UICollectionView,
+                             cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         return UICollectionViewCell()
     }
     
-    @objc public func numberOfSections(in collectionView: UICollectionView) -> Int {
+    open func numberOfSections(in collectionView: UICollectionView) -> Int {
         return numberOfSections()
     }
     
-    @objc public func collectionView(_ collectionView: UICollectionView,
-                                     numberOfItemsInSection section: Int) -> Int {
+    open func collectionView(_ collectionView: UICollectionView,
+                             numberOfItemsInSection section: Int) -> Int {
         return numberOfItems(inSection: section)
     }
     
     // MARK: UITableViewDataSource
-    
-    @objc public func tableView(_ tableView: UITableView,
-                                cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
-    }
-    
-    @objc public func numberOfSections(in tableView: UITableView) -> Int {
+
+    open func numberOfSections(in tableView: UITableView) -> Int {
         return numberOfSections()
     }
-    
-    @objc public func tableView(_ tableView: UITableView,
-                                numberOfRowsInSection section: Int) -> Int {
+
+    open func tableView(_ tableView: UITableView,
+                        cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        return UITableViewCell()
+    }
+
+    open func tableView(_ tableView: UITableView,
+                        numberOfRowsInSection section: Int) -> Int {
         return numberOfItems(inSection: section)
     }
     
@@ -50,11 +71,11 @@ UITableViewDataSource, UITableViewDelegate {
     }
 
     open func numberOfItems(inSection section: Int) -> Int {
-        return -1
+        return 0
     }
     
     open func numberOfSections() -> Int {
-        return -1
+        return 1
     }
 
 }

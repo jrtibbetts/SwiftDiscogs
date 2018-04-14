@@ -40,10 +40,15 @@ final class DiscogsSearchView: UIView, DiscogsSearchDisplay, UISearchBarDelegate
 
     // MARK: Outlets
 
+    @IBOutlet private(set) weak var blurOverlay: UIView?
+
     /// A `UISearchBar` that's configured in the storyboard, and whose
     /// properties are then copied into the search controller's search bar
     /// when `viewDidLoad()` is called.
     @IBOutlet private(set) weak var dummySearchBar: UISearchBar?
+
+    /// The label that displays the user's name after sign-in was successful.
+    @IBOutlet private(set) weak var signedInAsLabel: UILabel?
 
     /// The button that will launch the Discogs service's authorization web
     /// page, if necessary.
@@ -52,11 +57,10 @@ final class DiscogsSearchView: UIView, DiscogsSearchDisplay, UISearchBarDelegate
     /// The button for signing out of the Discogs service.
     @IBOutlet private(set) weak var signOutButton: UIButton?
 
-    /// The label that displays the user's name after sign-in was successful.
-    @IBOutlet private(set) weak var signedInAsLabel: UILabel?
-
     /// The view that contains the `signOutButton` and `signedInAsLabel`.
     @IBOutlet private(set) weak var signOutView: UIView?
+
+    @IBOutlet private(set) weak var spinner: UIActivityIndicatorView?
 
     // MARK: Other properties
 
@@ -84,6 +88,8 @@ final class DiscogsSearchView: UIView, DiscogsSearchDisplay, UISearchBarDelegate
                navigationItem: UINavigationItem) {
         signedInAsLabelFormat = signedInAsLabel?.text
         signOutView?.isHidden = true
+
+        stopSpinning()
         
         searchController.hidesNavigationBarDuringPresentation = true
         searchController.dimsBackgroundDuringPresentation = true
@@ -99,6 +105,7 @@ final class DiscogsSearchView: UIView, DiscogsSearchDisplay, UISearchBarDelegate
     }
 
     func signedInAs(userName: String) {
+        stopSpinning()
         signedIn = true
         signInButton?.isHidden = true
         signOutView?.isHidden = false
@@ -106,6 +113,7 @@ final class DiscogsSearchView: UIView, DiscogsSearchDisplay, UISearchBarDelegate
     }
 
     func signedOut() {
+        stopSpinning()
         // Even though the signed-in label will be hidden now, clear the
         // username from it to avoid any potential security risk.
         signedInAsLabel?.text = signedInAsLabelFormat
@@ -115,6 +123,7 @@ final class DiscogsSearchView: UIView, DiscogsSearchDisplay, UISearchBarDelegate
     }
 
     func willSignIn() {
+        spin()
         UIView.animate(withDuration: 0.5,
                        delay: 0.0,
                        options: .curveEaseIn,
@@ -124,6 +133,7 @@ final class DiscogsSearchView: UIView, DiscogsSearchDisplay, UISearchBarDelegate
     }
 
     func willSignOut() {
+        spin()
         UIView.animate(withDuration: 0.5,
                        delay: 0.0,
                        options: .curveEaseIn,
@@ -133,6 +143,22 @@ final class DiscogsSearchView: UIView, DiscogsSearchDisplay, UISearchBarDelegate
     }
 
     // MARK: Other functions
+
+    fileprivate func spin() {
+        if let blurOverlay = blurOverlay {
+            bringSubview(toFront: blurOverlay)
+        }
+
+        spinner?.startAnimating()
+    }
+
+    fileprivate func stopSpinning() {
+        spinner?.stopAnimating()
+
+        if let blurOverlay = blurOverlay {
+            sendSubview(toBack: blurOverlay)
+        }
+    }
 
     // Copy the dummySearchBar's settings over to the search controller's
     // bar, then remove the dummy.
