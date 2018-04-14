@@ -4,18 +4,14 @@ import UIKit
 
 open class CollectionAndTableArrayModel<E>: CollectionAndTableModel<[E]> {
 
-    open var dataArray: [E]? {
-        didSet {
-            data = dataArray
-        }
-    }
-
-    open override func numberOfSections() -> Int {
-        return 1
-    }
+    // MARK: CollectionAndTableModel
 
     open override func numberOfItems(inSection section: Int) -> Int {
-        return dataArray?.count ?? 0
+        if let data = data, section == 0 {
+            return data.count
+        } else {
+            return 0
+        }
     }
     
 }

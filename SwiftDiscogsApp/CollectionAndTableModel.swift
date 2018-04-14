@@ -75,7 +75,7 @@ UITableViewDataSource, UITableViewDelegate {
     }
     
     open func numberOfSections() -> Int {
-        return 1
+        return (data != nil) ? 1 : 0
     }
 
 }

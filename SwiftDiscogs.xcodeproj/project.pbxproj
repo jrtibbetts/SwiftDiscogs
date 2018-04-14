@@ -153,6 +153,8 @@
 		96CA185C2081A143006FF5F0 /* DiscogsSearchResultsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CA185B2081A143006FF5F0 /* DiscogsSearchResultsModel.swift */; };
 		96CA185E2081A18A006FF5F0 /* DiscogsSearchResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CA185D2081A18A006FF5F0 /* DiscogsSearchResultsView.swift */; };
 		96CA186220828A02006FF5F0 /* CollectionAndTableArrayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CA186120828A02006FF5F0 /* CollectionAndTableArrayModel.swift */; };
+		96CA18642082AAE1006FF5F0 /* CollectionAndTableModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CA18632082AAE1006FF5F0 /* CollectionAndTableModelTests.swift */; };
+		96CA18662082AF5D006FF5F0 /* CollectionAndTableArrayModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CA18652082AF5D006FF5F0 /* CollectionAndTableArrayModelTests.swift */; };
 		96E8A14320795DBF00BFD508 /* DiscogsSearchViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E8A14220795DBF00BFD508 /* DiscogsSearchViewControllerTests.swift */; };
 		96E8A14420799EC800BFD508 /* PromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9689848B203DDA0200DE77BC /* PromiseKit.framework */; };
 /* End PBXBuildFile section */
@@ -361,6 +363,8 @@
 		96CA185B2081A143006FF5F0 /* DiscogsSearchResultsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscogsSearchResultsModel.swift; sourceTree = "<group>"; };
 		96CA185D2081A18A006FF5F0 /* DiscogsSearchResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscogsSearchResultsView.swift; sourceTree = "<group>"; };
 		96CA186120828A02006FF5F0 /* CollectionAndTableArrayModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionAndTableArrayModel.swift; sourceTree = "<group>"; };
+		96CA18632082AAE1006FF5F0 /* CollectionAndTableModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionAndTableModelTests.swift; sourceTree = "<group>"; };
+		96CA18652082AF5D006FF5F0 /* CollectionAndTableArrayModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionAndTableArrayModelTests.swift; sourceTree = "<group>"; };
 		96E8A14220795DBF00BFD508 /* DiscogsSearchViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscogsSearchViewControllerTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -436,6 +440,8 @@
 		960368F0205A012C00D24CE7 /* SwiftDiscogsAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				96CA18652082AF5D006FF5F0 /* CollectionAndTableArrayModelTests.swift */,
+				96CA18632082AAE1006FF5F0 /* CollectionAndTableModelTests.swift */,
 				960368F1205A012C00D24CE7 /* DiscogsArtistModelTests.swift */,
 				96A55782207C644E002590C7 /* DiscogsArtistViewTests.swift */,
 				96E8A14220795DBF00BFD508 /* DiscogsSearchViewControllerTests.swift */,
@@ -1012,6 +1018,8 @@
 			files = (
 				960368F2205A012C00D24CE7 /* DiscogsArtistModelTests.swift in Sources */,
 				96E8A14320795DBF00BFD508 /* DiscogsSearchViewControllerTests.swift in Sources */,
+				96CA18662082AF5D006FF5F0 /* CollectionAndTableArrayModelTests.swift in Sources */,
+				96CA18642082AAE1006FF5F0 /* CollectionAndTableModelTests.swift in Sources */,
 				96A55783207C644E002590C7 /* DiscogsArtistViewTests.swift in Sources */,
 				9691A7332078865800A4936C /* DiscogsSingletonTests.swift in Sources */,
 				9691A7312078504900A4936C /* DiscogsSearchViewTests.swift in Sources */,

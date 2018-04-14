@@ -10,7 +10,7 @@ open class DiscogsSearchResultsController: CollectionAndTableViewController<[Dis
 
     open var results: [DiscogsSearchResult] = [] {
         didSet {
-            display?.model = DiscogsSearchResultsModel(results: results)
+            display?.model = DiscogsSearchResultsModel(data: results)
             display?.refresh()
         }
     }
