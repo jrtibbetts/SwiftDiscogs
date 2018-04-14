@@ -1,10 +1,4 @@
-//
-//  SwiftDiscogsAppUITests.swift
-//  SwiftDiscogsAppUITests
-//
-//  Created by Jason R Tibbetts on 3/14/18.
 //  Copyright © 2018 Poikile Creations. All rights reserved.
-//
 
 import XCTest
 

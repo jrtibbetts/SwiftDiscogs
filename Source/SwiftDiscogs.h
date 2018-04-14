@@ -1,10 +1,4 @@
-//
-//  SwiftDiscogs.h
-//  SwiftDiscogs
-//
-//  Created by Jason R Tibbetts on 2/21/18.
 //  Copyright © 2018 Poikile Creations. All rights reserved.
-//
 
 #import <UIKit/UIKit.h>
 

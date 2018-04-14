@@ -1,4 +1,4 @@
-//  Copyright © 2017 Jason R Tibbetts. All rights reserved.
+//  Copyright © 2017-2018 Poikile Creations. All rights reserved.
 
 import JSONClient
 import XCTest
