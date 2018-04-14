@@ -155,6 +155,7 @@
 		96CA186220828A02006FF5F0 /* CollectionAndTableArrayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CA186120828A02006FF5F0 /* CollectionAndTableArrayModel.swift */; };
 		96CA18642082AAE1006FF5F0 /* CollectionAndTableModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CA18632082AAE1006FF5F0 /* CollectionAndTableModelTests.swift */; };
 		96CA18662082AF5D006FF5F0 /* CollectionAndTableArrayModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CA18652082AF5D006FF5F0 /* CollectionAndTableArrayModelTests.swift */; };
+		96CA18682082B8BB006FF5F0 /* ArtistSearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CA18672082B8BB006FF5F0 /* ArtistSearchResultCell.swift */; };
 		96E8A14320795DBF00BFD508 /* DiscogsSearchViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E8A14220795DBF00BFD508 /* DiscogsSearchViewControllerTests.swift */; };
 		96E8A14420799EC800BFD508 /* PromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9689848B203DDA0200DE77BC /* PromiseKit.framework */; };
 /* End PBXBuildFile section */
@@ -365,6 +366,7 @@
 		96CA186120828A02006FF5F0 /* CollectionAndTableArrayModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionAndTableArrayModel.swift; sourceTree = "<group>"; };
 		96CA18632082AAE1006FF5F0 /* CollectionAndTableModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionAndTableModelTests.swift; sourceTree = "<group>"; };
 		96CA18652082AF5D006FF5F0 /* CollectionAndTableArrayModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionAndTableArrayModelTests.swift; sourceTree = "<group>"; };
+		96CA18672082B8BB006FF5F0 /* ArtistSearchResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistSearchResultCell.swift; sourceTree = "<group>"; };
 		96E8A14220795DBF00BFD508 /* DiscogsSearchViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscogsSearchViewControllerTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -716,6 +718,7 @@
 		96CA185A2081A0CC006FF5F0 /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				96CA18672082B8BB006FF5F0 /* ArtistSearchResultCell.swift */,
 				96036910205B765100D24CE7 /* DiscogsSearchResultsController.swift */,
 				96CA185B2081A143006FF5F0 /* DiscogsSearchResultsModel.swift */,
 				96CA185D2081A18A006FF5F0 /* DiscogsSearchResultsView.swift */,
@@ -1003,6 +1006,7 @@
 				969FBD4A207AB29300C32471 /* DiscogsArtistView.swift in Sources */,
 				96CA185E2081A18A006FF5F0 /* DiscogsSearchResultsView.swift in Sources */,
 				969FBD48207A9B3000C32471 /* UIViewController+Alerts.swift in Sources */,
+				96CA18682082B8BB006FF5F0 /* ArtistSearchResultCell.swift in Sources */,
 				960368DD205A012C00D24CE7 /* AppDelegate.swift in Sources */,
 				96A55785207D90C2002590C7 /* CollectionAndTableDisplay.swift in Sources */,
 				96226AFE2069FF3D000EEC50 /* DiscogsSearchViewController.swift in Sources */,

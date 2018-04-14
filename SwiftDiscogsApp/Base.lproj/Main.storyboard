@@ -188,7 +188,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="hxB-IN-pXE">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="defaultCell" id="hxB-IN-pXE">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -216,15 +216,37 @@
                                 <exclude reference="MQe-0X-tnP"/>
                                 <exclude reference="f50-Ea-VZ6"/>
                             </mask>
+                            <mask key="constraints">
+                                <exclude reference="Aru-7J-Hai"/>
+                                <exclude reference="aXS-lA-DoR"/>
+                                <exclude reference="h76-lM-DRb"/>
+                                <exclude reference="mpM-OD-hSv"/>
+                                <exclude reference="N8I-2e-JRq"/>
+                                <exclude reference="ekd-AR-Bd9"/>
+                                <exclude reference="Uvc-CN-1zi"/>
+                                <exclude reference="dTu-gy-fj2"/>
+                            </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
                                 <include reference="MQe-0X-tnP"/>
                             </mask>
+                            <mask key="constraints">
+                                <include reference="Aru-7J-Hai"/>
+                                <include reference="aXS-lA-DoR"/>
+                                <include reference="N8I-2e-JRq"/>
+                                <include reference="ekd-AR-Bd9"/>
+                            </mask>
                         </variation>
                         <variation key="widthClass=regular">
                             <mask key="subviews">
                                 <include reference="f50-Ea-VZ6"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="h76-lM-DRb"/>
+                                <include reference="mpM-OD-hSv"/>
+                                <include reference="Uvc-CN-1zi"/>
+                                <include reference="dTu-gy-fj2"/>
                             </mask>
                         </variation>
                         <connections>
