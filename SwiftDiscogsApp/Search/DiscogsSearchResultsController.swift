@@ -10,7 +10,7 @@ open class DiscogsSearchResultsController: CollectionAndTableViewController<[Dis
 
     open var results: [DiscogsSearchResult] = [] {
         didSet {
-            display?.model = DiscogsSearchResultsModel(data: results)
+            display?.model?.data = results
             display?.refresh()
         }
     }
@@ -22,6 +22,7 @@ open class DiscogsSearchResultsController: CollectionAndTableViewController<[Dis
     open override func viewDidLoad() {
         super.viewDidLoad()
         display = view as? DiscogsSearchResultsView
+        display?.model = DiscogsSearchResultsModel(data: results)
     }
 
     // MARK: UISearchResultsUpdating
@@ -40,4 +41,5 @@ open class DiscogsSearchResultsController: CollectionAndTableViewController<[Dis
                 self?.results = []
         }
     }
+    
 }
