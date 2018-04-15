@@ -22,13 +22,13 @@ open class DiscogsArtistModel: CollectionAndTableModel<DiscogsArtist> {
 
     }
 
-    fileprivate(set) open var artist: DiscogsArtist
+    fileprivate(set) open var artist: DiscogsArtist?
 
     fileprivate let bundle = Bundle(for: DiscogsArtistModel.self)
 
     // MARK: - Initializers
 
-    public init(artist: DiscogsArtist) {
+    public init(artist: DiscogsArtist?) {
         self.artist = artist
         super.init(data: artist)
     }
@@ -44,7 +44,7 @@ open class DiscogsArtistModel: CollectionAndTableModel<DiscogsArtist> {
         switch section {
         case .bio:
             if let cell = tableView.dequeueReusableCell(withIdentifier: section.cellIdentifier) as? DiscogsArtistBioTableCell {
-                cell.bioText = artist.profile
+                cell.bioText = artist?.profile
 
                 return cell
             }

@@ -9,6 +9,13 @@ open class DiscogsArtistViewController: CollectionAndTableViewController<Discogs
     /// The artist in question.
     open var artist: DiscogsArtist?
 
+    // MARK: UIViewController
+
+    open override func viewDidLoad() {
+        super.viewDidLoad()
+        model = DiscogsArtistModel(artist: artist)
+    }
+    
     /// (Re-)set the artist model when the view controller reaches the top of
     /// the navigation stack.
     ///
@@ -16,11 +23,7 @@ open class DiscogsArtistViewController: CollectionAndTableViewController<Discogs
     ///             to being shown instantly.
     open override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-
-        if let artist = artist {
-            let model = DiscogsArtistModel(artist: artist)
-            display?.model = model
-        }
+        display?.model?.data = artist
     }
 
 }
