@@ -2,7 +2,7 @@
 
 import UIKit
 
-open class CollectionAndTableArrayModel<E>: CollectionAndTableModel<[E]> {
+open class CollectionAndTableArrayModel<T: Any>: CollectionAndTableModel<[T]> {
 
     // MARK: CollectionAndTableModel
 

@@ -124,7 +124,7 @@ final class DiscogsSearchView: UIView, DiscogsSearchDisplay, UISearchBarDelegate
 
     func willSignIn() {
         spin()
-        UIView.animate(withDuration: 0.5,
+        UIView.animate(withDuration: 0.3,
                        delay: 0.0,
                        options: .curveEaseIn,
                        animations: { [weak self] in
@@ -134,11 +134,11 @@ final class DiscogsSearchView: UIView, DiscogsSearchDisplay, UISearchBarDelegate
 
     func willSignOut() {
         spin()
-        UIView.animate(withDuration: 0.5,
+        UIView.animate(withDuration: 0.3,
                        delay: 0.0,
-                       options: .curveEaseIn,
+                       options: .curveEaseOut,
                        animations: { [weak self] in
-                        self?.searchBar?.alpha = CGFloat(0.5)
+                        self?.searchBar?.alpha = CGFloat(0.25)
             }, completion: nil)
     }
 
