@@ -444,15 +444,13 @@
 		960368F0205A012C00D24CE7 /* SwiftDiscogsAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				96CA186B2082F18E006FF5F0 /* Artist */,
 				96CA18652082AF5D006FF5F0 /* CollectionAndTableArrayModelTests.swift */,
 				96CA18632082AAE1006FF5F0 /* CollectionAndTableModelTests.swift */,
-				960368F1205A012C00D24CE7 /* DiscogsArtistModelTests.swift */,
-				96A55782207C644E002590C7 /* DiscogsArtistViewTests.swift */,
-				96E8A14220795DBF00BFD508 /* DiscogsSearchViewControllerTests.swift */,
-				9691A7302078504900A4936C /* DiscogsSearchViewTests.swift */,
+				96CA18692082D9FC006FF5F0 /* CollectionAndTableViewControllerTests.swift */,
 				9691A7322078865800A4936C /* DiscogsSingletonTests.swift */,
 				960368F3205A012C00D24CE7 /* Info.plist */,
-				96CA18692082D9FC006FF5F0 /* CollectionAndTableViewControllerTests.swift */,
+				96CA186C2082F19C006FF5F0 /* Search */,
 			);
 			path = SwiftDiscogsAppTests;
 			sourceTree = "<group>";
@@ -727,6 +725,24 @@
 				96CA185D2081A18A006FF5F0 /* DiscogsSearchResultsView.swift */,
 				961A6FFA20781DE600733953 /* DiscogsSearchView.swift */,
 				9603690E205A1C7200D24CE7 /* DiscogsSearchViewController.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		96CA186B2082F18E006FF5F0 /* Artist */ = {
+			isa = PBXGroup;
+			children = (
+				960368F1205A012C00D24CE7 /* DiscogsArtistModelTests.swift */,
+				96A55782207C644E002590C7 /* DiscogsArtistViewTests.swift */,
+			);
+			path = Artist;
+			sourceTree = "<group>";
+		};
+		96CA186C2082F19C006FF5F0 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				96E8A14220795DBF00BFD508 /* DiscogsSearchViewControllerTests.swift */,
+				9691A7302078504900A4936C /* DiscogsSearchViewTests.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
