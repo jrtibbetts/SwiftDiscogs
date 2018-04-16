@@ -217,14 +217,14 @@
                                 <exclude reference="f50-Ea-VZ6"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="Aru-7J-Hai"/>
-                                <exclude reference="aXS-lA-DoR"/>
-                                <exclude reference="h76-lM-DRb"/>
-                                <exclude reference="mpM-OD-hSv"/>
                                 <exclude reference="N8I-2e-JRq"/>
                                 <exclude reference="ekd-AR-Bd9"/>
                                 <exclude reference="Uvc-CN-1zi"/>
                                 <exclude reference="dTu-gy-fj2"/>
+                                <exclude reference="Aru-7J-Hai"/>
+                                <exclude reference="aXS-lA-DoR"/>
+                                <exclude reference="h76-lM-DRb"/>
+                                <exclude reference="mpM-OD-hSv"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -232,10 +232,10 @@
                                 <include reference="MQe-0X-tnP"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="Aru-7J-Hai"/>
-                                <include reference="aXS-lA-DoR"/>
                                 <include reference="N8I-2e-JRq"/>
                                 <include reference="ekd-AR-Bd9"/>
+                                <include reference="Aru-7J-Hai"/>
+                                <include reference="aXS-lA-DoR"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=regular">
@@ -243,10 +243,10 @@
                                 <include reference="f50-Ea-VZ6"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="h76-lM-DRb"/>
-                                <include reference="mpM-OD-hSv"/>
                                 <include reference="Uvc-CN-1zi"/>
                                 <include reference="dTu-gy-fj2"/>
+                                <include reference="h76-lM-DRb"/>
+                                <include reference="mpM-OD-hSv"/>
                             </mask>
                         </variation>
                         <connections>
@@ -262,8 +262,8 @@
         <!--Discogs Artist View Controller-->
         <scene sceneID="Ah8-cD-mNe">
             <objects>
-                <viewController id="cvK-7F-nVP" customClass="DiscogsArtistViewController" customModule="SwiftDiscogsApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="1SC-zu-66M">
+                <viewController storyboardIdentifier="discogsArtist" id="cvK-7F-nVP" customClass="DiscogsArtistViewController" customModule="SwiftDiscogsApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1SC-zu-66M" customClass="DiscogsArtistView" customModule="SwiftDiscogsApp" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>

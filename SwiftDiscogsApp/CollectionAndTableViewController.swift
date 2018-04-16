@@ -18,7 +18,18 @@ open class CollectionAndTableViewController<T: Any>: UIViewController {
 
     open override func viewDidLoad() {
         super.viewDidLoad()
-        display?.model = model
+
+        guard let display = display else {
+            assertionFailure("No display has been set for this view controller.")
+            return
+        }
+
+        guard let model = model else {
+            assertionFailure("No model has been set for this view controller.")
+            return
+        }
+
+        display.model = model
     }
     
     override open func viewWillAppear(_ animated: Bool) {

@@ -16,7 +16,7 @@ class DiscogsArtistViewTests: XCTestCase {
         let view = DiscogsArtistView()
         let artist = DiscogsArtistModelTests().artist
         let model = DiscogsArtistModel(artist: artist)
-        view.artistModel = model
+        view.model = model
         XCTAssertNotNil(view.model)
 
         let tableView = UITableView()
@@ -34,7 +34,7 @@ class DiscogsArtistViewTests: XCTestCase {
         XCTAssertNotNil(view.tableView)
 
         let model = DiscogsArtistModel(artist: artist)
-        view.artistModel = model
+        view.model = model
         XCTAssertNotNil(view.model)
         XCTAssertTrue(view.tableView?.dataSource === view.model)
         XCTAssertTrue(view.tableView?.delegate === view.model)
@@ -44,7 +44,7 @@ class DiscogsArtistViewTests: XCTestCase {
         let view = DiscogsArtistView()
         let artist = DiscogsArtistModelTests().artist
         let model = DiscogsArtistModel(artist: artist)
-        view.artistModel = model
+        view.model = model
         XCTAssertNotNil(view.model)
 
         let collectionView = UICollectionView(frame: CGRect(),
@@ -64,7 +64,7 @@ class DiscogsArtistViewTests: XCTestCase {
         XCTAssertNotNil(view.collectionView)
 
         let model = DiscogsArtistModel(artist: artist)
-        view.artistModel = model
+        view.model = model
         XCTAssertNotNil(view.model)
         XCTAssertTrue(view.collectionView?.dataSource === view.model)
         XCTAssertTrue(view.collectionView?.delegate === view.model)

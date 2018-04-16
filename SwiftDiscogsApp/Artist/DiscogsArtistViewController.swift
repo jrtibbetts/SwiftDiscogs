@@ -12,17 +12,18 @@ open class DiscogsArtistViewController: CollectionAndTableViewController<Discogs
     // MARK: UIViewController
 
     open override func viewDidLoad() {
-        super.viewDidLoad()
+        // Set the model and display *before* calling super, because super is
+        // where the model gets assigned to the display.
+        display = view as? DiscogsArtistView
         model = DiscogsArtistModel(artist: artist)
+        super.viewDidLoad()
     }
     
-    /// (Re-)set the artist model when the view controller reaches the top of
-    /// the navigation stack.
-    ///
-    /// - parameter animated: `true` if the view was animated in, as opposed
-    ///             to being shown instantly.
     open override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+
+        /// (Re-)set the artist model when the view controller reaches the top of
+        /// the navigation stack.
         display?.model?.data = artist
     }
 

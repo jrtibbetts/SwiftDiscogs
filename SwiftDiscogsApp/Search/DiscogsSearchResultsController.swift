@@ -20,9 +20,9 @@ open class DiscogsSearchResultsController: CollectionAndTableViewController<[Dis
     // MARK: UIViewController
 
     open override func viewDidLoad() {
-        super.viewDidLoad()
         display = view as? DiscogsSearchResultsView
         display?.model = DiscogsSearchResultsModel(data: results)
+        super.viewDidLoad()
     }
 
     // MARK: UISearchResultsUpdating

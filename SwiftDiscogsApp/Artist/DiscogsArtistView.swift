@@ -8,14 +8,6 @@ import UIKit
 /// active at a time, depending on the device's orientation.
 open class DiscogsArtistView: CollectionAndTableDisplay<DiscogsArtist> {
 
-    /// The artist model.
-    open var artistModel: DiscogsArtistModel? {
-        didSet {
-            self.model = artistModel
-            refresh()
-        }
-    }
-
 }
 
 public protocol DiscogsArtistBioCell {
