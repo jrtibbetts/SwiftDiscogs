@@ -1,9 +1,6 @@
 //  Copyright © 2018 Poikile Creations. All rights reserved.
 
-@testable import SwiftDiscogsApp
 import UIKit
-
-// MARK: -
 
 /// The root view of the `DiscogsSearchViewController`.
 final class DiscogsSearchView: UIView, DiscogsSearchDisplay, UISearchBarDelegate {

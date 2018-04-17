@@ -726,12 +726,12 @@
 			isa = PBXGroup;
 			children = (
 				96CA18672082B8BB006FF5F0 /* ArtistSearchResultCell.swift */,
+				961A6FFA20781DE600733953 /* DiscogsSearchDisplay.swift */,
 				96036910205B765100D24CE7 /* DiscogsSearchResultsController.swift */,
 				96CA185B2081A143006FF5F0 /* DiscogsSearchResultsModel.swift */,
 				96CA185D2081A18A006FF5F0 /* DiscogsSearchResultsView.swift */,
-				961A6FFA20781DE600733953 /* DiscogsSearchDisplay.swift */,
-				9603690E205A1C7200D24CE7 /* DiscogsSearchViewController.swift */,
 				96CA18712085B5B9006FF5F0 /* DiscogsSearchView.swift */,
+				9603690E205A1C7200D24CE7 /* DiscogsSearchViewController.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
