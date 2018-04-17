@@ -21,6 +21,22 @@ class CollectionAndTableModelTests: XCTestCase {
         XCTAssertEqual(model.numberOfSections(), expectedItems)
     }
 
+    func testCollectionCellForRowIsAlwaysDefaultCell() {
+        let model = CollectionAndTableModel(data: "whatever")
+        let collectionView = UICollectionView(frame: CGRect(), collectionViewLayout: UICollectionViewFlowLayout())
+        let path = IndexPath(item: 99, section: 100)
+        let cell = model.collectionView(collectionView, cellForItemAt: path)
+        XCTAssertTrue(type(of: cell) == UICollectionViewCell.self)
+    }
+
+    func testTableCellForRowIsAlwaysDefaultCell() {
+        let model = CollectionAndTableModel(data: "whatever")
+        let tableView = UITableView()
+        let path = IndexPath(item: 99, section: 100)
+        let cell = model.tableView(tableView, cellForRowAt: path)
+        XCTAssertTrue(type(of: cell) == UITableViewCell.self)
+    }
+
     func testTableTitleForHeaderIsNil() {
         let data = "Data string"
         let model = CollectionAndTableModel(data: data)

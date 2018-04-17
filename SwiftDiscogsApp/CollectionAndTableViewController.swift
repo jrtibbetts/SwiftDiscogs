@@ -24,11 +24,6 @@ open class CollectionAndTableViewController<T: Any>: UIViewController {
             return
         }
 
-        guard let model = model else {
-            assertionFailure("No model has been set for this view controller.")
-            return
-        }
-
         display.model = model
     }
     
