@@ -11,20 +11,12 @@ import UIKit
 /// The model has a generic `data` property which, although it's not used in
 /// this class directly, should be used by model subclasses to determine how
 /// many sections and items in each section there are.
-open class CollectionAndTableModel<T: Any>: NSObject,
+open class CollectionAndTableModel: NSObject, Model,
     UICollectionViewDataSource, UICollectionViewDelegate,
 UITableViewDataSource, UITableViewDelegate {
 
-    // MARK: Properties
-
-    /// The object whose properties are the source of the data that this model
-    /// provides.
-    open var data: T?
-
-    // MARK: Initializers
-
-    public init(data: T?) {
-        self.data = data
+    override public init() {
+        super.init()
     }
 
     // MARK: UICollectionViewDataSource
@@ -75,7 +67,7 @@ UITableViewDataSource, UITableViewDelegate {
     }
     
     open func numberOfSections() -> Int {
-        return (data != nil) ? 1 : 0
+        return 0
     }
 
 }

@@ -1,66 +1,26 @@
 //  Copyright © 2018 Poikile Creations. All rights reserved.
 
-@testable import SwiftDiscogs
 @testable import SwiftDiscogsApp
+import SwiftDiscogs
 import XCTest
-
-class MockSearchDisplay: DiscogsSearchDisplay {
-
-    var setUpCalled = false
-    var tearDownCalled = false
-    var signedInAsCalled = false
-    var signedOutCalled = false
-    var willSignInCalled = false
-    var willSignOutCalled = false
-
-    func setUp(searchController: UISearchController, navigationItem: UINavigationItem) {
-        setUpCalled = true
-    }
-
-    func tearDown() {
-        tearDownCalled = true
-    }
-
-    func signedInAs(userName: String) {
-        signedInAsCalled = true
-    }
-
-    func signedOut() {
-        signedOutCalled = true
-    }
-
-    func willSignIn() {
-        willSignInCalled = true
-    }
-
-    func willSignOut() {
-        willSignOutCalled = true
-    }
-
-}
 
 class DiscogsSearchViewControllerTests: XCTestCase {
 
-    var searchViewController: DiscogsSearchViewController!
-    var mockSearchDisplay: MockSearchDisplay!
+    var searchViewController: DiscogsSearchViewController?
 
     override func setUp() {
         super.setUp()
 
-        searchViewController = DiscogsSearchViewController()
-        mockSearchDisplay = MockSearchDisplay()
-        searchViewController.display = mockSearchDisplay
-        searchViewController.discogs = MockDiscogs()
+        let bundle = Bundle(for: DiscogsSearchViewController.self)
+        let storyboard = UIStoryboard(name: "Main", bundle: bundle)
+        searchViewController = storyboard.instantiateViewController(withIdentifier: "discogsSearch") as? DiscogsSearchViewController
+        _ = searchViewController?.view  // force viewDidLoad() to be called
     }
 
     func testSignInAndOutCallExpectedMethods() {
         let signInExpectation = expectation(description: "Signing in to Discogs")
 
-        searchViewController.signInToDiscogs() {
-            XCTAssertTrue(self.mockSearchDisplay.willSignInCalled)
-            XCTAssertTrue(self.mockSearchDisplay.signedInAsCalled)
-            XCTAssertFalse(self.mockSearchDisplay.willSignOutCalled)
-            XCTAssertFalse(self.mockSearchDisplay.signedOutCalled)
+        searchViewController?.signInToDiscogs() {
             signInExpectation.fulfill()
         }
 
@@ -68,9 +28,7 @@ class DiscogsSearchViewControllerTests: XCTestCase {
 
         let signOutExpectation = expectation(description: "Signing out of Discogs")
 
-        searchViewController.signOutOfDiscogs() {
-            XCTAssertTrue(self.mockSearchDisplay.willSignOutCalled)
-            XCTAssertTrue(self.mockSearchDisplay.signedOutCalled)
+        searchViewController?.signOutOfDiscogs() {
             signOutExpectation.fulfill()
         }
 
@@ -80,13 +38,9 @@ class DiscogsSearchViewControllerTests: XCTestCase {
     func testSignInAndSignOutTappedCallExpectedMethods() {
         // Sign in
         let signInExpectation = expectation(description: "Signing in to Discogs")
-        searchViewController.signInTapped(source: nil)
+        searchViewController?.signInTapped(source: nil)
 
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2.0) {
-            XCTAssertTrue(self.mockSearchDisplay.willSignInCalled)
-            XCTAssertTrue(self.mockSearchDisplay.signedInAsCalled)
-            XCTAssertFalse(self.mockSearchDisplay.willSignOutCalled)
-            XCTAssertFalse(self.mockSearchDisplay.signedOutCalled)
             signInExpectation.fulfill()
         }
 
@@ -94,11 +48,9 @@ class DiscogsSearchViewControllerTests: XCTestCase {
 
         // Sign out
         let signOutExpectation = expectation(description: "Signing out of Discogs")
-        searchViewController.signOutTapped(source: nil)
+        searchViewController?.signOutTapped(source: nil)
 
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2.0) {
-            XCTAssertTrue(self.mockSearchDisplay.willSignOutCalled)
-            XCTAssertTrue(self.mockSearchDisplay.signedOutCalled)
             signOutExpectation.fulfill()
         }
 

@@ -5,7 +5,7 @@ import UIKit
 
 /// The data model for the `DiscogsArtistViewController`. It's both a table
 /// view and a collection view model.
-open class DiscogsArtistModel: CollectionAndTableModel<DiscogsArtist> {
+open class DiscogsArtistModel: CollectionAndTableModel {
 
     public enum Section: Int {
         case bio = 0
@@ -22,18 +22,24 @@ open class DiscogsArtistModel: CollectionAndTableModel<DiscogsArtist> {
 
     }
 
-    fileprivate(set) open var artist: DiscogsArtist?
+    // MARK: Properties
+
+    open var artist: DiscogsArtist?
 
     fileprivate let bundle = Bundle(for: DiscogsArtistModel.self)
 
-    // MARK: - Initializers
+    // MARK: Initializers
 
-    public init(artist: DiscogsArtist?) {
+    override public init() {
+        super.init()
+    }
+    
+    public init(artist: DiscogsArtist? = nil) {
         self.artist = artist
-        super.init(data: artist)
+        super.init()
     }
 
-    // MARK: - UITableViewDataSource
+    // MARK: UITableViewDataSource
 
     open override func tableView(_ tableView: UITableView,
                                  cellForRowAt indexPath: IndexPath) -> UITableViewCell {

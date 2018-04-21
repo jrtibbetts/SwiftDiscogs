@@ -3,7 +3,7 @@
 import UIKit
 
 /// The root view of the `DiscogsSearchViewController`.
-final class DiscogsSearchView: UIView, DiscogsSearchDisplay, UISearchBarDelegate {
+open class DiscogsSearchView: CollectionAndTableDisplay, UISearchBarDelegate {
 
     // MARK: Outlets
 
@@ -43,12 +43,10 @@ final class DiscogsSearchView: UIView, DiscogsSearchDisplay, UISearchBarDelegate
 
     // MARK: UISearchBarDelegate
 
-    func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
+    open func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
         // Prevent search-bar editing if the user's not signed in.
         return signedIn
     }
-
-    // MARK: DiscogsSearchDisplay
 
     /// Configure the view.
     func setUp(searchController: UISearchController,

@@ -3,7 +3,6 @@
 import SwiftDiscogs
 import UIKit
 
-open class DiscogsSearchResultsView: CollectionAndTableDisplay<[DiscogsSearchResult]> {
-
+open class DiscogsSearchResultsView: CollectionAndTableDisplay {
 
 }

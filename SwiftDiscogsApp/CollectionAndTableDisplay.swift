@@ -5,45 +5,24 @@ import UIKit
 /// A `UIView` that has outlets to an embedded collection view and table view,
 /// only one of which is displayed at a given time, depending on screen
 /// orientation and size.
-open class CollectionAndTableDisplay<T: Any>: UIView {
+open class CollectionAndTableDisplay: Display {
 
     // MARK: Outlets
 
     /// The `UICollectionView` that's contained in this view.
-    @IBOutlet open weak var collectionView: UICollectionView? {
-        didSet {
-            collectionView?.dataSource = model
-            collectionView?.delegate = model
-        }
-    }
+    @IBOutlet open var collectionView: UICollectionView?
 
     /// The `UITableView` that's contained in this view.
-    @IBOutlet open weak var tableView: UITableView? {
-        didSet {
-            tableView?.dataSource = model
-            tableView?.delegate = model
-        }
-    }
-
-    // MARK: Other Properties
-
-    /// The data provider for this view. It must be of the same data type as
-    /// this view.
-    open var model: CollectionAndTableModel<T>? {
-        didSet {
-            collectionView?.dataSource = model
-            collectionView?.delegate = model
-            tableView?.dataSource = model
-            tableView?.delegate = model
-        }
-    }
-
+    @IBOutlet open var tableView: UITableView?
+    
     // MARK: Functions
     
     /// Reload the data in the collection and table views. Subclasses should
     /// override this to update their models, and then call this superclass
     /// method.
-    open func refresh() {
+    override open func refresh() {
+        super.refresh()
+        
         collectionView?.reloadData()
         tableView?.reloadData()
     }

@@ -6,7 +6,7 @@ import UIKit
 /// The user interface for the `DiscogsArtistViewController`. It has outlets
 /// for a table view and a collection view, even though only one will be
 /// active at a time, depending on the device's orientation.
-open class DiscogsArtistView: CollectionAndTableDisplay<DiscogsArtist> {
+open class DiscogsArtistView: CollectionAndTableDisplay {
 
 }
 

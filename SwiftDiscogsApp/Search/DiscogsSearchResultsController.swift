@@ -4,25 +4,33 @@ import PromiseKit
 import SwiftDiscogs
 import UIKit
 
-open class DiscogsSearchResultsController: CollectionAndTableViewController<[DiscogsSearchResult]>, UISearchResultsUpdating, DiscogsProvider {
+open class DiscogsSearchResultsController: Controller, UISearchResultsUpdating, DiscogsProvider {
 
     // MARK: Properties
 
-    open var results: [DiscogsSearchResult] = [] {
-        didSet {
-            display?.model?.data = results
-            display?.refresh()
-        }
+    /// The Discogs client. By default, this is the singleton instance of
+    /// `DiscogsClient`, but it can be changed, which can be useful for
+    /// testing.
+    open var discogs: Discogs? = DiscogsClient.singleton
+
+    /// The (usually) root view of the view controller, which you MUST set in
+    /// the storyboard as this specific type!
+    open var searchResultsView: DiscogsSearchResultsView! {
+        return view as! DiscogsSearchResultsView
     }
 
-    open var discogs: Discogs?
+    /// The data model that holds the search results.
+    open var searchResultsModel: DiscogsSearchResultsModel! {
+        return model as! DiscogsSearchResultsModel
+    }
 
-    // MARK: UIViewController
-
-    open override func viewDidLoad() {
-        display = view as? DiscogsSearchResultsView
-        display?.model = DiscogsSearchResultsModel(data: results)
-        super.viewDidLoad()
+    /// The search results. Changes trigger a reloading of the table and/or
+    /// collection.
+    open var results: [DiscogsSearchResult]? {
+        didSet {
+            searchResultsModel.results = results
+            display.refresh()
+        }
     }
 
     // MARK: UISearchResultsUpdating
@@ -31,14 +39,10 @@ open class DiscogsSearchResultsController: CollectionAndTableViewController<[Dis
         let searchTerms = searchController.searchBar.text ?? ""
         let promise: Promise<DiscogsSearchResults>? = discogs?.search(for: searchTerms, type: "Artist")
         promise?.then { [weak self] (searchResults) -> Void in
-            guard let filteredResults = searchResults.results?.filter({ $0.type == "artist" }) else {
-                self?.results = []
-                return
-            }
-            self?.results = filteredResults
+            self?.results = searchResults.results?.filter({ $0.type == "artist" })
             }.catch { [weak self] (error) in
+                self?.results = nil
                 self?.presentAlert(for: error)
-                self?.results = []
         }
     }
     

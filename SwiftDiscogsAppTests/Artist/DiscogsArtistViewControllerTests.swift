@@ -5,27 +5,66 @@ import PromiseKit
 import SwiftDiscogs
 import XCTest
 
-class DiscogsArtistViewControllerTests: XCTestCase {
-    
-    func testViewDidLoadWithValidArtistOk() {
-        let exp = expectation(description: "artist")
+class DiscogsArtistViewControllerTests: CollectionAndTableViewControllerTestBase {
+
+    var artistView: DiscogsArtistView? {
+        return viewController?.display as? DiscogsArtistView
+    }
+
+    var artistModel: DiscogsArtistModel? {
+        return viewController?.model as? DiscogsArtistModel
+    }
+
+    override func setUp() {
+        super.setUp()
         let bundle = Bundle(for: DiscogsArtistViewController.self)
         let storyboard = UIStoryboard(name: "Main", bundle: bundle)
-        let controller = storyboard.instantiateViewController(withIdentifier: "discogsArtist") as! DiscogsArtistViewController
+        viewController = storyboard.instantiateViewController(withIdentifier: "discogsArtist") as? DiscogsArtistViewController
+        XCTAssertNotNil(viewController)
+        _ = viewController?.view // force viewDidLoad() to be called
+    }
 
-        let client = MockDiscogs()
-        let promise: Promise<DiscogsArtist> = client.artist(identifier: 42)
-        promise.then { (artist) -> Void in
-            controller.artist = artist
-            _ = controller.view
-            controller.viewDidLoad()
-            XCTAssertNotNil(controller.display, "artist view")
-            XCTAssertNotNil(controller.model, "artist model")
-            XCTAssertNotNil(controller.model?.data, "artist")
-            exp.fulfill()
+    func testModelAndDisplayOutletsAreProperlyConnected() {
+        XCTAssertNotNil(model)  // check non-nil and correct type
+        XCTAssertNotNil(display)   // check non-nil and correct type
+        XCTAssertTrue(display?.model === viewController?.model)
+    }
+
+    func testModelIsDataSource() {
+        XCTAssertTrue(tableView?.delegate === display?.model)
+        XCTAssertTrue(tableView?.dataSource === display?.model)
+    }
+
+    // MARK: UITableViewDataSource
+
+    func testTableViewNumberOfSectionsIs2() {
+        XCTAssertEqual(tableView?.numberOfSections, 2)
+    }
+
+    func testNumberOfRowsInTableSection1Is1() {
+        XCTAssertEqual(tableView?.numberOfRows(inSection: 0), 1)
+    }
+
+    func testCellForTableAtIndexReturnsExpectedCell() {
+        guard let model = artistModel, let tableView = artistView?.tableView else {
+            XCTFail("Expected the model to be a DiscogsArtistModel and the display to be a DiscogsArtistView.")
+            return
         }
 
-        wait(for: [exp], timeout: 2.0)
+        let cell = model.tableView(tableView, cellForRowAt: IndexPath(row: 0, section: 0))
+
+        guard let bioCell = cell as? DiscogsArtistBioTableCell else {
+            XCTFail("The cell at (0, 0) should be a DiscogsArtistBioTableCell.")
+            return
+        }
+
+        XCTAssertNil(bioCell.bioText)
+        XCTAssertNil(bioCell.bioLabel)
+
+        bioCell.bioText = "This is a sample biography."
+
+        XCTAssertEqual(bioCell.bioLabel?.text, bioCell.bioText)
     }
+
 
 }

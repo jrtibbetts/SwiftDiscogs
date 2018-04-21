@@ -6,18 +6,20 @@ import UIKit
 
 /// Allows the user to search the Discogs database for artists, releases, and
 /// labels.
-final class DiscogsSearchViewController: UIViewController, DiscogsProvider {
+open class DiscogsSearchViewController: UIViewController, DiscogsProvider {
 
     // MARK: Outlets
 
     /// The object responsible for managing the on-screen contents of the
     /// Discogs search, which helps keep the size of this view controller down.
-    @IBOutlet weak var display: DiscogsSearchDisplay?
+    open var searchView: DiscogsSearchView! {
+        return view as! DiscogsSearchView
+    }
 
     // MARK: Properties
 
     /// The Discogs client.
-    lazy var discogs: Discogs? = {
+    lazy public var discogs: Discogs? = {
         return /* MockDiscogs() */ DiscogsClient.singleton
     }()
 
@@ -35,17 +37,17 @@ final class DiscogsSearchViewController: UIViewController, DiscogsProvider {
 
         return searchController
     }()
-
+    
     // MARK: UIViewController
 
-    override func viewDidLoad() {
+    override open func viewDidLoad() {
         super.viewDidLoad()
         
         // This is the iOS 11 way of adding the search bar. No more adding it
         // to the table view's header view.
         navigationItem.searchController = searchController
 
-        display?.setUp(searchController: searchController, navigationItem: navigationItem)
+        searchView.setUp(searchController: searchController, navigationItem: navigationItem)
     }
 
     // MARK: Actions
@@ -66,13 +68,13 @@ final class DiscogsSearchViewController: UIViewController, DiscogsProvider {
     /// - parameter completion: An optional function that's called after the
     ///             the user has successfully signed in.
     func signInToDiscogs(completion: (() -> Void)? = nil) {
-        display?.willSignIn()
+        searchView.willSignIn()
         
         let promise = discogs?.authorize(presentingViewController: self,
                                                callbackUrlString: AppDelegate.callbackUrl.absoluteString)
         promise?.then { [weak self] (credential) -> Void in
             // TODO: Use the user's real name.
-            self?.display?.signedInAs(userName: "Fatty Arbuckle")
+            self?.searchView.signedInAs(userName: "Fatty Arbuckle")
             completion?()
             }.catch { (error) in    // not weak self because of Bundle(for:)
                 let alertTitle = NSLocalizedString("discogsSignInFailed",
@@ -90,10 +92,10 @@ final class DiscogsSearchViewController: UIViewController, DiscogsProvider {
     /// - parameter completion: An optional function that's called after the
     ///             the user has successfully signed out.
     func signOutOfDiscogs(completion: (() -> Void)? = nil) {
-        display?.willSignOut()
+        searchView.willSignOut()
 
         // TODO: Call the sign-out method that doesn't yet exist.
-        display?.signedOut()
+        searchView.signedOut()
         completion?()
     }
 
