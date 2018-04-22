@@ -9,12 +9,6 @@ class DiscogsSearchResultsViewControllerTests: CollectionAndTableViewControllerT
     var resultsViewController: DiscogsSearchResultsController? {
         return viewController as? DiscogsSearchResultsController
     }
-    var searchResultsView: DiscogsSearchResultsView? {
-        return viewController?.display as? DiscogsSearchResultsView
-    }
-    var searchResultsModel: DiscogsSearchResultsModel? {
-        return viewController?.model as? DiscogsSearchResultsModel
-    }
 
     override func setUp() {
         super.setUp()
@@ -26,8 +20,8 @@ class DiscogsSearchResultsViewControllerTests: CollectionAndTableViewControllerT
     }
 
     func testViewDidLoadConnectsTableAndControllerOk() {
-        XCTAssertNotNil(searchResultsView)
-        XCTAssertNotNil(searchResultsView?.model)
+        XCTAssertNotNil(resultsViewController?.searchResultsView)
+        XCTAssertNotNil(resultsViewController?.searchResultsModel)
     }
 
     func testSearchUpdatesTableOk() {
@@ -36,7 +30,7 @@ class DiscogsSearchResultsViewControllerTests: CollectionAndTableViewControllerT
         resultsViewController?.updateSearchResults(for: UISearchController(searchResultsController: viewController))
 
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2.0) {
-            XCTAssertEqual(self.searchResultsModel?.numberOfItems(inSection: 0), 10)
+            XCTAssertEqual(self.resultsViewController?.searchResultsModel.numberOfItems(inSection: 0), 10)
             exp.fulfill()
         }
 

@@ -15,20 +15,20 @@ open class DiscogsSearchResultsController: Controller, UISearchResultsUpdating, 
 
     /// The (usually) root view of the view controller, which you MUST set in
     /// the storyboard as this specific type!
-    open var searchResultsView: DiscogsSearchResultsView! {
-        return view as! DiscogsSearchResultsView
+    open var searchResultsView: DiscogsSearchResultsView? {
+        return view as? DiscogsSearchResultsView
     }
 
     /// The data model that holds the search results.
-    open var searchResultsModel: DiscogsSearchResultsModel! {
-        return model as! DiscogsSearchResultsModel
+    open var searchResultsModel: DiscogsSearchResultsModel? {
+        return model as? DiscogsSearchResultsModel
     }
 
     /// The search results. Changes trigger a reloading of the table and/or
     /// collection.
     open var results: [DiscogsSearchResult]? {
         didSet {
-            searchResultsModel.results = results
+            searchResultsModel?.results = results
             display.refresh()
         }
     }
