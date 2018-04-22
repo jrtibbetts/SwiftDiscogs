@@ -19,8 +19,9 @@ public class MockDiscogs: MockClient, Discogs {
         }
     }
 
-    public func authorize(presentingViewController: UIViewController, callbackUrlString: String) -> Promise<OAuthSwiftCredential> {
-        return Promise<OAuthSwiftCredential> { (fulfill, reject) in
+    public func authorize(presentingViewController: UIViewController,
+                          callbackUrlString: String) -> Promise<OAuthSwiftCredential> {
+        return Promise<OAuthSwiftCredential> { (fulfill, _) in
             fulfill(OAuthSwiftCredential.init(consumerKey: "key", consumerSecret: "secret"))
         }
     }

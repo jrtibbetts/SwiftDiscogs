@@ -12,8 +12,8 @@ open class DiscogsSearchViewController: UIViewController, DiscogsProvider {
 
     /// The object responsible for managing the on-screen contents of the
     /// Discogs search, which helps keep the size of this view controller down.
-    open var searchView: DiscogsSearchView! {
-        return view as! DiscogsSearchView
+    open var searchView: DiscogsSearchView? {
+        return view as? DiscogsSearchView
     }
 
     // MARK: Properties
@@ -47,7 +47,7 @@ open class DiscogsSearchViewController: UIViewController, DiscogsProvider {
         // to the table view's header view.
         navigationItem.searchController = searchController
 
-        searchView.setUp(searchController: searchController, navigationItem: navigationItem)
+        searchView?.setUp(searchController: searchController, navigationItem: navigationItem)
     }
 
     // MARK: Actions
@@ -68,13 +68,13 @@ open class DiscogsSearchViewController: UIViewController, DiscogsProvider {
     /// - parameter completion: An optional function that's called after the
     ///             the user has successfully signed in.
     func signInToDiscogs(completion: (() -> Void)? = nil) {
-        searchView.willSignIn()
+        searchView?.willSignIn()
         
         let promise = discogs?.authorize(presentingViewController: self,
                                                callbackUrlString: AppDelegate.callbackUrl.absoluteString)
         promise?.then { [weak self] (credential) -> Void in
             // TODO: Use the user's real name.
-            self?.searchView.signedInAs(userName: "Fatty Arbuckle")
+            self?.searchView?.signedInAs(userName: "Fatty Arbuckle")
             completion?()
             }.catch { (error) in    // not weak self because of Bundle(for:)
                 let alertTitle = NSLocalizedString("discogsSignInFailed",
@@ -92,10 +92,10 @@ open class DiscogsSearchViewController: UIViewController, DiscogsProvider {
     /// - parameter completion: An optional function that's called after the
     ///             the user has successfully signed out.
     func signOutOfDiscogs(completion: (() -> Void)? = nil) {
-        searchView.willSignOut()
+        searchView?.willSignOut()
 
         // TODO: Call the sign-out method that doesn't yet exist.
-        searchView.signedOut()
+        searchView?.signedOut()
         completion?()
     }
 
