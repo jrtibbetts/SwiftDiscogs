@@ -7,32 +7,36 @@ import XCTest
 
 class DiscogsArtistViewControllerTests: CollectionAndTableViewControllerTestBase {
 
+    var artistViewController: DiscogsArtistViewController? {
+        return viewController as? DiscogsArtistViewController
+    }
+
     var artistView: DiscogsArtistView? {
-        return viewController?.display as? DiscogsArtistView
+        return artistViewController?.artistView
     }
 
     var artistModel: DiscogsArtistModel? {
-        return viewController?.model as? DiscogsArtistModel
+        return artistViewController?.artistModel
     }
 
     override func setUp() {
         super.setUp()
         let bundle = Bundle(for: DiscogsArtistViewController.self)
         let storyboard = UIStoryboard(name: "Main", bundle: bundle)
-        viewController = storyboard.instantiateViewController(withIdentifier: "discogsArtist") as? DiscogsArtistViewController
+        viewController = storyboard.instantiateViewController(withIdentifier: "discogsArtist") as? Controller
         XCTAssertNotNil(viewController)
         _ = viewController?.view // force viewDidLoad() to be called
     }
 
     func testModelAndDisplayOutletsAreProperlyConnected() {
-        XCTAssertNotNil(model)  // check non-nil and correct type
-        XCTAssertNotNil(display)   // check non-nil and correct type
-        XCTAssertTrue(display?.model === viewController?.model)
+        XCTAssertNotNil(artistModel)  // check non-nil and correct type
+        XCTAssertNotNil(artistView)   // check non-nil and correct type
+        XCTAssertTrue(artistView?.model === artistModel)
     }
 
     func testModelIsDataSource() {
-        XCTAssertTrue(tableView?.delegate === display?.model)
-        XCTAssertTrue(tableView?.dataSource === display?.model)
+        XCTAssertTrue(tableView?.delegate === artistModel)
+        XCTAssertTrue(tableView?.dataSource === artistModel)
     }
 
     // MARK: UITableViewDataSource
@@ -65,6 +69,5 @@ class DiscogsArtistViewControllerTests: CollectionAndTableViewControllerTestBase
 
         XCTAssertEqual(bioCell.bioLabel?.text, bioCell.bioText)
     }
-
 
 }

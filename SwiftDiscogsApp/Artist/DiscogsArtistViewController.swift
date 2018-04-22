@@ -9,12 +9,12 @@ open class DiscogsArtistViewController: Controller {
     /// The artist in question.
     open var artist: DiscogsArtist?
 
-    open var artistView: DiscogsArtistView {
-        return view as! DiscogsArtistView
+    open var artistView: DiscogsArtistView? {
+        return view as? DiscogsArtistView
     }
 
-    open var artistModel: DiscogsArtistModel {
-        return model as! DiscogsArtistModel
+    open var artistModel: DiscogsArtistModel? {
+        return model as? DiscogsArtistModel
     }
 
     // MARK: UIViewController
@@ -28,7 +28,7 @@ open class DiscogsArtistViewController: Controller {
 
         /// (Re-)set the artist model when the view controller reaches the top of
         /// the navigation stack.
-        artistModel.artist = artist
+        artistModel?.artist = artist
         display.refresh()
     }
 
