@@ -56,9 +56,6 @@ open class DiscogsArtistModel: CollectionAndTableModel {
             }
         case .releases:
             break
-            //            if let cell = tableView.dequeueReusableCell(withIdentifier: section.cellIdentifier) as? DiscogsArtistReleaseTableCell {
-            //
-            //            }
         }
 
         return UITableViewCell(style: .default, reuseIdentifier: nil)
