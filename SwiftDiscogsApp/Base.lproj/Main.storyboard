@@ -107,7 +107,7 @@
                             <outlet property="spinner" destination="pEy-S7-tsb" id="LhV-sC-uDz"/>
                         </connections>
                     </view>
-                    <navigationItem key="navigationItem" title="Discogs Search" largeTitleDisplayMode="always" id="99a-Al-h2A">
+                    <navigationItem key="navigationItem" title="Discogs Search" id="99a-Al-h2A">
                         <barButtonItem key="backBarButtonItem" title="Search" id="ewt-20-Fqj"/>
                     </navigationItem>
                 </viewController>
@@ -135,19 +135,19 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bbX-A5-N7P" userLabel="Cover Art">
-                                                    <rect key="frame" x="8" y="8" width="84.666666666666671" height="84.666666666666671"/>
+                                                    <rect key="frame" x="15" y="11" width="79" height="79"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="bbX-A5-N7P" secondAttribute="height" multiplier="1:1" id="6vB-sn-8Ox"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z35-aY-kvF">
-                                                    <rect key="frame" x="100.66666666666667" y="7.9999999999999982" width="46.666666666666671" height="20.333333333333329"/>
+                                                    <rect key="frame" x="102" y="10.999999999999998" width="46.666666666666657" height="20.333333333333329"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10 albums, 29 singles" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Zi-nR-dac">
-                                                    <rect key="frame" x="100.66666666666669" y="71.666666666666671" width="165" height="21"/>
+                                                    <rect key="frame" x="102" y="69" width="165" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -170,7 +170,7 @@
                                             <outlet property="detailsLabel" destination="3Zi-nR-dac" id="d8q-dx-RZl"/>
                                             <outlet property="nameLabel" destination="Z35-aY-kvF" id="YL2-oX-Rws"/>
                                             <outlet property="thumbnailView" destination="bbX-A5-N7P" id="Ez2-IY-ziQ"/>
-                                            <segue destination="cvK-7F-nVP" kind="show" identifier="showDiscogsArtist" id="EP3-ua-ct5"/>
+                                            <segue destination="q4a-C9-HOy" kind="presentation" identifier="showArtist" modalPresentationStyle="fullScreen" id="Ab8-yP-RaQ"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -224,12 +224,12 @@
                             <mask key="constraints">
                                 <exclude reference="N8I-2e-JRq"/>
                                 <exclude reference="ekd-AR-Bd9"/>
-                                <exclude reference="Uvc-CN-1zi"/>
-                                <exclude reference="dTu-gy-fj2"/>
                                 <exclude reference="Aru-7J-Hai"/>
                                 <exclude reference="aXS-lA-DoR"/>
                                 <exclude reference="h76-lM-DRb"/>
                                 <exclude reference="mpM-OD-hSv"/>
+                                <exclude reference="Uvc-CN-1zi"/>
+                                <exclude reference="dTu-gy-fj2"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -248,10 +248,10 @@
                                 <include reference="f50-Ea-VZ6"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="Uvc-CN-1zi"/>
-                                <include reference="dTu-gy-fj2"/>
                                 <include reference="h76-lM-DRb"/>
                                 <include reference="mpM-OD-hSv"/>
+                                <include reference="Uvc-CN-1zi"/>
+                                <include reference="dTu-gy-fj2"/>
                             </mask>
                         </variation>
                         <connections>
@@ -269,7 +269,7 @@
             </objects>
             <point key="canvasLocation" x="3114" y="227"/>
         </scene>
-        <!--Discogs Artist View Controller-->
+        <!--Artist Bio-->
         <scene sceneID="Ah8-cD-mNe">
             <objects>
                 <viewController storyboardIdentifier="discogsArtist" id="cvK-7F-nVP" customClass="DiscogsArtistViewController" customModule="SwiftDiscogsApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -278,7 +278,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="iaE-Sd-FyD">
-                                <rect key="frame" x="0.0" y="44" width="375" height="734"/>
+                                <rect key="frame" x="0.0" y="88" width="375" height="690"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="I5c-qH-Aaa" userLabel="Header">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
@@ -449,6 +449,10 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                             <outlet property="tableView" destination="iaE-Sd-FyD" id="dYH-aR-U9R"/>
                         </connections>
                     </view>
+                    <navigationItem key="navigationItem" title="Artist Bio" id="nDW-Vb-H1u">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="oaV-M9-qSh"/>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="display" destination="1SC-zu-66M" id="AJO-42-cMY"/>
                         <outlet property="model" destination="28g-xh-2mZ" id="Eu1-ix-IWs"/>
@@ -457,7 +461,7 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lOY-hj-4oC" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <customObject id="28g-xh-2mZ" customClass="DiscogsArtistModel" customModule="SwiftDiscogsApp" customModuleProvider="target"/>
             </objects>
-            <point key="canvasLocation" x="3993" y="227"/>
+            <point key="canvasLocation" x="5050" y="227"/>
         </scene>
         <!--Here's Little Richard-->
         <scene sceneID="DdD-1V-EUe">
@@ -487,7 +491,7 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gZm-rk-WSG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4833" y="227"/>
+            <point key="canvasLocation" x="6094" y="227"/>
         </scene>
         <!--Database-->
         <scene sceneID="20v-EU-wcr">
@@ -511,6 +515,25 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B3O-o3-fcP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1338.4000000000001" y="227.13643178410797"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="nm5-bh-Lmx">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="q4a-C9-HOy" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="qTT-up-cUi">
+                        <rect key="frame" x="0.0" y="44" width="375" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="cvK-7F-nVP" kind="relationship" relationship="rootViewController" id="DFJ-Es-Fx1"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="F4G-KW-E8q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4090" y="227"/>
         </scene>
     </scenes>
     <color key="tintColor" red="0.0026941164399999998" green="0.097064159809999995" blue="0.57731443640000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

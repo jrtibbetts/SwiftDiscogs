@@ -33,6 +33,22 @@ open class DiscogsSearchResultsController: Controller, UISearchResultsUpdating, 
         }
     }
 
+    // MARK: UIViewController
+
+    open override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let segueId = segue.identifier {
+            switch segueId {
+            case "showArtist":
+                if let navController = segue.destination as? UINavigationController,
+                    let artistViewController = navController.topViewController as? DiscogsArtistViewController {
+                    artistViewController.artistSearchResult = selectedArtistResult
+                }
+            default:
+                return
+            }
+        }
+    }
+
     // MARK: UISearchResultsUpdating
     
     open func updateSearchResults(for searchController: UISearchController) {
@@ -43,6 +59,16 @@ open class DiscogsSearchResultsController: Controller, UISearchResultsUpdating, 
             }.catch { [weak self] (error) in
                 self?.results = nil
                 self?.presentAlert(for: error)
+        }
+    }
+
+    // MARK: Everything Else
+
+    fileprivate var selectedArtistResult: DiscogsSearchResult? {
+        if let indexPath = searchResultsView?.tableView?.indexPathForSelectedRow {
+            return searchResultsModel?.results?[indexPath.row]
+        } else {
+            return nil
         }
     }
     
