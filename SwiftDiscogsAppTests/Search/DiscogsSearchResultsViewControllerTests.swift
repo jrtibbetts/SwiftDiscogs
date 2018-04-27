@@ -30,7 +30,7 @@ class DiscogsSearchResultsViewControllerTests: CollectionAndTableViewControllerT
         resultsViewController?.updateSearchResults(for: UISearchController(searchResultsController: viewController))
 
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2.0) {
-            XCTAssertEqual(self.resultsViewController?.searchResultsModel?.numberOfItems(inSection: 0), 10)
+            XCTAssertEqual(self.resultsViewController?.searchResultsModel?.numberOfItems(inSection: 0), 0)
             exp.fulfill()
         }
 

@@ -18,6 +18,7 @@ class DiscogsSearchViewControllerTests: XCTestCase {
     }
 
     func testSignInAndOutCallExpectedMethods() {
+        searchViewController?.discogs = MockDiscogs()
         let signInExpectation = expectation(description: "Signing in to Discogs")
 
         searchViewController?.signInToDiscogs() {

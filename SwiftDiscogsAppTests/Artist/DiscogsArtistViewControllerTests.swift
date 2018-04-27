@@ -39,6 +39,20 @@ class DiscogsArtistViewControllerTests: CollectionAndTableViewControllerTestBase
         XCTAssertTrue(tableView?.dataSource === artistModel)
     }
 
+    func testSetArtistRefreshesView() {
+        let mockDisplay = MockArtistDisplay()
+        XCTAssertFalse(mockDisplay.refreshWasCalled)
+
+        let exp = expectation(description: "display.refresh() was called")
+        artistViewController?.display = mockDisplay
+        MockDiscogs().artist(identifier: 99).then { (artist) -> Void in
+            self.artistViewController?.artist = artist
+            exp.fulfill()
+        }
+
+        wait(for: [exp], timeout: 3.0)
+    }
+
     // MARK: UITableViewDataSource
 
     func testTableViewNumberOfSectionsIs2() {

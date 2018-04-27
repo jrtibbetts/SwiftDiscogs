@@ -41,10 +41,6 @@ open class DiscogsArtistViewController: Controller {
 
     // MARK: UIViewController
 
-    open override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    
     override open func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
