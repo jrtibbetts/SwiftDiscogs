@@ -19,11 +19,14 @@ class DiscogsArtistViewControllerTests: CollectionAndTableViewControllerTestBase
         return artistViewController?.artistModel
     }
 
+    var discogs = MockDiscogs()
+
     override func setUp() {
         super.setUp()
         let bundle = Bundle(for: DiscogsArtistViewController.self)
         let storyboard = UIStoryboard(name: "Main", bundle: bundle)
         viewController = storyboard.instantiateViewController(withIdentifier: "discogsArtist") as? Controller
+        artistViewController?.discogs = discogs
         XCTAssertNotNil(viewController)
         _ = viewController?.view // force viewDidLoad() to be called
     }
@@ -43,14 +46,39 @@ class DiscogsArtistViewControllerTests: CollectionAndTableViewControllerTestBase
         let mockDisplay = MockArtistDisplay()
         XCTAssertFalse(mockDisplay.refreshWasCalled)
 
-        let exp = expectation(description: "display.refresh() was called")
+        let exp = expectation(description: "setting the artist")
         artistViewController?.display = mockDisplay
-        MockDiscogs().artist(identifier: 99).then { (artist) -> Void in
+        discogs.artist(identifier: 99).then { (artist) -> Void in
             self.artistViewController?.artist = artist
             exp.fulfill()
         }
 
         wait(for: [exp], timeout: 3.0)
+    }
+
+    func testSetArtistSearchResultRefreshesView() {
+        let mockDisplay = MockArtistDisplay()
+        artistViewController?.discogs = discogs
+        XCTAssertFalse(mockDisplay.refreshWasCalled)
+
+        let searchResultExp = expectation(description: "setting the artist search result")
+        artistViewController?.display = mockDisplay
+        discogs.search(for: "John Lennon", type: "Artist").then { (artistSearchResults) -> Void in
+            self.artistViewController?.artistSearchResult = artistSearchResults.results?.first
+            XCTAssertNotNil(self.artistViewController?.artistSearchResult)
+
+            searchResultExp.fulfill()
+        }
+
+        wait(for: [searchResultExp], timeout: 3.0)
+
+        let artistExp = expectation(description: "setting the artist")
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2.0) {
+            XCTAssertNotNil(self.artistViewController?.artist)
+            artistExp.fulfill()
+        }
+
+        wait(for: [artistExp], timeout: 3.0)
     }
 
     // MARK: UITableViewDataSource
@@ -82,6 +110,31 @@ class DiscogsArtistViewControllerTests: CollectionAndTableViewControllerTestBase
         bioCell.bioText = "This is a sample biography."
 
         XCTAssertEqual(bioCell.bioLabel?.text, bioCell.bioText)
+    }
+
+    func testTableSectionHeadersOk() {
+        let exp = expectation(description: "MockDiscogs().artist was called")
+        _ = artistViewController?.view  // force viewDidLoad() to be called
+        discogs.artist(identifier: 99).then { (artist) -> Void in
+            self.artistViewController?.artist = artist
+
+            guard let table = self.artistView?.tableView else {
+                XCTFail("Failed to find a tableView in the artist view.")
+                return
+            }
+
+            let bioSection = DiscogsArtistModel.Section.bio
+            let bioTitle = self.artistModel?.tableView(table, titleForHeaderInSection: bioSection.rawValue)
+            XCTAssertEqual(bioTitle, "Bio")
+
+            let releasesSection = DiscogsArtistModel.Section.releases
+            let releasesTitle = self.artistModel?.tableView(table, titleForHeaderInSection: releasesSection.rawValue)
+            XCTAssertEqual(releasesTitle, "Releases")
+
+            exp.fulfill()
+        }
+
+        wait(for: [exp], timeout: 3.0)
     }
 
 }
