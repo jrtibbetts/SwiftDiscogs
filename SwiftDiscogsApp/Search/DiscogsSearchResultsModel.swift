@@ -12,6 +12,8 @@ open class DiscogsSearchResultsModel: CollectionAndTableModel {
 
     // MARK: Initializers
 
+    /// An empty initializer seems to be required when the class is set as a
+    /// custom object in a storyboard.
     override public init() {
         super.init()
     }

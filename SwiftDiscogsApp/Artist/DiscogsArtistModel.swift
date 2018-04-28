@@ -30,6 +30,8 @@ open class DiscogsArtistModel: CollectionAndTableModel {
 
     // MARK: Initializers
 
+    /// This is required for associated objects that are loaded by Interface
+    /// Builder.
     override public init() {
         super.init()
     }
@@ -61,14 +63,7 @@ open class DiscogsArtistModel: CollectionAndTableModel {
         return UITableViewCell(style: .default, reuseIdentifier: nil)
     }
 
-    // MARK: - UICollectionViewDataSource
-
-    open override func collectionView(_ collectionView: UICollectionView,
-                                      cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return UICollectionViewCell(frame: CGRect())
-    }
-
-    // MARK: - LotsOfThingsModel
+    // MARK: - Model
 
     open override func numberOfItems(inSection section: Int) -> Int {
         guard let sectionCase = Section(rawValue: section) else {
