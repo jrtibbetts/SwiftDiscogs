@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="si1-Xp-Qtq">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="tNh-PQ-CUg">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -515,6 +515,18 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B3O-o3-fcP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1338.4000000000001" y="227.13643178410797"/>
+        </scene>
+        <!--Split View Controller-->
+        <scene sceneID="Q7B-Ka-U7h">
+            <objects>
+                <splitViewController id="tNh-PQ-CUg" sceneMemberID="viewController">
+                    <connections>
+                        <segue destination="si1-Xp-Qtq" kind="relationship" relationship="masterViewController" id="8EI-7g-qoF"/>
+                    </connections>
+                </splitViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7Wo-is-ZTw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="345" y="635"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="nm5-bh-Lmx">
