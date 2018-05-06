@@ -74,10 +74,17 @@ open class DiscogsArtistModel: CollectionAndTableModel {
                 cell.thumbnail = thumbnails?[row]
                 cell.title = releaseSummary?.title
                 cell.year = releaseSummary?.year
+
+                return cell
             }
         }
 
-        return UITableViewCell(style: .default, reuseIdentifier: nil)
+        let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
+        cell.textLabel?.text = "This is a default cell that shouldn't appear."
+        cell.textLabel?.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        cell.textLabel?.backgroundColor = #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)
+
+        return cell
     }
 
     // MARK: - Model
