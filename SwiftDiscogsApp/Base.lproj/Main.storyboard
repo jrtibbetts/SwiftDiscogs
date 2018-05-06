@@ -280,23 +280,9 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="iaE-Sd-FyD">
                                 <rect key="frame" x="0.0" y="88" width="375" height="690"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <view key="tableHeaderView" contentMode="scaleToFill" id="I5c-qH-Aaa" userLabel="Header">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Little Richard" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WA8-Ij-biA" userLabel="Artist Name">
-                                            <rect key="frame" x="8" y="8" width="110" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="artistBioCell" rowHeight="228" id="osP-EA-1iJ" userLabel="Bio Cell" customClass="DiscogsArtistBioTableCell" customModule="SwiftDiscogsApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="77" width="375" height="228"/>
+                                        <rect key="frame" x="0.0" y="28" width="375" height="228"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="osP-EA-1iJ" id="GOt-Af-he5">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="227.66666666666666"/>
@@ -320,9 +306,12 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                                                 <constraint firstAttribute="topMargin" secondItem="GmX-2U-jW4" secondAttribute="top" id="zq7-Sv-gj2"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="bioLabel" destination="GmX-2U-jW4" id="1PQ-Tm-g1j"/>
+                                        </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="artistReleaseCell" rowHeight="88" id="zvy-eC-FLO" userLabel="Release Cell">
-                                        <rect key="frame" x="0.0" y="305" width="375" height="88"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="artistReleaseCell" rowHeight="88" id="zvy-eC-FLO" userLabel="Release Cell" customClass="DiscogsArtistReleaseTableCell" customModule="SwiftDiscogsApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="256" width="375" height="88"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="zvy-eC-FLO" id="33Q-IZ-u8S">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="87.666666666666671"/>
@@ -361,6 +350,9 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="thumbnailView" destination="CJD-wt-qtG" id="81B-vI-tRA"/>
+                                            <outlet property="titleLabel" destination="RTP-xH-Qfi" id="tL5-8y-Ga8"/>
+                                            <outlet property="yearLabel" destination="i8D-bh-YBu" id="27g-vH-vLr"/>
                                             <segue destination="430-Jq-t69" kind="show" identifier="showDiscogsRelease" id="g33-nN-pWB"/>
                                         </connections>
                                     </tableViewCell>
@@ -446,11 +438,16 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                             </mask>
                         </variation>
                         <connections>
+                            <outlet property="navigationItem" destination="nDW-Vb-H1u" id="iFU-fJ-tmJ"/>
                             <outlet property="tableView" destination="iaE-Sd-FyD" id="dYH-aR-U9R"/>
                         </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Artist Bio" id="nDW-Vb-H1u">
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="oaV-M9-qSh"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="oaV-M9-qSh">
+                            <connections>
+                                <action selector="close" destination="cvK-7F-nVP" id="CJk-SC-7Iv"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics"/>
                     <connections>

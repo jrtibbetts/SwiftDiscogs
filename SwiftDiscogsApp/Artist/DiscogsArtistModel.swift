@@ -16,15 +16,25 @@ open class DiscogsArtistModel: CollectionAndTableModel {
             case .bio:
                 return "artistBioCell"
             case .releases:
-                return "artistReleasesCell"
+                return "artistReleaseCell"
             }
         }
 
     }
 
-    // MARK: Properties
+    // MARK: Public Properties
 
     open var artist: DiscogsArtist?
+
+    open var releases: [DiscogsReleaseSummary]? {
+        didSet {
+
+        }
+    }
+
+    // MARK: Private Properties
+
+    fileprivate var thumbnails: [UIImage?]?
 
     fileprivate let bundle = Bundle(for: DiscogsArtistModel.self)
 
@@ -57,7 +67,14 @@ open class DiscogsArtistModel: CollectionAndTableModel {
                 return cell
             }
         case .releases:
-            break
+            let row = indexPath.row
+            let releaseSummary = releases?[row]
+
+            if let cell = tableView.dequeueReusableCell(withIdentifier: section.cellIdentifier) as? DiscogsArtistReleaseTableCell {
+                cell.thumbnail = thumbnails?[row]
+                cell.title = releaseSummary?.title
+                cell.year = releaseSummary?.year
+            }
         }
 
         return UITableViewCell(style: .default, reuseIdentifier: nil)
@@ -74,7 +91,7 @@ open class DiscogsArtistModel: CollectionAndTableModel {
         case .bio:
             return 1
         case .releases:
-            return 0 // discogsArtist
+            return releases?.count ?? 0
         }
     }
 

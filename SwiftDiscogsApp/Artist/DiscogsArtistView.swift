@@ -8,27 +8,61 @@ import UIKit
 /// active at a time, depending on the device's orientation.
 open class DiscogsArtistView: CollectionAndTableDisplay {
 
+    @IBOutlet fileprivate weak var navigationItem: UINavigationItem?
+
 }
 
 public protocol DiscogsArtistBioCell {
 
-    var bioLabel: UILabel? { get }
     var bioText: String? { get set }
 
 }
 
-open class DiscogsArtistBioTableCell: UITableViewCell, DiscogsArtistBioCell {
+public protocol DiscogsArtistReleaseCell {
 
-    @IBOutlet open weak var bioLabel: UILabel?
+    var thumbnail: UIImage? { get set }
+    var title: String? { get set }
+    var year: Int? { get set }
+
+}
+
+public final class DiscogsArtistBioTableCell: UITableViewCell, DiscogsArtistBioCell {
+
+    @IBOutlet fileprivate weak var bioLabel: UILabel?
 
     open var bioText: String? {
-        set {
+        didSet {
             bioLabel?.text = bioText
         }
+    }
 
-        get {
-            return bioLabel?.text
+}
+
+public final class DiscogsArtistReleaseTableCell: UITableViewCell, DiscogsArtistReleaseCell {
+
+    public var thumbnail: UIImage? {
+        didSet {
+            thumbnailView?.image = thumbnail
+            thumbnailView?.isHidden = (thumbnail == nil)
         }
     }
+
+    public var title: String? {
+        didSet {
+            titleLabel?.text = title
+            titleLabel?.isHidden = (title == nil)
+        }
+    }
+
+    public var year: Int? {
+        didSet {
+            yearLabel?.text = "\(year ?? 0)"
+            yearLabel?.isHidden = false
+        }
+    }
+
+    @IBOutlet fileprivate weak var thumbnailView: UIImageView?
+    @IBOutlet fileprivate weak var titleLabel: UILabel?
+    @IBOutlet fileprivate weak var yearLabel: UILabel?
 
 }
