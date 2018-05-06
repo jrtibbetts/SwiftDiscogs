@@ -1,6 +1,7 @@
 //  Copyright © 2018 Poikile Creations. All rights reserved.
 
 import PromiseKit
+import Stylobate
 import SwiftDiscogs
 import UIKit
 

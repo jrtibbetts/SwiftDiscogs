@@ -7,6 +7,7 @@
 //
 
 @testable import SwiftDiscogsApp
+import Stylobate
 import UIKit
 
 class MockArtistDisplay: Display {
