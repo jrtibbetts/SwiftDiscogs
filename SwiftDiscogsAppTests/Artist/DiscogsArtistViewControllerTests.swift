@@ -105,11 +105,10 @@ class DiscogsArtistViewControllerTests: CollectionAndTableViewControllerTestBase
         }
 
         XCTAssertNil(bioCell.bioText)
-        XCTAssertNil(bioCell.bioLabel)
 
         bioCell.bioText = "This is a sample biography."
 
-        XCTAssertEqual(bioCell.bioLabel?.text, bioCell.bioText)
+        XCTAssertNotNil(bioCell.bioText)
     }
 
     func testTableSectionHeadersOk() {
