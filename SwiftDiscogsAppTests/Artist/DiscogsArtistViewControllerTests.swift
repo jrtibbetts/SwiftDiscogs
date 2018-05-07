@@ -2,6 +2,7 @@
 
 @testable import SwiftDiscogsApp
 import PromiseKit
+import Stylobate
 import SwiftDiscogs
 import XCTest
 
