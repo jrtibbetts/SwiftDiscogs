@@ -269,10 +269,10 @@
             </objects>
             <point key="canvasLocation" x="3114" y="227"/>
         </scene>
-        <!--Artist Bio-->
+        <!--Artist-->
         <scene sceneID="Ah8-cD-mNe">
             <objects>
-                <viewController storyboardIdentifier="discogsArtist" id="cvK-7F-nVP" customClass="DiscogsArtistViewController" customModule="SwiftDiscogsApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="discogsArtist" id="cvK-7F-nVP" userLabel="Artist" customClass="DiscogsArtistViewController" customModule="SwiftDiscogsApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1SC-zu-66M" customClass="DiscogsArtistView" customModule="SwiftDiscogsApp" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -310,7 +310,7 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                                             <outlet property="bioLabel" destination="GmX-2U-jW4" id="1PQ-Tm-g1j"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="artistReleaseCell" rowHeight="88" id="zvy-eC-FLO" userLabel="Release Cell" customClass="DiscogsArtistReleaseTableCell" customModule="SwiftDiscogsApp" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="artistAlbumCell" rowHeight="88" id="zvy-eC-FLO" userLabel="Album Cell" customClass="DiscogsArtistReleaseTableCell" customModule="SwiftDiscogsApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="256" width="375" height="88"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="zvy-eC-FLO" id="33Q-IZ-u8S">
@@ -326,8 +326,8 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                                                     <viewLayoutGuide key="safeArea" id="Kfo-Xh-hkw"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="1957" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i8D-bh-YBu" userLabel="Album Year">
-                                                    <rect key="frame" x="322" y="11" width="38" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <rect key="frame" x="326.33333333333331" y="13" width="33.666666666666686" height="18"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -354,6 +354,51 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                                             <outlet property="titleLabel" destination="RTP-xH-Qfi" id="tL5-8y-Ga8"/>
                                             <outlet property="yearLabel" destination="i8D-bh-YBu" id="27g-vH-vLr"/>
                                             <segue destination="430-Jq-t69" kind="show" identifier="showDiscogsRelease" id="g33-nN-pWB"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="artistSingleCell" rowHeight="88" id="uOO-zB-Byl" userLabel="Single Cell" customClass="DiscogsArtistReleaseTableCell" customModule="SwiftDiscogsApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="344" width="375" height="88"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="uOO-zB-Byl" id="2oh-kD-U9I">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="87.666666666666671"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="HCd-CJ-mic">
+                                                    <rect key="frame" x="15" y="11" width="64" height="64"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="64" id="7yM-mz-o6r"/>
+                                                        <constraint firstAttribute="width" secondItem="HCd-CJ-mic" secondAttribute="height" multiplier="1:1" id="vyf-XT-yrj"/>
+                                                    </constraints>
+                                                    <viewLayoutGuide key="safeArea" id="Ztl-QL-f79"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="1957" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xbp-pw-xS2" userLabel="Single Year">
+                                                    <rect key="frame" x="326.33333333333331" y="12" width="33.666666666666686" height="18"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" text="“%@”" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L7D-y5-h1j" userLabel="Single Title">
+                                                    <rect key="frame" x="87" y="11" width="43" height="20"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Xbp-pw-xS2" firstAttribute="firstBaseline" secondItem="L7D-y5-h1j" secondAttribute="firstBaseline" id="5o3-r6-G1S"/>
+                                                <constraint firstAttribute="topMargin" secondItem="L7D-y5-h1j" secondAttribute="top" id="B9k-HC-d8N"/>
+                                                <constraint firstItem="L7D-y5-h1j" firstAttribute="leading" secondItem="HCd-CJ-mic" secondAttribute="trailing" constant="8" symbolic="YES" id="DgO-IY-IBF"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Xbp-pw-xS2" secondAttribute="trailing" id="G8M-dh-i3r"/>
+                                                <constraint firstItem="Xbp-pw-xS2" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="L7D-y5-h1j" secondAttribute="trailing" constant="8" symbolic="YES" id="Gxr-JG-JiP"/>
+                                                <constraint firstItem="HCd-CJ-mic" firstAttribute="top" secondItem="2oh-kD-U9I" secondAttribute="topMargin" id="Qwy-JB-0MF"/>
+                                                <constraint firstItem="HCd-CJ-mic" firstAttribute="leading" secondItem="2oh-kD-U9I" secondAttribute="leadingMargin" id="gRR-Ss-PZF"/>
+                                                <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="L7D-y5-h1j" secondAttribute="bottom" id="wKv-j3-eVs"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="thumbnailView" destination="HCd-CJ-mic" id="ZyG-q9-9C7"/>
+                                            <outlet property="titleLabel" destination="L7D-y5-h1j" id="g7g-8u-bzH"/>
+                                            <outlet property="yearLabel" destination="Xbp-pw-xS2" id="RmK-kc-cCx"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -451,10 +496,10 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
             </objects>
             <point key="canvasLocation" x="5050" y="227"/>
         </scene>
-        <!--Here's Little Richard-->
+        <!--Release-->
         <scene sceneID="DdD-1V-EUe">
             <objects>
-                <tableViewController id="430-Jq-t69" sceneMemberID="viewController">
+                <tableViewController id="430-Jq-t69" userLabel="Release" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="M7D-ro-FaS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

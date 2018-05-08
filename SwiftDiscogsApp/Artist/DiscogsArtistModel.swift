@@ -17,7 +17,7 @@ open class DiscogsArtistModel: CollectionAndTableModel {
             case .bio:
                 return "artistBioCell"
             case .releases:
-                return "artistReleaseCell"
+                return "artistAlbumCell"
             }
         }
 
@@ -57,7 +57,7 @@ open class DiscogsArtistModel: CollectionAndTableModel {
     open override func tableView(_ tableView: UITableView,
                                  cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let section = Section(rawValue: indexPath.section) else {
-            return UITableViewCell(style: .default, reuseIdentifier: nil)
+            return super.tableView(tableView, cellForRowAt: indexPath)
         }
 
         switch section {
@@ -80,12 +80,8 @@ open class DiscogsArtistModel: CollectionAndTableModel {
             }
         }
 
-        let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
-        cell.textLabel?.text = "This is a default cell that shouldn't appear."
-        cell.textLabel?.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-        cell.textLabel?.backgroundColor = #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)
 
-        return cell
+        return super.tableView(tableView, cellForRowAt: indexPath)
     }
 
     // MARK: - Model
