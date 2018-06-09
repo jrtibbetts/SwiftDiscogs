@@ -37,17 +37,6 @@
                                 </view>
                                 <blurEffect style="light"/>
                             </visualEffectView>
-                            <searchBar hidden="YES" clearsContextBeforeDrawing="NO" contentMode="redraw" searchBarStyle="minimal" placeholder="Search for artists, releases, or labels" showsCancelButton="YES" showsScopeBar="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nwK-Ua-mCf" userLabel="Dummy Search Bar (REMOVED AT RUNTIME)">
-                                <rect key="frame" x="0.0" y="140" width="375" height="100"/>
-                                <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <scopeButtonTitles>
-                                    <string>All</string>
-                                    <string>Artists</string>
-                                    <string>Releases</string>
-                                    <string>Labels</string>
-                                </scopeButtonTitles>
-                            </searchBar>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="TVS-ft-VpB">
                                 <rect key="frame" x="91.333333333333329" y="379" width="192.33333333333337" height="60"/>
                                 <subviews>
@@ -89,10 +78,7 @@
                             <constraint firstItem="TVS-ft-VpB" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="PnI-TB-O3x"/>
                             <constraint firstItem="TVS-ft-VpB" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" constant="-50" id="Sq2-qT-hek"/>
                             <constraint firstItem="06y-e1-oU9" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ZXJ-kW-YFG"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="nwK-Ua-mCf" secondAttribute="trailing" id="baN-Ya-3Dc"/>
                             <constraint firstItem="pEy-S7-tsb" firstAttribute="centerY" secondItem="TVS-ft-VpB" secondAttribute="centerY" id="k2n-hB-eVn"/>
-                            <constraint firstItem="nwK-Ua-mCf" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="qmh-QC-uhs"/>
-                            <constraint firstItem="nwK-Ua-mCf" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="wNV-jN-PJ0"/>
                             <constraint firstItem="pEy-S7-tsb" firstAttribute="centerX" secondItem="TVS-ft-VpB" secondAttribute="centerX" id="we2-hG-AwB"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="06y-e1-oU9" secondAttribute="bottom" id="xzs-Sh-nEd"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="06y-e1-oU9" secondAttribute="trailing" id="zUx-nP-hx2"/>
@@ -100,7 +86,6 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <connections>
                             <outlet property="blurOverlay" destination="06y-e1-oU9" id="cc5-d3-EUP"/>
-                            <outlet property="dummySearchBar" destination="nwK-Ua-mCf" id="Yw9-4x-99C"/>
                             <outlet property="signInButton" destination="7Xt-fI-IrK" id="43r-P4-TVF"/>
                             <outlet property="signOutButton" destination="lfP-Jk-5RX" id="87S-Od-8Db"/>
                             <outlet property="signOutView" destination="4ue-8Y-dqI" id="fDO-vp-8VS"/>
@@ -287,7 +272,7 @@
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </view>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="153" id="aa8-27-t7X" userLabel="Pic Cell">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="artistPicCell" rowHeight="153" id="aa8-27-t7X" userLabel="Pic Cell">
                                         <rect key="frame" x="0.0" y="28" width="375" height="153"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aa8-27-t7X" id="LGc-0O-TMd">
@@ -317,7 +302,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="227.66666666666666"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" layoutMarginsFollowReadableWidth="YES" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GmX-2U-jW4" userLabel="Bio">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" layoutMarginsFollowReadableWidth="YES" textAlignment="justified" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GmX-2U-jW4" userLabel="Bio">
                                                     <rect key="frame" x="15" y="11" width="345" height="206"/>
                                                     <string key="text">American singer, songwriter, pianist and recording artist, born 5 December 1932 in Macon, Georgia, USA. 
 
