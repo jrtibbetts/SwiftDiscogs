@@ -1,5 +1,5 @@
 github "OAuthSwift/OAuthSwift"
 github "mxcl/PromiseKit" ~> 4.4
-github "jrtibbetts/JSONClient" ~> 0.8.0
+github "jrtibbetts/JSONClient"
 github "jrtibbetts/Stylobate"
 

@@ -137,7 +137,7 @@ open class DiscogsClient: OAuth1JSONClient, Discogs {
                        type: String) -> Promise<DiscogsSearchResults> {
         let params = ["q": queryString]
         
-        return authorizedGet(path: "/database/search", headers: headers, params: params)
+        return authorizedGet(path: "/database/search", headers: headers, parameters: params)
     }
     
 }
