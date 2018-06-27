@@ -2,6 +2,7 @@
 
 @testable import SwiftDiscogsApp
 import PromiseKit
+import Stylobate
 import SwiftDiscogs
 import XCTest
 
@@ -25,10 +26,10 @@ class DiscogsArtistViewControllerTests: CollectionAndTableViewControllerTestBase
         super.setUp()
         let bundle = Bundle(for: DiscogsArtistViewController.self)
         let storyboard = UIStoryboard(name: "Main", bundle: bundle)
-        viewController = storyboard.instantiateViewController(withIdentifier: "discogsArtist") as? Controller
+        viewController = storyboard.instantiateViewController(withIdentifier: "discogsArtist") as? DiscogsArtistViewController
         artistViewController?.discogs = discogs
         XCTAssertNotNil(viewController)
-        _ = viewController?.view // force viewDidLoad() to be called
+        _ = artistViewController?.view // force viewDidLoad() to be called
     }
 
     func testModelAndDisplayOutletsAreProperlyConnected() {

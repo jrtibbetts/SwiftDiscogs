@@ -16,7 +16,7 @@ class DiscogsSearchResultsViewControllerTests: CollectionAndTableViewControllerT
         let bundle = Bundle(for: DiscogsSearchResultsController.self)
         let storyboard = UIStoryboard(name: "Main", bundle: bundle)
         viewController = storyboard.instantiateViewController(withIdentifier: "discogsSearchResults") as? DiscogsSearchResultsController
-        _ = viewController?.view  // force viewDidLoad() to be called
+        _ = resultsViewController?.view  // force viewDidLoad() to be called
     }
 
     func testViewDidLoadConnectsTableAndControllerOk() {
@@ -27,7 +27,7 @@ class DiscogsSearchResultsViewControllerTests: CollectionAndTableViewControllerT
     func testSearchUpdatesTableOk() {
         let exp = expectation(description: "artist results update")
         resultsViewController?.discogs = MockDiscogs()
-        resultsViewController?.updateSearchResults(for: UISearchController(searchResultsController: viewController))
+        resultsViewController?.updateSearchResults(for: UISearchController(searchResultsController: resultsViewController))
 
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2.0) {
             XCTAssertEqual(self.resultsViewController?.searchResultsModel?.numberOfItems(inSection: 0), 0)

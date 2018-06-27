@@ -1,10 +1,11 @@
 //  Copyright © 2018 Poikile Creations. All rights reserved.
 
+import Stylobate
 import SwiftDiscogs
 import UIKit
 
 /// A view controller for displaying details about a `DiscogsArtist`.
-open class DiscogsArtistViewController: Controller {
+open class DiscogsArtistViewController: OutlettedController {
 
     // MARK: Public Properties
 
@@ -47,17 +48,6 @@ open class DiscogsArtistViewController: Controller {
     @IBAction fileprivate func close() {
         dismiss(animated: true)
     }
-
-    // MARK: UIViewController
-
-//    override open func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(animated)
-//
-//        /// (Re-)set the artist model when the view controller reaches the top of
-//        /// the navigation stack.
-//        artistModel?.artist = artist
-//        display.refresh()
-//    }
 
     // MARK: Private Functions
 

@@ -1,6 +1,7 @@
 //  Copyright © 2018 Poikile Creations. All rights reserved.
 
-import SwiftDiscogsApp
+@testable import SwiftDiscogsApp
+import Stylobate
 import XCTest
 
 class ControllerTestBase: XCTestCase {

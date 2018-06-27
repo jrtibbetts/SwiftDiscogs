@@ -36,7 +36,7 @@ public struct DiscogsCollectionCustomField: Codable {
     /// The field's type. Currently, the only valid values are `dropdown`
     /// for lists, and `textarea` for free-text entry.
     public var type: String
-    
+
 }
 
 /// A collection of the custom fields that a user has defined.
@@ -44,5 +44,5 @@ public struct DiscogsCollectionCustomFields: Codable {
     
     /// The custom fields that the user has defined, if any.
     public var fields: [DiscogsCollectionCustomField]?
-    
+
 }

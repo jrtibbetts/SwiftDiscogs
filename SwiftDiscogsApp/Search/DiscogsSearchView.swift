@@ -1,5 +1,6 @@
 //  Copyright © 2018 Poikile Creations. All rights reserved.
 
+import Stylobate
 import UIKit
 
 /// The root view of the `DiscogsSearchViewController`.
@@ -8,11 +9,6 @@ open class DiscogsSearchView: CollectionAndTableDisplay, UISearchBarDelegate {
     // MARK: Outlets
 
     @IBOutlet private(set) weak var blurOverlay: UIView?
-
-    /// A `UISearchBar` that's configured in the storyboard, and whose
-    /// properties are then copied into the search controller's search bar
-    /// when `viewDidLoad()` is called.
-    @IBOutlet private(set) weak var dummySearchBar: UISearchBar?
 
     /// The label that displays the user's name after sign-in was successful.
     @IBOutlet private(set) weak var signedInAsLabel: UILabel?
@@ -128,12 +124,8 @@ open class DiscogsSearchView: CollectionAndTableDisplay, UISearchBarDelegate {
     // Copy the dummySearchBar's settings over to the search controller's
     // bar, then remove the dummy.
     fileprivate func setUp(searchBar: UISearchBar) {
-        searchBar.placeholder = dummySearchBar?.placeholder
-        searchBar.scopeButtonTitles = dummySearchBar?.scopeButtonTitles
         searchBar.delegate = self
         self.searchBar = searchBar
-        dummySearchBar?.removeFromSuperview()
-        dummySearchBar = nil
     }
 
 }

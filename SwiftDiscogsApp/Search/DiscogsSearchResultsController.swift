@@ -1,10 +1,11 @@
 //  Copyright © 2018 Poikile Creations. All rights reserved.
 
 import PromiseKit
+import Stylobate
 import SwiftDiscogs
 import UIKit
 
-open class DiscogsSearchResultsController: Controller, UISearchResultsUpdating, DiscogsProvider {
+open class DiscogsSearchResultsController: OutlettedController, UISearchResultsUpdating, DiscogsProvider {
 
     // MARK: Properties
 
@@ -29,7 +30,7 @@ open class DiscogsSearchResultsController: Controller, UISearchResultsUpdating, 
     open var results: [DiscogsSearchResult]? {
         didSet {
             searchResultsModel?.results = results
-            display.refresh()
+            display?.refresh()
         }
     }
 

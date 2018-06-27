@@ -1,5 +1,6 @@
 //  Copyright © 2018 Poikile Creations. All rights reserved.
 
+import Stylobate
 import SwiftDiscogs
 import UIKit
 
@@ -8,7 +9,14 @@ import UIKit
 /// active at a time, depending on the device's orientation.
 open class DiscogsArtistView: CollectionAndTableDisplay {
 
-    @IBOutlet fileprivate weak var navigationItem: UINavigationItem?
+    open var artistModel: DiscogsArtistModel? {
+        return model as? DiscogsArtistModel
+    }
+
+    open override func refresh() {
+        navigationItem?.title = artistModel?.artist?.name
+        super.refresh()
+    }
 
 }
 
