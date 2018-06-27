@@ -42,11 +42,6 @@ open class DiscogsSearchViewController: UIViewController, DiscogsProvider {
 
     override open func viewDidLoad() {
         super.viewDidLoad()
-        
-        // This is the iOS 11 way of adding the search bar. No more adding it
-        // to the table view's header view.
-        navigationItem.searchController = searchController
-
         searchView?.setUp(searchController: searchController, navigationItem: navigationItem)
     }
 
@@ -75,6 +70,10 @@ open class DiscogsSearchViewController: UIViewController, DiscogsProvider {
         promise?.then { [weak self] (credential) -> Void in
             // TODO: Use the user's real name.
             self?.searchView?.signedInAs(userName: "Fatty Arbuckle")
+
+            // This is the iOS 11 way of adding the search bar. No more adding it
+            // to the table view's header view.
+            self?.navigationItem.searchController = self?.searchController
             completion?()
             }.catch { (error) in    // not weak self because of Bundle(for:)
                 let alertTitle = NSLocalizedString("discogsSignInFailed",
@@ -96,6 +95,7 @@ open class DiscogsSearchViewController: UIViewController, DiscogsProvider {
 
         // TODO: Call the sign-out method that doesn't yet exist.
         searchView?.signedOut()
+        navigationItem.searchController = nil
         completion?()
     }
 
