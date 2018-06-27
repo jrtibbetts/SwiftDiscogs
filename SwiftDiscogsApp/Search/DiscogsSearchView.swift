@@ -6,36 +6,29 @@ import UIKit
 /// The root view of the `DiscogsSearchViewController`.
 open class DiscogsSearchView: CollectionAndTableDisplay, UISearchBarDelegate {
 
-    // MARK: Outlets
+    // MARK: Private Outlets
 
-    @IBOutlet private(set) weak var blurOverlay: UIView?
+    @IBOutlet fileprivate weak var blurOverlay: UIView?
 
     /// The label that displays the user's name after sign-in was successful.
-    @IBOutlet private(set) weak var signedInAsLabel: UILabel?
+    @IBOutlet fileprivate weak var signedInAsLabel: FormattedLabel?
 
     /// The button that will launch the Discogs service's authorization web
     /// page, if necessary.
-    @IBOutlet private(set) weak var signInButton: UIButton?
+    @IBOutlet fileprivate weak var signInButton: UIButton?
 
     /// The button for signing out of the Discogs service.
-    @IBOutlet private(set) weak var signOutButton: UIButton?
+    @IBOutlet fileprivate weak var signOutButton: UIButton?
 
     /// The view that contains the `signOutButton` and `signedInAsLabel`.
-    @IBOutlet private(set) weak var signOutView: UIView?
+    @IBOutlet fileprivate weak var signOutView: UIView?
 
-    @IBOutlet private(set) weak var spinner: UIActivityIndicatorView?
+    @IBOutlet fileprivate weak var spinner: UIActivityIndicatorView?
 
-    // MARK: Other properties
-
-    /// The search bar with which the view was set up.
-    private(set) var searchBar: UISearchBar?
+    // MARK: Private properties
 
     /// Indicates whether the user is current signed in to Discogs.
-    private(set) var signedIn: Bool = false
-
-    /// The string format for the `signedInAsLabel`. This value should be
-    /// captured from the `signedInAsLabel` when this view is set up.
-    fileprivate var signedInAsLabelFormat: String!
+    fileprivate var signedIn: Bool = false
 
     // MARK: UISearchBarDelegate
 
@@ -47,7 +40,6 @@ open class DiscogsSearchView: CollectionAndTableDisplay, UISearchBarDelegate {
     /// Configure the view.
     func setUp(searchController: UISearchController,
                navigationItem: UINavigationItem) {
-        signedInAsLabelFormat = signedInAsLabel?.text
         signOutView?.isHidden = true
 
         stopSpinning()
@@ -70,14 +62,13 @@ open class DiscogsSearchView: CollectionAndTableDisplay, UISearchBarDelegate {
         signedIn = true
         signInButton?.isHidden = true
         signOutView?.isHidden = false
-        signedInAsLabel?.text = String(format: signedInAsLabelFormat, userName)
+        signedInAsLabel?.text = userName
     }
 
     func signedOut() {
         stopSpinning()
         // Even though the signed-in label will be hidden now, clear the
         // username from it to avoid any potential security risk.
-        signedInAsLabel?.text = signedInAsLabelFormat
         signInButton?.isHidden = false
         signOutView?.isHidden = true
         signedIn = false
@@ -85,22 +76,22 @@ open class DiscogsSearchView: CollectionAndTableDisplay, UISearchBarDelegate {
 
     func willSignIn() {
         spin()
-        UIView.animate(withDuration: 0.3,
-                       delay: 0.0,
-                       options: .curveEaseIn,
-                       animations: { [weak self] in
-                        self?.searchBar?.alpha = CGFloat(1.0)
-            }, completion: nil)
+//        UIView.animate(withDuration: 0.3,
+//                       delay: 0.0,
+//                       options: .curveEaseIn,
+//                       animations: { [weak self] in
+//                        self?.searchBar?.alpha = CGFloat(1.0)
+//            }, completion: nil)
     }
 
     func willSignOut() {
         spin()
-        UIView.animate(withDuration: 0.3,
-                       delay: 0.0,
-                       options: .curveEaseOut,
-                       animations: { [weak self] in
-                        self?.searchBar?.alpha = CGFloat(0.25)
-            }, completion: nil)
+//        UIView.animate(withDuration: 0.3,
+//                       delay: 0.0,
+//                       options: .curveEaseOut,
+//                       animations: { [weak self] in
+//                        self?.searchBar?.alpha = CGFloat(0.25)
+//            }, completion: nil)
     }
 
     // MARK: Other functions
@@ -125,7 +116,6 @@ open class DiscogsSearchView: CollectionAndTableDisplay, UISearchBarDelegate {
     // bar, then remove the dummy.
     fileprivate func setUp(searchBar: UISearchBar) {
         searchBar.delegate = self
-        self.searchBar = searchBar
     }
 
 }

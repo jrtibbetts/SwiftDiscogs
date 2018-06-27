@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="tNh-PQ-CUg">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="tNh-PQ-CUg">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -24,93 +24,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="06y-e1-oU9">
-                                <rect key="frame" x="0.0" y="140" width="375" height="638"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="cpf-aC-p8D">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="638"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                    <subviews>
-                                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="pEy-S7-tsb">
-                                            <rect key="frame" x="177" y="259" width="19.666666666666657" height="20"/>
-                                        </activityIndicatorView>
-                                    </subviews>
-                                </view>
-                                <blurEffect style="light"/>
-                            </visualEffectView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="TVS-ft-VpB">
-                                <rect key="frame" x="91.333333333333329" y="379" width="192.33333333333337" height="60"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Xt-fI-IrK" userLabel="Sign In Button">
-                                        <rect key="frame" x="0.0" y="0.0" width="192.33333333333334" height="30"/>
-                                        <state key="normal" title="Sign In to Discogs.com"/>
-                                        <connections>
-                                            <action selector="signInTappedWithSource:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4ka-bm-NcE"/>
-                                        </connections>
-                                    </button>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="4ue-8Y-dqI" userLabel="Sign Out View">
-                                        <rect key="frame" x="0.0" y="30" width="192.33333333333334" height="30"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Signed in as %@." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ebJ-IV-GIq" userLabel="Signed In Label">
-                                                <rect key="frame" x="0.0" y="0.0" width="117.33333333333333" height="30"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lfP-Jk-5RX" userLabel="Sign Out Button">
-                                                <rect key="frame" x="125.33333333333331" y="0.0" width="67" height="30"/>
-                                                <state key="normal" title="Sign Out?"/>
-                                                <connections>
-                                                    <action selector="signOutTappedWithSource:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xib-b8-Q56"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstItem="lfP-Jk-5RX" firstAttribute="firstBaseline" secondItem="ebJ-IV-GIq" secondAttribute="firstBaseline" id="zn8-tW-NH9"/>
-                                        </constraints>
-                                    </stackView>
-                                </subviews>
-                            </stackView>
-                        </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="pEy-S7-tsb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="177" id="0tT-fK-SaN"/>
-                            <constraint firstItem="06y-e1-oU9" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="3nL-Mf-z3v"/>
-                            <constraint firstItem="TVS-ft-VpB" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="PnI-TB-O3x"/>
-                            <constraint firstItem="TVS-ft-VpB" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" constant="-50" id="Sq2-qT-hek"/>
-                            <constraint firstItem="06y-e1-oU9" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ZXJ-kW-YFG"/>
-                            <constraint firstItem="pEy-S7-tsb" firstAttribute="centerY" secondItem="TVS-ft-VpB" secondAttribute="centerY" id="k2n-hB-eVn"/>
-                            <constraint firstItem="pEy-S7-tsb" firstAttribute="centerX" secondItem="TVS-ft-VpB" secondAttribute="centerX" id="we2-hG-AwB"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="06y-e1-oU9" secondAttribute="bottom" id="xzs-Sh-nEd"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="06y-e1-oU9" secondAttribute="trailing" id="zUx-nP-hx2"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <connections>
-                            <outlet property="blurOverlay" destination="06y-e1-oU9" id="cc5-d3-EUP"/>
-                            <outlet property="signInButton" destination="7Xt-fI-IrK" id="43r-P4-TVF"/>
-                            <outlet property="signOutButton" destination="lfP-Jk-5RX" id="87S-Od-8Db"/>
-                            <outlet property="signOutView" destination="4ue-8Y-dqI" id="fDO-vp-8VS"/>
-                            <outlet property="signedInAsLabel" destination="ebJ-IV-GIq" id="yex-dD-Acs"/>
-                            <outlet property="spinner" destination="pEy-S7-tsb" id="LhV-sC-uDz"/>
-                        </connections>
-                    </view>
-                    <navigationItem key="navigationItem" title="Discogs Search" id="99a-Al-h2A">
-                        <barButtonItem key="backBarButtonItem" title="Search" id="ewt-20-Fqj"/>
-                    </navigationItem>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2241" y="227"/>
-        </scene>
-        <!--Discogs Search Results Controller-->
-        <scene sceneID="WCY-Ym-g5N">
-            <objects>
-                <viewController storyboardIdentifier="discogsSearchResults" id="Bt1-Sz-Kir" customClass="DiscogsSearchResultsController" customModule="SwiftDiscogsApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="iiP-Aw-oq0" customClass="DiscogsSearchResultsView" customModule="SwiftDiscogsApp" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MQe-0X-tnP">
-                                <rect key="frame" x="0.0" y="44" width="375" height="734"/>
+                                <rect key="frame" x="0.0" y="140" width="375" height="638"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="artistSearchResultCell" rowHeight="101" id="QRX-0o-hil" userLabel="Artist Cell" customClass="ArtistSearchResultCell" customModule="SwiftDiscogsApp" customModuleProvider="target">
@@ -160,100 +75,92 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
-                                <connections>
-                                    <outlet property="dataSource" destination="eRv-Ft-VkR" id="2mW-fI-SKz"/>
-                                    <outlet property="delegate" destination="eRv-Ft-VkR" id="fIe-NS-u2x"/>
-                                </connections>
                             </tableView>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="f50-Ea-VZ6">
-                                <rect key="frame" x="0.0" y="20" width="768" height="1004"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="tmi-gk-vVk">
-                                    <size key="itemSize" width="50" height="50"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="defaultCell" id="hxB-IN-pXE">
-                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </view>
-                                    </collectionViewCell>
-                                </cells>
-                                <connections>
-                                    <outlet property="dataSource" destination="eRv-Ft-VkR" id="IF0-ip-zEF"/>
-                                    <outlet property="delegate" destination="eRv-Ft-VkR" id="I5p-Hf-icU"/>
-                                </connections>
-                            </collectionView>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="06y-e1-oU9">
+                                <rect key="frame" x="0.0" y="140" width="375" height="638"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="cpf-aC-p8D">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="638"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="pEy-S7-tsb">
+                                            <rect key="frame" x="177" y="259" width="19.666666666666657" height="20"/>
+                                        </activityIndicatorView>
+                                    </subviews>
+                                </view>
+                                <blurEffect style="light"/>
+                            </visualEffectView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="TVS-ft-VpB">
+                                <rect key="frame" x="91.333333333333329" y="379" width="192.33333333333337" height="60"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Xt-fI-IrK" userLabel="Sign In Button">
+                                        <rect key="frame" x="0.0" y="0.0" width="192.33333333333334" height="30"/>
+                                        <state key="normal" title="Sign In to Discogs.com"/>
+                                        <connections>
+                                            <action selector="signInTappedWithSource:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4ka-bm-NcE"/>
+                                        </connections>
+                                    </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="4ue-8Y-dqI" userLabel="Sign Out View">
+                                        <rect key="frame" x="0.0" y="30" width="192.33333333333334" height="30"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Signed in as %@." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ebJ-IV-GIq" userLabel="Signed In Label" customClass="FormattedLabel" customModule="Stylobate">
+                                                <rect key="frame" x="0.0" y="0.0" width="117.33333333333333" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lfP-Jk-5RX" userLabel="Sign Out Button">
+                                                <rect key="frame" x="125.33333333333331" y="0.0" width="67" height="30"/>
+                                                <state key="normal" title="Sign Out?"/>
+                                                <connections>
+                                                    <action selector="signOutTappedWithSource:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xib-b8-Q56"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="lfP-Jk-5RX" firstAttribute="firstBaseline" secondItem="ebJ-IV-GIq" secondAttribute="firstBaseline" id="zn8-tW-NH9"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="GcA-xG-vwI" firstAttribute="bottom" secondItem="MQe-0X-tnP" secondAttribute="bottom" id="Aru-7J-Hai"/>
-                            <constraint firstItem="MQe-0X-tnP" firstAttribute="leading" secondItem="GcA-xG-vwI" secondAttribute="leading" id="N8I-2e-JRq"/>
-                            <constraint firstItem="f50-Ea-VZ6" firstAttribute="top" secondItem="GcA-xG-vwI" secondAttribute="top" id="Uvc-CN-1zi"/>
-                            <constraint firstItem="GcA-xG-vwI" firstAttribute="trailing" secondItem="MQe-0X-tnP" secondAttribute="trailing" id="aXS-lA-DoR"/>
-                            <constraint firstItem="f50-Ea-VZ6" firstAttribute="leading" secondItem="GcA-xG-vwI" secondAttribute="leading" id="dTu-gy-fj2"/>
-                            <constraint firstItem="MQe-0X-tnP" firstAttribute="top" secondItem="GcA-xG-vwI" secondAttribute="top" id="ekd-AR-Bd9"/>
-                            <constraint firstItem="GcA-xG-vwI" firstAttribute="bottom" secondItem="f50-Ea-VZ6" secondAttribute="bottom" id="h76-lM-DRb"/>
-                            <constraint firstItem="GcA-xG-vwI" firstAttribute="trailing" secondItem="f50-Ea-VZ6" secondAttribute="trailing" id="mpM-OD-hSv"/>
+                            <constraint firstItem="pEy-S7-tsb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="177" id="0tT-fK-SaN"/>
+                            <constraint firstItem="06y-e1-oU9" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="3nL-Mf-z3v"/>
+                            <constraint firstItem="TVS-ft-VpB" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="PnI-TB-O3x"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="top" secondItem="MQe-0X-tnP" secondAttribute="top" id="Quy-PI-I68"/>
+                            <constraint firstItem="TVS-ft-VpB" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" constant="-50" id="Sq2-qT-hek"/>
+                            <constraint firstItem="06y-e1-oU9" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ZXJ-kW-YFG"/>
+                            <constraint firstItem="pEy-S7-tsb" firstAttribute="centerY" secondItem="TVS-ft-VpB" secondAttribute="centerY" id="k2n-hB-eVn"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="MQe-0X-tnP" secondAttribute="trailing" id="lJG-uC-j2T"/>
+                            <constraint firstItem="MQe-0X-tnP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="oT8-fD-kP8"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="MQe-0X-tnP" secondAttribute="bottom" id="oeV-WQ-Rq2"/>
+                            <constraint firstItem="pEy-S7-tsb" firstAttribute="centerX" secondItem="TVS-ft-VpB" secondAttribute="centerX" id="we2-hG-AwB"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="06y-e1-oU9" secondAttribute="bottom" id="xzs-Sh-nEd"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="06y-e1-oU9" secondAttribute="trailing" id="zUx-nP-hx2"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="GcA-xG-vwI"/>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="MQe-0X-tnP"/>
-                                <exclude reference="f50-Ea-VZ6"/>
-                            </mask>
-                            <mask key="constraints">
-                                <exclude reference="N8I-2e-JRq"/>
-                                <exclude reference="ekd-AR-Bd9"/>
-                                <exclude reference="Aru-7J-Hai"/>
-                                <exclude reference="aXS-lA-DoR"/>
-                                <exclude reference="h76-lM-DRb"/>
-                                <exclude reference="mpM-OD-hSv"/>
-                                <exclude reference="Uvc-CN-1zi"/>
-                                <exclude reference="dTu-gy-fj2"/>
-                            </mask>
-                        </variation>
-                        <variation key="widthClass=compact">
-                            <mask key="subviews">
-                                <include reference="MQe-0X-tnP"/>
-                            </mask>
-                            <mask key="constraints">
-                                <include reference="N8I-2e-JRq"/>
-                                <include reference="ekd-AR-Bd9"/>
-                                <include reference="Aru-7J-Hai"/>
-                                <include reference="aXS-lA-DoR"/>
-                            </mask>
-                        </variation>
-                        <variation key="widthClass=regular">
-                            <mask key="subviews">
-                                <include reference="f50-Ea-VZ6"/>
-                            </mask>
-                            <mask key="constraints">
-                                <include reference="h76-lM-DRb"/>
-                                <include reference="mpM-OD-hSv"/>
-                                <include reference="Uvc-CN-1zi"/>
-                                <include reference="dTu-gy-fj2"/>
-                            </mask>
-                        </variation>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <connections>
-                            <outlet property="collectionView" destination="f50-Ea-VZ6" id="KvE-BL-MXG"/>
-                            <outlet property="tableView" destination="MQe-0X-tnP" id="BrX-hP-DKY"/>
+                            <outlet property="blurOverlay" destination="06y-e1-oU9" id="cc5-d3-EUP"/>
+                            <outlet property="signInButton" destination="7Xt-fI-IrK" id="43r-P4-TVF"/>
+                            <outlet property="signOutButton" destination="lfP-Jk-5RX" id="87S-Od-8Db"/>
+                            <outlet property="signOutView" destination="4ue-8Y-dqI" id="fDO-vp-8VS"/>
+                            <outlet property="signedInAsLabel" destination="ebJ-IV-GIq" id="yex-dD-Acs"/>
+                            <outlet property="spinner" destination="pEy-S7-tsb" id="LhV-sC-uDz"/>
                         </connections>
                     </view>
+                    <navigationItem key="navigationItem" title="Discogs Search" id="99a-Al-h2A">
+                        <barButtonItem key="backBarButtonItem" title="Search" id="ewt-20-Fqj"/>
+                    </navigationItem>
                     <connections>
-                        <outlet property="display" destination="iiP-Aw-oq0" id="4tG-kN-FVF"/>
-                        <outlet property="model" destination="eRv-Ft-VkR" id="YVc-fa-zqa"/>
+                        <outlet property="display" destination="8bC-Xf-vdC" id="gIb-Uf-WgR"/>
+                        <outlet property="model" destination="wrO-Ei-XhZ" id="XNa-Xx-7Rc"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="srZ-Hy-pNm" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <customObject id="eRv-Ft-VkR" customClass="DiscogsSearchResultsModel" customModule="SwiftDiscogsApp" customModuleProvider="target"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <customObject id="wrO-Ei-XhZ" customClass="DiscogsSearchResultsModel" customModule="SwiftDiscogsApp" customModuleProvider="target"/>
             </objects>
-            <point key="canvasLocation" x="3114" y="227"/>
+            <point key="canvasLocation" x="2241" y="227"/>
         </scene>
         <!--Artist Details-->
         <scene sceneID="Ah8-cD-mNe">
@@ -288,7 +195,7 @@
                                                 <constraint firstItem="fkc-x1-Vyr" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="LGc-0O-TMd" secondAttribute="leadingMargin" id="Sv1-gg-Zpn"/>
                                                 <constraint firstItem="fkc-x1-Vyr" firstAttribute="top" secondItem="LGc-0O-TMd" secondAttribute="topMargin" id="VBP-fF-Vqu"/>
                                                 <constraint firstItem="fkc-x1-Vyr" firstAttribute="centerX" secondItem="LGc-0O-TMd" secondAttribute="centerX" id="Yi1-p1-jQV"/>
-                                                <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="fkc-x1-Vyr" secondAttribute="trailing" id="vTu-QG-IsU"/>
+                                                <constraint firstItem="fkc-x1-Vyr" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="LGc-0O-TMd" secondAttribute="trailingMargin" id="vTu-QG-IsU"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -509,7 +416,7 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lOY-hj-4oC" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <customObject id="28g-xh-2mZ" customClass="DiscogsArtistModel" customModule="SwiftDiscogsApp" customModuleProvider="target"/>
             </objects>
-            <point key="canvasLocation" x="5048.8000000000002" y="226.84729064039411"/>
+            <point key="canvasLocation" x="4118" y="227"/>
         </scene>
         <!--Discogs Artist Images-->
         <scene sceneID="wuE-Xr-dVS">
@@ -625,7 +532,7 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L5g-dc-psQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6016.8000000000002" y="226.84729064039411"/>
+            <point key="canvasLocation" x="5372" y="227"/>
         </scene>
         <!--Release Details-->
         <scene sceneID="DdD-1V-EUe">
@@ -655,7 +562,7 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gZm-rk-WSG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5049" y="1073"/>
+            <point key="canvasLocation" x="5372" y="1015"/>
         </scene>
         <!--Artist Bio-->
         <scene sceneID="2D8-tA-SAQ">
@@ -665,17 +572,11 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Byp-oG-qa7">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Byp-oG-qa7">
                                 <rect key="frame" x="0.0" y="88" width="375" height="690"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <attributedString key="attributedText">
-                                    <fragment>
-                                        <string key="content">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                        <attributes>
-                                            <font key="NSFont" metaFont="system" size="14"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="yes"/>
                                 <dataDetectorType key="dataDetectorTypes" link="YES"/>
                             </textView>
@@ -692,7 +593,7 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uRr-0L-oTN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6016.8000000000002" y="-502.46305418719214"/>
+            <point key="canvasLocation" x="5372" y="-553"/>
         </scene>
         <!--Database-->
         <scene sceneID="20v-EU-wcr">
@@ -746,7 +647,7 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F4G-KW-E8q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4090" y="227"/>
+            <point key="canvasLocation" x="3174" y="227"/>
         </scene>
     </scenes>
     <color key="tintColor" red="0.0026941164399999998" green="0.097064159809999995" blue="0.57731443640000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
