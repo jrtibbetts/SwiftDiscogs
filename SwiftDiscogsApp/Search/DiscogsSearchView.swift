@@ -4,106 +4,103 @@ import Stylobate
 import UIKit
 
 /// The root view of the `DiscogsSearchViewController`.
-open class DiscogsSearchView: CollectionAndTableDisplay, UISearchBarDelegate {
+open class DiscogsSearchView: CollectionAndTableDisplay, DiscogsSearchDisplay, UISearchBarDelegate {
 
-    // MARK: Outlets
+    // MARK: - Private Outlets
 
-    @IBOutlet private(set) weak var blurOverlay: UIView?
+    @IBOutlet fileprivate weak var blurOverlay: UIView?
 
     /// The label that displays the user's name after sign-in was successful.
-    @IBOutlet private(set) weak var signedInAsLabel: UILabel?
+    @IBOutlet fileprivate weak var signedInAsLabel: FormattedLabel?
 
     /// The button that will launch the Discogs service's authorization web
     /// page, if necessary.
-    @IBOutlet private(set) weak var signInButton: UIButton?
+    @IBOutlet fileprivate weak var signInButton: UIButton?
 
     /// The button for signing out of the Discogs service.
-    @IBOutlet private(set) weak var signOutButton: UIButton?
+    @IBOutlet fileprivate weak var signOutButton: UIButton?
 
-    /// The view that contains the `signOutButton` and `signedInAsLabel`.
-    @IBOutlet private(set) weak var signOutView: UIView?
+    /// The busy indicator.
+    @IBOutlet fileprivate weak var spinner: UIActivityIndicatorView?
 
-    @IBOutlet private(set) weak var spinner: UIActivityIndicatorView?
-
-    // MARK: Other properties
-
-    /// The search bar with which the view was set up.
-    private(set) var searchBar: UISearchBar?
+    // MARK: - Private Properties
 
     /// Indicates whether the user is current signed in to Discogs.
-    private(set) var signedIn: Bool = false
+    fileprivate var signedIn: Bool = false
 
-    /// The string format for the `signedInAsLabel`. This value should be
-    /// captured from the `signedInAsLabel` when this view is set up.
-    fileprivate var signedInAsLabelFormat: String!
-
-    // MARK: UISearchBarDelegate
+    // MARK: - UISearchBarDelegate
 
     open func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
         // Prevent search-bar editing if the user's not signed in.
         return signedIn
     }
 
+    // MARK: - DiscogsSearchDisplay
+
     /// Configure the view.
-    func setUp(searchController: UISearchController,
-               navigationItem: UINavigationItem) {
-        signedInAsLabelFormat = signedInAsLabel?.text
-        signOutView?.isHidden = true
+    open func setUp(navigationItem: UINavigationItem) {
+        signedOut()
 
-        stopSpinning()
+        self.navigationItem = navigationItem
+        self.navigationItem?.hidesSearchBarWhenScrolling = true
 
-        searchController.hidesNavigationBarDuringPresentation = true
-        searchController.dimsBackgroundDuringPresentation = true
-        searchController.obscuresBackgroundDuringPresentation = true
+        if let searchController = navigationItem.searchController {
+            searchController.hidesNavigationBarDuringPresentation = true
+            searchController.dimsBackgroundDuringPresentation = false
+            searchController.obscuresBackgroundDuringPresentation = false
 
-        setUp(searchBar: searchController.searchBar)
-
-        navigationItem.hidesSearchBarWhenScrolling = false
+            setUp(searchBar: searchController.searchBar)
+        }
     }
 
-    func tearDown() {
+    open func tearDown() {
         // Nothing.
     }
 
-    func signedInAs(userName: String) {
-        stopSpinning()
+    open func signedInAs(userName: String) {
+        stopSpinning()  // spin() was called in willSignIn()
+        signOutButton?.isEnabled = true
+        signOutButton?.setTitle("Signed in as \(userName)", for: .normal)
         signedIn = true
-        signInButton?.isHidden = true
-        signOutView?.isHidden = false
-        signedInAsLabel?.text = String(format: signedInAsLabelFormat, userName)
+        tableView?.isHidden = false
+
+        UIView.animateKeyframes(withDuration: 0.75,
+                                delay: 0.0,
+                                options: .beginFromCurrentState,
+                                animations: {
+                                    UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 0.66) { [weak self] in
+                                        self?.signOutButton?.transform = CGAffineTransform(scaleX: 1.33, y: 1.33)
+                                    }
+                                    UIView.addKeyframe(withRelativeStartTime: 0.67, relativeDuration: 0.33) { [weak self] in
+                                        self?.signOutButton?.setTitle("Sign Out", for: .normal)
+                                        self?.signOutButton?.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+                                    }
+        }) { [weak self] (completed) in
+            self?.blurOverlay?.isHidden = true
+        }
     }
 
-    func signedOut() {
-        stopSpinning()
+    open func signedOut() {
+        stopSpinning()  // spin() was called in willSignOut()
         // Even though the signed-in label will be hidden now, clear the
         // username from it to avoid any potential security risk.
-        signedInAsLabel?.text = signedInAsLabelFormat
         signInButton?.isHidden = false
-        signOutView?.isHidden = true
+        signOutButton?.isEnabled = false
         signedIn = false
+        tableView?.isHidden = true
+        blurOverlay?.isHidden = false
     }
 
-    func willSignIn() {
-        spin()
-        UIView.animate(withDuration: 0.3,
-                       delay: 0.0,
-                       options: .curveEaseIn,
-                       animations: { [weak self] in
-                        self?.searchBar?.alpha = CGFloat(1.0)
-            }, completion: nil)
+    open func willSignIn() {
+        spin()  // stopSpinning() is called in signedIn()
+        signInButton?.isHidden = true
     }
 
-    func willSignOut() {
-        spin()
-        UIView.animate(withDuration: 0.3,
-                       delay: 0.0,
-                       options: .curveEaseOut,
-                       animations: { [weak self] in
-                        self?.searchBar?.alpha = CGFloat(0.25)
-            }, completion: nil)
+    open func willSignOut() {
+        spin()  // stopSpinning() is called in signedOut()
     }
 
-    // MARK: Other functions
+    // MARK: - Private functions
 
     fileprivate func spin() {
         if let blurOverlay = blurOverlay {
@@ -121,11 +118,8 @@ open class DiscogsSearchView: CollectionAndTableDisplay, UISearchBarDelegate {
         }
     }
 
-    // Copy the dummySearchBar's settings over to the search controller's
-    // bar, then remove the dummy.
     fileprivate func setUp(searchBar: UISearchBar) {
         searchBar.delegate = self
-        self.searchBar = searchBar
     }
 
 }

@@ -6,7 +6,7 @@ import PromiseKit
 
 /// Swift implementation of the Discogs (https://www.discogs.com) API. Most
 /// calls return a `Promise`, which the API call will populate with either
-/// a populated `struct` of the expected type, or an error.
+/// a populated object of the expected type, or an error.
 open class DiscogsClient: OAuth1JSONClient, Discogs {
 
     // MARK: - Private properties
@@ -17,9 +17,8 @@ open class DiscogsClient: OAuth1JSONClient, Discogs {
     
     // MARK: - Initializers
     
-    /// Initialize the Discogs API. This doesn't make any calls to the Discogs
-    /// API; that happens in `authorize()`.
-    ///
+    /// Initialize the Discogs client. This doesn't make any calls to the
+    /// Discogs API; that happens in `authorize()`.
     public init(consumerKey: String,
                 consumerSecret: String,
                 userAgent: String) {
