@@ -10,9 +10,6 @@ open class DiscogsSearchView: CollectionAndTableDisplay, DiscogsSearchDisplay, U
 
     @IBOutlet fileprivate weak var blurOverlay: UIView?
 
-    /// The label that displays the user's name after sign-in was successful.
-    @IBOutlet fileprivate weak var signedInAsLabel: FormattedLabel?
-
     /// The button that will launch the Discogs service's authorization web
     /// page, if necessary.
     @IBOutlet fileprivate weak var signInButton: UIButton?
@@ -23,16 +20,46 @@ open class DiscogsSearchView: CollectionAndTableDisplay, DiscogsSearchDisplay, U
     /// The busy indicator.
     @IBOutlet fileprivate weak var spinner: UIActivityIndicatorView?
 
-    // MARK: - Private Properties
+    /// The stack view that contains the sign-in view, the search results table,
+    /// and the `unavailableView`.
+    @IBOutlet fileprivate weak var toggleStackView: ToggleStackView?
 
-    /// Indicates whether the user is current signed in to Discogs.
+    /// The view that's shown when the user taps the My Collection search scope
+    /// button, which isn't implemented yet.
+    @IBOutlet fileprivate weak var unavailableView: UIView?
+
+    // MARK: - Other Properties
+
+    /// Indicates whether the user is currently signed in to Discogs.
     fileprivate var signedIn: Bool = false
+
+    fileprivate lazy var allOfDiscogsSearchScopeTitle = NSLocalizedString("allOfDiscogsSearchScopeTitle",
+                                                                          tableName: nil,
+                                                                          bundle: Bundle(for: type(of: self)),
+                                                                          value: "All of Discogs",
+                                                                          comment: "Search scope label for searching all of Discogs")
+
+    fileprivate lazy var userCollectionSearchScopeTitle = NSLocalizedString("userCollectionSearchScopeTitle",
+                                                                            tableName: nil,
+                                                                            bundle: Bundle(for: type(of: self)),
+                                                                            value: "My Collection",
+                                                                            comment: "Search scope label for searching only within the user's collection")
+
 
     // MARK: - UISearchBarDelegate
 
     open func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
         // Prevent search-bar editing if the user's not signed in.
         return signedIn
+    }
+
+    public func searchBar(_ searchBar: UISearchBar,
+                          selectedScopeButtonIndexDidChange selectedScope: Int) {
+        if selectedScope == DiscogsSearchViewController.SearchScope.userCollection.rawValue {
+            toggleStackView?.activeView = unavailableView
+        } else {
+            toggleStackView?.activeView = toggleStackView?.previousActiveView
+        }
     }
 
     // MARK: - DiscogsSearchDisplay
@@ -42,7 +69,7 @@ open class DiscogsSearchView: CollectionAndTableDisplay, DiscogsSearchDisplay, U
         signedOut()
 
         self.navigationItem = navigationItem
-        self.navigationItem?.hidesSearchBarWhenScrolling = true
+        self.navigationItem?.hidesSearchBarWhenScrolling = false
 
         if let searchController = navigationItem.searchController {
             searchController.hidesNavigationBarDuringPresentation = true
@@ -51,6 +78,8 @@ open class DiscogsSearchView: CollectionAndTableDisplay, DiscogsSearchDisplay, U
 
             setUp(searchBar: searchController.searchBar)
         }
+
+        toggleStackView?.activeView = blurOverlay
     }
 
     open func tearDown() {
@@ -62,7 +91,7 @@ open class DiscogsSearchView: CollectionAndTableDisplay, DiscogsSearchDisplay, U
         signOutButton?.isEnabled = true
         signOutButton?.setTitle("Signed in as \(userName)", for: .normal)
         signedIn = true
-        tableView?.isHidden = false
+        toggleStackView?.activeView = tableView
 
         UIView.animateKeyframes(withDuration: 0.75,
                                 delay: 0.0,
@@ -75,9 +104,7 @@ open class DiscogsSearchView: CollectionAndTableDisplay, DiscogsSearchDisplay, U
                                         self?.signOutButton?.setTitle("Sign Out", for: .normal)
                                         self?.signOutButton?.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
                                     }
-        }) { [weak self] (completed) in
-            self?.blurOverlay?.isHidden = true
-        }
+        })
     }
 
     open func signedOut() {
@@ -87,8 +114,7 @@ open class DiscogsSearchView: CollectionAndTableDisplay, DiscogsSearchDisplay, U
         signInButton?.isHidden = false
         signOutButton?.isEnabled = false
         signedIn = false
-        tableView?.isHidden = true
-        blurOverlay?.isHidden = false
+        toggleStackView?.activeView = blurOverlay
     }
 
     open func willSignIn() {
@@ -100,7 +126,7 @@ open class DiscogsSearchView: CollectionAndTableDisplay, DiscogsSearchDisplay, U
         spin()  // stopSpinning() is called in signedOut()
     }
 
-    // MARK: - Private functions
+    // MARK: - Other functions
 
     fileprivate func spin() {
         if let blurOverlay = blurOverlay {
@@ -120,6 +146,9 @@ open class DiscogsSearchView: CollectionAndTableDisplay, DiscogsSearchDisplay, U
 
     fileprivate func setUp(searchBar: UISearchBar) {
         searchBar.delegate = self
+        searchBar.scopeButtonTitles = [allOfDiscogsSearchScopeTitle, userCollectionSearchScopeTitle]
+        searchBar.selectedScopeButtonIndex = DiscogsSearchViewController.SearchScope.allOfDiscogs.rawValue
+        searchBar.showsScopeBar = true
     }
 
 }
