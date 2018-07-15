@@ -29,11 +29,13 @@ class ToggleStackViewTests: XCTestCase {
     func testAddArrangedSubviewToEmptyStackMakesSubviewTheActiveView() {
         let stack = ToggleStackView()
         XCTAssertNil(stack.activeView)
+        XCTAssertNil(stack.previousActiveView)
 
         let subview = UIView()
         stack.addArrangedSubview(subview)
         XCTAssertEqual(subview, stack.activeView)
         XCTAssertFalse(subview.isHidden)
+        XCTAssertNil(stack.previousActiveView)
     }
 
     func testAddHiddenArrangedSubviewToEmptyStackMakesSubviewTheActiveView() {
@@ -68,6 +70,24 @@ class ToggleStackViewTests: XCTestCase {
                 XCTAssertTrue(subview.isHidden)
             }
         }
+    }
+
+    func testRemoveArrangedViewReactivatesPreviousActiveView() {
+        let stack = ToggleStackView()
+        (1..<10).forEach { (_) in
+            let subview = UIView()
+            subview.isHidden = false
+            stack.addArrangedSubview(subview)
+        }
+
+        let fourthSubview = stack.arrangedSubviews[3]
+        stack.activeView = fourthSubview
+        XCTAssertEqual(stack.activeView, fourthSubview)
+
+        let eighthSubview = stack.arrangedSubviews[7]
+        stack.activeView = eighthSubview
+        XCTAssertEqual(stack.activeView, eighthSubview)
+        XCTAssertEqual(stack.previousActiveView, fourthSubview)
     }
 
     func testRemoveInactiveArrangedViewLeaveArrangedViewAsIs() {

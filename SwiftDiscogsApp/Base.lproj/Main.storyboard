@@ -24,7 +24,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="yF3-Hg-VoZ">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="yF3-Hg-VoZ" customClass="ToggleStackView" customModule="SwiftDiscogsApp" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="140" width="375" height="638"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MQe-0X-tnP" userLabel="Search Results Table">
@@ -169,6 +169,8 @@
                             <outlet property="signOutButton" destination="O0C-go-zlO" id="2Bx-bU-DkB"/>
                             <outlet property="spinner" destination="pEy-S7-tsb" id="LhV-sC-uDz"/>
                             <outlet property="tableView" destination="MQe-0X-tnP" id="Sdg-Nh-tk3"/>
+                            <outlet property="toggleStackView" destination="yF3-Hg-VoZ" id="XKD-9e-883"/>
+                            <outlet property="unavailableView" destination="gF0-sz-40M" id="Wf2-hf-IYQ"/>
                         </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Discogs Search" id="99a-Al-h2A">

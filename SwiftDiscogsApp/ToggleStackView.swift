@@ -7,14 +7,26 @@ import UIKit
 /// a subset of all the stack's subviews.
 open class ToggleStackView: UIStackView {
 
+    // MARK: - Public Properties
+
     /// The arranged subview that will be visible. All others will be hidden.
     open var activeView: UIView? {
         didSet {
-            arrangedSubviews.forEach { (subview) in
-                subview.isHidden = (activeView !== subview)
+            if oldValue != activeView {
+                previousActiveView = oldValue
+
+                arrangedSubviews.forEach { (subview) in
+                    subview.isHidden = (activeView !== subview)
+                }
             }
         }
     }
+
+    /// The arranged subview that was active before the current active one was
+    /// activated.
+    open var previousActiveView: UIView?
+
+    // MARK: - UIStackView
 
     open override func addArrangedSubview(_ view: UIView) {
         let alreadyHasArrangedSubviews = !arrangedSubviews.isEmpty
@@ -30,13 +42,18 @@ open class ToggleStackView: UIStackView {
     }
 
     /// Remove the specified arranged subview. If it's the active view, make
-    /// the *first* arranged subview the active one.
+    /// the previously-active one active again. If the previously-active one is
+    /// `nil`, then activate the *first* arranged subview.
     open override func removeArrangedSubview(_ view: UIView) {
         let isActiveView = (view === activeView)
         super.removeArrangedSubview(view)
 
         if isActiveView {
-            activeView = arrangedSubviews.first
+            if previousActiveView != nil {
+                activeView = previousActiveView
+            } else {
+                activeView = arrangedSubviews.first
+            }
         }
     }
 

@@ -20,6 +20,14 @@ open class DiscogsSearchView: CollectionAndTableDisplay, DiscogsSearchDisplay, U
     /// The busy indicator.
     @IBOutlet fileprivate weak var spinner: UIActivityIndicatorView?
 
+    /// The stack view that contains the sign-in view, the search results table,
+    /// and the `unavailableView`.
+    @IBOutlet fileprivate weak var toggleStackView: ToggleStackView?
+
+    /// The view that's shown when the user taps the My Collection search scope
+    /// button, which isn't implemented yet.
+    @IBOutlet fileprivate weak var unavailableView: UIView?
+
     // MARK: - Other Properties
 
     /// Indicates whether the user is currently signed in to Discogs.
@@ -45,6 +53,15 @@ open class DiscogsSearchView: CollectionAndTableDisplay, DiscogsSearchDisplay, U
         return signedIn
     }
 
+    public func searchBar(_ searchBar: UISearchBar,
+                          selectedScopeButtonIndexDidChange selectedScope: Int) {
+        if selectedScope == DiscogsSearchViewController.SearchScope.userCollection.rawValue {
+            toggleStackView?.activeView = unavailableView
+        } else {
+            toggleStackView?.activeView = toggleStackView?.previousActiveView
+        }
+    }
+
     // MARK: - DiscogsSearchDisplay
 
     /// Configure the view.
@@ -61,6 +78,8 @@ open class DiscogsSearchView: CollectionAndTableDisplay, DiscogsSearchDisplay, U
 
             setUp(searchBar: searchController.searchBar)
         }
+
+        toggleStackView?.activeView = blurOverlay
     }
 
     open func tearDown() {
@@ -72,7 +91,7 @@ open class DiscogsSearchView: CollectionAndTableDisplay, DiscogsSearchDisplay, U
         signOutButton?.isEnabled = true
         signOutButton?.setTitle("Signed in as \(userName)", for: .normal)
         signedIn = true
-        tableView?.isHidden = false
+        toggleStackView?.activeView = tableView
 
         UIView.animateKeyframes(withDuration: 0.75,
                                 delay: 0.0,
@@ -85,9 +104,7 @@ open class DiscogsSearchView: CollectionAndTableDisplay, DiscogsSearchDisplay, U
                                         self?.signOutButton?.setTitle("Sign Out", for: .normal)
                                         self?.signOutButton?.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
                                     }
-        }) { [weak self] (completed) in
-            self?.blurOverlay?.isHidden = true
-        }
+        })
     }
 
     open func signedOut() {
@@ -97,8 +114,7 @@ open class DiscogsSearchView: CollectionAndTableDisplay, DiscogsSearchDisplay, U
         signInButton?.isHidden = false
         signOutButton?.isEnabled = false
         signedIn = false
-        tableView?.isHidden = true
-        blurOverlay?.isHidden = false
+        toggleStackView?.activeView = blurOverlay
     }
 
     open func willSignIn() {
