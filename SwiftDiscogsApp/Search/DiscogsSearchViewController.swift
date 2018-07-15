@@ -7,7 +7,14 @@ import UIKit
 
 /// Allows the user to search the Discogs database for artists, releases, and
 /// labels.
-open class DiscogsSearchViewController: OutlettedController, UISearchResultsUpdating, DiscogsProvider {
+open class DiscogsSearchViewController: OutlettedController, UISearchResultsUpdating, UISearchBarDelegate, DiscogsProvider {
+
+    /// The possible states of the search scope bar.
+    public enum SearchScope: Int {
+
+        case allOfDiscogs
+        case userCollection
+    }
 
     // MARK: Public Properties
 
@@ -38,8 +45,8 @@ open class DiscogsSearchViewController: OutlettedController, UISearchResultsUpda
         }
     }
 
-    /// The `UISearchController`. It displays its results in a separate view
-    /// controller (the `DiscogsSearchResultsController`).
+    /// The `UISearchController`. It displays its results here, not in a
+    /// separate results controller.
     fileprivate lazy var searchController: UISearchController = {
         let searchController = UISearchController(searchResultsController: nil)
         searchController.searchResultsUpdater = self
@@ -121,13 +128,16 @@ open class DiscogsSearchViewController: OutlettedController, UISearchResultsUpda
     // MARK: UISearchResultsUpdating
 
     open func updateSearchResults(for searchController: UISearchController) {
-        let searchTerms = searchController.searchBar.text ?? ""
-        let promise: Promise<DiscogsSearchResults>? = discogs?.search(for: searchTerms, type: "Artist")
-        promise?.then { [weak self] (searchResults) -> Void in
-            self?.results = searchResults.results?.filter { $0.type == "artist" }
-            }.catch { [weak self] (error) in
-                self?.results = nil
-                self?.presentAlert(for: error)
+        if let searchTerms = searchController.searchBar.text, !searchTerms.replacingOccurrences(of: " ", with: "").isEmpty {
+            let promise: Promise<DiscogsSearchResults>? = discogs?.search(for: searchTerms, type: "Artist")
+            promise?.then { [weak self] (searchResults) -> Void in
+                self?.results = searchResults.results?.filter { $0.type == "artist" }
+                }.catch { [weak self] (error) in
+                    self?.results = nil
+                    self?.presentAlert(for: error)
+            }
+        } else {
+            results = nil
         }
     }
 

@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Baseline standard spacing" minToolsVersion="9.0"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -27,7 +28,7 @@
                                 <rect key="frame" x="0.0" y="140" width="375" height="638"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MQe-0X-tnP" userLabel="Search Results Table">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="319"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="212.66666666666666"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="artistSearchResultCell" rowHeight="101" id="QRX-0o-hil" userLabel="Artist Cell" customClass="ArtistSearchResultCell" customModule="SwiftDiscogsApp" customModuleProvider="target">
@@ -44,7 +45,7 @@
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z35-aY-kvF">
-                                                            <rect key="frame" x="15" y="10.999999999999998" width="46.666666666666657" height="20.333333333333329"/>
+                                                            <rect key="frame" x="14.999999999999996" y="10.999999999999998" width="46.666666666666657" height="20.333333333333329"/>
                                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -106,13 +107,13 @@
                                         </connections>
                                     </tableView>
                                     <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="06y-e1-oU9" userLabel="Sign In View">
-                                        <rect key="frame" x="0.0" y="319" width="375" height="319"/>
+                                        <rect key="frame" x="0.0" y="212.66666666666669" width="375" height="212.66666666666669"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="cpf-aC-p8D">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="319"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="212.66666666666669"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Xt-fI-IrK" userLabel="Sign In Button">
-                                                    <rect key="frame" x="109" y="144.66666666666663" width="157" height="30"/>
+                                                    <rect key="frame" x="109" y="91.666666666666629" width="157" height="30"/>
                                                     <state key="normal" title="Sign In to Discogs.com"/>
                                                     <connections>
                                                         <action selector="signInTappedWithSource:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4ka-bm-NcE"/>
@@ -126,6 +127,26 @@
                                         </view>
                                         <blurEffect style="light"/>
                                     </visualEffectView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gF0-sz-40M" userLabel="Unavailable View">
+                                        <rect key="frame" x="0.0" y="425.33333333333343" width="375" height="212.66666666666669"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your collection has not yet been imported." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zgg-zJ-P3u">
+                                                <rect key="frame" x="25.333333333333343" y="96.333333333333258" width="323.33333333333326" height="20.333333333333329"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="zgg-zJ-P3u" secondAttribute="bottom" id="9wy-uP-BGi"/>
+                                            <constraint firstItem="zgg-zJ-P3u" firstAttribute="top" relation="greaterThanOrEqual" secondItem="gF0-sz-40M" secondAttribute="topMargin" id="FsX-XR-9H9"/>
+                                            <constraint firstItem="zgg-zJ-P3u" firstAttribute="centerY" secondItem="gF0-sz-40M" secondAttribute="centerYWithinMargins" id="IgK-7m-cqO"/>
+                                            <constraint firstItem="zgg-zJ-P3u" firstAttribute="centerX" secondItem="gF0-sz-40M" secondAttribute="centerXWithinMargins" id="NYk-XC-Thv"/>
+                                            <constraint firstItem="zgg-zJ-P3u" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="gF0-sz-40M" secondAttribute="leadingMargin" id="XSm-uF-bK9"/>
+                                            <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="zgg-zJ-P3u" secondAttribute="trailing" id="yC1-R0-YiX"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                             </stackView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="pEy-S7-tsb">
