@@ -24,8 +24,6 @@
 		96036919205C3BC500D24CE7 /* OAuthSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9689848A203DDA0200DE77BC /* OAuthSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9603691B205C3BC500D24CE7 /* PromiseKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9689848B203DDA0200DE77BC /* PromiseKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9603691E205C3BEA00D24CE7 /* JSONClient.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 96898489203DDA0200DE77BC /* JSONClient.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		9614311020F9BDD400B49D2E /* ToggleStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9614310D20F9BA6A00B49D2E /* ToggleStackView.swift */; };
-		9614311220F9BE0B00B49D2E /* ToggleStackViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9614311120F9BE0B00B49D2E /* ToggleStackViewTests.swift */; };
 		96226AFB2069FF3D000EEC50 /* DiscogsArtistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96226AF62069F578000EEC50 /* DiscogsArtistViewController.swift */; };
 		96226AFD2069FF3D000EEC50 /* DiscogsArtistModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969ADA6D2068A7D300A8BDD0 /* DiscogsArtistModel.swift */; };
 		96226AFE2069FF3D000EEC50 /* DiscogsSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9603690E205A1C7200D24CE7 /* DiscogsSearchViewController.swift */; };
@@ -233,8 +231,6 @@
 		9603690E205A1C7200D24CE7 /* DiscogsSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscogsSearchViewController.swift; sourceTree = "<group>"; };
 		96036914205B92A700D24CE7 /* DiscogsClientSingleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscogsClientSingleton.swift; sourceTree = "<group>"; };
 		96036916205B949500D24CE7 /* Discogs.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Discogs.plist; sourceTree = "<group>"; };
-		9614310D20F9BA6A00B49D2E /* ToggleStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleStackView.swift; sourceTree = "<group>"; };
-		9614311120F9BE0B00B49D2E /* ToggleStackViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleStackViewTests.swift; sourceTree = "<group>"; };
 		96226AF62069F578000EEC50 /* DiscogsArtistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscogsArtistViewController.swift; sourceTree = "<group>"; };
 		963CB9782092D1C200D91046 /* MockArtistDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockArtistDisplay.swift; sourceTree = "<group>"; };
 		968983A8203D427A00DE77BC /* SwiftDiscogs.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftDiscogs.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -426,7 +422,6 @@
 				960368E5205A012C00D24CE7 /* LaunchScreen.storyboard */,
 				960368E0205A012C00D24CE7 /* Main.storyboard */,
 				96CA185A2081A0CC006FF5F0 /* Search */,
-				9614310D20F9BA6A00B49D2E /* ToggleStackView.swift */,
 			);
 			path = SwiftDiscogsApp;
 			sourceTree = "<group>";
@@ -440,7 +435,6 @@
 				9691A7322078865800A4936C /* DiscogsSingletonTests.swift */,
 				960368F3205A012C00D24CE7 /* Info.plist */,
 				96CA186C2082F19C006FF5F0 /* Search */,
-				9614311120F9BE0B00B49D2E /* ToggleStackViewTests.swift */,
 			);
 			path = SwiftDiscogsAppTests;
 			sourceTree = "<group>";
@@ -1004,7 +998,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9614311020F9BDD400B49D2E /* ToggleStackView.swift in Sources */,
 				96036915205B92A700D24CE7 /* DiscogsClientSingleton.swift in Sources */,
 				96226AFB2069FF3D000EEC50 /* DiscogsArtistViewController.swift in Sources */,
 				96E8CCDE20E3249C001C5381 /* DiscogsSearchDisplay.swift in Sources */,
@@ -1030,7 +1023,6 @@
 				96CA186A2082D9FC006FF5F0 /* ControllerTestBase.swift in Sources */,
 				96E044A22089A93E008F1FE4 /* CollectionAndTableViewControllerTestBase.swift in Sources */,
 				963CB9792092D1C200D91046 /* MockArtistDisplay.swift in Sources */,
-				9614311220F9BE0B00B49D2E /* ToggleStackViewTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
