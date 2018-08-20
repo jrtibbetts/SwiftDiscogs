@@ -49,9 +49,11 @@ class DiscogsArtistViewControllerTests: CollectionAndTableViewControllerTestBase
 
         let exp = expectation(description: "setting the artist")
         artistViewController?.display = mockDisplay
-        discogs.artist(identifier: 99).then { (artist) -> Void in
+        discogs.artist(identifier: 99).done { (artist) in
             self.artistViewController?.artist = artist
             exp.fulfill()
+            }.catch { (error) in
+                XCTFail("Unexpected error: \(error.localizedDescription)")
         }
 
         wait(for: [exp], timeout: 3.0)
@@ -64,11 +66,13 @@ class DiscogsArtistViewControllerTests: CollectionAndTableViewControllerTestBase
 
         let searchResultExp = expectation(description: "setting the artist search result")
         artistViewController?.display = mockDisplay
-        discogs.search(for: "John Lennon", type: "Artist").then { (artistSearchResults) -> Void in
+        discogs.search(for: "John Lennon", type: "Artist").done { (artistSearchResults) in
             self.artistViewController?.artistSearchResult = artistSearchResults.results?.first
             XCTAssertNotNil(self.artistViewController?.artistSearchResult)
 
             searchResultExp.fulfill()
+            }.catch { (error) in
+                XCTFail("Unexpected error: \(error.localizedDescription)")
         }
 
         wait(for: [searchResultExp], timeout: 3.0)
@@ -115,7 +119,7 @@ class DiscogsArtistViewControllerTests: CollectionAndTableViewControllerTestBase
     func testTableSectionHeadersOk() {
         let exp = expectation(description: "MockDiscogs().artist was called")
         _ = artistViewController?.view  // force viewDidLoad() to be called
-        discogs.artist(identifier: 99).then { (artist) -> Void in
+        discogs.artist(identifier: 99).done { (artist) in
             self.artistViewController?.artist = artist
 
             guard let table = self.artistView?.tableView else {
@@ -132,6 +136,8 @@ class DiscogsArtistViewControllerTests: CollectionAndTableViewControllerTestBase
             XCTAssertEqual(releasesTitle, "Releases")
 
             exp.fulfill()
+            }.catch { (error) in
+                XCTFail("Unexpected error: \(error.localizedDescription)")
         }
 
         wait(for: [exp], timeout: 3.0)

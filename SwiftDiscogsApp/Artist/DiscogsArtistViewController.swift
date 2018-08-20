@@ -28,9 +28,11 @@ open class DiscogsArtistViewController: OutlettedController {
     open var artistSearchResult: DiscogsSearchResult? {
         didSet {
             if let artistId = artistSearchResult?.id {
-                discogs?.artist(identifier: artistId).then { (artist) -> Void in
+                discogs?.artist(identifier: artistId).done { (artist) in
                     self.artist = artist
-                }
+                    }.catch { (error) in
+                        // HANDLE THE ERROR
+                    }
             }
         }
     }
@@ -53,9 +55,11 @@ open class DiscogsArtistViewController: OutlettedController {
 
     fileprivate func fetchReleases() {
         if let artistId = artist?.id {
-            discogs?.releases(forArtist: artistId).then { [weak self] (summaries) -> Void in
+            discogs?.releases(forArtist: artistId).done { [weak self] (summaries) in
                 self?.artistModel?.releases = summaries.releases
                 self?.display?.refresh()
+                }.catch { (error) in
+                    // HANDLE THE ERROR
             }
         }
     }

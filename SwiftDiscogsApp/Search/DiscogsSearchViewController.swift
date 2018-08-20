@@ -81,7 +81,7 @@ open class DiscogsSearchViewController: OutlettedController, UISearchResultsUpda
     open func updateSearchResults(for searchController: UISearchController) {
         if let searchTerms = searchController.searchBar.text, !searchTerms.replacingOccurrences(of: " ", with: "").isEmpty {
             let promise: Promise<DiscogsSearchResults>? = discogs?.search(for: searchTerms, type: "Artist")
-            promise?.then { [weak self] (searchResults) -> Void in
+            promise?.done { [weak self] (searchResults) in
                 self?.results = searchResults.results?.filter { $0.type == "artist" }
                 }.catch { [weak self] (error) in
                     self?.results = nil
