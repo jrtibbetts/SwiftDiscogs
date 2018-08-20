@@ -13,7 +13,7 @@ class ClientTestBase: JSONTestBase {
         let exp = expectation(description: description)
         var returnableObject: T?
 
-        promise.then { (fetchedObject) -> Void in
+        promise.done { (fetchedObject) in
             returnableObject = fetchedObject
             exp.fulfill()
         }.catch { (error) in
@@ -31,7 +31,7 @@ class ClientTestBase: JSONTestBase {
         let exp = expectation(description: description)
         var returnableError: Error?
 
-        promise.then { (fetchedObject) in
+        promise.done { (fetchedObject) in
             XCTFail("Expected an error to be thrown.")
         }.catch { (error) -> Void in
             returnableError = error
