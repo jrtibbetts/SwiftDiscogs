@@ -26,7 +26,7 @@ open class DiscogsSignInViewController: UIViewController {
         discogs = DiscogsClient.singleton
         let promise = discogs?.authorize(presentingViewController: self,
                                          callbackUrlString: AppDelegate.callbackUrl.absoluteString)
-        promise?.then { [weak self] (credential) -> Void in
+        promise?.done { [weak self] (credential) in
             self?.performSegue(withIdentifier: "signInSuccessful", sender: self)
             }.catch { (error) in    // not weak self because of Bundle(for:)
                 let alertTitle = NSLocalizedString("discogsSignInFailed",
