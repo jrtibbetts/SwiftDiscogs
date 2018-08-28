@@ -3,21 +3,22 @@
 import SwiftDiscogs
 import UIKit
 
+
 open class DiscogsSignInViewController: UIViewController {
-
+    
     // MARK: - Private Properties
-
+    
     fileprivate var discogs: Discogs?
-
+    
     // MARK: - Actions
-
+    
     /// Sign into the Discogs service, notifying the display when it's about to
     /// do so and after the user has logged in successfully.
     @IBAction func signInToDiscogs(sender: UIButton?) {
         let senderInitialTitle = sender?.title(for: .normal)
         sender?.isEnabled = false
         sender?.setTitle("Signing In", for: .normal)
-
+        
         defer {
             sender?.isEnabled = true
             sender?.setTitle(senderInitialTitle, for: .normal)
@@ -37,19 +38,19 @@ open class DiscogsSignInViewController: UIViewController {
                 self.presentAlert(for: error, title: alertTitle)
         }
     }
-
+    
     @IBAction func returnToLoginScene(unwindSegue: UIStoryboardSegue) {
         let alert = UIAlertController(title: "Unimplemented", message: "You can't yet sign out of Discogs.com.", preferredStyle: .alert)
         present(alert, animated: true, completion: nil)
     }
-
+    
     // MARK: - UIViewController
-
+    
     open override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.description == "signInSuccessful",
             let searchVC = segue.destination as? DiscogsSearchViewController {
             searchVC.discogs = discogs
         }
     }
-
+    
 }

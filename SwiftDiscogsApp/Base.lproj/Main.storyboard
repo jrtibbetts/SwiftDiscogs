@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="LCt-rZ-gxJ">
-    <device id="retina5_9" orientation="portrait">
+    <device id="retina3_5" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -21,21 +21,21 @@
             <objects>
                 <viewController storyboardIdentifier="discogsSearch" definesPresentationContext="YES" id="BYZ-38-t0r" customClass="DiscogsSearchViewController" customModule="SwiftDiscogsApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC" customClass="DiscogsSearchView" customModule="SwiftDiscogsApp" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="320"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="yF3-Hg-VoZ" customClass="ToggleStackView" customModule="Stylobate">
-                                <rect key="frame" x="0.0" y="140" width="375" height="638"/>
+                                <rect key="frame" x="0.0" y="32" width="480" height="288"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MQe-0X-tnP" userLabel="Search Results Table">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="319"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="480" height="144"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="artistSearchResultCell" rowHeight="101" id="QRX-0o-hil" userLabel="Artist Cell" customClass="ArtistSearchResultCell" customModule="SwiftDiscogsApp" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="28" width="375" height="101"/>
+                                                <rect key="frame" x="0.0" y="28" width="480" height="101"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="QRX-0o-hil" id="xc3-WV-Yuo">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="100.66666666666667"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="480" height="100.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bbX-A5-N7P" userLabel="Cover Art">
@@ -56,7 +56,7 @@
                                                             </variation>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z35-aY-kvF">
-                                                            <rect key="frame" x="14.999999999999996" y="10.999999999999998" width="46.666666666666657" height="20.333333333333329"/>
+                                                            <rect key="frame" x="15" y="11" width="46.5" height="20.5"/>
                                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -124,10 +124,10 @@
                                         </connections>
                                     </tableView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gF0-sz-40M" userLabel="Unavailable View">
-                                        <rect key="frame" x="0.0" y="319" width="375" height="319"/>
+                                        <rect key="frame" x="0.0" y="144" width="480" height="144"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your collection has not yet been imported." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zgg-zJ-P3u">
-                                                <rect key="frame" x="25.666666666666657" y="149.33333333333337" width="323.33333333333337" height="20.333333333333343"/>
+                                                <rect key="frame" x="78.5" y="62.5" width="323.5" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -146,7 +146,7 @@
                                 </subviews>
                             </stackView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="pEy-S7-tsb">
-                                <rect key="frame" x="177.66666666666666" y="449" width="20" height="20"/>
+                                <rect key="frame" x="230" y="166" width="20" height="20"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -171,7 +171,7 @@
                     <navigationItem key="navigationItem" title="Discogs Search" id="99a-Al-h2A">
                         <barButtonItem key="rightBarButtonItem" id="oFI-jg-w6G">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="O0C-go-zlO">
-                                <rect key="frame" x="276" y="7" width="83" height="30"/>
+                                <rect key="frame" x="381" y="1" width="83" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Sign Out"/>
                                 <connections>
@@ -196,27 +196,27 @@
             <objects>
                 <viewController storyboardIdentifier="discogsArtist" id="cvK-7F-nVP" userLabel="Artist Details" customClass="DiscogsArtistViewController" customModule="SwiftDiscogsApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1SC-zu-66M" customClass="DiscogsArtistView" customModule="SwiftDiscogsApp" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="320"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="iaE-Sd-FyD">
-                                <rect key="frame" x="0.0" y="88" width="375" height="690"/>
+                                <rect key="frame" x="0.0" y="32" width="480" height="288"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="oAL-9f-geB" userLabel="Empty Footer">
-                                    <rect key="frame" x="0.0" y="585" width="375" height="0.0"/>
+                                    <rect key="frame" x="0.0" y="585" width="480" height="0.0"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </view>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="artistPicCell" rowHeight="153" id="aa8-27-t7X" userLabel="Pic Cell">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="153"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="artistPicCell" rowHeight="153" id="aa8-27-t7X" userLabel="Pic Cell">
+                                        <rect key="frame" x="0.0" y="28" width="480" height="153"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aa8-27-t7X" id="LGc-0O-TMd">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="152.66666666666666"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="480" height="152.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fkc-x1-Vyr">
-                                                    <rect key="frame" x="67" y="8" width="240" height="136.66666666666666"/>
+                                                    <rect key="frame" x="120" y="11" width="240" height="131"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="240" id="fO4-WZ-MOg"/>
                                                     </constraints>
@@ -234,15 +234,15 @@
                                             <segue destination="ql7-Le-MbA" kind="show" id="41l-tU-T32"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="artistBioCell" rowHeight="228" id="osP-EA-1iJ" userLabel="Bio Cell" customClass="DiscogsArtistBioTableCell" customModule="SwiftDiscogsApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="181" width="375" height="228"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="artistBioCell" rowHeight="228" id="osP-EA-1iJ" userLabel="Bio Cell" customClass="DiscogsArtistBioTableCell" customModule="SwiftDiscogsApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="181" width="480" height="228"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="osP-EA-1iJ" id="GOt-Af-he5">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="227.66666666666666"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="480" height="227.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" layoutMarginsFollowReadableWidth="YES" textAlignment="justified" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GmX-2U-jW4" userLabel="Bio">
-                                                    <rect key="frame" x="8" y="8" width="359" height="211.66666666666666"/>
+                                                    <rect key="frame" x="15" y="11" width="450" height="206"/>
                                                     <string key="text">American singer, songwriter, pianist and recording artist, born 5 December 1932 in Macon, Georgia, USA. 
 
 Inducted into Rock And Roll Hall of Fame in 1986 (Performer). 
@@ -265,10 +265,10 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="artistAlbumCell" rowHeight="88" id="zvy-eC-FLO" userLabel="Album Cell" customClass="DiscogsArtistReleaseTableCell" customModule="SwiftDiscogsApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="409" width="375" height="88"/>
+                                        <rect key="frame" x="0.0" y="409" width="480" height="88"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="zvy-eC-FLO" id="33Q-IZ-u8S">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="87.666666666666671"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="480" height="87.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="CJD-wt-qtG">
@@ -280,13 +280,13 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                                                     <viewLayoutGuide key="safeArea" id="Kfo-Xh-hkw"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="1957" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i8D-bh-YBu" userLabel="Album Year">
-                                                    <rect key="frame" x="333.33333333333331" y="10" width="33.666666666666686" height="18"/>
+                                                    <rect key="frame" x="278.5" y="10" width="33.5" height="18"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" text="Here's Little Richard" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RTP-xH-Qfi" userLabel="Album Title">
-                                                    <rect key="frame" x="80" y="8" width="155" height="21"/>
+                                                    <rect key="frame" x="80" y="8" width="154.5" height="21"/>
                                                     <fontDescription key="fontDescription" type="italicSystem" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -311,10 +311,10 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="artistSingleCell" rowHeight="88" id="uOO-zB-Byl" userLabel="Single Cell" customClass="DiscogsArtistReleaseTableCell" customModule="SwiftDiscogsApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="497" width="375" height="88"/>
+                                        <rect key="frame" x="0.0" y="497" width="480" height="88"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="uOO-zB-Byl" id="2oh-kD-U9I">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="87.666666666666671"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="480" height="87.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="HCd-CJ-mic">
@@ -326,7 +326,7 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                                                     <viewLayoutGuide key="safeArea" id="Ztl-QL-f79"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="1957" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xbp-pw-xS2" userLabel="Single Year">
-                                                    <rect key="frame" x="333.33333333333331" y="9" width="33.666666666666686" height="18"/>
+                                                    <rect key="frame" x="278.5" y="9" width="33.5" height="18"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -455,11 +455,11 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
             <objects>
                 <viewController title="discogsArtistBio" id="ql7-Le-MbA" userLabel="Discogs Artist Images" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="GaC-Ox-Ju8">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="320"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="4XT-m2-Z6L">
-                                <rect key="frame" x="0.0" y="88" width="375" height="690"/>
+                                <rect key="frame" x="0.0" y="32" width="480" height="288"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="FQa-Fn-V7P">
                                     <size key="itemSize" width="50" height="50"/>
@@ -479,28 +479,28 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                                 </cells>
                             </collectionView>
                             <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kRc-nM-CdG">
-                                <rect key="frame" x="0.0" y="230" width="375" height="406"/>
+                                <rect key="frame" x="0.0" y="96" width="480" height="160"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="nDI-xg-JK3">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="406"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="480" height="160"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BUI-B6-oDd">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="406"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="480" height="160"/>
                                             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="rsh-nf-aGu">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="406"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="480" height="160"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VkD-la-hkC" userLabel="Images View">
-                                                        <rect key="frame" x="0.0" y="0.0" width="375" height="406"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="480" height="160"/>
                                                         <subviews>
                                                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" pagingEnabled="YES" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P4T-QL-aiN">
-                                                                <rect key="frame" x="0.0" y="0.0" width="375" height="406"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="480" height="160"/>
                                                                 <subviews>
                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="N4C-c2-pVb">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="406"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="479" height="160"/>
                                                                     </imageView>
                                                                     <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="bMs-T2-eFV">
-                                                                        <rect key="frame" x="168" y="349" width="39" height="37"/>
+                                                                        <rect key="frame" x="220.5" y="103" width="39" height="37"/>
                                                                     </pageControl>
                                                                 </subviews>
                                                                 <constraints>
@@ -571,15 +571,15 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
             <objects>
                 <tableViewController id="430-Jq-t69" userLabel="Release Details" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="M7D-ro-FaS">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="320"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="trackCell" id="zeq-Ra-s9P">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="28" width="480" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="zeq-Ra-s9P" id="QyW-8U-tMx">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="480" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -601,11 +601,11 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
             <objects>
                 <viewController id="jc6-dg-dfD" userLabel="Artist Bio" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="TEf-Vq-TwF">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="320"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Byp-oG-qa7">
-                                <rect key="frame" x="0.0" y="88" width="375" height="690"/>
+                                <rect key="frame" x="0.0" y="32" width="480" height="288"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
@@ -634,7 +634,7 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                     <tabBarItem key="tabBarItem" title="Database" id="7Ap-M4-zcX"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="qAw-Lw-G1P">
-                        <rect key="frame" x="0.0" y="44" width="375" height="96"/>
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="32"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </navigationBar>
@@ -667,35 +667,104 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
             <objects>
                 <viewController id="LCt-rZ-gxJ" userLabel="Sign In" customClass="DiscogsSignInViewController" customModule="SwiftDiscogsApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DLB-zt-qpJ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="320"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Discogs" translatesAutoresizingMaskIntoConstraints="NO" id="n59-CO-aUE">
-                                <rect key="frame" x="56" y="172" width="263" height="128"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rYs-Sf-n4b">
+                                <rect key="frame" x="18" y="96" width="444" height="128"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Discogs" translatesAutoresizingMaskIntoConstraints="NO" id="n59-CO-aUE">
+                                        <rect key="frame" x="0.0" y="0.0" width="263" height="128"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="263" id="041-Fo-KXK"/>
+                                            <constraint firstAttribute="height" constant="128" id="hye-Xw-fft"/>
+                                        </constraints>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Xt-fI-IrK" userLabel="Sign In Button">
+                                        <rect key="frame" x="287" y="49" width="157" height="30"/>
+                                        <state key="normal" title="Sign In to Discogs.com"/>
+                                        <connections>
+                                            <action selector="signInToDiscogsWithSender:" destination="LCt-rZ-gxJ" eventType="touchUpInside" id="xGj-hs-eVL"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="263" id="041-Fo-KXK"/>
-                                    <constraint firstAttribute="height" constant="128" id="hye-Xw-fft"/>
+                                    <constraint firstItem="7Xt-fI-IrK" firstAttribute="centerX" secondItem="rYs-Sf-n4b" secondAttribute="centerX" id="84v-SC-6pB"/>
+                                    <constraint firstItem="n59-CO-aUE" firstAttribute="top" secondItem="rYs-Sf-n4b" secondAttribute="top" id="EZ6-Mx-g9k"/>
+                                    <constraint firstItem="7Xt-fI-IrK" firstAttribute="leading" relation="lessThanOrEqual" secondItem="n59-CO-aUE" secondAttribute="trailing" constant="60" id="Hjl-5y-Fa6"/>
+                                    <constraint firstAttribute="trailing" secondItem="n59-CO-aUE" secondAttribute="trailing" id="Joi-vM-VAm"/>
+                                    <constraint firstAttribute="trailing" secondItem="7Xt-fI-IrK" secondAttribute="trailing" id="QfE-tc-O4O"/>
+                                    <constraint firstItem="7Xt-fI-IrK" firstAttribute="top" secondItem="n59-CO-aUE" secondAttribute="bottom" constant="100" id="Upn-Z0-RUc"/>
+                                    <constraint firstItem="n59-CO-aUE" firstAttribute="leading" secondItem="rYs-Sf-n4b" secondAttribute="leading" id="XYk-w5-BEf"/>
+                                    <constraint firstItem="7Xt-fI-IrK" firstAttribute="centerY" secondItem="rYs-Sf-n4b" secondAttribute="centerY" id="aWP-oP-iz1"/>
+                                    <constraint firstAttribute="bottom" secondItem="7Xt-fI-IrK" secondAttribute="bottom" id="q2C-d9-Rm8"/>
+                                    <constraint firstItem="7Xt-fI-IrK" firstAttribute="leading" secondItem="n59-CO-aUE" secondAttribute="trailing" priority="999" constant="24" id="tAC-Ft-5fm"/>
+                                    <constraint firstAttribute="bottom" secondItem="n59-CO-aUE" secondAttribute="bottom" id="tZc-7O-UNS"/>
                                 </constraints>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Xt-fI-IrK" userLabel="Sign In Button">
-                                <rect key="frame" x="109" y="396" width="157" height="30"/>
-                                <state key="normal" title="Sign In to Discogs.com"/>
-                                <connections>
-                                    <action selector="signInToDiscogsWithSender:" destination="LCt-rZ-gxJ" eventType="touchUpInside" id="xGj-hs-eVL"/>
-                                </connections>
-                            </button>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Joi-vM-VAm"/>
+                                        <exclude reference="tZc-7O-UNS"/>
+                                        <exclude reference="84v-SC-6pB"/>
+                                        <exclude reference="Hjl-5y-Fa6"/>
+                                        <exclude reference="QfE-tc-O4O"/>
+                                        <exclude reference="Upn-Z0-RUc"/>
+                                        <exclude reference="aWP-oP-iz1"/>
+                                        <exclude reference="q2C-d9-Rm8"/>
+                                        <exclude reference="tAC-Ft-5fm"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="tZc-7O-UNS"/>
+                                        <include reference="Hjl-5y-Fa6"/>
+                                        <include reference="QfE-tc-O4O"/>
+                                        <include reference="aWP-oP-iz1"/>
+                                        <include reference="tAC-Ft-5fm"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular">
+                                    <mask key="constraints">
+                                        <include reference="Joi-vM-VAm"/>
+                                        <include reference="84v-SC-6pB"/>
+                                        <include reference="Upn-Z0-RUc"/>
+                                        <include reference="q2C-d9-Rm8"/>
+                                    </mask>
+                                </variation>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="7Xt-fI-IrK" firstAttribute="centerX" secondItem="RcB-Ll-AD7" secondAttribute="centerX" id="6xd-hS-znK"/>
-                            <constraint firstItem="n59-CO-aUE" firstAttribute="top" secondItem="RcB-Ll-AD7" secondAttribute="top" constant="128" id="QJ4-Tm-oIO"/>
-                            <constraint firstItem="7Xt-fI-IrK" firstAttribute="centerY" secondItem="RcB-Ll-AD7" secondAttribute="centerY" id="bXP-Hc-nMr"/>
-                            <constraint firstItem="n59-CO-aUE" firstAttribute="centerX" secondItem="RcB-Ll-AD7" secondAttribute="centerX" id="zfi-A3-4Gp"/>
+                            <constraint firstItem="7Xt-fI-IrK" firstAttribute="centerY" secondItem="RcB-Ll-AD7" secondAttribute="centerY" constant="100" id="J3h-vH-oh3"/>
+                            <constraint firstItem="rYs-Sf-n4b" firstAttribute="centerX" secondItem="RcB-Ll-AD7" secondAttribute="centerX" id="KFS-V6-uMS"/>
+                            <constraint firstItem="7Xt-fI-IrK" firstAttribute="centerX" secondItem="RcB-Ll-AD7" secondAttribute="centerX" id="Q5P-xP-vpr"/>
+                            <constraint firstItem="rYs-Sf-n4b" firstAttribute="centerY" secondItem="RcB-Ll-AD7" secondAttribute="centerY" id="huO-Fu-ujW"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="RcB-Ll-AD7"/>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="KFS-V6-uMS"/>
+                                <exclude reference="huO-Fu-ujW"/>
+                                <exclude reference="J3h-vH-oh3"/>
+                                <exclude reference="Q5P-xP-vpr"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=compact">
+                            <mask key="constraints">
+                                <include reference="KFS-V6-uMS"/>
+                                <include reference="huO-Fu-ujW"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular">
+                            <mask key="constraints">
+                                <include reference="J3h-vH-oh3"/>
+                                <include reference="Q5P-xP-vpr"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
-                        <segue destination="tNh-PQ-CUg" kind="presentation" identifier="signInSuccessful" id="Fb3-EH-GS6"/>
+                        <segue destination="tNh-PQ-CUg" kind="presentation" identifier="signInSuccessful" modalPresentationStyle="fullScreen" id="Fb3-EH-GS6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jgh-5s-jk5" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -708,7 +777,7 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="q4a-C9-HOy" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="qTT-up-cUi">
-                        <rect key="frame" x="0.0" y="44" width="375" height="96"/>
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="32"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </navigationBar>
