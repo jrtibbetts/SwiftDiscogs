@@ -25,7 +25,16 @@ public enum DiscogsError: Error {
 
 /// Implemented by clients of a Discogs API server.
 public protocol Discogs {
-    
+
+    // MARK: - User Identify
+
+    func authorize(presentingViewController: UIViewController,
+                   callbackUrlString: String) -> Promise<OAuthSwiftCredential>
+
+    func userIdentity() -> Promise<DiscogsUserIdentity>
+
+    func userProfile(userName: String) -> Promise<DiscogsUserProfile>
+
     // MARK: - Database
     
     /// Look up the artist with the specified ID and invoke the completion on
@@ -36,9 +45,6 @@ public protocol Discogs {
     ///   the artist, if found, or the error, if one was thrown.
     func artist(identifier: Int) -> Promise<DiscogsArtist>
 
-    func authorize(presentingViewController: UIViewController,
-                   callbackUrlString: String) -> Promise<OAuthSwiftCredential>
-    
     /// Look up the releases by the specified artist's ID.
     ///
     /// - parameter artistId: The numeric ID of the artist.

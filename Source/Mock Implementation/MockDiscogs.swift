@@ -19,11 +19,23 @@ public class MockDiscogs: MockClient, Discogs {
         }
     }
 
+    // MARK: - User Identity
+
     public func authorize(presentingViewController: UIViewController,
                           callbackUrlString: String) -> Promise<OAuthSwiftCredential> {
         return Promise<OAuthSwiftCredential> { (seal) in
             seal.fulfill(OAuthSwiftCredential.init(consumerKey: "key", consumerSecret: "secret"))
         }
+    }
+
+    public func userIdentity() -> Promise<DiscogsUserIdentity> {
+        return apply(toJsonObjectIn: "get-user-identity-200",
+                     error: DiscogsError.unauthenticatedUser())
+    }
+
+    public func userProfile(userName: String) -> Promise<DiscogsUserProfile> {
+        return apply(toJsonObjectIn: "get-user-profile-200",
+                     error: DiscogsError.unauthenticatedUser())
     }
     
     // MARK: - Database
