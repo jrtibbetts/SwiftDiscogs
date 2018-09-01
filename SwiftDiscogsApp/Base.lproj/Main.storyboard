@@ -684,7 +684,7 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                                         <rect key="frame" x="53" y="228" width="157" height="30"/>
                                         <state key="normal" title="Sign In to Discogs.com"/>
                                         <connections>
-                                            <action selector="signInToDiscogsWithSender:" destination="LCt-rZ-gxJ" eventType="touchUpInside" id="xGj-hs-eVL"/>
+                                            <action selector="signInToDiscogsWithSignInButton:" destination="LCt-rZ-gxJ" eventType="touchUpInside" id="spc-Gt-1Pb"/>
                                         </connections>
                                     </button>
                                 </subviews>
