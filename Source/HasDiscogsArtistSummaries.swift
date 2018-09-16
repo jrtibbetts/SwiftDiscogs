@@ -1,4 +1,4 @@
-//  Copyright © 2018 nrith. All rights reserved.
+//  Copyright © 2018 Poikile Creations. All rights reserved.
 
 import Foundation
 
