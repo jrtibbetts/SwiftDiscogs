@@ -7,11 +7,11 @@ import UIKit
 /// The model for the `DiscogsSearchResultsViewController`.
 open class DiscogsSearchResultsModel: CollectionAndTableModel {
 
-    // MARK: Properties
+    // MARK: - Properties
 
     open var results: [DiscogsSearchResult]?
 
-    // MARK: Initializers
+    // MARK: - Initializers
 
     /// An empty initializer seems to be required when the class is set as a
     /// custom object in a storyboard.
@@ -24,7 +24,7 @@ open class DiscogsSearchResultsModel: CollectionAndTableModel {
         super.init()
     }
 
-    // MARK: UITableViewDataSource
+    // MARK: - UITableViewDataSource
 
     open override func numberOfItems(inSection section: Int) -> Int {
         if let results = results, section == 0 {
@@ -51,5 +51,11 @@ open class DiscogsSearchResultsModel: CollectionAndTableModel {
             return super.tableView(tableView, cellForRowAt: indexPath)
         }
     }
+
+    // MARK: - UITableViewDelegate
+
+    public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
+    }    
 
 }
