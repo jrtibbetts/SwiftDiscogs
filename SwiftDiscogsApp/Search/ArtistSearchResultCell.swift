@@ -1,5 +1,6 @@
 //  Copyright © 2018 Poikile Creations. All rights reserved.
 
+import Kingfisher
 import UIKit
 
 open class ArtistSearchResultCell: UITableViewCell {
@@ -18,9 +19,9 @@ open class ArtistSearchResultCell: UITableViewCell {
 
     open var thumbnailUrlString: String? {
         didSet {
-//            if let thumbnailUrlString = thumbnailUrlString {
-//                thumbnailView?.image = nil
-//            }
+            if let thumbnailUrlString = thumbnailUrlString {
+                thumbnailView?.kf.setImage(with: URL(string: thumbnailUrlString))
+            }
         }
     }
 

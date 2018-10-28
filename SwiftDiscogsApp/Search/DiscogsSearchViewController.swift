@@ -11,8 +11,10 @@ open class DiscogsSearchViewController: OutlettedController, UISearchResultsUpda
 
     /// The possible states of the search scope bar.
     public enum SearchScope: Int {
-
+        /// Search the entire database
         case allOfDiscogs
+
+        /// Search only within the user's own collection
         case userCollection
     }
 
