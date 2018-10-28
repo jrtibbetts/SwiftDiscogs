@@ -11,7 +11,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     static let callbackUrl = URL(string: "swiftdiscogsapp://oauth-callback/")!
 
     func application(_ application: UIApplication,
-                     didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+                     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         return true
     }
@@ -55,7 +55,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ app: UIApplication,
                      open url: URL,
-                     options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+                     options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
         // The callback URL that was used when the OAuth app was created. In
         // this case, the custom URL is "jsonclientdemo://oauth-callback/github".
         if url.host! == AppDelegate.callbackUrl.host! && url.scheme! == AppDelegate.callbackUrl.scheme! {

@@ -38,7 +38,7 @@ public final class DiscogsArtistBioTableCell: UITableViewCell, DiscogsArtistBioC
 
     @IBOutlet fileprivate weak var bioLabel: UILabel?
 
-    open var bioText: String? {
+    public var bioText: String? {
         didSet {
             bioLabel?.text = bioText
         }
