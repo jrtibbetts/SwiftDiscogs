@@ -1,4 +1,4 @@
-//  Copyright © 2017 nrith. All rights reserved.
+//  Copyright © 2017 Poikile Creations. All rights reserved.
 
 import JSONClient
 import OAuthSwift
@@ -23,8 +23,6 @@ open class DiscogsClient: OAuth1JSONClient, Discogs {
                 consumerSecret: String,
                 userAgent: String) {
         self.userAgent = userAgent
-        /// Discogs requires all API calls to include a custom `User-Agent`
-        /// header.
         super.init(consumerKey: consumerKey,
                    consumerSecret: consumerSecret,
                    requestTokenUrl: "https://api.discogs.com/oauth/request_token",
@@ -32,6 +30,8 @@ open class DiscogsClient: OAuth1JSONClient, Discogs {
                    accessTokenUrl: "https://api.discogs.com/oauth/access_token",
                    baseUrl: URL(string: "https://api.discogs.com")!)
         headers["User-Agent"] = self.userAgent
+        /// Discogs requires all API calls to include a custom `User-Agent`
+        /// header.
     }
 
     override open func authorize(presentingViewController: UIViewController,

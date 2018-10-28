@@ -4,10 +4,13 @@ import PromiseKit
 import SwiftDiscogs
 import UIKit
 
+/// The view controller that explains what Discogs is and provides a button to
+/// bring up the Discogs authentication page in a modal web view controller.
 open class DiscogsSignInViewController: UIViewController {
     
     // MARK: - Private Properties
     
+    /// The REST client.
     fileprivate var discogs: Discogs = DiscogsClient.singleton!
 
     // MARK: - Actions

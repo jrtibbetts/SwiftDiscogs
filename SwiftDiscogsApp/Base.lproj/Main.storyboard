@@ -31,11 +31,11 @@
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="182"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="artistSearchResultCell" rowHeight="101" id="QRX-0o-hil" userLabel="Artist Cell" customClass="ArtistSearchResultCell" customModule="SwiftDiscogsApp" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="28" width="320" height="101"/>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="artistSearchResultCell" id="QRX-0o-hil" userLabel="Artist Cell" customClass="ArtistSearchResultCell" customModule="SwiftDiscogsApp" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="QRX-0o-hil" id="xc3-WV-Yuo">
-                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="100.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bbX-A5-N7P" userLabel="Cover Art">
@@ -55,23 +55,27 @@
                                                                 </mask>
                                                             </variation>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z35-aY-kvF">
-                                                            <rect key="frame" x="15" y="11" width="46.5" height="20.5"/>
-                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Artist" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z35-aY-kvF">
+                                                            <rect key="frame" x="15" y="11" width="45" height="20.5"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20.5" id="tUh-XD-Gf7"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10 albums, 29 singles" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Zi-nR-dac">
-                                                            <rect key="frame" x="15" y="69" width="165" height="21"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="10 albums, 29 singles" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Zi-nR-dac">
+                                                            <rect key="frame" x="15" y="31.5" width="165" height="1.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
                                                     <constraints>
-                                                        <constraint firstItem="3Zi-nR-dac" firstAttribute="firstBaseline" relation="greaterThanOrEqual" secondItem="Z35-aY-kvF" secondAttribute="baseline" constant="24" symbolType="layoutAnchor" id="03s-x7-IsS"/>
+                                                        <constraint firstItem="3Zi-nR-dac" firstAttribute="firstBaseline" secondItem="Z35-aY-kvF" secondAttribute="baseline" constant="24" symbolType="layoutAnchor" id="03s-x7-IsS"/>
                                                         <constraint firstAttribute="leadingMargin" secondItem="bbX-A5-N7P" secondAttribute="leading" id="9PH-Eg-AEf"/>
                                                         <constraint firstItem="Z35-aY-kvF" firstAttribute="top" secondItem="xc3-WV-Yuo" secondAttribute="topMargin" id="Aht-Wj-iPu"/>
+                                                        <constraint firstItem="3Zi-nR-dac" firstAttribute="top" secondItem="Z35-aY-kvF" secondAttribute="bottom" id="CHF-v3-OqL"/>
                                                         <constraint firstItem="Z35-aY-kvF" firstAttribute="leading" secondItem="bbX-A5-N7P" secondAttribute="trailing" constant="8" symbolic="YES" id="JaC-NV-y9c"/>
                                                         <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="3Zi-nR-dac" secondAttribute="trailing" id="SKY-Jc-ewk"/>
                                                         <constraint firstItem="3Zi-nR-dac" firstAttribute="leading" secondItem="Z35-aY-kvF" secondAttribute="leading" id="T6B-l8-PVI"/>
@@ -86,11 +90,12 @@
                                                             <exclude reference="bbX-A5-N7P"/>
                                                         </mask>
                                                         <mask key="constraints">
+                                                            <exclude reference="JaC-NV-y9c"/>
+                                                            <exclude reference="UKb-Jl-5Hs"/>
+                                                            <exclude reference="03s-x7-IsS"/>
                                                             <exclude reference="9PH-Eg-AEf"/>
                                                             <exclude reference="bMe-ll-KMU"/>
                                                             <exclude reference="zLg-pC-fkj"/>
-                                                            <exclude reference="JaC-NV-y9c"/>
-                                                            <exclude reference="UKb-Jl-5Hs"/>
                                                         </mask>
                                                     </variation>
                                                     <variation key="widthClass=compact">
@@ -103,10 +108,10 @@
                                                             <include reference="bbX-A5-N7P"/>
                                                         </mask>
                                                         <mask key="constraints">
+                                                            <include reference="JaC-NV-y9c"/>
                                                             <include reference="9PH-Eg-AEf"/>
                                                             <include reference="bMe-ll-KMU"/>
                                                             <include reference="zLg-pC-fkj"/>
-                                                            <include reference="JaC-NV-y9c"/>
                                                         </mask>
                                                     </variation>
                                                 </tableViewCellContentView>
@@ -127,8 +132,8 @@
                                         <rect key="frame" x="0.0" y="182" width="320" height="182"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your collection has not yet been imported." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zgg-zJ-P3u">
-                                                <rect key="frame" x="57" y="70.5" width="206.5" height="41"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <rect key="frame" x="57" y="70" width="206.5" height="42.5"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -247,7 +252,7 @@
 
 Inducted into Rock And Roll Hall of Fame in 1986 (Performer). 
 Inducted into Songwriters Hall of Fame in 2003.</string>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -280,7 +285,7 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                                                     <viewLayoutGuide key="safeArea" id="Kfo-Xh-hkw"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="1957" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i8D-bh-YBu" userLabel="Album Year">
-                                                    <rect key="frame" x="438.5" y="10" width="33.5" height="18"/>
+                                                    <rect key="frame" x="278.5" y="10" width="33.5" height="18"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -326,7 +331,7 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                                                     <viewLayoutGuide key="safeArea" id="Ztl-QL-f79"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="1957" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xbp-pw-xS2" userLabel="Single Year">
-                                                    <rect key="frame" x="438.5" y="9" width="33.5" height="18"/>
+                                                    <rect key="frame" x="278.5" y="9" width="33.5" height="18"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -395,12 +400,12 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                                 <exclude reference="cJl-oI-IBh"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="e5i-gS-fve"/>
-                                <exclude reference="yUy-sx-rMU"/>
                                 <exclude reference="1Qz-rr-pkm"/>
                                 <exclude reference="JcK-0E-W9l"/>
                                 <exclude reference="ZTE-vH-5ST"/>
                                 <exclude reference="vyu-rA-zSE"/>
+                                <exclude reference="e5i-gS-fve"/>
+                                <exclude reference="yUy-sx-rMU"/>
                                 <exclude reference="TSH-Tu-z3b"/>
                                 <exclude reference="wgR-QK-mif"/>
                             </mask>
@@ -410,10 +415,10 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                                 <include reference="iaE-Sd-FyD"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="e5i-gS-fve"/>
-                                <include reference="yUy-sx-rMU"/>
                                 <include reference="ZTE-vH-5ST"/>
                                 <include reference="vyu-rA-zSE"/>
+                                <include reference="e5i-gS-fve"/>
+                                <include reference="yUy-sx-rMU"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=regular">
@@ -608,7 +613,7 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                                 <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="yes"/>
                                 <dataDetectorType key="dataDetectorTypes" link="YES"/>
                             </textView>
