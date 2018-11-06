@@ -1,0 +1,6 @@
+strings:
+  inputs: Resources/en.lproj/SwiftDiscogsApp.strings
+  outputs:
+    - templateName: structured-swift4
+      output: SwiftDiscogsAppStrings.swift
+

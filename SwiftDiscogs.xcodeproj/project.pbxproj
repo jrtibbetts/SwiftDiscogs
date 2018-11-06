@@ -30,6 +30,8 @@
 		96226AFE2069FF3D000EEC50 /* DiscogsSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9603690E205A1C7200D24CE7 /* DiscogsSearchViewController.swift */; };
 		963CB9792092D1C200D91046 /* MockArtistDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963CB9782092D1C200D91046 /* MockArtistDisplay.swift */; };
 		96800C3021921D4200A3380F /* DiscogsStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96800C2F21921D4200A3380F /* DiscogsStrings.swift */; };
+		96800C3821921F3F00A3380F /* SwiftDiscogsApp.strings in Resources */ = {isa = PBXBuildFile; fileRef = 96800C3A21921F3F00A3380F /* SwiftDiscogsApp.strings */; };
+		96800C3E21921FF600A3380F /* SwiftDiscogsAppStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96800C3D21921FF500A3380F /* SwiftDiscogsAppStrings.swift */; };
 		968983B2203D427B00DE77BC /* SwiftDiscogs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 968983A8203D427A00DE77BC /* SwiftDiscogs.framework */; };
 		968983B9203D427B00DE77BC /* SwiftDiscogs.h in Headers */ = {isa = PBXBuildFile; fileRef = 968983AB203D427A00DE77BC /* SwiftDiscogs.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		96898419203DD4B500DE77BC /* DiscogsRelease.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968983C3203DD4B200DE77BC /* DiscogsRelease.swift */; };
@@ -240,6 +242,11 @@
 		96226AF62069F578000EEC50 /* DiscogsArtistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscogsArtistViewController.swift; sourceTree = "<group>"; };
 		963CB9782092D1C200D91046 /* MockArtistDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockArtistDisplay.swift; sourceTree = "<group>"; };
 		96800C2F21921D4200A3380F /* DiscogsStrings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscogsStrings.swift; sourceTree = "<group>"; };
+		96800C3121921ED100A3380F /* swiftgenDiscogs.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = swiftgenDiscogs.yml; sourceTree = "<group>"; };
+		96800C3321921EE100A3380F /* swiftgenSwiftDiscogsApp.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = swiftgenSwiftDiscogsApp.yml; sourceTree = "<group>"; };
+		96800C3921921F3F00A3380F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/SwiftDiscogsApp.strings; sourceTree = "<group>"; };
+		96800C3B21921F4300A3380F /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/SwiftDiscogsApp.strings; sourceTree = "<group>"; };
+		96800C3D21921FF500A3380F /* SwiftDiscogsAppStrings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftDiscogsAppStrings.swift; sourceTree = "<group>"; };
 		968983A8203D427A00DE77BC /* SwiftDiscogs.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftDiscogs.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		968983AB203D427A00DE77BC /* SwiftDiscogs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftDiscogs.h; sourceTree = "<group>"; };
 		968983AC203D427A00DE77BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -435,7 +442,10 @@
 				960368E8205A012C00D24CE7 /* Info.plist */,
 				960368E5205A012C00D24CE7 /* LaunchScreen.storyboard */,
 				960368E0205A012C00D24CE7 /* Main.storyboard */,
+				96800C3521921F0A00A3380F /* Resources */,
 				96CA185A2081A0CC006FF5F0 /* Search */,
+				96800C3D21921FF500A3380F /* SwiftDiscogsAppStrings.swift */,
+				96800C3321921EE100A3380F /* swiftgenSwiftDiscogsApp.yml */,
 			);
 			path = SwiftDiscogsApp;
 			sourceTree = "<group>";
@@ -460,6 +470,14 @@
 				960368FE205A012C00D24CE7 /* Info.plist */,
 			);
 			path = SwiftDiscogsAppUITests;
+			sourceTree = "<group>";
+		};
+		96800C3521921F0A00A3380F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				96800C3A21921F3F00A3380F /* SwiftDiscogsApp.strings */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		9689839E203D427A00DE77BC = {
@@ -507,6 +525,7 @@
 				968983D0203DD4B300DE77BC /* Mock Implementation */,
 				96A8AC9C219214C50098BF87 /* Resources */,
 				968983AB203D427A00DE77BC /* SwiftDiscogs.h */,
+				96800C3121921ED100A3380F /* swiftgenDiscogs.yml */,
 				96898417203DD4B500DE77BC /* Unique.swift */,
 				968983CD203DD4B200DE77BC /* User Identity */,
 			);
@@ -772,6 +791,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 960368FF205A012C00D24CE7 /* Build configuration list for PBXNativeTarget "SwiftDiscogsApp" */;
 			buildPhases = (
+				96800C3C21921F6000A3380F /* SwiftGen */,
 				960368D6205A012B00D24CE7 /* Sources */,
 				960368D7205A012B00D24CE7 /* Frameworks */,
 				960368D8205A012B00D24CE7 /* Resources */,
@@ -928,6 +948,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96800C3821921F3F00A3380F /* SwiftDiscogsApp.strings in Resources */,
 				960368E7205A012C00D24CE7 /* LaunchScreen.storyboard in Resources */,
 				960368E4205A012C00D24CE7 /* Assets.xcassets in Resources */,
 				960368E2205A012C00D24CE7 /* Main.storyboard in Resources */,
@@ -1041,7 +1062,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# This assumes that you have SwiftGen installed on your system. If not,\n# install it with Homebrew by calling `brew install swiftgen` in a\n# terminal.\n\nls -l $LOCROOT/Source/swiftgenDiscogs.yml\nswiftgen config run --config $LOCROOT/Source/swiftgenDiscogs.yml\n";
+			shellScript = "# This assumes that you have SwiftGen installed on your system. If not,\n# install it with Homebrew by calling `brew install swiftgen` in a\n# terminal.\n\nswiftgen config run --config $LOCROOT/Source/swiftgenDiscogs.yml\n";
+		};
+		96800C3C21921F6000A3380F /* SwiftGen */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftGen;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# This assumes that you have SwiftGen installed on your system. If not,\n# install it with Homebrew by calling `brew install swiftgen` in a\n# terminal.\n\nswiftgen config run --config $LOCROOT/SwiftDiscogsApp/swiftgenSwiftDiscogsApp.yml\n";
 		};
 		96F71EFB2109901D00D10C7A /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1078,6 +1117,7 @@
 				96CA18682082B8BB006FF5F0 /* ArtistSearchResultCell.swift in Sources */,
 				960368DD205A012C00D24CE7 /* AppDelegate.swift in Sources */,
 				9614312520FEC7BC00B49D2E /* DiscogsSignInViewController.swift in Sources */,
+				96800C3E21921FF600A3380F /* SwiftDiscogsAppStrings.swift in Sources */,
 				96226AFE2069FF3D000EEC50 /* DiscogsSearchViewController.swift in Sources */,
 				96E8CCE020E33396001C5381 /* DiscogsDisplay.swift in Sources */,
 				96226AFD2069FF3D000EEC50 /* DiscogsArtistModel.swift in Sources */,
@@ -1220,6 +1260,15 @@
 				96A8AC9A2192104E0098BF87 /* es */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		96800C3A21921F3F00A3380F /* SwiftDiscogsApp.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				96800C3921921F3F00A3380F /* en */,
+				96800C3B21921F4300A3380F /* es */,
+			);
+			name = SwiftDiscogsApp.strings;
 			sourceTree = "<group>";
 		};
 		96A8ACA1219214EE0098BF87 /* Discogs.strings */ = {
