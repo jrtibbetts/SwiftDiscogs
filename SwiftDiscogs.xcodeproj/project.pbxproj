@@ -1062,7 +1062,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# This assumes that you have SwiftGen installed on your system. If not,\n# install it with Homebrew by calling `brew install swiftgen` in a\n# terminal.\n\n$LOCROOT/swiftgen-6/bin/swiftgen config run --config $LOCROOT/Source/swiftgenDiscogs.yml\n";
+			shellScript = "$LOCROOT/swiftgen-6/bin/swiftgen config run --config $LOCROOT/Source/swiftgenDiscogs.yml\n";
 		};
 		96800C3C21921F6000A3380F /* SwiftGen */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1080,7 +1080,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# This assumes that you have SwiftGen installed on your system. If not,\n# install it with Homebrew by calling `brew install swiftgen` in a\n# terminal.\n\n$LOCROOT/swiftgen-6/bin/swiftgen config run --config $LOCROOT/SwiftDiscogsApp/swiftgenSwiftDiscogsApp.yml\n";
+			shellScript = "$LOCROOT/swiftgen-6/bin/swiftgen config run --config $LOCROOT/SwiftDiscogsApp/swiftgenSwiftDiscogsApp.yml\n";
 		};
 		96F71EFB2109901D00D10C7A /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
