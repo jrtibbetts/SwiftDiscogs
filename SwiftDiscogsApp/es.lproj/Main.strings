@@ -1,0 +1,48 @@
+
+/* Class = "UILabel"; text = "10 albums, 29 singles"; ObjectID = "3Zi-nR-dac"; */
+"3Zi-nR-dac.text" = "10 álbumes, 29 singulos";
+
+/* Class = "UITabBarItem"; title = "Database"; ObjectID = "7Ap-M4-zcX"; */
+"7Ap-M4-zcX.title" = "Database";
+
+/* Class = "UIButton"; normalTitle = "Sign In to Discogs.com"; ObjectID = "7Xt-fI-IrK"; */
+"7Xt-fI-IrK.normalTitle" = "Iniciar sesión de Discogs.com";
+
+/* Class = "UINavigationItem"; title = "Discogs Search"; ObjectID = "99a-Al-h2A"; */
+"99a-Al-h2A.title" = "Buscar artistas, álbumes y más...";
+
+/* Class = "UITextView"; text = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda."; ObjectID = "Byp-oG-qa7"; */
+"Byp-oG-qa7.text" = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.";
+
+/* Class = "UINavigationItem"; title = "Here's Little Richard"; ObjectID = "D6Y-rS-sUk"; */
+"D6Y-rS-sUk.title" = "Here's Little Richard";
+
+/* Class = "UILabel"; text = "American singer, songwriter, pianist and recording artist, born 5 December 1932 in Macon, Georgia, USA. \n\nInducted into Rock And Roll Hall of Fame in 1986 (Performer). \nInducted into Songwriters Hall of Fame in 2003."; ObjectID = "GmX-2U-jW4"; */
+"GmX-2U-jW4.text" = "American singer, songwriter, pianist and recording artist, born 5 December 1932 in Macon, Georgia, USA. \n\nInducted into Rock And Roll Hall of Fame in 1986 (Performer). \nInducted into Songwriters Hall of Fame in 2003.";
+
+/* Class = "UILabel"; text = "“%@”"; ObjectID = "L7D-y5-h1j"; */
+"L7D-y5-h1j.text" = "“%@”";
+
+/* Class = "UIButton"; normalTitle = "Sign Out"; ObjectID = "O0C-go-zlO"; */
+"O0C-go-zlO.normalTitle" = "Cerrar sesión";
+
+/* Class = "UILabel"; text = "Here's Little Richard"; ObjectID = "RTP-xH-Qfi"; */
+"RTP-xH-Qfi.text" = "Here's Little Richard";
+
+/* Class = "UILabel"; text = "1957"; ObjectID = "Xbp-pw-xS2"; */
+"Xbp-pw-xS2.text" = "1957";
+
+/* Class = "UILabel"; text = "Artist"; ObjectID = "Z35-aY-kvF"; */
+"Z35-aY-kvF.text" = "Artista";
+
+/* Class = "UILabel"; text = "1957"; ObjectID = "i8D-bh-YBu"; */
+"i8D-bh-YBu.text" = "1957";
+
+/* Class = "UINavigationItem"; title = "Artist Bio"; ObjectID = "nDW-Vb-H1u"; */
+"nDW-Vb-H1u.title" = "Perfil";
+
+/* Class = "UIViewController"; title = "discogsArtistBio"; ObjectID = "ql7-Le-MbA"; */
+"ql7-Le-MbA.title" = "discogsArtistBio";
+
+/* Class = "UILabel"; text = "Your collection has not yet been imported."; ObjectID = "zgg-zJ-P3u"; */
+"zgg-zJ-P3u.text" = "Su colección aún no ha sido importada";

@@ -1,0 +1,6 @@
+strings:
+  inputs: Resources/en.lproj/Discogs.strings
+  outputs:
+    - templateName: structured-swift4
+      output: DiscogsStrings.swift
+

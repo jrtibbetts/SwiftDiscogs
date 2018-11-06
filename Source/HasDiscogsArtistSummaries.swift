@@ -11,20 +11,10 @@ public protocol HasDiscogsArtistSummaries {
 extension HasDiscogsArtistSummaries {
     
     public var artistString: String {
-        var artistNameString = ""
-        
-        artists?.forEach { (artist) in
-            artistNameString.append("\(artist.name)")
-            
-            if let join = artist.join, join != "," {
-                artistNameString.append(" \(join) ")
-            }
-        }
-        
-        if artistNameString == "" {
-            return "Unknown Artist"
+        if let artists = artists {
+            return artists.map { $0.name }.joined(separator: L10n.separator)
         } else {
-            return artistNameString
+            return L10n.unknownArtist
         }
     }
     
