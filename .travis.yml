@@ -1,4 +1,4 @@
-install: carthage update --platform iOS
+install: carthage update --cache-builds --platform iOS
 language: swift
 os: osx
 osx_image: xcode10
