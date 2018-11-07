@@ -31,15 +31,8 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="320" height="103.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="U2J-gF-qFb">
-                                                            <rect key="frame" x="15" y="11" width="50" height="50.5"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="height" constant="50" id="EPo-nC-bal"/>
-                                                                <constraint firstAttribute="width" secondItem="U2J-gF-qFb" secondAttribute="height" multiplier="1:1" id="MXP-vH-4QU"/>
-                                                            </constraints>
-                                                        </imageView>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bbX-A5-N7P" userLabel="Cover Art">
-                                                            <rect key="frame" x="15" y="11" width="79" height="79"/>
+                                                            <rect key="frame" x="15" y="11" width="82" height="82"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="bbX-A5-N7P" secondAttribute="height" multiplier="1:1" id="6vB-sn-8Ox"/>
                                                                 <constraint firstAttribute="width" constant="80" id="RG0-G1-dWl"/>
@@ -55,28 +48,23 @@
                                                                 </mask>
                                                             </variation>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Artist" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z35-aY-kvF">
-                                                            <rect key="frame" x="73" y="11" width="7" height="131"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Artist" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.69999999999999996" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Z35-aY-kvF">
+                                                            <rect key="frame" x="105" y="11" width="200" height="82"/>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
                                                     <constraints>
-                                                        <constraint firstItem="U2J-gF-qFb" firstAttribute="leading" secondItem="xc3-WV-Yuo" secondAttribute="leadingMargin" id="4lH-c8-Nvb"/>
-                                                        <constraint firstItem="U2J-gF-qFb" firstAttribute="top" secondItem="xc3-WV-Yuo" secondAttribute="topMargin" id="8PP-u0-aed"/>
                                                         <constraint firstAttribute="leadingMargin" secondItem="bbX-A5-N7P" secondAttribute="leading" id="9PH-Eg-AEf"/>
-                                                        <constraint firstItem="Z35-aY-kvF" firstAttribute="leading" secondItem="U2J-gF-qFb" secondAttribute="trailing" constant="8" symbolic="YES" id="ADI-2b-yrL"/>
                                                         <constraint firstItem="Z35-aY-kvF" firstAttribute="top" secondItem="xc3-WV-Yuo" secondAttribute="topMargin" id="Aht-Wj-iPu"/>
                                                         <constraint firstItem="Z35-aY-kvF" firstAttribute="leading" secondItem="bbX-A5-N7P" secondAttribute="trailing" constant="8" symbolic="YES" id="JaC-NV-y9c"/>
-                                                        <constraint firstAttribute="trailingMargin" secondItem="U2J-gF-qFb" secondAttribute="trailing" id="JbZ-rk-6Fp"/>
-                                                        <constraint firstAttribute="bottomMargin" secondItem="U2J-gF-qFb" secondAttribute="bottom" id="Tf0-N4-XRQ"/>
                                                         <constraint firstAttribute="topMargin" secondItem="bbX-A5-N7P" secondAttribute="top" id="bMe-ll-KMU"/>
-                                                        <constraint firstAttribute="trailing" secondItem="Z35-aY-kvF" secondAttribute="trailing" id="rD3-vC-ReJ"/>
+                                                        <constraint firstAttribute="trailingMargin" secondItem="Z35-aY-kvF" secondAttribute="trailing" id="rD3-vC-ReJ"/>
                                                         <constraint firstAttribute="bottomMargin" secondItem="Z35-aY-kvF" secondAttribute="bottom" id="t5U-Mt-Pmp"/>
                                                         <constraint firstAttribute="bottomMargin" secondItem="bbX-A5-N7P" secondAttribute="bottom" id="zLg-pC-fkj"/>
                                                     </constraints>
-                                                    <variation key="default">
+                                                    <variation key="widthClass=regular">
                                                         <mask key="subviews">
                                                             <exclude reference="bbX-A5-N7P"/>
                                                         </mask>
@@ -85,17 +73,6 @@
                                                             <exclude reference="bMe-ll-KMU"/>
                                                             <exclude reference="zLg-pC-fkj"/>
                                                             <exclude reference="JaC-NV-y9c"/>
-                                                        </mask>
-                                                    </variation>
-                                                    <variation key="widthClass=regular">
-                                                        <mask key="subviews">
-                                                            <include reference="bbX-A5-N7P"/>
-                                                        </mask>
-                                                        <mask key="constraints">
-                                                            <include reference="9PH-Eg-AEf"/>
-                                                            <include reference="bMe-ll-KMU"/>
-                                                            <include reference="zLg-pC-fkj"/>
-                                                            <include reference="JaC-NV-y9c"/>
                                                         </mask>
                                                     </variation>
                                                 </tableViewCellContentView>
