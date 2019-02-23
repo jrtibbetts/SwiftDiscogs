@@ -14,11 +14,7 @@ public struct DiscogsCollectionCustomField: Codable {
     
     /// The field's unique ID within the set of fields.
     public var id: Int
-    
-    /// `true` if this field should be visible when other users view the
-    /// collection.
-    public var `public`: Bool
-    
+
     /// If this is a text-area field, this is the number of lines that
     /// should be displayed.
     public var lines: Int?
@@ -32,7 +28,11 @@ public struct DiscogsCollectionCustomField: Codable {
     
     /// The index of this field among all fields.
     public var position: Int
-    
+
+    /// `true` if this field should be visible when other users view the
+    /// collection.
+    public var `public`: Bool
+
     /// The field's type. Currently, the only valid values are `dropdown`
     /// for lists, and `textarea` for free-text entry.
     public var type: String
