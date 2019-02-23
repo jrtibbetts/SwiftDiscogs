@@ -1,6 +1,7 @@
 //  Copyright © 2017-2018 Poikile Creations. All rights reserved.
 
 import JSONClient
+import Stylobate
 import XCTest
 
 public class JSONTestBase: XCTestCase {
