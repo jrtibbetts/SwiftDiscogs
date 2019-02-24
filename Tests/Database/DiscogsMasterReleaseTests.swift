@@ -16,6 +16,11 @@ class DiscogsMasterReleaseTests: DiscogsTestBase {
     fileprivate func assert(_ masterRelease: DiscogsMasterRelease) {
         XCTAssertEqual(masterRelease.title, "Stardiver")
         XCTAssertEqual(masterRelease.year, 1997)
+
+        if let artist = masterRelease.artists.first {
+            XCTAssertNotNil(artist.anv)
+            XCTAssertEqual(artist.anv, artist.artistNameVariation)
+        }
     }
     
 }
