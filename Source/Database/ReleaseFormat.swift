@@ -2,7 +2,7 @@
 
 import Foundation
 
-public struct DiscogsReleaseFormat: Codable {
+public struct ReleaseFormat: Codable {
 
     public var count: String
     public var descriptions: [String]?

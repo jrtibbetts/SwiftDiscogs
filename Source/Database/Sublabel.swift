@@ -2,7 +2,7 @@
 
 import Foundation
 
-public struct DiscogsSublabel: Codable, Unique {
+public struct Sublabel: Codable, Unique {
 
     public var id: Int
     public var name: String

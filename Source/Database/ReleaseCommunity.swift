@@ -2,13 +2,13 @@
 
 import Foundation
 
-public struct DiscogsReleaseCommunity: Codable {
+public struct ReleaseCommunity: Codable {
 
-    public var contributors: [DiscogsReleaseContributor]
+    public var contributors: [ReleaseContributor]
     public var dataQuality: String?
     public var have: Int
     public var status: String?
-    public var submitter: DiscogsReleaseContributor?
+    public var submitter: ReleaseContributor?
     public var want: Int
 
 }

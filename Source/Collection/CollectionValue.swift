@@ -2,7 +2,7 @@
 
 import Foundation
 
-public struct DiscogsCollectionValue: Codable {
+public struct CollectionValue: Codable {
     
     public var maximum: String
     public var median: String

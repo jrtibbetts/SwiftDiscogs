@@ -2,7 +2,7 @@
 
 import Foundation
 
-public struct DiscogsVideo: Codable {
+public struct Video: Codable {
 
     public var duration: Int
     public var description: String

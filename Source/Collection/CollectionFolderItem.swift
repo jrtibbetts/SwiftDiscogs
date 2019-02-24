@@ -2,7 +2,7 @@
 
 import Foundation
 
-public struct DiscogsCollectionFolderItem: Codable {
+public struct CollectionFolderItem: Codable {
     
     public var folderId: Int
     public var id: Int
@@ -22,9 +22,9 @@ public struct DiscogsCollectionFolderItemFormat: Codable {
     
 }
 
-public struct DiscogsCollectionFolderItemInformation: Codable, HasDiscogsArtistSummaries, Unique {
+public struct DiscogsCollectionFolderItemInformation: Codable, HasArtistSummaries, Unique {
     
-    public var artists: [DiscogsArtistSummary]?
+    public var artists: [ArtistSummary]?
     public var coverImage: String?
     public var formats: [DiscogsCollectionFolderItemFormat]?
     public var id: Int
@@ -49,8 +49,8 @@ public struct DiscogsCollectionFolderItemLabel: Codable, Unique {
 
 public struct DiscogsCollectionFolderItems: Codable, Pageable {
     
-    public var pagination: DiscogsPagination?
-    public var releases: [DiscogsCollectionFolderItem]?
+    public var pagination: Pagination?
+    public var releases: [CollectionFolderItem]?
     
 }
 

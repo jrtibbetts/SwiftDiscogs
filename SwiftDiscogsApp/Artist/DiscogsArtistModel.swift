@@ -25,9 +25,9 @@ open class DiscogsArtistModel: CollectionAndTableModel {
 
     // MARK: Public Properties
 
-    open var artist: DiscogsArtist?
+    open var artist: Artist?
 
-    open var releases: [DiscogsReleaseSummary]? {
+    open var releases: [ReleaseSummary]? {
         didSet {
 
         }
@@ -47,7 +47,7 @@ open class DiscogsArtistModel: CollectionAndTableModel {
         super.init()
     }
     
-    public init(artist: DiscogsArtist? = nil) {
+    public init(artist: Artist? = nil) {
         self.artist = artist
         super.init()
     }

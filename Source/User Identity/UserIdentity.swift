@@ -2,7 +2,7 @@
 
 import Foundation
 
-public struct DiscogsUserIdentity: Codable, Unique {
+public struct UserIdentity: Codable, Unique {
 
     public var id: Int
     public var consumerName: String

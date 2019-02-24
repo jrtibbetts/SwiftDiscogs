@@ -13,7 +13,7 @@ class DiscogsLabelTests: DiscogsTestBase {
         assertDiscogsErrorMessage(in: "get-label-404", is: "Label not found.")
     }
     
-    fileprivate func assert(_ label: DiscogsLabel) {
+    fileprivate func assert(_ label: RecordLabel) {
         XCTAssertEqual(label.name, "Planet E", "label name")
         XCTAssertEqual(label.sublabels?.count, 2)
     }

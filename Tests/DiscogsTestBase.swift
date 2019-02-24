@@ -29,7 +29,7 @@ class DiscogsTestBase: ClientTestBase {
     func assertDiscogsErrorMessage(in jsonFilename: String,
                                    is expectedString: String) {
         do {
-            let discogsError: DiscogsErrorResponse = try discogsObject(inLocalJsonFileNamed: jsonFilename)
+            let discogsError: ErrorResponse = try discogsObject(inLocalJsonFileNamed: jsonFilename)
             XCTAssertEqual(discogsError.message, expectedString)
         } catch {
             XCTFail("Failed to assert the error message; got \"\(error.localizedDescription)\" instead.")

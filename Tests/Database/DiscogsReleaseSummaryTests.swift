@@ -10,7 +10,7 @@ class DiscogsReleaseSummaryTests: DiscogsTestBase {
     }
 
     func testFormatsSplitsMultipleValuesCorrectly() throws {
-        let artistReleases: DiscogsReleaseSummaries = try discogsObject(inLocalJsonFileNamed: "get-release-summaries-200")
+        let artistReleases: ReleaseSummaries = try discogsObject(inLocalJsonFileNamed: "get-release-summaries-200")
 
         guard let releaseSummary = artistReleases.releases?[1] else {
             XCTFail("There should have been at least 2 releases.")
@@ -30,7 +30,7 @@ class DiscogsReleaseSummaryTests: DiscogsTestBase {
         assertDiscogsErrorMessage(in: "get-release-summaries-404", is: "Artist not found.")
     }
 
-    fileprivate func assert(_ artistReleases: DiscogsReleaseSummaries) {
+    fileprivate func assert(_ artistReleases: ReleaseSummaries) {
         guard let releases = artistReleases.releases else {
             XCTFail("There should be releases in the file.")
 

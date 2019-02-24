@@ -9,7 +9,7 @@ open class DiscogsSearchResultsModel: CollectionAndTableModel {
 
     // MARK: - Properties
 
-    open var results: [DiscogsSearchResult]?
+    open var results: [SearchResult]?
 
     // MARK: - Initializers
 
@@ -19,7 +19,7 @@ open class DiscogsSearchResultsModel: CollectionAndTableModel {
         super.init()
     }
 
-    public init(results: [DiscogsSearchResult]? = nil) {
+    public init(results: [SearchResult]? = nil) {
         self.results = results
         super.init()
     }

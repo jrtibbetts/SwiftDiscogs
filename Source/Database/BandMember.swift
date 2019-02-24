@@ -2,7 +2,7 @@
 
 import Foundation
 
-public struct DiscogsBandMember: Codable, Unique {
+public struct BandMember: Codable, Unique {
 
     public var active: Bool?
     public var id: Int

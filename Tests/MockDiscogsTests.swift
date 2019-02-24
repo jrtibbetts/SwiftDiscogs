@@ -143,7 +143,7 @@ class MockDiscogsTests: DiscogsTestBase {
 
     func testEditFolder() {
         let discogs = MockDiscogs()
-        let folder = DiscogsCollectionFolder(id: 99,
+        let folder = CollectionFolder(id: 99,
                                              count: 3,
                                              name: "Junk",
                                              resourceUrl: "https://api.discogs.com/foo")
@@ -152,7 +152,7 @@ class MockDiscogsTests: DiscogsTestBase {
 
     func testEditFolderErrorMode() {
         let discogs = MockDiscogs(errorMode: true)
-        let folder = DiscogsCollectionFolder(id: 99,
+        let folder = CollectionFolder(id: 99,
                                              count: 3,
                                              name: "Junk",
                                              resourceUrl: "https://api.discogs.com/foo")

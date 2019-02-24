@@ -10,7 +10,7 @@ class DiscogsCollectionCustomFieldsTests: DiscogsTestBase {
         assert(try discogsObject(inLocalJsonFileNamed: "get-custom-fields-200"))
     }
     
-    fileprivate func assert(_ customFields: DiscogsCollectionCustomFields) {
+    fileprivate func assert(_ customFields: CollectionCustomFields) {
         guard let fields = customFields.fields else {
             XCTFail("The sample custom fields response JSON should include fields.")
             return

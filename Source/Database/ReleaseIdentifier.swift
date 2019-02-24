@@ -2,7 +2,7 @@
 
 import Foundation
 
-public struct DiscogsReleaseIdentifier: Codable {
+public struct ReleaseID: Codable {
 
     public var type: String
     public var value: String?

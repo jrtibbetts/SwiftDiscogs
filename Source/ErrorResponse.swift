@@ -2,7 +2,7 @@
 
 import Foundation
 
-public struct DiscogsErrorResponse: Codable {
+public struct ErrorResponse: Codable {
 
     public var message: String
 

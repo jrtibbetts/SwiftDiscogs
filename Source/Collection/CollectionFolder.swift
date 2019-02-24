@@ -3,14 +3,14 @@
 import Foundation
 
 /// A JSON element that contains the folders array.
-public struct DiscogsCollectionFolders: Codable {
+public struct CollectionFolders: Codable {
     
-    public var folders: [DiscogsCollectionFolder]
+    public var folders: [CollectionFolder]
     
 }
 
 /// Information about a folder in a user's collection.
-public struct DiscogsCollectionFolder: Codable, Unique {
+public struct CollectionFolder: Codable, Unique {
     
     public var id: Int
     public var count: Int

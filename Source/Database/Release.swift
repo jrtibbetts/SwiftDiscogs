@@ -2,23 +2,23 @@
 
 import Foundation
 
-public struct DiscogsRelease: Codable, HasDiscogsArtistSummaries, Unique {
+public struct Release: Codable, HasArtistSummaries, Unique {
 
-    public var artists: [DiscogsArtistSummary]?
-    public var community: DiscogsReleaseCommunity?
+    public var artists: [ArtistSummary]?
+    public var community: ReleaseCommunity?
     public var companies: [DiscogsReleaseLabel]?
     public var country: String?
     public var dataQuality: String?
     public var dateAdded: String?
     public var dateChanged: String?
     public var estimatedWeight: Int
-    public var extraArtists: [DiscogsArtistSummary]?
+    public var extraArtists: [ArtistSummary]?
     public var formatQuantity: Int?
-    public var formats: [DiscogsReleaseFormat]?
+    public var formats: [ReleaseFormat]?
     public var genres: [String]?
     public var id: Int
-    public var identifiers: [DiscogsReleaseIdentifier]?
-    public var images: [DiscogsImage]?
+    public var identifiers: [ReleaseID]?
+    public var images: [Image]?
     public var labels: [DiscogsReleaseLabel]?
     public var lowestPrice: Float?
     public var masterId: Int
@@ -33,9 +33,9 @@ public struct DiscogsRelease: Codable, HasDiscogsArtistSummaries, Unique {
     public var styles: [String]?
     public var thumb: String?
     public var title: String
-    public var tracklist: [DiscogsTrack]
+    public var tracklist: [Track]
     public var uri: String
-    public var videos: [DiscogsVideo]?
+    public var videos: [Video]?
     public var year: Int?
 
     private enum CodingKeys: String, CodingKey {

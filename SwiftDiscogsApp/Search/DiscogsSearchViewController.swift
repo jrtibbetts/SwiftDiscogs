@@ -40,7 +40,7 @@ open class DiscogsSearchViewController: OutlettedController, UISearchResultsUpda
 
     /// The search results. Changes trigger a reloading of the table and/or
     /// collection.
-    open var results: [DiscogsSearchResult]? {
+    open var results: [SearchResult]? {
         didSet {
             searchResultsModel?.results = results
             display?.refresh()
@@ -82,7 +82,7 @@ open class DiscogsSearchViewController: OutlettedController, UISearchResultsUpda
 
     open func updateSearchResults(for searchController: UISearchController) {
         if let searchTerms = searchController.searchBar.text, !searchTerms.replacingOccurrences(of: " ", with: "").isEmpty {
-            let promise: Promise<DiscogsSearchResults>? = discogs?.search(for: searchTerms, type: "Artist")
+            let promise: Promise<SearchResults>? = discogs?.search(for: searchTerms, type: "Artist")
             promise?.done { [weak self] (searchResults) in
                 self?.results = searchResults.results?.filter { $0.type == "artist" }
                 }.catch { [weak self] (error) in
@@ -96,7 +96,7 @@ open class DiscogsSearchViewController: OutlettedController, UISearchResultsUpda
 
     // MARK: Everything Else
 
-    fileprivate var selectedArtistResult: DiscogsSearchResult? {
+    fileprivate var selectedArtistResult: SearchResult? {
         if let indexPath = searchView?.tableView?.indexPathForSelectedRow {
             return searchResultsModel?.results?[indexPath.row]
         } else {

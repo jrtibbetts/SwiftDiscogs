@@ -2,7 +2,7 @@
 
 import Foundation
 
-public struct DiscogsReleaseContributor: Codable {
+public struct ReleaseContributor: Codable {
 
     public var resourceUrl: String
     public var username: String

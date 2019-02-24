@@ -28,7 +28,7 @@ class DiscogsClientTests: DiscogsTestBase {
         let artistId = 42895    // Sinéad O'Connor, of course
         let failureMessage = "Expected Discogs artist \(artistId) to be valid"
         let exp = expectation(description: failureMessage)
-        let promise: Promise<DiscogsArtist> = unauthorizedClient.artist(identifier: artistId)
+        let promise: Promise<Artist> = unauthorizedClient.artist(identifier: artistId)
         promise.done { (artist) in
             XCTAssertEqual(artist.name, "Sinéad O'Connor")
             exp.fulfill()
@@ -43,7 +43,7 @@ class DiscogsClientTests: DiscogsTestBase {
         let artistId = -2389
         let failureMessage = "Expected Discogs artist \(artistId) to be invalid"
         let exp = expectation(description: failureMessage)
-        let promise: Promise<DiscogsArtist> = unauthorizedClient.artist(identifier: artistId)
+        let promise: Promise<Artist> = unauthorizedClient.artist(identifier: artistId)
         promise.done { (artist) in
             XCTFail(failureMessage)
             }.catch { (error) in
@@ -57,7 +57,7 @@ class DiscogsClientTests: DiscogsTestBase {
         let labelId = 3198    // Chrysalis
         let failureMessage = "Expected Discogs label \(labelId) to be valid"
         let exp = expectation(description: failureMessage)
-        let promise: Promise<DiscogsLabel> = unauthorizedClient.label(identifier: labelId)
+        let promise: Promise<RecordLabel> = unauthorizedClient.label(identifier: labelId)
         promise.done { (label) in
             XCTAssertEqual(label.name, "Chrysalis")
             exp.fulfill()
@@ -72,7 +72,7 @@ class DiscogsClientTests: DiscogsTestBase {
         let labelId = -1564
         let failureMessage = "Expected Discogs label \(labelId) to be invalid"
         let exp = expectation(description: failureMessage)
-        let promise: Promise<DiscogsArtist> = unauthorizedClient.artist(identifier: labelId)
+        let promise: Promise<Artist> = unauthorizedClient.artist(identifier: labelId)
         promise.done { (label) in
             XCTFail(failureMessage)
             }.catch { (error) in
@@ -86,7 +86,7 @@ class DiscogsClientTests: DiscogsTestBase {
         let masterId = 51559    // "Mandinka"
         let failureMessage = "Expected Discogs master release \(masterId) to be valid"
         let exp = expectation(description: failureMessage)
-        let promise: Promise<DiscogsMasterRelease> = unauthorizedClient.masterRelease(identifier: masterId)
+        let promise: Promise<MasterRelease> = unauthorizedClient.masterRelease(identifier: masterId)
         promise.done { (masterRelease) in
             XCTAssertEqual(masterRelease.title, "Mandinka")
             XCTAssertEqual(masterRelease.id, masterId)
@@ -102,7 +102,7 @@ class DiscogsClientTests: DiscogsTestBase {
         let masterId = -1616
         let failureMessage = "Expected Discogs master release \(masterId) to be invalid"
         let exp = expectation(description: failureMessage)
-        let promise: Promise<DiscogsMasterRelease> = unauthorizedClient.masterRelease(identifier: masterId)
+        let promise: Promise<MasterRelease> = unauthorizedClient.masterRelease(identifier: masterId)
         promise.done { (masterRelease) in
             XCTFail(failureMessage)
             }.catch { (error) in
@@ -115,7 +115,7 @@ class DiscogsClientTests: DiscogsTestBase {
         let releaseId = 565113    // "Mandinka" UK 12"
         let failureMessage = "Expected Discogs release \(releaseId) to be valid"
         let exp = expectation(description: failureMessage)
-        let promise: Promise<DiscogsRelease> = unauthorizedClient.release(identifier: releaseId)
+        let promise: Promise<Release> = unauthorizedClient.release(identifier: releaseId)
         promise.done { (release) in
             XCTAssertEqual(release.title, "Mandinka")
             XCTAssertEqual(release.id, releaseId)
@@ -131,7 +131,7 @@ class DiscogsClientTests: DiscogsTestBase {
         let releaseId = -1616
         let failureMessage = "Expected Discogs release \(releaseId) to be invalid"
         let exp = expectation(description: failureMessage)
-        let promise: Promise<DiscogsRelease> = unauthorizedClient.release(identifier: releaseId)
+        let promise: Promise<Release> = unauthorizedClient.release(identifier: releaseId)
         promise.done { (release) in
             XCTFail(failureMessage)
             }.catch { (error) in
@@ -144,7 +144,7 @@ class DiscogsClientTests: DiscogsTestBase {
         let artistId = 42895    // Sinéad O'Connor
         let failureMessage = "Expected Discogs artist \(artistId) to have some releases"
         let exp = expectation(description: failureMessage)
-        let promise: Promise<DiscogsReleaseSummaries> = unauthorizedClient.releases(forArtist: artistId)
+        let promise: Promise<ReleaseSummaries> = unauthorizedClient.releases(forArtist: artistId)
         promise.done { (summaries) in
             XCTAssertNotNil(summaries.pagination)
             XCTAssertTrue(summaries.pagination!.items >= 116)
@@ -159,7 +159,7 @@ class DiscogsClientTests: DiscogsTestBase {
         let artistId = -909
         let failureMessage = "Expected Discogs artist \(artistId) to be invalid"
         let exp = expectation(description: failureMessage)
-        let promise: Promise<DiscogsReleaseSummaries> = unauthorizedClient.releases(forArtist: artistId)
+        let promise: Promise<ReleaseSummaries> = unauthorizedClient.releases(forArtist: artistId)
         promise.done { (summaries) in
             XCTFail(failureMessage)
             }.catch { (error) in
@@ -172,7 +172,7 @@ class DiscogsClientTests: DiscogsTestBase {
         let labelId = 3198    // Chrysalis
         let failureMessage = "Expected Discogs label \(labelId) to have some releases"
         let exp = expectation(description: failureMessage)
-        let promise: Promise<DiscogsReleaseSummaries> = unauthorizedClient.releases(forLabel: labelId)
+        let promise: Promise<ReleaseSummaries> = unauthorizedClient.releases(forLabel: labelId)
         promise.done { (summaries) in
             XCTAssertNotNil(summaries.pagination)
             XCTAssertTrue(summaries.pagination!.items >= 16000)
@@ -187,7 +187,7 @@ class DiscogsClientTests: DiscogsTestBase {
         let labelId = -909
         let failureMessage = "Expected Discogs label \(labelId) to be invalid"
         let exp = expectation(description: failureMessage)
-        let promise: Promise<DiscogsReleaseSummaries> = unauthorizedClient.releases(forLabel: labelId)
+        let promise: Promise<ReleaseSummaries> = unauthorizedClient.releases(forLabel: labelId)
         promise.done { (summaries) in
             XCTFail(failureMessage)
             }.catch { (error) in
@@ -200,7 +200,7 @@ class DiscogsClientTests: DiscogsTestBase {
         let masterReleaseId = 51559    // "Mandinka"
         let failureMessage = "Expected Discogs master release \(masterReleaseId) to have some releases"
         let exp = expectation(description: failureMessage)
-        let promise: Promise<DiscogsMasterReleaseVersions> = unauthorizedClient.releasesForMasterRelease(masterReleaseId)
+        let promise: Promise<MasterReleaseVersions> = unauthorizedClient.releasesForMasterRelease(masterReleaseId)
         promise.done { (summaries) in
             XCTAssertNotNil(summaries.pagination)
             XCTAssertTrue(summaries.pagination!.items >= 20)
@@ -214,22 +214,22 @@ class DiscogsClientTests: DiscogsTestBase {
     // MARK: - Collection Tests
 
     func testCustomCollectionFieldsBeforeAuthenticationFails() {
-        let promise: Promise<DiscogsCollectionCustomFields> = unauthorizedClient.customCollectionFields(for: "foo")
+        let promise: Promise<CollectionCustomFields> = unauthorizedClient.customCollectionFields(for: "foo")
         assertUnauthorizedCallFails(promise: promise, description: "custom collection fields")
     }
 
     func testCollectionValueBeforeAuthenticationFails() {
-        let promise: Promise<DiscogsCollectionValue> = unauthorizedClient.collectionValue(for: "foo")
+        let promise: Promise<CollectionValue> = unauthorizedClient.collectionValue(for: "foo")
         assertUnauthorizedCallFails(promise: promise, description: "collection value")
     }
 
     func testCollectionFoldersBeforeAuthenticationFails() {
-        let promise: Promise<DiscogsCollectionFolders> = unauthorizedClient.collectionFolders(for: "foo")
+        let promise: Promise<CollectionFolders> = unauthorizedClient.collectionFolders(for: "foo")
         assertUnauthorizedCallFails(promise: promise, description: "collection folders")
     }
 
     func testCollectionFolderInfoBeforeAuthenticationFails() {
-        let promise: Promise<DiscogsCollectionFolder> = unauthorizedClient.collectionFolderInfo(forFolderId: 99, userName: "foo")
+        let promise: Promise<CollectionFolder> = unauthorizedClient.collectionFolderInfo(forFolderId: 99, userName: "foo")
         assertUnauthorizedCallFails(promise: promise, description: "collection folder info")
     }
 

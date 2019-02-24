@@ -2,7 +2,7 @@
 
 import Foundation
 
-public struct DiscogsArtistSummary: Codable, Unique {
+public struct ArtistSummary: Codable, Unique {
     
     public var artistNameVariation: String?
     public var id: Int

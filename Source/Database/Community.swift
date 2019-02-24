@@ -2,7 +2,7 @@
 
 import Foundation
 
-public struct DiscogsCommunity: Codable {
+public struct Community: Codable {
     
     public var have: Int
     public var want: Int

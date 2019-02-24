@@ -23,7 +23,7 @@ open class DiscogsSignInViewController: UIViewController {
 
         let promise = discogs.authorize(presentingViewController: self,
                                          callbackUrlString: AppDelegate.callbackUrl.absoluteString)
-        promise.then { [unowned self] (credential) -> Promise<DiscogsUserIdentity> in
+        promise.then { [unowned self] (credential) -> Promise<UserIdentity> in
             return self.discogs.userIdentity()
             }.done { [unowned self] (userIdentity) in
 

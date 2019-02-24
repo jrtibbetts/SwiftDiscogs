@@ -2,7 +2,7 @@
 
 import Foundation
 
-public struct DiscogsReleaseRating: Codable {
+public struct ReleaseRating: Codable {
     
     public var average: Float
     public var count: Int

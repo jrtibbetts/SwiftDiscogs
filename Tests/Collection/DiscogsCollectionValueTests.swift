@@ -10,7 +10,7 @@ class DiscogsCollectionValueTests: DiscogsTestBase {
         assert(try discogsObject(inLocalJsonFileNamed: "get-collection-value-200"))
     }
     
-    fileprivate func assert(_ collectionValue: DiscogsCollectionValue) {
+    fileprivate func assert(_ collectionValue: CollectionValue) {
         XCTAssertEqual(collectionValue.minimum,  "$75.50")
         XCTAssertEqual(collectionValue.median,  "$100.25")
         XCTAssertEqual(collectionValue.maximum, "$250.00")

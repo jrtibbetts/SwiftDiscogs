@@ -2,7 +2,7 @@
 
 import Foundation
 
-public struct DiscogsImage: Codable {
+public struct Image: Codable {
 
     public var height: Int
     public var resourceUrl: String

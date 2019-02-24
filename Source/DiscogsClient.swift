@@ -44,74 +44,74 @@ open class DiscogsClient: OAuth1JSONClient, Discogs {
     
     // MARK: - Authorization & User Identity
     
-    public func userIdentity() -> Promise<DiscogsUserIdentity> {
+    public func userIdentity() -> Promise<UserIdentity> {
         return authorizedGet(path: "/oauth/identity", headers: headers)
     }
     
-    public func userProfile(userName: String) -> Promise<DiscogsUserProfile> {
+    public func userProfile(userName: String) -> Promise<UserProfile> {
         return authorizedGet(path: "/users/\(userName)", headers: headers)
     }
     
     // MARK: - Database
     
-    public func artist(identifier: Int) -> Promise<DiscogsArtist> {
+    public func artist(identifier: Int) -> Promise<Artist> {
         return get(path: "/artists/\(identifier)", headers: headers)
     }
     
-    public func label(identifier: Int) -> Promise<DiscogsLabel> {
+    public func label(identifier: Int) -> Promise<RecordLabel> {
         return get(path: "/labels/\(identifier)", headers: headers)
     }
     
-    public func masterRelease(identifier: Int) -> Promise<DiscogsMasterRelease> {
+    public func masterRelease(identifier: Int) -> Promise<MasterRelease> {
         return get(path: "/masters/\(identifier)", headers: headers)
     }
     
-    public func release(identifier: Int) -> Promise<DiscogsRelease> {
+    public func release(identifier: Int) -> Promise<Release> {
         return get(path: "/releases/\(identifier)", headers: headers)
     }
     
-    public func releases(forArtist artistId: Int) -> Promise<DiscogsReleaseSummaries> {
+    public func releases(forArtist artistId: Int) -> Promise<ReleaseSummaries> {
         return get(path: "/artists/\(artistId)/releases", headers: headers)
     }
     
-    public func releases(forLabel labelId: Int) -> Promise<DiscogsReleaseSummaries> {
+    public func releases(forLabel labelId: Int) -> Promise<ReleaseSummaries> {
         return get(path: "/labels/\(labelId)/releases", headers: headers)
     }
     
     public func releasesForMasterRelease(_ identifier: Int,
                                          pageNumber: Int = 1,
-                                         resultsPerPage: Int = 50) -> Promise<DiscogsMasterReleaseVersions> {
+                                         resultsPerPage: Int = 50) -> Promise<MasterReleaseVersions> {
         // turn the pageNumber and resultsPerPage into query parameters
         return get(path: "/masters/\(identifier)/versions", headers: headers)
     }
     
     // MARK: - Collections
     
-    public func customCollectionFields(for userName: String) -> Promise<DiscogsCollectionCustomFields> {
+    public func customCollectionFields(for userName: String) -> Promise<CollectionCustomFields> {
         return authorizedGet(path: "/users/\(userName)/collection/fields", headers: headers)
     }
     
-    public func collectionValue(for userName: String) -> Promise<DiscogsCollectionValue> {
+    public func collectionValue(for userName: String) -> Promise<CollectionValue> {
         return authorizedGet(path: "/users/\(userName)/collection/value", headers: headers)
     }
     
-    public func collectionFolders(for userName: String) -> Promise<DiscogsCollectionFolders> {
+    public func collectionFolders(for userName: String) -> Promise<CollectionFolders> {
         return authorizedGet(path: "/users/\(userName)/collection/folders", headers: headers)
     }
     
     public func collectionFolderInfo(forFolderId folderId: Int,
-                                     userName: String) -> Promise<DiscogsCollectionFolder> {
+                                     userName: String) -> Promise<CollectionFolder> {
         return authorizedGet(path: "/users/\(userName)/collection/folders/\(folderId)", headers: headers)
     }
     
     public func createFolder(named folderName: String,
-                             userName: String) -> Promise<DiscogsCollectionFolder> {
+                             userName: String) -> Promise<CollectionFolder> {
         return authorizedPost(path: "/users/\(userName)/collection/folders/\(folderName)", headers: headers)
     }
     
-    public func edit(_ folder: DiscogsCollectionFolder,
-                     userName: String) -> Promise<DiscogsCollectionFolder> {
-        return Promise<DiscogsCollectionFolder> { (seal) in
+    public func edit(_ folder: CollectionFolder,
+                     userName: String) -> Promise<CollectionFolder> {
+        return Promise<CollectionFolder> { (seal) in
         }
     }
     
@@ -126,14 +126,14 @@ open class DiscogsClient: OAuth1JSONClient, Discogs {
     
     public func addItem(_ itemId: Int,
                         toFolderId folderId: Int,
-                        userName: String) -> Promise<DiscogsCollectionItemInfo> {
+                        userName: String) -> Promise<CollectionItemInfo> {
         return authorizedPost(path: "/users/\(userName)/collection/folders/\(folderId)/releases/{itemId}", headers: headers)
     }
     
     // MARK: - Search
     
     public func search(for queryString: String,
-                       type: String) -> Promise<DiscogsSearchResults> {
+                       type: String) -> Promise<SearchResults> {
         let params = ["q": queryString]
         
         return authorizedGet(path: "/database/search", headers: headers, parameters: params)

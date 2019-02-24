@@ -2,15 +2,15 @@
 
 import Foundation
 
-public struct DiscogsTrack: Codable {
+public struct Track: Codable {
     
     public var duration: String
     public var position: String
     public var type: String
     public var title: String
-    public var extraArtists: [DiscogsArtistSummary]?
+    public var extraArtists: [ArtistSummary]?
 
-    fileprivate enum CodingKeys: String, CodingKey {
+    private enum CodingKeys: String, CodingKey {
         case duration
         case extraArtists = "extraartists"
         case position

@@ -2,13 +2,13 @@
 
 import Foundation
 
-public protocol HasDiscogsArtistSummaries {
+public protocol HasArtistSummaries {
     
-    var artists: [DiscogsArtistSummary]? { get set }
+    var artists: [ArtistSummary]? { get set }
     
 }
 
-extension HasDiscogsArtistSummaries {
+extension HasArtistSummaries {
     
     public var artistString: String {
         if let artists = artists {

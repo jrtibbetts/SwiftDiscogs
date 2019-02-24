@@ -2,7 +2,7 @@
 
 import Foundation
 
-public struct DiscogsCollectionItemInfo: Codable {
+public struct CollectionItemInfo: Codable {
     
     public var instanceId: Int
     public var resourceUrl: String

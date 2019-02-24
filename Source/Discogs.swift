@@ -10,7 +10,7 @@ public enum DiscogsError: Error {
     /// Thrown when no artist was found when searching by its ID.
     case artistNotFoundById(Int)
     
-    case discogsResponse(DiscogsErrorResponse)
+    case discogsResponse(ErrorResponse)
     
     case labelNotFoundById(Int)
     
@@ -31,9 +31,9 @@ public protocol Discogs {
     func authorize(presentingViewController: UIViewController,
                    callbackUrlString: String) -> Promise<OAuthSwiftCredential>
 
-    func userIdentity() -> Promise<DiscogsUserIdentity>
+    func userIdentity() -> Promise<UserIdentity>
 
-    func userProfile(userName: String) -> Promise<DiscogsUserProfile>
+    func userProfile(userName: String) -> Promise<UserProfile>
 
     // MARK: - Database
     
@@ -43,35 +43,35 @@ public protocol Discogs {
     /// - parameter identifier: The numeric ID of the artist.
     /// - parameter completion: The completion block that will be applied to
     ///   the artist, if found, or the error, if one was thrown.
-    func artist(identifier: Int) -> Promise<DiscogsArtist>
+    func artist(identifier: Int) -> Promise<Artist>
 
     /// Look up the releases by the specified artist's ID.
     ///
     /// - parameter artistId: The numeric ID of the artist.
     /// - parameter completion: The completion block that will be applied to
     ///   all of the artist's releases, or to the error, if one was thrown.
-    func releases(forArtist artistId: Int) -> Promise<DiscogsReleaseSummaries>
+    func releases(forArtist artistId: Int) -> Promise<ReleaseSummaries>
     
     /// Look up the record label by its ID.
     ///
     /// - parameter identifier: The label's unique ID.
     /// - parameter completion: The completion block that will be applied to
     ///   the label, or to the error, if one was thrown.
-    func label(identifier: Int) -> Promise<DiscogsLabel>
+    func label(identifier: Int) -> Promise<RecordLabel>
     
     /// Look up the record label's releases by the label's name.
     ///
     /// - parameter labelId: The label's unique ID.
     /// - parameter completion: The completion block that will be applied to
     ///   all of the label's releases, or to the error, if one was thrown.
-    func releases(forLabel labelId: Int) -> Promise<DiscogsReleaseSummaries>
+    func releases(forLabel labelId: Int) -> Promise<ReleaseSummaries>
     
     /// Process a master release with a specified ID.
     ///
     /// - parameter identifier: The unique ID of the master release.
     /// - parameter completion: The completion block that will be applied to
     ///   the master release, or to the error, if one was thrown.
-    func masterRelease(identifier: Int) -> Promise<DiscogsMasterRelease>
+    func masterRelease(identifier: Int) -> Promise<MasterRelease>
     
     /// Process all of the release versions that belong to a master release.
     ///
@@ -79,35 +79,35 @@ public protocol Discogs {
     /// - parameter pageNumber: The number of the page (i.e. batch).
     func releasesForMasterRelease(_ identifier: Int,
                                   pageNumber: Int,
-                                  resultsPerPage: Int) -> Promise<DiscogsMasterReleaseVersions>
+                                  resultsPerPage: Int) -> Promise<MasterReleaseVersions>
     
     /// Process a release with a specified ID.
     ///
     /// - parameter identifier: The unique ID of the release.
     /// - parameter completion: The completion block that will be applied to
     ///   the release, or to the error, if one was thrown.
-    func release(identifier: Int) -> Promise<DiscogsRelease>
+    func release(identifier: Int) -> Promise<Release>
     
     // MARK: - Collections
     
-    func customCollectionFields(for userName: String) -> Promise<DiscogsCollectionCustomFields>
-    func collectionValue(for userName: String) -> Promise<DiscogsCollectionValue>
-    func collectionFolders(for userName: String) -> Promise<DiscogsCollectionFolders>
+    func customCollectionFields(for userName: String) -> Promise<CollectionCustomFields>
+    func collectionValue(for userName: String) -> Promise<CollectionValue>
+    func collectionFolders(for userName: String) -> Promise<CollectionFolders>
     func collectionFolderInfo(forFolderId folderId: Int,
-                              userName: String) -> Promise<DiscogsCollectionFolder>
+                              userName: String) -> Promise<CollectionFolder>
     func createFolder(named folderName: String,
-                      userName: String) -> Promise<DiscogsCollectionFolder>
-    func edit(_ folder: DiscogsCollectionFolder,
-              userName: String) -> Promise<DiscogsCollectionFolder>
+                      userName: String) -> Promise<CollectionFolder>
+    func edit(_ folder: CollectionFolder,
+              userName: String) -> Promise<CollectionFolder>
     func collectionItems(forFolderId folderId: Int,
                          userName: String,
                          pageNumber: Int,
                          resultsPerPage: Int) -> Promise<DiscogsCollectionFolderItems>
     func addItem(_ itemId: Int,
                  toFolderId folderId: Int,
-                 userName: String) -> Promise<DiscogsCollectionItemInfo>
+                 userName: String) -> Promise<CollectionItemInfo>
     
     func search(for queryString: String,
-                type: String) -> Promise<DiscogsSearchResults>
+                type: String) -> Promise<SearchResults>
     
 }

@@ -2,7 +2,7 @@
 
 import Foundation
 
-public struct DiscogsReleaseSummary: Codable, Unique {
+public struct ReleaseSummary: Codable, Unique {
     
     public var artist: String
     public var catno: String?
@@ -29,9 +29,9 @@ public struct DiscogsReleaseSummary: Codable, Unique {
     
 }
 
-public struct DiscogsReleaseSummaries: Codable, Pageable {
+public struct ReleaseSummaries: Codable, Pageable {
     
-    public var pagination: DiscogsPagination?
-    public var releases: [DiscogsReleaseSummary]?
+    public var pagination: Pagination?
+    public var releases: [ReleaseSummary]?
     
 }

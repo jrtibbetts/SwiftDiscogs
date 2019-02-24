@@ -15,7 +15,7 @@ open class DiscogsArtistViewController: OutlettedController {
     open var discogs: Discogs? = DiscogsClient.singleton
 
     /// The artist in question.
-    open var artist: DiscogsArtist? {
+    open var artist: Artist? {
         didSet {
             artistModel?.artist = artist
             display?.refresh()
@@ -25,7 +25,7 @@ open class DiscogsArtistViewController: OutlettedController {
         }
     }
 
-    open var artistSearchResult: DiscogsSearchResult? {
+    open var artistSearchResult: SearchResult? {
         didSet {
             if let artistId = artistSearchResult?.id {
                 discogs?.artist(identifier: artistId).done { (artist) in

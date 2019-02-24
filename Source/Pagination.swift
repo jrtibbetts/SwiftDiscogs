@@ -4,11 +4,11 @@ import Foundation
 
 public protocol Pageable {
 
-    var pagination: DiscogsPagination? { get }
+    var pagination: Pagination? { get }
 
 }
 
-public struct DiscogsPagination: Codable {
+public struct Pagination: Codable {
 
     public var page: Int
     public var pages: Int

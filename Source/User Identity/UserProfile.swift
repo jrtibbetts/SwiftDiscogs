@@ -2,7 +2,7 @@
 
 import Foundation
 
-public struct DiscogsUserProfile: Codable {
+public struct UserProfile: Codable {
     
     public var avatarUrl: String
     public var bannerUrl: String

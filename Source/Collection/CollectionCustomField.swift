@@ -3,7 +3,7 @@
 import Foundation
 
 /// A user-defined column in the collection database.
-public struct DiscogsCollectionCustomField: Codable {
+public struct CollectionCustomField: Codable {
     
     /// Determines what type of editing/display component to use when
     /// entering data on Discogs.com.
@@ -40,9 +40,9 @@ public struct DiscogsCollectionCustomField: Codable {
 }
 
 /// A collection of the custom fields that a user has defined.
-public struct DiscogsCollectionCustomFields: Codable {
+public struct CollectionCustomFields: Codable {
     
     /// The custom fields that the user has defined, if any.
-    public var fields: [DiscogsCollectionCustomField]?
+    public var fields: [CollectionCustomField]?
 
 }

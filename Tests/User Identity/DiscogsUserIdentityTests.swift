@@ -11,7 +11,7 @@ class DiscogsUserIdentityTests: DiscogsTestBase {
         assertDiscogsErrorMessage(in: "get-user-identity-401", is: "You must authenticate to access this resource.")
     }
     
-    fileprivate func assert(_ userIdentity: DiscogsUserIdentity) {
+    fileprivate func assert(_ userIdentity: UserIdentity) {
         XCTAssertEqual(1, userIdentity.id)
         XCTAssertEqual("example", userIdentity.username)
         XCTAssertEqual("Your Application Name", userIdentity.consumerName)

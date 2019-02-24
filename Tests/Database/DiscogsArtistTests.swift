@@ -13,7 +13,7 @@ class DiscogsArtistTests: DiscogsTestBase {
         assertDiscogsErrorMessage(in: "get-artist-404", is: "Artist not found.")
     }
     
-    fileprivate func assert(_ artist: DiscogsArtist) {
+    fileprivate func assert(_ artist: Artist) {
         XCTAssertEqual(artist.id, 108713, "artist ID")
         XCTAssertEqual(artist.namevariations![0], "Nickleback", "artist name")
         XCTAssertEqual(artist.images!.count, 2, "artist images")
