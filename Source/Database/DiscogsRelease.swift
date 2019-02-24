@@ -24,8 +24,7 @@ public struct DiscogsRelease: Codable, HasDiscogsArtistSummaries, Unique {
     public var masterId: Int
     public var masterUrl: String
     public var notes: String?
-    public var numForSale: Int
-    public var numberForSale: Int { return numForSale }
+    public var numberForSale: Int
     public var released: String?
     public var releasedFormatted: String?
     public var resourceUrl: String
@@ -38,5 +37,42 @@ public struct DiscogsRelease: Codable, HasDiscogsArtistSummaries, Unique {
     public var uri: String
     public var videos: [DiscogsVideo]?
     public var year: Int?
+
+    private enum CodingKeys: String, CodingKey {
+        case artists
+        case community
+        case companies
+        case country
+        case dataQuality
+        case dateAdded
+        case dateChanged
+        case estimatedWeight
+        case extraArtists
+        case formatQuantity
+        case formats
+        case genres
+        case id
+        case identifiers
+        case images
+        case labels
+        case lowestPrice
+        case masterId
+        case masterUrl
+        case notes
+        case numberForSale = "numForSale"
+        case released
+        case releasedFormatted
+        case resourceUrl
+        case series
+        case status
+        case styles
+        case thumb
+        case title
+        case tracklist
+        case uri
+        case videos
+        case year
+
+    }
 
 }

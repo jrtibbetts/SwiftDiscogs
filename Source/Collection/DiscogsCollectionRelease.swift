@@ -19,14 +19,19 @@ public struct DiscogsCollectionRelease: Codable {
         public var resourceUrl: String
         public var tracks: String?
         public var role: String?
-
     }
 
     public struct Format: Codable {
+
         public var descriptions: [String]?
         public var name: String?
-        public var quantity: String? { return qty }
-        public var qty: String?
+        public var quantity: String?
+
+        private enum CodingKeys: String, CodingKey {
+            case descriptions
+            case name
+            case quantity = "qty"
+        }
 
     }
 
@@ -40,23 +45,29 @@ public struct DiscogsCollectionRelease: Codable {
         public var formats: [Format]?
         public var labels: [Label]?
         public var artists: [Artist]?
-
     }
 
     public struct Label: Codable {
-        public var catno: String?
-        public var catalogNumber: String? { return catno }
+
+        public var catalogNumber: String?
         public var entityType: String?
         public var id: Int
         public var name: String
         public var resourceUrl: String
+
+        private enum CodingKeys: String, CodingKey {
+            case catalogNumber = "catno"
+            case entityType
+            case id
+            case name
+            case resourceUrl
+        }
 
     }
 
     public struct Note: Codable {
         public var fieldId: String
         public var value: String
-
     }
 
 }
