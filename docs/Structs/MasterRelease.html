@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>MasterRelease Structure Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Struct/MasterRelease" class="dashAnchor"></a>
+    <a title="MasterRelease Structure Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html"> Docs</a> (10% documented)</p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html"> Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        MasterRelease Structure Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/DiscogsClient.html">DiscogsClient</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MockDiscogs.html">MockDiscogs</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/DiscogsError.html">DiscogsError</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/Discogs.html">Discogs</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/HasArtistSummaries.html">HasArtistSummaries</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/Pageable.html">Pageable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/Unique.html">Unique</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Structs.html">Structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/Artist.html">Artist</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ArtistSummary.html">ArtistSummary</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/BandMember.html">BandMember</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/CollectionCustomField.html">CollectionCustomField</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/CollectionCustomField/FieldType.html">– FieldType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/CollectionCustomFields.html">CollectionCustomFields</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/CollectionFolder.html">CollectionFolder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/CollectionFolderItem.html">CollectionFolderItem</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/CollectionFolders.html">CollectionFolders</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/CollectionItemInfo.html">CollectionItemInfo</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/CollectionRelease.html">CollectionRelease</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/CollectionRelease/Artist.html">– Artist</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/CollectionRelease/Format.html">– Format</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/CollectionRelease/Information.html">– Information</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/CollectionRelease/Label.html">– Label</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/CollectionRelease/Note.html">– Note</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/CollectionValue.html">CollectionValue</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Community.html">Community</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/DiscogsCollectionFolderItemFormat.html">DiscogsCollectionFolderItemFormat</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/DiscogsCollectionFolderItemInformation.html">DiscogsCollectionFolderItemInformation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/DiscogsCollectionFolderItemLabel.html">DiscogsCollectionFolderItemLabel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/DiscogsCollectionFolderItems.html">DiscogsCollectionFolderItems</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/DiscogsCollectionFolderNote.html">DiscogsCollectionFolderNote</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/DiscogsReleaseLabel.html">DiscogsReleaseLabel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ErrorResponse.html">ErrorResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Image.html">Image</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/MasterRelease.html">MasterRelease</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/MasterReleaseVersion.html">MasterReleaseVersion</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/MasterReleaseVersions.html">MasterReleaseVersions</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Pagination.html">Pagination</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/RecordLabel.html">RecordLabel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Release.html">Release</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ReleaseCommunity.html">ReleaseCommunity</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ReleaseContributor.html">ReleaseContributor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ReleaseFormat.html">ReleaseFormat</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ReleaseID.html">ReleaseID</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ReleaseRating.html">ReleaseRating</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ReleaseSummaries.html">ReleaseSummaries</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ReleaseSummary.html">ReleaseSummary</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/SearchResult.html">SearchResult</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/SearchResults.html">SearchResults</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Sublabel.html">Sublabel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Track.html">Track</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/UserIdentity.html">UserIdentity</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/UserProfile.html">UserProfile</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Video.html">Video</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>MasterRelease</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">MasterRelease</span> <span class="p">:</span> <span class="kt">Codable</span><span class="p">,</span> <span class="kt"><a href="../Protocols/Unique.html">Unique</a></span></code></pre>
+
+                </div>
+              </div>
+            <p>Undocumented</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12SwiftDiscogs13MasterReleaseV7artistsSayAA13ArtistSummaryVGvp"></a>
+                    <a name="//apple_ref/swift/Property/artists" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12SwiftDiscogs13MasterReleaseV7artistsSayAA13ArtistSummaryVGvp">artists</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">artists</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Structs/ArtistSummary.html">ArtistSummary</a></span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12SwiftDiscogs13MasterReleaseV11dataQualitySSvp"></a>
+                    <a name="//apple_ref/swift/Property/dataQuality" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12SwiftDiscogs13MasterReleaseV11dataQualitySSvp">dataQuality</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">dataQuality</span><span class="p">:</span> <span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12SwiftDiscogs13MasterReleaseV6genresSaySSGvp"></a>
+                    <a name="//apple_ref/swift/Property/genres" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12SwiftDiscogs13MasterReleaseV6genresSaySSGvp">genres</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">genres</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12SwiftDiscogs13MasterReleaseV2idSivp"></a>
+                    <a name="//apple_ref/swift/Property/id" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12SwiftDiscogs13MasterReleaseV2idSivp">id</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">id</span><span class="p">:</span> <span class="kt">Int</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12SwiftDiscogs13MasterReleaseV6imagesSayAA5ImageVGSgvp"></a>
+                    <a name="//apple_ref/swift/Property/images" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12SwiftDiscogs13MasterReleaseV6imagesSayAA5ImageVGSgvp">images</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">images</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Structs/Image.html">Image</a></span><span class="p">]?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12SwiftDiscogs13MasterReleaseV11lowestPriceSfvp"></a>
+                    <a name="//apple_ref/swift/Property/lowestPrice" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12SwiftDiscogs13MasterReleaseV11lowestPriceSfvp">lowestPrice</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">lowestPrice</span><span class="p">:</span> <span class="kt">Float</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12SwiftDiscogs13MasterReleaseV04mainD0Sivp"></a>
+                    <a name="//apple_ref/swift/Property/mainRelease" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12SwiftDiscogs13MasterReleaseV04mainD0Sivp">mainRelease</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">mainRelease</span><span class="p">:</span> <span class="kt">Int</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12SwiftDiscogs13MasterReleaseV04mainD3UrlSSvp"></a>
+                    <a name="//apple_ref/swift/Property/mainReleaseUrl" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12SwiftDiscogs13MasterReleaseV04mainD3UrlSSvp">mainReleaseUrl</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">mainReleaseUrl</span><span class="p">:</span> <span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12SwiftDiscogs13MasterReleaseV13numberForSaleSivp"></a>
+                    <a name="//apple_ref/swift/Property/numberForSale" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12SwiftDiscogs13MasterReleaseV13numberForSaleSivp">numberForSale</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">numberForSale</span><span class="p">:</span> <span class="kt">Int</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12SwiftDiscogs13MasterReleaseV11resourceUrlSSvp"></a>
+                    <a name="//apple_ref/swift/Property/resourceUrl" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12SwiftDiscogs13MasterReleaseV11resourceUrlSSvp">resourceUrl</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">resourceUrl</span><span class="p">:</span> <span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12SwiftDiscogs13MasterReleaseV6stylesSaySSGvp"></a>
+                    <a name="//apple_ref/swift/Property/styles" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12SwiftDiscogs13MasterReleaseV6stylesSaySSGvp">styles</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">styles</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12SwiftDiscogs13MasterReleaseV5titleSSvp"></a>
+                    <a name="//apple_ref/swift/Property/title" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12SwiftDiscogs13MasterReleaseV5titleSSvp">title</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">title</span><span class="p">:</span> <span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12SwiftDiscogs13MasterReleaseV9tracklistSayAA5TrackVGvp"></a>
+                    <a name="//apple_ref/swift/Property/tracklist" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12SwiftDiscogs13MasterReleaseV9tracklistSayAA5TrackVGvp">tracklist</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">tracklist</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Structs/Track.html">Track</a></span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12SwiftDiscogs13MasterReleaseV3uriSSvp"></a>
+                    <a name="//apple_ref/swift/Property/uri" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12SwiftDiscogs13MasterReleaseV3uriSSvp">uri</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">uri</span><span class="p">:</span> <span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12SwiftDiscogs13MasterReleaseV11versionsUrlSSvp"></a>
+                    <a name="//apple_ref/swift/Property/versionsUrl" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12SwiftDiscogs13MasterReleaseV11versionsUrlSSvp">versionsUrl</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">versionsUrl</span><span class="p">:</span> <span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12SwiftDiscogs13MasterReleaseV6videosSayAA5VideoVGSgvp"></a>
+                    <a name="//apple_ref/swift/Property/videos" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12SwiftDiscogs13MasterReleaseV6videosSayAA5VideoVGSgvp">videos</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">videos</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Structs/Video.html">Video</a></span><span class="p">]?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12SwiftDiscogs13MasterReleaseV4yearSivp"></a>
+                    <a name="//apple_ref/swift/Property/year" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12SwiftDiscogs13MasterReleaseV4yearSivp">year</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">year</span><span class="p">:</span> <span class="kt">Int</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2019 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2019-02-24)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

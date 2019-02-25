@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>MockDiscogs Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Class/MockDiscogs" class="dashAnchor"></a>
+    <a title="MockDiscogs Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html"> Docs</a> (10% documented)</p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html"> Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        MockDiscogs Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/DiscogsClient.html">DiscogsClient</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MockDiscogs.html">MockDiscogs</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/DiscogsError.html">DiscogsError</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/Discogs.html">Discogs</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/HasArtistSummaries.html">HasArtistSummaries</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/Pageable.html">Pageable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/Unique.html">Unique</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Structs.html">Structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/Artist.html">Artist</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ArtistSummary.html">ArtistSummary</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/BandMember.html">BandMember</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/CollectionCustomField.html">CollectionCustomField</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/CollectionCustomField/FieldType.html">– FieldType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/CollectionCustomFields.html">CollectionCustomFields</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/CollectionFolder.html">CollectionFolder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/CollectionFolderItem.html">CollectionFolderItem</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/CollectionFolders.html">CollectionFolders</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/CollectionItemInfo.html">CollectionItemInfo</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/CollectionRelease.html">CollectionRelease</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/CollectionRelease/Artist.html">– Artist</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/CollectionRelease/Format.html">– Format</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/CollectionRelease/Information.html">– Information</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/CollectionRelease/Label.html">– Label</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/CollectionRelease/Note.html">– Note</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/CollectionValue.html">CollectionValue</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Community.html">Community</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/DiscogsCollectionFolderItemFormat.html">DiscogsCollectionFolderItemFormat</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/DiscogsCollectionFolderItemInformation.html">DiscogsCollectionFolderItemInformation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/DiscogsCollectionFolderItemLabel.html">DiscogsCollectionFolderItemLabel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/DiscogsCollectionFolderItems.html">DiscogsCollectionFolderItems</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/DiscogsCollectionFolderNote.html">DiscogsCollectionFolderNote</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/DiscogsReleaseLabel.html">DiscogsReleaseLabel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ErrorResponse.html">ErrorResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Image.html">Image</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/MasterRelease.html">MasterRelease</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/MasterReleaseVersion.html">MasterReleaseVersion</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/MasterReleaseVersions.html">MasterReleaseVersions</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Pagination.html">Pagination</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/RecordLabel.html">RecordLabel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Release.html">Release</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ReleaseCommunity.html">ReleaseCommunity</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ReleaseContributor.html">ReleaseContributor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ReleaseFormat.html">ReleaseFormat</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ReleaseID.html">ReleaseID</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ReleaseRating.html">ReleaseRating</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ReleaseSummaries.html">ReleaseSummaries</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ReleaseSummary.html">ReleaseSummary</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/SearchResult.html">SearchResult</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/SearchResults.html">SearchResults</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Sublabel.html">Sublabel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Track.html">Track</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/UserIdentity.html">UserIdentity</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/UserProfile.html">UserProfile</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Video.html">Video</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>MockDiscogs</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">MockDiscogs</span> <span class="p">:</span> <span class="kt">MockClient</span><span class="p">,</span> <span class="kt"><a href="../Protocols/Discogs.html">Discogs</a></span></code></pre>
+
+                </div>
+              </div>
+            <p>A <code><a href="../Protocols/Discogs.html">Discogs</a></code> implementation that generates canned values from the sample
+JSON code documented at api.discogs.com.</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12SwiftDiscogs04MockB0C9errorModeACSb_tcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(errorMode:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12SwiftDiscogs04MockB0C9errorModeACSb_tcfc">init(errorMode:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">errorMode</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/User%20Identity"></a>
+                <a name="//apple_ref/swift/Section/User Identity" class="dashAnchor"></a>
+                <a href="#/User%20Identity">
+                  <h3 class="section-name">User Identity</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12SwiftDiscogs04MockB0C9authorize24presentingViewController17callbackUrlString10PromiseKit0K0Cy05OAuthA00mA10CredentialCGSo06UIViewG0C_SStF"></a>
+                    <a name="//apple_ref/swift/Method/authorize(presentingViewController:callbackUrlString:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12SwiftDiscogs04MockB0C9authorize24presentingViewController17callbackUrlString10PromiseKit0K0Cy05OAuthA00mA10CredentialCGSo06UIViewG0C_SStF">authorize(presentingViewController:callbackUrlString:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">authorize</span><span class="p">(</span><span class="nv">presentingViewController</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="p">,</span>
+                      <span class="nv">callbackUrlString</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Promise</span><span class="o">&lt;</span><span class="kt">OAuthSwiftCredential</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12SwiftDiscogs04MockB0C12userIdentity10PromiseKit0F0CyAA04UserE0VGyF"></a>
+                    <a name="//apple_ref/swift/Method/userIdentity()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12SwiftDiscogs04MockB0C12userIdentity10PromiseKit0F0CyAA04UserE0VGyF">userIdentity()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">userIdentity</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Promise</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/UserIdentity.html">UserIdentity</a></span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12SwiftDiscogs04MockB0C11userProfile0D4Name10PromiseKit0G0CyAA04UserE0VGSS_tF"></a>
+                    <a name="//apple_ref/swift/Method/userProfile(userName:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12SwiftDiscogs04MockB0C11userProfile0D4Name10PromiseKit0G0CyAA04UserE0VGSS_tF">userProfile(userName:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">userProfile</span><span class="p">(</span><span class="nv">userName</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Promise</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/UserProfile.html">UserProfile</a></span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Database"></a>
+                <a name="//apple_ref/swift/Section/Database" class="dashAnchor"></a>
+                <a href="#/Database">
+                  <h3 class="section-name">Database</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12SwiftDiscogs0B0P6artist10identifier10PromiseKit0E0CyAA6ArtistVGSi_tF"></a>
+                    <a name="//apple_ref/swift/Method/artist(identifier:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12SwiftDiscogs0B0P6artist10identifier10PromiseKit0E0CyAA6ArtistVGSi_tF">artist(identifier:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">artist</span><span class="p">(</span><span class="nv">identifier</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Promise</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/Artist.html">Artist</a></span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12SwiftDiscogs0B0P8releases9forArtist10PromiseKit0F0CyAA16ReleaseSummariesVGSi_tF"></a>
+                    <a name="//apple_ref/swift/Method/releases(forArtist:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12SwiftDiscogs0B0P8releases9forArtist10PromiseKit0F0CyAA16ReleaseSummariesVGSi_tF">releases(forArtist:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">releases</span><span class="p">(</span><span class="n">forArtist</span> <span class="nv">artistId</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Promise</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/ReleaseSummaries.html">ReleaseSummaries</a></span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12SwiftDiscogs0B0P5label10identifier10PromiseKit0E0CyAA11RecordLabelVGSi_tF"></a>
+                    <a name="//apple_ref/swift/Method/label(identifier:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12SwiftDiscogs0B0P5label10identifier10PromiseKit0E0CyAA11RecordLabelVGSi_tF">label(identifier:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">label</span><span class="p">(</span><span class="nv">identifier</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Promise</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/RecordLabel.html">RecordLabel</a></span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12SwiftDiscogs0B0P8releases8forLabel10PromiseKit0F0CyAA16ReleaseSummariesVGSi_tF"></a>
+                    <a name="//apple_ref/swift/Method/releases(forLabel:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12SwiftDiscogs0B0P8releases8forLabel10PromiseKit0F0CyAA16ReleaseSummariesVGSi_tF">releases(forLabel:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">releases</span><span class="p">(</span><span class="n">forLabel</span> <span class="nv">labelId</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Promise</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/ReleaseSummaries.html">ReleaseSummaries</a></span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12SwiftDiscogs0B0P13masterRelease10identifier10PromiseKit0F0CyAA06MasterD0VGSi_tF"></a>
+                    <a name="//apple_ref/swift/Method/masterRelease(identifier:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12SwiftDiscogs0B0P13masterRelease10identifier10PromiseKit0F0CyAA06MasterD0VGSi_tF">masterRelease(identifier:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">masterRelease</span><span class="p">(</span><span class="nv">identifier</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Promise</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/MasterRelease.html">MasterRelease</a></span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12SwiftDiscogs0B0P24releasesForMasterRelease_10pageNumber14resultsPerPage10PromiseKit0L0CyAA0eF8VersionsVGSi_S2itF"></a>
+                    <a name="//apple_ref/swift/Method/releasesForMasterRelease(_:pageNumber:resultsPerPage:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12SwiftDiscogs0B0P24releasesForMasterRelease_10pageNumber14resultsPerPage10PromiseKit0L0CyAA0eF8VersionsVGSi_S2itF">releasesForMasterRelease(_:pageNumber:resultsPerPage:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">releasesForMasterRelease</span><span class="p">(</span><span class="n">_</span> <span class="nv">identifier</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span>
+                                     <span class="nv">pageNumber</span><span class="p">:</span> <span class="kt">Int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+                                     <span class="nv">resultsPerPage</span><span class="p">:</span> <span class="kt">Int</span> <span class="o">=</span> <span class="mi">50</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Promise</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/MasterReleaseVersions.html">MasterReleaseVersions</a></span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12SwiftDiscogs0B0P7release10identifier10PromiseKit0E0CyAA7ReleaseVGSi_tF"></a>
+                    <a name="//apple_ref/swift/Method/release(identifier:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12SwiftDiscogs0B0P7release10identifier10PromiseKit0E0CyAA7ReleaseVGSi_tF">release(identifier:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">release</span><span class="p">(</span><span class="nv">identifier</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Promise</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/Release.html">Release</a></span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Collections"></a>
+                <a name="//apple_ref/swift/Section/Collections" class="dashAnchor"></a>
+                <a href="#/Collections">
+                  <h3 class="section-name">Collections</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12SwiftDiscogs04MockB0C22customCollectionFields3for10PromiseKit0H0CyAA0e6CustomF0VGSS_tF"></a>
+                    <a name="//apple_ref/swift/Method/customCollectionFields(for:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12SwiftDiscogs04MockB0C22customCollectionFields3for10PromiseKit0H0CyAA0e6CustomF0VGSS_tF">customCollectionFields(for:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">customCollectionFields</span><span class="p">(</span><span class="k">for</span> <span class="nv">userName</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Promise</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/CollectionCustomFields.html">CollectionCustomFields</a></span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12SwiftDiscogs04MockB0C15collectionValue3for10PromiseKit0G0CyAA010CollectionE0VGSS_tF"></a>
+                    <a name="//apple_ref/swift/Method/collectionValue(for:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12SwiftDiscogs04MockB0C15collectionValue3for10PromiseKit0G0CyAA010CollectionE0VGSS_tF">collectionValue(for:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">collectionValue</span><span class="p">(</span><span class="k">for</span> <span class="nv">userName</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Promise</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/CollectionValue.html">CollectionValue</a></span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12SwiftDiscogs04MockB0C17collectionFolders3for10PromiseKit0G0CyAA010CollectionE0VGSS_tF"></a>
+                    <a name="//apple_ref/swift/Method/collectionFolders(for:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12SwiftDiscogs04MockB0C17collectionFolders3for10PromiseKit0G0CyAA010CollectionE0VGSS_tF">collectionFolders(for:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">collectionFolders</span><span class="p">(</span><span class="k">for</span> <span class="nv">userName</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Promise</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/CollectionFolders.html">CollectionFolders</a></span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12SwiftDiscogs04MockB0C20collectionFolderInfo03forE2Id8userName10PromiseKit0K0CyAA010CollectionE0VGSi_SStF"></a>
+                    <a name="//apple_ref/swift/Method/collectionFolderInfo(forFolderId:userName:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12SwiftDiscogs04MockB0C20collectionFolderInfo03forE2Id8userName10PromiseKit0K0CyAA010CollectionE0VGSi_SStF">collectionFolderInfo(forFolderId:userName:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">collectionFolderInfo</span><span class="p">(</span><span class="n">forFolderId</span> <span class="nv">folderId</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span>
+                                 <span class="nv">userName</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Promise</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/CollectionFolder.html">CollectionFolder</a></span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12SwiftDiscogs04MockB0C12createFolder5named8userName10PromiseKit0I0CyAA010CollectionE0VGSS_SStF"></a>
+                    <a name="//apple_ref/swift/Method/createFolder(named:userName:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12SwiftDiscogs04MockB0C12createFolder5named8userName10PromiseKit0I0CyAA010CollectionE0VGSS_SStF">createFolder(named:userName:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">createFolder</span><span class="p">(</span><span class="n">named</span> <span class="nv">folderName</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
+                         <span class="nv">userName</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Promise</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/CollectionFolder.html">CollectionFolder</a></span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12SwiftDiscogs04MockB0C4edit_8userName10PromiseKit0G0CyAA16CollectionFolderVGAJ_SStF"></a>
+                    <a name="//apple_ref/swift/Method/edit(_:userName:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12SwiftDiscogs04MockB0C4edit_8userName10PromiseKit0G0CyAA16CollectionFolderVGAJ_SStF">edit(_:userName:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">edit</span><span class="p">(</span><span class="n">_</span> <span class="nv">folder</span><span class="p">:</span> <span class="kt"><a href="../Structs/CollectionFolder.html">CollectionFolder</a></span><span class="p">,</span>
+                 <span class="nv">userName</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Promise</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/CollectionFolder.html">CollectionFolder</a></span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12SwiftDiscogs04MockB0C15collectionItems11forFolderId8userName10pageNumber14resultsPerPage10PromiseKit0P0CyAA0b10CollectiongE0VGSi_SSS2itF"></a>
+                    <a name="//apple_ref/swift/Method/collectionItems(forFolderId:userName:pageNumber:resultsPerPage:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12SwiftDiscogs04MockB0C15collectionItems11forFolderId8userName10pageNumber14resultsPerPage10PromiseKit0P0CyAA0b10CollectiongE0VGSi_SSS2itF">collectionItems(forFolderId:userName:pageNumber:resultsPerPage:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">collectionItems</span><span class="p">(</span><span class="n">forFolderId</span> <span class="nv">folderId</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span>
+                            <span class="nv">userName</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
+                            <span class="nv">pageNumber</span><span class="p">:</span> <span class="kt">Int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+                            <span class="nv">resultsPerPage</span><span class="p">:</span> <span class="kt">Int</span> <span class="o">=</span> <span class="mi">50</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Promise</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/DiscogsCollectionFolderItems.html">DiscogsCollectionFolderItems</a></span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12SwiftDiscogs04MockB0C7addItem_10toFolderId8userName10PromiseKit0K0CyAA010CollectionE4InfoVGSi_SiSStF"></a>
+                    <a name="//apple_ref/swift/Method/addItem(_:toFolderId:userName:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12SwiftDiscogs04MockB0C7addItem_10toFolderId8userName10PromiseKit0K0CyAA010CollectionE4InfoVGSi_SiSStF">addItem(_:toFolderId:userName:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">addItem</span><span class="p">(</span><span class="n">_</span> <span class="nv">itemId</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span>
+                    <span class="n">toFolderId</span> <span class="nv">folderId</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span>
+                    <span class="nv">userName</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Promise</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/CollectionItemInfo.html">CollectionItemInfo</a></span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Search"></a>
+                <a name="//apple_ref/swift/Section/Search" class="dashAnchor"></a>
+                <a href="#/Search">
+                  <h3 class="section-name">Search</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12SwiftDiscogs04MockB0C6search3for4type10PromiseKit0G0CyAA13SearchResultsVGSS_SStF"></a>
+                    <a name="//apple_ref/swift/Method/search(for:type:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12SwiftDiscogs04MockB0C6search3for4type10PromiseKit0G0CyAA13SearchResultsVGSS_SStF">search(for:type:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">search</span><span class="p">(</span><span class="k">for</span> <span class="nv">queryString</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">type</span><span class="p">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="s">"title"</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Promise</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/SearchResults.html">SearchResults</a></span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2019 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2019-02-24)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>
