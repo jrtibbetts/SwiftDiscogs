@@ -29,9 +29,9 @@ open class DiscogsClient: OAuth1JSONClient, Discogs {
                    authorizeUrl: "https://www.discogs.com/oauth/authorize",
                    accessTokenUrl: "https://api.discogs.com/oauth/access_token",
                    baseUrl: URL(string: "https://api.discogs.com")!)
-        headers["User-Agent"] = self.userAgent
         /// Discogs requires all API calls to include a custom `User-Agent`
         /// header.
+        headers["User-Agent"] = self.userAgent
     }
 
     override open func authorize(presentingViewController: UIViewController,
