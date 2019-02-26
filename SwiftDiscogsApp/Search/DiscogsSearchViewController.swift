@@ -23,6 +23,15 @@ open class DiscogsSearchViewController: OutlettedController, UISearchResultsUpda
     /// The Discogs client.
     open var discogs: Discogs? = /* MockDiscogs() */ DiscogsClient.singleton
 
+    /// The search results. Changes trigger a reloading of the table and/or
+    /// collection.
+    open var results: [SearchResult]? {
+        didSet {
+            searchResultsModel?.results = results
+            display?.refresh()
+        }
+    }
+
     /// The data model that holds the search results.
     open var searchResultsModel: DiscogsSearchResultsModel? {
         return model as? DiscogsSearchResultsModel
@@ -36,16 +45,13 @@ open class DiscogsSearchViewController: OutlettedController, UISearchResultsUpda
         return view as? DiscogsSearchView
     }
 
-    // MARK: Private Properties
+    // MARK: - Actions
 
-    /// The search results. Changes trigger a reloading of the table and/or
-    /// collection.
-    open var results: [SearchResult]? {
-        didSet {
-            searchResultsModel?.results = results
-            display?.refresh()
-        }
+    @IBAction private func signOut() {
+        discogs?.signOut()
     }
+
+    // MARK: - Private Properties
 
     /// The `UISearchController`. It displays its results here, not in a
     /// separate results controller.
@@ -76,6 +82,14 @@ open class DiscogsSearchViewController: OutlettedController, UISearchResultsUpda
         super.viewDidLoad()
         navigationItem.searchController = searchController
         searchView?.setUp(navigationItem: navigationItem)
+    }
+
+    open override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        if let discogs = discogs, !discogs.isSignedIn {
+            performSegue(withIdentifier: "showSignIn", sender: self)
+        }
     }
 
     // MARK: UISearchResultsUpdating
