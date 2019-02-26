@@ -1,1 +1,16 @@
+/* Title of the artist's biography section. */
+"artistBioSectionHeader" = "Bio";
+
+/* Title of the artist's releases section. */
+"artistReleasesSectionHeader" = "Releases";
+
+/* Title of the alert that appears when sign-in is unsuccessful. */
+"discogsSignInFailed" = "Discogs sign-in failed";
+
+/* Search scope label for searching all of Discogs. */
+"allOfDiscogsSearchScopeTitle" = "All of Discogs";
+
+/* Search scope label for searching only within the user's collection. */
+"userCollectionSearchScopeTitle" = "My Collection";
+
 

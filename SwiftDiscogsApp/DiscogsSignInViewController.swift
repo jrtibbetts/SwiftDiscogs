@@ -37,12 +37,7 @@ open class DiscogsSignInViewController: UIViewController {
                 self?.signInStatusStack.activeView = self?.signedInLabel
                 self?.dismiss(animated: true, completion: nil)
             }.catch { (error) in    // not weak self because of Bundle(for:)
-                let alertTitle = NSLocalizedString("discogsSignInFailed",
-                                                   tableName: nil,
-                                                   bundle: Bundle(for: type(of: self)),
-                                                   value: "Discogs sign-in failed",
-                                                   comment: "Title of the alert that appears when sign-in is unsuccessful.")
-                self.presentAlert(for: error, title: alertTitle)
+                self.presentAlert(for: error, title: L10n.discogsSignInFailed)
         }
     }
 

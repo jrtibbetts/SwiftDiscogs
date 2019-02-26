@@ -59,25 +59,14 @@
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="10 albums, 29 singles" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Zi-nR-dac">
-                                                            <rect key="frame" x="15" y="31.5" width="165" height="1.5"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
                                                     </subviews>
                                                     <constraints>
-                                                        <constraint firstItem="3Zi-nR-dac" firstAttribute="firstBaseline" secondItem="Z35-aY-kvF" secondAttribute="baseline" constant="24" symbolType="layoutAnchor" id="03s-x7-IsS"/>
                                                         <constraint firstAttribute="leadingMargin" secondItem="bbX-A5-N7P" secondAttribute="leading" id="9PH-Eg-AEf"/>
                                                         <constraint firstItem="Z35-aY-kvF" firstAttribute="top" secondItem="xc3-WV-Yuo" secondAttribute="topMargin" id="Aht-Wj-iPu"/>
-                                                        <constraint firstItem="3Zi-nR-dac" firstAttribute="top" secondItem="Z35-aY-kvF" secondAttribute="bottom" id="CHF-v3-OqL"/>
                                                         <constraint firstItem="Z35-aY-kvF" firstAttribute="leading" secondItem="bbX-A5-N7P" secondAttribute="trailing" constant="8" symbolic="YES" id="JaC-NV-y9c"/>
-                                                        <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="3Zi-nR-dac" secondAttribute="trailing" id="SKY-Jc-ewk"/>
-                                                        <constraint firstItem="3Zi-nR-dac" firstAttribute="leading" secondItem="Z35-aY-kvF" secondAttribute="leading" id="T6B-l8-PVI"/>
                                                         <constraint firstItem="Z35-aY-kvF" firstAttribute="leading" secondItem="xc3-WV-Yuo" secondAttribute="leadingMargin" id="UKb-Jl-5Hs"/>
                                                         <constraint firstAttribute="topMargin" secondItem="bbX-A5-N7P" secondAttribute="top" id="bMe-ll-KMU"/>
                                                         <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Z35-aY-kvF" secondAttribute="trailing" id="rD3-vC-ReJ"/>
-                                                        <constraint firstAttribute="bottomMargin" secondItem="3Zi-nR-dac" secondAttribute="bottom" id="xzA-ae-hFv"/>
                                                         <constraint firstAttribute="bottomMargin" secondItem="bbX-A5-N7P" secondAttribute="bottom" id="zLg-pC-fkj"/>
                                                     </constraints>
                                                     <variation key="default">
@@ -87,7 +76,6 @@
                                                         <mask key="constraints">
                                                             <exclude reference="JaC-NV-y9c"/>
                                                             <exclude reference="UKb-Jl-5Hs"/>
-                                                            <exclude reference="03s-x7-IsS"/>
                                                             <exclude reference="9PH-Eg-AEf"/>
                                                             <exclude reference="bMe-ll-KMU"/>
                                                             <exclude reference="zLg-pC-fkj"/>
@@ -111,7 +99,6 @@
                                                     </variation>
                                                 </tableViewCellContentView>
                                                 <connections>
-                                                    <outlet property="detailsLabel" destination="3Zi-nR-dac" id="d8q-dx-RZl"/>
                                                     <outlet property="nameLabel" destination="Z35-aY-kvF" id="YL2-oX-Rws"/>
                                                     <outlet property="thumbnailView" destination="bbX-A5-N7P" id="Ez2-IY-ziQ"/>
                                                     <segue destination="q4a-C9-HOy" kind="presentation" identifier="showArtist" modalPresentationStyle="fullScreen" id="Ab8-yP-RaQ"/>
@@ -635,7 +622,7 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                     <tabBarItem key="tabBarItem" title="Database" id="7Ap-M4-zcX"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="qAw-Lw-G1P">
-                        <rect key="frame" x="0.0" y="20" width="320" height="102"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </navigationBar>

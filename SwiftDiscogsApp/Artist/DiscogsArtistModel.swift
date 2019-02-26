@@ -110,17 +110,9 @@ open class DiscogsArtistModel: CollectionAndTableModel {
 
         switch sectionCase {
         case .bio:
-            return NSLocalizedString("artistBioSectionHeader",
-                                     tableName: nil,
-                                     bundle: bundle,
-                                     value: "Bio",
-                                     comment: "Title of the artist's biography section")
+            return L10n.artistBioSectionHeader
         case .releases:
-            return NSLocalizedString("artistReleasesSectionHeader",
-                                     tableName: nil,
-                                     bundle: bundle,
-                                     value: "Releases",
-                                     comment: "Title of the artist's releases section")
+            return L10n.artistReleasesSectionHeader
         }
     }
 

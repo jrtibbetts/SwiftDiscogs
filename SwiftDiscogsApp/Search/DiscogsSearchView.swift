@@ -29,20 +29,7 @@ open class DiscogsSearchView: CollectionAndTableDisplay, DiscogsDisplay, Spinner
     // MARK: - Other Properties
 
     /// Indicates whether the user is currently signed in to Discogs.
-    fileprivate var signedIn: Bool = false
-
-    fileprivate lazy var allOfDiscogsSearchScopeTitle = NSLocalizedString("allOfDiscogsSearchScopeTitle",
-                                                                          tableName: nil,
-                                                                          bundle: Bundle(for: type(of: self)),
-                                                                          value: "All of Discogs",
-                                                                          comment: "Search scope label for searching all of Discogs")
-
-    fileprivate lazy var userCollectionSearchScopeTitle = NSLocalizedString("userCollectionSearchScopeTitle",
-                                                                            tableName: nil,
-                                                                            bundle: Bundle(for: type(of: self)),
-                                                                            value: "My Collection",
-                                                                            comment: "Search scope label for searching only within the user's collection")
-
+    private var signedIn: Bool = false
 
     // MARK: - UISearchBarDelegate
 
@@ -85,9 +72,9 @@ open class DiscogsSearchView: CollectionAndTableDisplay, DiscogsDisplay, Spinner
         // Nothing.
     }
 
-    fileprivate func setUp(searchBar: UISearchBar) {
+    private func setUp(searchBar: UISearchBar) {
         searchBar.delegate = self
-        searchBar.scopeButtonTitles = [allOfDiscogsSearchScopeTitle, userCollectionSearchScopeTitle]
+        searchBar.scopeButtonTitles = [L10n.allOfDiscogsSearchScopeTitle, L10n.userCollectionSearchScopeTitle]
         searchBar.selectedScopeButtonIndex = DiscogsSearchViewController.SearchScope.allOfDiscogs.rawValue
         searchBar.showsScopeBar = true
     }
