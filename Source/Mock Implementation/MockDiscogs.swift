@@ -28,6 +28,14 @@ public class MockDiscogs: MockClient, Discogs {
         }
     }
 
+    public var isSignedIn: Bool {
+        return !errorMode
+    }
+
+    public func signOut() {
+        // There's nothing to do.
+    }
+    
     public func userIdentity() -> Promise<UserIdentity> {
         return apply(toJsonObjectIn: "get-user-identity-200",
                      error: DiscogsError.unauthenticatedUser())

@@ -28,9 +28,13 @@ public protocol Discogs {
 
     // MARK: - User Identify
 
+    var isSignedIn: Bool { get }
+    
     func authorize(presentingViewController: UIViewController,
                    callbackUrlString: String) -> Promise<OAuthSwiftCredential>
 
+    func signOut()
+    
     func userIdentity() -> Promise<UserIdentity>
 
     func userProfile(userName: String) -> Promise<UserProfile>

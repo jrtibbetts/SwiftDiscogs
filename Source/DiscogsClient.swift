@@ -9,12 +9,12 @@ import PromiseKit
 /// a populated object of the expected type, or an error.
 open class DiscogsClient: OAuth1JSONClient, Discogs {
 
+    public private(set) var userAgent: String
+
     // MARK: - Private properties
     
-    fileprivate var headers: OAuthSwift.Headers = [:]
-    
-    public private(set) var userAgent: String
-    
+    private var headers: OAuthSwift.Headers = [:]
+
     // MARK: - Initializers
     
     /// Initialize the Discogs client. This doesn't make any calls to the
