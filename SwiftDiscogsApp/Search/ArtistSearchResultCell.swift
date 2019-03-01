@@ -1,19 +1,21 @@
 //  Copyright © 2018 Poikile Creations. All rights reserved.
 
 import Kingfisher
+import SwiftDiscogs
 import UIKit
 
 open class ArtistSearchResultCell: UITableViewCell {
 
-    open var artistName: String? {
+    open var searchResult: SearchResult? {
         didSet {
-            nameLabel?.text = artistName
+            artistName = searchResult?.title
+            thumbnailUrlString = searchResult?.thumb
         }
     }
 
-    open var details: String? {
+    open var artistName: String? {
         didSet {
-            detailsLabel?.text = details
+            nameLabel?.text = artistName
         }
     }
 
@@ -25,7 +27,6 @@ open class ArtistSearchResultCell: UITableViewCell {
         }
     }
 
-    @IBOutlet fileprivate weak var detailsLabel: UILabel?
     @IBOutlet fileprivate weak var nameLabel: UILabel?
     @IBOutlet fileprivate weak var thumbnailView: UIImageView?
 

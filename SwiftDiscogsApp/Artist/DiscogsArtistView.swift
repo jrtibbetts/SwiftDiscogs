@@ -48,6 +48,12 @@ public final class DiscogsArtistBioTableCell: UITableViewCell, DiscogsArtistBioC
 
 public final class DiscogsArtistReleaseTableCell: UITableViewCell, DiscogsArtistReleaseCell {
 
+    public var summary: ReleaseSummary? {
+        didSet {
+            title = summary?.title
+            year = summary?.year
+        }
+    }
     public var thumbnail: UIImage? {
         didSet {
             thumbnailView?.image = thumbnail
@@ -62,15 +68,23 @@ public final class DiscogsArtistReleaseTableCell: UITableViewCell, DiscogsArtist
         }
     }
 
-    public var year: Int? {
+    public var type: String? {
         didSet {
-            yearLabel?.text = "\(year ?? 0)"
-            yearLabel?.isHidden = false
+            typeLabel?.text = type
+            typeLabel?.isHidden = (typeLabel == nil)
         }
     }
 
-    @IBOutlet fileprivate weak var thumbnailView: UIImageView?
-    @IBOutlet fileprivate weak var titleLabel: UILabel?
-    @IBOutlet fileprivate weak var yearLabel: UILabel?
+    public var year: Int? {
+        didSet {
+            yearLabel?.text = "\(year ?? 0)"
+            yearLabel?.isHidden = (year == nil)
+        }
+    }
+
+    @IBOutlet private weak var thumbnailView: UIImageView?
+    @IBOutlet private weak var titleLabel: UILabel?
+    @IBOutlet private weak var typeLabel: UILabel?
+    @IBOutlet private weak var yearLabel: UILabel?
 
 }

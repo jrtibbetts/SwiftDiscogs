@@ -44,7 +44,7 @@ open class DiscogsSearchResultsModel: CollectionAndTableModel {
         
         if let cell = tableView.dequeueReusableCell(withIdentifier: "artistSearchResultCell",
                                                     for: indexPath) as? ArtistSearchResultCell {
-            cell.artistName = result?.title
+            cell.searchResult = result
             
             return cell
         } else {
@@ -53,7 +53,7 @@ open class DiscogsSearchResultsModel: CollectionAndTableModel {
     }
 
     // MARK: - UITableViewDelegate
-
+a
     public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }    

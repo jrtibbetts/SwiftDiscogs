@@ -106,7 +106,7 @@
                                                 <connections>
                                                     <outlet property="nameLabel" destination="Z35-aY-kvF" id="YL2-oX-Rws"/>
                                                     <outlet property="thumbnailView" destination="bbX-A5-N7P" id="Ez2-IY-ziQ"/>
-                                                    <segue destination="q4a-C9-HOy" kind="presentation" identifier="showArtist" modalPresentationStyle="fullScreen" id="Ab8-yP-RaQ"/>
+                                                    <segue destination="q4a-C9-HOy" kind="showDetail" identifier="showArtist" id="Ab8-yP-RaQ"/>
                                                 </connections>
                                             </tableViewCell>
                                         </prototypes>
@@ -161,9 +161,10 @@
                         </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Discogs Search" id="99a-Al-h2A">
+                        <barButtonItem key="backBarButtonItem" title="🔍" id="zWe-XB-83m"/>
                         <barButtonItem key="rightBarButtonItem" id="oFI-jg-w6G">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="O0C-go-zlO">
-                                <rect key="frame" x="221" y="7" width="83" height="30"/>
+                                <rect key="frame" x="221" y="10" width="83" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Sign Out"/>
                                 <connections>
@@ -425,13 +426,7 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                             <outlet property="tableView" destination="iaE-Sd-FyD" id="dYH-aR-U9R"/>
                         </connections>
                     </view>
-                    <navigationItem key="navigationItem" title="Artist Bio" id="nDW-Vb-H1u">
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="oaV-M9-qSh">
-                            <connections>
-                                <action selector="close" destination="cvK-7F-nVP" id="CJk-SC-7Iv"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Artist Bio" id="nDW-Vb-H1u"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="display" destination="1SC-zu-66M" id="AJO-42-cMY"/>
