@@ -27,12 +27,8 @@ open class DiscogsArtistModel: CollectionAndTableModel {
 
     open var artist: Artist?
 
-    open var releases: [ReleaseSummary]? {
-        didSet {
-
-        }
-    }
-
+    open var releases: [ReleaseSummary]?
+    
     // MARK: Private Properties
 
     fileprivate var thumbnails: [UIImage?]?
@@ -72,9 +68,7 @@ open class DiscogsArtistModel: CollectionAndTableModel {
             let releaseSummary = releases?[row]
 
             if let cell = tableView.dequeueReusableCell(withIdentifier: section.cellIdentifier) as? DiscogsArtistReleaseTableCell {
-                cell.thumbnail = thumbnails?[row]
-                cell.title = releaseSummary?.title
-                cell.year = releaseSummary?.year
+                cell.summary = releaseSummary
 
                 return cell
             }

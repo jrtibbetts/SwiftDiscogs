@@ -56,7 +56,7 @@ open class DiscogsArtistViewController: OutlettedController {
     fileprivate func fetchReleases() {
         if let artistId = artist?.id {
             discogs?.releases(forArtist: artistId).done { [weak self] (summaries) in
-                self?.artistModel?.releases = summaries.releases
+                self?.artistModel?.releases = summaries.releases?.filter { $0.type == "master" && $0.mainRelease != nil }
                 self?.display?.refresh()
                 }.catch { (error) in
                     // HANDLE THE ERROR

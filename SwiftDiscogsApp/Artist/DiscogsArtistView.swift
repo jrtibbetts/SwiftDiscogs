@@ -51,9 +51,11 @@ public final class DiscogsArtistReleaseTableCell: UITableViewCell, DiscogsArtist
     public var summary: ReleaseSummary? {
         didSet {
             title = summary?.title
+            type = summary?.type
             year = summary?.year
         }
     }
+
     public var thumbnail: UIImage? {
         didSet {
             thumbnailView?.image = thumbnail
