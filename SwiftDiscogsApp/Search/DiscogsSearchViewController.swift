@@ -68,8 +68,7 @@ open class DiscogsSearchViewController: OutlettedController, UISearchResultsUpda
         if let segueId = segue.identifier {
             switch segueId {
             case "showArtist":
-                if let navController = segue.destination as? UINavigationController,
-                    let artistViewController = navController.topViewController as? DiscogsArtistViewController {
+                if let artistViewController = segue.destination as? DiscogsArtistViewController {
                     artistViewController.artistSearchResult = selectedArtistResult
                 }
             default:

@@ -19,11 +19,6 @@ open class DiscogsSearchResultsModel: CollectionAndTableModel {
         super.init()
     }
 
-    public init(results: [SearchResult]? = nil) {
-        self.results = results
-        super.init()
-    }
-
     // MARK: - UITableViewDataSource
 
     open override func numberOfItems(inSection section: Int) -> Int {
@@ -53,7 +48,7 @@ open class DiscogsSearchResultsModel: CollectionAndTableModel {
     }
 
     // MARK: - UITableViewDelegate
-a
+
     public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }    

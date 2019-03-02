@@ -106,7 +106,7 @@
                                                 <connections>
                                                     <outlet property="nameLabel" destination="Z35-aY-kvF" id="YL2-oX-Rws"/>
                                                     <outlet property="thumbnailView" destination="bbX-A5-N7P" id="Ez2-IY-ziQ"/>
-                                                    <segue destination="q4a-C9-HOy" kind="showDetail" identifier="showArtist" id="Ab8-yP-RaQ"/>
+                                                    <segue destination="cvK-7F-nVP" kind="showDetail" identifier="showArtist" id="eCZ-Jx-ntR"/>
                                                 </connections>
                                             </tableViewCell>
                                         </prototypes>
@@ -164,7 +164,7 @@
                         <barButtonItem key="backBarButtonItem" title="🔍" id="zWe-XB-83m"/>
                         <barButtonItem key="rightBarButtonItem" id="oFI-jg-w6G">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="O0C-go-zlO">
-                                <rect key="frame" x="221" y="10" width="83" height="30"/>
+                                <rect key="frame" x="221" y="7" width="83" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Sign Out"/>
                                 <connections>
@@ -183,7 +183,7 @@
                 <exit id="PBB-1J-cN0" userLabel="Exit" sceneMemberID="exit"/>
                 <customObject id="wrO-Ei-XhZ" customClass="DiscogsSearchResultsModel" customModule="SwiftDiscogsApp" customModuleProvider="target"/>
             </objects>
-            <point key="canvasLocation" x="2241" y="227"/>
+            <point key="canvasLocation" x="3173" y="226"/>
         </scene>
         <!--Artist Details-->
         <scene sceneID="Ah8-cD-mNe">
@@ -235,7 +235,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="227.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" layoutMarginsFollowReadableWidth="YES" textAlignment="justified" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GmX-2U-jW4" userLabel="Bio">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GmX-2U-jW4" userLabel="Bio">
                                                     <rect key="frame" x="15" y="11" width="290" height="206"/>
                                                     <string key="text">American singer, songwriter, pianist and recording artist, born 5 December 1932 in Macon, Georgia, USA. 
 
@@ -274,24 +274,34 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                                                     <viewLayoutGuide key="safeArea" id="Kfo-Xh-hkw"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="1957" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i8D-bh-YBu" userLabel="Album Year">
-                                                    <rect key="frame" x="278.5" y="9.5" width="33.5" height="18"/>
+                                                    <rect key="frame" x="278.5" y="8.5" width="33.5" height="18"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" text="Here's Little Richard" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RTP-xH-Qfi" userLabel="Album Title">
-                                                    <rect key="frame" x="80" y="8" width="154.5" height="21"/>
-                                                    <fontDescription key="fontDescription" type="italicSystem" pointSize="17"/>
+                                                    <rect key="frame" x="80" y="8" width="146.5" height="19.5"/>
+                                                    <fontDescription key="fontDescription" type="italicSystem" pointSize="16"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Album" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2qs-Y5-wHC">
+                                                    <rect key="frame" x="80" y="27.5" width="36" height="14.5"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="RTP-xH-Qfi" secondAttribute="bottom" id="HAx-l0-5YA"/>
+                                                <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="2qs-Y5-wHC" secondAttribute="bottom" id="6kZ-SN-hhQ"/>
+                                                <constraint firstItem="2qs-Y5-wHC" firstAttribute="leading" secondItem="RTP-xH-Qfi" secondAttribute="leading" id="FVd-VN-TAt"/>
+                                                <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="RTP-xH-Qfi" secondAttribute="bottom" priority="500" id="HAx-l0-5YA"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="i8D-bh-YBu" secondAttribute="trailing" id="eLp-RS-xxx"/>
                                                 <constraint firstItem="CJD-wt-qtG" firstAttribute="leading" secondItem="33Q-IZ-u8S" secondAttribute="leadingMargin" id="icl-Hz-f7a"/>
                                                 <constraint firstItem="i8D-bh-YBu" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="RTP-xH-Qfi" secondAttribute="trailing" constant="8" symbolic="YES" id="qm5-Dp-g32"/>
+                                                <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="2qs-Y5-wHC" secondAttribute="trailing" id="sHT-XQ-Tn9"/>
                                                 <constraint firstItem="CJD-wt-qtG" firstAttribute="top" secondItem="33Q-IZ-u8S" secondAttribute="topMargin" id="sMm-UM-Hrq"/>
+                                                <constraint firstItem="2qs-Y5-wHC" firstAttribute="firstBaseline" secondItem="RTP-xH-Qfi" secondAttribute="baseline" constant="24" symbolType="layoutAnchor" id="tY5-V0-Onx"/>
                                                 <constraint firstItem="RTP-xH-Qfi" firstAttribute="leading" secondItem="CJD-wt-qtG" secondAttribute="trailing" constant="8" symbolic="YES" id="tme-Mh-ePZ"/>
                                                 <constraint firstItem="i8D-bh-YBu" firstAttribute="firstBaseline" secondItem="RTP-xH-Qfi" secondAttribute="firstBaseline" id="vQ9-Kb-M19"/>
                                                 <constraint firstAttribute="topMargin" secondItem="RTP-xH-Qfi" secondAttribute="top" id="wyS-Ka-4yp"/>
@@ -300,6 +310,7 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                                         <connections>
                                             <outlet property="thumbnailView" destination="CJD-wt-qtG" id="81B-vI-tRA"/>
                                             <outlet property="titleLabel" destination="RTP-xH-Qfi" id="tL5-8y-Ga8"/>
+                                            <outlet property="typeLabel" destination="2qs-Y5-wHC" id="Fbz-Sp-u1N"/>
                                             <outlet property="yearLabel" destination="i8D-bh-YBu" id="27g-vH-vLr"/>
                                             <segue destination="430-Jq-t69" kind="show" identifier="showDiscogsRelease" id="g33-nN-pWB"/>
                                         </connections>
@@ -331,6 +342,12 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Album" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gf0-ma-3ff">
+                                                    <rect key="frame" x="80" y="28" width="36" height="14.5"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="Xbp-pw-xS2" firstAttribute="firstBaseline" secondItem="L7D-y5-h1j" secondAttribute="firstBaseline" id="5o3-r6-G1S"/>
@@ -339,13 +356,18 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                                                 <constraint firstAttribute="trailingMargin" secondItem="Xbp-pw-xS2" secondAttribute="trailing" id="G8M-dh-i3r"/>
                                                 <constraint firstItem="Xbp-pw-xS2" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="L7D-y5-h1j" secondAttribute="trailing" constant="8" symbolic="YES" id="Gxr-JG-JiP"/>
                                                 <constraint firstItem="HCd-CJ-mic" firstAttribute="top" secondItem="2oh-kD-U9I" secondAttribute="topMargin" id="Qwy-JB-0MF"/>
+                                                <constraint firstItem="gf0-ma-3ff" firstAttribute="firstBaseline" secondItem="L7D-y5-h1j" secondAttribute="baseline" constant="16" symbolType="layoutAnchor" id="YNG-zc-9ls"/>
+                                                <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="gf0-ma-3ff" secondAttribute="bottom" id="adC-rW-Rq8"/>
                                                 <constraint firstItem="HCd-CJ-mic" firstAttribute="leading" secondItem="2oh-kD-U9I" secondAttribute="leadingMargin" id="gRR-Ss-PZF"/>
-                                                <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="L7D-y5-h1j" secondAttribute="bottom" id="wKv-j3-eVs"/>
+                                                <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="gf0-ma-3ff" secondAttribute="trailing" id="iSy-fi-0U5"/>
+                                                <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="L7D-y5-h1j" secondAttribute="bottom" priority="500" id="wKv-j3-eVs"/>
+                                                <constraint firstItem="gf0-ma-3ff" firstAttribute="leading" secondItem="L7D-y5-h1j" secondAttribute="leading" id="z1a-ya-jon"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="thumbnailView" destination="HCd-CJ-mic" id="ZyG-q9-9C7"/>
                                             <outlet property="titleLabel" destination="L7D-y5-h1j" id="g7g-8u-bzH"/>
+                                            <outlet property="typeLabel" destination="gf0-ma-3ff" id="KC7-co-eAe"/>
                                             <outlet property="yearLabel" destination="Xbp-pw-xS2" id="RmK-kc-cCx"/>
                                         </connections>
                                     </tableViewCell>
@@ -636,7 +658,7 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B3O-o3-fcP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1338.4000000000001" y="227.13643178410797"/>
+            <point key="canvasLocation" x="2269" y="226"/>
         </scene>
         <!--Split View Controller-->
         <scene sceneID="Q7B-Ka-U7h">
@@ -648,7 +670,7 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                 </splitViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Wo-is-ZTw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="431" y="226"/>
+            <point key="canvasLocation" x="1361" y="225"/>
         </scene>
         <!--Sign In-->
         <scene sceneID="dIO-4P-uw5">
@@ -720,26 +742,7 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jgh-5s-jk5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2241" y="1015"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="nm5-bh-Lmx">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="q4a-C9-HOy" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="qTT-up-cUi">
-                        <rect key="frame" x="0.0" y="20" width="320" height="102"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="cvK-7F-nVP" kind="relationship" relationship="rootViewController" id="DFJ-Es-Fx1"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="F4G-KW-E8q" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3129" y="226"/>
+            <point key="canvasLocation" x="3173" y="1015"/>
         </scene>
     </scenes>
     <resources>
