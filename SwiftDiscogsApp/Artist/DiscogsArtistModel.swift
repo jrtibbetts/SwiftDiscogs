@@ -1,5 +1,6 @@
 //  Copyright © 2018 Poikile Creations. All rights reserved.
 
+import Kingfisher
 import Stylobate
 import SwiftDiscogs
 import UIKit
@@ -25,15 +26,19 @@ open class DiscogsArtistModel: CollectionAndTableModel {
 
     // MARK: Public Properties
 
-    open var artist: Artist?
+    open var artist: Artist? {
+        didSet {
+            fetchThumbnails()
+        }
+    }
 
     open var releases: [ReleaseSummary]?
     
     // MARK: Private Properties
 
-    fileprivate var thumbnails: [UIImage?]?
+    private var thumbnails: [UIImage?]?
 
-    fileprivate let bundle = Bundle(for: DiscogsArtistModel.self)
+    private let bundle = Bundle(for: DiscogsArtistModel.self)
 
     // MARK: Initializers
 
@@ -107,6 +112,21 @@ open class DiscogsArtistModel: CollectionAndTableModel {
             return L10n.artistBioSectionHeader
         case .releases:
             return L10n.artistReleasesSectionHeader
+        }
+    }
+
+    // MARK: - Private Functions
+
+    private func fetchThumbnails() {
+        artist?.images?.forEach { (imageData) in
+            if let url = URL(string: imageData.resourceUrl) {
+                KingfisherManager.shared.retrieveImage(with: url,
+                                                       completionHandler: { (result) in
+                                                        if result.isSuccess {
+                                                            print("Successfully got image \(imageData.resourceUrl)")
+                                                        }
+                })
+            }
         }
     }
 
