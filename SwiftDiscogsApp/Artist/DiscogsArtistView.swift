@@ -9,6 +9,8 @@ import UIKit
 /// active at a time, depending on the device's orientation.
 open class DiscogsArtistView: CollectionAndTableDisplay {
 
+    @IBOutlet weak var mainImage: UIImageView!
+
     open var artistModel: DiscogsArtistModel? {
         return model as? DiscogsArtistModel
     }

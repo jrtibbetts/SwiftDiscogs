@@ -18,7 +18,13 @@ open class DiscogsArtistViewController: OutlettedController {
     open var artist: Artist? {
         didSet {
             artistModel?.artist = artist
-            display?.refresh()
+
+            if let imageUrlString = artist?.images?.first?.resourceUrl,
+                let imageUrl = URL(string: imageUrlString) {
+                artistView?.mainImage.kf.setImage(with: imageUrl)
+            }
+            
+            artistView?.refresh()
 
             // Now go get the artist's release summaries.
             fetchReleases()
@@ -53,7 +59,7 @@ open class DiscogsArtistViewController: OutlettedController {
 
     // MARK: Private Functions
 
-    fileprivate func fetchReleases() {
+    private func fetchReleases() {
         if let artistId = artist?.id {
             discogs?.releases(forArtist: artistId).done { [weak self] (summaries) in
                 self?.artistModel?.releases = summaries.releases?.filter { $0.type == "master" && $0.mainRelease != nil }
@@ -63,4 +69,5 @@ open class DiscogsArtistViewController: OutlettedController {
             }
         }
     }
+
 }
