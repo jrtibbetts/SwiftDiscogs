@@ -38,7 +38,7 @@ open class DiscogsArtistModel: SectionedModel {
         self.artist = artist
     }
 
-    // MARK: UITableViewDataSource
+    // MARK: - UITableViewDataSource
 
     open override func tableView(_ tableView: UITableView,
                                  cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -62,6 +62,8 @@ open class DiscogsArtistModel: SectionedModel {
         return cell
     }
 
+    // MARK: - CollectionAndTableModel
+    
     open override func numberOfItems(inSection sectionIndex: Int) -> Int {
         let section = sections[sectionIndex]
 
