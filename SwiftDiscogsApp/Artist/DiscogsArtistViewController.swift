@@ -51,13 +51,20 @@ open class DiscogsArtistViewController: OutlettedController {
         return model as? DiscogsArtistModel
     }
 
-    // MARK: Actions
+    // MARK: - UIViewController
 
-    @IBAction fileprivate func close() {
-        dismiss(animated: true)
+    open override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showMasterRelease",
+            let destination = segue.destination as? MasterReleaseViewController {
+            destination.discogs = discogs
+
+            if let selectedIndex = artistView?.indexPathForSelectedItem {
+                destination.releaseSummary = artistModel?.releases?[selectedIndex.item]
+            }
+        }
     }
 
-    // MARK: Private Functions
+    // MARK: - Private Functions
 
     private func fetchReleases() {
         if let artistId = artist?.id {
