@@ -110,7 +110,7 @@ open class DiscogsSearchViewController: OutlettedController, UISearchResultsUpda
     // MARK: Everything Else
 
     fileprivate var selectedArtistResult: SearchResult? {
-        if let indexPath = searchView?.tableView?.indexPathForSelectedRow {
+        if let indexPath = searchView?.indexPathForSelectedItem {
             return searchResultsModel?.results?[indexPath.row]
         } else {
             return nil

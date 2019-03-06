@@ -7,22 +7,7 @@ import UIKit
 
 /// The data model for the `DiscogsArtistViewController`. It's both a table
 /// view and a collection view model.
-open class DiscogsArtistModel: CollectionAndTableModel {
-
-    public enum Section: Int {
-        case bio = 0
-        case releases
-
-        var cellIdentifier: String {
-            switch self {
-            case .bio:
-                return "artistBioCell"
-            case .releases:
-                return "artistAlbumCell"
-            }
-        }
-
-    }
+open class DiscogsArtistModel: SectionedModel {
 
     // MARK: Public Properties
 
@@ -36,82 +21,58 @@ open class DiscogsArtistModel: CollectionAndTableModel {
     
     // MARK: Private Properties
 
-    private var thumbnails: [UIImage?]?
-
-    private let bundle = Bundle(for: DiscogsArtistModel.self)
-
+    private var bioSection = Section(cellID: "artistBioCell",
+                                     headerText: L10n.artistBioSectionHeader)
+    private var releasesSection = Section(cellID: "artistAlbumCell",
+                                          headerText: L10n.artistReleasesSectionHeader)
     // MARK: Initializers
 
     /// This is required for associated objects that are loaded by Interface
     /// Builder.
-    override public init() {
-        super.init()
+    public init() {
+        super.init(sections: [bioSection, releasesSection])
     }
     
-    public init(artist: Artist? = nil) {
+    convenience public init(artist: Artist? = nil) {
+        self.init()
         self.artist = artist
-        super.init()
     }
 
-    // MARK: UITableViewDataSource
+    // MARK: - UITableViewDataSource
 
     open override func tableView(_ tableView: UITableView,
                                  cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let section = Section(rawValue: indexPath.section) else {
-            return super.tableView(tableView, cellForRowAt: indexPath)
-        }
+        let section = sections[indexPath.section]
+        let cell = tableView.dequeueReusableCell(withIdentifier: section.cellID,
+                                                 for: indexPath)
 
-        switch section {
-        case .bio:
-            if let cell = tableView.dequeueReusableCell(withIdentifier: section.cellIdentifier) as? DiscogsArtistBioTableCell {
+        if section === bioSection {
+            if let cell = cell as? DiscogsArtistBioTableCell {
                 cell.bioText = artist?.profile
-
-                return cell
             }
-        case .releases:
+        } else if section === releasesSection {
             let row = indexPath.row
             let releaseSummary = releases?[row]
 
-            if let cell = tableView.dequeueReusableCell(withIdentifier: section.cellIdentifier) as? DiscogsArtistReleaseTableCell {
+            if let cell = cell as? DiscogsArtistReleaseTableCell {
                 cell.summary = releaseSummary
-
-                return cell
             }
         }
 
-
-        return super.tableView(tableView, cellForRowAt: indexPath)
+        return cell
     }
 
-    // MARK: - Model
+    // MARK: - CollectionAndTableModel
+    
+    open override func numberOfItems(inSection sectionIndex: Int) -> Int {
+        let section = sections[sectionIndex]
 
-    open override func numberOfItems(inSection section: Int) -> Int {
-        guard let sectionCase = Section(rawValue: section) else {
-            return 0
-        }
-
-        switch sectionCase {
-        case .bio:
+        if section === bioSection {
             return 1
-        case .releases:
+        } else if section === releasesSection {
             return releases?.count ?? 0
-        }
-    }
-
-    open override func numberOfSections() -> Int {
-        return Section.releases.rawValue + 1
-    }
-
-    open override func headerTitle(forSection section: Int) -> String? {
-        guard let sectionCase = Section(rawValue: section) else {
-            return nil
-        }
-
-        switch sectionCase {
-        case .bio:
-            return L10n.artistBioSectionHeader
-        case .releases:
-            return L10n.artistReleasesSectionHeader
+        } else {
+            return 0
         }
     }
 

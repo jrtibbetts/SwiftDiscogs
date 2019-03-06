@@ -9,10 +9,10 @@ public struct MasterRelease: Codable, Unique {
     public var genres: [String]
     public var id: Int
     public var images: [Image]?
-    public var lowestPrice: Float
+    public var lowestPrice: Float?
     public var mainRelease: Int
     public var mainReleaseUrl: String
-    public var numberForSale: Int
+    public var numberForSale: Int?
     public var resourceUrl: String
     public var styles: [String]
     public var title: String
