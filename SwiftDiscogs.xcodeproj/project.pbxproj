@@ -30,6 +30,8 @@
 		96226AFE2069FF3D000EEC50 /* DiscogsSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9603690E205A1C7200D24CE7 /* DiscogsSearchViewController.swift */; };
 		963282B2222CBAD90090B29F /* SectionedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963282B1222CBAD90090B29F /* SectionedModel.swift */; };
 		963282B9222CD7E40090B29F /* MasterReleaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963282B8222CD7E40090B29F /* MasterReleaseViewController.swift */; };
+		963282BD222F82A10090B29F /* TrackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963282BC222F82A10090B29F /* TrackView.swift */; };
+		963282BF222F83C00090B29F /* ReleaseVersionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963282BE222F83C00090B29F /* ReleaseVersionView.swift */; };
 		963CB9792092D1C200D91046 /* MockArtistDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963CB9782092D1C200D91046 /* MockArtistDisplay.swift */; };
 		96800C3021921D4200A3380F /* DiscogsStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96800C2F21921D4200A3380F /* DiscogsStrings.swift */; };
 		96800C3821921F3F00A3380F /* SwiftDiscogsApp.strings in Resources */ = {isa = PBXBuildFile; fileRef = 96800C3A21921F3F00A3380F /* SwiftDiscogsApp.strings */; };
@@ -244,6 +246,8 @@
 		96226AF62069F578000EEC50 /* DiscogsArtistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscogsArtistViewController.swift; sourceTree = "<group>"; };
 		963282B1222CBAD90090B29F /* SectionedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionedModel.swift; sourceTree = "<group>"; };
 		963282B8222CD7E40090B29F /* MasterReleaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterReleaseViewController.swift; sourceTree = "<group>"; };
+		963282BC222F82A10090B29F /* TrackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackView.swift; sourceTree = "<group>"; };
+		963282BE222F83C00090B29F /* ReleaseVersionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReleaseVersionView.swift; sourceTree = "<group>"; };
 		963CB9782092D1C200D91046 /* MockArtistDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockArtistDisplay.swift; sourceTree = "<group>"; };
 		96800C2F21921D4200A3380F /* DiscogsStrings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscogsStrings.swift; sourceTree = "<group>"; };
 		96800C3121921ED100A3380F /* swiftgenDiscogs.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = swiftgenDiscogs.yml; sourceTree = "<group>"; };
@@ -482,6 +486,8 @@
 			isa = PBXGroup;
 			children = (
 				963282B8222CD7E40090B29F /* MasterReleaseViewController.swift */,
+				963282BC222F82A10090B29F /* TrackView.swift */,
+				963282BE222F83C00090B29F /* ReleaseVersionView.swift */,
 			);
 			path = Releases;
 			sourceTree = "<group>";
@@ -1109,6 +1115,8 @@
 				96CA18722085B5B9006FF5F0 /* DiscogsSearchView.swift in Sources */,
 				969FBD4A207AB29300C32471 /* DiscogsArtistView.swift in Sources */,
 				96CA18682082B8BB006FF5F0 /* ArtistSearchResultCell.swift in Sources */,
+				963282BF222F83C00090B29F /* ReleaseVersionView.swift in Sources */,
+				963282BD222F82A10090B29F /* TrackView.swift in Sources */,
 				960368DD205A012C00D24CE7 /* AppDelegate.swift in Sources */,
 				963282B9222CD7E40090B29F /* MasterReleaseViewController.swift in Sources */,
 				9614312520FEC7BC00B49D2E /* DiscogsSignInViewController.swift in Sources */,

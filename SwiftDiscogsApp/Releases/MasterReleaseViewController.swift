@@ -29,6 +29,7 @@ public class MasterReleaseViewController: UITableViewController, DiscogsProvider
                 _ = discogs?.masterRelease(identifier: masterReleaseID).done { [weak self] (masterRelease) in
                     self?.masterRelease = masterRelease
                     self?.tableView.reloadData()
+                    self?.navigationItem.title = masterRelease.title
                     }.catch { (error) in
                         print("Error: \(error)")
                     }
@@ -75,13 +76,14 @@ public class MasterReleaseViewController: UITableViewController, DiscogsProvider
                                                  for: indexPath)
 
         if section === tracklistSection {
-            if let cell = cell as? TracklistTableCell {
-                cell.track = masterRelease?.tracklist[indexPath.row]
+            if let cell = cell as? TracklistTableCell,
+                let track = masterRelease?.tracklist[indexPath.row] {
+                cell.setUp(with: track)
             }
         } else if section === versionsSection {
             if let cell = cell as? ReleaseVersionTableCell,
                 let releaseSummary = releaseVersions?[indexPath.row] {
-                cell.release = releaseSummary
+                cell.setUp(with: releaseSummary)
             }
         }
 
@@ -106,60 +108,4 @@ public class MasterReleaseViewController: UITableViewController, DiscogsProvider
             return 0
         }
     }
-}
-
-public class TracklistTableCell: UITableViewCell {
-
-    // MARK: - Outlets
-
-    @IBOutlet public weak var durationLabel: UILabel?
-    @IBOutlet public weak var titleLabel: UILabel?
-    @IBOutlet public weak var trackNumberLabel: UILabel?
-
-    // MARK: - Properties
-
-    public var track: Track? {
-        didSet {
-            durationLabel?.text = track?.duration
-            titleLabel?.text = track?.title
-            trackNumberLabel?.text = track?.position
-        }
-    }
-
-}
-
-public class ReleaseVersionTableCell: UITableViewCell {
-
-    // MARK: - Outlets
-
-    @IBOutlet public weak var titleLabel: UILabel?
-
-    // MARK: - Properties
-
-    public var release: MasterReleaseVersion? {
-        didSet {
-            guard let release = release else {
-                return
-            }
-
-            titleLabel?.text = release.title
-
-            var text = release.majorFormats?.joined(separator: " ").appending(" ") ?? ""
-
-            if let country = release.country {
-                text.append("\(country) ")
-            }
-
-            if let label = release.label {
-                text.append("\(label) ")
-            }
-
-            if let catalogNumber = release.catno?.split(separator: ",").first {
-                text.append(String(catalogNumber))
-            }
-
-            titleLabel?.text = text
-        }
-    }
-
 }

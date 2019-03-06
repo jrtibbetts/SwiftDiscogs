@@ -601,13 +601,13 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="B2" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LNH-Y3-2Uh" userLabel="Position">
-                                            <rect key="frame" x="15.999999999999998" y="11" width="16.333333333333329" height="14.333333333333336"/>
+                                            <rect key="frame" x="30.666666666666668" y="11" width="15.333333333333332" height="14.333333333333336"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Because" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2xn-bn-1Cz" userLabel="Title">
-                                            <rect key="frame" x="40.333333333333329" y="11" width="51.333333333333329" height="22"/>
+                                            <rect key="frame" x="54" y="11" width="51.333333333333343" height="22"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -622,12 +622,13 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                                     <constraints>
                                         <constraint firstAttribute="bottomMargin" secondItem="2xn-bn-1Cz" secondAttribute="bottom" id="17V-rn-Lng"/>
                                         <constraint firstItem="2xn-bn-1Cz" firstAttribute="top" secondItem="o0w-d9-RgM" secondAttribute="topMargin" id="7Pf-nD-dkc"/>
+                                        <constraint firstItem="LNH-Y3-2Uh" firstAttribute="trailing" secondItem="o0w-d9-RgM" secondAttribute="leadingMargin" constant="30" id="G1Y-fa-qbZ"/>
                                         <constraint firstItem="LNH-Y3-2Uh" firstAttribute="firstBaseline" secondItem="2xn-bn-1Cz" secondAttribute="firstBaseline" id="Ikl-zh-JD7"/>
                                         <constraint firstItem="Q07-nf-KlI" firstAttribute="firstBaseline" secondItem="2xn-bn-1Cz" secondAttribute="firstBaseline" id="NPU-7K-wHc"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="Q07-nf-KlI" secondAttribute="trailing" id="RcG-oz-hKI"/>
                                         <constraint firstItem="Q07-nf-KlI" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="2xn-bn-1Cz" secondAttribute="trailing" constant="8" symbolic="YES" id="ekO-IU-4wz"/>
                                         <constraint firstItem="2xn-bn-1Cz" firstAttribute="leading" secondItem="LNH-Y3-2Uh" secondAttribute="trailing" constant="8" id="w7Z-un-AUZ"/>
-                                        <constraint firstAttribute="leadingMargin" secondItem="LNH-Y3-2Uh" secondAttribute="leading" id="yra-lP-ubh"/>
+                                        <constraint firstAttribute="leadingMargin" relation="lessThanOrEqual" secondItem="LNH-Y3-2Uh" secondAttribute="leading" id="yra-lP-ubh"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
