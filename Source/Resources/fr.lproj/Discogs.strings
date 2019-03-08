@@ -1,0 +1,5 @@
+/* "Separator for a list of strings. Whitespace is important!" */
+"Separator" = ", ";
+
+/* "Default value to use for an artist that can't be found or isn't known." */
+"UnknownArtist" = "Unknown Artist";
