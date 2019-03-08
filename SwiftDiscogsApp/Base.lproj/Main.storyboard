@@ -228,7 +228,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="ql7-Le-MbA" kind="show" id="41l-tU-T32"/>
+                                            <segue destination="ql7-Le-MbA" kind="show" identifier="showArtistImages" id="41l-tU-T32"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="artistBioCell" rowHeight="228" id="osP-EA-1iJ" userLabel="Bio Cell" customClass="DiscogsArtistBioTableCell" customModule="SwiftDiscogsApp" customModuleProvider="target">
@@ -258,7 +258,7 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="bioLabel" destination="GmX-2U-jW4" id="1PQ-Tm-g1j"/>
-                                            <segue destination="jc6-dg-dfD" kind="show" id="id1-wK-QUD"/>
+                                            <segue destination="jc6-dg-dfD" kind="show" identifier="showArtistBio" id="id1-wK-QUD"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="artistAlbumCell" rowHeight="88" id="zvy-eC-FLO" userLabel="Album Cell" customClass="DiscogsArtistReleaseTableCell" customModule="SwiftDiscogsApp" customModuleProvider="target">
@@ -456,7 +456,7 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                             <outlet property="tableView" destination="iaE-Sd-FyD" id="dYH-aR-U9R"/>
                         </connections>
                     </view>
-                    <navigationItem key="navigationItem" title="Artist Bio" id="nDW-Vb-H1u"/>
+                    <navigationItem key="navigationItem" title="Little Richard" id="nDW-Vb-H1u"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="display" destination="1SC-zu-66M" id="AJO-42-cMY"/>
@@ -584,7 +584,105 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
             </objects>
             <point key="canvasLocation" x="4952" y="226"/>
         </scene>
-        <!--Master Release View Controller-->
+        <!--Media Sources Scene-->
+        <scene sceneID="Zof-iX-37K">
+            <objects>
+                <tableViewController id="pIU-ag-EEy" userLabel="Media Sources Scene" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelectionDuringEditing="YES" rowHeight="82" sectionHeaderHeight="28" sectionFooterHeight="28" id="CL6-Bk-rtK">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="zqX-9h-kC6" userLabel="Header">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="76L-kt-EEZ" userLabel="Instructions">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="bottomMargin" secondItem="76L-kt-EEZ" secondAttribute="bottom" id="88Q-w4-PS5"/>
+                                <constraint firstAttribute="leadingMargin" secondItem="76L-kt-EEZ" secondAttribute="leading" id="9NU-Gn-Q6e"/>
+                                <constraint firstAttribute="trailingMargin" secondItem="76L-kt-EEZ" secondAttribute="trailing" id="Qb0-oQ-slO"/>
+                                <constraint firstItem="76L-kt-EEZ" firstAttribute="top" secondItem="zqX-9h-kC6" secondAttribute="topMargin" id="rg4-qo-CeW"/>
+                            </constraints>
+                        </view>
+                        <view key="tableFooterView" contentMode="scaleToFill" id="es6-NG-rjY" userLabel="Footer">
+                            <rect key="frame" x="0.0" y="154" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </view>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="w7g-R4-VGH">
+                                <rect key="frame" x="0.0" y="72" width="375" height="82"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="w7g-R4-VGH" id="3OU-9N-Xrz">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="81.666666666666671"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3YP-Lj-fKg" userLabel="Service Logo">
+                                            <rect key="frame" x="16" y="11" width="120" height="60"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="120" id="3YT-tG-Qrt"/>
+                                                <constraint firstAttribute="height" constant="60" id="WUi-bX-XHV"/>
+                                            </constraints>
+                                        </imageView>
+                                        <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="VeF-zW-XY6">
+                                            <rect key="frame" x="243" y="11" width="116" height="60"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="xu5-Mu-7vj">
+                                                    <rect key="frame" x="0.0" y="3" width="49" height="54"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CFM-qe-1eN" userLabel="Signed In As">
+                                                            <rect key="frame" x="3.6666666666666572" y="0.0" width="41.666666666666664" height="27"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2iM-8W-tvu" userLabel="Sign Out">
+                                                            <rect key="frame" x="0.0" y="27" width="49" height="27"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                            <state key="normal" title="Sign Out"/>
+                                                        </button>
+                                                    </subviews>
+                                                </stackView>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4nx-1H-qpn">
+                                                    <rect key="frame" x="49" y="15" width="47" height="30"/>
+                                                    <state key="normal" title="Sign In"/>
+                                                </button>
+                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="I3b-m2-nyK">
+                                                    <rect key="frame" x="96" y="20" width="20" height="20"/>
+                                                </activityIndicatorView>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottomMargin" secondItem="3YP-Lj-fKg" secondAttribute="bottom" id="08h-cy-EgR"/>
+                                        <constraint firstItem="VeF-zW-XY6" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="3YP-Lj-fKg" secondAttribute="trailing" constant="8" symbolic="YES" id="0QA-cZ-S1X"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="VeF-zW-XY6" secondAttribute="bottom" id="5jY-q6-obQ"/>
+                                        <constraint firstItem="VeF-zW-XY6" firstAttribute="top" secondItem="3OU-9N-Xrz" secondAttribute="topMargin" id="D64-r7-NEW"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="VeF-zW-XY6" secondAttribute="trailing" id="JMb-NQ-bgr"/>
+                                        <constraint firstAttribute="leadingMargin" secondItem="3YP-Lj-fKg" secondAttribute="leading" id="Urn-1I-Wid"/>
+                                        <constraint firstItem="3YP-Lj-fKg" firstAttribute="top" secondItem="3OU-9N-Xrz" secondAttribute="topMargin" id="bL8-Tm-FHX"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="pIU-ag-EEy" id="Xsw-6G-FRz"/>
+                            <outlet property="delegate" destination="pIU-ag-EEy" id="VC9-gW-Mds"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="03h-jI-84g" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4949.6000000000004" y="1792.6108374384237"/>
+        </scene>
+        <!--Here's Little Richard-->
         <scene sceneID="Dhb-ua-T0C">
             <objects>
                 <tableViewController id="Kvd-zN-Pml" customClass="MasterReleaseViewController" customModule="SwiftDiscogsApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -613,20 +711,34 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2:46" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q07-nf-KlI" userLabel="Duration">
-                                            <rect key="frame" x="332.66666666666669" y="11" width="26.333333333333314" height="14.333333333333336"/>
+                                            <rect key="frame" x="294.66666666666669" y="11" width="26.333333333333314" height="14.333333333333336"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pqo-uv-Pfb">
+                                            <rect key="frame" x="329" y="7" width="30" height="30"/>
+                                            <state key="normal" title="▶️"/>
+                                            <connections>
+                                                <segue destination="pIU-ag-EEy" kind="popoverPresentation" identifier="showMediaSources" popoverAnchorView="Pqo-uv-Pfb" id="4hR-OI-rYq">
+                                                    <segue key="commit" inheritsFrom="parent" id="pIX-OX-qfW"/>
+                                                    <segue key="preview" inheritsFrom="commit" id="4h5-PN-FUJ"/>
+                                                    <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                                </segue>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <constraints>
                                         <constraint firstAttribute="bottomMargin" secondItem="2xn-bn-1Cz" secondAttribute="bottom" id="17V-rn-Lng"/>
+                                        <constraint firstItem="Pqo-uv-Pfb" firstAttribute="leading" secondItem="Q07-nf-KlI" secondAttribute="trailing" constant="8" symbolic="YES" id="4Vr-me-jDu"/>
                                         <constraint firstItem="2xn-bn-1Cz" firstAttribute="top" secondItem="o0w-d9-RgM" secondAttribute="topMargin" id="7Pf-nD-dkc"/>
                                         <constraint firstItem="LNH-Y3-2Uh" firstAttribute="trailing" secondItem="o0w-d9-RgM" secondAttribute="leadingMargin" constant="30" id="G1Y-fa-qbZ"/>
                                         <constraint firstItem="LNH-Y3-2Uh" firstAttribute="firstBaseline" secondItem="2xn-bn-1Cz" secondAttribute="firstBaseline" id="Ikl-zh-JD7"/>
+                                        <constraint firstAttribute="trailing" secondItem="Pqo-uv-Pfb" secondAttribute="trailing" constant="16" id="LZP-Lh-SqV"/>
                                         <constraint firstItem="Q07-nf-KlI" firstAttribute="firstBaseline" secondItem="2xn-bn-1Cz" secondAttribute="firstBaseline" id="NPU-7K-wHc"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="Q07-nf-KlI" secondAttribute="trailing" id="RcG-oz-hKI"/>
+                                        <constraint firstItem="Pqo-uv-Pfb" firstAttribute="top" secondItem="o0w-d9-RgM" secondAttribute="top" constant="7" id="Tqe-zX-l5S"/>
                                         <constraint firstItem="Q07-nf-KlI" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="2xn-bn-1Cz" secondAttribute="trailing" constant="8" symbolic="YES" id="ekO-IU-4wz"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="Q07-nf-KlI" secondAttribute="trailing" priority="250" id="sL5-g6-9qm"/>
                                         <constraint firstItem="2xn-bn-1Cz" firstAttribute="leading" secondItem="LNH-Y3-2Uh" secondAttribute="trailing" constant="8" id="w7Z-un-AUZ"/>
                                         <constraint firstAttribute="leadingMargin" relation="lessThanOrEqual" secondItem="LNH-Y3-2Uh" secondAttribute="leading" id="yra-lP-ubh"/>
                                     </constraints>
@@ -660,6 +772,7 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="titleLabel" destination="Jva-ML-VZe" id="hCj-uK-v28"/>
+                                    <segue destination="zcj-qQ-Llc" kind="show" identifier="showReleaseVersion" id="MNU-6W-6Rl"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -668,10 +781,75 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                             <outlet property="delegate" destination="Kvd-zN-Pml" id="fQm-Yn-hlY"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Here's Little Richard" id="r6b-17-x4p"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7pn-ts-1ix" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4951" y="1015"/>
+        </scene>
+        <!--Release Version View Controller-->
+        <scene sceneID="M19-ua-Msn">
+            <objects>
+                <tableViewController id="zcj-qQ-Llc" userLabel="Release Version View Controller" customClass="MasterReleaseViewController" customModule="SwiftDiscogsApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="pnP-CT-jSq">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="trackCell" id="2Vh-bz-5Kn" userLabel="Tracklist Cell" customClass="TracklistTableCell" customModule="SwiftDiscogsApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2Vh-bz-5Kn" id="Ucw-FF-Oxe">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="B2" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Upc-AT-FXv" userLabel="Position">
+                                            <rect key="frame" x="30.666666666666668" y="11" width="15.333333333333332" height="14.333333333333336"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Because" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WEe-ZU-x1h" userLabel="Title">
+                                            <rect key="frame" x="54" y="11" width="51.333333333333343" height="22"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2:46" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XIN-ng-LbH" userLabel="Duration">
+                                            <rect key="frame" x="332.66666666666669" y="11" width="26.333333333333314" height="14.333333333333336"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="Upc-AT-FXv" firstAttribute="firstBaseline" secondItem="WEe-ZU-x1h" secondAttribute="firstBaseline" id="2zA-m2-8R2"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="XIN-ng-LbH" secondAttribute="trailing" id="4wF-Xw-4px"/>
+                                        <constraint firstItem="XIN-ng-LbH" firstAttribute="firstBaseline" secondItem="WEe-ZU-x1h" secondAttribute="firstBaseline" id="5vw-zm-Q5y"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="WEe-ZU-x1h" secondAttribute="bottom" id="ao4-u2-sDc"/>
+                                        <constraint firstItem="XIN-ng-LbH" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="WEe-ZU-x1h" secondAttribute="trailing" constant="8" symbolic="YES" id="ckA-1r-q6O"/>
+                                        <constraint firstItem="WEe-ZU-x1h" firstAttribute="top" secondItem="Ucw-FF-Oxe" secondAttribute="topMargin" id="eUB-d1-nyD"/>
+                                        <constraint firstItem="WEe-ZU-x1h" firstAttribute="leading" secondItem="Upc-AT-FXv" secondAttribute="trailing" constant="8" id="fYl-Wj-Gxn"/>
+                                        <constraint firstAttribute="leadingMargin" relation="lessThanOrEqual" secondItem="Upc-AT-FXv" secondAttribute="leading" id="l28-St-Ue8"/>
+                                        <constraint firstItem="Upc-AT-FXv" firstAttribute="trailing" secondItem="Ucw-FF-Oxe" secondAttribute="leadingMargin" constant="30" id="phQ-aw-NzP"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="durationLabel" destination="XIN-ng-LbH" id="7vy-5E-gYx"/>
+                                    <outlet property="titleLabel" destination="WEe-ZU-x1h" id="por-Rm-GML"/>
+                                    <outlet property="trackNumberLabel" destination="Upc-AT-FXv" id="cul-LI-81v"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="zcj-qQ-Llc" id="saS-69-x1L"/>
+                            <outlet property="delegate" destination="zcj-qQ-Llc" id="52q-xH-emq"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vUU-Vt-d3M" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5926" y="1015"/>
         </scene>
         <!--Artist Bio-->
         <scene sceneID="2D8-tA-SAQ">
@@ -815,5 +993,8 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
     <resources>
         <image name="Discogs" width="480" height="174"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="4hR-OI-rYq"/>
+    </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.0026941164399999998" green="0.097064159809999995" blue="0.57731443640000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
