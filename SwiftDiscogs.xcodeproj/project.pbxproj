@@ -386,6 +386,14 @@
 		96E8CCDD20E3249C001C5381 /* DiscogsSearchDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscogsSearchDisplay.swift; sourceTree = "<group>"; };
 		96E8CCDF20E33396001C5381 /* DiscogsDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscogsDisplay.swift; sourceTree = "<group>"; };
 		96EDF289209FA8EF009496FA /* Stylobate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Stylobate.framework; path = Carthage/Build/iOS/Stylobate.framework; sourceTree = "<group>"; };
+		ADDDD2512232E09B00B6DA35 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		ADDDD2522232E09B00B6DA35 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
+		ADDDD2532232E09C00B6DA35 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Discogs.strings; sourceTree = "<group>"; };
+		ADDDD2542232E09C00B6DA35 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/SwiftDiscogsApp.strings; sourceTree = "<group>"; };
+		ADDDD2552232E0A100B6DA35 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		ADDDD2562232E0A100B6DA35 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
+		ADDDD2572232E0A100B6DA35 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Discogs.strings; sourceTree = "<group>"; };
+		ADDDD2582232E0A200B6DA35 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/SwiftDiscogsApp.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -486,8 +494,8 @@
 			isa = PBXGroup;
 			children = (
 				963282B8222CD7E40090B29F /* MasterReleaseViewController.swift */,
-				963282BC222F82A10090B29F /* TrackView.swift */,
 				963282BE222F83C00090B29F /* ReleaseVersionView.swift */,
+				963282BC222F82A10090B29F /* TrackView.swift */,
 			);
 			path = Releases;
 			sourceTree = "<group>";
@@ -947,6 +955,8 @@
 				en,
 				Base,
 				es,
+				fr,
+				de,
 			);
 			mainGroup = 9689839E203D427A00DE77BC;
 			productRefGroup = 968983A9203D427A00DE77BC /* Products */;
@@ -1253,6 +1263,8 @@
 			children = (
 				960368E1205A012C00D24CE7 /* Base */,
 				96A8AC9B219210500098BF87 /* es */,
+				ADDDD2522232E09B00B6DA35 /* fr */,
+				ADDDD2562232E0A100B6DA35 /* de */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -1262,6 +1274,8 @@
 			children = (
 				960368E6205A012C00D24CE7 /* Base */,
 				96A8AC9A2192104E0098BF87 /* es */,
+				ADDDD2512232E09B00B6DA35 /* fr */,
+				ADDDD2552232E0A100B6DA35 /* de */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -1271,6 +1285,8 @@
 			children = (
 				96800C3921921F3F00A3380F /* en */,
 				96800C3B21921F4300A3380F /* es */,
+				ADDDD2542232E09C00B6DA35 /* fr */,
+				ADDDD2582232E0A200B6DA35 /* de */,
 			);
 			name = SwiftDiscogsApp.strings;
 			sourceTree = "<group>";
@@ -1280,6 +1296,8 @@
 			children = (
 				96A8ACA0219214EE0098BF87 /* en */,
 				96A8ACA2219214F10098BF87 /* es */,
+				ADDDD2532232E09C00B6DA35 /* fr */,
+				ADDDD2572232E0A100B6DA35 /* de */,
 			);
 			name = Discogs.strings;
 			sourceTree = "<group>";
