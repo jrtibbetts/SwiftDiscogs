@@ -51,6 +51,7 @@ public class MasterReleaseViewController: UITableViewController, DiscogsProvider
     
     public override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.title = ""  // clear out the storyboard's value
         tableView.dataSource = model
     }
 

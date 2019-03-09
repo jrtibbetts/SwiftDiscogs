@@ -64,6 +64,11 @@ open class DiscogsArtistViewController: OutlettedController {
         }
     }
 
+    open override func viewDidLoad() {
+        super.viewDidLoad()
+        navigationItem.title = ""  // clear out the storyboard's value
+    }
+
     // MARK: - Private Functions
 
     private func fetchReleases() {
