@@ -127,12 +127,10 @@ class DiscogsArtistViewControllerTests: CollectionAndTableViewControllerTestBase
                 return
             }
 
-            let bioSection = DiscogsArtistModel.Section.bio
-            let bioTitle = self.artistModel?.tableView(table, titleForHeaderInSection: bioSection.rawValue)
+            let bioTitle = self.artistModel?.tableView(table, titleForHeaderInSection: 0)
             XCTAssertEqual(bioTitle, "Bio")
 
-            let releasesSection = DiscogsArtistModel.Section.releases
-            let releasesTitle = self.artistModel?.tableView(table, titleForHeaderInSection: releasesSection.rawValue)
+            let releasesTitle = self.artistModel?.tableView(table, titleForHeaderInSection: 1)
             XCTAssertEqual(releasesTitle, "Releases")
 
             exp.fulfill()

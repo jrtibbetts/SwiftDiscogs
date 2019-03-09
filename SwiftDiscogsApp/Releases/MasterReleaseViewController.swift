@@ -76,10 +76,6 @@ public class MasterReleaseViewController: UITableViewController, DiscogsProvider
         
         // MARK: - UITableViewDataSource
 
-        open override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-            return sections[section].headerText
-        }
-
         open override func tableView(_ tableView: UITableView,
                                      cellForRowAt indexPath: IndexPath) -> UITableViewCell {
             let section = sections[indexPath.section]
@@ -99,10 +95,6 @@ public class MasterReleaseViewController: UITableViewController, DiscogsProvider
             }
 
             return cell
-        }
-
-        public override func numberOfSections(in tableView: UITableView) -> Int {
-            return sections.count
         }
 
         public override func tableView(_ tableView: UITableView,

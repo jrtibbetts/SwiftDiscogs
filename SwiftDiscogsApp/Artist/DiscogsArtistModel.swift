@@ -32,11 +32,6 @@ open class DiscogsArtistModel: SectionedModel {
     public init() {
         super.init(sections: [bioSection, releasesSection])
     }
-    
-    convenience public init(artist: Artist? = nil) {
-        self.init()
-        self.artist = artist
-    }
 
     // MARK: - UITableViewDataSource
 
@@ -63,7 +58,7 @@ open class DiscogsArtistModel: SectionedModel {
     }
 
     // MARK: - CollectionAndTableModel
-    
+
     open override func numberOfItems(inSection sectionIndex: Int) -> Int {
         let section = sections[sectionIndex]
 
