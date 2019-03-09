@@ -22,20 +22,36 @@ open class SectionedModel: CollectionAndTableModel {
         return sections.count
     }
 
+    open override func footerView(forSection section: Int) -> UIView? {
+        return sections[section].footerView
+    }
+
     open override func headerTitle(forSection section: Int) -> String? {
         return sections[section].headerText
+    }
+
+    open override func headerView(forSection section: Int) -> UIView? {
+        return sections[section].headerView
     }
 
     open class Section: NSObject {
 
         open var cellID: String
 
+        open var footerView: UIView? = nil
+
         open var headerText: String? = nil
 
+        open var headerView: UIView? = nil
+
         public init(cellID: String,
-                    headerText: String? = nil) {
+                    footerView: UIView? = nil,
+                    headerText: String? = nil,
+                    headerView: UIView? = nil) {
             self.cellID = cellID
+            self.footerView = footerView
             self.headerText = headerText
+            self.headerView = headerView
         }
 
     }
