@@ -6,7 +6,7 @@
 "7Ap-M4-zcX.title" = "Database";
 
 /* Class = "UIButton"; normalTitle = "Sign In to Discogs.com"; ObjectID = "7Xt-fI-IrK"; */
-"7Xt-fI-IrK.normalTitle" = "Iniciar sesión de Discogs.com";
+"7Xt-fI-IrK.normalTitle" = "Iniciar sesión";
 
 /* Class = "UINavigationItem"; title = "Discogs Search"; ObjectID = "99a-Al-h2A"; */
 "99a-Al-h2A.title" = "Buscar artistas, álbumes y más...";

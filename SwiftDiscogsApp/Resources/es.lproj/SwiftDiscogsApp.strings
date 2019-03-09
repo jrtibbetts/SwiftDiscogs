@@ -1,1 +1,35 @@
 
+/* Search scope label for searching all of Discogs. */
+"allOfDiscogsSearchScopeTitle" = "Todo Discogs";
+
+/* Title of the artist's biography section. */
+"artistBioSectionHeader" = "Perfil";
+
+/* Title of the artist's releases section. */
+"artistReleasesSectionHeader" = "Releases";
+
+/* Abbreviation for a release's catalog number. */
+"catalogNumberShort" = "Cat. nº";
+
+"country" = "País";
+
+/* Title of the alert that appears when sign-in is unsuccessful. */
+"discogsSignInFailed" = "Discogs sign-in failed";
+
+/* Media format, such as a CD, LP, or digital. */
+"format" = "Formato";
+
+/* A recording company name. */
+"label" = "Sello";
+
+"title" = "Título";
+
+"tracklist" = "Pistas";
+
+/* Search scope label for searching only within the user's collection. */
+"userCollectionSearchScopeTitle" = "Colección";
+
+"versions" = "Versiones";
+
+"year" = "Año";
+

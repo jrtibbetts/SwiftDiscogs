@@ -17,10 +17,26 @@ internal enum L10n {
   internal static let artistBioSectionHeader = L10n.tr("SwiftDiscogsApp", "artistBioSectionHeader")
   /// Releases
   internal static let artistReleasesSectionHeader = L10n.tr("SwiftDiscogsApp", "artistReleasesSectionHeader")
+  /// Cat. #
+  internal static let catalogNumberShort = L10n.tr("SwiftDiscogsApp", "catalogNumberShort")
+  /// Country
+  internal static let country = L10n.tr("SwiftDiscogsApp", "country")
   /// Discogs sign-in failed
   internal static let discogsSignInFailed = L10n.tr("SwiftDiscogsApp", "discogsSignInFailed")
+  /// Format
+  internal static let format = L10n.tr("SwiftDiscogsApp", "format")
+  /// Label
+  internal static let label = L10n.tr("SwiftDiscogsApp", "label")
+  /// Title
+  internal static let title = L10n.tr("SwiftDiscogsApp", "title")
+  /// Tracklist
+  internal static let tracklist = L10n.tr("SwiftDiscogsApp", "tracklist")
   /// My Collection
   internal static let userCollectionSearchScopeTitle = L10n.tr("SwiftDiscogsApp", "userCollectionSearchScopeTitle")
+  /// Versions
+  internal static let versions = L10n.tr("SwiftDiscogsApp", "versions")
+  /// Year
+  internal static let year = L10n.tr("SwiftDiscogsApp", "year")
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:enable nesting type_body_length type_name

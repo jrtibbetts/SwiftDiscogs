@@ -2,9 +2,6 @@
 /* Class = "UILabel"; text = "Album"; ObjectID = "2qs-Y5-wHC"; */
 "2qs-Y5-wHC.text" = "Album";
 
-/* Class = "UILabel"; text = "Because"; ObjectID = "2xn-bn-1Cz"; */
-"2xn-bn-1Cz.text" = "Because";
-
 /* Class = "UITabBarItem"; title = "Database"; ObjectID = "7Ap-M4-zcX"; */
 "7Ap-M4-zcX.title" = "Database";
 
@@ -12,52 +9,28 @@
 "7Xt-fI-IrK.normalTitle" = "Sign In to Discogs.com";
 
 /* Class = "UINavigationItem"; title = "Discogs Search"; ObjectID = "99a-Al-h2A"; */
-"99a-Al-h2A.title" = "Discogs Search";
-
-/* Class = "UITextView"; text = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda."; ObjectID = "Byp-oG-qa7"; */
-"Byp-oG-qa7.text" = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.";
-
-/* Class = "UILabel"; text = "American singer, songwriter, pianist and recording artist, born 5 December 1932 in Macon, Georgia, USA. \n\nInducted into Rock And Roll Hall of Fame in 1986 (Performer). \nInducted into Songwriters Hall of Fame in 2003."; ObjectID = "GmX-2U-jW4"; */
-"GmX-2U-jW4.text" = "American singer, songwriter, pianist and recording artist, born 5 December 1932 in Macon, Georgia, USA. \n\nInducted into Rock And Roll Hall of Fame in 1986 (Performer). \nInducted into Songwriters Hall of Fame in 2003.";
-
-/* Class = "UILabel"; text = "Because"; ObjectID = "Jva-ML-VZe"; */
-"Jva-ML-VZe.text" = "Because";
+"99a-Al-h2A.title" = "Rechercher";
 
 /* Class = "UILabel"; text = "“%@”"; ObjectID = "L7D-y5-h1j"; */
 "L7D-y5-h1j.text" = "“%@”";
 
-/* Class = "UILabel"; text = "B2"; ObjectID = "LNH-Y3-2Uh"; */
-"LNH-Y3-2Uh.text" = "B2";
-
 /* Class = "UIButton"; normalTitle = "Sign Out"; ObjectID = "O0C-go-zlO"; */
-"O0C-go-zlO.normalTitle" = "Sign Out";
-
-/* Class = "UILabel"; text = "2:46"; ObjectID = "Q07-nf-KlI"; */
-"Q07-nf-KlI.text" = "2:46";
-
-/* Class = "UILabel"; text = "Here's Little Richard"; ObjectID = "RTP-xH-Qfi"; */
-"RTP-xH-Qfi.text" = "Here's Little Richard";
-
-/* Class = "UILabel"; text = "1957"; ObjectID = "Xbp-pw-xS2"; */
-"Xbp-pw-xS2.text" = "1957";
+"O0C-go-zlO.normalTitle" = "Déconnexion";
 
 /* Class = "UILabel"; text = "Artist"; ObjectID = "Z35-aY-kvF"; */
-"Z35-aY-kvF.text" = "Artist";
+"Z35-aY-kvF.text" = "Artiste";
 
 /* Class = "UILabel"; text = "Album"; ObjectID = "gf0-ma-3ff"; */
 "gf0-ma-3ff.text" = "Album";
-
-/* Class = "UILabel"; text = "1957"; ObjectID = "i8D-bh-YBu"; */
-"i8D-bh-YBu.text" = "1957";
 
 /* Class = "UILabel"; text = "Signed in"; ObjectID = "mtP-uY-A7R"; */
 "mtP-uY-A7R.text" = "Signed in";
 
 /* Class = "UINavigationItem"; title = "Artist Bio"; ObjectID = "nDW-Vb-H1u"; */
-"nDW-Vb-H1u.title" = "Artist Bio";
+"nDW-Vb-H1u.title" = "Profil";
 
 /* Class = "UIViewController"; title = "discogsArtistBio"; ObjectID = "ql7-Le-MbA"; */
-"ql7-Le-MbA.title" = "discogsArtistBio";
+"ql7-Le-MbA.title" = "Profil";
 
 /* Class = "UILabel"; text = "Checking status…"; ObjectID = "rpR-ma-sgF"; */
 "rpR-ma-sgF.text" = "Checking status…";

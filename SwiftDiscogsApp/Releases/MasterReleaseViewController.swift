@@ -64,9 +64,9 @@ public class MasterReleaseViewController: UITableViewController, DiscogsProvider
 
         // MARK: - Private Properties
 
-        private let tracklistSection = Section(cellID: "trackCell", headerText: "Tracklist")
+        private let tracklistSection = Section(cellID: "trackCell", headerText: L10n.tracklist)
 
-        private let versionsSection = Section(cellID: "versionCell", headerText: "All Releases")
+        private let versionsSection = Section(cellID: "versionCell", headerText: L10n.versions)
         
         // MARK: - Initialization
         
