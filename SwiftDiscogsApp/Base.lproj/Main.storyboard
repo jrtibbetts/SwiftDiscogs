@@ -110,10 +110,6 @@
                                                 </connections>
                                             </tableViewCell>
                                         </prototypes>
-                                        <connections>
-                                            <outlet property="dataSource" destination="wrO-Ei-XhZ" id="R9q-P0-TI6"/>
-                                            <outlet property="delegate" destination="wrO-Ei-XhZ" id="3D0-6e-XFM"/>
-                                        </connections>
                                     </tableView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gF0-sz-40M" userLabel="Unavailable View">
                                         <rect key="frame" x="0.0" y="319" width="375" height="319"/>
@@ -152,10 +148,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <connections>
+                            <outlet property="navigationItem" destination="99a-Al-h2A" id="IOL-Ih-KOc"/>
                             <outlet property="signInButton" destination="7Xt-fI-IrK" id="43r-P4-TVF"/>
                             <outlet property="signOutButton" destination="O0C-go-zlO" id="2Bx-bU-DkB"/>
                             <outlet property="spinner" destination="pEy-S7-tsb" id="LhV-sC-uDz"/>
-                            <outlet property="tableView" destination="MQe-0X-tnP" id="Sdg-Nh-tk3"/>
+                            <outlet property="tableView" destination="MQe-0X-tnP" id="d89-fc-nQ1"/>
                             <outlet property="toggleStackView" destination="yF3-Hg-VoZ" id="XKD-9e-883"/>
                             <outlet property="unavailableView" destination="gF0-sz-40M" id="Wf2-hf-IYQ"/>
                         </connections>
@@ -174,14 +171,11 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="display" destination="8bC-Xf-vdC" id="gIb-Uf-WgR"/>
-                        <outlet property="model" destination="wrO-Ei-XhZ" id="XNa-Xx-7Rc"/>
                         <segue destination="LCt-rZ-gxJ" kind="presentation" identifier="showSignIn" id="2ma-yj-3TE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <exit id="PBB-1J-cN0" userLabel="Exit" sceneMemberID="exit"/>
-                <customObject id="wrO-Ei-XhZ" customClass="DiscogsSearchResultsModel" customModule="SwiftDiscogsApp" customModuleProvider="target"/>
             </objects>
             <point key="canvasLocation" x="3173" y="226"/>
         </scene>
@@ -375,10 +369,6 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
-                                <connections>
-                                    <outlet property="dataSource" destination="28g-xh-2mZ" id="riN-QG-LCu"/>
-                                    <outlet property="delegate" destination="28g-xh-2mZ" id="3V1-Gg-GOd"/>
-                                </connections>
                             </tableView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="cJl-oI-IBh">
                                 <rect key="frame" x="0.0" y="64" width="768" height="960"/>
@@ -390,10 +380,6 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells/>
-                                <connections>
-                                    <outlet property="dataSource" destination="28g-xh-2mZ" id="2je-PI-EG8"/>
-                                    <outlet property="delegate" destination="28g-xh-2mZ" id="CcB-Iz-bgr"/>
-                                </connections>
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -451,20 +437,16 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                             </mask>
                         </variation>
                         <connections>
+                            <outlet property="collectionView" destination="cJl-oI-IBh" id="QYL-M9-kiZ"/>
                             <outlet property="mainImage" destination="SGe-5Q-QE6" id="Ep4-KC-jyG"/>
-                            <outlet property="navigationItem" destination="nDW-Vb-H1u" id="iFU-fJ-tmJ"/>
-                            <outlet property="tableView" destination="iaE-Sd-FyD" id="dYH-aR-U9R"/>
+                            <outlet property="navigationItem" destination="nDW-Vb-H1u" id="WDI-Eq-eDs"/>
+                            <outlet property="tableView" destination="iaE-Sd-FyD" id="VwP-cl-99q"/>
                         </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Little Richard" id="nDW-Vb-H1u"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics"/>
-                    <connections>
-                        <outlet property="display" destination="1SC-zu-66M" id="AJO-42-cMY"/>
-                        <outlet property="model" destination="28g-xh-2mZ" id="Eu1-ix-IWs"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lOY-hj-4oC" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <customObject id="28g-xh-2mZ" customClass="DiscogsArtistModel" customModule="SwiftDiscogsApp" customModuleProvider="target"/>
             </objects>
             <point key="canvasLocation" x="4033" y="225"/>
         </scene>
@@ -807,6 +789,9 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Here's Little Richard" id="r6b-17-x4p"/>
+                    <connections>
+                        <outlet property="tableView" destination="4gc-te-Nk4" id="MhE-OM-mhW"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7pn-ts-1ix" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

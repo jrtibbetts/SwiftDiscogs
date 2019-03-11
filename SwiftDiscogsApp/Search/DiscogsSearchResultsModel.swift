@@ -11,14 +11,6 @@ open class DiscogsSearchResultsModel: CollectionAndTableModel {
 
     open var results: [SearchResult]?
 
-    // MARK: - Initializers
-
-    /// An empty initializer seems to be required when the class is set as a
-    /// custom object in a storyboard.
-    override public init() {
-        super.init()
-    }
-
     // MARK: - UITableViewDataSource
 
     open override func numberOfItems(inSection section: Int) -> Int {

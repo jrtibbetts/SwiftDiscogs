@@ -5,7 +5,7 @@ import UIKit
 
 /// Implemented by objects that control the UI components of a Discogs view
 /// controller.
-public protocol DiscogsDisplay {
+open class DiscogsDisplay: CollectionAndTableDisplay {
 
     /// Lay out and configure subviews. This is typically called during the
     /// view controller's `viewDidLoad()` function.
@@ -15,10 +15,14 @@ public protocol DiscogsDisplay {
     ///             this.
     ///
     /// - SeeAlso: `tearDown`
-    func setUp(navigationItem: UINavigationItem)
+    func setUp(navigationItem: UINavigationItem) {
+
+    }
 
     /// Shut down, turn off, and/or remove any UI components that need explicit
     /// removal.
-    func tearDown()
+    func tearDown() {
+        
+    }
 
 }

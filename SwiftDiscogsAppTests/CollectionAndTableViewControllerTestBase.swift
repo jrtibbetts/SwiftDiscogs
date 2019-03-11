@@ -4,7 +4,9 @@
 import Stylobate
 import XCTest
 
-class CollectionAndTableViewControllerTestBase: ControllerTestBase {
+class CollectionAndTableViewControllerTestBase<ViewController: CollectionAndTableViewController>: XCTestCase {
+
+    var viewController: ViewController?
 
     var tableView: UITableView? {
         return (viewController?.display as? CollectionAndTableDisplay)?.tableView

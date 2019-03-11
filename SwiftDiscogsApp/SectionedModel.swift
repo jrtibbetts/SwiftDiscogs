@@ -22,16 +22,8 @@ open class SectionedModel: CollectionAndTableModel {
         return sections.count
     }
 
-    open override func footerView(forSection section: Int) -> UIView? {
-        return sections[section].footerView
-    }
-
     open override func headerTitle(forSection section: Int) -> String? {
         return sections[section].headerText
-    }
-
-    open override func headerView(forSection section: Int) -> UIView? {
-        return sections[section].headerView
     }
 
     open class Section: NSObject {

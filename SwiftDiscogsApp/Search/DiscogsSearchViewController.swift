@@ -7,7 +7,7 @@ import UIKit
 
 /// Allows the user to search the Discogs database for artists, releases, and
 /// labels.
-open class DiscogsSearchViewController: OutlettedController, UISearchResultsUpdating, UISearchBarDelegate, DiscogsProvider {
+open class DiscogsSearchViewController: CollectionAndTableViewController, UISearchResultsUpdating, UISearchBarDelegate, DiscogsProvider {
 
     /// The possible states of the search scope bar.
     public enum SearchScope: Int {
@@ -80,6 +80,8 @@ open class DiscogsSearchViewController: OutlettedController, UISearchResultsUpda
     override open func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.searchController = searchController
+        model = DiscogsSearchResultsModel()
+        searchView?.model = model
         searchView?.setUp(navigationItem: navigationItem)
     }
 

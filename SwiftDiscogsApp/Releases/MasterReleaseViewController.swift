@@ -4,7 +4,7 @@ import Stylobate
 import SwiftDiscogs
 import UIKit
 
-public class MasterReleaseViewController: UITableViewController, DiscogsProvider {
+public class MasterReleaseViewController: UIViewController, DiscogsProvider {
 
     // MARK: - Public Properties
 
@@ -12,20 +12,22 @@ public class MasterReleaseViewController: UITableViewController, DiscogsProvider
 
     public var masterRelease: MasterRelease? {
         get {
-            return model.masterRelease
+            return masterReleaseModel.masterRelease
         }
         
         set {
-            model.masterRelease = masterRelease
+            masterReleaseModel.masterRelease = masterRelease
         }
     }
+
+    private var masterReleaseModel = MasterReleaseModel()
 
     public var releaseSummary: ReleaseSummary? {
         didSet {
             if let masterReleaseID = releaseSummary?.id {
                 // Get the master release itself.
                 discogs?.masterRelease(identifier: masterReleaseID).done { [weak self] (masterRelease) in
-                    self?.model.masterRelease = masterRelease
+                    self?.masterReleaseModel.masterRelease = masterRelease
                     self?.navigationItem.title = masterRelease.title
                     self?.tableView.reloadData()
                     }.catch { (error) in
@@ -34,7 +36,7 @@ public class MasterReleaseViewController: UITableViewController, DiscogsProvider
                 // Get the master release's versions. We don't have to wait for
                 // the actual master release itself to be retrieved.
                 discogs?.releasesForMasterRelease(masterReleaseID, pageNumber: 1, resultsPerPage: 200).done { [weak self] (releaseSummaries) in
-                    self?.model.releaseVersions = releaseSummaries.versions
+                    self?.masterReleaseModel.releaseVersions = releaseSummaries.versions
                     self?.tableView.reloadData()
                     }.catch { (error) in
                         print("Error: \(error)")
@@ -42,20 +44,19 @@ public class MasterReleaseViewController: UITableViewController, DiscogsProvider
             }
         }
     }
-    
-    // MARK: - Private Properties
-    
-    private var model: Model = Model()
-    
+
+    @IBOutlet private weak var tableView: UITableView!
+
     // MARK: - UIViewController
     
     public override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = ""  // clear out the storyboard's value
-        tableView.dataSource = model
+        tableView.dataSource = masterReleaseModel
+        tableView.delegate = masterReleaseModel
     }
 
-    private class Model: SectionedModel {
+    private class MasterReleaseModel: SectionedModel {
 
         // MARK: - Public Properties
         

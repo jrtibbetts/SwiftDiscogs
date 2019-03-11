@@ -11,11 +11,7 @@ open class DiscogsArtistModel: SectionedModel {
 
     // MARK: Public Properties
 
-    open var artist: Artist? {
-        didSet {
-            fetchThumbnails()
-        }
-    }
+    open var artist: Artist?
 
     open var releases: [ReleaseSummary]?
     
@@ -27,8 +23,6 @@ open class DiscogsArtistModel: SectionedModel {
                                           headerText: L10n.artistReleasesSectionHeader)
     // MARK: Initializers
 
-    /// This is required for associated objects that are loaded by Interface
-    /// Builder.
     public init() {
         super.init(sections: [bioSection, releasesSection])
     }

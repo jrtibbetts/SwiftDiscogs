@@ -12,7 +12,13 @@ open class DiscogsArtistView: CollectionAndTableDisplay {
     @IBOutlet weak var mainImage: UIImageView!
 
     open var artistModel: DiscogsArtistModel? {
-        return model as? DiscogsArtistModel
+        didSet {
+            model = artistModel
+            tableView?.dataSource = artistModel
+            tableView?.delegate = artistModel
+            collectionView?.dataSource = artistModel
+            collectionView?.delegate = artistModel
+        }
     }
 
     open override func refresh() {

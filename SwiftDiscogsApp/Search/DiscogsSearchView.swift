@@ -4,27 +4,27 @@ import Stylobate
 import UIKit
 
 /// The root view of the `DiscogsSearchViewController`.
-open class DiscogsSearchView: CollectionAndTableDisplay, DiscogsDisplay, SpinnerBusyView,  UISearchBarDelegate {
+open class DiscogsSearchView: DiscogsDisplay, SpinnerBusyView,  UISearchBarDelegate {
 
     // MARK: - Private Outlets
 
     /// The button that will launch the Discogs service's authorization web
     /// page, if necessary.
-    @IBOutlet fileprivate weak var signInButton: UIButton?
+    @IBOutlet private weak var signInButton: UIButton?
 
     /// The button for signing out of the Discogs service.
-    @IBOutlet fileprivate weak var signOutButton: UIButton?
+    @IBOutlet private weak var signOutButton: UIButton?
 
     /// The busy indicator.
     @IBOutlet public weak var spinner: UIActivityIndicatorView?
 
     /// The stack view that contains the sign-in view, the search results table,
     /// and the `unavailableView`.
-    @IBOutlet fileprivate weak var toggleStackView: ToggleStackView?
+    @IBOutlet private weak var toggleStackView: ToggleStackView?
 
     /// The view that's shown when the user taps the My Collection search scope
     /// button, which isn't implemented yet.
-    @IBOutlet fileprivate weak var unavailableView: UIView?
+    @IBOutlet private weak var unavailableView: UIView?
 
     // MARK: - Other Properties
 
@@ -50,7 +50,7 @@ open class DiscogsSearchView: CollectionAndTableDisplay, DiscogsDisplay, Spinner
     // MARK: - DiscogsDisplay
 
     /// Configure the view.
-    open func setUp(navigationItem: UINavigationItem) {
+    open override func setUp(navigationItem: UINavigationItem) {
         stopActivity()  // stop and hide the spinner
         signedIn = true
 
@@ -66,10 +66,6 @@ open class DiscogsSearchView: CollectionAndTableDisplay, DiscogsDisplay, Spinner
         }
 
         toggleStackView?.activeView = tableView
-    }
-
-    open func tearDown() {
-        // Nothing.
     }
 
     private func setUp(searchBar: UISearchBar) {

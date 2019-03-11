@@ -5,7 +5,7 @@ import SwiftDiscogs
 import UIKit
 
 /// A view controller for displaying details about a `DiscogsArtist`.
-open class DiscogsArtistViewController: OutlettedController {
+open class DiscogsArtistViewController: UIViewController {
 
     // MARK: Public Properties
 
@@ -17,7 +17,7 @@ open class DiscogsArtistViewController: OutlettedController {
     /// The artist in question.
     open var artist: Artist? {
         didSet {
-            artistModel?.artist = artist
+            artistModel.artist = artist
 
             if let imageUrlString = artist?.images?.first?.resourceUrl,
                 let imageUrl = URL(string: imageUrlString) {
@@ -47,9 +47,7 @@ open class DiscogsArtistViewController: OutlettedController {
         return view as? DiscogsArtistView
     }
 
-    open var artistModel: DiscogsArtistModel? {
-        return model as? DiscogsArtistModel
-    }
+    open var artistModel = DiscogsArtistModel()
 
     // MARK: - UIViewController
 
@@ -59,7 +57,7 @@ open class DiscogsArtistViewController: OutlettedController {
             destination.discogs = discogs
 
             if let selectedIndex = artistView?.indexPathForSelectedItem {
-                destination.releaseSummary = artistModel?.releases?[selectedIndex.item]
+                destination.releaseSummary = artistModel.releases?[selectedIndex.item]
             }
         }
     }
@@ -67,6 +65,7 @@ open class DiscogsArtistViewController: OutlettedController {
     open override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = ""  // clear out the storyboard's value
+        artistView?.model = artistModel
     }
 
     // MARK: - Private Functions
@@ -74,8 +73,8 @@ open class DiscogsArtistViewController: OutlettedController {
     private func fetchReleases() {
         if let artistId = artist?.id {
             discogs?.releases(forArtist: artistId).done { [weak self] (summaries) in
-                self?.artistModel?.releases = summaries.releases?.filter { $0.type == "master" && $0.mainRelease != nil }
-                self?.display?.refresh()
+                self?.artistModel.releases = summaries.releases?.filter { $0.type == "master" && $0.mainRelease != nil }
+                self?.artistView?.refresh()
                 }.catch { (error) in
                     // HANDLE THE ERROR
             }
