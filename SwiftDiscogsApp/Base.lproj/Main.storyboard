@@ -575,10 +575,10 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E3y-aN-mXn">
-                                <rect key="frame" x="16" y="88" width="343" height="690"/>
+                                <rect key="frame" x="16" y="44" width="343" height="734"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="j2A-9I-W1F">
-                                        <rect key="frame" x="0.0" y="0.0" width="343" height="690"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="734"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Sa-gL-3wS" userLabel="Header">
                                                 <rect key="frame" x="0.0" y="0.0" width="343" height="62.666666666666664"/>
@@ -600,7 +600,7 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                                                 </constraints>
                                             </view>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelectionDuringEditing="YES" rowHeight="82" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="CL6-Bk-rtK">
-                                                <rect key="frame" x="0.0" y="62.666666666666686" width="343" height="627.33333333333326"/>
+                                                <rect key="frame" x="0.0" y="62.666666666666686" width="343" height="671.33333333333326"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <view key="tableFooterView" contentMode="scaleToFill" id="es6-NG-rjY" userLabel="Zero-height footer to hide empty table cells.">
                                                     <rect key="frame" x="0.0" y="110" width="343" height="0.0"/>
@@ -690,6 +690,96 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r93-U2-vsO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="4033" y="1827"/>
+        </scene>
+        <!--Song-->
+        <scene sceneID="GOB-hb-k4f">
+            <objects>
+                <viewController id="ppy-e1-uy0" userLabel="Song" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gu4-jO-whc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ppH-We-6On" userLabel="Artwork">
+                                <rect key="frame" x="16" y="88" width="343" height="343"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="ppH-We-6On" secondAttribute="height" multiplier="1:1" id="i94-Wn-ufB"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="hfE-dk-hI0" userLabel="Credits">
+                                <rect key="frame" x="56" y="439" width="263.33333333333331" height="64.666666666666686"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="“With a Little Luck”" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NXs-Z4-0Xf" userLabel="Title">
+                                        <rect key="frame" x="0.0" y="0.0" width="263.33333333333331" height="36"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gPP-Xk-yNd" userLabel="Artist">
+                                        <rect key="frame" x="98.666666666666657" y="36" width="66" height="28.666666666666671"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="0bf-aZ-dR9" userLabel="Play Controls">
+                                <rect key="frame" x="16" y="713.33333333333337" width="343" height="64.666666666666629"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="lastBaseline" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="fyv-Am-mg6">
+                                        <rect key="frame" x="73" y="0.0" width="197" height="55"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yjh-Zp-M3z">
+                                                <rect key="frame" x="0.0" y="19" width="30" height="36"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <state key="normal" title="⏮"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="607-nj-9Qe">
+                                                <rect key="frame" x="38" y="19" width="30" height="36"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <state key="normal" title="⏪"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6MF-02-pai">
+                                                <rect key="frame" x="76" y="0.0" width="45" height="60"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                                <state key="normal" title="▶️"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3cC-ie-QEH">
+                                                <rect key="frame" x="129" y="19" width="30" height="36"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <state key="normal" title="⏩"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fmy-yL-1hz">
+                                                <rect key="frame" x="167" y="19" width="30" height="36"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <state key="normal" title="⏭"/>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="xwM-De-3w4">
+                                        <rect key="frame" x="0.0" y="62.999999999999993" width="343" height="2.6666666666666643"/>
+                                    </progressView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="hfE-dk-hI0" firstAttribute="top" secondItem="ppH-We-6On" secondAttribute="bottom" constant="8" id="Cdn-xs-wcs"/>
+                            <constraint firstItem="hfE-dk-hI0" firstAttribute="centerX" secondItem="Rcb-wT-l47" secondAttribute="centerX" id="F1n-cG-u97"/>
+                            <constraint firstItem="Rcb-wT-l47" firstAttribute="bottom" secondItem="0bf-aZ-dR9" secondAttribute="bottom" id="NE5-0Z-kJV"/>
+                            <constraint firstItem="Rcb-wT-l47" firstAttribute="trailing" secondItem="ppH-We-6On" secondAttribute="trailing" constant="16" id="QQ5-tc-SST"/>
+                            <constraint firstItem="0bf-aZ-dR9" firstAttribute="centerX" secondItem="Rcb-wT-l47" secondAttribute="centerX" id="WLt-5d-0IM"/>
+                            <constraint firstItem="Rcb-wT-l47" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="hfE-dk-hI0" secondAttribute="trailing" constant="16" id="ffO-Bx-6PT"/>
+                            <constraint firstItem="0bf-aZ-dR9" firstAttribute="top" relation="greaterThanOrEqual" secondItem="hfE-dk-hI0" secondAttribute="bottom" constant="8" symbolic="YES" id="fh6-Xv-C6S"/>
+                            <constraint firstItem="ppH-We-6On" firstAttribute="top" secondItem="Rcb-wT-l47" secondAttribute="top" id="iuK-a5-oxt"/>
+                            <constraint firstItem="ppH-We-6On" firstAttribute="leading" secondItem="Rcb-wT-l47" secondAttribute="leading" constant="16" id="nsl-C6-2Qf"/>
+                            <constraint firstItem="hfE-dk-hI0" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Rcb-wT-l47" secondAttribute="leading" constant="16" id="vBu-P9-2jw"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Rcb-wT-l47"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gb9-27-gFx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
             <point key="canvasLocation" x="4949.6000000000004" y="1826.600985221675"/>
         </scene>
         <!--Release Version-->
@@ -701,11 +791,11 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="trackCell" id="vqQ-EN-bYt" userLabel="Tracklist Cell" customClass="TracklistTableCell" customModule="SwiftDiscogsApp" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="trackCell" id="vqQ-EN-bYt" userLabel="Tracklist Cell" customClass="TracklistTableCell" customModule="SwiftDiscogsApp" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vqQ-EN-bYt" id="o0w-d9-RgM">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="341" height="43.666666666666664"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="B2" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LNH-Y3-2Uh" userLabel="Position">
@@ -721,32 +811,21 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2:46" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q07-nf-KlI" userLabel="Duration">
-                                            <rect key="frame" x="294.66666666666669" y="11" width="26.333333333333314" height="14.333333333333336"/>
+                                            <rect key="frame" x="306.66666666666669" y="11" width="26.333333333333314" height="14.333333333333336"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pqo-uv-Pfb">
-                                            <rect key="frame" x="329" y="2" width="30" height="30"/>
-                                            <state key="normal" title="▶️"/>
-                                            <state key="selected" title="⏸"/>
-                                            <connections>
-                                                <segue destination="qjc-4k-CUc" kind="show" identifier="showMediaSources" id="6oW-sh-6lA"/>
-                                            </connections>
-                                        </button>
                                     </subviews>
                                     <constraints>
                                         <constraint firstAttribute="bottomMargin" secondItem="2xn-bn-1Cz" secondAttribute="bottom" id="17V-rn-Lng"/>
-                                        <constraint firstItem="Pqo-uv-Pfb" firstAttribute="leading" secondItem="Q07-nf-KlI" secondAttribute="trailing" constant="8" symbolic="YES" id="4Vr-me-jDu"/>
                                         <constraint firstItem="2xn-bn-1Cz" firstAttribute="top" secondItem="o0w-d9-RgM" secondAttribute="topMargin" id="7Pf-nD-dkc"/>
                                         <constraint firstItem="LNH-Y3-2Uh" firstAttribute="trailing" secondItem="o0w-d9-RgM" secondAttribute="leadingMargin" constant="30" id="G1Y-fa-qbZ"/>
                                         <constraint firstItem="LNH-Y3-2Uh" firstAttribute="firstBaseline" secondItem="2xn-bn-1Cz" secondAttribute="firstBaseline" id="Ikl-zh-JD7"/>
-                                        <constraint firstAttribute="trailing" secondItem="Pqo-uv-Pfb" secondAttribute="trailing" constant="16" id="LZP-Lh-SqV"/>
                                         <constraint firstItem="Q07-nf-KlI" firstAttribute="firstBaseline" secondItem="2xn-bn-1Cz" secondAttribute="firstBaseline" id="NPU-7K-wHc"/>
                                         <constraint firstItem="Q07-nf-KlI" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="2xn-bn-1Cz" secondAttribute="trailing" constant="8" symbolic="YES" id="ekO-IU-4wz"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="Q07-nf-KlI" secondAttribute="trailing" priority="250" id="sL5-g6-9qm"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="Q07-nf-KlI" secondAttribute="trailing" id="sL5-g6-9qm"/>
                                         <constraint firstItem="2xn-bn-1Cz" firstAttribute="leading" secondItem="LNH-Y3-2Uh" secondAttribute="trailing" constant="8" id="w7Z-un-AUZ"/>
-                                        <constraint firstItem="Pqo-uv-Pfb" firstAttribute="firstBaseline" secondItem="Q07-nf-KlI" secondAttribute="firstBaseline" id="wPN-Nc-OwR"/>
                                         <constraint firstAttribute="leadingMargin" relation="lessThanOrEqual" secondItem="LNH-Y3-2Uh" secondAttribute="leading" id="yra-lP-ubh"/>
                                     </constraints>
                                 </tableViewCellContentView>
@@ -754,6 +833,8 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                                     <outlet property="durationLabel" destination="Q07-nf-KlI" id="i4E-hB-yXI"/>
                                     <outlet property="titleLabel" destination="2xn-bn-1Cz" id="khu-lC-hh4"/>
                                     <outlet property="trackNumberLabel" destination="LNH-Y3-2Uh" id="as7-Dy-Cth"/>
+                                    <segue destination="ppy-e1-uy0" kind="show" identifier="playSong" id="IBF-35-jpA"/>
+                                    <segue destination="ppy-e1-uy0" kind="show" identifier="showSong" trigger="accessoryAction" id="GNa-fu-FYk"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="versionCell" id="scC-K9-gfw" userLabel="Version Cell" customClass="ReleaseVersionTableCell" customModule="SwiftDiscogsApp" customModuleProvider="target">
@@ -795,7 +876,7 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7pn-ts-1ix" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4951" y="1015"/>
+            <point key="canvasLocation" x="4949.6000000000004" y="1014.5320197044335"/>
         </scene>
         <!--Release Version View Controller-->
         <scene sceneID="M19-ua-Msn">
@@ -806,11 +887,11 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="trackCell" id="2Vh-bz-5Kn" userLabel="Tracklist Cell" customClass="TracklistTableCell" customModule="SwiftDiscogsApp" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="trackCell" id="2Vh-bz-5Kn" userLabel="Tracklist Cell" customClass="TracklistTableCell" customModule="SwiftDiscogsApp" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2Vh-bz-5Kn" id="Ucw-FF-Oxe">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="341" height="43.666666666666664"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="B2" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Upc-AT-FXv" userLabel="Position">
@@ -826,7 +907,7 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2:46" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XIN-ng-LbH" userLabel="Duration">
-                                            <rect key="frame" x="332.66666666666669" y="11" width="26.333333333333314" height="14.333333333333336"/>
+                                            <rect key="frame" x="306.66666666666669" y="11" width="26.333333333333314" height="14.333333333333336"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -848,6 +929,8 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                                     <outlet property="durationLabel" destination="XIN-ng-LbH" id="7vy-5E-gYx"/>
                                     <outlet property="titleLabel" destination="WEe-ZU-x1h" id="por-Rm-GML"/>
                                     <outlet property="trackNumberLabel" destination="Upc-AT-FXv" id="cul-LI-81v"/>
+                                    <segue destination="ppy-e1-uy0" kind="show" identifier="playSong" id="DQX-HL-gPw"/>
+                                    <segue destination="ppy-e1-uy0" kind="show" identifier="showSong" trigger="accessoryAction" id="fux-N8-rVC"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -997,11 +1080,14 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jgh-5s-jk5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3173" y="1015"/>
+            <point key="canvasLocation" x="3172" y="-573"/>
         </scene>
     </scenes>
     <resources>
         <image name="Discogs" width="480" height="174"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="fux-N8-rVC"/>
+    </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.0026941164399999998" green="0.097064159809999995" blue="0.57731443640000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
