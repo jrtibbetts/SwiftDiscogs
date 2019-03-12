@@ -763,7 +763,7 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                                             <rect key="frame" x="0.0" y="0.0" width="343" height="43.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="firstBaseline" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="aQ3-Kb-Smu">
+                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="firstBaseline" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="aQ3-Kb-Smu" userLabel="Name Label">
                                                     <rect key="frame" x="15" y="11" width="80.666666666666671" height="22"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AKA" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7OT-ym-U3D" userLabel="Also Known As Label">
@@ -795,6 +795,28 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                                                 <constraint firstAttribute="trailingMargin" secondItem="gVc-WZ-K9Q" secondAttribute="trailing" id="gew-ZE-yWY"/>
                                                 <constraint firstAttribute="leadingMargin" secondItem="aQ3-Kb-Smu" secondAttribute="leading" id="pTK-EA-HBc"/>
                                                 <constraint firstItem="gVc-WZ-K9Q" firstAttribute="firstBaseline" secondItem="7OT-ym-U3D" secondAttribute="firstBaseline" id="xJf-ia-Bod"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="O9q-Pd-725" userLabel="Lyrics Cell">
+                                        <rect key="frame" x="0.0" y="546" width="343" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="O9q-Pd-725" id="9Bf-Ra-Axo">
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43.666666666666664"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lyrics" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="udw-pU-YA6">
+                                                    <rect key="frame" x="15" y="11" width="313" height="22"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="udw-pU-YA6" firstAttribute="leading" secondItem="9Bf-Ra-Axo" secondAttribute="leadingMargin" id="2is-yw-9ed"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="udw-pU-YA6" secondAttribute="trailing" id="Pe3-2H-Dce"/>
+                                                <constraint firstAttribute="topMargin" secondItem="udw-pU-YA6" secondAttribute="top" id="RZ1-TS-sms"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="udw-pU-YA6" secondAttribute="bottom" id="aTj-BH-49f"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
