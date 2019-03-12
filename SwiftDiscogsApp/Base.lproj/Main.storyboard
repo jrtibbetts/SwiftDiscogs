@@ -571,20 +571,20 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
             <objects>
                 <viewController id="qjc-4k-CUc" userLabel="Media Sources" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dm2-JJ-vUh">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="343" height="150"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E3y-aN-mXn">
-                                <rect key="frame" x="16" y="44" width="343" height="734"/>
+                                <rect key="frame" x="16" y="44" width="311" height="72"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="j2A-9I-W1F">
-                                        <rect key="frame" x="0.0" y="0.0" width="343" height="734"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="311" height="72"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Sa-gL-3wS" userLabel="Header">
-                                                <rect key="frame" x="0.0" y="0.0" width="343" height="62.666666666666664"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="311" height="50"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H7j-am-8yf" userLabel="Instructions">
-                                                        <rect key="frame" x="8" y="8" width="326.66666666666669" height="46.666666666666664"/>
+                                                        <rect key="frame" x="8" y="8" width="295" height="34"/>
                                                         <string key="text">Media can be played from many sources. Arrange the sources in the order you'd like them to be searched. Sign in to any services that require an active account.</string>
                                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                         <nil key="textColor"/>
@@ -600,19 +600,19 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                                                 </constraints>
                                             </view>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelectionDuringEditing="YES" rowHeight="82" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="CL6-Bk-rtK">
-                                                <rect key="frame" x="0.0" y="62.666666666666686" width="343" height="671.33333333333326"/>
+                                                <rect key="frame" x="0.0" y="50" width="311" height="22"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <view key="tableFooterView" contentMode="scaleToFill" id="es6-NG-rjY" userLabel="Zero-height footer to hide empty table cells.">
-                                                    <rect key="frame" x="0.0" y="110" width="343" height="0.0"/>
+                                                    <rect key="frame" x="0.0" y="110" width="311" height="0.0"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </view>
                                                 <prototypes>
                                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="serviceCell" id="w7g-R4-VGH">
-                                                        <rect key="frame" x="0.0" y="28" width="343" height="82"/>
+                                                        <rect key="frame" x="0.0" y="28" width="311" height="82"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="w7g-R4-VGH" id="3OU-9N-Xrz">
-                                                            <rect key="frame" x="0.0" y="0.0" width="343" height="81.666666666666671"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="311" height="81.666666666666671"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3YP-Lj-fKg" userLabel="Service Logo">
@@ -690,7 +690,7 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r93-U2-vsO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4033" y="1827"/>
+            <point key="canvasLocation" x="4007" y="2306"/>
         </scene>
         <!--Song-->
         <scene sceneID="GOB-hb-k4f">
@@ -866,77 +866,25 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="0bf-aZ-dR9" userLabel="Play Controls">
-                                <rect key="frame" x="16" y="703" width="343" height="75"/>
-                                <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="lastBaseline" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="fyv-Am-mg6" userLabel="Play Button Stack">
-                                        <rect key="frame" x="73" y="0.0" width="197" height="55"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yjh-Zp-M3z" userLabel="Previous Song Button">
-                                                <rect key="frame" x="0.0" y="19" width="30" height="36"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                <state key="normal" title="⏮"/>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="607-nj-9Qe" userLabel="Rewind Button">
-                                                <rect key="frame" x="38" y="19" width="30" height="36"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                <state key="normal" title="⏪"/>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6MF-02-pai" userLabel="Play Button">
-                                                <rect key="frame" x="76" y="0.0" width="45" height="60"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
-                                                <state key="normal" title="▶️"/>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3cC-ie-QEH" userLabel="Forward Button">
-                                                <rect key="frame" x="129" y="19" width="30" height="36"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                <state key="normal" title="⏩"/>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fmy-yL-1hz" userLabel="Next Song Button">
-                                                <rect key="frame" x="167" y="19" width="30" height="36"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                <state key="normal" title="⏭"/>
-                                            </button>
-                                        </subviews>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="j5D-Ry-2KB" userLabel="Timeline Stack">
-                                        <rect key="frame" x="0.0" y="63" width="343" height="12"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2:12" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WIF-vI-pTw" userLabel="Elapsed Time Label">
-                                                <rect key="frame" x="0.0" y="0.0" width="22.333333333333332" height="12"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" ambiguous="YES" progressViewStyle="bar" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="xwM-De-3w4" userLabel="Timeline">
-                                                <rect key="frame" x="74.333333333333329" y="5.3333333333333712" width="194.33333333333337" height="2.666666666666667"/>
-                                            </progressView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4:24" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1TR-52-FHS" userLabel="Remaining/Total Time Label">
-                                                <rect key="frame" x="320.66666666666669" y="0.0" width="22.333333333333314" height="12"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstItem="WIF-vI-pTw" firstAttribute="width" secondItem="1TR-52-FHS" secondAttribute="width" id="puP-SD-es7"/>
-                                        </constraints>
-                                    </stackView>
-                                </subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s47-14-jgY" userLabel="Play Controls Container">
+                                <rect key="frame" x="16" y="628" width="343" height="150"/>
                                 <constraints>
-                                    <constraint firstItem="j5D-Ry-2KB" firstAttribute="width" secondItem="0bf-aZ-dR9" secondAttribute="width" id="KcB-4v-aVi"/>
+                                    <constraint firstAttribute="height" constant="150" id="Gw0-p9-anT"/>
                                 </constraints>
-                            </stackView>
+                                <connections>
+                                    <segue destination="qmz-tJ-w3k" kind="embed" id="yR1-dA-Kjr"/>
+                                </connections>
+                            </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="0bf-aZ-dR9" firstAttribute="leading" secondItem="Rcb-wT-l47" secondAttribute="leading" constant="16" id="52J-Y4-2Md"/>
-                            <constraint firstItem="Rcb-wT-l47" firstAttribute="trailing" secondItem="0bf-aZ-dR9" secondAttribute="trailing" constant="16" id="MuL-FW-cFZ"/>
-                            <constraint firstItem="Rcb-wT-l47" firstAttribute="bottom" secondItem="0bf-aZ-dR9" secondAttribute="bottom" id="NE5-0Z-kJV"/>
+                            <constraint firstItem="Rcb-wT-l47" firstAttribute="bottom" secondItem="s47-14-jgY" secondAttribute="bottom" id="5s4-zy-RAK"/>
+                            <constraint firstItem="s47-14-jgY" firstAttribute="leading" secondItem="Rcb-wT-l47" secondAttribute="leading" constant="16" id="Mps-ar-nCD"/>
                             <constraint firstItem="cJ8-J0-ZW3" firstAttribute="leading" secondItem="Rcb-wT-l47" secondAttribute="leading" constant="16" id="Nol-zk-6u5"/>
                             <constraint firstItem="Rcb-wT-l47" firstAttribute="trailing" secondItem="ppH-We-6On" secondAttribute="trailing" constant="16" id="QQ5-tc-SST"/>
                             <constraint firstItem="Rcb-wT-l47" firstAttribute="trailing" secondItem="cJ8-J0-ZW3" secondAttribute="trailing" constant="16" id="QxK-yn-7xJ"/>
                             <constraint firstItem="Rcb-wT-l47" firstAttribute="bottom" secondItem="cJ8-J0-ZW3" secondAttribute="bottom" id="T7N-ss-96b"/>
+                            <constraint firstItem="Rcb-wT-l47" firstAttribute="trailing" secondItem="s47-14-jgY" secondAttribute="trailing" constant="16" id="Vht-mp-S4U"/>
                             <constraint firstItem="ppH-We-6On" firstAttribute="top" secondItem="Rcb-wT-l47" secondAttribute="top" id="iuK-a5-oxt"/>
                             <constraint firstItem="cJ8-J0-ZW3" firstAttribute="top" secondItem="Rcb-wT-l47" secondAttribute="top" id="kzK-CL-39H"/>
                             <constraint firstItem="ppH-We-6On" firstAttribute="leading" secondItem="Rcb-wT-l47" secondAttribute="leading" constant="16" id="nsl-C6-2Qf"/>
@@ -952,6 +900,114 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gb9-27-gFx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4949.6000000000004" y="1826.600985221675"/>
+        </scene>
+        <!--Play Controls-->
+        <scene sceneID="i4y-O2-Wve">
+            <objects>
+                <viewController id="qmz-tJ-w3k" userLabel="Play Controls" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="PHQ-D5-oe0">
+                        <rect key="frame" x="0.0" y="0.0" width="343" height="150"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="0bf-aZ-dR9" userLabel="Play Controls">
+                                <rect key="frame" x="16" y="44" width="311" height="72"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="lastBaseline" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="fyv-Am-mg6" userLabel="Play Button Stack">
+                                        <rect key="frame" x="57" y="0.0" width="197" height="14.666666666666666"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yjh-Zp-M3z" userLabel="Previous Song Button">
+                                                <rect key="frame" x="0.0" y="0.0" width="30" height="14.666666666666666"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <state key="normal" title="⏮"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="607-nj-9Qe" userLabel="Rewind Button">
+                                                <rect key="frame" x="38" y="0.0" width="30" height="29.333333333333332"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <state key="normal" title="⏪"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6MF-02-pai" userLabel="Play Button">
+                                                <rect key="frame" x="76" y="0.0" width="45" height="39.333333333333336"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                                <state key="normal" title="▶️"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3cC-ie-QEH" userLabel="Forward Button">
+                                                <rect key="frame" x="129" y="0.0" width="30" height="29.333333333333332"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <state key="normal" title="⏩"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fmy-yL-1hz" userLabel="Next Song Button">
+                                                <rect key="frame" x="167" y="0.0" width="30" height="29.333333333333332"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <state key="normal" title="⏭"/>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="firstBaseline" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="j5D-Ry-2KB" userLabel="Timeline Stack">
+                                        <rect key="frame" x="26.333333333333343" y="21.666666666666671" width="258.66666666666663" height="11.333333333333336"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2:12" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WIF-vI-pTw" userLabel="Elapsed Time Label">
+                                                <rect key="frame" x="0.0" y="0.0" width="20.333333333333332" height="11.333333333333334"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" progressViewStyle="bar" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="xwM-De-3w4" userLabel="Timeline">
+                                                <rect key="frame" x="28.333333333333343" y="9.6666666666666572" width="200" height="2.6666666666666679"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="200" id="RcE-eD-MZe"/>
+                                                </constraints>
+                                            </progressView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4:24" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1TR-52-FHS" userLabel="Remaining/Total Time Label">
+                                                <rect key="frame" x="236.33333333333334" y="0.0" width="22.333333333333343" height="11.333333333333334"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="4rG-o9-fVD" userLabel="Playback Source Stack">
+                                        <rect key="frame" x="34.000000000000014" y="40" width="243.33333333333337" height="32"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Spotify" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0pb-rk-d9y" userLabel="Source Name Label">
+                                                <rect key="frame" x="0.0" y="0.0" width="54.333333333333336" height="32"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="45x-vf-3wz" userLabel="Source Logo Image">
+                                                <rect key="frame" x="62.333333333333329" y="0.0" width="119.99999999999999" height="32"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="120" id="P4w-pb-Z04"/>
+                                                    <constraint firstAttribute="height" constant="32" id="WUO-1X-YzW"/>
+                                                </constraints>
+                                            </imageView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eMn-8N-fEq" userLabel="Change Source Button">
+                                                <rect key="frame" x="190.33333333333334" y="0.0" width="53" height="32"/>
+                                                <state key="normal" title="Change"/>
+                                                <connections>
+                                                    <segue destination="qjc-4k-CUc" kind="show" identifier="showPlaybackSources" id="EA2-75-HdX"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="topMargin" secondItem="0bf-aZ-dR9" secondAttribute="top" id="I1G-nn-Ura"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="0bf-aZ-dR9" secondAttribute="bottom" id="LkW-fN-Ej5"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="0bf-aZ-dR9" secondAttribute="trailing" id="fAW-e2-d6W"/>
+                            <constraint firstItem="0bf-aZ-dR9" firstAttribute="leading" secondItem="PHQ-D5-oe0" secondAttribute="leadingMargin" id="vdv-tW-22a"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="5EJ-Q9-h7C"/>
+                    </view>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cQA-s6-9tj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4949.6000000000004" y="2305.4187192118229"/>
         </scene>
         <!--Release Version-->
         <scene sceneID="Dhb-ua-T0C">
