@@ -725,13 +725,13 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="8Gz-TJ-OXU" userLabel="Credits">
                                                     <rect key="frame" x="15" y="11" width="313" height="109"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" ambiguous="YES" text="“With a Little Luck”" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qgN-qQ-oM8" userLabel="Title">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" verticalCompressionResistancePriority="749" text="“With a Little Luck”" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qgN-qQ-oM8" userLabel="Title">
                                                             <rect key="frame" x="25" y="0.0" width="263.33333333333331" height="31.666666666666668"/>
                                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Xg-Lr-C9C">
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Xg-Lr-C9C">
                                                             <rect key="frame" x="123.66666666666666" y="39.666666666666664" width="66" height="40.999999999999993"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                             <state key="normal" title="Wings"/>
@@ -739,7 +739,7 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                                                                 <segue destination="cvK-7F-nVP" kind="show" identifier="showArtist" id="UNb-dt-M4w"/>
                                                             </connections>
                                                         </button>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" ambiguous="YES" text="First released March 20th, 1978" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NZq-U3-jLC">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="750" text="First released March 20th, 1978" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NZq-U3-jLC">
                                                             <rect key="frame" x="35.666666666666657" y="88.666666666666671" width="241.99999999999997" height="20.333333333333329"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
@@ -756,12 +756,46 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="TIs-u9-cRE">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="songVersionCell" id="TIs-u9-cRE" userLabel="Song Version Cell">
                                         <rect key="frame" x="0.0" y="502" width="343" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="TIs-u9-cRE" id="iJ9-L6-jPc">
                                             <rect key="frame" x="0.0" y="0.0" width="343" height="43.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="firstBaseline" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="aQ3-Kb-Smu">
+                                                    <rect key="frame" x="15" y="11" width="80.666666666666671" height="22"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AKA" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7OT-ym-U3D" userLabel="Also Known As Label">
+                                                            <rect key="frame" x="0.0" y="7.6666666666666687" width="32.333333333333336" height="14.333333333333336"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DJ edit" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KE6-eh-HJg" userLabel="Disambiguation Note Label">
+                                                            <rect key="frame" x="40.333333333333329" y="7.6666666666666687" width="40.333333333333329" height="14.333333333333336"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3:15" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gVc-WZ-K9Q" userLabel="Duration Label">
+                                                    <rect key="frame" x="303.66666666666669" y="18.666666666666668" width="24.333333333333314" height="14.333333333333332"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="gVc-WZ-K9Q" firstAttribute="firstBaseline" secondItem="KE6-eh-HJg" secondAttribute="firstBaseline" id="0ji-RJ-Qyy"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="aQ3-Kb-Smu" secondAttribute="bottom" id="HXb-6i-TdB"/>
+                                                <constraint firstAttribute="topMargin" secondItem="aQ3-Kb-Smu" secondAttribute="top" id="Jc7-Jk-hpM"/>
+                                                <constraint firstItem="aQ3-Kb-Smu" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="gVc-WZ-K9Q" secondAttribute="leading" constant="8" symbolic="YES" id="YcK-If-UJZ"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="gVc-WZ-K9Q" secondAttribute="trailing" id="gew-ZE-yWY"/>
+                                                <constraint firstAttribute="leadingMargin" secondItem="aQ3-Kb-Smu" secondAttribute="leading" id="pTK-EA-HBc"/>
+                                                <constraint firstItem="gVc-WZ-K9Q" firstAttribute="firstBaseline" secondItem="7OT-ym-U3D" secondAttribute="firstBaseline" id="xJf-ia-Bod"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
