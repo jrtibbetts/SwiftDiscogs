@@ -715,7 +715,7 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </view>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="songNameCell" rowHeight="131" id="yMl-8j-ZB8" userLabel="Song Name Cell" customClass="SongNameTableViewCell" customModule="SwiftDiscogsApp" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="songTitleCell" rowHeight="131" id="yMl-8j-ZB8" userLabel="Song Title Cell" customClass="SongNameTableViewCell" customModule="SwiftDiscogsApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="371" width="343" height="131"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="yMl-8j-ZB8" id="n6B-Cx-KKn">
@@ -1010,10 +1010,10 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
             </objects>
             <point key="canvasLocation" x="4949.6000000000004" y="2305.4187192118229"/>
         </scene>
-        <!--Release Version-->
+        <!--Master Release-->
         <scene sceneID="Dhb-ua-T0C">
             <objects>
-                <tableViewController id="Kvd-zN-Pml" userLabel="Release Version" customClass="MasterReleaseViewController" customModule="SwiftDiscogsApp" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="Kvd-zN-Pml" userLabel="Master Release" customClass="MasterReleaseViewController" customModule="SwiftDiscogsApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="4gc-te-Nk4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1315,7 +1315,7 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
         <image name="Discogs" width="480" height="174"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="fux-N8-rVC"/>
+        <segue reference="GNa-fu-FYk"/>
         <segue reference="UNb-dt-M4w"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.0026941164399999998" green="0.097064159809999995" blue="0.57731443640000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

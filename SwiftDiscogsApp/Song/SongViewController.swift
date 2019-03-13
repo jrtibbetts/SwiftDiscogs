@@ -11,11 +11,28 @@ open class SongViewController: UIViewController, DiscogsProvider {
         return view as? SongView
     }
 
+    open var model = SongModel()
+
     // MARK: - DiscogsProvider
 
     public var discogs: Discogs? = DiscogsClient.singleton
 
     // MARK: - UIViewController
+
+    open override func viewDidLoad() {
+        let decoder = JSONDecoder()
+        decoder.keyDecodingStrategy = .convertFromSnakeCase
+
+        do {
+            if let data = songJSON.data(using: .utf8) {
+                model.song = try decoder.decode(Song.self, from: data)
+            }
+        } catch {
+
+        }
+
+        songDisplay?.model = model
+    }
 
 }
 
@@ -73,7 +90,7 @@ open class SongModel: SectionedModel {
             if let cell = cell as? SongCreditsTableViewCell,
                 let performer = song?.personnel?[indexPath.row] {
                 cell.playerNameButton.titleLabel?.text = performer.name
-                cell.roleLabel.text = performer.roles.map { $0.name }.joined(separator: ", ")
+                cell.roleLabel.text = performer.roles.joined(separator: ", ")
             }
         case songTitleSection:
             if let cell = cell as? SongNameTableViewCell {
@@ -84,7 +101,7 @@ open class SongModel: SectionedModel {
                 let version = song?.versions[indexPath.row] {
 
                 if let disambiguation = version.disambiguationNote {
-                    cell.differentiationLabel.isHidden = true
+                    cell.differentiationLabel.isHidden = false
                     cell.differentiationLabel.text = disambiguation
                 } else {
                     cell.differentiationLabel.isHidden = true
@@ -95,7 +112,7 @@ open class SongModel: SectionedModel {
         default:
             break
         }
-        
+
         return cell
     }
 

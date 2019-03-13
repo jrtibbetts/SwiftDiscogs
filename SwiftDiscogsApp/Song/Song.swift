@@ -5,7 +5,7 @@ import SwiftDiscogs
 
 open class Song: NSObject, Codable {
 
-    open var artist: ArtistSummary
+    open var artist: String?
 
     open var id: Int
 
@@ -21,13 +21,7 @@ open class Song: NSObject, Codable {
 
         open var name: String
 
-        open var roles: [Role]
-
-    }
-
-    open class Role: NSObject, Codable {
-
-        open var name: String
+        open var roles: [String]
 
     }
 
@@ -42,3 +36,27 @@ open class Song: NSObject, Codable {
     }
 
 }
+
+let songJSON = """
+{
+    "id": 99910009,
+    "artist": "Wings",
+    "personnel": [
+        {
+            "name": "Paul McCartney",
+            "roles": ["lead vocals", "bass guitar", "drums", "synthesizer"]
+        }
+    ],
+    "title": "With a Little Luck",
+    "versions": [
+        {
+            "disambiguation_note": "DJ edit",
+            "duration": 195.0
+        },
+        {
+            "disambiguation_note": "album version",
+            "duration": 347.0
+        },
+    ]
+}
+"""
