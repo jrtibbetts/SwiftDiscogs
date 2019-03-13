@@ -1,5 +1,6 @@
 //  Copyright © 2019 Poikile Creations. All rights reserved.
 
+import Kingfisher
 import SwiftDiscogs
 import Stylobate
 import UIKit
@@ -15,6 +16,14 @@ open class SongView: CollectionAndTableDisplay, DiscogsProvider {
     // MARK: - DiscogsProvider
 
     open var discogs: Discogs?
+
+    // MARK: - Public Properties
+
+    open override var model: CollectionAndTableModel? {
+        didSet {
+            coverArtView.kf.setImage(with: (model as? SongModel)?.song?.artwork)
+        }
+    }
 
 }
 

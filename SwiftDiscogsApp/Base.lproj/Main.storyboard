@@ -708,7 +708,7 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cJ8-J0-ZW3">
                                 <rect key="frame" x="16" y="88" width="343" height="690"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="FVq-tL-bdN" userLabel="Clear Header">
                                     <rect key="frame" x="0.0" y="0.0" width="343" height="343"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -896,7 +896,7 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                             <outlet property="tableView" destination="cJ8-J0-ZW3" id="C9z-Mw-SxV"/>
                         </connections>
                     </view>
-                    <navigationItem key="navigationItem" id="BGF-cO-F28"/>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="BGF-cO-F28"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gb9-27-gFx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

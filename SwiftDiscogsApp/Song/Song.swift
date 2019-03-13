@@ -7,6 +7,8 @@ open class Song: NSObject, Codable {
 
     open var artist: String?
 
+    open var artwork: URL?
+
     open var id: Int
 
     open var lyrics: String?
@@ -41,6 +43,7 @@ let songJSON = """
 {
     "id": 99910009,
     "artist": "Wings",
+    "artwork": "https://img.discogs.com/QB81SgRfxDHshzvuCboXK6N6Zr8=/fit-in/600x597/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-6928296-1513269118-8771.jpeg.jpg",
     "personnel": [
         {
             "name": "Paul McCartney",
