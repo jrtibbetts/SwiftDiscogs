@@ -695,7 +695,7 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
         <!--Song-->
         <scene sceneID="GOB-hb-k4f">
             <objects>
-                <viewController id="ppy-e1-uy0" userLabel="Song" sceneMemberID="viewController">
+                <viewController id="ppy-e1-uy0" userLabel="Song" customClass="SongViewController" customModule="SwiftDiscogsApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gu4-jO-whc" customClass="SongView" customModule="SwiftDiscogsApp" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -896,6 +896,7 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                             <outlet property="tableView" destination="cJ8-J0-ZW3" id="C9z-Mw-SxV"/>
                         </connections>
                     </view>
+                    <navigationItem key="navigationItem" id="BGF-cO-F28"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gb9-27-gFx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

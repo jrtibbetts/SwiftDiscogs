@@ -4,15 +4,13 @@ import SwiftDiscogs
 import Stylobate
 import UIKit
 
-open class SongView: Display, DiscogsProvider {
+open class SongView: CollectionAndTableDisplay, DiscogsProvider {
 
     // MARK: - Outlets
 
     @IBOutlet open weak var coverArtView: UIImageView!
 
     @IBOutlet open weak var playbackView: UIView!
-
-    @IBOutlet open weak var tableView: UITableView!
 
     // MARK: - DiscogsProvider
 
