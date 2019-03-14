@@ -25,6 +25,13 @@ open class SongView: CollectionAndTableDisplay, DiscogsProvider {
         }
     }
 
+    // MARK: - UIView
+    
+    open override func didMoveToSuperview() {
+        super.didMoveToSuperview()
+        bringSubviewToFront(playbackView)
+    }
+
 }
 
 open class SongCreditsTableViewCell: UITableViewCell {
