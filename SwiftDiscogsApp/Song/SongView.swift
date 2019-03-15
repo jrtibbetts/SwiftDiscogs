@@ -26,7 +26,7 @@ open class SongView: CollectionAndTableDisplay, DiscogsProvider {
     }
 
     // MARK: - UIView
-    
+
     open override func didMoveToSuperview() {
         super.didMoveToSuperview()
         bringSubviewToFront(playbackView)
@@ -104,8 +104,8 @@ open class SongVersionTableViewCell: UITableViewCell {
     open var songVersion: Song.Version? {
         didSet {
             if let disambiguation = songVersion?.disambiguationNote {
-                differentiationLabel.isHidden = false
                 differentiationLabel.text = disambiguation
+                differentiationLabel.isHidden = false
             } else {
                 differentiationLabel.isHidden = true
             }
@@ -117,8 +117,21 @@ open class SongVersionTableViewCell: UITableViewCell {
                 alsoKnownAsLabel.isHidden = true
             }
 
-            durationLabel.text = "\((songVersion?.duration ?? 0) / 1000)" // this should be formatted as a time
+            if let duration = songVersion?.duration {
+                durationLabel.text = format(duration: duration)
+                durationLabel.isHidden = false
+            } else {
+                durationLabel.isHidden = true
+            }
         }
+    }
+
+    private func format(duration: TimeInterval) -> String {
+        let intDuration = Int(duration)
+
+        // This should be localized, but how? Separators are usually handled by
+        // DateFormatters, but those can't be used for durations, can they?
+        return "\(intDuration / 60):\(intDuration % 60)"
     }
 
 }

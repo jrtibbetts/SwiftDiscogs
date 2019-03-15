@@ -22,6 +22,10 @@
 /* A recording company name. */
 "label" = "Label";
 
+"lyrics" = "Lyrics";
+
+"personnel" = "Personnel";
+
 "title" = "Title";
 
 "tracklist" = "Tracklist";

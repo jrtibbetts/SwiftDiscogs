@@ -27,6 +27,10 @@ internal enum L10n {
   internal static let format = L10n.tr("SwiftDiscogsApp", "format")
   /// Label
   internal static let label = L10n.tr("SwiftDiscogsApp", "label")
+  /// Lyrics
+  internal static let lyrics = L10n.tr("SwiftDiscogsApp", "lyrics")
+  /// Personnel
+  internal static let personnel = L10n.tr("SwiftDiscogsApp", "personnel")
   /// Title
   internal static let title = L10n.tr("SwiftDiscogsApp", "title")
   /// Tracklist
