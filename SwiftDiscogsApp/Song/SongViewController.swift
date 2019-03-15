@@ -13,7 +13,9 @@ open class SongViewController: UIViewController, DiscogsProvider {
         }
 
         set {
-            model.song = song
+            model.song = newValue
+            songDisplay?.model = model
+            songDisplay?.refresh()
         }
     }
 
@@ -38,13 +40,11 @@ open class SongViewController: UIViewController, DiscogsProvider {
 
             do {
                 if let data = songJSON.data(using: .utf8) {
-                    model.song = try decoder.decode(Song.self, from: data)
+                    song = try decoder.decode(Song.self, from: data)
                 }
             } catch {
 
             }
-
-            songDisplay?.model = model
         }
     }
 

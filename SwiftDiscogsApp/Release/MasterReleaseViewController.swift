@@ -16,7 +16,7 @@ public class MasterReleaseViewController: UIViewController, DiscogsProvider {
         }
         
         set {
-            masterReleaseModel.masterRelease = masterRelease
+            masterReleaseModel.masterRelease = newValue
         }
     }
 
