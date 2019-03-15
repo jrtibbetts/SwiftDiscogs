@@ -3,20 +3,11 @@
 import SwiftDiscogs
 import UIKit
 
-public protocol ReleaseVersionView: class {
-
-    var titleLabel: UILabel? { get set }
-
-}
-public class ReleaseVersionTableCell: UITableViewCell, ReleaseVersionView {
+public class ReleaseVersionTableCell: UITableViewCell {
 
     // MARK: - Outlets
 
     @IBOutlet public weak var titleLabel: UILabel?
-
-}
-
-public extension ReleaseVersionView {
 
     public func setUp(with release: MasterReleaseVersion) {
         titleLabel?.text = release.title

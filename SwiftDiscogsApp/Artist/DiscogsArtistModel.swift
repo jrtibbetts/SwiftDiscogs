@@ -23,7 +23,7 @@ open class DiscogsArtistModel: SectionedModel {
                                           headerText: L10n.artistReleasesSectionHeader)
     // MARK: Initializers
 
-    public init() {
+    public override init() {
         super.init(sections: [bioSection, releasesSection])
     }
 

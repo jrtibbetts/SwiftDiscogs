@@ -7,8 +7,8 @@ open class SectionedModel: CollectionAndTableModel {
 
     open var sections: [Section] = []
 
-    override convenience public init() {
-        self.init(sections: [])
+    override public init() {
+        super.init()
     }
 
     public init(sections: [Section]) {
