@@ -7,6 +7,16 @@ open class SongViewController: UIViewController, DiscogsProvider {
 
     // MARK: - Public Properties
 
+    open var song: Song? {
+        get {
+            return model.song
+        }
+
+        set {
+            model.song = song
+        }
+    }
+
     open var songDisplay: SongView? {
         return view as? SongView
     }
@@ -19,19 +29,23 @@ open class SongViewController: UIViewController, DiscogsProvider {
 
     // MARK: - UIViewController
 
-    open override func viewDidLoad() {
-        let decoder = JSONDecoder()
-        decoder.keyDecodingStrategy = .convertFromSnakeCase
+    open override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
 
-        do {
-            if let data = songJSON.data(using: .utf8) {
-                model.song = try decoder.decode(Song.self, from: data)
+        if song == nil {
+            let decoder = JSONDecoder()
+            decoder.keyDecodingStrategy = .convertFromSnakeCase
+
+            do {
+                if let data = songJSON.data(using: .utf8) {
+                    model.song = try decoder.decode(Song.self, from: data)
+                }
+            } catch {
+
             }
-        } catch {
 
+            songDisplay?.model = model
         }
-
-        songDisplay?.model = model
     }
 
 }

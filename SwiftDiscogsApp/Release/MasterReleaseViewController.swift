@@ -48,7 +48,23 @@ public class MasterReleaseViewController: UIViewController, DiscogsProvider {
     @IBOutlet private weak var tableView: UITableView!
 
     // MARK: - UIViewController
-    
+
+    public override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showSong" || segue.identifier == "playSong",
+            let songViewController = segue.destination as? SongViewController,
+            let row = tableView.indexPathForSelectedRow?.row {
+            songViewController.song = song(forSelectedIndex: row)
+        }
+    }
+
+    private func song(forSelectedIndex index: Int) -> Song? {
+        if let track = masterRelease?.tracklist[index] {
+            return Song(title: track.title, artist: masterRelease?.artists[0].name)
+        } else {
+            return nil
+        }
+    }
+
     public override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = ""  // clear out the storyboard's value

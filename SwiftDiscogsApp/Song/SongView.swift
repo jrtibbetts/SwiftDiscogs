@@ -84,6 +84,10 @@ open class SongNameTableViewCell: UITableViewCell {
     open var song: Song? {
         didSet {
             songNameLabel.text = song?.title
+            artistButton.setTitle(song?.artist, for: .normal)
+            // temporarily hide the firstReleaseLabel until we start getting
+            // this information.
+            firstReleasedLabel.isHidden = true
         }
     }
 

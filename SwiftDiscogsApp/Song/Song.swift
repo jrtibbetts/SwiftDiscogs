@@ -9,7 +9,7 @@ open class Song: NSObject, Codable {
 
     open var artwork: URL?
 
-    open var id: Int
+//    open var id: Int
 
     open var lyrics: String?
 
@@ -18,6 +18,15 @@ open class Song: NSObject, Codable {
     open var title: String
 
     open var versions: [Version]
+
+    // MARK: - Initialization
+
+    public init(title: String, artist: String? = nil) {
+        self.title = title
+        self.artist = artist
+        self.versions = []
+        super.init()
+    }
 
     open class Performer: NSObject, Codable {
 
