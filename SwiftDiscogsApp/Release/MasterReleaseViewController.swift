@@ -16,6 +16,7 @@ public class MasterReleaseViewController: UIViewController, DiscogsProvider {
         }
         
         set {
+            navigationItem.title = masterRelease?.title
             model.masterRelease = newValue
             tableView?.reloadData()
         }
@@ -29,8 +30,6 @@ public class MasterReleaseViewController: UIViewController, DiscogsProvider {
                 // Get the master release itself.
                 discogs?.masterRelease(identifier: masterReleaseID).done { [weak self] (masterRelease) in
                     self?.model.masterRelease = masterRelease
-                    self?.navigationItem.title = masterRelease.title
-                    self?.tableView?.reloadData()
                     }.catch { (error) in
                         print("Error: \(error)")
                     }

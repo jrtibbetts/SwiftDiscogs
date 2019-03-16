@@ -309,7 +309,7 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                                             <outlet property="titleLabel" destination="RTP-xH-Qfi" id="tL5-8y-Ga8"/>
                                             <outlet property="typeLabel" destination="2qs-Y5-wHC" id="Fbz-Sp-u1N"/>
                                             <outlet property="yearLabel" destination="i8D-bh-YBu" id="27g-vH-vLr"/>
-                                            <segue destination="Kvd-zN-Pml" kind="show" identifier="showMasterRelease" id="3tl-ha-Ydw"/>
+                                            <segue destination="k8J-Ec-M2T" kind="show" identifier="showMasterRelease" id="B4R-lq-hcr"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="artistSingleCell" rowHeight="88" id="uOO-zB-Byl" userLabel="Single Cell" customClass="DiscogsArtistReleaseTableCell" customModule="SwiftDiscogsApp" customModuleProvider="target">
@@ -915,7 +915,7 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gb9-27-gFx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4949.6000000000004" y="1826.600985221675"/>
+            <point key="canvasLocation" x="4950" y="1827"/>
         </scene>
         <!--Play Controls-->
         <scene sceneID="i4y-O2-Wve">
@@ -1026,112 +1026,130 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
             </objects>
             <point key="canvasLocation" x="4949.6000000000004" y="2305.4187192118229"/>
         </scene>
-        <!--Master Release-->
-        <scene sceneID="Dhb-ua-T0C">
+        <!--View Controller-->
+        <scene sceneID="Xlf-ou-lRd">
             <objects>
-                <tableViewController id="Kvd-zN-Pml" userLabel="Master Release" customClass="MasterReleaseViewController" customModule="SwiftDiscogsApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="4gc-te-Nk4">
+                <viewController id="k8J-Ec-M2T" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dGD-xz-B36">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2LP-y1-iYJ" userLabel="Artwork">
+                                <rect key="frame" x="16" y="88" width="343" height="343"/>
+                            </imageView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4gc-te-Nk4">
+                                <rect key="frame" x="0.0" y="88" width="375" height="690"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <view key="tableHeaderView" contentMode="scaleToFill" id="EWI-4k-5XF" userLabel="Clear Header">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="343"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </view>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="trackCell" id="vqQ-EN-bYt" userLabel="Tracklist Cell" customClass="TrackTableCell" customModule="SwiftDiscogsApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="371" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vqQ-EN-bYt" id="o0w-d9-RgM">
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43.666666666666664"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="B2" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LNH-Y3-2Uh" userLabel="Position">
+                                                    <rect key="frame" x="29.666666666666668" y="11" width="15.333333333333332" height="14.333333333333336"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Because" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2xn-bn-1Cz" userLabel="Title">
+                                                    <rect key="frame" x="53" y="11" width="51.333333333333343" height="22"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2:46" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q07-nf-KlI" userLabel="Duration">
+                                                    <rect key="frame" x="307.66666666666669" y="11" width="26.333333333333314" height="14.333333333333336"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottomMargin" secondItem="2xn-bn-1Cz" secondAttribute="bottom" id="17V-rn-Lng"/>
+                                                <constraint firstItem="2xn-bn-1Cz" firstAttribute="top" secondItem="o0w-d9-RgM" secondAttribute="topMargin" id="7Pf-nD-dkc"/>
+                                                <constraint firstItem="LNH-Y3-2Uh" firstAttribute="trailing" secondItem="o0w-d9-RgM" secondAttribute="leadingMargin" constant="30" id="G1Y-fa-qbZ"/>
+                                                <constraint firstItem="LNH-Y3-2Uh" firstAttribute="firstBaseline" secondItem="2xn-bn-1Cz" secondAttribute="firstBaseline" id="Ikl-zh-JD7"/>
+                                                <constraint firstItem="Q07-nf-KlI" firstAttribute="firstBaseline" secondItem="2xn-bn-1Cz" secondAttribute="firstBaseline" id="NPU-7K-wHc"/>
+                                                <constraint firstItem="Q07-nf-KlI" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="2xn-bn-1Cz" secondAttribute="trailing" constant="8" symbolic="YES" id="ekO-IU-4wz"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Q07-nf-KlI" secondAttribute="trailing" id="sL5-g6-9qm"/>
+                                                <constraint firstItem="2xn-bn-1Cz" firstAttribute="leading" secondItem="LNH-Y3-2Uh" secondAttribute="trailing" constant="8" id="w7Z-un-AUZ"/>
+                                                <constraint firstAttribute="leadingMargin" relation="lessThanOrEqual" secondItem="LNH-Y3-2Uh" secondAttribute="leading" id="yra-lP-ubh"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="durationLabel" destination="Q07-nf-KlI" id="i4E-hB-yXI"/>
+                                            <outlet property="titleLabel" destination="2xn-bn-1Cz" id="khu-lC-hh4"/>
+                                            <outlet property="trackNumberLabel" destination="LNH-Y3-2Uh" id="as7-Dy-Cth"/>
+                                            <segue destination="ppy-e1-uy0" kind="show" identifier="playSong" id="IBF-35-jpA"/>
+                                            <segue destination="ppy-e1-uy0" kind="show" identifier="showSong" trigger="accessoryAction" id="GNa-fu-FYk"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="versionCell" id="scC-K9-gfw" userLabel="Version Cell" customClass="ReleaseVersionTableCell" customModule="SwiftDiscogsApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="415" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="scC-K9-gfw" id="gJ4-GA-KPh">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Because" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jva-ML-VZe" userLabel="Title">
+                                                    <rect key="frame" x="7.9999999999999964" y="8.0000000000000018" width="62.666666666666657" height="27.666666666666671"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottomMargin" secondItem="Jva-ML-VZe" secondAttribute="bottom" id="cOG-81-4Mt"/>
+                                                <constraint firstItem="Jva-ML-VZe" firstAttribute="top" secondItem="gJ4-GA-KPh" secondAttribute="topMargin" id="jMU-cf-ivj"/>
+                                                <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="Jva-ML-VZe" secondAttribute="trailing" id="qh1-fq-9wm"/>
+                                                <constraint firstItem="Jva-ML-VZe" firstAttribute="leading" secondItem="gJ4-GA-KPh" secondAttribute="leadingMargin" id="t2X-Cn-gNp"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="titleLabel" destination="Jva-ML-VZe" id="hCj-uK-v28"/>
+                                            <segue destination="axZ-Et-2J0" kind="show" identifier="showReleaseVersion" id="pET-W5-pgn"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="trackCell" id="vqQ-EN-bYt" userLabel="Tracklist Cell" customClass="TrackTableCell" customModule="SwiftDiscogsApp" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vqQ-EN-bYt" id="o0w-d9-RgM">
-                                    <rect key="frame" x="0.0" y="0.0" width="341" height="43.666666666666664"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="B2" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LNH-Y3-2Uh" userLabel="Position">
-                                            <rect key="frame" x="30.666666666666668" y="11" width="15.333333333333332" height="14.333333333333336"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Because" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2xn-bn-1Cz" userLabel="Title">
-                                            <rect key="frame" x="54" y="11" width="51.333333333333343" height="22"/>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2:46" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q07-nf-KlI" userLabel="Duration">
-                                            <rect key="frame" x="306.66666666666669" y="11" width="26.333333333333314" height="14.333333333333336"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstAttribute="bottomMargin" secondItem="2xn-bn-1Cz" secondAttribute="bottom" id="17V-rn-Lng"/>
-                                        <constraint firstItem="2xn-bn-1Cz" firstAttribute="top" secondItem="o0w-d9-RgM" secondAttribute="topMargin" id="7Pf-nD-dkc"/>
-                                        <constraint firstItem="LNH-Y3-2Uh" firstAttribute="trailing" secondItem="o0w-d9-RgM" secondAttribute="leadingMargin" constant="30" id="G1Y-fa-qbZ"/>
-                                        <constraint firstItem="LNH-Y3-2Uh" firstAttribute="firstBaseline" secondItem="2xn-bn-1Cz" secondAttribute="firstBaseline" id="Ikl-zh-JD7"/>
-                                        <constraint firstItem="Q07-nf-KlI" firstAttribute="firstBaseline" secondItem="2xn-bn-1Cz" secondAttribute="firstBaseline" id="NPU-7K-wHc"/>
-                                        <constraint firstItem="Q07-nf-KlI" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="2xn-bn-1Cz" secondAttribute="trailing" constant="8" symbolic="YES" id="ekO-IU-4wz"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="Q07-nf-KlI" secondAttribute="trailing" id="sL5-g6-9qm"/>
-                                        <constraint firstItem="2xn-bn-1Cz" firstAttribute="leading" secondItem="LNH-Y3-2Uh" secondAttribute="trailing" constant="8" id="w7Z-un-AUZ"/>
-                                        <constraint firstAttribute="leadingMargin" relation="lessThanOrEqual" secondItem="LNH-Y3-2Uh" secondAttribute="leading" id="yra-lP-ubh"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="durationLabel" destination="Q07-nf-KlI" id="i4E-hB-yXI"/>
-                                    <outlet property="titleLabel" destination="2xn-bn-1Cz" id="khu-lC-hh4"/>
-                                    <outlet property="trackNumberLabel" destination="LNH-Y3-2Uh" id="as7-Dy-Cth"/>
-                                    <segue destination="ppy-e1-uy0" kind="show" identifier="playSong" id="IBF-35-jpA"/>
-                                    <segue destination="ppy-e1-uy0" kind="show" identifier="showSong" trigger="accessoryAction" id="GNa-fu-FYk"/>
-                                </connections>
-                            </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="versionCell" id="scC-K9-gfw" userLabel="Version Cell" customClass="ReleaseVersionTableCell" customModule="SwiftDiscogsApp" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="72" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="scC-K9-gfw" id="gJ4-GA-KPh">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Because" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jva-ML-VZe" userLabel="Title">
-                                            <rect key="frame" x="15.999999999999996" y="11" width="62.666666666666657" height="22"/>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstAttribute="bottomMargin" secondItem="Jva-ML-VZe" secondAttribute="bottom" id="cOG-81-4Mt"/>
-                                        <constraint firstItem="Jva-ML-VZe" firstAttribute="top" secondItem="gJ4-GA-KPh" secondAttribute="topMargin" id="jMU-cf-ivj"/>
-                                        <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="Jva-ML-VZe" secondAttribute="trailing" id="qh1-fq-9wm"/>
-                                        <constraint firstItem="Jva-ML-VZe" firstAttribute="leading" secondItem="gJ4-GA-KPh" secondAttribute="leadingMargin" id="t2X-Cn-gNp"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="titleLabel" destination="Jva-ML-VZe" id="hCj-uK-v28"/>
-                                    <segue destination="e99-WK-zlK" kind="show" identifier="showReleaseVersion" id="PHh-Rj-7mF"/>
-                                </connections>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="Kvd-zN-Pml" id="4YP-4D-3Nm"/>
-                            <outlet property="delegate" destination="Kvd-zN-Pml" id="fQm-Yn-hlY"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Here's Little Richard" id="r6b-17-x4p"/>
-                    <connections>
-                        <outlet property="tableView" destination="4gc-te-Nk4" id="MhE-OM-mhW"/>
-                    </connections>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7pn-ts-1ix" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                        <constraints>
+                            <constraint firstItem="2LP-y1-iYJ" firstAttribute="top" secondItem="W2d-Ag-24U" secondAttribute="top" id="0BX-gr-fDf"/>
+                            <constraint firstItem="W2d-Ag-24U" firstAttribute="top" secondItem="4gc-te-Nk4" secondAttribute="top" id="0ea-fv-shh"/>
+                            <constraint firstItem="2LP-y1-iYJ" firstAttribute="width" secondItem="2LP-y1-iYJ" secondAttribute="height" multiplier="1:1" id="G5e-Mc-yzu"/>
+                            <constraint firstItem="W2d-Ag-24U" firstAttribute="trailing" secondItem="4gc-te-Nk4" secondAttribute="trailing" id="Ja9-SR-L5R"/>
+                            <constraint firstItem="4gc-te-Nk4" firstAttribute="bottom" secondItem="W2d-Ag-24U" secondAttribute="bottom" id="N6Z-0r-52c"/>
+                            <constraint firstItem="W2d-Ag-24U" firstAttribute="trailing" secondItem="2LP-y1-iYJ" secondAttribute="trailing" constant="16" id="Pbz-fx-cWw"/>
+                            <constraint firstItem="2LP-y1-iYJ" firstAttribute="leading" secondItem="W2d-Ag-24U" secondAttribute="leading" constant="16" id="SFG-RQ-0ge"/>
+                            <constraint firstItem="2LP-y1-iYJ" firstAttribute="width" secondItem="dGD-xz-B36" secondAttribute="height" multiplier="49:116" id="kBX-Hl-6FS"/>
+                            <constraint firstItem="4gc-te-Nk4" firstAttribute="leading" secondItem="W2d-Ag-24U" secondAttribute="leading" id="mEE-le-sEw"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="W2d-Ag-24U"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="n66-Ae-c1I" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4949.6000000000004" y="1014.5320197044335"/>
         </scene>
         <!--Release Version View Controller-->
-        <scene sceneID="ELA-tI-LSm">
+        <scene sceneID="t8u-c6-5cn">
             <objects>
-                <viewController id="e99-WK-zlK" customClass="ReleaseVersionViewController" customModule="SwiftDiscogsApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="yTx-Ku-QWP">
+                <viewController id="axZ-Et-2J0" customClass="ReleaseVersionViewController" customModule="SwiftDiscogsApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6BG-q5-iEU">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3mj-xk-sUH">
-                                <rect key="frame" x="0.0" y="44" width="375" height="768"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="734"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="trackCell" id="VGQ-e4-zKk" userLabel="Tracklist Cell" customClass="TrackTableCell" customModule="SwiftDiscogsApp" customModuleProvider="target">
@@ -1176,8 +1194,8 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                                             <outlet property="durationLabel" destination="zSv-Dl-nlJ" id="Mrt-6B-NOs"/>
                                             <outlet property="titleLabel" destination="lcb-5g-KNc" id="fdR-9Z-0Kb"/>
                                             <outlet property="trackNumberLabel" destination="IGR-Ly-m3B" id="obG-yl-kwv"/>
-                                            <segue destination="ppy-e1-uy0" kind="show" identifier="playSong" id="Bac-Vy-U3M"/>
                                             <segue destination="ppy-e1-uy0" kind="showDetail" identifier="showSong" trigger="accessoryAction" id="lOr-iq-2XF"/>
+                                            <segue destination="ppy-e1-uy0" kind="show" identifier="playSong" id="Bac-Vy-U3M"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -1185,20 +1203,17 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="49P-wd-USn" firstAttribute="trailing" secondItem="3mj-xk-sUH" secondAttribute="trailing" id="0GT-Lv-F1Y"/>
-                            <constraint firstItem="3mj-xk-sUH" firstAttribute="leading" secondItem="49P-wd-USn" secondAttribute="leading" id="Nyz-4f-l0I"/>
-                            <constraint firstItem="3mj-xk-sUH" firstAttribute="top" secondItem="49P-wd-USn" secondAttribute="top" id="YDF-Uk-0qz"/>
-                            <constraint firstItem="3mj-xk-sUH" firstAttribute="bottom" secondItem="49P-wd-USn" secondAttribute="bottom" constant="34" id="hr5-Re-qr8"/>
+                            <constraint firstItem="rFo-6c-Eat" firstAttribute="bottom" secondItem="3mj-xk-sUH" secondAttribute="bottom" id="HZd-SS-5et"/>
+                            <constraint firstItem="rFo-6c-Eat" firstAttribute="trailing" secondItem="3mj-xk-sUH" secondAttribute="trailing" id="HzG-Di-GWy"/>
+                            <constraint firstItem="3mj-xk-sUH" firstAttribute="leading" secondItem="rFo-6c-Eat" secondAttribute="leading" id="T4Q-B6-urg"/>
+                            <constraint firstItem="3mj-xk-sUH" firstAttribute="top" secondItem="rFo-6c-Eat" secondAttribute="top" id="n2e-Ca-sEb"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="49P-wd-USn"/>
+                        <viewLayoutGuide key="safeArea" id="rFo-6c-Eat"/>
                     </view>
-                    <connections>
-                        <outlet property="tableView" destination="3mj-xk-sUH" id="SWW-1f-nA3"/>
-                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="urW-57-j9c" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GTJ-xr-Iuq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5901.6000000000004" y="1014.5320197044335"/>
+            <point key="canvasLocation" x="5960.8000000000002" y="1014.5320197044335"/>
         </scene>
         <!--Artist Bio-->
         <scene sceneID="2D8-tA-SAQ">
