@@ -41,7 +41,6 @@ class ReleaseVersionViewController: UIViewController, DiscogsProvider {
 
     override func viewDidLoad() {
         tableView?.dataSource = model
-        tableView?.delegate = model
     }
 
     // MARK: - Model

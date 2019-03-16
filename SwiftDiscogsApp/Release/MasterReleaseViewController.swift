@@ -79,7 +79,6 @@ public class MasterReleaseViewController: UIViewController, DiscogsProvider {
         super.viewDidLoad()
         navigationItem.title = ""  // clear out the storyboard's value
         tableView?.dataSource = model
-        tableView?.delegate = model
     }
 
     private class MasterReleaseModel: ReleaseModel {

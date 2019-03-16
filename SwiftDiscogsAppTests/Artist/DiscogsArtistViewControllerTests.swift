@@ -37,7 +37,6 @@ class DiscogsArtistViewControllerTests: XCTestCase {
     }
 
     func testModelIsDataSource() {
-        XCTAssertTrue(viewController?.artistView?.tableView?.delegate === artistModel)
         XCTAssertTrue(viewController?.artistView?.tableView?.dataSource === artistModel)
     }
 

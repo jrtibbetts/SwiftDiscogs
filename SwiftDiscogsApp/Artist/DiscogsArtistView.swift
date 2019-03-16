@@ -15,9 +15,7 @@ open class DiscogsArtistView: CollectionAndTableDisplay {
         didSet {
             model = artistModel
             tableView?.dataSource = artistModel
-            tableView?.delegate = artistModel
             collectionView?.dataSource = artistModel
-            collectionView?.delegate = artistModel
         }
     }
 
