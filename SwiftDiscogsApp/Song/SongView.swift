@@ -77,7 +77,7 @@ open class SongNameTableViewCell: UITableViewCell {
 
     @IBOutlet open weak var artistButton: UIButton!
 
-    @IBOutlet open weak var firstReleasedLabel: UILabel!
+    @IBOutlet open weak var firstReleasedLabel: HidingLabel!
 
     // MARK: - Properties
 
@@ -97,35 +97,23 @@ open class SongVersionTableViewCell: UITableViewCell {
 
     // MARK: - Outlets
 
-    @IBOutlet open weak var alsoKnownAsLabel: UILabel!
+    @IBOutlet open weak var alsoKnownAsLabel: HidingLabel!
 
-    @IBOutlet open weak var differentiationLabel: UILabel!
+    @IBOutlet open weak var differentiationLabel: HidingLabel!
 
-    @IBOutlet open weak var durationLabel: UILabel!
+    @IBOutlet open weak var durationLabel: HidingLabel!
 
     // MARK: - Properties
 
     open var songVersion: Song.Version? {
         didSet {
-            if let disambiguation = songVersion?.disambiguationNote {
-                differentiationLabel.text = disambiguation
-                differentiationLabel.isHidden = false
-            } else {
-                differentiationLabel.isHidden = true
-            }
-
-            if let aka = songVersion?.alternateTitle {
-                alsoKnownAsLabel.text = aka
-                alsoKnownAsLabel.isHidden = false
-            } else {
-                alsoKnownAsLabel.isHidden = true
-            }
+            differentiationLabel.text = songVersion?.disambiguationNote
+            alsoKnownAsLabel.text = songVersion?.alternateTitle
 
             if let duration = songVersion?.duration {
-                durationLabel.text = format(duration: duration)
-                durationLabel.isHidden = false
+                durationLabel.text = "\(duration)"
             } else {
-                durationLabel.isHidden = true
+                durationLabel.text = nil
             }
         }
     }
@@ -140,3 +128,12 @@ open class SongVersionTableViewCell: UITableViewCell {
 
 }
 
+open class HidingLabel: UILabel {
+
+    open override var text: String? {
+        didSet {
+            self.isHidden = (text == nil)
+        }
+    }
+
+}

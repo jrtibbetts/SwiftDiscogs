@@ -739,7 +739,7 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                                                                 <segue destination="cvK-7F-nVP" kind="show" identifier="showArtist" id="UNb-dt-M4w"/>
                                                             </connections>
                                                         </button>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="750" text="First released March 20th, 1978" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NZq-U3-jLC">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="750" text="First released March 20th, 1978" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NZq-U3-jLC" customClass="HidingLabel" customModule="SwiftDiscogsApp" customModuleProvider="target">
                                                             <rect key="frame" x="35.666666666666657" y="88.666666666666671" width="241.99999999999997" height="20.333333333333329"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
@@ -768,38 +768,40 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                                             <rect key="frame" x="0.0" y="0.0" width="343" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="firstBaseline" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="aQ3-Kb-Smu" userLabel="Name Label">
-                                                    <rect key="frame" x="15" y="11" width="97.333333333333329" height="22"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="186" translatesAutoresizingMaskIntoConstraints="NO" id="obR-wd-YgL">
+                                                    <rect key="frame" x="15" y="11" width="312.66666666666669" height="18"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AKA" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7OT-ym-U3D" userLabel="Also Known As Label">
-                                                            <rect key="frame" x="0.0" y="4" width="40.666666666666664" height="18"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DJ edit" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KE6-eh-HJg" userLabel="Disambiguation Note Label">
-                                                            <rect key="frame" x="48.666666666666671" y="4" width="48.666666666666671" height="18"/>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="firstBaseline" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="aQ3-Kb-Smu" userLabel="Name Label">
+                                                            <rect key="frame" x="0.0" y="0.0" width="97.333333333333329" height="18"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AKA" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7OT-ym-U3D" userLabel="Also Known As Label" customClass="HidingLabel" customModule="SwiftDiscogsApp" customModuleProvider="target">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="40.666666666666664" height="18"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DJ edit" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KE6-eh-HJg" userLabel="Disambiguation Note Label" customClass="HidingLabel" customModule="SwiftDiscogsApp" customModuleProvider="target">
+                                                                    <rect key="frame" x="48.666666666666671" y="0.0" width="48.666666666666671" height="18"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3:15" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gVc-WZ-K9Q" userLabel="Duration Label" customClass="HidingLabel" customModule="SwiftDiscogsApp" customModuleProvider="target">
+                                                            <rect key="frame" x="283.33333333333331" y="0.0" width="29.333333333333314" height="18"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
                                                 </stackView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3:15" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gVc-WZ-K9Q" userLabel="Duration Label">
-                                                    <rect key="frame" x="298.66666666666669" y="15" width="29.333333333333314" height="18"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="gVc-WZ-K9Q" firstAttribute="firstBaseline" secondItem="KE6-eh-HJg" secondAttribute="firstBaseline" id="0ji-RJ-Qyy"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="aQ3-Kb-Smu" secondAttribute="bottom" id="HXb-6i-TdB"/>
-                                                <constraint firstAttribute="topMargin" secondItem="aQ3-Kb-Smu" secondAttribute="top" id="Jc7-Jk-hpM"/>
-                                                <constraint firstItem="aQ3-Kb-Smu" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="gVc-WZ-K9Q" secondAttribute="leading" constant="8" symbolic="YES" id="YcK-If-UJZ"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="gVc-WZ-K9Q" secondAttribute="trailing" id="gew-ZE-yWY"/>
-                                                <constraint firstAttribute="leadingMargin" secondItem="aQ3-Kb-Smu" secondAttribute="leading" id="pTK-EA-HBc"/>
-                                                <constraint firstItem="gVc-WZ-K9Q" firstAttribute="firstBaseline" secondItem="7OT-ym-U3D" secondAttribute="firstBaseline" id="xJf-ia-Bod"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="obR-wd-YgL" secondAttribute="trailing" constant="0.33333333333331439" id="5fF-Vy-FYm"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="obR-wd-YgL" secondAttribute="bottom" constant="4" id="Lz4-HU-8au"/>
+                                                <constraint firstAttribute="leadingMargin" secondItem="obR-wd-YgL" secondAttribute="leading" id="QTI-5U-Xgk"/>
+                                                <constraint firstAttribute="topMargin" secondItem="obR-wd-YgL" secondAttribute="top" id="ioC-Zq-2wa"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -1129,7 +1131,7 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3mj-xk-sUH">
-                                <rect key="frame" x="0.0" y="88" width="375" height="724"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="768"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="trackCell" id="VGQ-e4-zKk" userLabel="Tracklist Cell" customClass="TrackTableCell" customModule="SwiftDiscogsApp" customModuleProvider="target">
@@ -1341,7 +1343,7 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
         <image name="Discogs" width="480" height="174"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="lOr-iq-2XF"/>
+        <segue reference="GNa-fu-FYk"/>
         <segue reference="UNb-dt-M4w"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.0026941164399999998" green="0.097064159809999995" blue="0.57731443640000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
