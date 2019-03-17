@@ -5,10 +5,22 @@ import UIKit
 
 public class CoverArtAndTableView: Display, UITableViewDelegate {
 
+    // MARK: - Outlets
+
     @IBOutlet public weak var coverArtView: UIImageView?
     @IBOutlet public weak var tableView: UITableView? {
         didSet {
             tableView?.delegate = self
+            tableView?.dataSource = model
+        }
+    }
+
+    // MARK: - Public Properties
+
+    public var model: UITableViewDataSource? {
+        didSet {
+            tableView?.dataSource = model
+            refresh()
         }
     }
 
@@ -19,8 +31,15 @@ public class CoverArtAndTableView: Display, UITableViewDelegate {
 
         if let coverArtHeight = coverArtView?.bounds.height,
             coverArtHeight > 0.0 {
-            coverArtView?.alpha = offset.y / coverArtHeight
+            coverArtView?.alpha = 1.0 - (offset.y / coverArtHeight)
         }
+    }
+
+    // MARK: - UIView
+
+    public override func refresh() {
+        super.refresh()
+        tableView?.reloadData()
     }
 
 }

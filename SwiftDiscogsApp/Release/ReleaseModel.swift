@@ -6,6 +6,11 @@ public class ReleaseModel: SectionedModel {
 
     // MARK: - Public Properties
 
+    public var masterRelease: MasterRelease? {
+        didSet {
+            tracks = masterRelease?.tracklist
+        }
+    }
     public var tracks: [Track]?
 
     public let tracklistSection = Section(cellID: "trackCell", headerText: L10n.tracklist)

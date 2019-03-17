@@ -4,40 +4,31 @@ import Stylobate
 import SwiftDiscogs
 import UIKit
 
-public class MasterReleaseViewController: UIViewController, DiscogsProvider {
+public class MasterReleaseViewController: BaseReleaseViewController {
 
     // MARK: - Public Properties
 
-    public var discogs: Discogs?
-
-    public var masterRelease: MasterRelease? {
-        get {
-            return model.masterRelease
-        }
-        
-        set {
+    public override var masterRelease: MasterRelease? {
+        didSet {
             navigationItem.title = masterRelease?.title
-            model.masterRelease = newValue
-            tableView?.reloadData()
         }
     }
-
-    private var model = MasterReleaseModel()
 
     public var releaseSummary: ReleaseSummary? {
         didSet {
             if let masterReleaseID = releaseSummary?.id {
                 // Get the master release itself.
                 discogs?.masterRelease(identifier: masterReleaseID).done { [weak self] (masterRelease) in
-                    self?.model.masterRelease = masterRelease
+                    self?.masterReleaseModel?.masterRelease = masterRelease
+                    self?.display?.refresh()
                     }.catch { (error) in
                         print("Error: \(error)")
                     }
                 // Get the master release's versions. We don't have to wait for
                 // the actual master release itself to be retrieved.
                 discogs?.releasesForMasterRelease(masterReleaseID, pageNumber: 1, resultsPerPage: 200).done { [weak self] (releaseSummaries) in
-                    self?.model.releaseVersions = releaseSummaries.versions
-                    self?.tableView?.reloadData()
+                    self?.masterReleaseModel?.releaseVersions = releaseSummaries.versions
+                    self?.display?.refresh()
                     }.catch { (error) in
                         print("Error: \(error)")
                 }
@@ -45,51 +36,46 @@ public class MasterReleaseViewController: UIViewController, DiscogsProvider {
         }
     }
 
-    @IBOutlet private weak var tableView: UITableView?
+    // MARK: - Private Properties
+
+    private var masterReleaseModel: MasterReleaseModel? {
+        get {
+            return model as? MasterReleaseModel
+        }
+
+        set {
+            model = newValue
+        }
+    }
 
     // MARK: - UIViewController
 
     public override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showSong" || segue.identifier == "playSong",
-            let songViewController = segue.destination as? SongViewController,
-            let row = tableView?.indexPathForSelectedRow?.row {
-            songViewController.song = song(forSelectedIndex: row)
-            songViewController.discogs = discogs
-        } else if segue.identifier == "showReleaseVersion",
+        if segue.identifier == "showReleaseVersion",
             let versionViewController = segue.destination as? ReleaseVersionViewController {
             versionViewController.masterRelease = masterRelease
             versionViewController.discogs = discogs
 
-            if let selectedIndex = tableView?.indexPathForSelectedRow {
-                versionViewController.releaseVersion = model.releaseVersions?[selectedIndex.row]
+            if let selectedIndex = display?.tableView?.indexPathForSelectedRow {
+                versionViewController.releaseVersion = masterReleaseModel?.releaseVersions?[selectedIndex.row]
             }
-        }
-    }
-
-    private func song(forSelectedIndex index: Int) -> Song? {
-        if let track = model.tracks?[index] {
-            return Song(title: track.title, artist: masterRelease?.artists[0].name)
         } else {
-            return nil
+            super.prepare(for: segue, sender: sender)
         }
     }
 
     public override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = ""  // clear out the storyboard's value
-        tableView?.dataSource = model
+        masterReleaseModel = MasterReleaseModel()
+
+        // Clear out storyboard strings
+        navigationItem.title = ""
     }
 
     private class MasterReleaseModel: ReleaseModel {
 
         // MARK: - Public Properties
-        
-        public var masterRelease: MasterRelease? {
-            didSet {
-                tracks = masterRelease?.tracklist
-            }
-        }
-        
+
         public var releaseVersions: [MasterReleaseVersion]?
 
         // MARK: - Private Properties

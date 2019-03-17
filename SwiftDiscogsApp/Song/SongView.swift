@@ -5,46 +5,44 @@ import SwiftDiscogs
 import Stylobate
 import UIKit
 
-open class SongView: CollectionAndTableDisplay, DiscogsProvider {
+public class SongView: CoverArtAndTableView, DiscogsProvider {
 
     // MARK: - Outlets
 
-    @IBOutlet open weak var coverArtView: UIImageView!
-
-    @IBOutlet open weak var playbackView: UIView!
+    @IBOutlet public weak var playbackView: UIView!
 
     // MARK: - DiscogsProvider
 
-    open var discogs: Discogs?
+    public var discogs: Discogs?
 
     // MARK: - Public Properties
 
-    open override var model: CollectionAndTableModel? {
+    public override var model: UITableViewDataSource? {
         didSet {
-            coverArtView.kf.setImage(with: (model as? SongModel)?.song?.artwork)
+            coverArtView?.kf.setImage(with: (model as? SongModel)?.song?.artwork)
         }
     }
 
     // MARK: - UIView
 
-    open override func didMoveToSuperview() {
+    public override func didMoveToSuperview() {
         super.didMoveToSuperview()
         bringSubviewToFront(playbackView)
     }
 
 }
 
-open class SongCreditsTableViewCell: UITableViewCell {
+public class SongCreditsTableViewCell: UITableViewCell {
 
     // MARK: - Outlets
 
-    @IBOutlet open weak var playerNameButton: UIButton!
+    @IBOutlet public weak var playerNameButton: UIButton!
 
-    @IBOutlet open weak var roleLabel: UILabel!
+    @IBOutlet public weak var roleLabel: UILabel!
 
     // MARK: - Properties
 
-    open var performer: Song.Performer? {
+    public var performer: Song.Performer? {
         didSet {
             playerNameButton.titleLabel?.text = performer?.name
             roleLabel.text = performer?.roles.joined(separator: ", ")
@@ -53,15 +51,15 @@ open class SongCreditsTableViewCell: UITableViewCell {
 
 }
 
-open class SongLyricsTableViewCell: UITableViewCell {
+public class SongLyricsTableViewCell: UITableViewCell {
 
     // MARK: - Outlets
 
-    @IBOutlet open weak var lyricsLabel: UILabel!
+    @IBOutlet public weak var lyricsLabel: UILabel!
 
     // MARK: - Properties
 
-    open var song: Song? {
+    public var song: Song? {
         didSet {
             lyricsLabel.text = song?.lyrics
         }
@@ -69,19 +67,19 @@ open class SongLyricsTableViewCell: UITableViewCell {
 
 }
 
-open class SongNameTableViewCell: UITableViewCell {
+public class SongNameTableViewCell: UITableViewCell {
 
     // MARK: - Outlets
 
-    @IBOutlet open weak var songNameLabel: UILabel!
+    @IBOutlet public weak var songNameLabel: UILabel!
 
-    @IBOutlet open weak var artistButton: UIButton!
+    @IBOutlet public weak var artistButton: UIButton!
 
-    @IBOutlet open weak var firstReleasedLabel: HidingLabel!
+    @IBOutlet public weak var firstReleasedLabel: HidingLabel!
 
     // MARK: - Properties
 
-    open var song: Song? {
+    public var song: Song? {
         didSet {
             songNameLabel.text = song?.title
             artistButton.setTitle(song?.artist, for: .normal)
@@ -93,19 +91,19 @@ open class SongNameTableViewCell: UITableViewCell {
 
 }
 
-open class SongVersionTableViewCell: UITableViewCell {
+public class SongVersionTableViewCell: UITableViewCell {
 
     // MARK: - Outlets
 
-    @IBOutlet open weak var alsoKnownAsLabel: HidingLabel!
+    @IBOutlet public weak var alsoKnownAsLabel: HidingLabel!
 
-    @IBOutlet open weak var differentiationLabel: HidingLabel!
+    @IBOutlet public weak var differentiationLabel: HidingLabel!
 
-    @IBOutlet open weak var durationLabel: HidingLabel!
+    @IBOutlet public weak var durationLabel: HidingLabel!
 
     // MARK: - Properties
 
-    open var songVersion: Song.Version? {
+    public var songVersion: Song.Version? {
         didSet {
             differentiationLabel.text = songVersion?.disambiguationNote
             alsoKnownAsLabel.text = songVersion?.alternateTitle
@@ -128,9 +126,9 @@ open class SongVersionTableViewCell: UITableViewCell {
 
 }
 
-open class HidingLabel: UILabel {
+public class HidingLabel: UILabel {
 
-    open override var text: String? {
+    public override var text: String? {
         didSet {
             self.isHidden = (text == nil)
         }

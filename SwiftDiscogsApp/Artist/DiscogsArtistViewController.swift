@@ -5,19 +5,20 @@ import SwiftDiscogs
 import UIKit
 
 /// A view controller for displaying details about a `DiscogsArtist`.
-open class DiscogsArtistViewController: UIViewController {
+public class DiscogsArtistViewController: UIViewController {
 
     // MARK: Public Properties
 
     /// The Discogs client. By default, this is the singleton instance of
     /// `DiscogsClient`, but it can be changed, which can be useful for
     /// testing.
-    open var discogs: Discogs? = DiscogsClient.singleton
+    public var discogs: Discogs? = DiscogsClient.singleton
 
     /// The artist in question.
-    open var artist: Artist? {
+    public var artist: Artist? {
         didSet {
             artistModel.artist = artist
+            artistView?.artistModel = artistModel
 
             if let imageUrlString = artist?.images?.first?.resourceUrl,
                 let imageUrl = URL(string: imageUrlString) {
@@ -31,7 +32,7 @@ open class DiscogsArtistViewController: UIViewController {
         }
     }
 
-    open var artistSearchResult: SearchResult? {
+    public var artistSearchResult: SearchResult? {
         didSet {
             if let artistId = artistSearchResult?.id {
                 discogs?.artist(identifier: artistId).done { (artist) in
@@ -43,15 +44,15 @@ open class DiscogsArtistViewController: UIViewController {
         }
     }
 
-    open var artistView: DiscogsArtistView? {
+    public var artistView: DiscogsArtistView? {
         return view as? DiscogsArtistView
     }
 
-    open var artistModel = DiscogsArtistModel()
+    public var artistModel = DiscogsArtistModel()
 
     // MARK: - UIViewController
 
-    open override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    public override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showMasterRelease",
             let destination = segue.destination as? MasterReleaseViewController {
             destination.discogs = discogs
@@ -62,10 +63,11 @@ open class DiscogsArtistViewController: UIViewController {
         }
     }
 
-    open override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = ""  // clear out the storyboard's value
-        artistView?.model = artistModel
+
+        // Clear out storyboard strings
+        navigationItem.title = ""
     }
 
     // MARK: - Private Functions

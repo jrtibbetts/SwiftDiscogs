@@ -3,70 +3,74 @@
 import SwiftDiscogs
 import UIKit
 
-class ReleaseVersionViewController: UIViewController, DiscogsProvider {
+class ReleaseVersionViewController: BaseReleaseViewController {
 
     // MARK: - Public Properties
 
-    public var discogs: Discogs? = DiscogsClient.singleton
-
-    public var masterRelease: MasterRelease? {
-        get {
-            return model.masterRelease
-        }
-
-        set {
-            model.masterRelease = newValue
-            tableView?.reloadData()
+    public var releaseVersion: MasterReleaseVersion? {
+        didSet {
+            setUp()
+            releaseVersionModel?.releaseVersion = releaseVersion
+            releaseVersionDisplay?.releaseVersion = releaseVersion
         }
     }
+
+    private var releaseVersionModel: ReleaseVersionModel? {
+        return model as? ReleaseVersionModel
+    }
+
+    override var display: CoverArtAndTableView? {
+        didSet {
+            setUp()
+            releaseVersionDisplay?.releaseVersion = releaseVersion
+        }
+    }
+    private var releaseVersionDisplay: ReleaseVersionView? {
+        return display as? ReleaseVersionView
+    }
+
+    // MARK: - Private Functions
+
+    private func setUp() {
+        if model == nil {
+            model = ReleaseVersionModel()
+        }
+
+        releaseVersionDisplay?.model = releaseVersionModel
+    }
+
+}
+
+// MARK: - Model
+
+private class ReleaseVersionModel: ReleaseModel {
+
+    // MARK: - Public Properties
+
+    public var releaseVersion: MasterReleaseVersion?
+
+    // MARK: - Initialization
+
+    override init() {
+        super.init()
+        sections = [tracklistSection]
+    }
+
+}
+
+public class ReleaseVersionView: CoverArtAndTableView {
+
+    // MARK: - Public Properties
 
     public var releaseVersion: MasterReleaseVersion? {
-        get {
-            return model.releaseVersion
-        }
-
-        set {
-            model.releaseVersion = newValue
-            tableView?.reloadData()
+        didSet {
+            refresh()
         }
     }
 
-    // MARK: - Private Properties
-
-    private var model = Model()
-
-    @IBOutlet private weak var tableView: UITableView?
-
-    // MARK: - UIViewController
-
-    override func viewDidLoad() {
-        tableView?.dataSource = model
-    }
-
-    // MARK: - Model
-
-    class Model: ReleaseModel {
-
-        // MARK: - Public Properties
-
-        public var masterRelease: MasterRelease? {
-            didSet {
-                tracks = masterRelease?.tracklist
-            }
-        }
-
-        public var releaseVersion: MasterReleaseVersion? {
-            didSet {
-            }
-        }
-
-        // MARK: - Initialization
-
-        override init() {
-            super.init()
-            sections = [tracklistSection]
-        }
-
+    public override func refresh() {
+        super.refresh()
+        navigationItem?.title = releaseVersion?.title
     }
 
 }
