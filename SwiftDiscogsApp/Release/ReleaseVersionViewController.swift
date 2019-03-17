@@ -133,6 +133,8 @@ public class ReleaseFormatTableCell: UITableViewCell {
             if let descriptions = format?.descriptions?.joined(separator: ", ") {
                 string += " \(descriptions)"
             }
+
+            formatLabel?.text = string
         }
     }
 
