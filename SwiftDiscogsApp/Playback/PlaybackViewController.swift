@@ -27,13 +27,33 @@ public class PlaybackViewController: UIViewController {
 
     }
 
+    // MARK: - Private Properties
+
+    @IBOutlet private weak var display: PlaybackView?
+
+    private var model: PlaybackModel?
+
+}
+
+public protocol PlaybackModel {
+
+    var elapsedTime: TimeInterval { get set }
+
+    var hasNext: Bool { get set }
+
+    var hasPrevious: Bool { get set }
+
+    var mediaDuration: TimeInterval { get set }
+
+    var sourceLogo: UIImage? { get set }
+
+    var sourceName: String? { get set }
+
 }
 
 public class PlaybackView: Display {
 
     // MARK: - Outlets
-
-    @IBOutlet private weak var changeSourceButton: UIButton?
 
     @IBOutlet private weak var elapsedTimeLabel: UILabel?
 

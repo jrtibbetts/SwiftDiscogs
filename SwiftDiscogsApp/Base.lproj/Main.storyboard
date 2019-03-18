@@ -1038,7 +1038,6 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                         </constraints>
                         <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
                         <connections>
-                            <outlet property="changeSourceButton" destination="eMn-8N-fEq" id="KPQ-De-nCg"/>
                             <outlet property="elapsedTimeLabel" destination="WIF-vI-pTw" id="0FE-U2-Smb"/>
                             <outlet property="forwardButton" destination="3cC-ie-QEH" id="R0e-rB-R9M"/>
                             <outlet property="nextTrackButton" destination="Fmy-yL-1hz" id="roU-6E-UuH"/>
@@ -1053,6 +1052,9 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                     </view>
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="display" destination="PHQ-D5-oe0" id="oUs-DU-IRH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cQA-s6-9tj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
