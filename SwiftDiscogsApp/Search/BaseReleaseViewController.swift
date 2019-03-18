@@ -41,6 +41,7 @@ public class BaseReleaseViewController: UIViewController, DiscogsProvider {
 
     private func connect() {
         display?.model = model
+        display?.refresh()
     }
 
     // MARK: - UIViewController

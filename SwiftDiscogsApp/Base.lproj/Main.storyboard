@@ -298,7 +298,7 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                                                 <constraint firstItem="i8D-bh-YBu" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="RTP-xH-Qfi" secondAttribute="trailing" constant="8" symbolic="YES" id="qm5-Dp-g32"/>
                                                 <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="2qs-Y5-wHC" secondAttribute="trailing" id="sHT-XQ-Tn9"/>
                                                 <constraint firstItem="CJD-wt-qtG" firstAttribute="top" secondItem="33Q-IZ-u8S" secondAttribute="topMargin" id="sMm-UM-Hrq"/>
-                                                <constraint firstItem="2qs-Y5-wHC" firstAttribute="firstBaseline" secondItem="RTP-xH-Qfi" secondAttribute="baseline" constant="24" symbolType="layoutAnchor" id="tY5-V0-Onx"/>
+                                                <constraint firstItem="2qs-Y5-wHC" firstAttribute="firstBaseline" secondItem="RTP-xH-Qfi" secondAttribute="baseline" constant="16" symbolType="layoutAnchor" id="tY5-V0-Onx"/>
                                                 <constraint firstItem="RTP-xH-Qfi" firstAttribute="leading" secondItem="CJD-wt-qtG" secondAttribute="trailing" constant="8" symbolic="YES" id="tme-Mh-ePZ"/>
                                                 <constraint firstItem="i8D-bh-YBu" firstAttribute="firstBaseline" secondItem="RTP-xH-Qfi" secondAttribute="firstBaseline" id="vQ9-Kb-M19"/>
                                                 <constraint firstAttribute="topMargin" secondItem="RTP-xH-Qfi" secondAttribute="top" id="wyS-Ka-4yp"/>
@@ -1100,22 +1100,34 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Because" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jva-ML-VZe" userLabel="Title">
-                                                    <rect key="frame" x="14.999999999999996" y="11" width="62.666666666666657" height="22"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                <stackView opaque="NO" contentMode="scaleToFill" alignment="firstBaseline" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="nhB-Ua-RyN">
+                                                    <rect key="frame" x="15" y="11" width="345" height="22"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Because" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jva-ML-VZe" userLabel="Title">
+                                                            <rect key="frame" x="0.0" y="4" width="303.33333333333331" height="18"/>
+                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="1957" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SLz-RY-Vvm" userLabel="Single Year" customClass="HidingLabel" customModule="SwiftDiscogsApp" customModuleProvider="target">
+                                                            <rect key="frame" x="311.33333333333331" y="4" width="33.666666666666686" height="18"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottomMargin" secondItem="Jva-ML-VZe" secondAttribute="bottom" id="cOG-81-4Mt"/>
-                                                <constraint firstItem="Jva-ML-VZe" firstAttribute="top" secondItem="gJ4-GA-KPh" secondAttribute="topMargin" id="jMU-cf-ivj"/>
-                                                <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="Jva-ML-VZe" secondAttribute="trailing" id="qh1-fq-9wm"/>
-                                                <constraint firstItem="Jva-ML-VZe" firstAttribute="leading" secondItem="gJ4-GA-KPh" secondAttribute="leadingMargin" id="t2X-Cn-gNp"/>
+                                                <constraint firstAttribute="leadingMargin" secondItem="nhB-Ua-RyN" secondAttribute="leading" id="IGE-mu-9lh"/>
+                                                <constraint firstAttribute="topMargin" secondItem="nhB-Ua-RyN" secondAttribute="top" id="Rif-1k-WPm"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="nhB-Ua-RyN" secondAttribute="bottom" id="ip0-Os-9uN"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="nhB-Ua-RyN" secondAttribute="trailing" id="uZG-93-nAO"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="titleLabel" destination="Jva-ML-VZe" id="hCj-uK-v28"/>
+                                            <outlet property="yearLabel" destination="SLz-RY-Vvm" id="vrE-PR-AR4"/>
                                             <segue destination="axZ-Et-2J0" kind="show" identifier="showReleaseVersion" id="pET-W5-pgn"/>
                                         </connections>
                                     </tableViewCell>
@@ -1159,10 +1171,10 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Sfl-LD-qU7" userLabel="Artwork">
-                                <rect key="frame" x="16" y="88" width="343" height="343"/>
+                                <rect key="frame" x="16" y="44" width="343" height="343"/>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3mj-xk-sUH">
-                                <rect key="frame" x="0.0" y="88" width="375" height="690"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="734"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="HY3-ez-jOQ" userLabel="Clear Header">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="343"/>
@@ -1415,7 +1427,7 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
         <image name="Discogs" width="480" height="174"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Bac-Vy-U3M"/>
+        <segue reference="GNa-fu-FYk"/>
         <segue reference="UNb-dt-M4w"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.0026941164399999998" green="0.097064159809999995" blue="0.57731443640000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

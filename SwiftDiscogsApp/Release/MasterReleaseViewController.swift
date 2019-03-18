@@ -19,8 +19,7 @@ public class MasterReleaseViewController: BaseReleaseViewController {
             if let masterReleaseID = releaseSummary?.id {
                 // Get the master release itself.
                 discogs?.masterRelease(identifier: masterReleaseID).done { [weak self] (masterRelease) in
-                    self?.masterReleaseModel?.masterRelease = masterRelease
-                    self?.display?.refresh()
+                    self?.masterRelease = masterRelease
                     }.catch { (error) in
                         print("Error: \(error)")
                     }
