@@ -9,6 +9,8 @@ public class ReleaseVersionTableCell: UITableViewCell {
 
     @IBOutlet public weak var titleLabel: UILabel?
 
+    @IBOutlet public weak var yearLabel: HidingLabel?
+
     public func setUp(with release: MasterReleaseVersion) {
         titleLabel?.text = release.title
 
@@ -23,10 +25,17 @@ public class ReleaseVersionTableCell: UITableViewCell {
         }
 
         if let catalogNumber = release.catno?.split(separator: ",").first {
-            text.append(String(catalogNumber))
+            text.append(" (\(catalogNumber))")
         }
 
         titleLabel?.text = text
+
+        if let yearString = release.released,
+            let year = Int(yearString), year > 1800 {
+            yearLabel?.text = yearString
+        } else {
+            yearLabel?.text = nil
+        }
     }
 
 }
