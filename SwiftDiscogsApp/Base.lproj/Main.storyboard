@@ -921,8 +921,8 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
         <!--Play Controls-->
         <scene sceneID="i4y-O2-Wve">
             <objects>
-                <viewController id="qmz-tJ-w3k" userLabel="Play Controls" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="PHQ-D5-oe0">
+                <viewController id="qmz-tJ-w3k" userLabel="Play Controls" customClass="PlaybackViewController" customModule="SwiftDiscogsApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="PHQ-D5-oe0" customClass="PlaybackView" customModule="SwiftDiscogsApp" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="343" height="130"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -930,37 +930,52 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                                 <rect key="frame" x="16" y="8" width="311" height="114"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" alignment="lastBaseline" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="fyv-Am-mg6" userLabel="Play Button Stack">
-                                        <rect key="frame" x="57" y="0.0" width="197" height="54"/>
+                                        <rect key="frame" x="57" y="0.0" width="197" height="36"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yjh-Zp-M3z" userLabel="Previous Song Button">
-                                                <rect key="frame" x="0.0" y="18" width="30" height="36"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="30" height="36"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <state key="normal" title="⏮"/>
+                                                <connections>
+                                                    <action selector="goToPreviousTrackWithSource:" destination="qmz-tJ-w3k" eventType="touchUpInside" id="6mQ-Uj-5iJ"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="607-nj-9Qe" userLabel="Rewind Button">
-                                                <rect key="frame" x="38" y="19" width="30" height="36"/>
+                                                <rect key="frame" x="38" y="6" width="30" height="36"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <state key="normal" title="⏪"/>
+                                                <connections>
+                                                    <action selector="rewindWithSource:" destination="qmz-tJ-w3k" eventType="touchUpInside" id="mTO-po-OMf"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6MF-02-pai" userLabel="Play Button">
                                                 <rect key="frame" x="76" y="0.0" width="45" height="60"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                                 <state key="normal" title="▶️"/>
+                                                <connections>
+                                                    <action selector="playWithSource:" destination="qmz-tJ-w3k" eventType="touchUpInside" id="xYk-EX-hyO"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3cC-ie-QEH" userLabel="Forward Button">
-                                                <rect key="frame" x="129" y="19" width="30" height="36"/>
+                                                <rect key="frame" x="129" y="6" width="30" height="36"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <state key="normal" title="⏩"/>
+                                                <connections>
+                                                    <action selector="forwardWithSource:" destination="qmz-tJ-w3k" eventType="touchUpInside" id="78i-fv-Blj"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fmy-yL-1hz" userLabel="Next Song Button">
-                                                <rect key="frame" x="167" y="19" width="30" height="36"/>
+                                                <rect key="frame" x="167" y="6" width="30" height="36"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <state key="normal" title="⏭"/>
+                                                <connections>
+                                                    <action selector="goToNextTrackWithSource:" destination="qmz-tJ-w3k" eventType="touchUpInside" id="rgR-u6-ASy"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" distribution="equalSpacing" alignment="firstBaseline" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="j5D-Ry-2KB" userLabel="Timeline Stack">
-                                        <rect key="frame" x="26.333333333333343" y="62" width="258.66666666666663" height="12"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" alignment="firstBaseline" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="j5D-Ry-2KB" userLabel="Timeline Stack">
+                                        <rect key="frame" x="0.0" y="44" width="311" height="30"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2:12" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WIF-vI-pTw" userLabel="Elapsed Time Label">
                                                 <rect key="frame" x="0.0" y="0.0" width="20.333333333333332" height="12"/>
@@ -968,14 +983,11 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" progressViewStyle="bar" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="xwM-De-3w4" userLabel="Timeline">
-                                                <rect key="frame" x="28.333333333333343" y="9.6666666666666714" width="200" height="2.6666666666666679"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="200" id="RcE-eD-MZe"/>
-                                                </constraints>
-                                            </progressView>
+                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="UZG-I9-5y4">
+                                                <rect key="frame" x="26.333333333333343" y="9.6666666666666625" width="256.33333333333337" height="21.333333333333329"/>
+                                            </slider>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4:24" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1TR-52-FHS" userLabel="Remaining/Total Time Label">
-                                                <rect key="frame" x="236.33333333333334" y="0.0" width="22.333333333333343" height="12"/>
+                                                <rect key="frame" x="288.66666666666669" y="0.0" width="22.333333333333314" height="12"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -985,29 +997,35 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="4rG-o9-fVD" userLabel="Playback Source Stack">
                                         <rect key="frame" x="34.000000000000014" y="82" width="243.33333333333337" height="32"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Spotify" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0pb-rk-d9y" userLabel="Source Name Label">
-                                                <rect key="frame" x="0.0" y="0.0" width="54.333333333333336" height="32"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="45x-vf-3wz" userLabel="Source Logo Image">
-                                                <rect key="frame" x="62.333333333333329" y="0.0" width="119.99999999999999" height="32"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="120" height="32"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="120" id="P4w-pb-Z04"/>
                                                     <constraint firstAttribute="height" constant="32" id="WUO-1X-YzW"/>
                                                 </constraints>
                                             </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Spotify" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0pb-rk-d9y" userLabel="Source Name Label">
+                                                <rect key="frame" x="127.99999999999999" y="0.0" width="54.333333333333329" height="32"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eMn-8N-fEq" userLabel="Change Source Button">
                                                 <rect key="frame" x="190.33333333333334" y="0.0" width="53" height="32"/>
                                                 <state key="normal" title="Change"/>
                                                 <connections>
-                                                    <segue destination="qjc-4k-CUc" kind="presentation" identifier="showPlaybackSources" id="EA2-75-HdX"/>
+                                                    <segue destination="qjc-4k-CUc" kind="popoverPresentation" identifier="showPlaybackSources" popoverAnchorView="eMn-8N-fEq" id="EA2-75-HdX">
+                                                        <popoverArrowDirection key="popoverArrowDirection"/>
+                                                    </segue>
                                                 </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="j5D-Ry-2KB" firstAttribute="leading" secondItem="0bf-aZ-dR9" secondAttribute="leadingMargin" id="GGH-JE-161"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="j5D-Ry-2KB" secondAttribute="trailing" id="TZn-QQ-Hyz"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1019,6 +1037,19 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                             <constraint firstItem="0bf-aZ-dR9" firstAttribute="leading" secondItem="PHQ-D5-oe0" secondAttribute="leadingMargin" id="vdv-tW-22a"/>
                         </constraints>
                         <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
+                        <connections>
+                            <outlet property="changeSourceButton" destination="eMn-8N-fEq" id="KPQ-De-nCg"/>
+                            <outlet property="elapsedTimeLabel" destination="WIF-vI-pTw" id="0FE-U2-Smb"/>
+                            <outlet property="forwardButton" destination="3cC-ie-QEH" id="R0e-rB-R9M"/>
+                            <outlet property="nextTrackButton" destination="Fmy-yL-1hz" id="roU-6E-UuH"/>
+                            <outlet property="playButton" destination="6MF-02-pai" id="amU-jg-Hxa"/>
+                            <outlet property="previousTrackButton" destination="Yjh-Zp-M3z" id="1qn-jb-CzC"/>
+                            <outlet property="remainingTimeLabel" destination="1TR-52-FHS" id="RtO-TQ-NWe"/>
+                            <outlet property="rewindButton" destination="607-nj-9Qe" id="2g3-SR-kwB"/>
+                            <outlet property="scrubber" destination="UZG-I9-5y4" id="NmA-eK-s9b"/>
+                            <outlet property="sourceLogoView" destination="45x-vf-3wz" id="IMQ-sR-eIl"/>
+                            <outlet property="sourceNameView" destination="0pb-rk-d9y" id="G5r-30-sCe"/>
+                        </connections>
                     </view>
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
