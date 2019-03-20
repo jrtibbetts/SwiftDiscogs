@@ -172,6 +172,7 @@
 		96E8CCE020E33396001C5381 /* DiscogsDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E8CCDF20E33396001C5381 /* DiscogsDisplay.swift */; };
 		96EDF28C209FA905009496FA /* Stylobate.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 96EDF289209FA8EF009496FA /* Stylobate.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		96F1E59E2155F21100B17F3F /* Kingfisher.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 96A16D50214F6EA10081F610 /* Kingfisher.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AD9C68E022428AB50005D74A /* SectionedModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9C68DF22428AB50005D74A /* SectionedModelTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -404,6 +405,7 @@
 		96E8A14220795DBF00BFD508 /* DiscogsSearchViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscogsSearchViewControllerTests.swift; sourceTree = "<group>"; };
 		96E8CCDF20E33396001C5381 /* DiscogsDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscogsDisplay.swift; sourceTree = "<group>"; };
 		96EDF289209FA8EF009496FA /* Stylobate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Stylobate.framework; path = Carthage/Build/iOS/Stylobate.framework; sourceTree = "<group>"; };
+		AD9C68DF22428AB50005D74A /* SectionedModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionedModelTests.swift; sourceTree = "<group>"; };
 		ADDDD2512232E09B00B6DA35 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		ADDDD2522232E09B00B6DA35 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
 		ADDDD2532232E09C00B6DA35 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Discogs.strings; sourceTree = "<group>"; };
@@ -499,6 +501,7 @@
 				9610FB012241C45800710F43 /* Player */,
 				96CA186C2082F19C006FF5F0 /* Search */,
 				9610FAF2223B378C00710F43 /* Song */,
+				AD9C68DF22428AB50005D74A /* SectionedModelTests.swift */,
 			);
 			path = SwiftDiscogsAppTests;
 			sourceTree = "<group>";
@@ -1220,6 +1223,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				96E8A14320795DBF00BFD508 /* DiscogsSearchViewControllerTests.swift in Sources */,
+				AD9C68E022428AB50005D74A /* SectionedModelTests.swift in Sources */,
 				9610FAF4223B37B100710F43 /* SongModelTests.swift in Sources */,
 				96CA187020845375006FF5F0 /* DiscogsArtistViewControllerTests.swift in Sources */,
 				9691A7332078865800A4936C /* DiscogsSingletonTests.swift in Sources */,
