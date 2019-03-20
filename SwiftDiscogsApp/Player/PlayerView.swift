@@ -122,10 +122,11 @@ public class PlayerButtonView: UIView {
             return
         }
 
-        forwardButton?.isEnabled = model.elapsedTime < model.mediaDuration
-        nextTrackButton?.isEnabled = model.hasNext
         previousTrackButton?.isEnabled = model.hasPrevious
         rewindButton?.isEnabled = model.elapsedTime > 0.0
+        playButton?.isEnabled = model.isPlaying
+        forwardButton?.isEnabled = model.elapsedTime < model.mediaDuration
+        nextTrackButton?.isEnabled = model.hasNext
     }
 
 }

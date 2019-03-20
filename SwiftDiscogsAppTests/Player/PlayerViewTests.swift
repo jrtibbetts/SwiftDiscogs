@@ -20,12 +20,19 @@ class PlayerViewTests: XCTestCase {
                 buttonView.nextTrackButton!]
     }
 
+    var scrubberView: PlayerScrubberView! {
+        return playerView!.scrubberView!
+    }
+
     override func setUp() {
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle(for: PlayerView.self))
         let playerViewController = storyboard.instantiateViewController(withIdentifier: "Player") as! PlayerViewController
+        _ = playerViewController.view
         playerView = (playerViewController.view as? PlayerView)!
     }
 
+    // MARK: - PlayerButton tests
+    
     func testInitialStateWithDefaultModel() {
         let model = PlayerModel()
         playerView.model = model
@@ -48,15 +55,35 @@ class PlayerViewTests: XCTestCase {
         assertPlayerButtonStates(previous: false, rewind: false, play: false, forward: false, next: true)
     }
 
+    func testModelWithPreviousAndNextTracksAndPlaying() {
+        let model = PlayerModel() <~ {
+            $0.hasPrevious = true
+            $0.hasNext = true
+            $0.isPlaying = true
+            $0.elapsedTime = 124.0
+            $0.mediaDuration = 211.0
+        }
+        playerView.model = model
+        assertPlayerButtonStates(previous: true, rewind: true, play: true, forward: true, next: true)
+    }
+
+    func testAllButtonsDisabledWithNilModel() {
+        playerView.model = nil
+        assertPlayerButtonStates(previous: false, rewind: false, play: false, forward: false, next: false)
+    }
+
     func assertPlayerButtonStates(previous: Bool,
                                   rewind: Bool,
                                   play: Bool,
                                   forward: Bool,
-                                  next: Bool) {
-        XCTAssertEqual(buttonView.previousTrackButton!.isEnabled, previous)
-        XCTAssertEqual(buttonView.rewindButton!.isEnabled, rewind)
-        XCTAssertEqual(buttonView.playButton!.isEnabled, play)
-        XCTAssertEqual(buttonView.forwardButton!.isEnabled, forward)
-        XCTAssertEqual(buttonView.nextTrackButton!.isEnabled, next)
+                                  next: Bool,
+                                  file: StaticString = #file,
+                                  line: UInt = #line) {
+        XCTAssertEqual(buttonView.previousTrackButton!.isEnabled, previous, "Previous track button", file: file, line: line)
+        XCTAssertEqual(buttonView.rewindButton!.isEnabled, rewind, "Rewind button", file: file, line: line)
+        XCTAssertEqual(buttonView.playButton!.isEnabled, play, "Play button", file: file, line: line)
+        XCTAssertEqual(buttonView.forwardButton!.isEnabled, forward, "Forward button", file: file, line: line)
+        XCTAssertEqual(buttonView.nextTrackButton!.isEnabled, next, "Next track button", file: file, line: line)
     }
+
 }
