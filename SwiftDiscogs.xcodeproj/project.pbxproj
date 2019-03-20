@@ -34,6 +34,8 @@
 		9610FAFB223C8FB200710F43 /* CoverArtAndTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9610FAFA223C8FB200710F43 /* CoverArtAndTableView.swift */; };
 		9610FAFD223D333C00710F43 /* BaseReleaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9610FAFC223D333B00710F43 /* BaseReleaseViewController.swift */; };
 		9610FB00223F373800710F43 /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9610FAFF223F373800710F43 /* PlayerViewController.swift */; };
+		9610FB032241C47D00710F43 /* PlayerViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9610FB022241C47D00710F43 /* PlayerViewTests.swift */; };
+		9610FB052241C80400710F43 /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9610FB042241C80400710F43 /* PlayerView.swift */; };
 		9614312520FEC7BC00B49D2E /* DiscogsSignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9614312420FEC7BC00B49D2E /* DiscogsSignInViewController.swift */; };
 		96226AFB2069FF3D000EEC50 /* DiscogsArtistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96226AF62069F578000EEC50 /* DiscogsArtistViewController.swift */; };
 		96226AFD2069FF3D000EEC50 /* DiscogsArtistModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969ADA6D2068A7D300A8BDD0 /* DiscogsArtistModel.swift */; };
@@ -259,6 +261,8 @@
 		9610FAFA223C8FB200710F43 /* CoverArtAndTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverArtAndTableView.swift; sourceTree = "<group>"; };
 		9610FAFC223D333B00710F43 /* BaseReleaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseReleaseViewController.swift; sourceTree = "<group>"; };
 		9610FAFF223F373800710F43 /* PlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
+		9610FB022241C47D00710F43 /* PlayerViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewTests.swift; sourceTree = "<group>"; };
+		9610FB042241C80400710F43 /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
 		9614312420FEC7BC00B49D2E /* DiscogsSignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscogsSignInViewController.swift; sourceTree = "<group>"; };
 		96226AF62069F578000EEC50 /* DiscogsArtistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscogsArtistViewController.swift; sourceTree = "<group>"; };
 		963282B1222CBAD90090B29F /* SectionedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionedModel.swift; sourceTree = "<group>"; };
@@ -492,6 +496,7 @@
 				96E044A12089A93E008F1FE4 /* CollectionAndTableViewControllerTestBase.swift */,
 				9691A7322078865800A4936C /* DiscogsSingletonTests.swift */,
 				960368F3205A012C00D24CE7 /* Info.plist */,
+				9610FB012241C45800710F43 /* Player */,
 				96CA186C2082F19C006FF5F0 /* Search */,
 				9610FAF2223B378C00710F43 /* Song */,
 			);
@@ -538,6 +543,15 @@
 			isa = PBXGroup;
 			children = (
 				9610FAFF223F373800710F43 /* PlayerViewController.swift */,
+				9610FB042241C80400710F43 /* PlayerView.swift */,
+			);
+			path = Player;
+			sourceTree = "<group>";
+		};
+		9610FB012241C45800710F43 /* Player */ = {
+			isa = PBXGroup;
+			children = (
+				9610FB022241C47D00710F43 /* PlayerViewTests.swift */,
 			);
 			path = Player;
 			sourceTree = "<group>";
@@ -1189,6 +1203,7 @@
 				9614312520FEC7BC00B49D2E /* DiscogsSignInViewController.swift in Sources */,
 				96800C3E21921FF600A3380F /* SwiftDiscogsAppStrings.swift in Sources */,
 				96226AFE2069FF3D000EEC50 /* DiscogsSearchViewController.swift in Sources */,
+				9610FB052241C80400710F43 /* PlayerView.swift in Sources */,
 				9610FAED2238846200710F43 /* Song.swift in Sources */,
 				96E8CCE020E33396001C5381 /* DiscogsDisplay.swift in Sources */,
 				963282B2222CBAD90090B29F /* SectionedModel.swift in Sources */,
@@ -1209,6 +1224,7 @@
 				96CA187020845375006FF5F0 /* DiscogsArtistViewControllerTests.swift in Sources */,
 				9691A7332078865800A4936C /* DiscogsSingletonTests.swift in Sources */,
 				96E044A22089A93E008F1FE4 /* CollectionAndTableViewControllerTestBase.swift in Sources */,
+				9610FB032241C47D00710F43 /* PlayerViewTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

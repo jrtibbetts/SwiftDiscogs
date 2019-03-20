@@ -921,7 +921,7 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
         <!--Play Controls-->
         <scene sceneID="i4y-O2-Wve">
             <objects>
-                <viewController id="qmz-tJ-w3k" userLabel="Play Controls" customClass="PlayerViewController" customModule="SwiftDiscogsApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Player" id="qmz-tJ-w3k" userLabel="Play Controls" customClass="PlayerViewController" customModule="SwiftDiscogsApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="PHQ-D5-oe0" customClass="PlayerView" customModule="SwiftDiscogsApp" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="343" height="150"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
