@@ -18,7 +18,6 @@ public class DiscogsArtistViewController: UIViewController {
     public var artist: Artist? {
         didSet {
             artistModel.artist = artist
-            artistView?.artistModel = artistModel
 
             if let imageUrlString = artist?.images?.first?.resourceUrl,
                 let imageUrl = URL(string: imageUrlString) {
@@ -65,6 +64,7 @@ public class DiscogsArtistViewController: UIViewController {
 
     public override func viewDidLoad() {
         super.viewDidLoad()
+        artistView?.model = artistModel
 
         // Clear out storyboard strings
         navigationItem.title = ""
