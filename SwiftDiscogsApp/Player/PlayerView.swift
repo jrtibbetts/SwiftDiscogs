@@ -62,9 +62,21 @@ public class PlayerScrubberView: UIView {
     private var displayRemainingTime: Bool = false
 
     private var timeFormatter = DateComponentsFormatter() <~ {
-        $0.unitsStyle = .brief
-        $0.allowedUnits = [.hour, .minute, .second]
-        $0.zeroFormattingBehavior = .dropLeading
+        $0.unitsStyle = .positional
+        $0.allowedUnits = [/*.hour,*/ .minute, .second]
+        $0.zeroFormattingBehavior = .pad
+    }
+
+    // MARK: - Actions
+
+    @IBAction public func toggleRemainingTimeLabel(_ label: UILabel?) {
+        if label === remainingTimeLabel {
+            displayRemainingTime = !displayRemainingTime
+
+            if let model = model {
+                updateRemainingTimeLabel(model)
+            }
+        }
     }
 
     // MARK: - Functions
@@ -75,17 +87,21 @@ public class PlayerScrubberView: UIView {
         }
 
         elapsedTimeLabel?.text = timeFormatter.string(from: model.elapsedTime)
-
-        if displayRemainingTime {
-            remainingTimeLabel?.text = timeFormatter.string(from: model.mediaDuration - model.elapsedTime)
-        } else {
-            remainingTimeLabel?.text = timeFormatter.string(from: model.mediaDuration)
-        }
+        updateRemainingTimeLabel(model)
 
         scrubber?.minimumValue = 0.0
         scrubber?.maximumValue = Float(model.mediaDuration)
         scrubber?.setValue(Float(model.elapsedTime), animated: true)
     }
+
+    private func updateRemainingTimeLabel(_ model: PlayerModel) {
+        if displayRemainingTime {
+            remainingTimeLabel?.text = timeFormatter.string(from: model.mediaDuration - model.elapsedTime)
+        } else {
+            remainingTimeLabel?.text = timeFormatter.string(from: model.mediaDuration)
+        }
+    }
+
 }
 
 public class PlayerButtonView: UIView {

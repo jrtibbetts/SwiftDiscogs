@@ -86,4 +86,43 @@ class PlayerViewTests: XCTestCase {
         XCTAssertEqual(buttonView.nextTrackButton!.isEnabled, next, "Next track button", file: file, line: line)
     }
 
+    // MARK: - PlayerScrubberView tests
+
+    func testScrubberAtBeginningOfSong() {
+        let model = PlayerModel() <~ {
+            $0.mediaDuration = 211.0
+            $0.elapsedTime = 0.0
+        }
+        playerView.model = model
+        XCTAssertEqual(scrubberView.elapsedTimeLabel?.text, "0:00")
+        XCTAssertEqual(scrubberView.remainingTimeLabel?.text, "3:31")
+        XCTAssertEqual(scrubberView.scrubber?.value, 0.0)
+    }
+
+    func testScrubberInMiddleOfSong() {
+        let model = PlayerModel() <~ {
+            $0.mediaDuration = 211.0
+            $0.elapsedTime = 49.0
+        }
+        playerView.model = model
+        XCTAssertEqual(scrubberView.elapsedTimeLabel?.text, "0:49")
+        XCTAssertEqual(scrubberView.remainingTimeLabel?.text, "3:31")
+        XCTAssertEqual(scrubberView.scrubber?.value, 49.0)
+    }
+
+    func testToggleRemainingTimeLabel() {
+        let model = PlayerModel() <~ {
+            $0.mediaDuration = 211.0
+            $0.elapsedTime = 49.0
+        }
+        playerView.model = model
+        XCTAssertEqual(scrubberView.remainingTimeLabel?.text, "3:31")
+
+        scrubberView.toggleRemainingTimeLabel(scrubberView.remainingTimeLabel)
+        XCTAssertEqual(scrubberView.remainingTimeLabel?.text, "2:42")
+
+        scrubberView.toggleRemainingTimeLabel(scrubberView.remainingTimeLabel)
+        XCTAssertEqual(scrubberView.remainingTimeLabel?.text, "3:31")
+    }
+
 }

@@ -1007,11 +1007,15 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="UZG-I9-5y4">
                                                         <rect key="frame" x="26.333333333333329" y="9.6666666666666643" width="240.33333333333337" height="31"/>
                                                     </slider>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4:24" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1TR-52-FHS" userLabel="Remaining/Total Time Label">
+                                                    <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4:24" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1TR-52-FHS" userLabel="Remaining/Total Time Label">
                                                         <rect key="frame" x="272.66666666666669" y="0.0" width="22.333333333333314" height="12"/>
+                                                        <gestureRecognizers/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
+                                                        <connections>
+                                                            <outletCollection property="gestureRecognizers" destination="FZ2-67-9U3" appends="YES" id="Tdk-pg-FO8"/>
+                                                        </connections>
                                                     </label>
                                                 </subviews>
                                             </stackView>
@@ -1082,6 +1086,11 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                     <nil key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cQA-s6-9tj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="FZ2-67-9U3" userLabel="Remaining/Elapsed Time Label Toggle">
+                    <connections>
+                        <action selector="toggleRemainingTimeLabel:" destination="BBl-tA-nYp" id="W4E-am-1uu"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="4949.6000000000004" y="2305.4187192118229"/>
         </scene>
