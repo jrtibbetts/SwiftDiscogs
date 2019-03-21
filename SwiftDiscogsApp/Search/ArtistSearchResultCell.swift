@@ -4,22 +4,22 @@ import Kingfisher
 import SwiftDiscogs
 import UIKit
 
-open class ArtistSearchResultCell: UITableViewCell {
+public class ArtistSearchResultCell: UITableViewCell {
 
-    open var searchResult: SearchResult? {
+    public var searchResult: SearchResult? {
         didSet {
             artistName = searchResult?.title
             thumbnailUrlString = searchResult?.thumb
         }
     }
 
-    open var artistName: String? {
+    public var artistName: String? {
         didSet {
             nameLabel?.text = artistName
         }
     }
 
-    open var thumbnailUrlString: String? {
+    public var thumbnailUrlString: String? {
         didSet {
             if let thumbnailUrlString = thumbnailUrlString {
                 thumbnailView?.kf.setImage(with: URL(string: thumbnailUrlString))
@@ -27,7 +27,7 @@ open class ArtistSearchResultCell: UITableViewCell {
         }
     }
 
-    @IBOutlet fileprivate weak var nameLabel: UILabel?
-    @IBOutlet fileprivate weak var thumbnailView: UIImageView?
+    @IBOutlet weak var nameLabel: UILabel?
+    @IBOutlet weak var thumbnailView: UIImageView?
 
 }
