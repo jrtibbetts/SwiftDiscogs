@@ -1086,7 +1086,7 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                     <nil key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cQA-s6-9tj" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="FZ2-67-9U3" userLabel="Remaining/Elapsed Time Label Toggle">
+                <tapGestureRecognizer id="FZ2-67-9U3" userLabel="Remaining/Total Time Label Toggle">
                     <connections>
                         <action selector="toggleRemainingTimeLabel:" destination="BBl-tA-nYp" id="W4E-am-1uu"/>
                     </connections>
