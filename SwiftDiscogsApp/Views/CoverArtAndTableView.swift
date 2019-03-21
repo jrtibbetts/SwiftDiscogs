@@ -8,6 +8,7 @@ public class CoverArtAndTableView: Display, UITableViewDelegate {
     // MARK: - Outlets
 
     @IBOutlet public weak var coverArtView: UIImageView?
+
     @IBOutlet public weak var tableView: UITableView? {
         didSet {
             tableView?.delegate = self

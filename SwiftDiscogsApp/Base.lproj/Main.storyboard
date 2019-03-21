@@ -569,8 +569,8 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
         <!--Media Sources-->
         <scene sceneID="Dna-Lq-o6f">
             <objects>
-                <viewController id="qjc-4k-CUc" userLabel="Media Sources" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="dm2-JJ-vUh">
+                <viewController storyboardIdentifier="MediaSources" id="qjc-4k-CUc" userLabel="Media Sources" customClass="MediaSourcesViewController" customModule="SwiftDiscogsApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dm2-JJ-vUh" customClass="MediaSourcesDisplay" customModule="SwiftDiscogsApp" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="343" height="150"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -608,7 +608,7 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </view>
                                                 <prototypes>
-                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="serviceCell" id="w7g-R4-VGH">
+                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="serviceCell" id="w7g-R4-VGH" userLabel="Service Cell">
                                                         <rect key="frame" x="0.0" y="28" width="311" height="82"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="w7g-R4-VGH" id="3OU-9N-Xrz">
@@ -623,7 +623,7 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                                                                     </constraints>
                                                                 </imageView>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="VeF-zW-XY6">
-                                                                    <rect key="frame" x="219" y="8" width="116" height="54"/>
+                                                                    <rect key="frame" x="187" y="8" width="116" height="54"/>
                                                                     <subviews>
                                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="xu5-Mu-7vj">
                                                                             <rect key="frame" x="0.0" y="0.0" width="49" height="54"/>
@@ -663,6 +663,9 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                                                         </tableViewCellContentView>
                                                     </tableViewCell>
                                                 </prototypes>
+                                                <connections>
+                                                    <outlet property="delegate" destination="dm2-JJ-vUh" id="hIs-P6-23m"/>
+                                                </connections>
                                             </tableView>
                                         </subviews>
                                     </stackView>
@@ -685,6 +688,9 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                             <constraint firstItem="E3y-aN-mXn" firstAttribute="top" secondItem="Aqu-ah-KLl" secondAttribute="top" id="YCZ-05-YWF"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Aqu-ah-KLl"/>
+                        <connections>
+                            <outlet property="tableView" destination="CL6-Bk-rtK" id="qrj-AO-7Zs"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Media Sources" id="kwd-I9-FEB"/>
                 </viewController>
@@ -1075,6 +1081,7 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                             <constraint firstItem="0bf-aZ-dR9" firstAttribute="leading" secondItem="PHQ-D5-oe0" secondAttribute="leadingMargin" id="vdv-tW-22a"/>
                         </constraints>
                         <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
+                        <viewLayoutGuide key="safeArea" id="bdn-y3-lJQ"/>
                         <connections>
                             <outlet property="buttonView" destination="uUH-Dr-Z9G" id="L0I-kV-fGa"/>
                             <outlet property="scrubberView" destination="BBl-tA-nYp" id="e7Q-Dm-RzN"/>
@@ -1389,7 +1396,6 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                     <tabBarItem key="tabBarItem" title="Database" id="7Ap-M4-zcX"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="qAw-Lw-G1P">
-                        <rect key="frame" x="0.0" y="44" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </navigationBar>
@@ -1494,7 +1500,7 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
         <image name="Discogs" width="480" height="174"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="GNa-fu-FYk"/>
+        <segue reference="Bac-Vy-U3M"/>
         <segue reference="UNb-dt-M4w"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.0026941164399999998" green="0.097064159809999995" blue="0.57731443640000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

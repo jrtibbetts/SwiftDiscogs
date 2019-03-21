@@ -11,6 +11,7 @@ public class ReleaseModel: SectionedModel {
             tracks = masterRelease?.tracklist
         }
     }
+    
     public var tracks: [Track]?
 
     public let tracklistSection = Section(cellID: "trackCell", headerText: L10n.tracklist)
