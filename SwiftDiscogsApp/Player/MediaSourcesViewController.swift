@@ -31,47 +31,6 @@ public class MediaSourcesViewController: CollectionAndTableViewController {
 
 }
 
-public class MediaSourcesDisplay: CollectionAndTableDisplay {
-
-}
-
-public class MediaSourceTableCell: UITableViewCell {
-
-    @IBOutlet public weak var mediaSourceView: MediaSourceView?
-
-}
-
-public class MediaSourceCollectionCell: UICollectionViewCell {
-
-    @IBOutlet public weak var mediaSourceView: MediaSourceView?
-
-}
-
-public class MediaSourceView: UIView {
-
-    // MARK: - Public Properties
-
-    public var source: MediaSourcesModel.MediaSource? {
-        didSet {
-            if let url = source?.iconURL {
-                iconView?.kf.setImage(with: url)
-            } else {
-                nameLabel?.text = source?.name
-            }
-
-            iconView?.isHidden = source?.iconURL == nil
-            nameLabel?.isHidden = source?.iconURL != nil
-        }
-    }
-
-    // MARK: - Outlets
-
-    @IBOutlet public weak var iconView: UIImageView?
-
-    @IBOutlet public weak var nameLabel: UILabel?
-
-}
-
 public class MediaSourcesModel: CollectionAndTableModel {
 
     // MARK: - Public Properties
@@ -129,23 +88,6 @@ public class MediaSourcesModel: CollectionAndTableModel {
 
     public override func numberOfSections() -> Int {
         return 1
-    }
-
-
-    public class MediaSource: NSObject {
-
-        // MARK: - Public Properties
-
-        public var iconURL: URL?
-
-        public var name: String
-
-        // MARK: - Initialization
-
-        public init(name: String, iconURL: URL? = nil) {
-            self.name = name
-            self.iconURL = iconURL
-        }
     }
 
 }

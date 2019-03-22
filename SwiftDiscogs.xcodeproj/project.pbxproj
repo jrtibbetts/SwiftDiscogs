@@ -39,6 +39,8 @@
 		9610FB0722431ED100710F43 /* ArtistSearchResultCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9610FB0622431ED100710F43 /* ArtistSearchResultCellTests.swift */; };
 		9610FB0922433CAF00710F43 /* MediaSourcesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9610FB0822433CAF00710F43 /* MediaSourcesViewController.swift */; };
 		9610FB0B22433EC100710F43 /* MediaSourcesModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9610FB0A22433EC100710F43 /* MediaSourcesModelTests.swift */; };
+		9610FB0D22449FDB00710F43 /* MediaSourcesDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9610FB0C22449FDA00710F43 /* MediaSourcesDisplay.swift */; };
+		9610FB0F2244A05100710F43 /* MediaSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9610FB0E2244A05100710F43 /* MediaSource.swift */; };
 		9614312520FEC7BC00B49D2E /* DiscogsSignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9614312420FEC7BC00B49D2E /* DiscogsSignInViewController.swift */; };
 		96226AFB2069FF3D000EEC50 /* DiscogsArtistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96226AF62069F578000EEC50 /* DiscogsArtistViewController.swift */; };
 		96226AFD2069FF3D000EEC50 /* DiscogsArtistModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969ADA6D2068A7D300A8BDD0 /* DiscogsArtistModel.swift */; };
@@ -270,6 +272,8 @@
 		9610FB0622431ED100710F43 /* ArtistSearchResultCellTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistSearchResultCellTests.swift; sourceTree = "<group>"; };
 		9610FB0822433CAF00710F43 /* MediaSourcesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaSourcesViewController.swift; sourceTree = "<group>"; };
 		9610FB0A22433EC100710F43 /* MediaSourcesModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaSourcesModelTests.swift; sourceTree = "<group>"; };
+		9610FB0C22449FDA00710F43 /* MediaSourcesDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaSourcesDisplay.swift; sourceTree = "<group>"; };
+		9610FB0E2244A05100710F43 /* MediaSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaSource.swift; sourceTree = "<group>"; };
 		9614312420FEC7BC00B49D2E /* DiscogsSignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscogsSignInViewController.swift; sourceTree = "<group>"; };
 		96226AF62069F578000EEC50 /* DiscogsArtistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscogsArtistViewController.swift; sourceTree = "<group>"; };
 		963282B1222CBAD90090B29F /* SectionedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionedModel.swift; sourceTree = "<group>"; };
@@ -552,7 +556,9 @@
 		9610FAFE223F371100710F43 /* Player */ = {
 			isa = PBXGroup;
 			children = (
+				9610FB0E2244A05100710F43 /* MediaSource.swift */,
 				9610FB0822433CAF00710F43 /* MediaSourcesViewController.swift */,
+				9610FB0C22449FDA00710F43 /* MediaSourcesDisplay.swift */,
 				9610FAFF223F373800710F43 /* PlayerViewController.swift */,
 				9610FB042241C80400710F43 /* PlayerView.swift */,
 			);
@@ -1208,6 +1214,7 @@
 				96CA18682082B8BB006FF5F0 /* ArtistSearchResultCell.swift in Sources */,
 				963282BF222F83C00090B29F /* ReleaseVersionTableCell.swift in Sources */,
 				9610FAFB223C8FB200710F43 /* CoverArtAndTableView.swift in Sources */,
+				9610FB0F2244A05100710F43 /* MediaSource.swift in Sources */,
 				963282BD222F82A10090B29F /* TrackTableCell.swift in Sources */,
 				9610FB0922433CAF00710F43 /* MediaSourcesViewController.swift in Sources */,
 				960368DD205A012C00D24CE7 /* AppDelegate.swift in Sources */,
@@ -1225,6 +1232,7 @@
 				96226AFD2069FF3D000EEC50 /* DiscogsArtistModel.swift in Sources */,
 				96CA185C2081A143006FF5F0 /* DiscogsSearchResultsModel.swift in Sources */,
 				9610FAF6223BD6C800710F43 /* ReleaseModel.swift in Sources */,
+				9610FB0D22449FDB00710F43 /* MediaSourcesDisplay.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

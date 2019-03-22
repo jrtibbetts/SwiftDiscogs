@@ -587,23 +587,23 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                                 <rect key="frame" x="16" y="156.33333333333334" width="311" height="339.66666666666663"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="es6-NG-rjY" userLabel="Zero-height footer to hide empty table cells.">
-                                    <rect key="frame" x="0.0" y="118" width="311" height="0.0"/>
+                                    <rect key="frame" x="0.0" y="104" width="311" height="0.0"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </view>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="mediaSourceCell" rowHeight="90" id="w7g-R4-VGH" userLabel="Source Cell" customClass="MediaSourceTableCell" customModule="SwiftDiscogsApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="311" height="90"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="mediaSourceCell" rowHeight="76" id="w7g-R4-VGH" userLabel="Source Cell" customClass="MediaSourceTableCell" customModule="SwiftDiscogsApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="311" height="76"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="w7g-R4-VGH" id="3OU-9N-Xrz" customClass="MediaSourceView" customModule="SwiftDiscogsApp" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="0.0" width="311" height="89.666666666666671"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="311" height="75.666666666666671"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VFm-dF-fhF" customClass="MediaSourceView" customModule="SwiftDiscogsApp" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="0.0" width="311" height="89.666666666666671"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="311" height="76.333333333333329"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zLW-xG-zDX" customClass="ToggleStackView" customModule="Stylobate">
-                                                            <rect key="frame" x="8" y="8" width="41.666666666666664" height="60"/>
+                                                            <rect key="frame" x="8" y="8.3333333333333357" width="41.666666666666664" height="60.000000000000007"/>
                                                             <subviews>
                                                                 <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3YP-Lj-fKg" userLabel="Service Logo">
                                                                     <rect key="frame" x="0.0" y="0.0" width="120" height="60"/>
@@ -620,32 +620,32 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                                                                 </label>
                                                             </subviews>
                                                         </stackView>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="VeF-zW-XY6" userLabel="Authentication Status Stack">
-                                                            <rect key="frame" x="173.33333333333337" y="8" width="129.66666666666663" height="73.666666666666671"/>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="VeF-zW-XY6" userLabel="Authentication Status Stack" customClass="ToggleStackView" customModule="Stylobate">
+                                                            <rect key="frame" x="173.33333333333337" y="8.3333333333333357" width="129.66666666666663" height="60.000000000000007"/>
                                                             <subviews>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="xu5-Mu-7vj">
-                                                                    <rect key="frame" x="0.0" y="4.9999999999999964" width="70.666666666666671" height="63.666666666666657"/>
+                                                                    <rect key="frame" x="0.0" y="5" width="70.666666666666671" height="50"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Signed In As" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CFM-qe-1eN" userLabel="Signed In As">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="70.666666666666671" height="32"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="70.666666666666671" height="25"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2iM-8W-tvu" userLabel="Sign Out">
-                                                                            <rect key="frame" x="11" y="32" width="49" height="31.666666666666671"/>
+                                                                            <rect key="frame" x="11" y="25" width="49" height="25"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                             <state key="normal" title="Sign Out"/>
                                                                         </button>
                                                                     </subviews>
                                                                 </stackView>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4nx-1H-qpn">
-                                                                    <rect key="frame" x="70.666666666666657" y="4.9999999999999964" width="39" height="63.666666666666657"/>
+                                                                    <rect key="frame" x="70.666666666666657" y="5" width="39" height="50"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                     <state key="normal" title="Sign In"/>
                                                                 </button>
                                                                 <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="I3b-m2-nyK">
-                                                                    <rect key="frame" x="109.66666666666666" y="16.333333333333329" width="20" height="41"/>
+                                                                    <rect key="frame" x="109.66666666666666" y="16.333333333333336" width="20" height="27.333333333333336"/>
                                                                 </activityIndicatorView>
                                                             </subviews>
                                                         </stackView>
@@ -655,7 +655,7 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                                                         <constraint firstItem="I3b-m2-nyK" firstAttribute="firstBaseline" secondItem="yte-gM-7hI" secondAttribute="firstBaseline" id="38k-aA-qAw"/>
                                                         <constraint firstItem="4nx-1H-qpn" firstAttribute="firstBaseline" secondItem="yte-gM-7hI" secondAttribute="firstBaseline" id="D8r-Qd-IVk"/>
                                                         <constraint firstAttribute="trailingMargin" secondItem="VeF-zW-XY6" secondAttribute="trailing" id="DkO-8v-aqq"/>
-                                                        <constraint firstAttribute="bottomMargin" secondItem="zLW-xG-zDX" secondAttribute="bottom" priority="500" id="R0w-fC-fp3"/>
+                                                        <constraint firstAttribute="bottomMargin" secondItem="zLW-xG-zDX" secondAttribute="bottom" id="R0w-fC-fp3"/>
                                                         <constraint firstItem="VeF-zW-XY6" firstAttribute="top" secondItem="VFm-dF-fhF" secondAttribute="topMargin" id="TQu-Qz-LQB"/>
                                                         <constraint firstItem="CFM-qe-1eN" firstAttribute="firstBaseline" secondItem="yte-gM-7hI" secondAttribute="firstBaseline" id="VxJ-g8-WhN"/>
                                                         <constraint firstItem="zLW-xG-zDX" firstAttribute="leading" secondItem="VFm-dF-fhF" secondAttribute="leadingMargin" id="pt0-rh-Drf"/>
@@ -664,8 +664,14 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                                                         <constraint firstItem="zLW-xG-zDX" firstAttribute="top" secondItem="VFm-dF-fhF" secondAttribute="topMargin" id="td0-zc-1sx"/>
                                                     </constraints>
                                                     <connections>
+                                                        <outlet property="authenticationStatusStack" destination="VeF-zW-XY6" id="OGo-sp-OLa"/>
                                                         <outlet property="iconView" destination="3YP-Lj-fKg" id="2Bv-ys-O62"/>
                                                         <outlet property="nameLabel" destination="yte-gM-7hI" id="n9w-ca-STT"/>
+                                                        <outlet property="signInButton" destination="4nx-1H-qpn" id="LKE-Aa-edH"/>
+                                                        <outlet property="signOutButton" destination="2iM-8W-tvu" id="R0W-WW-IGg"/>
+                                                        <outlet property="signOutStack" destination="xu5-Mu-7vj" id="d6h-R3-Zx3"/>
+                                                        <outlet property="signedInAsLabel" destination="CFM-qe-1eN" id="65C-UM-tcK"/>
+                                                        <outlet property="spinner" destination="I3b-m2-nyK" id="pT0-cU-dC6"/>
                                                     </connections>
                                                 </view>
                                             </subviews>
