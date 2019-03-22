@@ -5,6 +5,8 @@ import SwiftDiscogs
 
 public class MediaSourcesViewController: CollectionAndTableViewController {
 
+    // MARK: - Public Properties
+
     public var mediaSourcesDisplay: MediaSourcesDisplay? {
         return display as? MediaSourcesDisplay
     }
@@ -12,6 +14,14 @@ public class MediaSourcesViewController: CollectionAndTableViewController {
     public var mediaSourcesModel: MediaSourcesModel? {
         return model as? MediaSourcesModel
     }
+
+    // MARK: - Actions
+
+    @IBAction func close() {
+        dismiss(animated: true, completion: nil)
+    }
+
+    // MARK: - UIViewController
 
     public override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,13 +37,13 @@ public class MediaSourcesDisplay: CollectionAndTableDisplay {
 
 public class MediaSourceTableCell: UITableViewCell {
 
-    @IBOutlet public weak var view: MediaSourceView?
+    @IBOutlet public weak var mediaSourceView: MediaSourceView?
 
 }
 
 public class MediaSourceCollectionCell: UICollectionViewCell {
 
-    @IBOutlet public weak var view: MediaSourceView?
+    @IBOutlet public weak var mediaSourceView: MediaSourceView?
 
 }
 
@@ -43,12 +53,14 @@ public class MediaSourceView: UIView {
 
     public var source: MediaSourcesModel.MediaSource? {
         didSet {
-
             if let url = source?.iconURL {
                 iconView?.kf.setImage(with: url)
             } else {
                 nameLabel?.text = source?.name
             }
+
+            iconView?.isHidden = source?.iconURL == nil
+            nameLabel?.isHidden = source?.iconURL != nil
         }
     }
 
@@ -89,7 +101,7 @@ public class MediaSourcesModel: CollectionAndTableModel {
                                                  for: indexPath)
 
         if let cell = cell as? MediaSourceTableCell {
-            cell.view?.source = sources[indexPath.row]
+            cell.mediaSourceView?.source = sources[indexPath.row]
         }
 
         return cell
@@ -103,7 +115,7 @@ public class MediaSourcesModel: CollectionAndTableModel {
                                                       for: indexPath)
 
         if let cell = cell as? MediaSourceCollectionCell {
-            cell.view?.source = sources[indexPath.row]
+            cell.mediaSourceView?.source = sources[indexPath.row]
         }
 
         return cell
