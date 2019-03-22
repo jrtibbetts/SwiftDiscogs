@@ -571,133 +571,139 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
             <objects>
                 <viewController storyboardIdentifier="MediaSources" id="qjc-4k-CUc" userLabel="Media Sources" customClass="MediaSourcesViewController" customModule="SwiftDiscogsApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dm2-JJ-vUh" customClass="MediaSourcesDisplay" customModule="SwiftDiscogsApp" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="0.0" width="343" height="150"/>
+                        <rect key="frame" x="0.0" y="0.0" width="343" height="550"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E3y-aN-mXn">
-                                <rect key="frame" x="16" y="44" width="311" height="72"/>
-                                <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="j2A-9I-W1F">
-                                        <rect key="frame" x="0.0" y="0.0" width="311" height="72"/>
-                                        <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Sa-gL-3wS" userLabel="Header">
-                                                <rect key="frame" x="0.0" y="0.0" width="311" height="50"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H7j-am-8yf" userLabel="Instructions">
-                                                        <rect key="frame" x="8" y="8" width="295" height="34"/>
-                                                        <string key="text">Media can be played from many sources. Arrange the sources in the order you'd like them to be searched. Sign in to any services that require an active account.</string>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                </subviews>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="bottomMargin" secondItem="H7j-am-8yf" secondAttribute="bottom" id="5Vi-gD-Kbi"/>
-                                                    <constraint firstItem="H7j-am-8yf" firstAttribute="top" secondItem="3Sa-gL-3wS" secondAttribute="topMargin" id="DIe-Rx-3TO"/>
-                                                    <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="H7j-am-8yf" secondAttribute="trailing" id="ImL-KJ-IKy"/>
-                                                    <constraint firstItem="H7j-am-8yf" firstAttribute="leading" secondItem="3Sa-gL-3wS" secondAttribute="leadingMargin" id="Ybd-t3-0Xi"/>
-                                                </constraints>
-                                            </view>
-                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelectionDuringEditing="YES" allowsMultipleSelectionDuringEditing="YES" rowHeight="82" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="CL6-Bk-rtK">
-                                                <rect key="frame" x="0.0" y="50" width="311" height="22"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <view key="tableFooterView" contentMode="scaleToFill" id="es6-NG-rjY" userLabel="Zero-height footer to hide empty table cells.">
-                                                    <rect key="frame" x="0.0" y="110" width="311" height="0.0"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </view>
-                                                <prototypes>
-                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="mediaSourceCell" id="w7g-R4-VGH" userLabel="Source Cell" customClass="MediaSourceTableCell" customModule="SwiftDiscogsApp" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="28" width="311" height="82"/>
-                                                        <autoresizingMask key="autoresizingMask"/>
-                                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="w7g-R4-VGH" id="3OU-9N-Xrz" customClass="MediaSourceView" customModule="SwiftDiscogsApp" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="0.0" width="311" height="81.666666666666671"/>
-                                                            <autoresizingMask key="autoresizingMask"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hGV-M5-6MB" userLabel="Close Button">
+                                <rect key="frame" x="297" y="44" width="30" height="34"/>
+                                <state key="normal" title="X">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="close" destination="qjc-4k-CUc" eventType="touchUpInside" id="3yx-Lj-0bt"/>
+                                </connections>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelectionDuringEditing="YES" allowsMultipleSelectionDuringEditing="YES" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="CL6-Bk-rtK">
+                                <rect key="frame" x="16" y="156.33333333333334" width="311" height="339.66666666666663"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <view key="tableFooterView" contentMode="scaleToFill" id="es6-NG-rjY" userLabel="Zero-height footer to hide empty table cells.">
+                                    <rect key="frame" x="0.0" y="118" width="311" height="0.0"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </view>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="mediaSourceCell" rowHeight="90" id="w7g-R4-VGH" userLabel="Source Cell" customClass="MediaSourceTableCell" customModule="SwiftDiscogsApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="311" height="90"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="w7g-R4-VGH" id="3OU-9N-Xrz" customClass="MediaSourceView" customModule="SwiftDiscogsApp" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="0.0" width="311" height="89.666666666666671"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VFm-dF-fhF" customClass="MediaSourceView" customModule="SwiftDiscogsApp" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="0.0" width="311" height="89.666666666666671"/>
+                                                    <subviews>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zLW-xG-zDX" customClass="ToggleStackView" customModule="Stylobate">
+                                                            <rect key="frame" x="8" y="8" width="41.666666666666664" height="60"/>
                                                             <subviews>
-                                                                <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="zLW-xG-zDX" customClass="ToggleStackView" customModule="Stylobate">
-                                                                    <rect key="frame" x="8" y="8" width="120" height="80.333333333333329"/>
-                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3YP-Lj-fKg" userLabel="Service Logo">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="120" height="60"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="120" id="3YT-tG-Qrt"/>
+                                                                        <constraint firstAttribute="height" constant="60" id="WUi-bX-XHV"/>
+                                                                    </constraints>
+                                                                </imageView>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yte-gM-7hI" userLabel="Service Name" customClass="HidingLabel" customModule="SwiftDiscogsApp" customModuleProvider="target">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="41.666666666666664" height="60"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="VeF-zW-XY6" userLabel="Authentication Status Stack">
+                                                            <rect key="frame" x="173.33333333333337" y="8" width="129.66666666666663" height="73.666666666666671"/>
+                                                            <subviews>
+                                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="xu5-Mu-7vj">
+                                                                    <rect key="frame" x="0.0" y="4.9999999999999964" width="70.666666666666671" height="63.666666666666657"/>
                                                                     <subviews>
-                                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3YP-Lj-fKg" userLabel="Service Logo">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="120" height="60"/>
-                                                                            <constraints>
-                                                                                <constraint firstAttribute="width" constant="120" id="3YT-tG-Qrt"/>
-                                                                                <constraint firstAttribute="height" constant="60" id="WUi-bX-XHV"/>
-                                                                            </constraints>
-                                                                        </imageView>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yte-gM-7hI" userLabel="Service Name" customClass="HidingLabel" customModule="SwiftDiscogsApp" customModuleProvider="target">
-                                                                            <rect key="frame" x="0.0" y="60.000000000000007" width="120" height="20.333333333333336"/>
-                                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Signed In As" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CFM-qe-1eN" userLabel="Signed In As">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="70.666666666666671" height="32"/>
+                                                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
-                                                                    </subviews>
-                                                                </stackView>
-                                                                <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="VeF-zW-XY6">
-                                                                    <rect key="frame" x="187" y="8" width="116" height="65.666666666666671"/>
-                                                                    <subviews>
-                                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="xu5-Mu-7vj">
-                                                                            <rect key="frame" x="0.0" y="6" width="49" height="54"/>
-                                                                            <subviews>
-                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CFM-qe-1eN" userLabel="Signed In As">
-                                                                                    <rect key="frame" x="3.6666666666666572" y="0.0" width="41.666666666666664" height="27"/>
-                                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                                    <nil key="textColor"/>
-                                                                                    <nil key="highlightedColor"/>
-                                                                                </label>
-                                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2iM-8W-tvu" userLabel="Sign Out">
-                                                                                    <rect key="frame" x="0.0" y="27" width="49" height="27"/>
-                                                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                                                    <state key="normal" title="Sign Out"/>
-                                                                                </button>
-                                                                            </subviews>
-                                                                        </stackView>
-                                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4nx-1H-qpn">
-                                                                            <rect key="frame" x="49" y="18" width="47" height="30"/>
-                                                                            <state key="normal" title="Sign In"/>
+                                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2iM-8W-tvu" userLabel="Sign Out">
+                                                                            <rect key="frame" x="11" y="32" width="49" height="31.666666666666671"/>
+                                                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                                            <state key="normal" title="Sign Out"/>
                                                                         </button>
-                                                                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="I3b-m2-nyK">
-                                                                            <rect key="frame" x="96" y="23" width="20" height="20"/>
-                                                                        </activityIndicatorView>
                                                                     </subviews>
                                                                 </stackView>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4nx-1H-qpn">
+                                                                    <rect key="frame" x="70.666666666666657" y="4.9999999999999964" width="39" height="63.666666666666657"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                                    <state key="normal" title="Sign In"/>
+                                                                </button>
+                                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="I3b-m2-nyK">
+                                                                    <rect key="frame" x="109.66666666666666" y="16.333333333333329" width="20" height="41"/>
+                                                                </activityIndicatorView>
                                                             </subviews>
-                                                            <constraints>
-                                                                <constraint firstAttribute="bottomMargin" secondItem="VeF-zW-XY6" secondAttribute="bottom" id="5jY-q6-obQ"/>
-                                                                <constraint firstItem="VeF-zW-XY6" firstAttribute="top" secondItem="3OU-9N-Xrz" secondAttribute="topMargin" id="D64-r7-NEW"/>
-                                                                <constraint firstAttribute="trailingMargin" secondItem="VeF-zW-XY6" secondAttribute="trailing" id="JMb-NQ-bgr"/>
-                                                            </constraints>
-                                                            <connections>
-                                                                <outlet property="iconView" destination="3YP-Lj-fKg" id="SwQ-Qv-ijR"/>
-                                                                <outlet property="nameLabel" destination="yte-gM-7hI" id="GdY-9H-Npt"/>
-                                                            </connections>
-                                                        </tableViewCellContentView>
-                                                    </tableViewCell>
-                                                </prototypes>
-                                                <connections>
-                                                    <outlet property="delegate" destination="dm2-JJ-vUh" id="hIs-P6-23m"/>
-                                                </connections>
-                                            </tableView>
-                                        </subviews>
-                                    </stackView>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="j2A-9I-W1F" firstAttribute="leading" secondItem="E3y-aN-mXn" secondAttribute="leading" id="2t0-QW-d5L"/>
-                                    <constraint firstAttribute="bottom" secondItem="j2A-9I-W1F" secondAttribute="bottom" id="4Sw-qs-7P2"/>
-                                    <constraint firstItem="j2A-9I-W1F" firstAttribute="top" secondItem="E3y-aN-mXn" secondAttribute="top" id="Iho-Wy-ZSX"/>
-                                    <constraint firstItem="j2A-9I-W1F" firstAttribute="height" secondItem="E3y-aN-mXn" secondAttribute="height" id="kOX-BW-CnQ"/>
-                                    <constraint firstItem="j2A-9I-W1F" firstAttribute="width" secondItem="E3y-aN-mXn" secondAttribute="width" id="sFd-9v-ndO"/>
-                                    <constraint firstAttribute="trailing" secondItem="j2A-9I-W1F" secondAttribute="trailing" id="ytz-m3-FG7"/>
-                                </constraints>
-                            </scrollView>
+                                                        </stackView>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstItem="I3b-m2-nyK" firstAttribute="firstBaseline" secondItem="yte-gM-7hI" secondAttribute="firstBaseline" id="38k-aA-qAw"/>
+                                                        <constraint firstItem="4nx-1H-qpn" firstAttribute="firstBaseline" secondItem="yte-gM-7hI" secondAttribute="firstBaseline" id="D8r-Qd-IVk"/>
+                                                        <constraint firstAttribute="trailingMargin" secondItem="VeF-zW-XY6" secondAttribute="trailing" id="DkO-8v-aqq"/>
+                                                        <constraint firstAttribute="bottomMargin" secondItem="zLW-xG-zDX" secondAttribute="bottom" priority="500" id="R0w-fC-fp3"/>
+                                                        <constraint firstItem="VeF-zW-XY6" firstAttribute="top" secondItem="VFm-dF-fhF" secondAttribute="topMargin" id="TQu-Qz-LQB"/>
+                                                        <constraint firstItem="CFM-qe-1eN" firstAttribute="firstBaseline" secondItem="yte-gM-7hI" secondAttribute="firstBaseline" id="VxJ-g8-WhN"/>
+                                                        <constraint firstItem="zLW-xG-zDX" firstAttribute="leading" secondItem="VFm-dF-fhF" secondAttribute="leadingMargin" id="pt0-rh-Drf"/>
+                                                        <constraint firstAttribute="bottomMargin" secondItem="VeF-zW-XY6" secondAttribute="bottom" id="r2M-nr-PYx"/>
+                                                        <constraint firstItem="VeF-zW-XY6" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="zLW-xG-zDX" secondAttribute="trailing" constant="8" symbolic="YES" id="rlI-p2-jYh"/>
+                                                        <constraint firstItem="zLW-xG-zDX" firstAttribute="top" secondItem="VFm-dF-fhF" secondAttribute="topMargin" id="td0-zc-1sx"/>
+                                                    </constraints>
+                                                    <connections>
+                                                        <outlet property="iconView" destination="3YP-Lj-fKg" id="2Bv-ys-O62"/>
+                                                        <outlet property="nameLabel" destination="yte-gM-7hI" id="n9w-ca-STT"/>
+                                                    </connections>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="VFm-dF-fhF" secondAttribute="bottom" id="5Rz-xf-TBY"/>
+                                                <constraint firstItem="VFm-dF-fhF" firstAttribute="top" secondItem="3OU-9N-Xrz" secondAttribute="top" id="8HD-xn-Kox"/>
+                                                <constraint firstAttribute="trailing" secondItem="VFm-dF-fhF" secondAttribute="trailing" id="g9s-DE-fiR"/>
+                                                <constraint firstItem="VFm-dF-fhF" firstAttribute="leading" secondItem="3OU-9N-Xrz" secondAttribute="leading" id="nNa-rj-QRe"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="mediaSourceView" destination="VFm-dF-fhF" id="wUO-9F-zpM"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="delegate" destination="dm2-JJ-vUh" id="hIs-P6-23m"/>
+                                </connections>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H7j-am-8yf" userLabel="Instructions">
+                                <rect key="frame" x="16" y="86" width="311" height="62.333333333333343"/>
+                                <string key="text">Media can be played from many sources. Arrange the sources in the order you'd like them to be searched. Sign in to any services that require an active account.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Aqu-ah-KLl" firstAttribute="trailing" secondItem="E3y-aN-mXn" secondAttribute="trailing" constant="16" id="8QW-MV-sga"/>
-                            <constraint firstItem="E3y-aN-mXn" firstAttribute="leading" secondItem="Aqu-ah-KLl" secondAttribute="leading" constant="16" id="EG6-Cf-nDF"/>
-                            <constraint firstItem="Aqu-ah-KLl" firstAttribute="bottom" secondItem="E3y-aN-mXn" secondAttribute="bottom" id="Ghh-5Y-va1"/>
-                            <constraint firstItem="E3y-aN-mXn" firstAttribute="top" secondItem="Aqu-ah-KLl" secondAttribute="top" id="YCZ-05-YWF"/>
+                            <constraint firstItem="Aqu-ah-KLl" firstAttribute="top" secondItem="hGV-M5-6MB" secondAttribute="top" id="4iQ-V0-fzW"/>
+                            <constraint firstItem="CL6-Bk-rtK" firstAttribute="leading" secondItem="Aqu-ah-KLl" secondAttribute="leading" constant="16" id="65f-CI-hqt"/>
+                            <constraint firstItem="Aqu-ah-KLl" firstAttribute="trailing" secondItem="H7j-am-8yf" secondAttribute="trailing" constant="16" id="Afu-Tm-jyL"/>
+                            <constraint firstItem="Aqu-ah-KLl" firstAttribute="trailing" secondItem="hGV-M5-6MB" secondAttribute="trailing" constant="16" id="e5w-eC-bAj"/>
+                            <constraint firstItem="H7j-am-8yf" firstAttribute="leading" secondItem="Aqu-ah-KLl" secondAttribute="leading" constant="16" id="nzl-bD-6Dt"/>
+                            <constraint firstItem="Aqu-ah-KLl" firstAttribute="bottom" secondItem="CL6-Bk-rtK" secondAttribute="bottom" constant="20" id="oks-OG-537"/>
+                            <constraint firstItem="CL6-Bk-rtK" firstAttribute="top" secondItem="H7j-am-8yf" secondAttribute="bottom" constant="8" symbolic="YES" id="saL-a4-fv8"/>
+                            <constraint firstItem="Aqu-ah-KLl" firstAttribute="trailing" secondItem="CL6-Bk-rtK" secondAttribute="trailing" constant="16" id="xA6-f6-b8S"/>
+                            <constraint firstItem="H7j-am-8yf" firstAttribute="top" secondItem="hGV-M5-6MB" secondAttribute="bottom" constant="8" symbolType="layoutAnchor" id="zh5-HW-IT4"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Aqu-ah-KLl"/>
                         <connections>
@@ -705,10 +711,11 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                         </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Media Sources" id="kwd-I9-FEB"/>
+                    <size key="freeformSize" width="343" height="550"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r93-U2-vsO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4007" y="2306"/>
+            <point key="canvasLocation" x="4005.5999999999999" y="2305.4187192118229"/>
         </scene>
         <!--Song-->
         <scene sceneID="GOB-hb-k4f">
