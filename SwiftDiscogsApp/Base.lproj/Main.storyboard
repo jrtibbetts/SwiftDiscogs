@@ -599,7 +599,7 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                                                     <constraint firstItem="H7j-am-8yf" firstAttribute="leading" secondItem="3Sa-gL-3wS" secondAttribute="leadingMargin" id="Ybd-t3-0Xi"/>
                                                 </constraints>
                                             </view>
-                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelectionDuringEditing="YES" rowHeight="82" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="CL6-Bk-rtK">
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelectionDuringEditing="YES" allowsMultipleSelectionDuringEditing="YES" rowHeight="82" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="CL6-Bk-rtK">
                                                 <rect key="frame" x="0.0" y="50" width="311" height="22"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <view key="tableFooterView" contentMode="scaleToFill" id="es6-NG-rjY" userLabel="Zero-height footer to hide empty table cells.">
@@ -608,25 +608,37 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </view>
                                                 <prototypes>
-                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="serviceCell" id="w7g-R4-VGH" userLabel="Service Cell">
+                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="mediaSourceCell" id="w7g-R4-VGH" userLabel="Source Cell" customClass="MediaSourceTableCell" customModule="SwiftDiscogsApp" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="28" width="311" height="82"/>
                                                         <autoresizingMask key="autoresizingMask"/>
-                                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="w7g-R4-VGH" id="3OU-9N-Xrz">
+                                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="w7g-R4-VGH" id="3OU-9N-Xrz" customClass="MediaSourceView" customModule="SwiftDiscogsApp" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="0.0" width="311" height="81.666666666666671"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
-                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3YP-Lj-fKg" userLabel="Service Logo">
-                                                                    <rect key="frame" x="8" y="8" width="120" height="60"/>
-                                                                    <constraints>
-                                                                        <constraint firstAttribute="width" constant="120" id="3YT-tG-Qrt"/>
-                                                                        <constraint firstAttribute="height" constant="60" id="WUi-bX-XHV"/>
-                                                                    </constraints>
-                                                                </imageView>
+                                                                <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="zLW-xG-zDX" customClass="ToggleStackView" customModule="Stylobate">
+                                                                    <rect key="frame" x="8" y="8" width="120" height="80.333333333333329"/>
+                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                    <subviews>
+                                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3YP-Lj-fKg" userLabel="Service Logo">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="120" height="60"/>
+                                                                            <constraints>
+                                                                                <constraint firstAttribute="width" constant="120" id="3YT-tG-Qrt"/>
+                                                                                <constraint firstAttribute="height" constant="60" id="WUi-bX-XHV"/>
+                                                                            </constraints>
+                                                                        </imageView>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yte-gM-7hI" userLabel="Service Name" customClass="HidingLabel" customModule="SwiftDiscogsApp" customModuleProvider="target">
+                                                                            <rect key="frame" x="0.0" y="60.000000000000007" width="120" height="20.333333333333336"/>
+                                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                            <nil key="textColor"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                    </subviews>
+                                                                </stackView>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="VeF-zW-XY6">
-                                                                    <rect key="frame" x="187" y="8" width="116" height="54"/>
+                                                                    <rect key="frame" x="187" y="8" width="116" height="65.666666666666671"/>
                                                                     <subviews>
                                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="xu5-Mu-7vj">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="49" height="54"/>
+                                                                            <rect key="frame" x="0.0" y="6" width="49" height="54"/>
                                                                             <subviews>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CFM-qe-1eN" userLabel="Signed In As">
                                                                                     <rect key="frame" x="3.6666666666666572" y="0.0" width="41.666666666666664" height="27"/>
@@ -642,24 +654,24 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                                                                             </subviews>
                                                                         </stackView>
                                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4nx-1H-qpn">
-                                                                            <rect key="frame" x="49" y="12" width="47" height="30"/>
+                                                                            <rect key="frame" x="49" y="18" width="47" height="30"/>
                                                                             <state key="normal" title="Sign In"/>
                                                                         </button>
                                                                         <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="I3b-m2-nyK">
-                                                                            <rect key="frame" x="96" y="17" width="20" height="20"/>
+                                                                            <rect key="frame" x="96" y="23" width="20" height="20"/>
                                                                         </activityIndicatorView>
                                                                     </subviews>
                                                                 </stackView>
                                                             </subviews>
                                                             <constraints>
-                                                                <constraint firstAttribute="bottomMargin" secondItem="3YP-Lj-fKg" secondAttribute="bottom" id="08h-cy-EgR"/>
-                                                                <constraint firstItem="VeF-zW-XY6" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="3YP-Lj-fKg" secondAttribute="trailing" constant="8" symbolic="YES" id="0QA-cZ-S1X"/>
                                                                 <constraint firstAttribute="bottomMargin" secondItem="VeF-zW-XY6" secondAttribute="bottom" id="5jY-q6-obQ"/>
                                                                 <constraint firstItem="VeF-zW-XY6" firstAttribute="top" secondItem="3OU-9N-Xrz" secondAttribute="topMargin" id="D64-r7-NEW"/>
                                                                 <constraint firstAttribute="trailingMargin" secondItem="VeF-zW-XY6" secondAttribute="trailing" id="JMb-NQ-bgr"/>
-                                                                <constraint firstAttribute="leadingMargin" secondItem="3YP-Lj-fKg" secondAttribute="leading" id="Urn-1I-Wid"/>
-                                                                <constraint firstItem="3YP-Lj-fKg" firstAttribute="top" secondItem="3OU-9N-Xrz" secondAttribute="topMargin" id="bL8-Tm-FHX"/>
                                                             </constraints>
+                                                            <connections>
+                                                                <outlet property="iconView" destination="3YP-Lj-fKg" id="SwQ-Qv-ijR"/>
+                                                                <outlet property="nameLabel" destination="yte-gM-7hI" id="GdY-9H-Npt"/>
+                                                            </connections>
                                                         </tableViewCellContentView>
                                                     </tableViewCell>
                                                 </prototypes>
