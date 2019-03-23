@@ -55,5 +55,6 @@ public class MediaSourceView: UIView {
     @IBOutlet public weak var signOutStack: UIStackView?
 
     @IBOutlet public weak var spinner: UIActivityIndicatorView?
+    
 }
 
