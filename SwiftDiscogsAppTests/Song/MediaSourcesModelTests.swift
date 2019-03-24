@@ -6,12 +6,12 @@ import XCTest
 class MediaSourcesModelTests: XCTestCase {
 
     func testNewModelHasNoSources() {
-        let model = MediaSourcesModel()
+        let model = MediaSourcesModel(sources: [])
         XCTAssertEqual(model.sources.count, 0)
     }
 
     func testModelWithOneSource() {
-        let source = MediaSourcesModel.MediaSource(name: "Spotify", iconURL: nil)
+        let source = MediaSource(name: "Spotify", iconURL: nil)
         let model = MediaSourcesModel(sources: [source])
         XCTAssertEqual(model.sources.count, 1)
     }

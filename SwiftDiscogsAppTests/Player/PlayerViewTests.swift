@@ -94,9 +94,7 @@ class PlayerViewTests: XCTestCase {
             $0.elapsedTime = 0.0
         }
         playerView.model = model
-        XCTAssertEqual(scrubberView.elapsedTimeLabel?.text, "0:00")
-        XCTAssertEqual(scrubberView.remainingTimeLabel?.text, "3:31")
-        XCTAssertEqual(scrubberView.scrubber?.value, 0.0)
+        assert(elapsedTimeText: "0:00", remainingTimeText: "3:31", scrubberValue: 0.0)
     }
 
     func testScrubberInMiddleOfSong() {
@@ -105,24 +103,38 @@ class PlayerViewTests: XCTestCase {
             $0.elapsedTime = 49.0
         }
         playerView.model = model
-        XCTAssertEqual(scrubberView.elapsedTimeLabel?.text, "0:49")
-        XCTAssertEqual(scrubberView.remainingTimeLabel?.text, "3:31")
-        XCTAssertEqual(scrubberView.scrubber?.value, 49.0)
+        assert(elapsedTimeText: "0:49", remainingTimeText: "3:31", scrubberValue: 49.0)
     }
 
     func testToggleRemainingTimeLabel() {
-        let model = PlayerModel() <~ {
-            $0.mediaDuration = 211.0
-            $0.elapsedTime = 49.0
-        }
+        let model = PlayerModel(mediaDuration: 211.0, elapsedTime: 49.0)
+
         playerView.model = model
-        XCTAssertEqual(scrubberView.remainingTimeLabel?.text, "3:31")
+        assert(elapsedTimeText: "0:49", remainingTimeText: "3:31", scrubberValue: 49.0)
 
         scrubberView.toggleRemainingTimeLabel(scrubberView.remainingTimeLabel)
-        XCTAssertEqual(scrubberView.remainingTimeLabel?.text, "2:42")
+        assert(elapsedTimeText: "0:49", remainingTimeText: "2:42", scrubberValue: 49.0)
 
         scrubberView.toggleRemainingTimeLabel(scrubberView.remainingTimeLabel)
-        XCTAssertEqual(scrubberView.remainingTimeLabel?.text, "3:31")
+        assert(elapsedTimeText: "0:49", remainingTimeText: "3:31", scrubberValue: 49.0)
+    }
+
+    func assert(elapsedTimeText: String,
+                remainingTimeText: String,
+                scrubberValue: Float) {
+        XCTAssertEqual(scrubberView.elapsedTimeLabel?.text, elapsedTimeText)
+        XCTAssertEqual(scrubberView.remainingTimeLabel?.text, remainingTimeText)
+        XCTAssertEqual(scrubberView.scrubber?.value, scrubberValue)
+    }
+}
+
+extension PlayerModel {
+
+    public convenience init(mediaDuration: TimeInterval,
+                            elapsedTime: TimeInterval) {
+        self.init()
+        self.mediaDuration = mediaDuration
+        self.elapsedTime = elapsedTime
     }
 
 }
