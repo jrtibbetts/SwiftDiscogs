@@ -3,7 +3,7 @@ language: swift
 os: osx
 osx_image: xcode10.2
 script:
-  xcodebuild -scheme SwiftDiscogs -project SwiftDiscogs.xcodeproj -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone X,OS=12.0' test
+  xcodebuild -scheme SwiftDiscogs -project SwiftDiscogs.xcodeproj -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone X,OS=12.2' test
 after_success:
   bash <(curl -s https://codecov.io/bash)
 
