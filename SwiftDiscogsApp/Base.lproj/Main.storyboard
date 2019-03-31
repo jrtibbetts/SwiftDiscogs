@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="tNh-PQ-CUg">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="tNh-PQ-CUg">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -207,7 +207,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fkc-x1-Vyr">
-                                                    <rect key="frame" x="87" y="11" width="240" height="131"/>
+                                                    <rect key="frame" x="67.666666666666686" y="11" width="240" height="131"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="240" id="fO4-WZ-MOg"/>
                                                     </constraints>
@@ -271,7 +271,7 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                                                     <viewLayoutGuide key="safeArea" id="Kfo-Xh-hkw"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="1957" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i8D-bh-YBu" userLabel="Album Year">
-                                                    <rect key="frame" x="365.66666666666669" y="12" width="33.333333333333314" height="18"/>
+                                                    <rect key="frame" x="326.66666666666669" y="12" width="33.333333333333314" height="18"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -328,7 +328,7 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                                                     <viewLayoutGuide key="safeArea" id="Ztl-QL-f79"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="1957" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xbp-pw-xS2" userLabel="Single Year">
-                                                    <rect key="frame" x="365.66666666666669" y="12" width="33.333333333333314" height="18"/>
+                                                    <rect key="frame" x="326.66666666666669" y="12" width="33.333333333333314" height="18"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -741,13 +741,13 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ppH-We-6On" userLabel="Artwork">
-                                <rect key="frame" x="16" y="44" width="343" height="343"/>
+                                <rect key="frame" x="16" y="88" width="343" height="343"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="ppH-We-6On" secondAttribute="height" multiplier="1:1" id="i94-Wn-ufB"/>
                                 </constraints>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cJ8-J0-ZW3">
-                                <rect key="frame" x="16" y="44" width="343" height="734"/>
+                                <rect key="frame" x="16" y="88" width="343" height="690"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="FVq-tL-bdN" userLabel="Clear Header">
                                     <rect key="frame" x="0.0" y="0.0" width="343" height="343"/>
@@ -763,16 +763,16 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="8Gz-TJ-OXU" userLabel="Credits">
-                                                    <rect key="frame" x="15" y="11" width="352" height="108"/>
+                                                    <rect key="frame" x="15" y="11" width="313" height="108"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" verticalCompressionResistancePriority="749" text="“With a Little Luck”" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qgN-qQ-oM8" userLabel="Title">
-                                                            <rect key="frame" x="44.333333333333343" y="0.0" width="263.33333333333326" height="30.666666666666668"/>
+                                                            <rect key="frame" x="25" y="0.0" width="263.33333333333331" height="30.666666666666668"/>
                                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Xg-Lr-C9C">
-                                                            <rect key="frame" x="143" y="38.666666666666664" width="66" height="40.999999999999993"/>
+                                                            <rect key="frame" x="123.66666666666666" y="38.666666666666664" width="66" height="40.999999999999993"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                             <state key="normal" title="Wings"/>
                                                             <connections>
@@ -780,7 +780,7 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                                                             </connections>
                                                         </button>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="750" text="First released March 20th, 1978" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NZq-U3-jLC" customClass="HidingLabel" customModule="SwiftDiscogsApp" customModuleProvider="target">
-                                                            <rect key="frame" x="55" y="87.666666666666671" width="242" height="20.333333333333329"/>
+                                                            <rect key="frame" x="35.666666666666657" y="87.666666666666671" width="241.99999999999997" height="20.333333333333329"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -809,19 +809,19 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="186" translatesAutoresizingMaskIntoConstraints="NO" id="obR-wd-YgL">
-                                                    <rect key="frame" x="15" y="11" width="352" height="22"/>
+                                                    <rect key="frame" x="15" y="11" width="313" height="22"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="firstBaseline" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="aQ3-Kb-Smu" userLabel="Name Label">
-                                                            <rect key="frame" x="0.0" y="0.0" width="97.333333333333329" height="22"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="97.666666666666671" height="22"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AKA" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7OT-ym-U3D" userLabel="Also Known As Label" customClass="HidingLabel" customModule="SwiftDiscogsApp" customModuleProvider="target">
-                                                                    <rect key="frame" x="0.0" y="4" width="40.666666666666664" height="18"/>
+                                                                    <rect key="frame" x="0.0" y="4" width="41" height="18"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DJ edit" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KE6-eh-HJg" userLabel="Disambiguation Note Label" customClass="HidingLabel" customModule="SwiftDiscogsApp" customModuleProvider="target">
-                                                                    <rect key="frame" x="48.666666666666671" y="4" width="48.666666666666671" height="18"/>
+                                                                    <rect key="frame" x="49" y="4" width="48.666666666666657" height="18"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -829,7 +829,7 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                                                             </subviews>
                                                         </stackView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3:15" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gVc-WZ-K9Q" userLabel="Duration Label" customClass="HidingLabel" customModule="SwiftDiscogsApp" customModuleProvider="target">
-                                                            <rect key="frame" x="283.33333333333331" y="0.0" width="68.666666666666686" height="22"/>
+                                                            <rect key="frame" x="283.66666666666669" y="0.0" width="29.333333333333314" height="22"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -858,7 +858,7 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lyrics" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="udw-pU-YA6">
-                                                    <rect key="frame" x="15" y="11" width="352" height="22"/>
+                                                    <rect key="frame" x="15" y="11" width="313" height="22"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -883,7 +883,7 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="lead vocals, bass guitar, drums, synthesizer" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fp9-ZA-cEY" userLabel="Role Label">
-                                                    <rect key="frame" x="180" y="14.999999999999996" width="187" height="40.666666666666657"/>
+                                                    <rect key="frame" x="141" y="14.999999999999996" width="187" height="40.666666666666657"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -1175,7 +1175,7 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2:46" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q07-nf-KlI" userLabel="Duration">
-                                                    <rect key="frame" x="346.66666666666669" y="11" width="26.333333333333314" height="14.666666666666664"/>
+                                                    <rect key="frame" x="307.66666666666669" y="11" width="26.333333333333314" height="14.666666666666664"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -1209,16 +1209,16 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" alignment="firstBaseline" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="nhB-Ua-RyN">
-                                                    <rect key="frame" x="15" y="11" width="384" height="22"/>
+                                                    <rect key="frame" x="15" y="11" width="345" height="22"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Because" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jva-ML-VZe" userLabel="Title">
-                                                            <rect key="frame" x="0.0" y="4" width="342.33333333333331" height="18"/>
+                                                            <rect key="frame" x="0.0" y="4" width="303.33333333333331" height="18"/>
                                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="1957" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SLz-RY-Vvm" userLabel="Single Year" customClass="HidingLabel" customModule="SwiftDiscogsApp" customModuleProvider="target">
-                                                            <rect key="frame" x="350.33333333333331" y="4" width="33.666666666666686" height="18"/>
+                                                            <rect key="frame" x="311.33333333333331" y="4" width="33.666666666666686" height="18"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -1278,10 +1278,10 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Sfl-LD-qU7" userLabel="Artwork">
-                                <rect key="frame" x="16" y="44" width="343" height="343"/>
+                                <rect key="frame" x="16" y="88" width="343" height="343"/>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3mj-xk-sUH">
-                                <rect key="frame" x="0.0" y="44" width="375" height="734"/>
+                                <rect key="frame" x="0.0" y="88" width="375" height="690"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="HY3-ez-jOQ" userLabel="Clear Header">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="343"/>
@@ -1334,7 +1334,7 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2:46" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zSv-Dl-nlJ" userLabel="Duration">
-                                                    <rect key="frame" x="346.66666666666669" y="11" width="26.333333333333314" height="14.666666666666664"/>
+                                                    <rect key="frame" x="307.66666666666669" y="11" width="26.333333333333314" height="14.666666666666664"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -1428,6 +1428,7 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                     <tabBarItem key="tabBarItem" title="Database" id="7Ap-M4-zcX"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="qAw-Lw-G1P">
+                        <rect key="frame" x="0.0" y="44" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </navigationBar>

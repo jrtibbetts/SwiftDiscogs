@@ -1,6 +1,7 @@
 github "OAuthSwift/OAuthSwift"
 github "mxcl/PromiseKit"
 github "jrtibbetts/JSONClient"
+github "jrtibbetts/Medi8"
 github "jrtibbetts/Stylobate"
 github "onevcat/Kingfisher"
 

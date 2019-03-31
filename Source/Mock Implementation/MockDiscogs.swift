@@ -38,12 +38,12 @@ public class MockDiscogs: MockClient, Discogs {
     
     public func userIdentity() -> Promise<UserIdentity> {
         return apply(toJsonObjectIn: "get-user-identity-200",
-                     error: DiscogsError.unauthenticatedUser())
+                     error: DiscogsError.unauthenticatedUser)
     }
 
     public func userProfile(userName: String) -> Promise<UserProfile> {
         return apply(toJsonObjectIn: "get-user-profile-200",
-                     error: DiscogsError.unauthenticatedUser())
+                     error: DiscogsError.unauthenticatedUser)
     }
     
     // MARK: - Database

@@ -164,6 +164,8 @@
 		969ADA802068D87D00A8BDD0 /* Sublabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969ADA7F2068D87D00A8BDD0 /* Sublabel.swift */; };
 		969ADA822068D8B100A8BDD0 /* BandMember.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969ADA812068D8B100A8BDD0 /* BandMember.swift */; };
 		969FBD4A207AB29300C32471 /* DiscogsArtistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969FBD49207AB29300C32471 /* DiscogsArtistView.swift */; };
+		96A2F83A224C76CF00FBC798 /* Medi8.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96A2F839224C76CF00FBC798 /* Medi8.framework */; };
+		96A2F83C224C773100FBC798 /* Medi8.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 96A2F83B224C773100FBC798 /* Medi8.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		96A5577F207C19C1002590C7 /* DiscogsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A5577E207C19C1002590C7 /* DiscogsProvider.swift */; };
 		96A8AC9F219214EE0098BF87 /* Discogs.strings in Resources */ = {isa = PBXBuildFile; fileRef = 96A8ACA1219214EE0098BF87 /* Discogs.strings */; };
 		96C656B12129204A0041CAD6 /* Discogs.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96C656B0212920490041CAD6 /* Discogs.xcassets */; };
@@ -225,6 +227,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				96A2F83C224C773100FBC798 /* Medi8.framework in Embed Frameworks */,
 				96F1E59E2155F21100B17F3F /* Kingfisher.framework in Embed Frameworks */,
 				96036919205C3BC500D24CE7 /* OAuthSwift.framework in Embed Frameworks */,
 				9603691B205C3BC500D24CE7 /* PromiseKit.framework in Embed Frameworks */,
@@ -401,6 +404,8 @@
 		969ADA812068D8B100A8BDD0 /* BandMember.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandMember.swift; sourceTree = "<group>"; };
 		969FBD49207AB29300C32471 /* DiscogsArtistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscogsArtistView.swift; sourceTree = "<group>"; };
 		96A16D50214F6EA10081F610 /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
+		96A2F839224C76CF00FBC798 /* Medi8.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Medi8.framework; path = Carthage/Build/iOS/Medi8.framework; sourceTree = "<group>"; };
+		96A2F83B224C773100FBC798 /* Medi8.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Medi8.framework; path = Carthage/Build/iOS/Medi8.framework; sourceTree = "<group>"; };
 		96A5577E207C19C1002590C7 /* DiscogsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscogsProvider.swift; sourceTree = "<group>"; };
 		96A8AC9A2192104E0098BF87 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		96A8AC9B219210500098BF87 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Main.strings; sourceTree = "<group>"; };
@@ -453,6 +458,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96A2F83A224C76CF00FBC798 /* Medi8.framework in Frameworks */,
 				9689848C203DDA0200DE77BC /* JSONClient.framework in Frameworks */,
 				9689848D203DDA0200DE77BC /* OAuthSwift.framework in Frameworks */,
 				9689848E203DDA0200DE77BC /* PromiseKit.framework in Frameworks */,
@@ -596,6 +602,7 @@
 		9689839E203D427A00DE77BC = {
 			isa = PBXGroup;
 			children = (
+				96A2F83B224C773100FBC798 /* Medi8.framework */,
 				968983AA203D427A00DE77BC /* Source */,
 				968983B5203D427B00DE77BC /* Tests */,
 				960368DB205A012C00D24CE7 /* SwiftDiscogsApp */,
@@ -830,6 +837,7 @@
 		96898488203DDA0200DE77BC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				96A2F839224C76CF00FBC798 /* Medi8.framework */,
 				96A16D50214F6EA10081F610 /* Kingfisher.framework */,
 				96EDF289209FA8EF009496FA /* Stylobate.framework */,
 				96898489203DDA0200DE77BC /* JSONClient.framework */,
@@ -1419,7 +1427,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = net.poikile.SwiftDiscogsApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1438,7 +1446,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = net.poikile.SwiftDiscogsApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -1458,7 +1466,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = net.poikile.SwiftDiscogsAppTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwiftDiscogsApp.app/SwiftDiscogsApp";
 			};
@@ -1479,7 +1487,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = net.poikile.SwiftDiscogsAppTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwiftDiscogsApp.app/SwiftDiscogsApp";
 			};
@@ -1495,7 +1503,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = net.poikile.SwiftDiscogsAppUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = SwiftDiscogsApp;
 			};
@@ -1511,7 +1519,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = net.poikile.SwiftDiscogsAppUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = SwiftDiscogsApp;
 			};
@@ -1574,7 +1582,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -1629,7 +1637,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -1658,7 +1666,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1684,7 +1692,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = net.poikile.SwiftDiscogs;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -1703,7 +1711,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks $(PROJECT_DIR)/Carthage/Build/iOS";
 				PRODUCT_BUNDLE_IDENTIFIER = net.poikile.SwiftDiscogsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1722,7 +1730,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks $(PROJECT_DIR)/Carthage/Build/iOS";
 				PRODUCT_BUNDLE_IDENTIFIER = net.poikile.SwiftDiscogsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

@@ -17,7 +17,7 @@ public enum DiscogsError: Error {
     /// Thrown when no artist was found when searching by its name.
     case masterReleaseNotFoundById(Int)
     case releaseNotFoundById(Int)
-    case unauthenticatedUser()
+    case unauthenticatedUser
     case unknownUser(username: String)
     case unknown(Error?)
     
