@@ -45,12 +45,6 @@ open class DiscogsSearchViewController: CollectionAndTableViewController, UISear
         return view as? DiscogsSearchView
     }
 
-    // MARK: - Actions
-
-    @IBAction private func signOut() {
-        discogs?.signOut()
-    }
-
     // MARK: - Private Properties
 
     /// The `UISearchController`. It displays its results here, not in a
@@ -61,6 +55,18 @@ open class DiscogsSearchViewController: CollectionAndTableViewController, UISear
 
         return searchController
     }()
+
+    // MARK: - Actions
+
+    @IBAction private func signOut() {
+        discogs?.signOut()
+    }
+
+    // MARK: - Functions
+
+    public func search(forArtistNamed artistName: String) {
+        searchController.searchBar.text = artistName
+    }
     
     // MARK: UIViewController
 

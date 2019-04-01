@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="tNh-PQ-CUg">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dmi-G6-eJE">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -20,10 +20,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="yF3-Hg-VoZ" customClass="ToggleStackView" customModule="Stylobate">
-                                <rect key="frame" x="0.0" y="140" width="375" height="638"/>
+                                <rect key="frame" x="0.0" y="88" width="375" height="641"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MQe-0X-tnP" userLabel="Search Results Table">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="319"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="320.66666666666669"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <view key="tableFooterView" contentMode="scaleToFill" id="1ki-zd-j1R" userLabel="Empty Footer to Suppress Empty Rows">
                                             <rect key="frame" x="0.0" y="72" width="375" height="0.0"/>
@@ -112,10 +112,10 @@
                                         </prototypes>
                                     </tableView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gF0-sz-40M" userLabel="Unavailable View">
-                                        <rect key="frame" x="0.0" y="319" width="375" height="319"/>
+                                        <rect key="frame" x="0.0" y="320.66666666666674" width="375" height="320.33333333333326"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your collection has not yet been imported." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zgg-zJ-P3u">
-                                                <rect key="frame" x="26" y="149.33333333333337" width="323.33333333333331" height="20.333333333333343"/>
+                                                <rect key="frame" x="26" y="149.99999999999994" width="323.33333333333331" height="20.333333333333343"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -134,7 +134,7 @@
                                 </subviews>
                             </stackView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="pEy-S7-tsb">
-                                <rect key="frame" x="177.66666666666666" y="449" width="20" height="20"/>
+                                <rect key="frame" x="177.66666666666666" y="398.66666666666669" width="20" height="20"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -179,6 +179,131 @@
             </objects>
             <point key="canvasLocation" x="3173" y="226"/>
         </scene>
+        <!--Artists-->
+        <scene sceneID="e41-lK-rKG">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8b8-bl-UVE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="3Io-tG-adT" userLabel="Artists" customClass="ArtistsViewController" customModule="SwiftDiscogsApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="B9D-h3-DyL" customClass="ArtistsDisplay" customModule="SwiftDiscogsApp" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="FSK-C1-Bja">
+                                <rect key="frame" x="0.0" y="384" width="375" height="44"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="7An-yd-Yqy">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="ahH-AV-P64">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kh4-yl-et3">
+                                <rect key="frame" x="0.0" y="88" width="375" height="641"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="artistCell" textLabel="TgV-rS-ZnO" style="IBUITableViewCellStyleDefault" id="lX4-9L-TxG">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="lX4-9L-TxG" id="1mm-bv-BS5">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="TgV-rS-ZnO">
+                                                    <rect key="frame" x="15" y="0.0" width="345" height="43.666666666666664"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="BYZ-38-t0r" kind="show" identifier="searchDiscogsForArtist" id="CCn-pf-K9m"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="FSK-C1-Bja" firstAttribute="top" secondItem="uE6-tr-RnY" secondAttribute="top" constant="296" id="Hmh-LA-8Ob"/>
+                            <constraint firstItem="kh4-yl-et3" firstAttribute="leading" secondItem="uE6-tr-RnY" secondAttribute="leading" id="NJY-2c-e7C"/>
+                            <constraint firstItem="kh4-yl-et3" firstAttribute="top" secondItem="uE6-tr-RnY" secondAttribute="top" id="NNP-DU-FPd"/>
+                            <constraint firstItem="uE6-tr-RnY" firstAttribute="trailing" secondItem="FSK-C1-Bja" secondAttribute="trailing" id="SdO-HM-4xU"/>
+                            <constraint firstItem="uE6-tr-RnY" firstAttribute="bottom" secondItem="FSK-C1-Bja" secondAttribute="bottom" constant="301" id="Y29-VH-Jbh"/>
+                            <constraint firstItem="uE6-tr-RnY" firstAttribute="bottom" secondItem="kh4-yl-et3" secondAttribute="bottom" id="dtM-px-Rhj"/>
+                            <constraint firstItem="uE6-tr-RnY" firstAttribute="trailing" secondItem="kh4-yl-et3" secondAttribute="trailing" id="nSA-Uq-Lpf"/>
+                            <constraint firstItem="FSK-C1-Bja" firstAttribute="leading" secondItem="uE6-tr-RnY" secondAttribute="leading" id="nkx-xm-bUQ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="uE6-tr-RnY"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="FSK-C1-Bja"/>
+                            </mask>
+                        </variation>
+                        <connections>
+                            <outlet property="collectionView" destination="FSK-C1-Bja" id="QN5-Hu-aZE"/>
+                            <outlet property="navigationItem" destination="cnU-lL-Kdf" id="APd-ou-cqb"/>
+                            <outlet property="tableView" destination="kh4-yl-et3" id="UkC-SD-wZh"/>
+                        </connections>
+                    </view>
+                    <navigationItem key="navigationItem" id="cnU-lL-Kdf">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="Fm1-Im-R2a">
+                            <view key="customView" contentMode="scaleToFill" id="e71-G5-ETS">
+                                <rect key="frame" x="276" y="5.6666666666666679" width="83" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="RKY-P9-VQz">
+                                        <rect key="frame" x="0.0" y="0.0" width="83" height="34"/>
+                                        <segments>
+                                            <segment title="L"/>
+                                            <segment title="T"/>
+                                        </segments>
+                                    </segmentedControl>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="RKY-P9-VQz" firstAttribute="top" secondItem="e71-G5-ETS" secondAttribute="top" id="8bo-7V-jm9"/>
+                                    <constraint firstItem="RKY-P9-VQz" firstAttribute="leading" secondItem="e71-G5-ETS" secondAttribute="leading" id="AoC-vi-Bhp"/>
+                                    <constraint firstAttribute="bottom" secondItem="RKY-P9-VQz" secondAttribute="bottom" id="KYC-4y-w77"/>
+                                    <constraint firstAttribute="trailing" secondItem="RKY-P9-VQz" secondAttribute="trailing" id="uz0-6u-DLB"/>
+                                </constraints>
+                            </view>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="3172" y="1014.5320197044335"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="vKk-th-svb">
+            <objects>
+                <tabBarController id="dmi-G6-eJE" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="l3q-d0-YkV">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="otB-Xv-hGK" kind="relationship" relationship="viewControllers" id="lMo-rM-DgL"/>
+                        <segue destination="si1-Xp-Qtq" kind="relationship" relationship="viewControllers" id="zdv-kR-CdO"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="48I-qI-sDN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1319" y="604"/>
+        </scene>
         <!--Artist Details-->
         <scene sceneID="Ah8-cD-mNe">
             <objects>
@@ -188,10 +313,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SGe-5Q-QE6" userLabel="Main Image">
-                                <rect key="frame" x="0.0" y="88" width="375" height="690"/>
+                                <rect key="frame" x="0.0" y="88" width="375" height="641"/>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="iaE-Sd-FyD">
-                                <rect key="frame" x="0.0" y="88" width="375" height="690"/>
+                                <rect key="frame" x="0.0" y="88" width="375" height="641"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="oAL-9f-geB" userLabel="Empty Footer">
                                     <rect key="frame" x="0.0" y="585" width="375" height="0.0"/>
@@ -459,7 +584,7 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="4XT-m2-Z6L">
-                                <rect key="frame" x="0.0" y="88" width="375" height="690"/>
+                                <rect key="frame" x="0.0" y="88" width="375" height="641"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="FQa-Fn-V7P">
                                     <size key="itemSize" width="50" height="50"/>
@@ -479,7 +604,7 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                                 </cells>
                             </collectionView>
                             <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kRc-nM-CdG">
-                                <rect key="frame" x="0.0" y="230" width="375" height="406"/>
+                                <rect key="frame" x="0.0" y="205.66666666666663" width="375" height="406"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="nDI-xg-JK3">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="406"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -747,7 +872,7 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                                 </constraints>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cJ8-J0-ZW3">
-                                <rect key="frame" x="16" y="88" width="343" height="690"/>
+                                <rect key="frame" x="16" y="88" width="343" height="641"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="FVq-tL-bdN" userLabel="Clear Header">
                                     <rect key="frame" x="0.0" y="0.0" width="343" height="343"/>
@@ -909,7 +1034,7 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                                 </prototypes>
                             </tableView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s47-14-jgY" userLabel="Play Controls Container">
-                                <rect key="frame" x="16" y="628" width="343" height="150"/>
+                                <rect key="frame" x="16" y="579" width="343" height="150"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="150" id="Gw0-p9-anT"/>
                                 </constraints>
@@ -1147,7 +1272,7 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                                 <rect key="frame" x="16" y="88" width="343" height="343"/>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" contentInsetAdjustmentBehavior="always" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4gc-te-Nk4">
-                                <rect key="frame" x="0.0" y="88" width="375" height="690"/>
+                                <rect key="frame" x="0.0" y="88" width="375" height="641"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="EWI-4k-5XF" userLabel="Clear Header">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="343"/>
@@ -1267,7 +1392,7 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n66-Ae-c1I" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4949.6000000000004" y="1014.5320197044335"/>
+            <point key="canvasLocation" x="5892" y="1014.5320197044335"/>
         </scene>
         <!--Release Version-->
         <scene sceneID="t8u-c6-5cn">
@@ -1281,7 +1406,7 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                                 <rect key="frame" x="16" y="88" width="343" height="343"/>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3mj-xk-sUH">
-                                <rect key="frame" x="0.0" y="88" width="375" height="690"/>
+                                <rect key="frame" x="0.0" y="88" width="375" height="641"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="HY3-ez-jOQ" userLabel="Clear Header">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="343"/>
@@ -1388,7 +1513,7 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GTJ-xr-Iuq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5960.8000000000002" y="1014.5320197044335"/>
+            <point key="canvasLocation" x="6903.1999999999998" y="1014.5320197044335"/>
         </scene>
         <!--Artist Bio-->
         <scene sceneID="2D8-tA-SAQ">
@@ -1399,7 +1524,7 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Byp-oG-qa7">
-                                <rect key="frame" x="16" y="88" width="343" height="690"/>
+                                <rect key="frame" x="16" y="88" width="343" height="641"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
@@ -1425,7 +1550,7 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
         <scene sceneID="20v-EU-wcr">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="si1-Xp-Qtq" userLabel="Database Navigation Controller" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Database" id="7Ap-M4-zcX"/>
+                    <tabBarItem key="tabBarItem" title="Discogs" id="7Ap-M4-zcX"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="qAw-Lw-G1P">
                         <rect key="frame" x="0.0" y="44" width="375" height="96"/>
@@ -1443,18 +1568,6 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B3O-o3-fcP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2269" y="226"/>
-        </scene>
-        <!--Split View Controller-->
-        <scene sceneID="Q7B-Ka-U7h">
-            <objects>
-                <splitViewController id="tNh-PQ-CUg" sceneMemberID="viewController">
-                    <connections>
-                        <segue destination="si1-Xp-Qtq" kind="relationship" relationship="masterViewController" id="8EI-7g-qoF"/>
-                    </connections>
-                </splitViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7Wo-is-ZTw" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1361" y="225"/>
         </scene>
         <!--Sign In-->
         <scene sceneID="dIO-4P-uw5">
@@ -1528,13 +1641,33 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
             </objects>
             <point key="canvasLocation" x="3172" y="-573"/>
         </scene>
+        <!--Artists-->
+        <scene sceneID="KCJ-Fu-5fu">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="otB-Xv-hGK" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Artists" id="T6c-8Z-Q1G"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="tlt-dL-h6A">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="3Io-tG-adT" kind="relationship" relationship="rootViewController" id="kGc-wt-ar2"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HIG-D1-HTA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2268" y="1015"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Discogs" width="480" height="174"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="IBF-35-jpA"/>
-        <segue reference="UNb-dt-M4w"/>
+        <segue reference="eCZ-Jx-ntR"/>
+        <segue reference="CCn-pf-K9m"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.0026941164399999998" green="0.097064159809999995" blue="0.57731443640000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
