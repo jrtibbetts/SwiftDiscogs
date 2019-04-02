@@ -33,6 +33,7 @@ class ArtistsViewController: CollectionAndTableViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
+        // How do I run this promise on a background thread?
         _ = Promise<[MPMediaItem]?>() { (seal) in
             seal.fulfill(MPMediaQuery.artists().items)
             }.done { [weak self] (artists) in
