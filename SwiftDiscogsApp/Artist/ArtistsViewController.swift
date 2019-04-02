@@ -96,19 +96,26 @@ class ArtistsModel: CollectionAndTableModel {
 
     var artists: [String]? {
         didSet {
-            let firstLetters = artists?.reduce(into: Set<String>(), { (set, artist) in
+            let firstLetters = artists?.reduce(into: Set<String>()) { (set, artist) in
                 if let firstLetter = artist.first {
                     set.insert(String(firstLetter))
                 }
-            })
+            }
 
             if let firstLetters = firstLetters {
                 sectionTitles = Array<String>(firstLetters).sorted()
+                sectionIndices = []
+
+                sectionTitles.forEach { (sectionTitle) in
+                     sectionIndices.append(artists?.firstIndex { $0.starts(with: sectionTitle) } ?? 0)
+                }
             }
         }
     }
 
     private var sectionTitles: [String] = []
+
+    private var sectionIndices: [Int] = []
 
     // MARK: - CollectionAndTableModel
 
@@ -136,8 +143,9 @@ class ArtistsModel: CollectionAndTableModel {
     }
 
     func tableView(_ tableView: UITableView,
-                   sectionForSectionIndexTitle title: String, at index: Int) -> Int {
-        return artists?.firstIndex { $0.starts(with: title) } ?? 0
+                   sectionForSectionIndexTitle title: String,
+                   at index: Int) -> Int {
+        return sectionIndices[index]
     }
 
 }
