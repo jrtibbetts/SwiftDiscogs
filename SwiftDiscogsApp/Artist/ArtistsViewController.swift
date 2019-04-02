@@ -34,14 +34,14 @@ class ArtistsViewController: CollectionAndTableViewController {
         super.viewDidAppear(animated)
         artistsDisplay?.start()
 
-        // How do I run this promise on a background thread?
-        _ = Promise<[MPMediaItem]?>() { (seal) in
-            seal.fulfill(MPMediaQuery.artists().items)
+        DispatchQueue.global().async(.promise) {
+            MPMediaQuery.artists().items
             }.done { [weak self] (artists) in
                 self?.artistsModel?.artistMediaItems = artists
                 self?.artistsDisplay?.refresh()
+            }.ensure { [weak self] in
                 self?.artistsDisplay?.stop()
-        }
+        }.cauterize()
     }
 
     override func viewDidLoad() {
