@@ -234,10 +234,10 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nhX-fS-HdP">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nhX-fS-HdP" userLabel="Spinner View">
                                 <rect key="frame" x="169" y="390" width="37" height="37"/>
                                 <subviews>
-                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Fab-mR-Guz">
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Fab-mR-Guz" userLabel="Spinner">
                                         <rect key="frame" x="0.0" y="0.0" width="37" height="37"/>
                                         <color key="color" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     </activityIndicatorView>
@@ -273,7 +273,7 @@
                         <connections>
                             <outlet property="collectionView" destination="FSK-C1-Bja" id="QN5-Hu-aZE"/>
                             <outlet property="navigationItem" destination="cnU-lL-Kdf" id="APd-ou-cqb"/>
-                            <outlet property="spinnerView" destination="Fab-mR-Guz" id="KRG-vL-9I9"/>
+                            <outlet property="spinnerView" destination="nhX-fS-HdP" id="1Sw-VE-C1O"/>
                             <outlet property="tableView" destination="kh4-yl-et3" id="UkC-SD-wZh"/>
                         </connections>
                     </view>
