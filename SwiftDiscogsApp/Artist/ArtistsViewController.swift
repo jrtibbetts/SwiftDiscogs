@@ -32,6 +32,7 @@ class ArtistsViewController: CollectionAndTableViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        artistsDisplay?.start()
 
         // How do I run this promise on a background thread?
         _ = Promise<[MPMediaItem]?>() { (seal) in
@@ -39,6 +40,7 @@ class ArtistsViewController: CollectionAndTableViewController {
             }.done { [weak self] (artists) in
                 self?.artistsModel?.artistMediaItems = artists
                 self?.artistsDisplay?.refresh()
+                self?.artistsDisplay?.stop()
         }
     }
 
@@ -49,16 +51,33 @@ class ArtistsViewController: CollectionAndTableViewController {
         artistsDisplay?.model = model
         artistsDisplay?.navigationItem = navigationItem
         artistsDisplay?.collectionView?.isHidden = true
+        artistsDisplay?.stop()
     }
 
 }
 
 class ArtistsDisplay: CollectionAndTableDisplay {
 
+    // MARK: - Outlets
+
+    @IBOutlet weak var spinnerView: UIView!
+
+    // MARK: - Properties
+
     override var model: CollectionAndTableModel? {
         didSet {
             refresh()
         }
+    }
+
+    // MARK: - Functions
+
+    func start() {
+        spinnerView.isHidden = false
+    }
+
+    func stop() {
+        spinnerView.isHidden = true
     }
 
 }
@@ -75,12 +94,26 @@ class ArtistsModel: CollectionAndTableModel {
         }
     }
 
-    var artists: [String]?
+    var artists: [String]? {
+        didSet {
+            let firstLetters = artists?.reduce(into: Set<String>(), { (set, artist) in
+                if let firstLetter = artist.first {
+                    set.insert(String(firstLetter))
+                }
+            })
+
+            if let firstLetters = firstLetters {
+                sectionTitles = Array<String>(firstLetters).sorted()
+            }
+        }
+    }
+
+    private var sectionTitles: [String] = []
 
     // MARK: - CollectionAndTableModel
 
     override func numberOfSections() -> Int {
-        return 1
+        return sectionTitles.count
     }
 
     override func numberOfItems(inSection section: Int) -> Int {
@@ -94,6 +127,17 @@ class ArtistsModel: CollectionAndTableModel {
         cell.textLabel?.text = artists?[indexPath.row]
 
         return cell
+    }
+
+    // MARK: - UITableViewDataSource
+
+    func sectionIndexTitles(for tableView: UITableView) -> [String]? {
+        return sectionTitles
+    }
+
+    func tableView(_ tableView: UITableView,
+                   sectionForSectionIndexTitle title: String, at index: Int) -> Int {
+        return artists?.firstIndex { $0.starts(with: title) } ?? 0
     }
 
 }
