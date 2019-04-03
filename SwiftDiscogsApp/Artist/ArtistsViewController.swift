@@ -38,17 +38,8 @@ class ArtistsViewController: CollectionAndTableViewController, UISearchResultsUp
     func search(forArtist artistName: String? = nil) {
         artistsDisplay?.start()
 
-        DispatchQueue.global().async(.promise) { () -> [MPMediaItem]? in
-            let query = MPMediaQuery.artists()
-
-            if let artistName = artistName {
-                let predicate = MPMediaPropertyPredicate(value: artistName,
-                                                         forProperty: MPMediaItemPropertyArtist,
-                                                         comparisonType: .contains)
-                query.addFilterPredicate(predicate)
-            }
-
-            return query.items
+        DispatchQueue.global().async(.promise) {
+            return iTunesMediaLibrary().artists(named: artistName)
             }.done { [weak self] (artists) in
                 self?.artistsModel?.artistMediaItems = artists
                 self?.artistsDisplay?.refresh()
