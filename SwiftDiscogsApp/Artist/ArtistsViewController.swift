@@ -6,7 +6,7 @@ import Stylobate
 import SwiftDiscogs
 import UIKit
 
-class ArtistsViewController: CollectionAndTableViewController {
+class ArtistsViewController: CollectionAndTableViewController, UISearchResultsUpdating {
 
     // MARK: - Properties
 
@@ -32,10 +32,23 @@ class ArtistsViewController: CollectionAndTableViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        search()
+    }
+
+    func search(forArtist artistName: String? = nil) {
         artistsDisplay?.start()
 
-        DispatchQueue.global().async(.promise) {
-            MPMediaQuery.artists().items
+        DispatchQueue.global().async(.promise) { () -> [MPMediaItem]? in
+            let query = MPMediaQuery.artists()
+
+            if let artistName = artistName {
+                let predicate = MPMediaPropertyPredicate(value: artistName,
+                                                         forProperty: MPMediaItemPropertyArtist,
+                                                         comparisonType: .contains)
+                query.addFilterPredicate(predicate)
+            }
+
+            return query.items
             }.done { [weak self] (artists) in
                 self?.artistsModel?.artistMediaItems = artists
                 self?.artistsDisplay?.refresh()
@@ -52,6 +65,20 @@ class ArtistsViewController: CollectionAndTableViewController {
         artistsDisplay?.navigationItem = navigationItem
         artistsDisplay?.collectionView?.isHidden = true
         artistsDisplay?.stop()
+
+        let searchController = UISearchController(searchResultsController: nil)
+        searchController.hidesNavigationBarDuringPresentation = true
+        searchController.dimsBackgroundDuringPresentation = false
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchResultsUpdater = self
+
+        searchController.searchBar.enablesReturnKeyAutomatically = true
+        searchController.searchBar.showsCancelButton = true
+        navigationItem.searchController = searchController
+    }
+
+    func updateSearchResults(for searchController: UISearchController) {
+        search(forArtist: searchController.searchBar.text)
     }
 
 }
@@ -104,18 +131,18 @@ class ArtistsModel: CollectionAndTableModel {
 
             if let firstLetters = firstLetters {
                 sectionTitles = Array<String>(firstLetters).sorted()
-                sectionIndices = []
-
-                sectionTitles.forEach { (sectionTitle) in
-                     sectionIndices.append(artists?.firstIndex { $0.starts(with: sectionTitle) } ?? 0)
-                }
+//                sectionIndices = []
+//
+//                sectionTitles.forEach { (sectionTitle) in
+//                     sectionIndices.append(artists?.firstIndex { $0.starts(with: sectionTitle) } ?? 0)
+//                }
             }
         }
     }
 
     private var sectionTitles: [String] = []
 
-    private var sectionIndices: [Int] = []
+//    private var sectionIndices: [Int] = []
 
     // MARK: - CollectionAndTableModel
 
@@ -138,14 +165,14 @@ class ArtistsModel: CollectionAndTableModel {
 
     // MARK: - UITableViewDataSource
 
-    func sectionIndexTitles(for tableView: UITableView) -> [String]? {
-        return sectionTitles
-    }
-
-    func tableView(_ tableView: UITableView,
-                   sectionForSectionIndexTitle title: String,
-                   at index: Int) -> Int {
-        return sectionIndices[index]
-    }
+//    func sectionIndexTitles(for tableView: UITableView) -> [String]? {
+//        return sectionTitles
+//    }
+//
+//    func tableView(_ tableView: UITableView,
+//                   sectionForSectionIndexTitle title: String,
+//                   at index: Int) -> Int {
+//        return sectionIndices[index]
+//    }
 
 }
