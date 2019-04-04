@@ -187,17 +187,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="FSK-C1-Bja">
-                                <rect key="frame" x="0.0" y="88" width="375" height="690"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="7An-yd-Yqy">
-                                    <size key="itemSize" width="50" height="50"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells/>
-                            </collectionView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kh4-yl-et3">
                                 <rect key="frame" x="0.0" y="88" width="375" height="690"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -256,29 +245,13 @@
                         <constraints>
                             <constraint firstItem="nhX-fS-HdP" firstAttribute="centerY" secondItem="uE6-tr-RnY" secondAttribute="centerY" id="3lC-0B-icw"/>
                             <constraint firstItem="nhX-fS-HdP" firstAttribute="centerX" secondItem="uE6-tr-RnY" secondAttribute="centerX" id="A9l-7g-ylz"/>
-                            <constraint firstItem="FSK-C1-Bja" firstAttribute="top" secondItem="uE6-tr-RnY" secondAttribute="top" id="Hmh-LA-8Ob"/>
                             <constraint firstItem="kh4-yl-et3" firstAttribute="leading" secondItem="uE6-tr-RnY" secondAttribute="leading" id="NJY-2c-e7C"/>
                             <constraint firstItem="kh4-yl-et3" firstAttribute="top" secondItem="uE6-tr-RnY" secondAttribute="top" id="NNP-DU-FPd"/>
-                            <constraint firstItem="uE6-tr-RnY" firstAttribute="trailing" secondItem="FSK-C1-Bja" secondAttribute="trailing" id="SdO-HM-4xU"/>
-                            <constraint firstItem="uE6-tr-RnY" firstAttribute="bottom" secondItem="FSK-C1-Bja" secondAttribute="bottom" id="Y29-VH-Jbh"/>
                             <constraint firstItem="uE6-tr-RnY" firstAttribute="bottom" secondItem="kh4-yl-et3" secondAttribute="bottom" id="dtM-px-Rhj"/>
                             <constraint firstItem="uE6-tr-RnY" firstAttribute="trailing" secondItem="kh4-yl-et3" secondAttribute="trailing" id="nSA-Uq-Lpf"/>
-                            <constraint firstItem="FSK-C1-Bja" firstAttribute="leading" secondItem="uE6-tr-RnY" secondAttribute="leading" id="nkx-xm-bUQ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="uE6-tr-RnY"/>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="FSK-C1-Bja"/>
-                            </mask>
-                            <mask key="constraints">
-                                <exclude reference="Hmh-LA-8Ob"/>
-                                <exclude reference="nkx-xm-bUQ"/>
-                                <exclude reference="SdO-HM-4xU"/>
-                                <exclude reference="Y29-VH-Jbh"/>
-                            </mask>
-                        </variation>
                         <connections>
-                            <outlet property="collectionView" destination="FSK-C1-Bja" id="QN5-Hu-aZE"/>
                             <outlet property="navigationItem" destination="cnU-lL-Kdf" id="APd-ou-cqb"/>
                             <outlet property="spinnerView" destination="nhX-fS-HdP" id="1Sw-VE-C1O"/>
                             <outlet property="tableView" destination="kh4-yl-et3" id="UkC-SD-wZh"/>
