@@ -38,10 +38,10 @@ class ArtistsViewController: CollectionAndTableViewController, UISearchResultsUp
     func search(forArtist artistName: String? = nil) {
         artistsDisplay?.start()
 
-        DispatchQueue.global().async(.promise) {
-            return iTunesMediaLibrary().artists(named: artistName)
-            }.done { [weak self] (artists) in
-                self?.artistsModel?.artistMediaItems = artists
+        DispatchQueue.global().async(.promise) { [weak self] in
+            let artists = iTunesMediaLibrary().artists(named: artistName)
+            self?.artistsModel?.artistMediaItems = artists
+            }.done { [weak self] in
                 self?.artistsDisplay?.refresh()
             }.ensure { [weak self] in
                 self?.artistsDisplay?.stop()
