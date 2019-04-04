@@ -196,38 +196,35 @@
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="artistCell" id="ahH-AV-P64" userLabel="Artist Cell">
-                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </view>
-                                    </collectionViewCell>
-                                </cells>
+                                <cells/>
                             </collectionView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kh4-yl-et3">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kh4-yl-et3">
                                 <rect key="frame" x="0.0" y="88" width="375" height="690"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="artistCell" textLabel="TgV-rS-ZnO" style="IBUITableViewCellStyleDefault" id="lX4-9L-TxG" userLabel="Artist Cell">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="artistCell" id="lX4-9L-TxG" userLabel="Artist Cell" customClass="ArtistTableViewCell" customModule="SwiftDiscogsApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="lX4-9L-TxG" id="1mm-bv-BS5">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="TgV-rS-ZnO">
-                                                    <rect key="frame" x="15" y="0.0" width="345" height="44"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Beatles" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S6k-SG-YfC" userLabel="Artist Name">
+                                                    <rect key="frame" x="15" y="11" width="90.666666666666671" height="22"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="S6k-SG-YfC" secondAttribute="trailing" id="C5X-TU-pac"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="S6k-SG-YfC" secondAttribute="bottom" id="KA4-Q3-39t"/>
+                                                <constraint firstItem="S6k-SG-YfC" firstAttribute="leading" secondItem="1mm-bv-BS5" secondAttribute="leadingMargin" id="nhb-zs-TCz"/>
+                                                <constraint firstAttribute="topMargin" secondItem="S6k-SG-YfC" secondAttribute="top" id="pNa-5M-GAu"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="artistNameLabel" destination="S6k-SG-YfC" id="4Oq-Ey-a4Q"/>
                                             <segue destination="BYZ-38-t0r" kind="show" identifier="searchDiscogsForArtist" id="CCn-pf-K9m"/>
                                         </connections>
                                     </tableViewCell>
@@ -264,6 +261,17 @@
                             <constraint firstItem="FSK-C1-Bja" firstAttribute="leading" secondItem="uE6-tr-RnY" secondAttribute="leading" id="nkx-xm-bUQ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="uE6-tr-RnY"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="FSK-C1-Bja"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="Hmh-LA-8Ob"/>
+                                <exclude reference="nkx-xm-bUQ"/>
+                                <exclude reference="SdO-HM-4xU"/>
+                                <exclude reference="Y29-VH-Jbh"/>
+                            </mask>
+                        </variation>
                         <connections>
                             <outlet property="collectionView" destination="FSK-C1-Bja" id="QN5-Hu-aZE"/>
                             <outlet property="navigationItem" destination="cnU-lL-Kdf" id="APd-ou-cqb"/>

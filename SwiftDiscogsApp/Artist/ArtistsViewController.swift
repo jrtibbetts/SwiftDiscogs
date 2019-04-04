@@ -87,7 +87,7 @@ class ArtistsDisplay: CollectionAndTableDisplay {
             refresh()
         }
     }
-
+    
     // MARK: - Functions
 
     func start() {
@@ -131,9 +131,18 @@ class ArtistsModel: CollectionAndTableModel {
                             cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "artistCell",
                                                  for: indexPath)
-        cell.textLabel?.text = artists?[indexPath.row]
+
+        if let cell = cell as? ArtistTableViewCell {
+            cell.artistNameLabel.text = artists?[indexPath.row]
+        }
 
         return cell
     }
+
+}
+
+class ArtistTableViewCell: UITableViewCell {
+
+    @IBOutlet weak var artistNameLabel: UILabel!
 
 }
