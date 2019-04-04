@@ -120,7 +120,7 @@ class ArtistsModel: CollectionAndTableModel {
     // MARK: - CollectionAndTableModel
 
     override func numberOfSections() -> Int {
-        return 0
+        return 1
     }
 
     override func numberOfItems(inSection section: Int) -> Int {
