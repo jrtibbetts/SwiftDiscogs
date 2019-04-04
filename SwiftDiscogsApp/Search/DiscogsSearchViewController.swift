@@ -9,15 +9,6 @@ import UIKit
 /// labels.
 open class DiscogsSearchViewController: CollectionAndTableViewController, UISearchResultsUpdating, UISearchBarDelegate, DiscogsProvider {
 
-    /// The possible states of the search scope bar.
-    public enum SearchScope: Int {
-        /// Search the entire database
-        case allOfDiscogs
-
-        /// Search only within the user's own collection
-        case userCollection
-    }
-
     // MARK: Public Properties
 
     /// The Discogs client.

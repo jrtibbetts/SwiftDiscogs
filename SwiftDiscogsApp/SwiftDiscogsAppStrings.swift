@@ -11,8 +11,6 @@ import Foundation
 // swiftlint:disable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:disable nesting type_body_length type_name
 internal enum L10n {
-  /// All of Discogs
-  internal static let allOfDiscogsSearchScopeTitle = L10n.tr("SwiftDiscogsApp", "allOfDiscogsSearchScopeTitle")
   /// Bio
   internal static let artistBioSectionHeader = L10n.tr("SwiftDiscogsApp", "artistBioSectionHeader")
   /// Releases
@@ -35,8 +33,6 @@ internal enum L10n {
   internal static let title = L10n.tr("SwiftDiscogsApp", "title")
   /// Tracklist
   internal static let tracklist = L10n.tr("SwiftDiscogsApp", "tracklist")
-  /// My Collection
-  internal static let userCollectionSearchScopeTitle = L10n.tr("SwiftDiscogsApp", "userCollectionSearchScopeTitle")
   /// Versions
   internal static let versions = L10n.tr("SwiftDiscogsApp", "versions")
   /// Year

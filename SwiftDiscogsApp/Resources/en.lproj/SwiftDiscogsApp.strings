@@ -1,7 +1,4 @@
 
-/* Search scope label for searching all of Discogs. */
-"allOfDiscogsSearchScopeTitle" = "All of Discogs";
-
 /* Title of the artist's biography section. */
 "artistBioSectionHeader" = "Bio";
 
@@ -29,9 +26,6 @@
 "title" = "Title";
 
 "tracklist" = "Tracklist";
-
-/* Search scope label for searching only within the user's collection. */
-"userCollectionSearchScopeTitle" = "My Collection";
 
 "versions" = "Versions";
 

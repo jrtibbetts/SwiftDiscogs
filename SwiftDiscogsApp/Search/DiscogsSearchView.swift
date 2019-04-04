@@ -18,14 +18,6 @@ open class DiscogsSearchView: DiscogsDisplay, SpinnerBusyView,  UISearchBarDeleg
     /// The busy indicator.
     @IBOutlet public weak var spinner: UIActivityIndicatorView?
 
-    /// The stack view that contains the sign-in view, the search results table,
-    /// and the `unavailableView`.
-    @IBOutlet private weak var toggleStackView: ToggleStackView?
-
-    /// The view that's shown when the user taps the My Collection search scope
-    /// button, which isn't implemented yet.
-    @IBOutlet private weak var unavailableView: UIView?
-
     // MARK: - Other Properties
 
     /// Indicates whether the user is currently signed in to Discogs.
@@ -36,15 +28,6 @@ open class DiscogsSearchView: DiscogsDisplay, SpinnerBusyView,  UISearchBarDeleg
     open func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
         // Prevent search-bar editing if the user's not signed in.
         return signedIn
-    }
-
-    public func searchBar(_ searchBar: UISearchBar,
-                          selectedScopeButtonIndexDidChange selectedScope: Int) {
-        if selectedScope == DiscogsSearchViewController.SearchScope.userCollection.rawValue {
-            toggleStackView?.activeView = unavailableView
-        } else {
-            toggleStackView?.activeView = toggleStackView?.previousActiveView
-        }
     }
 
     // MARK: - DiscogsDisplay
@@ -61,18 +44,8 @@ open class DiscogsSearchView: DiscogsDisplay, SpinnerBusyView,  UISearchBarDeleg
             searchController.hidesNavigationBarDuringPresentation = true
             searchController.dimsBackgroundDuringPresentation = false
             searchController.obscuresBackgroundDuringPresentation = false
-
-            setUp(searchBar: searchController.searchBar)
+            searchController.searchBar.delegate = self
         }
-
-        toggleStackView?.activeView = tableView
-    }
-
-    private func setUp(searchBar: UISearchBar) {
-        searchBar.delegate = self
-        searchBar.scopeButtonTitles = [L10n.allOfDiscogsSearchScopeTitle, L10n.userCollectionSearchScopeTitle]
-        searchBar.selectedScopeButtonIndex = DiscogsSearchViewController.SearchScope.allOfDiscogs.rawValue
-        searchBar.showsScopeBar = true
     }
 
 }
