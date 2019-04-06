@@ -5,15 +5,19 @@ import SwiftDiscogs
 import UIKit
 
 /// The model for the `DiscogsSearchResultsViewController`.
-open class DiscogsSearchResultsModel: CollectionAndTableModel {
+class DiscogsSearchResultsModel: CollectionAndTableModel {
 
     // MARK: - Properties
 
-    open var results: [SearchResult]?
+    var results: [SearchResult]?
+
+    func result(at index: IndexPath) -> SearchResult? {
+        return results?[index.item]
+    }
 
     // MARK: - UITableViewDataSource
 
-    open override func numberOfItems(inSection section: Int) -> Int {
+    override func numberOfItems(inSection section: Int) -> Int {
         if let results = results, section == 0 {
             return results.count
         } else {
@@ -21,11 +25,11 @@ open class DiscogsSearchResultsModel: CollectionAndTableModel {
         }
     }
 
-    open override func numberOfSections() -> Int {
+    override func numberOfSections() -> Int {
         return 1
     }
 
-    override open func tableView(_ tableView: UITableView,
+    override func tableView(_ tableView: UITableView,
                                  cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let result = results?[indexPath.row]
         

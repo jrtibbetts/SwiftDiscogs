@@ -7,16 +7,18 @@ import UIKit
 
 /// Allows the user to search the Discogs database for artists, releases, and
 /// labels.
-open class DiscogsSearchViewController: CollectionAndTableViewController, UISearchResultsUpdating, UISearchBarDelegate, DiscogsProvider {
+class DiscogsSearchViewController: CollectionAndTableViewController,
+                                   UISearchResultsUpdating,
+                                   DiscogsProvider {
 
     // MARK: Public Properties
 
     /// The Discogs client.
-    open var discogs: Discogs? = /* MockDiscogs() */ DiscogsClient.singleton
+    var discogs: Discogs? = /* MockDiscogs() */ DiscogsClient.singleton
 
     /// The search results. Changes trigger a reloading of the table and/or
     /// collection.
-    open var results: [SearchResult]? {
+    var results: [SearchResult]? {
         didSet {
             searchResultsModel?.results = results
             display?.refresh()
@@ -24,7 +26,7 @@ open class DiscogsSearchViewController: CollectionAndTableViewController, UISear
     }
 
     /// The data model that holds the search results.
-    open var searchResultsModel: DiscogsSearchResultsModel? {
+    var searchResultsModel: DiscogsSearchResultsModel? {
         return model as? DiscogsSearchResultsModel
     }
 
@@ -32,7 +34,7 @@ open class DiscogsSearchViewController: CollectionAndTableViewController, UISear
     /// Discogs search, which helps keep the size of this view controller down.
     /// The root view in the storyboard MUST have `DiscogsSearchView` as its
     /// custom class!
-    open var searchView: DiscogsSearchView? {
+    var searchView: DiscogsSearchView? {
         return view as? DiscogsSearchView
     }
 
@@ -61,10 +63,10 @@ open class DiscogsSearchViewController: CollectionAndTableViewController, UISear
     
     // MARK: UIViewController
 
-    open override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let segueId = segue.identifier {
             switch segueId {
-            case "showArtist":
+            case "showSelectedArtist":
                 if let artistViewController = segue.destination as? DiscogsArtistViewController {
                     artistViewController.artistSearchResult = selectedArtistResult
                 }
@@ -74,7 +76,7 @@ open class DiscogsSearchViewController: CollectionAndTableViewController, UISear
         }
     }
 
-    override open func viewDidLoad() {
+    override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.searchController = searchController
         model = DiscogsSearchResultsModel()
@@ -82,7 +84,7 @@ open class DiscogsSearchViewController: CollectionAndTableViewController, UISear
         searchView?.setUp(navigationItem: navigationItem)
     }
 
-    open override func viewWillAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
         if let discogs = discogs, !discogs.isSignedIn {
@@ -92,11 +94,20 @@ open class DiscogsSearchViewController: CollectionAndTableViewController, UISear
 
     // MARK: UISearchResultsUpdating
 
-    open func updateSearchResults(for searchController: UISearchController) {
+    func updateSearchResults(for searchController: UISearchController) {
         if let searchTerms = searchController.searchBar.text, !searchTerms.replacingOccurrences(of: " ", with: "").isEmpty {
             let promise: Promise<SearchResults>? = discogs?.search(for: searchTerms, type: "Artist")
             promise?.done { [weak self] (searchResults) in
-                self?.results = searchResults.results?.filter { $0.type == "artist" }
+                guard let self = self else {
+                    return
+                }
+
+                self.results = searchResults.results?.filter { $0.type == "artist" }
+
+                if self.results?.count == 1 {
+                    self.searchView?.selectItem(at: IndexPath(item: 0, section: 0))
+                }
+
                 }.catch { [weak self] (error) in
                     self?.results = nil
                     self?.presentAlert(for: error)
@@ -108,9 +119,9 @@ open class DiscogsSearchViewController: CollectionAndTableViewController, UISear
 
     // MARK: Everything Else
 
-    fileprivate var selectedArtistResult: SearchResult? {
+    private var selectedArtistResult: SearchResult? {
         if let indexPath = searchView?.indexPathForSelectedItem {
-            return searchResultsModel?.results?[indexPath.row]
+            return searchResultsModel?.result(at: indexPath)
         } else {
             return nil
         }
