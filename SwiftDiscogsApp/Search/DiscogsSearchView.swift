@@ -48,4 +48,15 @@ open class DiscogsSearchView: DiscogsDisplay, SpinnerBusyView,  UISearchBarDeleg
         }
     }
 
+    // MARK: - Everything Else
+
+    func selectItem(at indexPath: IndexPath, animated: Bool = true) {
+        switch foregroundMode {
+        case .collection:
+            collectionView?.selectItem(at: indexPath, animated: true, scrollPosition: [])
+        case .table:
+            tableView?.selectRow(at: indexPath, animated: animated, scrollPosition: .none)
+        }
+    }
+
 }
