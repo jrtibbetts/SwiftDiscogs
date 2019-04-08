@@ -20,7 +20,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MQe-0X-tnP" userLabel="Search Results Table">
-                                <rect key="frame" x="0.0" y="88" width="375" height="690"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="734"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="1ki-zd-j1R" userLabel="Empty Footer to Suppress Empty Rows">
                                     <rect key="frame" x="0.0" y="72" width="375" height="0.0"/>
@@ -109,7 +109,7 @@
                                 </prototypes>
                             </tableView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="pEy-S7-tsb">
-                                <rect key="frame" x="177.66666666666666" y="423" width="20" height="20"/>
+                                <rect key="frame" x="177.66666666666666" y="401" width="20" height="20"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -192,7 +192,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="artistNameLabel" destination="S6k-SG-YfC" id="4Oq-Ey-a4Q"/>
-                                            <segue destination="BYZ-38-t0r" kind="show" identifier="searchDiscogsForArtist" id="CCn-pf-K9m"/>
+                                            <segue destination="cvK-7F-nVP" kind="show" identifier="showDiscogsArtist" id="XEp-8Q-M5i"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -1563,7 +1563,7 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="IBF-35-jpA"/>
-        <segue reference="eCZ-Jx-ntR"/>
+        <segue reference="XEp-8Q-M5i"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
 </document>

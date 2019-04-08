@@ -110,8 +110,25 @@ public protocol Discogs {
     func addItem(_ itemId: Int,
                  toFolderId folderId: Int,
                  userName: String) -> Promise<CollectionItemInfo>
-    
+
+    // MARK: - Search
+
     func search(for queryString: String,
                 type: String) -> Promise<SearchResults>
-    
+
+    func search(forArtist artistName: String) -> Promise<SearchResults>
+}
+
+public enum DiscogsSearchType: String {
+
+    case artist
+
+}
+
+public extension Discogs {
+
+    func search(forArtist artistName: String) -> Promise<SearchResults> {
+        return search(for: artistName, type: DiscogsSearchType.artist.rawValue)
+    }
+
 }

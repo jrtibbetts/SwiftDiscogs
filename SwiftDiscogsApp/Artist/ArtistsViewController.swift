@@ -23,9 +23,9 @@ class ArtistsViewController: CollectionAndTableViewController, UISearchResultsUp
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let selectedIndex = artistsDisplay?.indexPathForSelectedItem,
             let selectedArtistName = artistsModel?.artists?[selectedIndex.row] {
-            if segue.identifier == "searchDiscogsForArtist",
-                let destination = segue.destination as? DiscogsSearchViewController {
-                destination.search(forArtistNamed: selectedArtistName)
+            if segue.identifier == "showDiscogsArtist",
+                let destination = segue.destination as? DiscogsArtistViewController {
+                destination.fetchArtist(named: selectedArtistName)
             }
         }
     }

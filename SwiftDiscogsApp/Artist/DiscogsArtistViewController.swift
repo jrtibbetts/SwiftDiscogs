@@ -72,7 +72,17 @@ public class DiscogsArtistViewController: UIViewController {
 
     // MARK: - Private Functions
 
-    private func fetchReleases() {
+    func fetchArtist(named artistName: String) {
+        _ = discogs?.search(forArtist: artistName).done { [weak self] in
+            // Just take the first search result. In the future, there can be
+            // a disambiguation step.
+            self?.artistSearchResult = $0.results?.first
+            }.catch { [weak self] (error) in
+                self?.presentAlert(for: error)
+        }
+    }
+
+    func fetchReleases() {
         if let artistId = artist?.id {
             discogs?.releases(forArtist: artistId).done { [weak self] (summaries) in
                 self?.artistModel.releases = summaries.releases?.filter { $0.type == "master" && $0.mainRelease != nil }
