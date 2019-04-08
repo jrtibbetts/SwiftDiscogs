@@ -65,19 +65,4 @@ open class DiscogsArtistModel: SectionedModel {
         }
     }
 
-    // MARK: - Private Functions
-
-    private func fetchThumbnails() {
-        artist?.images?.forEach { (imageData) in
-            if let url = URL(string: imageData.resourceUrl) {
-                KingfisherManager.shared.retrieveImage(with: url,
-                                                       completionHandler: { (result) in
-                                                        if result.isSuccess {
-                                                            print("Successfully got image \(imageData.resourceUrl)")
-                                                        }
-                })
-            }
-        }
-    }
-
 }
