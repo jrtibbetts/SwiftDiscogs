@@ -25,7 +25,7 @@ class ArtistsViewController: CollectionAndTableViewController, UISearchResultsUp
             let selectedArtistName = artistsModel?.artists?[selectedIndex.row] {
             if segue.identifier == "showDiscogsArtist",
                 let destination = segue.destination as? DiscogsArtistViewController {
-                destination.fetchArtist(named: selectedArtistName)
+                destination.artistName = selectedArtistName
             }
         }
     }

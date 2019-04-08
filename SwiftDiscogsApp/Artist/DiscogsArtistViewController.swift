@@ -31,6 +31,16 @@ public class DiscogsArtistViewController: UIViewController {
         }
     }
 
+    public var artistName: String? {
+        didSet {
+            guard let artistName = artistName else {
+                return
+            }
+
+            fetchArtist(named: artistName)
+        }
+    }
+
     public var artistSearchResult: SearchResult? {
         didSet {
             if let artistId = artistSearchResult?.id {
