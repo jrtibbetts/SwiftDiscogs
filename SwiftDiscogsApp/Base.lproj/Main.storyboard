@@ -14,7 +14,9 @@
         <!--Discogs Search-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="discogsSearch" definesPresentationContext="YES" id="BYZ-38-t0r" customClass="DiscogsSearchViewController" customModule="SwiftDiscogsApp" customModuleProvider="target" sceneMemberID="viewController">
+                <exit id="PBB-1J-cN0" userLabel="Exit" sceneMemberID="exit"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <viewController storyboardIdentifier="DiscogsSearch" definesPresentationContext="YES" id="BYZ-38-t0r" customClass="DiscogsSearchViewController" customModule="SwiftDiscogsApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC" customClass="DiscogsSearchView" customModule="SwiftDiscogsApp" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -147,8 +149,6 @@
                         <segue destination="LCt-rZ-gxJ" kind="presentation" identifier="showSignIn" id="2ma-yj-3TE"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <exit id="PBB-1J-cN0" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3173" y="226"/>
         </scene>
@@ -230,7 +230,7 @@
                             <outlet property="tableView" destination="kh4-yl-et3" id="UkC-SD-wZh"/>
                         </connections>
                     </view>
-                    <navigationItem key="navigationItem" id="cnU-lL-Kdf"/>
+                    <navigationItem key="navigationItem" title="Artists" id="cnU-lL-Kdf"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8b8-bl-UVE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1469,7 +1469,7 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
         <!--Sign In-->
         <scene sceneID="dIO-4P-uw5">
             <objects>
-                <viewController id="LCt-rZ-gxJ" userLabel="Sign In" customClass="DiscogsSignInViewController" customModule="SwiftDiscogsApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DiscogsSignIn" id="LCt-rZ-gxJ" userLabel="Sign In" customClass="DiscogsSignInViewController" customModule="SwiftDiscogsApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DLB-zt-qpJ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1563,7 +1563,7 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="IBF-35-jpA"/>
-        <segue reference="XEp-8Q-M5i"/>
+        <segue reference="eCZ-Jx-ntR"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
 </document>

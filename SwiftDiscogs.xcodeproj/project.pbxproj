@@ -176,7 +176,6 @@
 		96CA187020845375006FF5F0 /* DiscogsArtistViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CA186F20845375006FF5F0 /* DiscogsArtistViewControllerTests.swift */; };
 		96CA18722085B5B9006FF5F0 /* DiscogsSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CA18712085B5B9006FF5F0 /* DiscogsSearchView.swift */; };
 		96E044A22089A93E008F1FE4 /* CollectionAndTableViewControllerTestBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E044A12089A93E008F1FE4 /* CollectionAndTableViewControllerTestBase.swift */; };
-		96E8A14320795DBF00BFD508 /* DiscogsSearchViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E8A14220795DBF00BFD508 /* DiscogsSearchViewControllerTests.swift */; };
 		96E8A14420799EC800BFD508 /* PromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9689848B203DDA0200DE77BC /* PromiseKit.framework */; };
 		96E8CCE020E33396001C5381 /* DiscogsDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E8CCDF20E33396001C5381 /* DiscogsDisplay.swift */; };
 		96EDF28C209FA905009496FA /* Stylobate.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 96EDF289209FA8EF009496FA /* Stylobate.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -421,7 +420,6 @@
 		96CA186F20845375006FF5F0 /* DiscogsArtistViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscogsArtistViewControllerTests.swift; sourceTree = "<group>"; };
 		96CA18712085B5B9006FF5F0 /* DiscogsSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscogsSearchView.swift; sourceTree = "<group>"; };
 		96E044A12089A93E008F1FE4 /* CollectionAndTableViewControllerTestBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionAndTableViewControllerTestBase.swift; sourceTree = "<group>"; };
-		96E8A14220795DBF00BFD508 /* DiscogsSearchViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscogsSearchViewControllerTests.swift; sourceTree = "<group>"; };
 		96E8CCDF20E33396001C5381 /* DiscogsDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscogsDisplay.swift; sourceTree = "<group>"; };
 		96EDF289209FA8EF009496FA /* Stylobate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Stylobate.framework; path = Carthage/Build/iOS/Stylobate.framework; sourceTree = "<group>"; };
 		AD9C68DF22428AB50005D74A /* SectionedModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionedModelTests.swift; sourceTree = "<group>"; };
@@ -901,7 +899,6 @@
 		96CA186C2082F19C006FF5F0 /* Search */ = {
 			isa = PBXGroup;
 			children = (
-				96E8A14220795DBF00BFD508 /* DiscogsSearchViewControllerTests.swift */,
 				9610FB0622431ED100710F43 /* ArtistSearchResultCellTests.swift */,
 			);
 			path = Search;
@@ -1262,7 +1259,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				96E8A14320795DBF00BFD508 /* DiscogsSearchViewControllerTests.swift in Sources */,
 				9610FB0722431ED100710F43 /* ArtistSearchResultCellTests.swift in Sources */,
 				9610FB0B22433EC100710F43 /* MediaSourcesModelTests.swift in Sources */,
 				AD9C68E022428AB50005D74A /* SectionedModelTests.swift in Sources */,
