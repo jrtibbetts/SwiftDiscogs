@@ -100,12 +100,19 @@ public class DiscogsArtistViewController: UIViewController {
                 case 1:
                     self?.artistSearchResult = results.first
                 default:
-                    let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+                    // If there's an exact match, use it.
+                    if let firstArtistName = results.first?.title.lowercased(),
+                        let artistName = self?.artistName?.lowercased(),
+                        firstArtistName == artistName {
+                        self?.artistSearchResult = results.first
+                    } else {
+                        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
 
-                    if let disambiguationViewController = storyboard.instantiateViewController(withIdentifier: "DiscogsDisambiguation") as? DiscogsDisambiguationViewController {
-                        disambiguationViewController.searchResults = results
-                        disambiguationViewController.artistViewController = self
-                        self?.present(disambiguationViewController, animated: true)
+                        if let disambiguationViewController = storyboard.instantiateViewController(withIdentifier: "DiscogsDisambiguation") as? DiscogsDisambiguationViewController {
+                            disambiguationViewController.searchResults = results
+                            disambiguationViewController.artistViewController = self
+                            self?.present(disambiguationViewController, animated: true)
+                        }
                     }
                 }
             }
