@@ -38,7 +38,7 @@ open class DiscogsSearchView: DiscogsDisplay, SpinnerBusyView,  UISearchBarDeleg
         signedIn = true
 
         self.navigationItem = navigationItem
-        self.navigationItem?.hidesSearchBarWhenScrolling = false
+        self.navigationItem?.hidesSearchBarWhenScrolling = true
 
         if let searchController = navigationItem.searchController {
             searchController.hidesNavigationBarDuringPresentation = true

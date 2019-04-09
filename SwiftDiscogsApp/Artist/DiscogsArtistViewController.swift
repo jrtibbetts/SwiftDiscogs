@@ -86,7 +86,20 @@ public class DiscogsArtistViewController: UIViewController {
         _ = discogs?.search(forArtist: artistName).done { [weak self] in
             // Just take the first search result. In the future, there can be
             // a disambiguation step.
-            self?.artistSearchResult = $0.results?.first
+            if let results = $0.results?.filter({ $0.type == "artist" }) {
+                switch results.count {
+                case 1:
+                    self?.artistSearchResult = results.first
+                default:
+                    let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+
+                    if let disambiguationViewController = storyboard.instantiateViewController(withIdentifier: "DiscogsDisambiguation") as? DiscogsDisambiguationViewController {
+                        disambiguationViewController.searchResults = results
+                        disambiguationViewController.artistViewController = self
+                        self?.present(disambiguationViewController, animated: true)
+                    }
+                }
+            }
             }.catch { [weak self] (error) in
                 self?.presentAlert(for: error)
         }
@@ -101,6 +114,63 @@ public class DiscogsArtistViewController: UIViewController {
                     // HANDLE THE ERROR
             }
         }
+    }
+
+}
+
+class DiscogsDisambiguationViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+
+    // MARK: - Properties
+
+    @IBOutlet weak var tableView: UITableView!
+
+    var searchResults: [SearchResult]? {
+        didSet {
+            tableView?.reloadData()
+        }
+    }
+
+    weak var artistViewController: DiscogsArtistViewController?
+
+    // MARK: - UITableViewDataSource
+
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return searchResults?.count ?? 0
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "artistSearchResultCell", for: indexPath)
+
+        if let summary = searchResults?[indexPath.row] {
+            cell.textLabel?.text = summary.title
+        }
+
+        return cell
+    }
+
+    // MARK: - UITableViewDelegate
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        artistViewController?.artistSearchResult = searchResults?[indexPath.row]
+        close()
+    }
+
+    // MARK: - UIViewController
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        tableView.dataSource = self
+        tableView.delegate = self
+    }
+
+    // MARK: - Other Functions
+
+    @IBAction func close() {
+        dismiss(animated: true)
     }
 
 }

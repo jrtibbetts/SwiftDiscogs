@@ -16,21 +16,45 @@
             <objects>
                 <exit id="PBB-1J-cN0" userLabel="Exit" sceneMemberID="exit"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <viewController storyboardIdentifier="DiscogsSearch" definesPresentationContext="YES" id="BYZ-38-t0r" customClass="DiscogsSearchViewController" customModule="SwiftDiscogsApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DiscogsDisambiguation" definesPresentationContext="YES" id="BYZ-38-t0r" customClass="DiscogsDisambiguationViewController" customModule="SwiftDiscogsApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC" customClass="DiscogsSearchView" customModule="SwiftDiscogsApp" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MQe-0X-tnP" userLabel="Search Results Table">
-                                <rect key="frame" x="0.0" y="44" width="375" height="734"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="etX-Ie-S6K" userLabel="Close Button">
+                                <rect key="frame" x="329" y="44" width="30" height="34"/>
+                                <state key="normal" title="X">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="close" destination="BYZ-38-t0r" eventType="touchUpInside" id="A7L-Np-2gb"/>
+                                    <action selector="close" destination="dkx-z0-nzr" eventType="touchUpInside" id="Sdd-5Z-g2Y"/>
+                                    <action selector="close" destination="qjc-4k-CUc" eventType="touchUpInside" id="oyh-Ag-wLT"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1ki-zd-j1R" userLabel="Explanatory View">
+                                <rect key="frame" x="0.0" y="86" width="375" height="58.333333333333343"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Multiple results were found on Discogs. Please select one." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lel-o2-P6o">
+                                        <rect key="frame" x="8" y="8" width="359" height="42.333333333333336"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <view key="tableFooterView" contentMode="scaleToFill" id="1ki-zd-j1R" userLabel="Empty Footer to Suppress Empty Rows">
-                                    <rect key="frame" x="0.0" y="72" width="375" height="0.0"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </view>
+                                <constraints>
+                                    <constraint firstAttribute="bottomMargin" secondItem="lel-o2-P6o" secondAttribute="bottom" id="45h-qs-Cpq"/>
+                                    <constraint firstItem="lel-o2-P6o" firstAttribute="leading" secondItem="1ki-zd-j1R" secondAttribute="leadingMargin" id="eRY-J1-9e3"/>
+                                    <constraint firstItem="lel-o2-P6o" firstAttribute="top" secondItem="1ki-zd-j1R" secondAttribute="topMargin" id="fbu-f3-vK9"/>
+                                    <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="lel-o2-P6o" secondAttribute="trailing" id="jLf-Pk-Yzj"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MQe-0X-tnP" userLabel="Search Results Table">
+                                <rect key="frame" x="0.0" y="152.33333333333331" width="375" height="625.66666666666674"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="artistSearchResultCell" id="QRX-0o-hil" userLabel="Artist Cell" customClass="ArtistSearchResultCell" customModule="SwiftDiscogsApp" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="artistSearchResultCell" textLabel="ew3-K9-FWF" style="IBUITableViewCellStyleDefault" id="QRX-0o-hil" userLabel="Artist Cell" customClass="ArtistSearchResultCell" customModule="SwiftDiscogsApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="QRX-0o-hil" id="xc3-WV-Yuo">
@@ -54,23 +78,17 @@
                                                         </mask>
                                                     </variation>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Artist" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z35-aY-kvF">
-                                                    <rect key="frame" x="14.999999999999996" y="11.000000000000002" width="44.666666666666657" height="20.666666666666671"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20.5" id="tUh-XD-Gf7"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ew3-K9-FWF">
+                                                    <rect key="frame" x="15" y="0.0" width="345" height="44"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="leadingMargin" secondItem="bbX-A5-N7P" secondAttribute="leading" id="9PH-Eg-AEf"/>
-                                                <constraint firstItem="Z35-aY-kvF" firstAttribute="top" secondItem="xc3-WV-Yuo" secondAttribute="topMargin" id="Aht-Wj-iPu"/>
-                                                <constraint firstItem="Z35-aY-kvF" firstAttribute="leading" secondItem="bbX-A5-N7P" secondAttribute="trailing" constant="8" symbolic="YES" id="JaC-NV-y9c"/>
-                                                <constraint firstItem="Z35-aY-kvF" firstAttribute="leading" secondItem="xc3-WV-Yuo" secondAttribute="leadingMargin" id="UKb-Jl-5Hs"/>
                                                 <constraint firstAttribute="topMargin" secondItem="bbX-A5-N7P" secondAttribute="top" id="bMe-ll-KMU"/>
-                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Z35-aY-kvF" secondAttribute="trailing" id="rD3-vC-ReJ"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="bbX-A5-N7P" secondAttribute="bottom" id="zLg-pC-fkj"/>
                                             </constraints>
                                             <variation key="default">
@@ -78,16 +96,9 @@
                                                     <exclude reference="bbX-A5-N7P"/>
                                                 </mask>
                                                 <mask key="constraints">
-                                                    <exclude reference="JaC-NV-y9c"/>
-                                                    <exclude reference="UKb-Jl-5Hs"/>
                                                     <exclude reference="9PH-Eg-AEf"/>
                                                     <exclude reference="bMe-ll-KMU"/>
                                                     <exclude reference="zLg-pC-fkj"/>
-                                                </mask>
-                                            </variation>
-                                            <variation key="widthClass=compact">
-                                                <mask key="constraints">
-                                                    <include reference="UKb-Jl-5Hs"/>
                                                 </mask>
                                             </variation>
                                             <variation key="widthClass=regular">
@@ -95,7 +106,6 @@
                                                     <include reference="bbX-A5-N7P"/>
                                                 </mask>
                                                 <mask key="constraints">
-                                                    <include reference="JaC-NV-y9c"/>
                                                     <include reference="9PH-Eg-AEf"/>
                                                     <include reference="bMe-ll-KMU"/>
                                                     <include reference="zLg-pC-fkj"/>
@@ -103,9 +113,7 @@
                                             </variation>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="nameLabel" destination="Z35-aY-kvF" id="YL2-oX-Rws"/>
                                             <outlet property="thumbnailView" destination="bbX-A5-N7P" id="Ez2-IY-ziQ"/>
-                                            <segue destination="cvK-7F-nVP" kind="show" identifier="showArtist" id="eCZ-Jx-ntR"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -116,8 +124,13 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="top" secondItem="MQe-0X-tnP" secondAttribute="top" id="ELT-7H-fUq"/>
+                            <constraint firstItem="1ki-zd-j1R" firstAttribute="top" secondItem="etX-Ie-S6K" secondAttribute="bottom" constant="8" symbolic="YES" id="2oS-A4-gys"/>
+                            <constraint firstItem="etX-Ie-S6K" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="EHm-pB-kdQ"/>
                             <constraint firstItem="pEy-S7-tsb" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="F86-rR-Lpk"/>
+                            <constraint firstItem="MQe-0X-tnP" firstAttribute="top" secondItem="1ki-zd-j1R" secondAttribute="bottom" constant="8" symbolic="YES" id="OAE-G4-ivC"/>
+                            <constraint firstItem="1ki-zd-j1R" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ccN-L8-ghV"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="1ki-zd-j1R" secondAttribute="trailing" id="cdM-zm-SPe"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="etX-Ie-S6K" secondAttribute="trailing" constant="16" id="imy-JR-7sF"/>
                             <constraint firstItem="MQe-0X-tnP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="mvD-6O-MfJ"/>
                             <constraint firstItem="pEy-S7-tsb" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="sYb-l2-VF3"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="MQe-0X-tnP" secondAttribute="bottom" id="vHW-G7-utV"/>
@@ -146,11 +159,12 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="tableView" destination="MQe-0X-tnP" id="271-j7-Rqf"/>
                         <segue destination="LCt-rZ-gxJ" kind="presentation" identifier="showSignIn" id="2ma-yj-3TE"/>
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="3173" y="226"/>
+            <point key="canvasLocation" x="4006" y="-573"/>
         </scene>
         <!--Artists-->
         <scene sceneID="e41-lK-rKG">
@@ -161,7 +175,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kh4-yl-et3">
-                                <rect key="frame" x="0.0" y="88" width="375" height="690"/>
+                                <rect key="frame" x="0.0" y="140" width="375" height="638"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="VDu-XY-FOY" userLabel="Zero-height footer to suppress empty rows">
                                     <rect key="frame" x="0.0" y="72" width="375" height="0.0"/>
@@ -198,7 +212,7 @@
                                 </prototypes>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nhX-fS-HdP" userLabel="Spinner View">
-                                <rect key="frame" x="169" y="414.66666666666669" width="37" height="37"/>
+                                <rect key="frame" x="169" y="440.66666666666669" width="37" height="37"/>
                                 <subviews>
                                     <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Fab-mR-Guz" userLabel="Spinner">
                                         <rect key="frame" x="0.0" y="0.0" width="37" height="37"/>
@@ -234,7 +248,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8b8-bl-UVE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2255" y="225"/>
+            <point key="canvasLocation" x="3106" y="225"/>
         </scene>
         <!--Artist Details-->
         <scene sceneID="Ah8-cD-mNe">
@@ -502,6 +516,9 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                     </view>
                     <navigationItem key="navigationItem" title="Little Richard" id="nDW-Vb-H1u"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="showDiscogsDIsambiguation" modalPresentationStyle="currentContext" id="HeP-yA-DDh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lOY-hj-4oC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -775,7 +792,7 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r93-U2-vsO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4005.5999999999999" y="2305.4187192118229"/>
+            <point key="canvasLocation" x="4033" y="2305"/>
         </scene>
         <!--Song-->
         <scene sceneID="GOB-hb-k4f">
@@ -1312,7 +1329,7 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n66-Ae-c1I" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5892" y="1014.5320197044335"/>
+            <point key="canvasLocation" x="4951" y="1015"/>
         </scene>
         <!--Release Version-->
         <scene sceneID="t8u-c6-5cn">
@@ -1433,7 +1450,7 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GTJ-xr-Iuq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6903.1999999999998" y="1014.5320197044335"/>
+            <point key="canvasLocation" x="5970" y="1015"/>
         </scene>
         <!--Artist Bio-->
         <scene sceneID="2D8-tA-SAQ">
@@ -1536,7 +1553,7 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jgh-5s-jk5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3172" y="-573"/>
+            <point key="canvasLocation" x="3105" y="-573"/>
         </scene>
         <!--Artists-->
         <scene sceneID="KCJ-Fu-5fu">
@@ -1544,8 +1561,8 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="otB-Xv-hGK" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Artists" id="T6c-8Z-Q1G"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="tlt-dL-h6A">
-                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="tlt-dL-h6A">
+                        <rect key="frame" x="0.0" y="44" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -1555,15 +1572,15 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HIG-D1-HTA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1351" y="225"/>
+            <point key="canvasLocation" x="2121" y="225"/>
         </scene>
     </scenes>
     <resources>
         <image name="Discogs" width="480" height="174"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="IBF-35-jpA"/>
-        <segue reference="eCZ-Jx-ntR"/>
+        <segue reference="Bac-Vy-U3M"/>
+        <segue reference="XEp-8Q-M5i"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
 </document>
