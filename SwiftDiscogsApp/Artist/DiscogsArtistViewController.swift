@@ -89,14 +89,7 @@ public class DiscogsArtistViewController: UIViewController {
             if let results = $0.results?.filter({ $0.type == "artist" }) {
                 switch results.count {
                 case 0:
-                    let alert = UIAlertController(title: "No Artists Found",
-                                                  message: "Discogs doesn't know about any artists named \(artistName)",
-                        preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "OK", style: .default) { [weak self] _ in
-                        self?.dismiss(animated: true)
-                        self?.navigationController?.popViewController(animated: true)
-                        })
-                    self?.present(alert, animated: true)
+                    self?.showNoResultsAlert(forArtistNamed: artistName)
                 case 1:
                     self?.artistSearchResult = results.first
                 default:
@@ -106,18 +99,34 @@ public class DiscogsArtistViewController: UIViewController {
                         firstArtistName == artistName {
                         self?.artistSearchResult = results.first
                     } else {
-                        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-
-                        if let disambiguationViewController = storyboard.instantiateViewController(withIdentifier: "DiscogsDisambiguation") as? DiscogsDisambiguationViewController {
-                            disambiguationViewController.searchResults = results
-                            disambiguationViewController.artistViewController = self
-                            self?.present(disambiguationViewController, animated: true)
-                        }
+                        self?.showDisambiguationList(withResults: results)
                     }
                 }
             }
             }.catch { [weak self] (error) in
                 self?.presentAlert(for: error)
+        }
+    }
+
+    private func showNoResultsAlert(forArtistNamed artistName: String) {
+        let alert = UIAlertController(title: "No Artists Found",
+                                      message: "Discogs doesn't know about any artists named \(artistName)",
+            preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default) { [weak self] _ in
+            self?.dismiss(animated: true)
+            self?.navigationController?.popViewController(animated: true)
+        })
+
+        present(alert, animated: true)
+    }
+
+    private func showDisambiguationList(withResults results: [SearchResult]) {
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+
+        if let disambiguationViewController = storyboard.instantiateViewController(withIdentifier: "DiscogsDisambiguation") as? DiscogsDisambiguationViewController {
+            disambiguationViewController.searchResults = results
+            disambiguationViewController.artistViewController = self
+            present(disambiguationViewController, animated: true)
         }
     }
 

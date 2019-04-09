@@ -95,25 +95,26 @@ class DiscogsSearchViewController: CollectionAndTableViewController,
     // MARK: UISearchResultsUpdating
 
     func updateSearchResults(for searchController: UISearchController) {
-        if let searchTerms = searchController.searchBar.text, !searchTerms.replacingOccurrences(of: " ", with: "").isEmpty {
-            let promise: Promise<SearchResults>? = discogs?.search(for: searchTerms, type: "Artist")
-            promise?.done { [weak self] (searchResults) in
-                guard let self = self else {
-                    return
-                }
+        guard let searchTerms = searchController.searchBar.text,
+            !searchTerms.replacingOccurrences(of: " ", with: "").isEmpty else {
+                results = nil
+                return
+        }
 
-                self.results = searchResults.results?.filter { $0.type == "artist" }
-
-                if self.results?.count == 1 {
-                    self.searchView?.selectItem(at: IndexPath(item: 0, section: 0))
-                }
-
-                }.catch { [weak self] (error) in
-                    self?.results = nil
-                    self?.presentAlert(for: error)
+        discogs?.search(for: searchTerms, type: "Artist").done { [weak self] (searchResults) in
+            guard let self = self else {
+                return
             }
-        } else {
-            results = nil
+
+            self.results = searchResults.results?.filter { $0.type == "artist" }
+
+            if self.results?.count == 1 {
+                self.searchView?.selectItem(at: IndexPath(item: 0, section: 0))
+            }
+
+            }.catch { [weak self] (error) in
+                self?.results = nil
+                self?.presentAlert(for: error)
         }
     }
 
