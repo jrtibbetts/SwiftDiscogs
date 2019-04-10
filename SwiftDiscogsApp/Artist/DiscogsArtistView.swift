@@ -20,8 +20,19 @@ open class DiscogsArtistView: CollectionAndTableDisplay {
     }
 
     open override func refresh() {
-        navigationItem?.title = artistModel?.artist?.name
         super.refresh()
+
+        guard let artist = artistModel?.artist else {
+            return
+        }
+
+        navigationItem?.title = artist.name
+
+        if let imageUrlString = artist.images?.first?.resourceUrl,
+            let imageUrl = URL(string: imageUrlString) {
+            mainImage.kf.setImage(with: imageUrl)
+        }
+
     }
 
 }

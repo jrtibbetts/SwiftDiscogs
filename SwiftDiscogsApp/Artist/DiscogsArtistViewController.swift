@@ -18,12 +18,6 @@ public class DiscogsArtistViewController: UIViewController {
     public var artist: Artist? {
         didSet {
             artistModel.artist = artist
-
-            if let imageUrlString = artist?.images?.first?.resourceUrl,
-                let imageUrl = URL(string: imageUrlString) {
-                artistView?.mainImage.kf.setImage(with: imageUrl)
-            }
-            
             artistView?.refresh()
 
             // Now go get the artist's release summaries.
