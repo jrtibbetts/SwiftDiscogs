@@ -13,14 +13,18 @@ open class DiscogsArtistModel: SectionedModel {
 
     open var artist: Artist?
 
-    open var releases: [ReleaseSummary]?
+    open var releases: [ReleaseSummary]? {
+        didSet {
+            releasesSection.releases = releases
+        }
+    }
     
     // MARK: Private Properties
 
-    private var bioSection = Section(cellID: "artistBioCell",
-                                     headerText: L10n.artistBioSectionHeader)
-    private var releasesSection = Section(cellID: "artistAlbumCell",
-                                          headerText: L10n.artistReleasesSectionHeader)
+    private var bioSection = BioSection(cellID: "artistBioCell",
+                                        headerText: L10n.artistBioSectionHeader)
+    private var releasesSection = ReleaseSection(cellID: "artistAlbumCell",
+                                                 headerText: L10n.artistReleasesSectionHeader)
     // MARK: Initializers
 
     public override init() {
@@ -36,16 +40,9 @@ open class DiscogsArtistModel: SectionedModel {
                                                  for: indexPath)
 
         if section === bioSection {
-            if let cell = cell as? DiscogsArtistBioTableCell {
-                cell.bioText = artist?.profile
-            }
+            bioSection.configure(cell: cell, forArtist: artist)
         } else if section === releasesSection {
-            let row = indexPath.row
-            let releaseSummary = releases?[row]
-
-            if let cell = cell as? DiscogsArtistReleaseTableCell {
-                cell.summary = releaseSummary
-            }
+            releasesSection.configure(cell: cell, forReleaseIndex: indexPath.row)
         }
 
         return cell
@@ -54,14 +51,39 @@ open class DiscogsArtistModel: SectionedModel {
     // MARK: - CollectionAndTableModel
 
     open override func numberOfItems(inSection sectionIndex: Int) -> Int {
-        let section = sections[sectionIndex]
+        return sections[sectionIndex].numberOfItems ?? 0
+    }
 
-        if section === bioSection {
+    class BioSection: Section {
+
+        func configure(cell: UITableViewCell,
+                       forArtist artist: Artist?) {
+            if let cell = cell as? DiscogsArtistBioTableCell {
+                cell.bioText = artist?.profile
+            }
+        }
+
+        override var numberOfItems: Int? {
             return 1
-        } else if section === releasesSection {
-            return releases?.count ?? 0
-        } else {
-            return 0
+        }
+
+    }
+
+    class ReleaseSection: Section {
+
+        var releases: [ReleaseSummary]?
+
+        override var numberOfItems: Int? {
+            return releases?.count ?? super.numberOfItems
+        }
+
+        func configure(cell: UITableViewCell,
+                       forReleaseIndex releaseIndex: Int) {
+            let releaseSummary = releases?[releaseIndex]
+
+            if let cell = cell as? DiscogsArtistReleaseTableCell {
+                cell.summary = releaseSummary
+            }
         }
     }
 

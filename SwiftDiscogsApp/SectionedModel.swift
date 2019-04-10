@@ -69,6 +69,10 @@ open class SectionedModel: CollectionAndTableModel {
             self.headerView = headerView
         }
 
+        open var numberOfItems: Int? {
+            return nil
+        }
+
     }
 
 }
