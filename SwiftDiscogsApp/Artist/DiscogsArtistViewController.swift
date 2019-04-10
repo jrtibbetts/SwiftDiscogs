@@ -84,27 +84,31 @@ public class DiscogsArtistViewController: UIViewController {
 
     func fetchArtist(named artistName: String) {
         _ = discogs?.search(forArtist: artistName).done { [weak self] in
-            // Just take the first search result. In the future, there can be
-            // a disambiguation step.
             if let results = $0.results?.filter({ $0.type == "artist" }) {
-                switch results.count {
-                case 0:
-                    self?.showNoResultsAlert(forArtistNamed: artistName)
-                case 1:
-                    self?.artistSearchResult = results.first
-                default:
-                    // If there's an exact match, use it.
-                    if let firstArtistName = results.first?.title.lowercased(),
-                        let artistName = self?.artistName?.lowercased(),
-                        firstArtistName == artistName {
-                        self?.artistSearchResult = results.first
-                    } else {
-                        self?.showDisambiguationList(withResults: results)
-                    }
-                }
+                self?.handleArtistResults(results)
             }
             }.catch { [weak self] (error) in
                 self?.presentAlert(for: error)
+        }
+    }
+
+    func handleArtistResults(_ results: [SearchResult]) {
+        switch results.count {
+        case 0:
+            if let artistName = artistName {
+                showNoResultsAlert(forArtistNamed: artistName)
+            }
+        case 1:
+            artistSearchResult = results.first
+        default:
+            // If there's an exact match, use it.
+            if let firstArtistName = results.first?.title.lowercased(),
+                let artistName = artistName?.lowercased(),
+                firstArtistName == artistName {
+                artistSearchResult = results.first
+            } else {
+                showDisambiguationList(withResults: results)
+            }
         }
     }
 
