@@ -31,8 +31,7 @@ open class DiscogsArtistModel: SectionedModel {
     
     // MARK: Private Properties
 
-    private var bioSection = BioSection(cellID: "artistBioCell",
-                                        headerText: L10n.artistBioSectionHeader)
+    private var bioSection = BioSection(cellID: "artistBioCell")
     private var releasesSection = ReleaseSection(cellID: "artistAlbumCell",
                                                  headerText: L10n.artistReleasesSectionHeader)
     // MARK: Initializers

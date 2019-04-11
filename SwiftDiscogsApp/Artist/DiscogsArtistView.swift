@@ -49,11 +49,20 @@ public protocol DiscogsArtistReleaseCell {
 
 public final class DiscogsArtistBioTableCell: UITableViewCell, DiscogsArtistBioCell {
 
-    @IBOutlet fileprivate weak var bioLabel: UILabel?
+    @IBOutlet weak var bioLabel: UILabel!
+
+    @IBOutlet weak var showMoreBioButton: UIButton!
 
     public var bioText: String? {
         didSet {
-            bioLabel?.text = bioText
+            // Show only the first paragraph of the bio.
+            if let paragraphs = bioText?.split(separator: "\r\n") {
+                if let firstParagraph = paragraphs.first {
+                    bioLabel.text = String(firstParagraph)
+                }
+
+                showMoreBioButton.isHidden = paragraphs.count == 1
+            }
         }
     }
 

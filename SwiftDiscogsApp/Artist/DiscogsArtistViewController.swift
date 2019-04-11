@@ -63,6 +63,9 @@ public class DiscogsArtistViewController: UIViewController {
             if let selectedIndex = artistView.indexPathForSelectedItem {
                 destination.releaseSummary = artistModel.releases?[selectedIndex.item]
             }
+        } else if "showArtistBio" == segue.identifier,
+            let destination = segue.destination as? ArtistBioViewController {
+                destination.artist = artist
         }
     }
 
