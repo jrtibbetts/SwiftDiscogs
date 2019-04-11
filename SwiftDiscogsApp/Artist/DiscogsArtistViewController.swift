@@ -71,7 +71,7 @@ public class DiscogsArtistViewController: UIViewController {
 
         // Clear out storyboard strings
         navigationItem.title = ""
-        
+
         artistView.model = artistModel
     }
 
@@ -135,7 +135,9 @@ public class DiscogsArtistViewController: UIViewController {
         }
 
         discogs?.releases(forArtist: artistId).done { [weak self] (summaries) in
-            self?.artistModel.releases = summaries.releases?.filter { $0.type == "master" && $0.mainRelease != nil }
+            self?.artistModel.releases = summaries.releases?.filter { $0.type == "master"
+                && $0.role == "Main"
+                && $0.mainRelease != nil }
             self?.artistView.refresh()
             }.catch { (error) in
                 // HANDLE THE ERROR

@@ -48,4 +48,10 @@ open class SongViewController: UIViewController, DiscogsProvider {
         }
     }
 
+    open override func viewDidLoad() {
+        super.viewDidLoad()
+
+        navigationItem.title = ""
+    }
+
 }
