@@ -18,7 +18,7 @@ public class DiscogsArtistViewController: UIViewController {
     public var artist: Artist? {
         didSet {
             artistModel.artist = artist
-            artistView?.refresh()
+            artistView.refresh()
 
             // Now go get the artist's release summaries.
             fetchReleases()
@@ -47,8 +47,8 @@ public class DiscogsArtistViewController: UIViewController {
         }
     }
 
-    public var artistView: DiscogsArtistView? {
-        return view as? DiscogsArtistView
+    public var artistView: DiscogsArtistView {
+        return view as! DiscogsArtistView
     }
 
     public var artistModel = DiscogsArtistModel()
@@ -60,7 +60,7 @@ public class DiscogsArtistViewController: UIViewController {
             let destination = segue.destination as? MasterReleaseViewController {
             destination.discogs = discogs
 
-            if let selectedIndex = artistView?.indexPathForSelectedItem {
+            if let selectedIndex = artistView.indexPathForSelectedItem {
                 destination.releaseSummary = artistModel.releases?[selectedIndex.item]
             }
         }
@@ -68,10 +68,11 @@ public class DiscogsArtistViewController: UIViewController {
 
     public override func viewDidLoad() {
         super.viewDidLoad()
-        artistView?.model = artistModel
 
         // Clear out storyboard strings
         navigationItem.title = ""
+        
+        artistView.model = artistModel
     }
 
     // MARK: - Private Functions
@@ -135,7 +136,7 @@ public class DiscogsArtistViewController: UIViewController {
 
         discogs?.releases(forArtist: artistId).done { [weak self] (summaries) in
             self?.artistModel.releases = summaries.releases?.filter { $0.type == "master" && $0.mainRelease != nil }
-            self?.artistView?.refresh()
+            self?.artistView.refresh()
             }.catch { (error) in
                 // HANDLE THE ERROR
         }

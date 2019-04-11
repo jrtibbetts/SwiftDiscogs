@@ -11,10 +11,20 @@ open class DiscogsArtistModel: SectionedModel {
 
     // MARK: Public Properties
 
-    open var artist: Artist?
+    open var artist: Artist? {
+        didSet {
+            if artist != nil && !sections.contains(bioSection) {
+                sections.insert(bioSection, at: 0)
+            }
+        }
+    }
 
     open var releases: [ReleaseSummary]? {
         didSet {
+            if releases != nil, !sections.contains(releasesSection) {
+                sections.append(releasesSection)
+            }
+
             releasesSection.releases = releases
         }
     }
@@ -28,7 +38,7 @@ open class DiscogsArtistModel: SectionedModel {
     // MARK: Initializers
 
     public override init() {
-        super.init(sections: [bioSection, releasesSection])
+        super.init()
     }
 
     // MARK: - UITableViewDataSource
