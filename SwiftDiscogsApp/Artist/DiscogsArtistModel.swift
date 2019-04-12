@@ -101,8 +101,8 @@ open class DiscogsArtistModel: SectionedModel {
             let releaseSummary = releases?[releaseIndex]
 
             if let cell = cell as? DiscogsArtistReleaseTableCell {
-                if let summaryTitle = releaseSummary?.title,
-                    let albums = mediaCollections?.filter({ $0.representativeItem?.title == summaryTitle }),
+                if let summaryTitle = releaseSummary?.title.lowercased(),
+                    let albums = mediaCollections?.filter({ $0.representativeItem?.title?.lowercased() == summaryTitle }),
                     albums.count > 0 {
                     cell.inLibrary = true
                 }
