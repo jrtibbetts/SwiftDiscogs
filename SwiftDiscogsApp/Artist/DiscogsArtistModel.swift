@@ -1,6 +1,7 @@
 //  Copyright © 2018 Poikile Creations. All rights reserved.
 
 import Kingfisher
+import MediaPlayer
 import Stylobate
 import SwiftDiscogs
 import UIKit
@@ -28,6 +29,12 @@ open class DiscogsArtistModel: SectionedModel {
             releasesSection.releases = releases
         }
     }
+
+    public var mediaCollections: [MPMediaItemCollection]? {
+        didSet {
+
+        }
+    }
     
     // MARK: Private Properties
 
@@ -51,7 +58,9 @@ open class DiscogsArtistModel: SectionedModel {
         if section === bioSection {
             bioSection.configure(cell: cell, forArtist: artist)
         } else if section === releasesSection {
-            releasesSection.configure(cell: cell, forReleaseIndex: indexPath.row)
+            releasesSection.configure(cell: cell,
+                                      forReleaseIndex: indexPath.row,
+                                      mediaCollections: mediaCollections)
         }
 
         return cell
@@ -87,10 +96,17 @@ open class DiscogsArtistModel: SectionedModel {
         }
 
         func configure(cell: UITableViewCell,
-                       forReleaseIndex releaseIndex: Int) {
+                       forReleaseIndex releaseIndex: Int,
+                       mediaCollections: [MPMediaItemCollection]?) {
             let releaseSummary = releases?[releaseIndex]
 
             if let cell = cell as? DiscogsArtistReleaseTableCell {
+                if let summaryTitle = releaseSummary?.title,
+                    let albums = mediaCollections?.filter({ $0.representativeItem?.title == summaryTitle }),
+                    albums.count > 0 {
+                    cell.inLibrary = true
+                }
+
                 cell.summary = releaseSummary
             }
         }

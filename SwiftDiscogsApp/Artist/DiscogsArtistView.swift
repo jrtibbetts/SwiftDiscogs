@@ -70,11 +70,14 @@ public final class DiscogsArtistBioTableCell: UITableViewCell, DiscogsArtistBioC
 
 public final class DiscogsArtistReleaseTableCell: UITableViewCell, DiscogsArtistReleaseCell {
 
+    public var inLibrary: Bool = false
+
     public var summary: ReleaseSummary? {
         didSet {
             title = summary?.title
             type = summary?.type
             year = summary?.year
+            typeLabel?.text = inLibrary ? "In library" : ""
         }
     }
 
@@ -94,8 +97,8 @@ public final class DiscogsArtistReleaseTableCell: UITableViewCell, DiscogsArtist
 
     public var type: String? {
         didSet {
-            typeLabel?.text = type
-            typeLabel?.isHidden = (typeLabel == nil)
+//            typeLabel?.text = type
+//            typeLabel?.isHidden = (typeLabel == nil)
         }
     }
 

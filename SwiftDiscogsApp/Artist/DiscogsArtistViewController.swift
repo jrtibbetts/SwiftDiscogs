@@ -1,5 +1,6 @@
 //  Copyright © 2018 Poikile Creations. All rights reserved.
 
+import MediaPlayer
 import Stylobate
 import SwiftDiscogs
 import UIKit
@@ -22,6 +23,8 @@ public class DiscogsArtistViewController: UIViewController {
 
             // Now go get the artist's release summaries.
             fetchReleases()
+            let albumsQuery = MPMediaQuery.albums()
+            artistModel.mediaCollections = albumsQuery.collections
         }
     }
 
