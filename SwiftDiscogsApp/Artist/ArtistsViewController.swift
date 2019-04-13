@@ -64,7 +64,7 @@ class ArtistsViewController: CollectionAndTableViewController, UISearchResultsUp
         searchController.searchResultsUpdater = self
 
         searchController.searchBar.enablesReturnKeyAutomatically = true
-        searchController.searchBar.showsCancelButton = true
+        searchController.searchBar.showsCancelButton = false
         navigationItem.searchController = searchController
     }
 
