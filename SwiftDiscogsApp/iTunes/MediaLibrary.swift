@@ -1,39 +1,40 @@
 //  Copyright © 2019 Poikile Creations. All rights reserved.
 
 import MediaPlayer
-import PromiseKit
 
+/// Provides access to the `MPMediaItem`s and other `MediaPlayer` elements on
+/// the user's device.
 public protocol MediaLibrary {
 
+    /// Get all on-device media items by artists whose names contain the
+    /// specified string.
+    ///
+    /// - parameter named: The artist's name. If it's `nil`, then all items on
+    ///             the device will be returned.
+    ///
+    /// - returns: The media items containing the specified artist.
     func artists(named: String?) -> [MPMediaItem]?
 
+    /// Get all on-device songs that contain the specified name.
+    ///
+    /// - parameter named: The song's name. If it's `nil`, then all items on
+    ///             the device will be returned.
+    ///
+    /// - returns: The media items containing the specified name.
     func songs(named: String?) -> [MPMediaItem]?
+
+    /// Get all on-device songs that are by the specified artist.
+    ///
+    /// - parameter named: The artist's name. If it's `nil`, then all items on
+    ///             the device will be returned.
+    ///
+    /// - returns: The media items by the specified artist.
+    func songs(byArtistNamed: String?) -> [MPMediaItem]?
 
 }
 
-public struct iTunesMediaLibrary: MediaLibrary {
+public struct MediaLibraryManager {
 
-    public func artists(named artistName: String? = nil) -> [MPMediaItem]? {
-        let query = MPMediaQuery.artists()
-
-        if let artistName = artistName {
-            let predicate = MPMediaPropertyPredicate(value: artistName,
-                                                     forProperty: MPMediaItemPropertyArtist,
-                                                     comparisonType: .contains)
-            query.addFilterPredicate(predicate)
-        }
-
-        return query.items
-    }
-
-    public func songs(named songName: String? = nil) -> [MPMediaItem]? {
-        let query = MPMediaQuery.songs()
-        let predicate = MPMediaPropertyPredicate(value: songName,
-                                                 forProperty: MPMediaItemPropertyTitle,
-                                                 comparisonType: .contains)
-        query.addFilterPredicate(predicate)
-
-        return query.items
-    }
+    public static var mediaLibrary: MediaLibrary = iTunesMediaLibrary()
 
 }

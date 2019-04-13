@@ -15,6 +15,8 @@ public class DiscogsArtistViewController: UIViewController {
     /// testing.
     public var discogs: Discogs? = DiscogsClient.singleton
 
+    public var mediaLibrary: MediaLibrary? = iTunesMediaLibrary()
+    
     /// The artist in question.
     public var artist: Artist? {
         didSet {
@@ -24,6 +26,11 @@ public class DiscogsArtistViewController: UIViewController {
             // Now go get the artist's release summaries.
             fetchReleases()
             let albumsQuery = MPMediaQuery.albums()
+            let predicate = MPMediaPropertyPredicate(value: artist?.name,
+                                                     forProperty: MPMediaItemPropertyArtist,
+                                                     comparisonType: .contains)
+            albumsQuery.addFilterPredicate(predicate)
+            albumsQuery.groupingType = .album
             artistModel.mediaCollections = albumsQuery.collections
         }
     }
