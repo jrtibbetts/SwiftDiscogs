@@ -39,7 +39,7 @@ class ArtistsViewController: CollectionAndTableViewController, UISearchResultsUp
         artistsDisplay?.start()
 
         DispatchQueue.global().async(.promise) { [weak self] in
-            let artists = iTunesMediaLibrary().artists(named: artistName)
+            let artists = MediaLibraryManager.mediaLibrary.artists(named: artistName)
             self?.artistsModel?.artistMediaItems = artists
             }.done { [weak self] in
                 self?.artistsDisplay?.refresh()

@@ -33,8 +33,14 @@ public protocol MediaLibrary {
 
 }
 
+/// Holds the media library instance used throughout the app.
 public struct MediaLibraryManager {
 
+    /// The app-wide media library. By default, this is an
+    /// `iTunesMediaLibrary()`, which provides access to all the media that's
+    /// installed on a device. For unit tests and simulators that don't have
+    /// access to the iTunes media, this can be set to an instance of
+    /// `MockMediaLibrary`.
     public static var mediaLibrary: MediaLibrary = iTunesMediaLibrary()
 
 }

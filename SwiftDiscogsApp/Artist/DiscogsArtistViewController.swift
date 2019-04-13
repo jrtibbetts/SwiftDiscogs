@@ -14,8 +14,6 @@ public class DiscogsArtistViewController: UIViewController {
     /// `DiscogsClient`, but it can be changed, which can be useful for
     /// testing.
     public var discogs: Discogs? = DiscogsClient.singleton
-
-    public var mediaLibrary: MediaLibrary? = iTunesMediaLibrary()
     
     /// The artist in question.
     public var artist: Artist? {
