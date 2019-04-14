@@ -12,7 +12,7 @@ public extension DiscogsClient {
         let environment = ProcessInfo.processInfo.environment
         let client = DiscogsClient(consumerKey: environment["discogsConsumerKey"]!,
                                    consumerSecret: environment["discogsConsumerSecret"]!,
-                                   userAgent: environment["userAgent"]!)
+                                   userAgent: environment["discogsUserAgent"]!)
 
         return client
     }()
