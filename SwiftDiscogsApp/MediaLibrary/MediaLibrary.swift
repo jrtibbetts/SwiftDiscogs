@@ -41,6 +41,12 @@ public struct MediaLibraryManager {
     /// installed on a device. For unit tests and simulators that don't have
     /// access to the iTunes media, this can be set to an instance of
     /// `MockMediaLibrary`.
-    public static var mediaLibrary: MediaLibrary = iTunesMediaLibrary()
+    public static var mediaLibrary: MediaLibrary = {
+        #if targetEnvironment(simulator)
+        return MockMediaLibrary()
+        #else
+        return iTunesMediaLibrary()
+        #endif
+    }()
 
 }
