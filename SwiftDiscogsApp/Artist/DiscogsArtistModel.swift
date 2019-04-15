@@ -14,7 +14,7 @@ open class DiscogsArtistModel: SectionedModel {
 
     open var artist: Artist? {
         didSet {
-            if artist != nil && !sections.contains(bioSection) {
+            if artist != nil && artist?.profile != nil && !sections.contains(bioSection) {
                 sections.insert(bioSection, at: 0)
             }
         }

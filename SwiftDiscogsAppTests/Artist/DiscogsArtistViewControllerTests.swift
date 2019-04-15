@@ -37,7 +37,7 @@ class DiscogsArtistViewControllerTests: XCTestCase {
     }
 
     func testModelIsDataSource() {
-        XCTAssertTrue(viewController?.artistView?.tableView?.dataSource === artistModel)
+        XCTAssertTrue(viewController?.artistView.tableView?.dataSource === artistModel)
     }
 
     class MockArtistDisplay: DiscogsArtistView {
@@ -52,12 +52,26 @@ class DiscogsArtistViewControllerTests: XCTestCase {
 
     // MARK: UITableViewDataSource
 
-    func testTableViewNumberOfSectionsIs2() {
-        XCTAssertEqual(viewController?.artistView?.tableView?.numberOfSections, 2)
+    func testTableViewNumberOfSectionsWhenArtistIsNilIs0() {
+        XCTAssertEqual(viewController?.artistView.tableView?.numberOfSections, 0)
     }
 
-    func testNumberOfRowsInTableSection1Is1() {
-        XCTAssertEqual(viewController?.artistView?.tableView?.numberOfRows(inSection: 0), 1)
+    func testTableViewNumberOfSectionsWithArtistBioAndNoReleasesIs1() {
+        var artist = Artist(name: "The Beatles")
+        artist.profile = """
+        This is a non-empty profile, which should trigger the addition of a bio section.
+        """
+        artistModel?.artist = artist
+        XCTAssertEqual(viewController?.artistView.tableView?.numberOfSections, 1)
+        XCTAssertEqual(viewController?.artistView.tableView?.numberOfRows(inSection: 0), 1)
+    }
+
+    func testTableViewNumberOfSectionsWithArtistReleasesAndNoBio() {
+        let artist = Artist(name: "The Beatles")
+        artistModel?.artist = artist
+        artistModel?.releases = []
+        XCTAssertEqual(viewController?.artistView.tableView?.numberOfSections, 1)
+        XCTAssertEqual(viewController?.artistView.tableView?.numberOfRows(inSection: 0), 0)
     }
 
     func testCellForTableAtIndexReturnsExpectedCell() {
@@ -66,6 +80,13 @@ class DiscogsArtistViewControllerTests: XCTestCase {
             return
         }
 
+        var artist = Artist(name: "The Beatles")
+        artist.profile = """
+This is a non-empty profile, which should trigger the addition of a bio section.
+"""
+        model.artist = artist
+        model.releases = []
+
         let cell = model.tableView(tableView, cellForRowAt: IndexPath(row: 0, section: 0))
 
         guard let bioCell = cell as? DiscogsArtistBioTableCell else {
@@ -73,7 +94,7 @@ class DiscogsArtistViewControllerTests: XCTestCase {
             return
         }
 
-        XCTAssertNil(bioCell.bioText)
+        XCTAssertEqual(bioCell.bioText, artist.profile)
 
         bioCell.bioText = "This is a sample biography."
 
@@ -83,18 +104,25 @@ class DiscogsArtistViewControllerTests: XCTestCase {
     func testTableSectionHeadersOk() {
         let exp = expectation(description: "MockDiscogs().artist was called")
         _ = viewController?.view  // force viewDidLoad() to be called
-        discogs.artist(identifier: 99).done { (artist) in
-            self.viewController?.artist = artist
+        discogs.artist(identifier: 99).done { [weak self] (artist) in
+            self?.viewController?.artist = artist
 
-            guard let table = self.artistView?.tableView else {
+            guard let table = self?.artistView?.tableView else {
                 XCTFail("Failed to find a tableView in the artist view.")
                 return
             }
 
-            let bioTitle = self.artistModel?.tableView(table, titleForHeaderInSection: 0)
-            XCTAssertEqual(bioTitle, "Bio")
+            var artist = Artist(name: "The Beatles")
+            artist.profile = """
+            This is a non-empty profile, which should trigger the addition of a bio section.
+            """
+            self?.artistModel?.artist = artist
+            self?.artistModel?.releases = []
 
-            let releasesTitle = self.artistModel?.tableView(table, titleForHeaderInSection: 1)
+            let bioTitle = self?.artistModel?.tableView(table, titleForHeaderInSection: 0)
+            XCTAssertNil(bioTitle)
+
+            let releasesTitle = self?.artistModel?.tableView(table, titleForHeaderInSection: 1)
             XCTAssertEqual(releasesTitle, "Releases")
 
             exp.fulfill()
