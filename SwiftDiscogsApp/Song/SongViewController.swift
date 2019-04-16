@@ -3,7 +3,7 @@
 import SwiftDiscogs
 import UIKit
 
-open class SongViewController: UIViewController, DiscogsProvider {
+open class SongViewController: UIViewController {
 
     // MARK: - Public Properties
 
@@ -24,10 +24,6 @@ open class SongViewController: UIViewController, DiscogsProvider {
     }
 
     open var model = SongModel()
-
-    // MARK: - DiscogsProvider
-
-    public var discogs: Discogs? = DiscogsClient.singleton
 
     // MARK: - UIViewController
 

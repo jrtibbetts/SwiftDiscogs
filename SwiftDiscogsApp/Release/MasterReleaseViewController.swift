@@ -18,14 +18,14 @@ public class MasterReleaseViewController: BaseReleaseViewController {
         didSet {
             if let masterReleaseID = releaseSummary?.id {
                 // Get the master release itself.
-                discogs?.masterRelease(identifier: masterReleaseID).done { [weak self] (masterRelease) in
+                DiscogsManager.discogs.masterRelease(identifier: masterReleaseID).done { [weak self] (masterRelease) in
                     self?.masterRelease = masterRelease
                     }.catch { (error) in
                         print("Error: \(error)")
                     }
                 // Get the master release's versions. We don't have to wait for
                 // the actual master release itself to be retrieved.
-                discogs?.releasesForMasterRelease(masterReleaseID, pageNumber: 1, resultsPerPage: 200).done { [weak self] (releaseSummaries) in
+                DiscogsManager.discogs.releasesForMasterRelease(masterReleaseID, pageNumber: 1, resultsPerPage: 200).done { [weak self] (releaseSummaries) in
                     self?.masterReleaseModel?.releaseVersions = releaseSummaries.versions
                     self?.display?.refresh()
                     }.catch { (error) in
@@ -53,7 +53,6 @@ public class MasterReleaseViewController: BaseReleaseViewController {
         if segue.identifier == "showReleaseVersion",
             let versionViewController = segue.destination as? ReleaseVersionViewController {
             versionViewController.masterRelease = masterRelease
-            versionViewController.discogs = discogs
 
             if let selectedIndex = display?.tableView?.indexPathForSelectedRow {
                 versionViewController.releaseVersion = masterReleaseModel?.releaseVersions?[selectedIndex.row]

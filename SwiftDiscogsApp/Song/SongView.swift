@@ -5,15 +5,11 @@ import SwiftDiscogs
 import Stylobate
 import UIKit
 
-public class SongView: CoverArtAndTableView, DiscogsProvider {
+public class SongView: CoverArtAndTableView {
 
     // MARK: - Outlets
 
     @IBOutlet public weak var playbackView: UIView!
-
-    // MARK: - DiscogsProvider
-
-    public var discogs: Discogs?
 
     // MARK: - Public Properties
 

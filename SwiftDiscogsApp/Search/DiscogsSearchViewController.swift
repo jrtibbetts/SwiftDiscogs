@@ -8,13 +8,9 @@ import UIKit
 /// Allows the user to search the Discogs database for artists, releases, and
 /// labels.
 class DiscogsSearchViewController: CollectionAndTableViewController,
-                                   UISearchResultsUpdating,
-                                   DiscogsProvider {
+                                   UISearchResultsUpdating {
 
     // MARK: Public Properties
-
-    /// The Discogs client.
-    var discogs: Discogs? = /* MockDiscogs() */ DiscogsClient.singleton
 
     /// The search results. Changes trigger a reloading of the table and/or
     /// collection.
@@ -52,7 +48,7 @@ class DiscogsSearchViewController: CollectionAndTableViewController,
     // MARK: - Actions
 
     @IBAction private func signOut() {
-        discogs?.signOut()
+        DiscogsManager.discogs.signOut()
     }
 
     // MARK: - Functions
@@ -87,7 +83,7 @@ class DiscogsSearchViewController: CollectionAndTableViewController,
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        if let discogs = discogs, !discogs.isSignedIn {
+        if !DiscogsManager.discogs.isSignedIn {
             performSegue(withIdentifier: "showSignIn", sender: self)
         }
     }
@@ -101,7 +97,7 @@ class DiscogsSearchViewController: CollectionAndTableViewController,
                 return
         }
 
-        discogs?.search(for: searchTerms, type: "Artist").done { [weak self] (searchResults) in
+        DiscogsManager.discogs.search(for: searchTerms, type: "Artist").done { [weak self] (searchResults) in
             guard let self = self else {
                 return
             }

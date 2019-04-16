@@ -10,11 +10,6 @@ public class DiscogsArtistViewController: UIViewController {
 
     // MARK: Public Properties
 
-    /// The Discogs client. By default, this is the singleton instance of
-    /// `DiscogsClient`, but it can be changed, which can be useful for
-    /// testing.
-    public var discogs: Discogs? = DiscogsClient.singleton
-    
     /// The artist in question.
     public var artist: Artist? {
         didSet {
@@ -46,7 +41,7 @@ public class DiscogsArtistViewController: UIViewController {
     public var artistSearchResult: SearchResult? {
         didSet {
             if let artistId = artistSearchResult?.id {
-                discogs?.artist(identifier: artistId).done { (artist) in
+                DiscogsManager.discogs.artist(identifier: artistId).done { (artist) in
                     self.artist = artist
                     }.catch { (error) in
                         // HANDLE THE ERROR
@@ -66,7 +61,6 @@ public class DiscogsArtistViewController: UIViewController {
     public override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showMasterRelease",
             let destination = segue.destination as? MasterReleaseViewController {
-            destination.discogs = discogs
 
             if let selectedIndex = artistView.indexPathForSelectedItem {
                 destination.releaseSummary = artistModel.releases?[selectedIndex.item]
@@ -89,7 +83,7 @@ public class DiscogsArtistViewController: UIViewController {
     // MARK: - Private Functions
 
     func fetchArtist(named artistName: String) {
-        _ = discogs?.search(forArtist: artistName).done { [weak self] in
+        _ = DiscogsManager.discogs.search(forArtist: artistName).done { [weak self] in
             if let results = $0.results?.filter({ $0.type == "artist" }) {
                 self?.handleArtistResults(results)
             }
@@ -145,7 +139,7 @@ public class DiscogsArtistViewController: UIViewController {
             return
         }
 
-        discogs?.releases(forArtist: artistId).done { [weak self] (summaries) in
+        DiscogsManager.discogs.releases(forArtist: artistId).done { [weak self] (summaries) in
             self?.artistModel.releases = summaries.releases?.filter { $0.type == "master"
                 && $0.role == "Main"
                 && $0.mainRelease != nil }

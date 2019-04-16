@@ -18,21 +18,16 @@ open class DiscogsSignInViewController: UIViewController {
 
     @IBOutlet weak var signInStatusStack: ToggleStackView!
 
-    // MARK: - Private Properties
-    
-    /// The REST client.
-    private var discogs: Discogs = DiscogsClient.singleton!
-
     // MARK: - Actions
     
     /// Sign into the Discogs service, notifying the display when it's about to
     /// do so and after the user has logged in successfully.
     @IBAction func signInToDiscogs(signInButton: UIButton?) {
         signInStatusStack.activeView = checkingStatusView
-        let promise = discogs.authorize(presentingViewController: self,
-                                        callbackUrlString: AppDelegate.callbackUrl.absoluteString)
-        promise.then { [unowned self] (credential) -> Promise<UserIdentity> in
-            return self.discogs.userIdentity()
+        let promise = DiscogsManager.discogs.authorize(presentingViewController: self,
+                                                       callbackUrlString: AppDelegate.callbackUrl.absoluteString)
+        promise.then { (credential) -> Promise<UserIdentity> in
+            return DiscogsManager.discogs.userIdentity()
             }.done { [weak self] (userIdentity) in
                 self?.signInStatusStack.activeView = self?.signedInLabel
                 self?.dismiss(animated: true, completion: nil)
@@ -51,7 +46,7 @@ open class DiscogsSignInViewController: UIViewController {
     open override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        if discogs.isSignedIn {
+        if DiscogsManager.discogs.isSignedIn {
             signInStatusStack.activeView = signedInLabel
             dismiss(animated: true, completion: nil)
         }

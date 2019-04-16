@@ -6,11 +6,7 @@ import UIKit
 
 // MARK: - Private Properties
 
-public class BaseReleaseViewController: UIViewController, DiscogsProvider {
-
-    // MARK: - Public Properties
-
-    public var discogs: Discogs? = DiscogsClient.singleton
+public class BaseReleaseViewController: UIViewController {
 
     // MARK: - Public Properties
 
@@ -51,7 +47,6 @@ public class BaseReleaseViewController: UIViewController, DiscogsProvider {
             let songViewController = segue.destination as? SongViewController,
             let row = display?.tableView?.indexPathForSelectedRow?.row {
             songViewController.song = song(forSelectedIndex: row)
-            songViewController.discogs = discogs
         } else {
             return super.prepare(for: segue, sender: sender)
         }

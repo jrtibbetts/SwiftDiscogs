@@ -25,7 +25,6 @@ class DiscogsArtistViewControllerTests: XCTestCase {
         let bundle = Bundle(for: DiscogsArtistViewController.self)
         let storyboard = UIStoryboard(name: "Main", bundle: bundle)
         viewController = storyboard.instantiateViewController(withIdentifier: "discogsArtist") as? DiscogsArtistViewController
-        viewController?.discogs = discogs
         XCTAssertNotNil(viewController)
         _ = viewController?.view // force viewDidLoad() to be called
     }
