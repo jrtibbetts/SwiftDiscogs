@@ -10,19 +10,19 @@ class ArtistsViewController: CollectionAndTableViewController, UISearchResultsUp
 
     // MARK: - Properties
 
-    var artistsDisplay: ArtistsDisplay? {
-        return display as? ArtistsDisplay
+    var artistsDisplay: ArtistsDisplay {
+        return display as! ArtistsDisplay
     }
 
-    var artistsModel: ArtistsModel? {
-        return model as? ArtistsModel
+    var artistsModel: ArtistsModel {
+        return model as! ArtistsModel
     }
 
     // MARK: - UIViewController
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let selectedIndex = artistsDisplay?.indexPathForSelectedItem,
-            let selectedArtistName = artistsModel?.artists?[selectedIndex.row] {
+        if let selectedIndex = artistsDisplay.indexPathForSelectedItem,
+            let selectedArtistName = artistsModel.artists?[selectedIndex.row] {
             if segue.identifier == "showDiscogsArtist",
                 let destination = segue.destination as? DiscogsArtistViewController {
                 destination.artistName = selectedArtistName
@@ -36,36 +36,28 @@ class ArtistsViewController: CollectionAndTableViewController, UISearchResultsUp
     }
 
     func search(forArtist artistName: String? = nil) {
-        artistsDisplay?.start()
+        artistsDisplay.start()
 
         DispatchQueue.global().async(.promise) { [weak self] in
             let artists = MediaLibraryManager.mediaLibrary.artists(named: artistName)
-            self?.artistsModel?.artistMediaItems = artists
+            self?.artistsModel.artistMediaItems = artists
             }.done { [weak self] in
-                self?.artistsDisplay?.refresh()
+                self?.artistsDisplay.refresh()
             }.ensure { [weak self] in
-                self?.artistsDisplay?.stop()
+                self?.artistsDisplay.stop()
         }.cauterize()
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        model = ArtistsModel()
-        artistsDisplay?.model = model
-        artistsDisplay?.navigationItem = navigationItem
-        artistsDisplay?.collectionView?.isHidden = true
-        artistsDisplay?.stop()
-
         let searchController = UISearchController(searchResultsController: nil)
-        searchController.hidesNavigationBarDuringPresentation = true
-        searchController.dimsBackgroundDuringPresentation = false
-        searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchResultsUpdater = self
-
-        searchController.searchBar.enablesReturnKeyAutomatically = true
-        searchController.searchBar.showsCancelButton = false
         navigationItem.searchController = searchController
+
+        model = ArtistsModel()
+        artistsDisplay.model = model
+        artistsDisplay.setUp()
     }
 
     func updateSearchResults(for searchController: UISearchController) {
@@ -87,8 +79,22 @@ class ArtistsDisplay: CollectionAndTableDisplay {
             refresh()
         }
     }
-    
+
     // MARK: - Functions
+
+    func setUp() {
+        collectionView?.isHidden = true
+        stop()
+
+        if let searchController = navigationItem?.searchController {
+            searchController.hidesNavigationBarDuringPresentation = true
+            searchController.dimsBackgroundDuringPresentation = false
+            searchController.obscuresBackgroundDuringPresentation = false
+
+            searchController.searchBar.enablesReturnKeyAutomatically = true
+            searchController.searchBar.showsCancelButton = false
+        }
+    }
 
     func start() {
         spinnerView.isHidden = false
@@ -96,6 +102,10 @@ class ArtistsDisplay: CollectionAndTableDisplay {
 
     func stop() {
         spinnerView.isHidden = true
+    }
+
+    func tearDown() {
+
     }
 
 }
