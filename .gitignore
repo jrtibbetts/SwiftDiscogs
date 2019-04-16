@@ -1,4 +1,5 @@
 build/
+docs/
 Carthage/
 Pods/
 SwiftDiscogsApp/Discogs.plist
