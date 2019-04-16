@@ -1,8 +1,6 @@
 //  Copyright © 2018 Poikile Creations. All rights reserved.
 
-import Kingfisher
 import MediaPlayer
-import Stylobate
 import SwiftDiscogs
 import UIKit
 

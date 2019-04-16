@@ -77,41 +77,41 @@ public final class DiscogsArtistReleaseTableCell: UITableViewCell, DiscogsArtist
             title = summary?.title
             type = summary?.type
             year = summary?.year
-            typeLabel?.text = inLibrary ? "In library" : ""
+            typeLabel.text = inLibrary ? "In library" : ""
         }
     }
 
     public var thumbnail: UIImage? {
         didSet {
-            thumbnailView?.image = thumbnail
-            thumbnailView?.isHidden = (thumbnail == nil)
+            thumbnailView.image = thumbnail
         }
     }
 
     public var title: String? {
         didSet {
-            titleLabel?.text = title
-            titleLabel?.isHidden = (title == nil)
+            titleLabel.text = title
         }
     }
 
     public var type: String? {
         didSet {
-//            typeLabel?.text = type
-//            typeLabel?.isHidden = (typeLabel == nil)
+            typeLabel.text = type
         }
     }
 
     public var year: Int? {
         didSet {
-            yearLabel?.text = "\(year ?? 0)"
-            yearLabel?.isHidden = (year == nil)
+            if let year = year {
+                yearLabel.text = "\(year)"
+            } else {
+                yearLabel.text = nil
+            }
         }
     }
 
-    @IBOutlet private weak var thumbnailView: UIImageView?
-    @IBOutlet private weak var titleLabel: UILabel?
-    @IBOutlet private weak var typeLabel: UILabel?
-    @IBOutlet private weak var yearLabel: UILabel?
+    @IBOutlet private weak var thumbnailView: UIImageView!
+    @IBOutlet private weak var titleLabel: HidingLabel!
+    @IBOutlet private weak var typeLabel: HidingLabel!
+    @IBOutlet private weak var yearLabel: HidingLabel!
 
 }
