@@ -12,8 +12,6 @@ public class ReleaseVersionTableCell: UITableViewCell {
     @IBOutlet public weak var yearLabel: HidingLabel?
 
     public func setUp(with release: MasterReleaseVersion) {
-        titleLabel?.text = release.title
-
         var text = release.majorFormats?.joined(separator: " ").appending(" ") ?? ""
 
         if let country = release.country {
@@ -24,7 +22,7 @@ public class ReleaseVersionTableCell: UITableViewCell {
             text.append("\(label) ")
         }
 
-        if let catalogNumber = release.catno?.split(separator: ",").first {
+        if let catalogNumber = release.mainCatalogNumber {
             text.append(" (\(catalogNumber))")
         }
 

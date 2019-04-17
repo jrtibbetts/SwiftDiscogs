@@ -3,8 +3,8 @@
 import Foundation
 
 public struct MasterReleaseVersion: Codable, Unique {
-    
-    public var catno: String?
+
+    public var catalogNumber: String?
     public var country: String?
     public var formats: [String]?
     public var id: Int
@@ -13,9 +13,39 @@ public struct MasterReleaseVersion: Codable, Unique {
     public var released: String?
     public var resourceUrl: String
     public var status: String?
-    public var thumb: String?
+    public var thumbnail: String?
     public var title: String
+
+    public var format: String? {
+        return formats?.first
+    }
+
+    public var mainCatalogNumber: String? {
+        if let firstNumber = catalogNumber?.split(separator: ",").first {
+            return String(firstNumber)
+        } else {
+            return nil
+        }
+    }
     
+    public var majorFormat: String? {
+        return majorFormats?.first
+    }
+
+    private enum CodingKeys: String, CodingKey {
+        case catalogNumber = "catno"
+        case country
+        case formats
+        case id
+        case label
+        case majorFormats
+        case released
+        case resourceUrl
+        case status
+        case thumbnail = "thumb"
+        case title
+    }
+
 }
 
 public struct MasterReleaseVersions: Codable, Pageable {
