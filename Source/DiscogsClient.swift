@@ -41,7 +41,23 @@ open class DiscogsClient: OAuth1JSONClient, Discogs {
         
         return promise
     }
-    
+
+    // MARK: - JSONClient
+
+    open override func get<T>(path: String, headers: JSONClient.Headers = Headers(), parameters: JSONClient.Parameters = Parameters()) -> Promise<T> where T : Decodable, T : Encodable {
+        print("GET for \(path); headers: \(headers); params: \(parameters)")
+        debugPrint(path, headers, parameters)
+        return super.get(path: path, headers: headers, parameters: parameters)
+    }
+
+    // MARK: - AuthorizedJSONClient
+
+    open override func authorizedGet<T>(path: String, headers: AuthorizedJSONClient.Headers = Headers(), parameters: AuthorizedJSONClient.Parameters = Parameters()) -> Promise<T> where T : Decodable, T : Encodable {
+        print("Authorized GET for \(path); headers: \(headers); params: \(parameters)")
+        debugPrint(path, headers, parameters)
+        return super.authorizedGet(path: path, headers: headers, parameters: parameters)
+    }
+
     // MARK: - Authorization & User Identity
     
     public func userIdentity() -> Promise<UserIdentity> {
