@@ -1161,6 +1161,64 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
             </objects>
             <point key="canvasLocation" x="4949.6000000000004" y="2305.4187192118229"/>
         </scene>
+        <!--Needs and Wants-->
+        <scene sceneID="2tO-Gn-fv5">
+            <objects>
+                <tableViewController id="Wg1-PG-2AS" userLabel="Needs and Wants" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="40" sectionHeaderHeight="28" sectionFooterHeight="28" id="3Q4-th-ULw">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="YPl-fT-nMy">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="YPl-fT-nMy" id="sGI-Ma-fzE">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" alignment="firstBaseline" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="hcA-GY-HfW">
+                                            <rect key="frame" x="16" y="11" width="343" height="22"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Discogs" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FDv-IG-33M" userLabel="Database">
+                                                    <rect key="frame" x="0.0" y="1.333333333333333" width="286.33333333333331" height="14.333333333333336"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fKW-21-wMl">
+                                                    <rect key="frame" x="294.33333333333331" y="-5" width="30" height="27"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                                    <state key="normal" title="Add"/>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" text="✓" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3N3-EH-1NK" userLabel="Status">
+                                                    <rect key="frame" x="332.33333333333331" y="1.333333333333333" width="10.666666666666686" height="14.333333333333336"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                                    <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottomMargin" secondItem="hcA-GY-HfW" secondAttribute="bottom" id="3oP-A7-wHx"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="hcA-GY-HfW" secondAttribute="trailing" id="SWR-uI-8Jv"/>
+                                        <constraint firstAttribute="leadingMargin" secondItem="hcA-GY-HfW" secondAttribute="leading" id="hfv-Z7-Qgd"/>
+                                        <constraint firstItem="hcA-GY-HfW" firstAttribute="top" secondItem="sGI-Ma-fzE" secondAttribute="topMargin" id="jwq-BW-TEy"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Wg1-PG-2AS" id="nND-ZS-yeU"/>
+                            <outlet property="delegate" destination="Wg1-PG-2AS" id="KAa-Hv-O43"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9S6-qU-Ohv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4032.8000000000002" y="1014.5320197044335"/>
+        </scene>
         <!--Master Release-->
         <scene sceneID="Xlf-ou-lRd">
             <objects>
@@ -1232,15 +1290,15 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                                                 <stackView opaque="NO" contentMode="scaleToFill" alignment="firstBaseline" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="nhB-Ua-RyN">
                                                     <rect key="frame" x="15" y="11" width="345" height="22"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Because" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jva-ML-VZe" userLabel="Title">
-                                                            <rect key="frame" x="0.0" y="4" width="303.33333333333331" height="18"/>
-                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Because" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jva-ML-VZe" userLabel="Title">
+                                                            <rect key="frame" x="0.0" y="1.6666666666666661" width="299.33333333333331" height="20.333333333333336"/>
+                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="1957" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SLz-RY-Vvm" userLabel="Single Year" customClass="HidingLabel" customModule="SwiftDiscogsApp" customModuleProvider="target">
-                                                            <rect key="frame" x="311.33333333333331" y="4" width="33.666666666666686" height="18"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="1957" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SLz-RY-Vvm" userLabel="Single Year" customClass="HidingLabel" customModule="SwiftDiscogsApp" customModuleProvider="target">
+                                                            <rect key="frame" x="307.33333333333331" y="1.6666666666666661" width="37.666666666666686" height="20.333333333333336"/>
+                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -1536,7 +1594,7 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
         <image name="Discogs" width="480" height="174"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="T11-W3-grN"/>
+        <segue reference="IBF-35-jpA"/>
         <segue reference="XEp-8Q-M5i"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
