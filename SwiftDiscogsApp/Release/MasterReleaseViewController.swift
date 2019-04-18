@@ -50,16 +50,27 @@ public class MasterReleaseViewController: BaseReleaseViewController {
     // MARK: - UIViewController
 
     public override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showReleaseVersion",
-            let versionViewController = segue.destination as? ReleaseVersionViewController {
-            versionViewController.masterRelease = masterRelease
+        switch StoryboardSegue.Main(segue)! {
+        case .showReleaseVersion:
+            if let versionViewController = segue.destination as? ReleaseVersionViewController {
+                versionViewController.masterRelease = masterRelease
 
-            if let selectedIndex = display?.tableView?.indexPathForSelectedRow {
-                versionViewController.releaseVersion = masterReleaseModel?.releaseVersions?[selectedIndex.row]
+                if let selectedIndex = display?.tableView?.indexPathForSelectedRow {
+                    versionViewController.releaseVersion = masterReleaseModel?.releaseVersions?[selectedIndex.row]
+                }
             }
-        } else {
+//        case .showCountryFilters:
+//        case .showYearFilters:
+//        case .showLabelFilters:
+//        case .showFormatFilters:
+        default:
             super.prepare(for: segue, sender: sender)
         }
+    }
+
+    func showFilters(usingModel model: UITableViewDataSource,
+                     inViewController viewController: UIViewController) {
+
     }
 
     public override func viewDidLoad() {
@@ -120,4 +131,19 @@ public class MasterReleaseViewController: BaseReleaseViewController {
 
     }
     
+}
+
+class VersionFilterViewModel<T>: NSObject {
+
+    var values: [T]?
+
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return values != nil ? 1 : 0
+    }
+
+    func tableView(_ tableView: UITableView,
+                   numberOfRowsInSection section: Int) -> Int {
+        return values?.count ?? 0
+    }
+
 }
