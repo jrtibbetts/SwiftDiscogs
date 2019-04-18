@@ -117,6 +117,7 @@ public class MasterReleaseViewController: BaseReleaseViewController {
                 return super.tableView(tableView, numberOfRowsInSection: sectionIndex)
             }
         }
+
     }
     
 }

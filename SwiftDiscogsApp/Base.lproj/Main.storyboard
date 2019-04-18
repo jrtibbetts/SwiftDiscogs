@@ -1161,69 +1161,11 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
             </objects>
             <point key="canvasLocation" x="4949.6000000000004" y="2305.4187192118229"/>
         </scene>
-        <!--Needs and Wants-->
-        <scene sceneID="2tO-Gn-fv5">
-            <objects>
-                <tableViewController id="Wg1-PG-2AS" userLabel="Needs and Wants" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="40" sectionHeaderHeight="28" sectionFooterHeight="28" id="3Q4-th-ULw">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="YPl-fT-nMy">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="YPl-fT-nMy" id="sGI-Ma-fzE">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" alignment="firstBaseline" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="hcA-GY-HfW">
-                                            <rect key="frame" x="16" y="11" width="343" height="22"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Discogs" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FDv-IG-33M" userLabel="Database">
-                                                    <rect key="frame" x="0.0" y="1.333333333333333" width="286.33333333333331" height="14.333333333333336"/>
-                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fKW-21-wMl">
-                                                    <rect key="frame" x="294.33333333333331" y="-5" width="30" height="27"/>
-                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
-                                                    <state key="normal" title="Add"/>
-                                                </button>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" text="✓" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3N3-EH-1NK" userLabel="Status">
-                                                    <rect key="frame" x="332.33333333333331" y="1.333333333333333" width="10.666666666666686" height="14.333333333333336"/>
-                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
-                                                    <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </stackView>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstAttribute="bottomMargin" secondItem="hcA-GY-HfW" secondAttribute="bottom" id="3oP-A7-wHx"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="hcA-GY-HfW" secondAttribute="trailing" id="SWR-uI-8Jv"/>
-                                        <constraint firstAttribute="leadingMargin" secondItem="hcA-GY-HfW" secondAttribute="leading" id="hfv-Z7-Qgd"/>
-                                        <constraint firstItem="hcA-GY-HfW" firstAttribute="top" secondItem="sGI-Ma-fzE" secondAttribute="topMargin" id="jwq-BW-TEy"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="Wg1-PG-2AS" id="nND-ZS-yeU"/>
-                            <outlet property="delegate" destination="Wg1-PG-2AS" id="KAa-Hv-O43"/>
-                        </connections>
-                    </tableView>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="9S6-qU-Ohv" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4032.8000000000002" y="1014.5320197044335"/>
-        </scene>
         <!--Master Release-->
         <scene sceneID="Xlf-ou-lRd">
             <objects>
                 <viewController id="k8J-Ec-M2T" userLabel="Master Release" customClass="MasterReleaseViewController" customModule="SwiftDiscogsApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="dGD-xz-B36" customClass="CoverArtAndTableView" customModule="SwiftDiscogsApp" customModuleProvider="target">
+                    <view key="view" contentMode="scaleToFill" id="dGD-xz-B36" customClass="MasterReleaseView" customModule="SwiftDiscogsApp" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -1280,8 +1222,71 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                                             <segue destination="ppy-e1-uy0" kind="show" identifier="showSong" trigger="accessoryAction" id="GNa-fu-FYk"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="versionCell" id="scC-K9-gfw" userLabel="Version Cell" customClass="ReleaseVersionTableCell" customModule="SwiftDiscogsApp" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="filterAndSortVersionsCell" id="6xT-zb-dTq" userLabel="Filter and Sort Versions Cell">
                                         <rect key="frame" x="0.0" y="72" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6xT-zb-dTq" id="nL7-Oz-lOD">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" alignment="lastBaseline" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="4fi-bR-RdM">
+                                                    <rect key="frame" x="64" y="11" width="247" height="22"/>
+                                                    <subviews>
+                                                        <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bordered" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="gPP-He-d6d">
+                                                            <rect key="frame" x="0.0" y="0.0" width="91" height="23"/>
+                                                            <segments>
+                                                                <segment title="Filter"/>
+                                                                <segment title="Sort"/>
+                                                            </segments>
+                                                        </segmentedControl>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SrR-Up-u54" userLabel="Sort by Format">
+                                                            <rect key="frame" x="95" y="0.0" width="38" height="26"/>
+                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleCaption2"/>
+                                                            <state key="normal" title="Format"/>
+                                                            <connections>
+                                                                <segue destination="emV-XH-uJg" kind="presentation" identifier="showFormatFilters" id="5co-na-vdy"/>
+                                                            </connections>
+                                                        </button>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tCX-22-Q3E" userLabel="Country">
+                                                            <rect key="frame" x="137" y="0.0" width="42" height="26"/>
+                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleCaption2"/>
+                                                            <state key="normal" title="Country"/>
+                                                            <connections>
+                                                                <segue destination="emV-XH-uJg" kind="presentation" identifier="showCountryFilters" id="Ox9-te-id2"/>
+                                                            </connections>
+                                                        </button>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B0i-5e-v0A" userLabel="Label">
+                                                            <rect key="frame" x="183" y="0.0" width="30" height="26"/>
+                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleCaption2"/>
+                                                            <state key="normal" title="Label"/>
+                                                            <connections>
+                                                                <segue destination="emV-XH-uJg" kind="presentation" identifier="showLabelFilters" id="8GV-bu-yjy"/>
+                                                            </connections>
+                                                        </button>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dXH-Hq-3uv" userLabel="Year">
+                                                            <rect key="frame" x="217" y="0.0" width="30" height="26"/>
+                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleCaption2"/>
+                                                            <state key="normal" title="Year"/>
+                                                            <connections>
+                                                                <segue destination="emV-XH-uJg" kind="presentation" identifier="showYearFilters" id="d2j-Ug-vVh"/>
+                                                            </connections>
+                                                        </button>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="4fi-bR-RdM" firstAttribute="centerX" secondItem="nL7-Oz-lOD" secondAttribute="centerXWithinMargins" id="CMC-tb-JnL"/>
+                                                <constraint firstItem="4fi-bR-RdM" firstAttribute="top" secondItem="nL7-Oz-lOD" secondAttribute="topMargin" id="DNi-SL-MN7"/>
+                                                <constraint firstItem="4fi-bR-RdM" firstAttribute="centerY" secondItem="nL7-Oz-lOD" secondAttribute="centerYWithinMargins" id="RBk-KJ-xcp"/>
+                                                <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="4fi-bR-RdM" secondAttribute="trailing" id="cCI-6s-xmt"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="4fi-bR-RdM" secondAttribute="bottom" id="gb1-XM-KEB"/>
+                                                <constraint firstItem="4fi-bR-RdM" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="nL7-Oz-lOD" secondAttribute="leadingMargin" id="hZ2-V4-wXE"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="versionCell" id="scC-K9-gfw" userLabel="Version Cell" customClass="ReleaseVersionTableCell" customModule="SwiftDiscogsApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="116" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="scC-K9-gfw" id="gJ4-GA-KPh">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
@@ -1318,6 +1323,44 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                                             <segue destination="axZ-Et-2J0" kind="show" identifier="showReleaseVersion" id="pET-W5-pgn"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="haveAndWantCell" rowHeight="49" id="YPl-fT-nMy">
+                                        <rect key="frame" x="0.0" y="160" width="375" height="49"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="YPl-fT-nMy" id="sGI-Ma-fzE">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="48.666666666666664"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" alignment="firstBaseline" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="hcA-GY-HfW">
+                                                    <rect key="frame" x="15" y="11" width="345" height="27"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Discogs" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FDv-IG-33M" userLabel="Database">
+                                                            <rect key="frame" x="0.0" y="6.333333333333333" width="288.33333333333331" height="14.333333333333336"/>
+                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fKW-21-wMl">
+                                                            <rect key="frame" x="296.33333333333331" y="0.0" width="30" height="27"/>
+                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                                            <state key="normal" title="Add"/>
+                                                        </button>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" text="✓" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3N3-EH-1NK" userLabel="Status">
+                                                            <rect key="frame" x="334.33333333333331" y="6.333333333333333" width="10.666666666666686" height="14.333333333333336"/>
+                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                                            <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottomMargin" secondItem="hcA-GY-HfW" secondAttribute="bottom" id="3oP-A7-wHx"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="hcA-GY-HfW" secondAttribute="trailing" id="SWR-uI-8Jv"/>
+                                                <constraint firstAttribute="leadingMargin" secondItem="hcA-GY-HfW" secondAttribute="leading" id="hfv-Z7-Qgd"/>
+                                                <constraint firstItem="hcA-GY-HfW" firstAttribute="top" secondItem="sGI-Ma-fzE" secondAttribute="topMargin" id="jwq-BW-TEy"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                 </prototypes>
                             </tableView>
                         </subviews>
@@ -1336,6 +1379,7 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                         <connections>
                             <outlet property="coverArtView" destination="2LP-y1-iYJ" id="Oed-1y-0Hf"/>
                             <outlet property="navigationItem" destination="z7v-ur-Q0u" id="FKV-3a-gdC"/>
+                            <outlet property="sortOrFilterHeaderView" destination="gfl-02-eBY" id="W9E-eJ-azx"/>
                             <outlet property="tableView" destination="4gc-te-Nk4" id="9TW-mG-OO7"/>
                         </connections>
                     </view>
@@ -1345,8 +1389,124 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n66-Ae-c1I" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" id="gfl-02-eBY" userLabel="Release Version Sorting" customClass="UITableViewHeaderFooterView">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="27"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <viewLayoutGuide key="safeArea" id="pUb-lh-gpc"/>
+                </view>
             </objects>
             <point key="canvasLocation" x="4951" y="1015"/>
+        </scene>
+        <!--Table View Controller-->
+        <scene sceneID="7Cf-hG-5X3">
+            <objects>
+                <tableViewController storyboardIdentifier="ReleaseVersionFilters" id="emV-XH-uJg" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="F28-uP-6Qa">
+                        <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="countryCell" rowHeight="43" id="j4d-8t-ILx" userLabel="Country Cell">
+                                <rect key="frame" x="0.0" y="28" width="200" height="43"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="j4d-8t-ILx" id="L4H-Cc-uH6">
+                                    <rect key="frame" x="0.0" y="0.0" width="200" height="42.666666666666664"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="hhl-ia-YLf">
+                                            <rect key="frame" x="16" y="11" width="55" height="21"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🇬🇧" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1XM-A9-XPe" userLabel="Flag Label">
+                                                    <rect key="frame" x="0.0" y="0.33333333333333393" width="23" height="20.333333333333329"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UK" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RhD-Ae-eI4" userLabel="Country Label">
+                                                    <rect key="frame" x="31" y="0.33333333333333393" width="24" height="20.333333333333329"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="hhl-ia-YLf" firstAttribute="top" secondItem="L4H-Cc-uH6" secondAttribute="topMargin" constant="-1.7763568394002505e-15" id="8ev-76-xaT"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="hhl-ia-YLf" secondAttribute="bottom" id="C6G-r5-z1y"/>
+                                        <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="hhl-ia-YLf" secondAttribute="trailing" id="RxN-qa-HTX"/>
+                                        <constraint firstItem="hhl-ia-YLf" firstAttribute="leading" secondItem="L4H-Cc-uH6" secondAttribute="leadingMargin" constant="-3.5527136788005009e-15" id="lcK-sZ-Xct"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="formatCell" rowHeight="43" id="cfD-GO-kyd" userLabel="Format Cell">
+                                <rect key="frame" x="0.0" y="71" width="200" height="43"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cfD-GO-kyd" id="ODG-EB-s9V">
+                                    <rect key="frame" x="0.0" y="0.0" width="200" height="42.666666666666664"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="96m-XR-zZS">
+                                            <rect key="frame" x="16" y="11" width="49.666666666666657" height="21"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bbj-WZ-CbQ">
+                                                    <rect key="frame" x="0.0" y="0.0" width="21" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="bbj-WZ-CbQ" secondAttribute="height" multiplier="1:1" id="Zwh-e0-HVG"/>
+                                                        <constraint firstAttribute="height" constant="21" id="yZL-Fm-7iL"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LP" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hD8-Ud-2J6" userLabel="Country Label">
+                                                    <rect key="frame" x="29" y="0.33333333333333393" width="20.666666666666671" height="20.333333333333329"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="96m-XR-zZS" secondAttribute="trailing" id="9UX-ga-2sa"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="96m-XR-zZS" secondAttribute="bottom" id="ObD-xp-Mcz"/>
+                                        <constraint firstItem="96m-XR-zZS" firstAttribute="leading" secondItem="ODG-EB-s9V" secondAttribute="leadingMargin" constant="-3.5527136788005009e-15" id="mO4-QX-kXj"/>
+                                        <constraint firstItem="96m-XR-zZS" firstAttribute="top" secondItem="ODG-EB-s9V" secondAttribute="topMargin" constant="-1.7763568394002505e-15" id="poL-zR-aN7"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="yearAndLabelCell" rowHeight="43" id="8K0-0e-TcQ" userLabel="Year and Record Label Cell">
+                                <rect key="frame" x="0.0" y="114" width="200" height="43"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8K0-0e-TcQ" id="vqf-25-38Y">
+                                    <rect key="frame" x="0.0" y="0.0" width="200" height="42.666666666666664"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1969" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KiM-Kd-ea5" userLabel="Flag Label">
+                                            <rect key="frame" x="16" y="10.999999999999998" width="41" height="20.333333333333329"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="KiM-Kd-ea5" secondAttribute="trailing" id="T8d-iu-Mrz"/>
+                                        <constraint firstItem="KiM-Kd-ea5" firstAttribute="leading" secondItem="vqf-25-38Y" secondAttribute="leadingMargin" id="WVN-Zg-I5D"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="KiM-Kd-ea5" secondAttribute="bottom" constant="0.6666666666666714" id="a9s-J9-vvH"/>
+                                        <constraint firstItem="KiM-Kd-ea5" firstAttribute="top" secondItem="vqf-25-38Y" secondAttribute="topMargin" constant="-1.4210854715202004e-14" id="haK-4e-JIC"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="emV-XH-uJg" id="vW7-Xo-t3Y"/>
+                            <outlet property="delegate" destination="emV-XH-uJg" id="JZB-vR-kc1"/>
+                        </connections>
+                    </tableView>
+                    <size key="freeformSize" width="200" height="200"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="meN-BB-Pyk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5459" y="1241"/>
         </scene>
         <!--Release Version-->
         <scene sceneID="t8u-c6-5cn">
@@ -1594,6 +1754,7 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
         <image name="Discogs" width="480" height="174"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="5co-na-vdy"/>
         <segue reference="IBF-35-jpA"/>
         <segue reference="XEp-8Q-M5i"/>
     </inferredMetricsTieBreakers>
