@@ -49,6 +49,8 @@
 		963282BF222F83C00090B29F /* ReleaseVersionTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963282BE222F83C00090B29F /* ReleaseVersionTableCell.swift */; };
 		967AD9B62263733E001FE440 /* MockMediaLibrary.json in Resources */ = {isa = PBXBuildFile; fileRef = 967AD9B52263733E001FE440 /* MockMediaLibrary.json */; };
 		967AD9B822659656001FE440 /* DiscogsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967AD9B722659656001FE440 /* DiscogsManager.swift */; };
+		967AD9BB22691E18001FE440 /* StoryboardScenes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967AD9B922691E17001FE440 /* StoryboardScenes.swift */; };
+		967AD9BC22691E18001FE440 /* StoryboardSegues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967AD9BA22691E18001FE440 /* StoryboardSegues.swift */; };
 		96800C3021921D4200A3380F /* DiscogsStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96800C2F21921D4200A3380F /* DiscogsStrings.swift */; };
 		96800C3821921F3F00A3380F /* SwiftDiscogsApp.strings in Resources */ = {isa = PBXBuildFile; fileRef = 96800C3A21921F3F00A3380F /* SwiftDiscogsApp.strings */; };
 		96800C3E21921FF600A3380F /* SwiftDiscogsAppStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96800C3D21921FF500A3380F /* SwiftDiscogsAppStrings.swift */; };
@@ -285,6 +287,8 @@
 		963282BE222F83C00090B29F /* ReleaseVersionTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReleaseVersionTableCell.swift; sourceTree = "<group>"; };
 		967AD9B52263733E001FE440 /* MockMediaLibrary.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MockMediaLibrary.json; sourceTree = "<group>"; };
 		967AD9B722659656001FE440 /* DiscogsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscogsManager.swift; sourceTree = "<group>"; };
+		967AD9B922691E17001FE440 /* StoryboardScenes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardScenes.swift; sourceTree = "<group>"; };
+		967AD9BA22691E18001FE440 /* StoryboardSegues.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardSegues.swift; sourceTree = "<group>"; };
 		96800C2F21921D4200A3380F /* DiscogsStrings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscogsStrings.swift; sourceTree = "<group>"; };
 		96800C3121921ED100A3380F /* swiftgenDiscogs.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = swiftgenDiscogs.yml; sourceTree = "<group>"; };
 		96800C3321921EE100A3380F /* swiftgenSwiftDiscogsApp.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = swiftgenSwiftDiscogsApp.yml; sourceTree = "<group>"; };
@@ -503,6 +507,8 @@
 				9610FAE92237687300710F43 /* Song */,
 				96800C3D21921FF500A3380F /* SwiftDiscogsAppStrings.swift */,
 				96800C3321921EE100A3380F /* swiftgenSwiftDiscogsApp.yml */,
+				967AD9B922691E17001FE440 /* StoryboardScenes.swift */,
+				967AD9BA22691E18001FE440 /* StoryboardSegues.swift */,
 				9610FAF9223C8F5B00710F43 /* Views */,
 			);
 			path = SwiftDiscogsApp;
@@ -1241,6 +1247,7 @@
 				9610FAF8223BDD2700710F43 /* ReleaseVersionViewController.swift in Sources */,
 				96CA18682082B8BB006FF5F0 /* ArtistSearchResultCell.swift in Sources */,
 				963282BF222F83C00090B29F /* ReleaseVersionTableCell.swift in Sources */,
+				967AD9BB22691E18001FE440 /* StoryboardScenes.swift in Sources */,
 				9610FAFB223C8FB200710F43 /* CoverArtAndTableView.swift in Sources */,
 				9610FB0F2244A05100710F43 /* MediaSource.swift in Sources */,
 				96BA81C8225C1ED50003D65C /* DiscogsDisambiguationViewController.swift in Sources */,
@@ -1260,6 +1267,7 @@
 				963282B2222CBAD90090B29F /* SectionedModel.swift in Sources */,
 				9610FAFD223D333C00710F43 /* BaseReleaseViewController.swift in Sources */,
 				9610FAEF223887A100710F43 /* SongViewController.swift in Sources */,
+				967AD9BC22691E18001FE440 /* StoryboardSegues.swift in Sources */,
 				96226AFD2069FF3D000EEC50 /* DiscogsArtistModel.swift in Sources */,
 				967AD9B822659656001FE440 /* DiscogsManager.swift in Sources */,
 				96CA185C2081A143006FF5F0 /* DiscogsSearchResultsModel.swift in Sources */,
