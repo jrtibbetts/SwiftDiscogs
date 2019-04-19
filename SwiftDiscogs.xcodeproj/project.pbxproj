@@ -53,6 +53,8 @@
 		967AD9BC22691E18001FE440 /* StoryboardSegues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967AD9BA22691E18001FE440 /* StoryboardSegues.swift */; };
 		967AD9C222696D05001FE440 /* Medi8.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 967AD9C022696D04001FE440 /* Medi8.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		967AD9C322696D5E001FE440 /* Medi8.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 967AD9C022696D04001FE440 /* Medi8.framework */; };
+		967AD9C8226973C0001FE440 /* MPMediaCollectionImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967AD9C6226973BF001FE440 /* MPMediaCollectionImporter.swift */; };
+		967AD9C9226973C0001FE440 /* MPMediaCollectionBrowser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967AD9C7226973BF001FE440 /* MPMediaCollectionBrowser.swift */; };
 		96800C3021921D4200A3380F /* DiscogsStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96800C2F21921D4200A3380F /* DiscogsStrings.swift */; };
 		96800C3821921F3F00A3380F /* SwiftDiscogsApp.strings in Resources */ = {isa = PBXBuildFile; fileRef = 96800C3A21921F3F00A3380F /* SwiftDiscogsApp.strings */; };
 		96800C3E21921FF600A3380F /* SwiftDiscogsAppStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96800C3D21921FF500A3380F /* SwiftDiscogsAppStrings.swift */; };
@@ -293,6 +295,8 @@
 		967AD9B922691E17001FE440 /* StoryboardScenes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardScenes.swift; sourceTree = "<group>"; };
 		967AD9BA22691E18001FE440 /* StoryboardSegues.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardSegues.swift; sourceTree = "<group>"; };
 		967AD9C022696D04001FE440 /* Medi8.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Medi8.framework; path = Carthage/Build/iOS/Medi8.framework; sourceTree = "<group>"; };
+		967AD9C6226973BF001FE440 /* MPMediaCollectionImporter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPMediaCollectionImporter.swift; sourceTree = "<group>"; };
+		967AD9C7226973BF001FE440 /* MPMediaCollectionBrowser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPMediaCollectionBrowser.swift; sourceTree = "<group>"; };
 		96800C2F21921D4200A3380F /* DiscogsStrings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscogsStrings.swift; sourceTree = "<group>"; };
 		96800C3121921ED100A3380F /* swiftgenDiscogs.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = swiftgenDiscogs.yml; sourceTree = "<group>"; };
 		96800C3321921EE100A3380F /* swiftgenSwiftDiscogsApp.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = swiftgenSwiftDiscogsApp.yml; sourceTree = "<group>"; };
@@ -871,8 +875,10 @@
 			children = (
 				96CA279F2261858200E86A6A /* iTunesMediaLibrary.swift */,
 				96BB380322545AA200806E56 /* MediaLibrary.swift */,
-				96CA27A222625D0900E86A6A /* MockMediaLibrary.swift */,
 				967AD9B52263733E001FE440 /* MockMediaLibrary.json */,
+				96CA27A222625D0900E86A6A /* MockMediaLibrary.swift */,
+				967AD9C7226973BF001FE440 /* MPMediaCollectionBrowser.swift */,
+				967AD9C6226973BF001FE440 /* MPMediaCollectionImporter.swift */,
 			);
 			path = MediaLibrary;
 			sourceTree = "<group>";
@@ -1255,6 +1261,8 @@
 				963282BF222F83C00090B29F /* ReleaseVersionTableCell.swift in Sources */,
 				967AD9BB22691E18001FE440 /* StoryboardScenes.swift in Sources */,
 				9610FAFB223C8FB200710F43 /* CoverArtAndTableView.swift in Sources */,
+				967AD9C9226973C0001FE440 /* MPMediaCollectionBrowser.swift in Sources */,
+				967AD9C8226973C0001FE440 /* MPMediaCollectionImporter.swift in Sources */,
 				9610FB0F2244A05100710F43 /* MediaSource.swift in Sources */,
 				96BA81C8225C1ED50003D65C /* DiscogsDisambiguationViewController.swift in Sources */,
 				963282BD222F82A10090B29F /* TrackTableCell.swift in Sources */,
