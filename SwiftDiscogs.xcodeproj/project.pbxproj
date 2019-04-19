@@ -51,7 +51,6 @@
 		967AD9B822659656001FE440 /* DiscogsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967AD9B722659656001FE440 /* DiscogsManager.swift */; };
 		967AD9BB22691E18001FE440 /* StoryboardScenes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967AD9B922691E17001FE440 /* StoryboardScenes.swift */; };
 		967AD9BC22691E18001FE440 /* StoryboardSegues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967AD9BA22691E18001FE440 /* StoryboardSegues.swift */; };
-		967AD9C122696D05001FE440 /* Medi8.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 967AD9C022696D04001FE440 /* Medi8.framework */; };
 		967AD9C222696D05001FE440 /* Medi8.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 967AD9C022696D04001FE440 /* Medi8.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		967AD9C322696D5E001FE440 /* Medi8.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 967AD9C022696D04001FE440 /* Medi8.framework */; };
 		96800C3021921D4200A3380F /* DiscogsStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96800C2F21921D4200A3380F /* DiscogsStrings.swift */; };
@@ -448,7 +447,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				967AD9C122696D05001FE440 /* Medi8.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
