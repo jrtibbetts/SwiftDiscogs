@@ -51,6 +51,9 @@
 		967AD9B822659656001FE440 /* DiscogsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967AD9B722659656001FE440 /* DiscogsManager.swift */; };
 		967AD9BB22691E18001FE440 /* StoryboardScenes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967AD9B922691E17001FE440 /* StoryboardScenes.swift */; };
 		967AD9BC22691E18001FE440 /* StoryboardSegues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967AD9BA22691E18001FE440 /* StoryboardSegues.swift */; };
+		967AD9C122696D05001FE440 /* Medi8.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 967AD9C022696D04001FE440 /* Medi8.framework */; };
+		967AD9C222696D05001FE440 /* Medi8.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 967AD9C022696D04001FE440 /* Medi8.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		967AD9C322696D5E001FE440 /* Medi8.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 967AD9C022696D04001FE440 /* Medi8.framework */; };
 		96800C3021921D4200A3380F /* DiscogsStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96800C2F21921D4200A3380F /* DiscogsStrings.swift */; };
 		96800C3821921F3F00A3380F /* SwiftDiscogsApp.strings in Resources */ = {isa = PBXBuildFile; fileRef = 96800C3A21921F3F00A3380F /* SwiftDiscogsApp.strings */; };
 		96800C3E21921FF600A3380F /* SwiftDiscogsAppStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96800C3D21921FF500A3380F /* SwiftDiscogsAppStrings.swift */; };
@@ -234,6 +237,7 @@
 				96BB3800225118CA00806E56 /* SwiftDiscogs.framework in Embed Frameworks */,
 				96F1E59E2155F21100B17F3F /* Kingfisher.framework in Embed Frameworks */,
 				96036919205C3BC500D24CE7 /* OAuthSwift.framework in Embed Frameworks */,
+				967AD9C222696D05001FE440 /* Medi8.framework in Embed Frameworks */,
 				9603691B205C3BC500D24CE7 /* PromiseKit.framework in Embed Frameworks */,
 				96EDF28C209FA905009496FA /* Stylobate.framework in Embed Frameworks */,
 				9603691E205C3BEA00D24CE7 /* JSONClient.framework in Embed Frameworks */,
@@ -289,6 +293,7 @@
 		967AD9B722659656001FE440 /* DiscogsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscogsManager.swift; sourceTree = "<group>"; };
 		967AD9B922691E17001FE440 /* StoryboardScenes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardScenes.swift; sourceTree = "<group>"; };
 		967AD9BA22691E18001FE440 /* StoryboardSegues.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardSegues.swift; sourceTree = "<group>"; };
+		967AD9C022696D04001FE440 /* Medi8.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Medi8.framework; path = Carthage/Build/iOS/Medi8.framework; sourceTree = "<group>"; };
 		96800C2F21921D4200A3380F /* DiscogsStrings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscogsStrings.swift; sourceTree = "<group>"; };
 		96800C3121921ED100A3380F /* swiftgenDiscogs.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = swiftgenDiscogs.yml; sourceTree = "<group>"; };
 		96800C3321921EE100A3380F /* swiftgenSwiftDiscogsApp.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = swiftgenSwiftDiscogsApp.yml; sourceTree = "<group>"; };
@@ -443,6 +448,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				967AD9C122696D05001FE440 /* Medi8.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -465,6 +471,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				967AD9C322696D5E001FE440 /* Medi8.framework in Frameworks */,
 				9689848C203DDA0200DE77BC /* JSONClient.framework in Frameworks */,
 				9689848D203DDA0200DE77BC /* OAuthSwift.framework in Frameworks */,
 				9689848E203DDA0200DE77BC /* PromiseKit.framework in Frameworks */,
@@ -609,6 +616,7 @@
 		9689839E203D427A00DE77BC = {
 			isa = PBXGroup;
 			children = (
+				967AD9C022696D04001FE440 /* Medi8.framework */,
 				968983AA203D427A00DE77BC /* Source */,
 				968983B5203D427B00DE77BC /* Tests */,
 				960368DB205A012C00D24CE7 /* SwiftDiscogsApp */,
