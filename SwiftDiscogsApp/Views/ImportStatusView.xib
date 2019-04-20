@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="zb6-mu-ILI" customClass="ImportStatusView" customModule="SwiftDiscogsApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="102" height="42"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="lxN-je-PZx" userLabel="Root Stack">
+                    <rect key="frame" x="0.0" y="0.0" width="102" height="42"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Owx-xk-iFw">
+                            <rect key="frame" x="28" y="0.0" width="46" height="14"/>
+                            <state key="normal" title="Import"/>
+                        </button>
+                        <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="AUa-Fe-V1M">
+                            <rect key="frame" x="0.0" y="22" width="102" height="20"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="Importing" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SRr-js-biW">
+                                    <rect key="frame" x="0.0" y="0.0" width="74" height="20"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="vmf-XN-24V">
+                                    <rect key="frame" x="82" y="0.0" width="20" height="20"/>
+                                </activityIndicatorView>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                    <variation key="heightClass=compact" axis="horizontal"/>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="lxN-je-PZx" secondAttribute="trailing" id="0Mm-Q5-zJ6"/>
+                <constraint firstAttribute="bottom" secondItem="lxN-je-PZx" secondAttribute="bottom" id="8nL-MP-Yui"/>
+                <constraint firstItem="lxN-je-PZx" firstAttribute="top" secondItem="zb6-mu-ILI" secondAttribute="top" id="eHK-3I-mUM"/>
+                <constraint firstItem="lxN-je-PZx" firstAttribute="leading" secondItem="zb6-mu-ILI" secondAttribute="leading" id="hhu-6x-UPt"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="dDZ-7Q-Wq4"/>
+            <connections>
+                <outlet property="importButton" destination="Owx-xk-iFw" id="JLK-cG-GT6"/>
+                <outlet property="spinner" destination="vmf-XN-24V" id="BR1-Je-ge4"/>
+                <outlet property="statusLabel" destination="SRr-js-biW" id="ZNr-uG-Kfh"/>
+                <outlet property="statusStack" destination="AUa-Fe-V1M" id="UlT-La-Blz"/>
+            </connections>
+            <point key="canvasLocation" x="-210.86956521739131" y="-59.598214285714285"/>
+        </view>
+    </objects>
+</document>

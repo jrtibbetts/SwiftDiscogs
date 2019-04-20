@@ -196,6 +196,11 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Oc2-Cg-6Ds" customClass="ImportStatusView" customModule="SwiftDiscogsApp" customModuleProvider="target">
+                                                    <rect key="frame" x="190" y="11" width="170" height="22"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </view>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="S6k-SG-YfC" secondAttribute="trailing" id="C5X-TU-pac"/>
@@ -248,7 +253,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8b8-bl-UVE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3106" y="225"/>
+            <point key="canvasLocation" x="3104.8000000000002" y="224.6305418719212"/>
         </scene>
         <!--Artist Details-->
         <scene sceneID="Ah8-cD-mNe">

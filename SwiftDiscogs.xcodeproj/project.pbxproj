@@ -55,9 +55,12 @@
 		967AD9C322696D5E001FE440 /* Medi8.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 967AD9C022696D04001FE440 /* Medi8.framework */; };
 		967AD9C8226973C0001FE440 /* MPMediaCollectionImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967AD9C6226973BF001FE440 /* MPMediaCollectionImporter.swift */; };
 		967AD9C9226973C0001FE440 /* MPMediaCollectionBrowser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967AD9C7226973BF001FE440 /* MPMediaCollectionBrowser.swift */; };
+		967AD9CB22697D3C001FE440 /* ImportStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967AD9CA22697D3B001FE440 /* ImportStatusView.swift */; };
 		96800C3021921D4200A3380F /* DiscogsStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96800C2F21921D4200A3380F /* DiscogsStrings.swift */; };
 		96800C3821921F3F00A3380F /* SwiftDiscogsApp.strings in Resources */ = {isa = PBXBuildFile; fileRef = 96800C3A21921F3F00A3380F /* SwiftDiscogsApp.strings */; };
 		96800C3E21921FF600A3380F /* SwiftDiscogsAppStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96800C3D21921FF500A3380F /* SwiftDiscogsAppStrings.swift */; };
+		968101C3226A9BC2003E6D82 /* ImportStatusView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 968101C2226A9BC2003E6D82 /* ImportStatusView.xib */; };
+		968101C6226AB499003E6D82 /* ImportStatusViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968101C5226AB499003E6D82 /* ImportStatusViewTests.swift */; };
 		968983B2203D427B00DE77BC /* SwiftDiscogs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 968983A8203D427A00DE77BC /* SwiftDiscogs.framework */; };
 		968983B9203D427B00DE77BC /* SwiftDiscogs.h in Headers */ = {isa = PBXBuildFile; fileRef = 968983AB203D427A00DE77BC /* SwiftDiscogs.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		96898419203DD4B500DE77BC /* Release.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968983C3203DD4B200DE77BC /* Release.swift */; };
@@ -297,12 +300,15 @@
 		967AD9C022696D04001FE440 /* Medi8.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Medi8.framework; path = Carthage/Build/iOS/Medi8.framework; sourceTree = "<group>"; };
 		967AD9C6226973BF001FE440 /* MPMediaCollectionImporter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPMediaCollectionImporter.swift; sourceTree = "<group>"; };
 		967AD9C7226973BF001FE440 /* MPMediaCollectionBrowser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPMediaCollectionBrowser.swift; sourceTree = "<group>"; };
+		967AD9CA22697D3B001FE440 /* ImportStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportStatusView.swift; sourceTree = "<group>"; };
 		96800C2F21921D4200A3380F /* DiscogsStrings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscogsStrings.swift; sourceTree = "<group>"; };
 		96800C3121921ED100A3380F /* swiftgenDiscogs.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = swiftgenDiscogs.yml; sourceTree = "<group>"; };
 		96800C3321921EE100A3380F /* swiftgenSwiftDiscogsApp.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = swiftgenSwiftDiscogsApp.yml; sourceTree = "<group>"; };
 		96800C3921921F3F00A3380F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/SwiftDiscogsApp.strings; sourceTree = "<group>"; };
 		96800C3B21921F4300A3380F /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/SwiftDiscogsApp.strings; sourceTree = "<group>"; };
 		96800C3D21921FF500A3380F /* SwiftDiscogsAppStrings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftDiscogsAppStrings.swift; sourceTree = "<group>"; };
+		968101C2226A9BC2003E6D82 /* ImportStatusView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImportStatusView.xib; sourceTree = "<group>"; };
+		968101C5226AB499003E6D82 /* ImportStatusViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportStatusViewTests.swift; sourceTree = "<group>"; };
 		968983A8203D427A00DE77BC /* SwiftDiscogs.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftDiscogs.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		968983AB203D427A00DE77BC /* SwiftDiscogs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftDiscogs.h; sourceTree = "<group>"; };
 		968983AC203D427A00DE77BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -526,14 +532,15 @@
 		960368F0205A012C00D24CE7 /* SwiftDiscogsAppTests */ = {
 			isa = PBXGroup;
 			children = (
-				96CA27A122625CCC00E86A6A /* MediaLibrary */,
 				96CA186B2082F18E006FF5F0 /* Artist */,
 				96E044A12089A93E008F1FE4 /* CollectionAndTableViewControllerTestBase.swift */,
 				960368F3205A012C00D24CE7 /* Info.plist */,
+				96CA27A122625CCC00E86A6A /* MediaLibrary */,
 				9610FB012241C45800710F43 /* Player */,
 				96CA186C2082F19C006FF5F0 /* Search */,
-				9610FAF2223B378C00710F43 /* Song */,
 				AD9C68DF22428AB50005D74A /* SectionedModelTests.swift */,
+				9610FAF2223B378C00710F43 /* Song */,
+				968101C4226AB47A003E6D82 /* Views */,
 			);
 			path = SwiftDiscogsAppTests;
 			sourceTree = "<group>";
@@ -571,6 +578,8 @@
 			isa = PBXGroup;
 			children = (
 				9610FAFA223C8FB200710F43 /* CoverArtAndTableView.swift */,
+				967AD9CA22697D3B001FE440 /* ImportStatusView.swift */,
+				968101C2226A9BC2003E6D82 /* ImportStatusView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -613,6 +622,14 @@
 				96800C3A21921F3F00A3380F /* SwiftDiscogsApp.strings */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		968101C4226AB47A003E6D82 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				968101C5226AB499003E6D82 /* ImportStatusViewTests.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		9689839E203D427A00DE77BC = {
@@ -1111,6 +1128,7 @@
 				960368E7205A012C00D24CE7 /* LaunchScreen.storyboard in Resources */,
 				960368E4205A012C00D24CE7 /* Assets.xcassets in Resources */,
 				960368E2205A012C00D24CE7 /* Main.storyboard in Resources */,
+				968101C3226A9BC2003E6D82 /* ImportStatusView.xib in Resources */,
 				967AD9B62263733E001FE440 /* MockMediaLibrary.json in Resources */,
 				96C656B12129204A0041CAD6 /* Discogs.xcassets in Resources */,
 			);
@@ -1283,6 +1301,7 @@
 				9610FAEF223887A100710F43 /* SongViewController.swift in Sources */,
 				967AD9BC22691E18001FE440 /* StoryboardSegues.swift in Sources */,
 				96226AFD2069FF3D000EEC50 /* DiscogsArtistModel.swift in Sources */,
+				967AD9CB22697D3C001FE440 /* ImportStatusView.swift in Sources */,
 				967AD9B822659656001FE440 /* DiscogsManager.swift in Sources */,
 				96CA185C2081A143006FF5F0 /* DiscogsSearchResultsModel.swift in Sources */,
 				9610FAF6223BD6C800710F43 /* ReleaseModel.swift in Sources */,
@@ -1297,6 +1316,7 @@
 				9610FB0722431ED100710F43 /* ArtistSearchResultCellTests.swift in Sources */,
 				9610FB0B22433EC100710F43 /* MediaSourcesModelTests.swift in Sources */,
 				AD9C68E022428AB50005D74A /* SectionedModelTests.swift in Sources */,
+				968101C6226AB499003E6D82 /* ImportStatusViewTests.swift in Sources */,
 				9610FAF4223B37B100710F43 /* SongModelTests.swift in Sources */,
 				96CA187020845375006FF5F0 /* DiscogsArtistViewControllerTests.swift in Sources */,
 				96E044A22089A93E008F1FE4 /* CollectionAndTableViewControllerTestBase.swift in Sources */,

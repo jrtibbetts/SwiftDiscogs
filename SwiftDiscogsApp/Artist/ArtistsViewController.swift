@@ -49,11 +49,12 @@ class ArtistsViewController: CollectionAndTableViewController, UISearchResultsUp
 
     // MARK: - Actions
 
-    @IBAction func importDatabases(sender: Any?) {
+    func importDatabases(sender: Any?) {
         if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
             let medi8Context = appDelegate.persistentContainer.viewContext
             let importer = MPMediaItemCollectionImporter(context: medi8Context,
                                                          mediaQuery: MPMediaQuery.songs())
+
             do {
                 try importer.importMedia()
             } catch {
