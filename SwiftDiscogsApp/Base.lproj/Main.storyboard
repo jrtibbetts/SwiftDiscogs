@@ -249,11 +249,126 @@
                             <outlet property="tableView" destination="kh4-yl-et3" id="UkC-SD-wZh"/>
                         </connections>
                     </view>
-                    <navigationItem key="navigationItem" title="Artists" id="cnU-lL-Kdf"/>
+                    <navigationItem key="navigationItem" title="Artists" id="cnU-lL-Kdf">
+                        <barButtonItem key="rightBarButtonItem" title="Services" id="UZl-LT-WfX">
+                            <connections>
+                                <segue destination="C4J-I5-fx3" kind="show" id="14g-NV-viC"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8b8-bl-UVE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3104.8000000000002" y="224.6305418719212"/>
+        </scene>
+        <!--Third-Party Services-->
+        <scene sceneID="0oe-Yh-xtV">
+            <objects>
+                <tableViewController storyboardIdentifier="thirdPartyServices" id="C4J-I5-fx3" userLabel="Third-Party Services" customClass="ThirdPartyServicesViewController" customModule="SwiftDiscogsApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="185" sectionHeaderHeight="28" sectionFooterHeight="28" id="i7m-2R-GZ5">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="thirdPartyServiceCell" rowHeight="185" id="dhs-XU-KFI" userLabel="Third-Party Service Cell" customClass="ThirdPartyServiceCell" customModule="SwiftDiscogsApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="185"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dhs-XU-KFI" id="YMo-ZH-h4J">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="185"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Efc-ru-h2A">
+                                            <rect key="frame" x="16" y="11" width="343" height="163"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="NyD-72-prh">
+                                                    <rect key="frame" x="0.0" y="0.0" width="343" height="80"/>
+                                                    <subviews>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Discogs" translatesAutoresizingMaskIntoConstraints="NO" id="AJ4-KI-xKt">
+                                                            <rect key="frame" x="0.0" y="0.0" width="167.66666666666666" height="80"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="80" id="HyP-9T-alZ"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="zBJ-u4-Ohe" userLabel="Sign In Stack">
+                                                            <rect key="frame" x="175.66666666666663" y="15.333333333333332" width="167.33333333333337" height="49.333333333333343"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" text="Signed in as %@" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sNE-xC-ckK" userLabel="Signed In Label">
+                                                                    <rect key="frame" x="36.999999999999993" y="0.0" width="93.333333333333314" height="14.333333333333334"/>
+                                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bJE-qQ-QKV" userLabel="Sign In Button">
+                                                                    <rect key="frame" x="64" y="22.333333333333329" width="39" height="27"/>
+                                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                                                    <state key="normal" title="Sign In"/>
+                                                                </button>
+                                                            </subviews>
+                                                        </stackView>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="AJ4-KI-xKt" firstAttribute="height" secondItem="NyD-72-prh" secondAttribute="height" id="7Kf-bX-dEW"/>
+                                                    </constraints>
+                                                </stackView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="alx-Da-aDP">
+                                                    <rect key="frame" x="0.0" y="88" width="343" height="20.333333333333329"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="AEE-l6-SN7" userLabel="Import Stack">
+                                                    <rect key="frame" x="0.0" y="116.33333333333333" width="343" height="46.666666666666671"/>
+                                                    <subviews>
+                                                        <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="11c-bk-PpU">
+                                                            <rect key="frame" x="0.0" y="10.000000000000014" width="38" height="27"/>
+                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                                            <state key="normal" title="Import"/>
+                                                        </button>
+                                                        <progressView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="750" horizontalCompressionResistancePriority="500" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="x4F-UO-Kdz">
+                                                            <rect key="frame" x="84.333333333333329" y="22.333333333333329" width="171.33333333333337" height="2"/>
+                                                        </progressView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="35/1983" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AiR-QV-zgu">
+                                                            <rect key="frame" x="299" y="16.666666666666671" width="44" height="13.333333333333336"/>
+                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleCaption2"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="x4F-UO-Kdz" firstAttribute="width" secondItem="Efc-ru-h2A" secondAttribute="width" multiplier="0.5" id="oZc-v4-036"/>
+                                            </constraints>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="leadingMargin" secondItem="Efc-ru-h2A" secondAttribute="leading" id="JlJ-aJ-kgx"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="Efc-ru-h2A" secondAttribute="trailing" id="ZT8-5r-xiF"/>
+                                        <constraint firstItem="Efc-ru-h2A" firstAttribute="top" secondItem="YMo-ZH-h4J" secondAttribute="topMargin" constant="1.4210854715202004e-14" id="aLO-6r-1Fp"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="Efc-ru-h2A" secondAttribute="bottom" id="vI1-1k-2GE"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="descriptionLabel" destination="alx-Da-aDP" id="G1M-hX-Blw"/>
+                                    <outlet property="importButton" destination="11c-bk-PpU" id="2pt-35-572"/>
+                                    <outlet property="importProgressBar" destination="x4F-UO-Kdz" id="njN-aU-mSB"/>
+                                    <outlet property="importStatusLabel" destination="AiR-QV-zgu" id="W0Q-tD-3WZ"/>
+                                    <outlet property="importView" destination="AEE-l6-SN7" id="B2g-Ar-cyO"/>
+                                    <outlet property="logoView" destination="AJ4-KI-xKt" id="JWh-wm-dnw"/>
+                                    <outlet property="signInView" destination="zBJ-u4-Ohe" id="X5U-zC-Ion"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="C4J-I5-fx3" id="XMn-h0-PIi"/>
+                            <outlet property="delegate" destination="C4J-I5-fx3" id="pIe-lX-zhT"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Services" id="U7S-Hi-yjz"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XtI-7M-OzK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3104.8000000000002" y="1014.5320197044335"/>
         </scene>
         <!--Artist Details-->
         <scene sceneID="Ah8-cD-mNe">

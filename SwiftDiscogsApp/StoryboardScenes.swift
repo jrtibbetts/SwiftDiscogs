@@ -33,6 +33,8 @@ internal enum StoryboardScene {
     internal static let releaseVersionFilters = SceneType<UIKit.UITableViewController>(storyboard: Main.self, identifier: "ReleaseVersionFilters")
 
     internal static let discogsArtist = SceneType<SwiftDiscogsApp.DiscogsArtistViewController>(storyboard: Main.self, identifier: "discogsArtist")
+
+    internal static let thirdPartyServices = SceneType<SwiftDiscogsApp.ThirdPartyServicesViewController>(storyboard: Main.self, identifier: "thirdPartyServices")
   }
 }
 // swiftlint:enable explicit_type_interface identifier_name line_length type_body_length type_name
