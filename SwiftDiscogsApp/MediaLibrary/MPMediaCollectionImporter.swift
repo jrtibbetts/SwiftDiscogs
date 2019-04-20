@@ -7,11 +7,9 @@ import Stylobate
 
 /// A media collection browser that populates a core data context as it
 /// inspects the items in a collection.
-public class MPMediaItemCollectionImporter: MPMediaCollectionBrowser, MediaImporter {
+public class MPMediaItemCollectionImporter: MediaImporter, MPMediaCollectionBrowser {
 
-    /// An object that wants to be informed when browsing stops, starts, and
-    /// inspects various elements.
-    public var delegate: MPMediaCollectionBrowserDelegate?
+    public var browserDelegate: MPMediaCollectionBrowserDelegate?
 
     public var artistCount: Int = 0
 
@@ -19,14 +17,12 @@ public class MPMediaItemCollectionImporter: MPMediaCollectionBrowser, MediaImpor
 
     public var songCount: Int = 0
 
-    /// The Core Data context.
-    public let context: NSManagedObjectContext
-
-    fileprivate let mediaQuery: MPMediaQuery
+    private let mediaQuery: MPMediaQuery
 
     public init(context: NSManagedObjectContext, mediaQuery: MPMediaQuery) {
-        self.context = context
         self.mediaQuery = mediaQuery
+        super.init()
+        self.context = context
     }
 
     public func importMedia() throws {
@@ -60,7 +56,7 @@ public class MPMediaItemCollectionImporter: MPMediaCollectionBrowser, MediaImpor
                 $0.notes = mediaItem.comments
             }
 
-    //        let trackNumber = mediaItem.albumTrackNumber
+//        let trackNumber = mediaItem.albumTrackNumber
 
             masterRelease.versions?.forEach { (v) in
                 if let version = v as? ReleaseVersion {

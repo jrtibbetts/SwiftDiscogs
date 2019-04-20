@@ -31,32 +31,32 @@ public protocol MPMediaCollectionBrowser {
     func inspect(_ mediaItem: MPMediaItem, at index: Int)
 
     /// An object that wants to keep track of the browser's progress.
-    var delegate: MPMediaCollectionBrowserDelegate? { get set }
+    var browserDelegate: MPMediaCollectionBrowserDelegate? { get set }
 
 }
 
 public extension MPMediaCollectionBrowser {
 
     func browse(startingWith query: MPMediaQuery) {
-        delegate?.willStartImporting()
+        browserDelegate?.willStartImporting()
 
         if let collections = query.collections {
             let totalCount = collections.count
             collections.enumerated().forEach({ (__val:(Int, MPMediaItemCollection)) in let (index,collection) = __val; 
                 do {
                     inspect(collection, at: index)
-                    delegate?.willInspect(mediaCollection: collection, at: index, outOf: totalCount)
+                    browserDelegate?.willInspect(mediaCollection: collection, at: index, outOf: totalCount)
 
                     let totalItemCount = collection.items.count
                     collection.items.enumerated().forEach({ (__val:(Int, MPMediaItem)) in let (index,item) = __val; 
-                        delegate?.willInspect(mediaItem: item, at: index, outOf: totalItemCount)
+                        browserDelegate?.willInspect(mediaItem: item, at: index, outOf: totalItemCount)
                         inspect(item, at: index)
                     })
                 }
             })
         }
 
-        delegate?.didFinishImporting(with: nil)
+        browserDelegate?.didFinishImporting(with: nil)
     }
 
 }
@@ -64,7 +64,7 @@ public extension MPMediaCollectionBrowser {
 /// Implemented by classes and structs that want to keep track of the progress
 /// of the collection browser. The browser should ensure that delegate methods
 /// are called on the main thread, but this is not guaranteed.
-public protocol MPMediaCollectionBrowserDelegate: MediaImporterDelegate {
+open class MPMediaCollectionBrowserDelegate: MediaImporter.Delegate {
 
     /// Called when a media collection is about to be inspected.
     ///
@@ -73,7 +73,11 @@ public protocol MPMediaCollectionBrowserDelegate: MediaImporterDelegate {
     /// - parameter at index: The collection's position in the array of all
     /// collections.
     /// - parameter outOf total: The total number of collections.
-    func willInspect(mediaCollection: MPMediaItemCollection, at index: Int, outOf total: Int)
+    open func willInspect(mediaCollection: MPMediaItemCollection,
+                          at index: Int,
+                          outOf total: Int) {
+
+    }
 
     /// Called when a media item is about to be inspected.
     ///
@@ -82,7 +86,11 @@ public protocol MPMediaCollectionBrowserDelegate: MediaImporterDelegate {
     /// collection's items.
     /// - parameter outOf total: The total number of items *in the `mediaItem`'s
     /// collection*.
-    func willInspect(mediaItem: MPMediaItem, at index: Int, outOf total: Int)
+    open func willInspect(mediaItem: MPMediaItem,
+                          at index: Int,
+                          outOf total: Int) {
+        
+    }
 
 }
 
