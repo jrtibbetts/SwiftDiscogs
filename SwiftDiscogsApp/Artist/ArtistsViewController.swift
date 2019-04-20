@@ -35,19 +35,6 @@ class ArtistsViewController: CollectionAndTableViewController, UISearchResultsUp
         search()
     }
 
-    func search(forArtist artistName: String? = nil) {
-        artistsDisplay.start()
-
-        DispatchQueue.global().async(.promise) { [weak self] in
-            let artists = MediaLibraryManager.mediaLibrary.artists(named: artistName)
-            self?.artistsModel.artistMediaItems = artists
-            }.done { [weak self] in
-                self?.artistsDisplay.refresh()
-            }.ensure { [weak self] in
-                self?.artistsDisplay.stop()
-        }.cauterize()
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -58,6 +45,36 @@ class ArtistsViewController: CollectionAndTableViewController, UISearchResultsUp
         model = ArtistsModel()
         artistsDisplay.model = model
         artistsDisplay.setUp()
+    }
+
+    // MARK: - Actions
+
+    @IBAction func importDatabases(sender: Any?) {
+        if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
+            let medi8Context = appDelegate.persistentContainer.viewContext
+            let importer = MPMediaItemCollectionImporter(context: medi8Context,
+                                                         mediaQuery: MPMediaQuery.songs())
+            do {
+                try importer.importMedia()
+            } catch {
+                print("Failed to import the music library: ", error)
+            }
+        }
+    }
+
+    // MARK: - Searching
+
+    func search(forArtist artistName: String? = nil) {
+        artistsDisplay.start()
+
+        DispatchQueue.global().async(.promise) { [weak self] in
+            let artists = MediaLibraryManager.mediaLibrary.artists(named: artistName)
+            self?.artistsModel.artistMediaItems = artists
+            }.done { [weak self] in
+                self?.artistsDisplay.refresh()
+            }.ensure { [weak self] in
+                self?.artistsDisplay.stop()
+            }.cauterize()
     }
 
     func updateSearchResults(for searchController: UISearchController) {
