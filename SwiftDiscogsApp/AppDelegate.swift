@@ -1,6 +1,7 @@
 //  Copyright © 2018 Poikile Creations. All rights reserved.
 
 import CoreData
+import Medi8
 import OAuthSwift
 import UIKit
 
@@ -81,7 +82,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
          application to it. This property is optional since there are legitimate
          error conditions that could cause the creation of the store to fail.
          */
-        let container = NSPersistentContainer(name: "Medi8")
+        let medi8Bundle = Bundle(identifier: "net.poikile.Medi8")
+        let modelURL = medi8Bundle!.url(forResource: "Medi8", withExtension: "momd")!
+        let model = NSManagedObjectModel(contentsOf: modelURL)!
+        let container = NSPersistentContainer(name: "Medi8", managedObjectModel: model)
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
                 // Replace this implementation with code to handle the error appropriately.
