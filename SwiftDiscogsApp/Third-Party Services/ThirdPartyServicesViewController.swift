@@ -2,67 +2,6 @@
 
 import UIKit
 
-open class ThirdPartyService: NSObject {
-
-    var serviceDescription: String?
-
-    var image: UIImage?
-
-    var name: String
-
-    init(name: String) {
-        self.name = name
-        super.init()
-    }
-
-}
-
-protocol AuthenticatedService: ThirdPartyService {
-
-    
-}
-
-protocol ImportableService: ThirdPartyService {
-
-
-}
-
-class ThirdPartyServiceCell: UITableViewCell {
-
-    @IBOutlet weak var logoView: UIImageView!
-    @IBOutlet weak var descriptionLabel: UILabel!
-    @IBOutlet weak var signInView: UIView!
-    @IBOutlet weak var importView: UIView!
-    @IBOutlet weak var importProgressBar: UIProgressView!
-    @IBOutlet weak var importButton: UIButton!
-    @IBOutlet weak var importStatusLabel: UILabel!
-
-    weak var service: ThirdPartyService? {
-        didSet {
-            if let authenticatedService = service as? AuthenticatedService {
-                signInView.isHidden = false
-            } else {
-                signInView.isHidden = true
-            }
-
-            if let importableService = service as? ImportableService {
-                importView.isHidden = false
-            } else {
-                importView.isHidden = true
-            }
-        }
-    }
-
-}
-
-class DiscogsService: ThirdPartyService, ImportableService, AuthenticatedService {
-
-    init() {
-        super.init(name: "Discogs")
-    }
-
-}
-
 final class ThirdPartyServicesViewController: UITableViewController {
 
     var services: [ThirdPartyService] = []

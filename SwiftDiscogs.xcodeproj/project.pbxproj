@@ -62,6 +62,9 @@
 		968101C3226A9BC2003E6D82 /* ImportStatusView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 968101C2226A9BC2003E6D82 /* ImportStatusView.xib */; };
 		968101C6226AB499003E6D82 /* ImportStatusViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968101C5226AB499003E6D82 /* ImportStatusViewTests.swift */; };
 		968101C9226B6D28003E6D82 /* ThirdPartyServicesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968101C8226B6D28003E6D82 /* ThirdPartyServicesViewController.swift */; };
+		968101CB226BA818003E6D82 /* DiscogsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968101CA226BA818003E6D82 /* DiscogsService.swift */; };
+		968101CD226BA9BF003E6D82 /* ThirdPartyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968101CC226BA9BF003E6D82 /* ThirdPartyService.swift */; };
+		968101CF226BC511003E6D82 /* ThirdPartyServiceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968101CE226BC511003E6D82 /* ThirdPartyServiceCell.swift */; };
 		968983B2203D427B00DE77BC /* SwiftDiscogs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 968983A8203D427A00DE77BC /* SwiftDiscogs.framework */; };
 		968983B9203D427B00DE77BC /* SwiftDiscogs.h in Headers */ = {isa = PBXBuildFile; fileRef = 968983AB203D427A00DE77BC /* SwiftDiscogs.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		96898419203DD4B500DE77BC /* Release.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968983C3203DD4B200DE77BC /* Release.swift */; };
@@ -311,6 +314,9 @@
 		968101C2226A9BC2003E6D82 /* ImportStatusView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImportStatusView.xib; sourceTree = "<group>"; };
 		968101C5226AB499003E6D82 /* ImportStatusViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportStatusViewTests.swift; sourceTree = "<group>"; };
 		968101C8226B6D28003E6D82 /* ThirdPartyServicesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdPartyServicesViewController.swift; sourceTree = "<group>"; };
+		968101CA226BA818003E6D82 /* DiscogsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscogsService.swift; sourceTree = "<group>"; };
+		968101CC226BA9BF003E6D82 /* ThirdPartyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdPartyService.swift; sourceTree = "<group>"; };
+		968101CE226BC511003E6D82 /* ThirdPartyServiceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdPartyServiceCell.swift; sourceTree = "<group>"; };
 		968983A8203D427A00DE77BC /* SwiftDiscogs.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftDiscogs.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		968983AB203D427A00DE77BC /* SwiftDiscogs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftDiscogs.h; sourceTree = "<group>"; };
 		968983AC203D427A00DE77BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -637,7 +643,10 @@
 		968101C7226B6CF9003E6D82 /* Third-Party Services */ = {
 			isa = PBXGroup;
 			children = (
+				968101CA226BA818003E6D82 /* DiscogsService.swift */,
 				9614312420FEC7BC00B49D2E /* DiscogsSignInViewController.swift */,
+				968101CC226BA9BF003E6D82 /* ThirdPartyService.swift */,
+				968101CE226BC511003E6D82 /* ThirdPartyServiceCell.swift */,
 				968101C8226B6D28003E6D82 /* ThirdPartyServicesViewController.swift */,
 			);
 			path = "Third-Party Services";
@@ -1280,6 +1289,7 @@
 				96CA27A02261858200E86A6A /* iTunesMediaLibrary.swift in Sources */,
 				96226AFB2069FF3D000EEC50 /* DiscogsArtistViewController.swift in Sources */,
 				96BB380422545AA200806E56 /* MediaLibrary.swift in Sources */,
+				968101CD226BA9BF003E6D82 /* ThirdPartyService.swift in Sources */,
 				9610FAF12239FBA000710F43 /* SongModel.swift in Sources */,
 				96CA18722085B5B9006FF5F0 /* DiscogsSearchView.swift in Sources */,
 				9610FB00223F373800710F43 /* PlayerViewController.swift in Sources */,
@@ -1290,6 +1300,7 @@
 				96CA18682082B8BB006FF5F0 /* ArtistSearchResultCell.swift in Sources */,
 				963282BF222F83C00090B29F /* ReleaseVersionTableCell.swift in Sources */,
 				967AD9BB22691E18001FE440 /* StoryboardScenes.swift in Sources */,
+				968101CF226BC511003E6D82 /* ThirdPartyServiceCell.swift in Sources */,
 				9610FAFB223C8FB200710F43 /* CoverArtAndTableView.swift in Sources */,
 				967AD9C9226973C0001FE440 /* MPMediaCollectionBrowser.swift in Sources */,
 				967AD9C8226973C0001FE440 /* MPMediaCollectionImporter.swift in Sources */,
@@ -1311,6 +1322,7 @@
 				963282B2222CBAD90090B29F /* SectionedModel.swift in Sources */,
 				9610FAFD223D333C00710F43 /* BaseReleaseViewController.swift in Sources */,
 				9610FAEF223887A100710F43 /* SongViewController.swift in Sources */,
+				968101CB226BA818003E6D82 /* DiscogsService.swift in Sources */,
 				967AD9BC22691E18001FE440 /* StoryboardSegues.swift in Sources */,
 				96226AFD2069FF3D000EEC50 /* DiscogsArtistModel.swift in Sources */,
 				967AD9CB22697D3C001FE440 /* ImportStatusView.swift in Sources */,
