@@ -11,13 +11,13 @@ class ThirdPartyServiceCell: UITableViewCell {
 
     // MARK: - Importing Service Properties
 
-    @IBOutlet weak var importView: UIView!
-    @IBOutlet weak var importProgressBar: UIProgressView!
     @IBOutlet weak var importButton: UIButton!
+    @IBOutlet weak var importProgressBar: UIProgressView!
+    @IBOutlet weak var importStatusLabel: UILabel!
+    @IBOutlet weak var importView: UIView!
 
     // MARK: - Authenticated Service Properties
 
-    @IBOutlet weak var importStatusLabel: UILabel!
     @IBOutlet weak var signedInAsUsernameLabel: UILabel!
     @IBOutlet weak var signInOutButton: UIButton!
     @IBOutlet weak var signInView: UIView!
@@ -39,6 +39,8 @@ class ThirdPartyServiceCell: UITableViewCell {
             }
 
             if let importableService = service as? ImportableService {
+                importProgressBar.progress = 0.0
+                importStatusLabel.text = ""
                 importView.isHidden = false
             } else {
                 importView.isHidden = true
