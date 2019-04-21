@@ -27,6 +27,13 @@ class DiscogsService: ThirdPartyService, ImportableService, AuthenticatedService
     init() {
         super.init(name: "Discogs")
         image = #imageLiteral(resourceName: "Discogs")
+        serviceDescription = """
+        We're on a mission to build the biggest and most comprehensive music \
+        database and marketplace. Imagine a site with discographies of all \
+        labels, all artists, all cross-referenced, and an international \
+        marketplace built off of that database. It's for the love of music, \
+        and we're getting closer every day. (www.discogs.com/about)
+        """
 
         DiscogsManager.discogs.userIdentity().done { [weak self] (userIdentity) in
             self?.handle(userIdentity: userIdentity)
