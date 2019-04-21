@@ -15,6 +15,10 @@ class DiscogsService: ThirdPartyService, ImportableService, AuthenticatedService
     /// Called when the user's Discogs collection is being imported.
     var importDelegate: ImportableServiceDelegate?
 
+    var isSignedIn: Bool = false
+
+    var username: String?
+
     // MARK: - Initialization
 
     init() {
@@ -34,8 +38,11 @@ class DiscogsService: ThirdPartyService, ImportableService, AuthenticatedService
         promise.then { (credential) -> Promise<UserIdentity> in
             return DiscogsManager.discogs.userIdentity()
             }.done { [weak self] (userIdentity) in
+                self?.username = userIdentity.username
+                self?.isSignedIn = true
                 self?.authenticationDelegate?.didSignIn()
             }.catch { [weak self] (error) in
+                self?.isSignedIn = false
                 self?.authenticationDelegate?.signInFailed(error: error)
                 viewController.presentAlert(for: error, title: L10n.discogsSignInFailed)
         }
