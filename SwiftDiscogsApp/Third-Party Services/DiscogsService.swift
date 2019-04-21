@@ -27,7 +27,9 @@ class DiscogsService: ThirdPartyService, ImportableService, AuthenticatedService
 
         DiscogsManager.discogs.userIdentity().done { [weak self] (userIdentity) in
             self?.handle(userIdentity: userIdentity)
-        }.cauterize() // ignore any errors or return values
+            }.catch { (error) in
+                print("Couldn't sign in", error)
+        }
     }
 
     // MARK: - Functions
