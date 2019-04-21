@@ -37,11 +37,11 @@ public protocol AuthenticatedService: ThirdPartyService {
 
 public protocol AuthenticatedServiceDelegate {
 
-    func didSignIn()
+    func didSignIn(toService: AuthenticatedService?)
 
-    func signInFailed(error: Error?)
+    func signIn(toService: AuthenticatedService?, failedWithError: Error?)
 
-    func willSignIn()
+    func willSignIn(toService: AuthenticatedService?)
 
 }
 
@@ -65,13 +65,13 @@ protocol ImportableServiceDelegate {
 
     // MARK: Functions
 
-    func didBeginImporting()
+    func didBeginImporting(fromService: ImportableService?)
 
-    func didFinishImporting()
+    func didFinishImporting(fromService: ImportableService?)
 
-    func willBeginImporting()
+    func willBeginImporting(fromService: ImportableService?)
 
-    func willFinishImporting()
+    func willFinishImporting(fromService: ImportableService?)
 
 }
 

@@ -35,7 +35,7 @@ class DiscogsService: ThirdPartyService, ImportableService, AuthenticatedService
     /// Sign into the Discogs service, notifying the display when it's about to
     /// do so and after the user has logged in successfully.
     func signIn(fromViewController viewController: UIViewController) {
-        authenticationDelegate?.willSignIn()
+        authenticationDelegate?.willSignIn(toService: self)
 
         let promise = DiscogsManager.discogs.authorize(presentingViewController: viewController,
                                                        callbackUrlString: AppDelegate.callbackUrl.absoluteString)
@@ -43,10 +43,10 @@ class DiscogsService: ThirdPartyService, ImportableService, AuthenticatedService
             return DiscogsManager.discogs.userIdentity()
             }.done { [weak self] (userIdentity) in
                 self?.handle(userIdentity: userIdentity)
-                self?.authenticationDelegate?.didSignIn()
+                self?.authenticationDelegate?.didSignIn(toService: self)
             }.catch { [weak self] (error) in
                 self?.isSignedIn = false
-                self?.authenticationDelegate?.signInFailed(error: error)
+                self?.authenticationDelegate?.signIn(toService: self, failedWithError: error)
                 viewController.presentAlert(for: error, title: L10n.discogsSignInFailed)
         }
     }
@@ -54,7 +54,7 @@ class DiscogsService: ThirdPartyService, ImportableService, AuthenticatedService
     func handle(userIdentity: UserIdentity) {
         username = userIdentity.username
         isSignedIn = true
-        authenticationDelegate?.didSignIn()
+        authenticationDelegate?.didSignIn(toService: self)
     }
 
 }
