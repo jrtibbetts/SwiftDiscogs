@@ -15,8 +15,11 @@ class DiscogsService: ThirdPartyService, ImportableService, AuthenticatedService
     /// Called when the user's Discogs collection is being imported.
     var importDelegate: ImportableServiceDelegate?
 
+    /// Indicates whether sign in was successful, or if the user is already
+    /// signed in.
     var isSignedIn: Bool = false
 
+    /// The user's Discogs username.
     var username: String?
 
     // MARK: - Initialization
@@ -37,6 +40,10 @@ class DiscogsService: ThirdPartyService, ImportableService, AuthenticatedService
     /// Sign into the Discogs service, notifying the display when it's about to
     /// do so and after the user has logged in successfully.
     func signIn(fromViewController viewController: UIViewController) {
+        guard !isSignedIn else {
+            return
+        }
+
         authenticationDelegate?.willSignIn(toService: self)
 
         let promise = DiscogsManager.discogs.authorize(presentingViewController: viewController,
@@ -50,6 +57,13 @@ class DiscogsService: ThirdPartyService, ImportableService, AuthenticatedService
                 self?.authenticationDelegate?.signIn(toService: self, failedWithError: error)
                 viewController.presentAlert(for: error, title: L10n.discogsSignInFailed)
         }
+    }
+
+    func signOut(fromViewController: UIViewController) {
+        authenticationDelegate?.willSignOut(fromService: self)
+        DiscogsManager.discogs.signOut()
+        isSignedIn = false
+        authenticationDelegate?.didSignOut(fromService: self)
     }
 
     func handle(userIdentity: UserIdentity) {

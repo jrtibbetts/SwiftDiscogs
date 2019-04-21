@@ -25,11 +25,19 @@ open class ThirdPartyService: NSObject {
 
 public protocol AuthenticatedService: ThirdPartyService {
 
+    // MARK: Properties
+
     var authenticationDelegate: AuthenticatedServiceDelegate? { get set }
 
     var isSignedIn: Bool { get set }
 
     var username: String? { get set }
+
+    // MARK: Functions
+
+    func signIn(fromViewController: UIViewController)
+
+    func signOut(fromViewController: UIViewController)
 
 }
 
@@ -37,17 +45,25 @@ public protocol AuthenticatedService: ThirdPartyService {
 
 public protocol AuthenticatedServiceDelegate {
 
+    // MARK: Functions
+
     func didSignIn(toService: AuthenticatedService?)
+
+    func didSignOut(fromService: AuthenticatedService?)
 
     func signIn(toService: AuthenticatedService?, failedWithError: Error?)
 
     func willSignIn(toService: AuthenticatedService?)
+
+    func willSignOut(fromService: AuthenticatedService?)
 
 }
 
 // MARK: - Importable Service
 
 protocol ImportableService: ThirdPartyService {
+
+    // MARK: Properties
 
     var importDelegate: ImportableServiceDelegate? { get set }
 

@@ -302,6 +302,9 @@
                                                                     <rect key="frame" x="64" y="22.333333333333329" width="39" height="27"/>
                                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                                                     <state key="normal" title="Sign In"/>
+                                                                    <connections>
+                                                                        <action selector="signInOrOutTappedWithSender:" destination="C4J-I5-fx3" eventType="touchUpInside" id="bce-PH-KzH"/>
+                                                                    </connections>
                                                                 </button>
                                                             </subviews>
                                                         </stackView>
@@ -323,6 +326,9 @@
                                                             <rect key="frame" x="0.0" y="10.000000000000014" width="38" height="27"/>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                                             <state key="normal" title="Import"/>
+                                                            <connections>
+                                                                <action selector="startOrStopImportingTappedWithSender:" destination="C4J-I5-fx3" eventType="touchUpInside" id="zSd-Bx-kd8"/>
+                                                            </connections>
                                                         </button>
                                                         <progressView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="750" horizontalCompressionResistancePriority="500" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="x4F-UO-Kdz">
                                                             <rect key="frame" x="84.333333333333329" y="22.333333333333329" width="171.33333333333337" height="2"/>

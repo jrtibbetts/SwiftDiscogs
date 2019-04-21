@@ -10,6 +10,23 @@ final class ThirdPartyServicesViewController: UITableViewController{
 
     var services: [ThirdPartyService] = []
 
+    // MARK: - Actions
+
+    @IBAction func signInOrOutTapped(sender: UIButton) {
+        if let selectedPath = tableView.indexPathForRow(at: sender.frame.center),
+            let service = services[selectedPath.row] as? AuthenticatedService {
+            if service.isSignedIn {
+                service.signOut(fromViewController: self)
+            } else {
+                service.signIn(fromViewController: self)
+            }
+        }
+    }
+
+    @IBAction func startOrStopImportingTapped(sender: UIButton) {
+
+    }
+
     // MARK: - UIViewController
 
     override func viewDidLoad() {
@@ -52,6 +69,12 @@ extension ThirdPartyServicesViewController: AuthenticatedServiceDelegate {
         }
     }
 
+    func didSignOut(fromService service: AuthenticatedService?) {
+        if service === discogsService {
+            reloadDiscogsRow()
+        }
+    }
+
     func signIn(toService service: AuthenticatedService?,
                 failedWithError error: Error?) {
         if service === discogsService {
@@ -60,6 +83,12 @@ extension ThirdPartyServicesViewController: AuthenticatedServiceDelegate {
     }
 
     func willSignIn(toService service: AuthenticatedService?) {
+        if service === discogsService {
+            reloadDiscogsRow()
+        }
+    }
+
+    func willSignOut(fromService service: AuthenticatedService?) {
         if service === discogsService {
             reloadDiscogsRow()
         }
