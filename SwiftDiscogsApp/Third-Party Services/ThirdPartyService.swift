@@ -75,15 +75,14 @@ protocol ImportableService: ThirdPartyService {
 /// status and progress.
 protocol ImportableServiceDelegate {
 
-    // MARK: Properties
-
-    var importProgress: Double { get set }
-
     // MARK: Functions
 
     func didBeginImporting(fromService: ImportableService?)
 
     func didFinishImporting(fromService: ImportableService?)
+
+    func updated(importProgress progress: Double,
+                 forService service: ImportableService?)
 
     func willBeginImporting(fromService: ImportableService?)
 

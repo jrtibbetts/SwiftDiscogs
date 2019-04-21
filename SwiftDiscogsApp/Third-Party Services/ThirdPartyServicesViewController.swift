@@ -57,6 +57,16 @@ final class ThirdPartyServicesViewController: UITableViewController{
         return cell
     }
 
+    // MARK: Other Functions
+
+    private func reloadCell(forService service: ThirdPartyService?) {
+        if let service = service,
+            let row = services.firstIndex(of: service) {
+            let path = IndexPath(row: row, section: 0)
+            tableView.reloadRows(at: [path], with: .fade)
+        }
+    }
+
 }
 
 // MARK: - AuthenticatedServiceDelegate
@@ -64,41 +74,51 @@ final class ThirdPartyServicesViewController: UITableViewController{
 extension ThirdPartyServicesViewController: AuthenticatedServiceDelegate {
 
     func didSignIn(toService service: AuthenticatedService?) {
-        if service === discogsService {
-            reloadDiscogsRow()
-        }
+        reloadCell(forService: service)
     }
 
     func didSignOut(fromService service: AuthenticatedService?) {
-        if service === discogsService {
-            reloadDiscogsRow()
-        }
+        reloadCell(forService: service)
     }
 
     func signIn(toService service: AuthenticatedService?,
                 failedWithError error: Error?) {
-        if service === discogsService {
-            reloadDiscogsRow()
-        }
+        reloadCell(forService: service)
     }
 
     func willSignIn(toService service: AuthenticatedService?) {
-        if service === discogsService {
-            reloadDiscogsRow()
-        }
+        reloadCell(forService: service)
     }
 
     func willSignOut(fromService service: AuthenticatedService?) {
-        if service === discogsService {
-            reloadDiscogsRow()
-        }
+        reloadCell(forService: service)
     }
 
-    private func reloadDiscogsRow() {
-        if let row = services.firstIndex(of: discogsService) {
-            let discogsPath = IndexPath(row: row, section: 0)
-            tableView.reloadRows(at: [discogsPath], with: .fade)
-        }
+}
+
+// MARK: - ImportableServiceDelegate
+
+extension ThirdPartyServicesViewController: ImportableServiceDelegate {
+
+    func didBeginImporting(fromService service: ImportableService?) {
+        reloadCell(forService: service)
+    }
+
+    func didFinishImporting(fromService service: ImportableService?) {
+        reloadCell(forService: service)
+    }
+
+    func updated(importProgress progress: Double,
+                 forService service: ImportableService?) {
+        reloadCell(forService: service)
+    }
+
+    func willBeginImporting(fromService service: ImportableService?) {
+        reloadCell(forService: service)
+    }
+
+    func willFinishImporting(fromService service: ImportableService?) {
+        reloadCell(forService: service)
     }
 
 }
