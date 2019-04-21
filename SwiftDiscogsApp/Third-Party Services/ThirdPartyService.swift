@@ -21,11 +21,19 @@ open class ThirdPartyService: NSObject {
 
 }
 
+// MARK: - AuthenticatedService
+
 public protocol AuthenticatedService: ThirdPartyService {
 
     var authenticationDelegate: AuthenticatedServiceDelegate? { get set }
 
+    var isSignedIn: Bool { get set }
+
+    var username: String? { get set }
+
 }
+
+// MARK: - AuthenticatedServiceDelegate
 
 public protocol AuthenticatedServiceDelegate {
 
@@ -37,21 +45,25 @@ public protocol AuthenticatedServiceDelegate {
 
 }
 
+// MARK: - Importable Service
+
 protocol ImportableService: ThirdPartyService {
 
     var importDelegate: ImportableServiceDelegate? { get set }
 
 }
 
+// MARK: - ImportableServiceDelegate
+
 /// Implemented by entities what want to keep track of an importable service's
 /// status and progress.
 protocol ImportableServiceDelegate {
 
-    // MARK: - Properties
+    // MARK: Properties
 
     var importProgress: Double { get set }
 
-    // MARK: - Functions
+    // MARK: Functions
 
     func didBeginImporting()
 
