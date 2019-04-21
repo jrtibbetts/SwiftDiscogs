@@ -43,7 +43,6 @@ class DiscogsService: ThirdPartyService, ImportableService, AuthenticatedService
             return DiscogsManager.discogs.userIdentity()
             }.done { [weak self] (userIdentity) in
                 self?.handle(userIdentity: userIdentity)
-                self?.authenticationDelegate?.didSignIn(toService: self)
             }.catch { [weak self] (error) in
                 self?.isSignedIn = false
                 self?.authenticationDelegate?.signIn(toService: self, failedWithError: error)

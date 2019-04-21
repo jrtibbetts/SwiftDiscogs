@@ -2,13 +2,20 @@
 
 import UIKit
 
-final class ThirdPartyServicesViewController: UITableViewController {
+final class ThirdPartyServicesViewController: UITableViewController{
+
+    // MARK: - Properties
+
+    lazy var discogsService: DiscogsService = DiscogsService()
 
     var services: [ThirdPartyService] = []
 
+    // MARK: - UIViewController
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        services.append(DiscogsService())
+        discogsService.authenticationDelegate = self
+        services.append(discogsService)
     }
 
     // MARK: - Table view data source
@@ -31,6 +38,38 @@ final class ThirdPartyServicesViewController: UITableViewController {
         }
 
         return cell
+    }
+
+}
+
+// MARK: - AuthenticatedServiceDelegate
+
+extension ThirdPartyServicesViewController: AuthenticatedServiceDelegate {
+
+    func didSignIn(toService service: AuthenticatedService?) {
+        if service === discogsService {
+            reloadDiscogsRow()
+        }
+    }
+
+    func signIn(toService service: AuthenticatedService?,
+                failedWithError error: Error?) {
+        if service === discogsService {
+            reloadDiscogsRow()
+        }
+    }
+
+    func willSignIn(toService service: AuthenticatedService?) {
+        if service === discogsService {
+            reloadDiscogsRow()
+        }
+    }
+
+    private func reloadDiscogsRow() {
+        if let row = services.firstIndex(of: discogsService) {
+            let discogsPath = IndexPath(row: row, section: 0)
+            tableView.reloadRows(at: [discogsPath], with: .fade)
+        }
     }
 
 }
