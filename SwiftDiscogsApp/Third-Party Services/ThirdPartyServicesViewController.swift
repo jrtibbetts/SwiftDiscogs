@@ -6,7 +6,9 @@ final class ThirdPartyServicesViewController: UITableViewController{
 
     // MARK: - Properties
 
-    lazy var discogsService: DiscogsService = DiscogsService()
+    lazy var discogsService = DiscogsService()
+
+    lazy var iTunesService = MediaLibraryService()
 
     var services: [ThirdPartyService] = []
 
@@ -32,7 +34,7 @@ final class ThirdPartyServicesViewController: UITableViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         discogsService.authenticationDelegate = self
-        services.append(discogsService)
+        services = [discogsService, iTunesService]
     }
 
     // MARK: - Table view data source
