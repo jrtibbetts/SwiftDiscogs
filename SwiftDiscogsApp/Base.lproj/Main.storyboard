@@ -292,7 +292,7 @@
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="zBJ-u4-Ohe" userLabel="Sign In Stack">
                                                             <rect key="frame" x="175.66666666666663" y="15.333333333333332" width="167.33333333333337" height="49.333333333333343"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" text="Signed in as %@" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sNE-xC-ckK" userLabel="Signed In Label">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" text="Signed in as %@" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sNE-xC-ckK" userLabel="Signed In Label" customClass="HidingLabel" customModule="SwiftDiscogsApp" customModuleProvider="target">
                                                                     <rect key="frame" x="36.999999999999993" y="0.0" width="93.333333333333314" height="14.333333333333334"/>
                                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                                                     <nil key="textColor"/>
@@ -310,7 +310,7 @@
                                                         <constraint firstItem="AJ4-KI-xKt" firstAttribute="height" secondItem="NyD-72-prh" secondAttribute="height" id="7Kf-bX-dEW"/>
                                                     </constraints>
                                                 </stackView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="alx-Da-aDP">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="alx-Da-aDP" customClass="HidingLabel" customModule="SwiftDiscogsApp" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="88" width="343" height="20.333333333333329"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <nil key="textColor"/>
@@ -355,7 +355,9 @@
                                     <outlet property="importStatusLabel" destination="AiR-QV-zgu" id="W0Q-tD-3WZ"/>
                                     <outlet property="importView" destination="AEE-l6-SN7" id="B2g-Ar-cyO"/>
                                     <outlet property="logoView" destination="AJ4-KI-xKt" id="JWh-wm-dnw"/>
+                                    <outlet property="signInOutButton" destination="bJE-qQ-QKV" id="xZf-9i-bO5"/>
                                     <outlet property="signInView" destination="zBJ-u4-Ohe" id="X5U-zC-Ion"/>
+                                    <outlet property="signedInAsUsernameLabel" destination="sNE-xC-ckK" id="DaG-8F-E4T"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
