@@ -24,6 +24,10 @@ class DiscogsService: ThirdPartyService, ImportableService, AuthenticatedService
     init() {
         super.init(name: "Discogs")
         image = #imageLiteral(resourceName: "Discogs")
+
+        DiscogsManager.discogs.userIdentity().done { [weak self] (userIdentity) in
+            self?.handle(userIdentity: userIdentity)
+        }.cauterize() // ignore any errors or return values
     }
 
     // MARK: - Functions
@@ -38,14 +42,19 @@ class DiscogsService: ThirdPartyService, ImportableService, AuthenticatedService
         promise.then { (credential) -> Promise<UserIdentity> in
             return DiscogsManager.discogs.userIdentity()
             }.done { [weak self] (userIdentity) in
-                self?.username = userIdentity.username
-                self?.isSignedIn = true
+                self?.handle(userIdentity: userIdentity)
                 self?.authenticationDelegate?.didSignIn()
             }.catch { [weak self] (error) in
                 self?.isSignedIn = false
                 self?.authenticationDelegate?.signInFailed(error: error)
                 viewController.presentAlert(for: error, title: L10n.discogsSignInFailed)
         }
+    }
+
+    func handle(userIdentity: UserIdentity) {
+        username = userIdentity.username
+        isSignedIn = true
+        authenticationDelegate?.didSignIn()
     }
 
 }
