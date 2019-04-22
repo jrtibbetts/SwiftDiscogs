@@ -9,7 +9,7 @@ class DiscogsCollectionFolderItemsTests: DiscogsTestBase {
         assert(try discogsObject(inLocalJsonFileNamed: "collection-folder-items-200"))
     }
     
-    fileprivate func assert(_ items: DiscogsCollectionFolderItems) {
+    fileprivate func assert(_ items: CollectionFolderItems) {
         guard let releases = items.releases else {
             XCTFail("The folder item's releases array shouldn't be nil.")
             return

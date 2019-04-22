@@ -106,7 +106,7 @@ public protocol Discogs {
     func collectionItems(forFolderId folderId: Int,
                          userName: String,
                          pageNumber: Int,
-                         resultsPerPage: Int) -> Promise<DiscogsCollectionFolderItems>
+                         resultsPerPage: Int) -> Promise<CollectionFolderItems>
     func addItem(_ itemId: Int,
                  toFolderId folderId: Int,
                  userName: String) -> Promise<CollectionItemInfo>

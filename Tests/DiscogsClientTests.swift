@@ -234,7 +234,7 @@ class DiscogsClientTests: DiscogsTestBase {
     }
 
     func testCollectionFolderItemsBeforeAuthenticationFails() {
-        let promise: Promise<DiscogsCollectionFolderItems> = unauthorizedClient.collectionItems(forFolderId: 99, userName: "foo")
+        let promise: Promise<CollectionFolderItems> = unauthorizedClient.collectionItems(forFolderId: 99, userName: "foo")
         assertUnauthorizedCallFails(promise: promise, description: "collection items")
     }
 

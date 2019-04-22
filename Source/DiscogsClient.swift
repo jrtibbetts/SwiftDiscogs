@@ -134,7 +134,7 @@ open class DiscogsClient: OAuth1JSONClient, Discogs {
     public func collectionItems(forFolderId folderId: Int,
                                 userName: String,
                                 pageNumber: Int = 1,
-                                resultsPerPage: Int = 50) -> Promise<DiscogsCollectionFolderItems> {
+                                resultsPerPage: Int = 50) -> Promise<CollectionFolderItems> {
         // turn the pageNumber and resultsPerPage into query parameters
         return authorizedGet(path: "/users/\(userName)/collection/folders/\(folderId)/releases",
             headers: headers)

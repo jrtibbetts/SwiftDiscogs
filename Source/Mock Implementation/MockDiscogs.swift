@@ -123,7 +123,7 @@ public class MockDiscogs: MockClient, Discogs {
     public func collectionItems(forFolderId folderId: Int,
                                 userName: String,
                                 pageNumber: Int = 1,
-                                resultsPerPage: Int = 50) -> Promise<DiscogsCollectionFolderItems> {
+                                resultsPerPage: Int = 50) -> Promise<CollectionFolderItems> {
         return apply(toJsonObjectIn: "get-items-in-folder-200",
                      error: DiscogsError.unknownUser(username: userName))
     }
