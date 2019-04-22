@@ -17,9 +17,15 @@ public struct DiscogsCollectionFolderItemFormat: Codable {
     
     public var descriptions: [String]?
     public var name: String?
-    public var qty: String?
+    public var quantity: String?
     public var text: String?
-    
+
+    private enum CodingKeys: String, CodingKey {
+        case descriptions
+        case name
+        case quantity = "qty"
+        case text
+    }
 }
 
 public struct DiscogsCollectionFolderItemInformation: Codable, HasArtistSummaries, Unique {
@@ -38,13 +44,22 @@ public struct DiscogsCollectionFolderItemInformation: Codable, HasArtistSummarie
 
 public struct DiscogsCollectionFolderItemLabel: Codable, Unique {
     
-    public var catno: String?
+    public var catalogNumber: String?
     public var entityType: String?
     public var entityTypeName: String?
     public var id: Int
     public var name: String
     public var resourceUrl: String
-    
+
+    private enum CodingKeys: String, CodingKey {
+        case catalogNumber = "catno"
+        case entityType
+        case entityTypeName
+        case id
+        case name
+        case resourceUrl
+    }
+
 }
 
 public struct DiscogsCollectionFolderItems: Codable, Pageable {
