@@ -38,7 +38,7 @@ class ThirdPartyServiceCell: UITableViewCell {
                 signInView.isHidden = true
             }
 
-            if let importableService = service as? ImportableService {
+            if service is ImportableService {
                 importProgressBar.progress = 0.0
                 importStatusLabel.text = ""
                 importView.isHidden = false

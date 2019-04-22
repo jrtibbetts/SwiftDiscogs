@@ -1,5 +1,6 @@
 //  Copyright © 2019 Poikile Creations. All rights reserved.
 
+import CoreData
 import UIKit
 
 final class ThirdPartyServicesViewController: UITableViewController{
@@ -15,8 +16,7 @@ final class ThirdPartyServicesViewController: UITableViewController{
     // MARK: - Actions
 
     @IBAction func signInOrOutTapped(sender: UIButton) {
-        if let selectedPath = tableView.indexPathForRow(at: sender.frame.center),
-            let service = services[selectedPath.row] as? AuthenticatedService {
+        if let service = service(atPoint: sender.frame.center) as? AuthenticatedService {
             if service.isSignedIn {
                 service.signOut(fromViewController: self)
             } else {
@@ -26,7 +26,28 @@ final class ThirdPartyServicesViewController: UITableViewController{
     }
 
     @IBAction func startOrStopImportingTapped(sender: UIButton) {
+        if let service = service(atPoint: sender.frame.center) as? ImportableService {
+            if service.isImporting {
+                service.stopImportingData()
+            } else {
+                if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
+                    let context = appDelegate.persistentContainer.viewContext
+                    service.importData(intoContext: context)
+                }
+            }
+        }
+    }
 
+    private func service<T: ThirdPartyService>(atPoint point: CGPoint) -> T? {
+        return service(atPath: tableView.indexPathForRow(at: point)) as? T
+    }
+
+    private func service<T: ThirdPartyService>(atPath path: IndexPath?) -> T? {
+        if let row = path?.row {
+            return services[row] as? T
+        } else {
+            return nil
+        }
     }
 
     // MARK: - UIViewController
@@ -43,14 +64,17 @@ final class ThirdPartyServicesViewController: UITableViewController{
         return services.isEmpty ? 0 : 1
     }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView,
+                            numberOfRowsInSection section: Int) -> Int {
         return services.count
     }
 
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView,
+                            cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let service = services[indexPath.row]
 
-        let cell = tableView.dequeueReusableCell(withIdentifier: "thirdPartyServiceCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "thirdPartyServiceCell",
+                                                 for: indexPath)
 
         if let cell = cell as? ThirdPartyServiceCell {
             cell.service = service
