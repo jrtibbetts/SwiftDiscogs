@@ -1,26 +1,12 @@
 //  Copyright © 2019 Poikile Creations. All rights reserved.
 
+import CoreData
 import PromiseKit
 import SwiftDiscogs
 
 /// Encapsulates interactions with the Discogs service. Many Discogs server
 /// calls require authentication, so this is an `AuthenticatedService`.
-class DiscogsService: ThirdPartyService, ImportableService, AuthenticatedService {
-
-    // MARK: - Properties
-
-    /// Called when Discogs authentication is in progress.
-    var authenticationDelegate: AuthenticatedServiceDelegate?
-
-    /// Called when the user's Discogs collection is being imported.
-    var importDelegate: ImportableServiceDelegate?
-
-    /// Indicates whether sign in was successful, or if the user is already
-    /// signed in.
-    var isSignedIn: Bool = false
-
-    /// The user's Discogs username.
-    var username: String?
+class DiscogsService: ThirdPartyService, AuthenticatedService, ImportableService {
 
     // MARK: - Initialization
 
@@ -42,7 +28,21 @@ class DiscogsService: ThirdPartyService, ImportableService, AuthenticatedService
         }
     }
 
-    // MARK: - Functions
+    // MARK: - AuthenticatedService
+
+    // MARK: Properties
+
+    /// Called when Discogs authentication is in progress.
+    var authenticationDelegate: AuthenticatedServiceDelegate?
+
+    /// Indicates whether sign in was successful, or if the user is already
+    /// signed in.
+    var isSignedIn: Bool = false
+
+    /// The user's Discogs username.
+    var username: String?
+
+    // MARK: Functions
 
     /// Sign into the Discogs service, notifying the display when it's about to
     /// do so and after the user has logged in successfully.
@@ -77,6 +77,25 @@ class DiscogsService: ThirdPartyService, ImportableService, AuthenticatedService
         username = userIdentity.username
         isSignedIn = true
         authenticationDelegate?.didSignIn(toService: self)
+    }
+
+    // MARK: - ImportableService
+
+    // MARK: Properties
+
+    /// Called when the user's Discogs collection is being imported.
+    var importDelegate: ImportableServiceDelegate?
+
+    var isImporting: Bool = false
+
+    // MARK: Functions
+
+    func importData(intoContext context: NSManagedObjectContext) {
+        isImporting = true
+    }
+
+    func stopImportingData() {
+        isImporting = false
     }
 
 }

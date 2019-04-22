@@ -1,5 +1,6 @@
 //  Copyright © 2019 Poikile Creations. All rights reserved.
 
+import CoreData
 import UIKit
 
 open class ThirdPartyService: NSObject {
@@ -66,6 +67,14 @@ protocol ImportableService: ThirdPartyService {
     // MARK: Properties
 
     var importDelegate: ImportableServiceDelegate? { get set }
+
+    var isImporting: Bool { get set }
+    
+    // MARK: Functions
+    
+    func importData(intoContext context: NSManagedObjectContext)
+
+    func stopImportingData()
 
 }
 
