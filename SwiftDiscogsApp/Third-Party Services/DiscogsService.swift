@@ -108,6 +108,7 @@ class DiscogsService: ThirdPartyService, AuthenticatedService, ImportableService
                                                     if let self = self,
                                                         let collectionItems = folderItems.releases {
                                                         self.importCollectionItems(collectionItems,
+                                                                                   intoContext: context,
                                                                                    totalItems: collectionItems.count,
                                                                                    importedItemCount: 0)
                                                         self.stopImportingData()
@@ -123,11 +124,12 @@ class DiscogsService: ThirdPartyService, AuthenticatedService, ImportableService
     }
 
     private func importCollectionItems(_ items: [CollectionFolderItem],
+                                       intoContext context: NSManagedObjectContext,
                                        totalItems: Int,
                                        importedItemCount: Int) {
         var importedItemsInThisBatch = 0
         items.forEach { (item) in
-            importRelease(item)
+            importItem(item, intoContext: context)
             importedItemsInThisBatch += 1
             let allImportedItemsCount = importedItemCount + importedItemsInThisBatch
 
@@ -139,8 +141,15 @@ class DiscogsService: ThirdPartyService, AuthenticatedService, ImportableService
         }
     }
 
-    private func importRelease(_ release: CollectionFolderItem) {
-        print("Importing ", release)
+    private func importItem(_ item: CollectionFolderItem,
+                            intoContext context: NSManagedObjectContext) {
+        print("Importing ", item)
+
+        if let info = item.basicInformation {
+            info.artists?.forEach { (artistSummary) in
+                
+            }
+        }
     }
 
 }
