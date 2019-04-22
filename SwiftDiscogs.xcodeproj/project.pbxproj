@@ -645,14 +645,30 @@
 		968101C7226B6CF9003E6D82 /* Third-Party Services */ = {
 			isa = PBXGroup;
 			children = (
-				968101CA226BA818003E6D82 /* DiscogsService.swift */,
-				9614312420FEC7BC00B49D2E /* DiscogsSignInViewController.swift */,
-				968101D0226C36DE003E6D82 /* MediaLibraryService.swift */,
+				968101D2226D71E2003E6D82 /* Discogs */,
+				968101D3226D71EB003E6D82 /* iTunes */,
 				968101CC226BA9BF003E6D82 /* ThirdPartyService.swift */,
 				968101CE226BC511003E6D82 /* ThirdPartyServiceCell.swift */,
 				968101C8226B6D28003E6D82 /* ThirdPartyServicesViewController.swift */,
 			);
 			path = "Third-Party Services";
+			sourceTree = "<group>";
+		};
+		968101D2226D71E2003E6D82 /* Discogs */ = {
+			isa = PBXGroup;
+			children = (
+				968101CA226BA818003E6D82 /* DiscogsService.swift */,
+				9614312420FEC7BC00B49D2E /* DiscogsSignInViewController.swift */,
+			);
+			path = Discogs;
+			sourceTree = "<group>";
+		};
+		968101D3226D71EB003E6D82 /* iTunes */ = {
+			isa = PBXGroup;
+			children = (
+				968101D0226C36DE003E6D82 /* MediaLibraryService.swift */,
+			);
+			path = iTunes;
 			sourceTree = "<group>";
 		};
 		9689839E203D427A00DE77BC = {
