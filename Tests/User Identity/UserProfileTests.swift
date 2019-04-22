@@ -3,7 +3,7 @@
 @testable import SwiftDiscogs
 import XCTest
 
-class DiscogsUserProfileTests: DiscogsTestBase {
+class UserProfileTests: DiscogsTestBase {
     
     func testDecodeUserProfileJson() throws {
         assert(try discogsObject(inLocalJsonFileNamed: "get-user-profile-200"))

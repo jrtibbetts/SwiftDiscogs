@@ -4,7 +4,7 @@
 import JSONClient
 import XCTest
 
-class DiscogsCollectionCustomFieldsTests: DiscogsTestBase {
+class CollectionCustomFieldsTests: DiscogsTestBase {
     
     func testDecodeCollectionCustomFieldsJson() throws {
         assert(try discogsObject(inLocalJsonFileNamed: "get-custom-fields-200"))

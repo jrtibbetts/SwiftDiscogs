@@ -3,7 +3,7 @@
 @testable import SwiftDiscogs
 import XCTest
 
-class DiscogsMasterReleaseTests: DiscogsTestBase {
+class MasterReleaseTests: DiscogsTestBase {
     
     func testDecodeMasterReleaseJson() throws {
         assert(try discogsObject(inLocalJsonFileNamed: "get-master-200"))

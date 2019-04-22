@@ -1,7 +1,7 @@
 @testable import SwiftDiscogs
 import XCTest
 
-class DiscogsUserIdentityTests: DiscogsTestBase {
+class UserIdentityTests: DiscogsTestBase {
     
     func testDecodeUserIdentityJson() throws {
         assert(try discogsObject(inLocalJsonFileNamed: "get-user-identity-200"))

@@ -3,7 +3,7 @@
 @testable import SwiftDiscogs
 import XCTest
 
-class DiscogsLabelTests: DiscogsTestBase {
+class LabelTests: DiscogsTestBase {
     
     func testDiscogsLabelJson() throws {
         assert(try discogsObject(inLocalJsonFileNamed: "get-label-200"))

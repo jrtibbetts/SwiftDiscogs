@@ -4,7 +4,7 @@
 import JSONClient
 import XCTest
 
-class DiscogsCollectionValueTests: DiscogsTestBase {
+class CollectionValueTests: DiscogsTestBase {
     
     func testDecodeCollectionValueJson() throws {
         assert(try discogsObject(inLocalJsonFileNamed: "get-collection-value-200"))

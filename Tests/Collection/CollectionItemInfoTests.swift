@@ -3,7 +3,7 @@
 @testable import SwiftDiscogs
 import XCTest
 
-class DiscogsCollectionItemInfoTests: DiscogsTestBase {
+class CollectionItemInfoTests: DiscogsTestBase {
     
     func testDecodeCollectionItemInfoJson() throws {
         assert(try discogsObject(inLocalJsonFileNamed: "add-item-to-collection-folder-200"))
