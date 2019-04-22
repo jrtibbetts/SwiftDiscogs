@@ -1,156 +1,156 @@
 {
-  "pagination": {
-    "per_page": 50,
-    "items": 2924,
-    "page": 1,
-    "urls": {
-      "last": "https://api.discogs.com/users/jrtibbetts/collection/folders/0/releases?per_page=50&page=59",
-      "next": "https://api.discogs.com/users/jrtibbetts/collection/folders/0/releases?per_page=50&page=2"
+    "pagination": {
+        "per_page": 50,
+        "items": 2924,
+        "page": 1,
+        "urls": {
+            "last": "https://api.discogs.com/users/jrtibbetts/collection/folders/0/releases?per_page=50&page=59",
+            "next": "https://api.discogs.com/users/jrtibbetts/collection/folders/0/releases?per_page=50&page=2"
+        },
+        "pages": 59
     },
-    "pages": 59
-  },
-  "releases": [
-    {
-      "instance_id": 34161728,
-      "rating": 0,
-      "basic_information": {
-        "labels": [
-          {
-            "name": "3rdeyegirl.com",
-            "entity_type": "1",
-            "catno": "none",
-            "resource_url": "https://api.discogs.com/labels/873417",
-            "id": 873417,
-            "entity_type_name": "Label"
-          }
-        ],
-        "formats": [
-          {
-            "descriptions": [
-              "MP3",
-              "Single"
+    "releases": [
+        {
+            "instance_id": 34161728,
+            "rating": 0,
+            "basic_information": {
+                "labels": [
+                    {
+                        "name": "3rdeyegirl.com",
+                        "entity_type": "1",
+                        "catno": "none",
+                        "resource_url": "https://api.discogs.com/labels/873417",
+                        "id": 873417,
+                        "entity_type_name": "Label"
+                    }
+                ],
+                "formats": [
+                    {
+                        "descriptions": [
+                            "MP3",
+                            "Single"
+                        ],
+                        "text": "320kbps",
+                        "name": "File",
+                        "qty": "1"
+                    }
+                ],
+                "artists": [
+                    {
+                        "join": ",",
+                        "name": "Prince",
+                        "anv": "",
+                        "tracks": "",
+                        "role": "",
+                        "resource_url": "https://api.discogs.com/artists/28795",
+                        "id": 28795
+                    }
+                ],
+                "thumb": "https://img.discogs.com/4VEELy-GIjUi1Mql90hNmKSmQR0=/fit-in/150x150/filters:strip_icc():format(jpeg):mode_rgb():quality(40)/discogs-images/R-4275843-1437450891-4658.png.jpg",
+                "title": "Breakfast Can Wait",
+                "cover_image": "https://img.discogs.com/f3ISKdUNOH5G6W2CH9MvY6nG-uM=/fit-in/600x591/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-4275843-1437450891-4658.png.jpg",
+                "resource_url": "https://api.discogs.com/releases/4275843",
+                "year": 2013,
+                "id": 4275843
+            },
+            "folder_id": 105210,
+            "date_added": "2013-08-19T14:22:23-07:00",
+            "notes": [
+                {
+                    "field_id": 1,
+                    "value": "Digital (D)"
+                },
+                {
+                    "field_id": 2,
+                    "value": "No Cover"
+                },
+                {
+                    "field_id": 3,
+                    "value": ""
+                },
+                {
+                    "field_id": 4,
+                    "value": "2013/08/19"
+                },
+                {
+                    "field_id": 5,
+                    "value": "NPG Records"
+                },
+                {
+                    "field_id": 6,
+                    "value": "$0.88"
+                },
+                {
+                    "field_id": 7,
+                    "value": "New"
+                }
             ],
-            "text": "320kbps",
-            "name": "File",
-            "qty": "1"
-          }
-        ],
-        "artists": [
-          {
-            "join": ",",
-            "name": "Prince",
-            "anv": "",
-            "tracks": "",
-            "role": "",
-            "resource_url": "https://api.discogs.com/artists/28795",
-            "id": 28795
-          }
-        ],
-        "thumb": "https://img.discogs.com/4VEELy-GIjUi1Mql90hNmKSmQR0=/fit-in/150x150/filters:strip_icc():format(jpeg):mode_rgb():quality(40)/discogs-images/R-4275843-1437450891-4658.png.jpg",
-        "title": "Breakfast Can Wait",
-        "cover_image": "https://img.discogs.com/f3ISKdUNOH5G6W2CH9MvY6nG-uM=/fit-in/600x591/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-4275843-1437450891-4658.png.jpg",
-        "resource_url": "https://api.discogs.com/releases/4275843",
-        "year": 2013,
-        "id": 4275843
-      },
-      "folder_id": 105210,
-      "date_added": "2013-08-19T14:22:23-07:00",
-      "notes": [
-        {
-          "field_id": 1,
-          "value": "Digital (D)"
+            "id": 4275843
         },
         {
-          "field_id": 2,
-          "value": "No Cover"
-        },
-        {
-          "field_id": 3,
-          "value": ""
-        },
-        {
-          "field_id": 4,
-          "value": "2013/08/19"
-        },
-        {
-          "field_id": 5,
-          "value": "NPG Records"
-        },
-        {
-          "field_id": 6,
-          "value": "$0.88"
-        },
-        {
-          "field_id": 7,
-          "value": "New"
+            "instance_id": 110262142,
+            "rating": 0,
+            "basic_information": {
+                "labels": [
+                    {
+                        "name": "3rdeyegirl.com",
+                        "entity_type": "1",
+                        "catno": "none",
+                        "resource_url": "https://api.discogs.com/labels/873417",
+                        "id": 873417,
+                        "entity_type_name": "Label"
+                    }
+                ],
+                "formats": [
+                    {
+                        "descriptions": [
+                            "MP3",
+                            "Single"
+                        ],
+                        "text": "160 kbps",
+                        "name": "File",
+                        "qty": "1"
+                    }
+                ],
+                "artists": [
+                    {
+                        "join": ",",
+                        "name": "Prince",
+                        "anv": "",
+                        "tracks": "",
+                        "role": "",
+                        "resource_url": "https://api.discogs.com/artists/28795",
+                        "id": 28795
+                    }
+                ],
+                "thumb": "https://img.discogs.com/fpqtjkrqytd32p6UT8yNiD4RIQ8=/fit-in/150x150/filters:strip_icc():format(jpeg):mode_rgb():quality(40)/discogs-images/R-4276002-1437450759-8320.png.jpg",
+                "title": "RNR Remix 7",
+                "cover_image": "https://img.discogs.com/WjAPo8WHbGdUVpV6VyMWPwvXulE=/fit-in/600x591/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-4276002-1437450759-8320.png.jpg",
+                "resource_url": "https://api.discogs.com/releases/4276002",
+                "year": 2012,
+                "id": 4276002},
+            "folder_id": 105210,
+            "date_added": "2014-10-10T11:35:31-07:00",
+            "notes": [
+                {
+                    "field_id": 1,
+                    "value": "Digital (D)"
+                },
+                {
+                    "field_id": 2,
+                    "value": "No Cover"
+                },
+                {
+                    "field_id": 4,
+                    "value": "2012"
+                },
+                {
+                    "field_id": 7,
+                    "value": "New"
+                }
+            ],
+            "id": 4276002
         }
-      ],
-      "id": 4275843
-    },
-    {
-      "instance_id": 110262142,
-      "rating": 0,
-      "basic_information": {
-        "labels": [
-          {
-            "name": "3rdeyegirl.com",
-            "entity_type": "1",
-            "catno": "none",
-            "resource_url": "https://api.discogs.com/labels/873417",
-            "id": 873417,
-            "entity_type_name": "Label"
-          }
-        ],
-        "formats": [
-          {
-            "descriptions": [
-              "MP3",
-              "Single"
-            ],
-            "text": "160 kbps",
-            "name": "File",
-            "qty": "1"
-          }
-        ],
-        "artists": [
-          {
-            "join": ",",
-            "name": "Prince",
-            "anv": "",
-            "tracks": "",
-            "role": "",
-            "resource_url": "https://api.discogs.com/artists/28795",
-            "id": 28795
-          }
-        ],
-        "thumb": "https://img.discogs.com/fpqtjkrqytd32p6UT8yNiD4RIQ8=/fit-in/150x150/filters:strip_icc():format(jpeg):mode_rgb():quality(40)/discogs-images/R-4276002-1437450759-8320.png.jpg",
-        "title": "RNR Remix 7",
-        "cover_image": "https://img.discogs.com/WjAPo8WHbGdUVpV6VyMWPwvXulE=/fit-in/600x591/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-4276002-1437450759-8320.png.jpg",
-        "resource_url": "https://api.discogs.com/releases/4276002",
-        "year": 2012,
-        "id": 4276002},
-        "folder_id": 105210,
-        "date_added": "2014-10-10T11:35:31-07:00",
-        "notes": [
-          {
-            "field_id": 1,
-            "value": "Digital (D)"
-          },
-          {
-            "field_id": 2,
-            "value": "No Cover"
-          },
-          {
-            "field_id": 4,
-            "value": "2012"
-          },
-          {
-            "field_id": 7,
-            "value": "New"
-          }
-        ],
-      "id": 4276002
-    }
-  ]
+    ]
 }
-  
+
