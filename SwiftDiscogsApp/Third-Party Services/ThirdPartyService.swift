@@ -30,7 +30,7 @@ public protocol AuthenticatedService: ThirdPartyService {
 
     var authenticationDelegate: AuthenticatedServiceDelegate? { get set }
 
-    var isSignedIn: Bool { get set }
+    var isSignedIn: Bool { get }
 
     var username: String? { get set }
 
@@ -62,18 +62,32 @@ public protocol AuthenticatedServiceDelegate {
 
 // MARK: - Importable Service
 
+/// Implemented by services that have data that can be imported into the app.
 protocol ImportableService: ThirdPartyService {
 
     // MARK: Properties
 
+    /// The delegate which gets notified when the import starts, stops, and has
+    /// progressed.
     var importDelegate: ImportableServiceDelegate? { get set }
 
-    var isImporting: Bool { get set }
+    /// The import's progress percentage, expressed as a tuple of integers where
+    /// the first one is the number of items processed, and the second is the
+    /// *total* number of items (**not** the number of items remaining!)
+    var importProgress: (Int, Int) { get }
+
+    /// `true` if the import process is currently in progress.
+    var isImporting: Bool { get }
     
     // MARK: Functions
-    
+
+    /// Start importing data into a specified Core Data context.
+    ///
+    /// - parameter context: The managed object context into which the data will
+    ///             be imported.
     func importData(intoContext context: NSManagedObjectContext)
 
+    /// Stop importing the data.
     func stopImportingData()
 
 }
@@ -90,8 +104,9 @@ protocol ImportableServiceDelegate {
 
     func didFinishImporting(fromService: ImportableService?)
 
-    func updated(importProgress progress: Double,
-                 forService service: ImportableService?)
+    func update(importedItemCount: Int,
+                totalCount: Int,
+                forService service: ImportableService?)
 
     func willBeginImporting(fromService: ImportableService?)
 

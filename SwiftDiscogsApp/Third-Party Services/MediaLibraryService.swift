@@ -10,6 +10,14 @@ final class MediaLibraryService: ThirdPartyService, ImportableService {
 
     var importer: MPMediaItemCollectionImporter?
 
+    var importProgress: (Int, Int) = (0, 0) {
+        didSet {
+            importDelegate?.update(importedItemCount: importProgress.0,
+                                   totalCount: importProgress.1,
+                                   forService: self)
+        }
+    }
+
     var isImporting: Bool = false
 
     init() {

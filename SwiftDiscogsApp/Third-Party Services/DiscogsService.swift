@@ -86,16 +86,61 @@ class DiscogsService: ThirdPartyService, AuthenticatedService, ImportableService
     /// Called when the user's Discogs collection is being imported.
     var importDelegate: ImportableServiceDelegate?
 
+    var importProgress: (Int, Int) = (0, 0) {
+        didSet {
+            importDelegate?.update(importedItemCount: importProgress.0, totalCount: importProgress.1, forService: self)
+        }
+    }
+    
     var isImporting: Bool = false
 
     // MARK: Functions
 
     func importData(intoContext context: NSManagedObjectContext) {
-        isImporting = true
+        if let username = username {
+            importDelegate?.willBeginImporting(fromService: self)
+            isImporting = true
+            importDelegate?.didBeginImporting(fromService: self)
+            DiscogsManager.discogs.collectionItems(forFolderId: 0,
+                                                   userName: username,
+                                                   pageNumber: 1,
+                                                   resultsPerPage: 40).done { [weak self] (folderItems) in
+                                                    if let self = self,
+                                                        let collectionItems = folderItems.releases {
+                                                        self.importCollectionItems(collectionItems,
+                                                                                   totalItems: collectionItems.count,
+                                                                                   importedItemCount: 0)
+                                                        self.stopImportingData()
+                                                    }
+                }.cauterize()
+        }
     }
 
     func stopImportingData() {
+        importDelegate?.willFinishImporting(fromService: self)
         isImporting = false
+        importDelegate?.didFinishImporting(fromService: self)
+    }
+
+    private func importCollectionItems(_ items: [CollectionFolderItem],
+                                       totalItems: Int,
+                                       importedItemCount: Int) {
+        var importedItemsInThisBatch = 0
+        items.forEach { (item) in
+            importRelease(item)
+            importedItemsInThisBatch += 1
+            let allImportedItemsCount = importedItemCount + importedItemsInThisBatch
+
+            if (allImportedItemsCount) / 5 == 0 {
+                importDelegate?.update(importedItemCount: allImportedItemsCount,
+                                       totalCount: totalItems,
+                                       forService: self)
+            }
+        }
+    }
+
+    private func importRelease(_ release: CollectionFolderItem) {
+        print("Importing ", release)
     }
 
 }

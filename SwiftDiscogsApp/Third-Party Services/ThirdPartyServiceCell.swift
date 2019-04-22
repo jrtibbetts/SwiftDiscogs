@@ -38,9 +38,19 @@ class ThirdPartyServiceCell: UITableViewCell {
                 signInView.isHidden = true
             }
 
-            if service is ImportableService {
-                importProgressBar.progress = 0.0
-                importStatusLabel.text = ""
+            if let service = service as? ImportableService {
+                if service.isImporting {
+                    importButton.setTitle("Stop Importing", for: .normal)
+                    let progressCounts = service.importProgress
+                    let progress = progressCounts.1 > 0 ? (progressCounts.0 / progressCounts.1) : 0
+                    importProgressBar.setProgress(Float(progress), animated: true)
+                    importStatusLabel.text = "\(progressCounts.0) of \(progressCounts.1)"
+                } else {
+                    importButton.setTitle("Import", for: .normal)
+                    importProgressBar.progress = 0.0
+                    importStatusLabel.text = nil
+                }
+
                 importView.isHidden = false
             } else {
                 importView.isHidden = true

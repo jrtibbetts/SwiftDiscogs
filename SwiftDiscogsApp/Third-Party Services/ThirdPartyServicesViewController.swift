@@ -55,6 +55,8 @@ final class ThirdPartyServicesViewController: UITableViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         discogsService.authenticationDelegate = self
+        discogsService.importDelegate = self
+        iTunesService.importDelegate = self
         services = [discogsService, iTunesService]
     }
 
@@ -134,8 +136,9 @@ extension ThirdPartyServicesViewController: ImportableServiceDelegate {
         reloadCell(forService: service)
     }
 
-    func updated(importProgress progress: Double,
-                 forService service: ImportableService?) {
+    func update(importedItemCount: Int,
+                totalCount: Int,
+                forService service: ImportableService?) {
         reloadCell(forService: service)
     }
 
