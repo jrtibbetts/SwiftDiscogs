@@ -31,7 +31,7 @@ final class ThirdPartyServicesViewController: UITableViewController{
                 service.stopImportingData()
             } else {
                 if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
-                    let context = appDelegate.persistentContainer.viewContext
+                    let context = appDelegate.medi8Container.viewContext
                     service.importData(intoContext: context)
                 }
             }

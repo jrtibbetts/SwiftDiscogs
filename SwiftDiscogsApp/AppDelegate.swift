@@ -72,10 +72,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // MARK: - Core Data
 
     var medi8Context: NSManagedObjectContext {
-        return persistentContainer.viewContext
+        return medi8Container.viewContext
     }
     
-    lazy var persistentContainer: NSPersistentContainer = {
+    lazy var medi8Container: NSPersistentContainer = {
         /*
          The persistent container for the application. This implementation
          creates and returns a container, having loaded the store for the
@@ -102,12 +102,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 fatalError("Unresolved error \(error), \(error.userInfo)")
             }
         })
+
         return container
     }()
 
     // MARK: - Core Data Saving support
-    func saveContext () {
-        let context = persistentContainer.viewContext
+    func saveMedi8Context () {
+        let context = medi8Container.viewContext
         if context.hasChanges {
             do {
                 try context.save()
