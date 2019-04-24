@@ -67,6 +67,7 @@
 		968101CF226BC511003E6D82 /* ThirdPartyServiceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968101CE226BC511003E6D82 /* ThirdPartyServiceCell.swift */; };
 		968101D1226C36DE003E6D82 /* MediaLibraryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968101D0226C36DE003E6D82 /* MediaLibraryService.swift */; };
 		968101D6226E21D2003E6D82 /* DiscogsCollection.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 968101D4226E21D2003E6D82 /* DiscogsCollection.xcdatamodeld */; };
+		968101D8226EC245003E6D82 /* DiscogsContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968101D7226EC245003E6D82 /* DiscogsContainer.swift */; };
 		968983B2203D427B00DE77BC /* SwiftDiscogs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 968983A8203D427A00DE77BC /* SwiftDiscogs.framework */; };
 		968983B9203D427B00DE77BC /* SwiftDiscogs.h in Headers */ = {isa = PBXBuildFile; fileRef = 968983AB203D427A00DE77BC /* SwiftDiscogs.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		96898419203DD4B500DE77BC /* Release.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968983C3203DD4B200DE77BC /* Release.swift */; };
@@ -321,6 +322,7 @@
 		968101CE226BC511003E6D82 /* ThirdPartyServiceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdPartyServiceCell.swift; sourceTree = "<group>"; };
 		968101D0226C36DE003E6D82 /* MediaLibraryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaLibraryService.swift; sourceTree = "<group>"; };
 		968101D5226E21D2003E6D82 /* DiscogsCollection.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DiscogsCollection.xcdatamodel; sourceTree = "<group>"; };
+		968101D7226EC245003E6D82 /* DiscogsContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscogsContainer.swift; sourceTree = "<group>"; };
 		968983A8203D427A00DE77BC /* SwiftDiscogs.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftDiscogs.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		968983AB203D427A00DE77BC /* SwiftDiscogs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftDiscogs.h; sourceTree = "<group>"; };
 		968983AC203D427A00DE77BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -660,6 +662,7 @@
 			isa = PBXGroup;
 			children = (
 				968101D4226E21D2003E6D82 /* DiscogsCollection.xcdatamodeld */,
+				968101D7226EC245003E6D82 /* DiscogsContainer.swift */,
 				968101CA226BA818003E6D82 /* DiscogsService.swift */,
 				9614312420FEC7BC00B49D2E /* DiscogsSignInViewController.swift */,
 			);
@@ -1333,6 +1336,7 @@
 				9610FB0922433CAF00710F43 /* MediaSourcesViewController.swift in Sources */,
 				960368DD205A012C00D24CE7 /* AppDelegate.swift in Sources */,
 				96BB37FF2251139500806E56 /* ArtistsViewController.swift in Sources */,
+				968101D8226EC245003E6D82 /* DiscogsContainer.swift in Sources */,
 				9610FAEB2237689F00710F43 /* SongView.swift in Sources */,
 				963282B9222CD7E40090B29F /* MasterReleaseViewController.swift in Sources */,
 				968101D1226C36DE003E6D82 /* MediaLibraryService.swift in Sources */,
