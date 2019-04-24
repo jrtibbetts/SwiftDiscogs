@@ -102,19 +102,28 @@ class DiscogsService: ThirdPartyService, AuthenticatedService, ImportableService
             importDelegate?.willBeginImporting(fromService: self)
             isImporting = true
             importDelegate?.didBeginImporting(fromService: self)
-            DiscogsManager.discogs.collectionItems(forFolderId: 0,
-                                                   userName: username,
-                                                   pageNumber: 1,
-                                                   resultsPerPage: 40).done { [weak self] (folderItems) in
-                                                    if let self = self,
-                                                        let collectionItems = folderItems.releases {
-                                                        self.importCollectionItems(collectionItems,
-                                                                                   intoContext: context,
-                                                                                   totalItems: collectionItems.count,
-                                                                                   importedItemCount: 0)
-                                                        self.stopImportingData()
-                                                    }
-                }.cauterize()
+
+            do {
+                let folder = try fetchOrCreateFolder(folderID: 0,
+                                                     inContext: context)
+                DiscogsManager.discogs.collectionItems(forFolderId: 0,
+                                                       userName: username,
+                                                       pageNumber: 1,
+                                                       resultsPerPage: 40).done { [weak self] (folderItems) in
+                                                        if let self = self,
+                                                            let collectionItems = folderItems.releases {
+                                                            self.importCollectionItems(collectionItems,
+                                                                                       inFolder: folder,
+                                                                                       intoContext: context,
+                                                                                       totalItems: collectionItems.count,
+                                                                                       importedItemCount: 0)
+                                                            self.stopImportingData()
+                                                        }
+                    }.cauterize()
+            } catch {
+                isImporting = false
+                importDelegate?.importFailed(fromService: self, withError: error)
+            }
         }
     }
 
@@ -125,12 +134,13 @@ class DiscogsService: ThirdPartyService, AuthenticatedService, ImportableService
     }
 
     private func importCollectionItems(_ items: [CollectionFolderItem],
+                                       inFolder folder: Folder,
                                        intoContext context: NSManagedObjectContext,
                                        totalItems: Int,
                                        importedItemCount: Int) {
         var importedItemsInThisBatch = 0
         items.forEach { (item) in
-            importItem(item, intoContext: context)
+            importItem(item, inFolder: folder, intoContext: context)
             importedItemsInThisBatch += 1
             let allImportedItemsCount = importedItemCount + importedItemsInThisBatch
 
@@ -143,13 +153,44 @@ class DiscogsService: ThirdPartyService, AuthenticatedService, ImportableService
     }
 
     private func importItem(_ item: CollectionFolderItem,
+                            inFolder folder: Folder,
                             intoContext context: NSManagedObjectContext) {
         print("Importing ", item)
 
-        if let info = item.basicInformation {
-            info.artists?.forEach { (artistSummary) in
-                
-            }
+        do {
+            let coreDataItem = try fetchOrCreateItem(releaseVersionID: item.id,
+                                                     inContext: context)
+            folder.addToItems(coreDataItem)
+        } catch {
+            print("Failed to import Discogs collection folder item", item, error)
+        }
+    }
+
+    private func fetchOrCreateFolder(folderID: Int,
+                                     inContext context: NSManagedObjectContext) throws -> Folder {
+        let request: NSFetchRequest<NSFetchRequestResult> = FolderItem.fetchRequest()
+        request.sortDescriptors = [(\Folder.folderID).sortDescriptor()]
+        request.predicate = NSPredicate(format: "folderID == %d", folderID)
+
+        return try context.fetchOrCreateManagedObject(with: request) { (context) -> Folder in
+            let folder = Folder(context: context)
+            folder.folderID = Int64(folderID)
+
+            return folder
+        }
+    }
+
+    private func fetchOrCreateItem(releaseVersionID: Int,
+                                   inContext context: NSManagedObjectContext) throws -> FolderItem {
+        let request: NSFetchRequest<NSFetchRequestResult> = FolderItem.fetchRequest()
+        request.sortDescriptors = [(\FolderItem.releaseVersionID).sortDescriptor()]
+        request.predicate = NSPredicate(format: "releaseVersionID == %d", releaseVersionID)
+
+        return try context.fetchOrCreateManagedObject(with: request) { (context) -> FolderItem in
+            let item = FolderItem(context: context)
+            item.releaseVersionID = Int64(releaseVersionID)
+
+            return item
         }
     }
 
