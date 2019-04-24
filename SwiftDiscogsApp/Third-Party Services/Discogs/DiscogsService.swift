@@ -168,7 +168,7 @@ class DiscogsService: ThirdPartyService, AuthenticatedService, ImportableService
 
     private func fetchOrCreateFolder(folderID: Int,
                                      inContext context: NSManagedObjectContext) throws -> Folder {
-        let request: NSFetchRequest<NSFetchRequestResult> = FolderItem.fetchRequest()
+        let request: NSFetchRequest<NSFetchRequestResult> = Folder.fetchRequest()
         request.sortDescriptors = [(\Folder.folderID).sortDescriptor()]
         request.predicate = NSPredicate(format: "folderID == %d", folderID)
 
