@@ -214,27 +214,27 @@ class DiscogsClientTests: DiscogsTestBase {
     // MARK: - Collection Tests
 
     func testCustomCollectionFieldsBeforeAuthenticationFails() {
-        let promise: Promise<CollectionCustomFields> = unauthorizedClient.customCollectionFields(for: "foo")
+        let promise: Promise<CollectionCustomFields> = unauthorizedClient.customCollectionFields(forUserName: "foo")
         assertUnauthorizedCallFails(promise: promise, description: "custom collection fields")
     }
 
     func testCollectionValueBeforeAuthenticationFails() {
-        let promise: Promise<CollectionValue> = unauthorizedClient.collectionValue(for: "foo")
+        let promise: Promise<CollectionValue> = unauthorizedClient.collectionValue(forUserName: "foo")
         assertUnauthorizedCallFails(promise: promise, description: "collection value")
     }
 
     func testCollectionFoldersBeforeAuthenticationFails() {
-        let promise: Promise<CollectionFolders> = unauthorizedClient.collectionFolders(for: "foo")
+        let promise: Promise<CollectionFolders> = unauthorizedClient.collectionFolders(forUserName: "foo")
         assertUnauthorizedCallFails(promise: promise, description: "collection folders")
     }
 
     func testCollectionFolderInfoBeforeAuthenticationFails() {
-        let promise: Promise<CollectionFolder> = unauthorizedClient.collectionFolderInfo(forFolderId: 99, userName: "foo")
+        let promise: Promise<CollectionFolder> = unauthorizedClient.collectionFolderInfo(forFolderID: 99, userName: "foo")
         assertUnauthorizedCallFails(promise: promise, description: "collection folder info")
     }
 
     func testCollectionFolderItemsBeforeAuthenticationFails() {
-        let promise: Promise<CollectionFolderItems> = unauthorizedClient.collectionItems(forFolderId: 99, userName: "foo")
+        let promise: Promise<CollectionFolderItems> = unauthorizedClient.collectionItems(inFolderID: 99, userName: "foo")
         assertUnauthorizedCallFails(promise: promise, description: "collection items")
     }
 

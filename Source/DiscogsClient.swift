@@ -103,47 +103,47 @@ open class DiscogsClient: OAuth1JSONClient, Discogs {
     
     // MARK: - Collections
     
-    public func customCollectionFields(for userName: String) -> Promise<CollectionCustomFields> {
+    public func customCollectionFields(forUserName userName: String) -> Promise<CollectionCustomFields> {
         return authorizedGet(path: "/users/\(userName)/collection/fields", headers: headers)
     }
     
-    public func collectionValue(for userName: String) -> Promise<CollectionValue> {
+    public func collectionValue(forUserName userName: String) -> Promise<CollectionValue> {
         return authorizedGet(path: "/users/\(userName)/collection/value", headers: headers)
     }
     
-    public func collectionFolders(for userName: String) -> Promise<CollectionFolders> {
+    public func collectionFolders(forUserName userName: String) -> Promise<CollectionFolders> {
         return authorizedGet(path: "/users/\(userName)/collection/folders", headers: headers)
     }
     
-    public func collectionFolderInfo(forFolderId folderId: Int,
+    public func collectionFolderInfo(forFolderID folderID: Int,
                                      userName: String) -> Promise<CollectionFolder> {
-        return authorizedGet(path: "/users/\(userName)/collection/folders/\(folderId)", headers: headers)
+        return authorizedGet(path: "/users/\(userName)/collection/folders/\(folderID)", headers: headers)
     }
     
     public func createFolder(named folderName: String,
-                             userName: String) -> Promise<CollectionFolder> {
+                             forUserName userName: String) -> Promise<CollectionFolder> {
         return authorizedPost(path: "/users/\(userName)/collection/folders/\(folderName)", headers: headers)
     }
     
     public func edit(_ folder: CollectionFolder,
-                     userName: String) -> Promise<CollectionFolder> {
+                     forUserName userName: String) -> Promise<CollectionFolder> {
         return Promise<CollectionFolder> { (seal) in
         }
     }
     
-    public func collectionItems(forFolderId folderId: Int,
+    public func collectionItems(inFolderID folderID: Int,
                                 userName: String,
                                 pageNumber: Int = 1,
                                 resultsPerPage: Int = 50) -> Promise<CollectionFolderItems> {
         // turn the pageNumber and resultsPerPage into query parameters
-        return authorizedGet(path: "/users/\(userName)/collection/folders/\(folderId)/releases",
+        return authorizedGet(path: "/users/\(userName)/collection/folders/\(folderID)/releases",
             headers: headers)
     }
     
-    public func addItem(_ itemId: Int,
-                        toFolderId folderId: Int,
+    public func addItem(_ itemID: Int,
+                        toFolderID folderID: Int,
                         userName: String) -> Promise<CollectionItemInfo> {
-        return authorizedPost(path: "/users/\(userName)/collection/folders/\(folderId)/releases/{itemId}", headers: headers)
+        return authorizedPost(path: "/users/\(userName)/collection/folders/\(folderID)/releases/{itemId}", headers: headers)
     }
     
     // MARK: - Search

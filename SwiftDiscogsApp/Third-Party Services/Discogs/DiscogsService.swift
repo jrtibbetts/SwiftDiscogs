@@ -106,7 +106,7 @@ class DiscogsService: ThirdPartyService, AuthenticatedService, ImportableService
             do {
                 let folder = try fetchOrCreateFolder(folderID: 0,
                                                      inContext: context)
-                DiscogsManager.discogs.collectionItems(forFolderId: 0,
+                DiscogsManager.discogs.collectionItems(inFolderID: 0,
                                                        userName: username,
                                                        pageNumber: 1,
                                                        resultsPerPage: 40).done { [weak self] (folderItems) in

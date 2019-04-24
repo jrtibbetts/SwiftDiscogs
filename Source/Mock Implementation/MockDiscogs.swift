@@ -87,40 +87,40 @@ public class MockDiscogs: MockClient, Discogs {
     
     // MARK: - Collections
     
-    public func customCollectionFields(for userName: String) -> Promise<CollectionCustomFields> {
+    public func customCollectionFields(forUserName userName: String) -> Promise<CollectionCustomFields> {
         return apply(toJsonObjectIn: "get-custom-fields-200",
                      error: DiscogsError.unknownUser(username: userName))
     }
     
-    public func collectionValue(for userName: String) -> Promise<CollectionValue> {
+    public func collectionValue(forUserName userName: String) -> Promise<CollectionValue> {
         return apply(toJsonObjectIn: "get-collection-value-200",
                      error: DiscogsError.unknownUser(username: userName))
     }
     
-    public func collectionFolders(for userName: String) -> Promise<CollectionFolders> {
+    public func collectionFolders(forUserName userName: String) -> Promise<CollectionFolders> {
         return apply(toJsonObjectIn: "get-folders-200",
                      error: DiscogsError.unknownUser(username: userName))
     }
     
-    public func collectionFolderInfo(forFolderId folderId: Int,
+    public func collectionFolderInfo(forFolderID folderID: Int,
                                      userName: String) -> Promise<CollectionFolder> {
         return apply(toJsonObjectIn: "get-folder-metadata-200",
                      error: DiscogsError.unknownUser(username: userName))
     }
     
     public func createFolder(named folderName: String,
-                             userName: String) -> Promise<CollectionFolder> {
+                             forUserName userName: String) -> Promise<CollectionFolder> {
         return apply(toJsonObjectIn: "post-create-folder-201",
                      error: DiscogsError.unknownUser(username: userName))
     }
     
     public func edit(_ folder: CollectionFolder,
-                     userName: String) -> Promise<CollectionFolder> {
+                     forUserName userName: String) -> Promise<CollectionFolder> {
         return apply(toJsonObjectIn: "post-edit-folder-metadata-200",
                      error: DiscogsError.unknownUser(username: userName))
     }
     
-    public func collectionItems(forFolderId folderId: Int,
+    public func collectionItems(inFolderID folderID: Int,
                                 userName: String,
                                 pageNumber: Int = 1,
                                 resultsPerPage: Int = 50) -> Promise<CollectionFolderItems> {
@@ -128,8 +128,8 @@ public class MockDiscogs: MockClient, Discogs {
                      error: DiscogsError.unknownUser(username: userName))
     }
     
-    public func addItem(_ itemId: Int,
-                        toFolderId folderId: Int,
+    public func addItem(_ itemID: Int,
+                        toFolderID folderID: Int,
                         userName: String) -> Promise<CollectionItemInfo> {
         return apply(toJsonObjectIn: "add-item-to-collection-folder-200",
                      error: DiscogsError.unknownUser(username: userName))

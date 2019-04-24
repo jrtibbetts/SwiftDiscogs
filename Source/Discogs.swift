@@ -94,21 +94,21 @@ public protocol Discogs {
     
     // MARK: - Collections
     
-    func customCollectionFields(for userName: String) -> Promise<CollectionCustomFields>
-    func collectionValue(for userName: String) -> Promise<CollectionValue>
-    func collectionFolders(for userName: String) -> Promise<CollectionFolders>
-    func collectionFolderInfo(forFolderId folderId: Int,
+    func customCollectionFields(forUserName: String) -> Promise<CollectionCustomFields>
+    func collectionValue(forUserName: String) -> Promise<CollectionValue>
+    func collectionFolders(forUserName: String) -> Promise<CollectionFolders>
+    func collectionFolderInfo(forFolderID: Int,
                               userName: String) -> Promise<CollectionFolder>
-    func createFolder(named folderName: String,
-                      userName: String) -> Promise<CollectionFolder>
+    func createFolder(named: String,
+                      forUserName: String) -> Promise<CollectionFolder>
     func edit(_ folder: CollectionFolder,
-              userName: String) -> Promise<CollectionFolder>
-    func collectionItems(forFolderId folderId: Int,
+              forUserName: String) -> Promise<CollectionFolder>
+    func collectionItems(inFolderID: Int,
                          userName: String,
                          pageNumber: Int,
                          resultsPerPage: Int) -> Promise<CollectionFolderItems>
     func addItem(_ itemId: Int,
-                 toFolderId folderId: Int,
+                 toFolderID: Int,
                  userName: String) -> Promise<CollectionItemInfo>
 
     // MARK: - Search
