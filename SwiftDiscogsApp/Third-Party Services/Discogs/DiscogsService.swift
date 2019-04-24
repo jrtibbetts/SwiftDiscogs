@@ -144,7 +144,7 @@ class DiscogsService: ThirdPartyService, AuthenticatedService, ImportableService
             importedItemsInThisBatch += 1
             let allImportedItemsCount = importedItemCount + importedItemsInThisBatch
 
-            if (allImportedItemsCount) / 5 == 0 {
+            if (allImportedItemsCount) % 5 == 0 {
                 importDelegate?.update(importedItemCount: allImportedItemsCount,
                                        totalCount: totalItems,
                                        forService: self)
