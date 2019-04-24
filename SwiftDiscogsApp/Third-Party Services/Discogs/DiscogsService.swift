@@ -96,7 +96,8 @@ class DiscogsService: ThirdPartyService, AuthenticatedService, ImportableService
 
     // MARK: Functions
 
-    func importData(intoContext context: NSManagedObjectContext) {
+    func importData() {
+        let context = DiscogsContainer.instance.context
         if let username = username {
             importDelegate?.willBeginImporting(fromService: self)
             isImporting = true

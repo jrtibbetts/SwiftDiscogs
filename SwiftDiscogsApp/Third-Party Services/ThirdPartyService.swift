@@ -82,10 +82,7 @@ protocol ImportableService: ThirdPartyService {
     // MARK: Functions
 
     /// Start importing data into a specified Core Data context.
-    ///
-    /// - parameter context: The managed object context into which the data will
-    ///             be imported.
-    func importData(intoContext context: NSManagedObjectContext)
+    func importData()
 
     /// Stop importing the data.
     func stopImportingData()
@@ -104,6 +101,9 @@ protocol ImportableServiceDelegate {
 
     func didFinishImporting(fromService: ImportableService?)
 
+    func importFailed(fromService: ImportableService?,
+                      withError: Error)
+    
     func update(importedItemCount: Int,
                 totalCount: Int,
                 forService service: ImportableService?)

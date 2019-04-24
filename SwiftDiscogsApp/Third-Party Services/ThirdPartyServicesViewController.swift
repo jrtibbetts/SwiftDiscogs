@@ -31,8 +31,7 @@ final class ThirdPartyServicesViewController: UITableViewController{
                 service.stopImportingData()
             } else {
                 if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
-                    let context = appDelegate.medi8Container.viewContext
-                    service.importData(intoContext: context)
+                    service.importData()
                 }
             }
         }
@@ -133,6 +132,10 @@ extension ThirdPartyServicesViewController: ImportableServiceDelegate {
     }
 
     func didFinishImporting(fromService service: ImportableService?) {
+        reloadCell(forService: service)
+    }
+
+    func importFailed(fromService service: ImportableService?, withError: Error) {
         reloadCell(forService: service)
     }
 

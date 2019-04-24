@@ -28,15 +28,18 @@ final class MediaLibraryService: ThirdPartyService, ImportableService {
         """
     }
 
-    func importData(intoContext context: NSManagedObjectContext) {
-        importer = MPMediaItemCollectionImporter(context: context,
-                                                 mediaQuery: MPMediaQuery.songs())
-        isImporting = true
+    func importData() {
+        if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
+            let context = appDelegate.medi8Container.viewContext
+            importer = MPMediaItemCollectionImporter(context: context,
+                                                     mediaQuery: MPMediaQuery.songs())
+            isImporting = true
 
-        do {
-            try importer?.importMedia()
-        } catch {
-            print("Failed to import the music library: ", error)
+            do {
+                try importer?.importMedia()
+            } catch {
+                importDelegate?.importFailed(fromService: self, withError: error)
+            }
         }
     }
 
