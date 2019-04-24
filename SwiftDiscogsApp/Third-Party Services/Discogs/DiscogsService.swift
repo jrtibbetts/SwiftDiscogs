@@ -119,6 +119,8 @@ class DiscogsService: ThirdPartyService, AuthenticatedService, ImportableService
                                                                                        importedItemCount: 0)
                                                             self.stopImportingData()
                                                         }
+
+                                                        try context.save()
                     }.cauterize()
             } catch {
                 isImporting = false
