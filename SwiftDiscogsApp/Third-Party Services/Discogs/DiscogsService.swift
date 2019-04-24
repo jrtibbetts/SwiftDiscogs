@@ -143,11 +143,8 @@ class DiscogsService: ThirdPartyService, AuthenticatedService, ImportableService
             importItem(item, inFolder: folder, intoContext: context)
             importedItemsInThisBatch += 1
             let allImportedItemsCount = importedItemCount + importedItemsInThisBatch
-
             if (allImportedItemsCount) % 5 == 0 {
-                importDelegate?.update(importedItemCount: allImportedItemsCount,
-                                       totalCount: totalItems,
-                                       forService: self)
+                importProgress = (allImportedItemsCount, totalItems)
             }
         }
     }
