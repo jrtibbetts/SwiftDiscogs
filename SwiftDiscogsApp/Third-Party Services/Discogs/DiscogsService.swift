@@ -115,29 +115,40 @@ class DiscogsService: ThirdPartyService, AuthenticatedService, ImportableService
             importDelegate?.didBeginImporting(fromService: self)
 
             do {
-                let folder = try fetchOrCreateFolder(folderID: 0,
-                                                     inContext: context)
-                DiscogsManager.discogs.collectionItems(inFolderID: 0,
-                                                       userName: username,
-                                                       pageNumber: 1,
-                                                       resultsPerPage: 40).done { [weak self] (folderItems) in
-                                                        if let self = self,
-                                                            let collectionItems = folderItems.releases {
-                                                            self.importCollectionItems(collectionItems,
-                                                                                       inFolder: folder,
-                                                                                       intoContext: context,
-                                                                                       totalItems: collectionItems.count,
-                                                                                       importedItemCount: 0)
-                                                            self.stopImportingData()
-                                                        }
-
-                                                        try context.save()
-                    }.cauterize()
+                try importAllItems(forUserName: username, inContext: context)
             } catch {
                 isImporting = false
                 importDelegate?.importFailed(fromService: self, withError: error)
             }
         }
+    }
+
+    func importAllItems(forUserName userName: String,
+                        inContext context: NSManagedObjectContext) throws {
+        let folder = try fetchOrCreateFolder(folderID: 0,
+                                             inContext: context)
+        folder.name = "Everything"
+        let pageSize = 100
+        let totalPages = (collectionTotal) / pageSize + 1
+
+        (1..<totalPages).forEach { (pageNumber) in
+            DiscogsManager.discogs.collectionItems(inFolderID: 0,
+                                                   userName: userName,
+                                                   pageNumber: pageNumber,
+                                                   resultsPerPage: pageSize).done { [weak self] (folderItems) in
+                                                    if let self = self,
+                                                        let collectionItems = folderItems.releases {
+                                                        self.importCollectionItems(collectionItems,
+                                                                                   inFolder: folder,
+                                                                                   intoContext: context,
+                                                                                   totalItems: self.collectionTotal)
+                                                    }
+
+                                                    try context.save()
+                }.cauterize()
+        }
+
+        stopImportingData()
     }
 
     func stopImportingData() {
@@ -146,20 +157,19 @@ class DiscogsService: ThirdPartyService, AuthenticatedService, ImportableService
         importDelegate?.didFinishImporting(fromService: self)
     }
 
+    @discardableResult
     private func importCollectionItems(_ items: [CollectionFolderItem],
                                        inFolder folder: Folder,
                                        intoContext context: NSManagedObjectContext,
-                                       totalItems: Int,
-                                       importedItemCount: Int) {
+                                       totalItems: Int) -> Int {
         var importedItemsInThisBatch = 0
+
         items.forEach { (item) in
             importItem(item, inFolder: folder, intoContext: context)
             importedItemsInThisBatch += 1
-            let allImportedItemsCount = importedItemCount + importedItemsInThisBatch
-            if (allImportedItemsCount) % 5 == 0 {
-                importProgress = (allImportedItemsCount, totalItems)
-            }
         }
+
+        return importedItemsInThisBatch
     }
 
     private func importItem(_ item: CollectionFolderItem,
@@ -170,6 +180,7 @@ class DiscogsService: ThirdPartyService, AuthenticatedService, ImportableService
         do {
             let coreDataItem = try fetchOrCreateItem(releaseVersionID: item.id,
                                                      inContext: context)
+            coreDataItem.rating = Int64(item.rating)
             folder.addToItems(coreDataItem)
         } catch {
             print("Failed to import Discogs collection folder item", item, error)
