@@ -21,7 +21,7 @@
         </fetchedProperty>
     </entity>
     <entity name="FolderItem" representedClassName="FolderItem" syncable="YES" codeGenerationType="class">
-        <attribute name="rating" attributeType="Integer 64" minValueString="0" maxValueString="5" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="rating" optional="YES" attributeType="Integer 64" minValueString="0" maxValueString="5" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="releaseVersionID" attributeType="Integer 64" minValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="folder" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Folder" inverseName="items" inverseEntity="Folder" syncable="YES"/>
     </entity>
