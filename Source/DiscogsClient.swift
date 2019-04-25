@@ -5,8 +5,8 @@ import OAuthSwift
 import PromiseKit
 
 /// Swift implementation of the Discogs (https://www.discogs.com) API. Most
-/// calls return a `Promise`, which the API call will populate with either
-/// a populated object of the expected type, or an error.
+/// calls return a `Promise`, which the API call will populate with either a
+/// populated object of the expected type, or an error.
 open class DiscogsClient: OAuth1JSONClient, Discogs {
 
     public private(set) var userAgent: String
@@ -98,7 +98,9 @@ open class DiscogsClient: OAuth1JSONClient, Discogs {
                                          pageNumber: Int = 1,
                                          resultsPerPage: Int = 50) -> Promise<MasterReleaseVersions> {
         // turn the pageNumber and resultsPerPage into query parameters
-        return get(path: "/masters/\(identifier)/versions", headers: headers)
+        return get(path: "/masters/\(identifier)/versions",
+            headers: headers,
+            parameters: ["per_page": "\(resultsPerPage)", "page": "\(pageNumber)"])
     }
     
     // MARK: - Collections
@@ -130,14 +132,14 @@ open class DiscogsClient: OAuth1JSONClient, Discogs {
         return Promise<CollectionFolder> { (seal) in
         }
     }
-    
+
     public func collectionItems(inFolderID folderID: Int,
                                 userName: String,
                                 pageNumber: Int = 1,
                                 resultsPerPage: Int = 50) -> Promise<CollectionFolderItems> {
-        // turn the pageNumber and resultsPerPage into query parameters
         return authorizedGet(path: "/users/\(userName)/collection/folders/\(folderID)/releases",
-            headers: headers)
+            headers: headers,
+            parameters: ["per_page": "\(resultsPerPage)", "page": "\(pageNumber)"])
     }
     
     public func addItem(_ itemID: Int,
