@@ -32,7 +32,7 @@ public protocol AuthenticatedService: ThirdPartyService {
 
     var isSignedIn: Bool { get }
 
-    var username: String? { get set }
+    var userName: String? { get }
 
     // MARK: Functions
 

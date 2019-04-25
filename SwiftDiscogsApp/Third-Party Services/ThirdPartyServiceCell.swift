@@ -29,7 +29,7 @@ class ThirdPartyServiceCell: UITableViewCell {
 
                 if authenticatedService.isSignedIn {
                     signInOutButton.setTitle("Sign Out", for: .normal)
-                    signedInAsUsernameLabel.text = authenticatedService.username
+                    signedInAsUsernameLabel.text = authenticatedService.userName
                 } else {
                     signInOutButton.setTitle("Sign In", for: .normal)
                     signedInAsUsernameLabel.text = nil // hides it

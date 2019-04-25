@@ -21,11 +21,12 @@ class DiscogsService: ThirdPartyService, AuthenticatedService, ImportableService
         and we're getting closer every day. (www.discogs.com/about)
         """
 
-        DiscogsManager.discogs.userIdentity().done { [weak self] (userIdentity) in
+        DiscogsManager.discogs.userIdentity().then { [weak self] (userIdentity) -> Promise<UserProfile> in
             self?.handle(userIdentity: userIdentity)
-            }.catch { (error) in
-                print("Couldn't sign in", error)
-        }
+            return DiscogsManager.discogs.userProfile(userName: userIdentity.username)
+            }.done { [weak self] (userProfile) in
+                self?.userProfile = userProfile
+            }.cauterize()
     }
 
     // MARK: - AuthenticatedService
@@ -39,8 +40,18 @@ class DiscogsService: ThirdPartyService, AuthenticatedService, ImportableService
     /// signed in.
     var isSignedIn: Bool = false
 
+    var userIdentity: UserIdentity?
+
     /// The user's Discogs username.
-    var username: String?
+    var userName: String? {
+        return userIdentity?.username
+    }
+
+    var userProfile: UserProfile?
+
+    var collectionTotal: Int {
+        return userProfile?.numCollection ?? 0
+    }
 
     // MARK: Functions
 
@@ -74,7 +85,7 @@ class DiscogsService: ThirdPartyService, AuthenticatedService, ImportableService
     }
 
     func handle(userIdentity: UserIdentity) {
-        username = userIdentity.username
+        self.userIdentity = userIdentity
         isSignedIn = true
         authenticationDelegate?.didSignIn(toService: self)
     }
@@ -98,7 +109,7 @@ class DiscogsService: ThirdPartyService, AuthenticatedService, ImportableService
 
     func importData() {
         let context = DiscogsContainer.instance.context
-        if let username = username {
+        if let username = userName {
             importDelegate?.willBeginImporting(fromService: self)
             isImporting = true
             importDelegate?.didBeginImporting(fromService: self)
