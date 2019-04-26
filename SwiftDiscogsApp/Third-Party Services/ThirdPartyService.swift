@@ -63,18 +63,20 @@ public protocol AuthenticatedServiceDelegate {
 // MARK: - Importable Service
 
 /// Implemented by services that have data that can be imported into the app.
-protocol ImportableService: ThirdPartyService {
+public protocol ImportableService: ThirdPartyService {
 
     // MARK: Properties
+
+    /// The total number of items that can be imported. If it's unknown, then
+    /// this should be `nil`.
+    var importableItemCount: Int? { get }
 
     /// The delegate which gets notified when the import starts, stops, and has
     /// progressed.
     var importDelegate: ImportableServiceDelegate? { get set }
 
-    /// The import's progress percentage, expressed as a tuple of integers where
-    /// the first one is the number of items processed, and the second is the
-    /// *total* number of items (**not** the number of items remaining!)
-    var importProgress: (Int, Int) { get }
+    /// The number of items that have already been imported.
+    var importedItemCount: Int { get }
 
     /// `true` if the import process is currently in progress.
     var isImporting: Bool { get }
@@ -93,7 +95,7 @@ protocol ImportableService: ThirdPartyService {
 
 /// Implemented by entities what want to keep track of an importable service's
 /// status and progress.
-protocol ImportableServiceDelegate {
+public protocol ImportableServiceDelegate {
 
     // MARK: Functions
 
@@ -103,9 +105,12 @@ protocol ImportableServiceDelegate {
 
     func importFailed(fromService: ImportableService?,
                       withError: Error)
-    
+
+    /// Called when the number of imported items has changed. It's up to the
+    /// `ImportableService` implementation to determine how significant the
+    /// change has to be before calling this.
     func update(importedItemCount: Int,
-                totalCount: Int,
+                totalCount: Int?,
                 forService service: ImportableService?)
 
     func willBeginImporting(fromService: ImportableService?)

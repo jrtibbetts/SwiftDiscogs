@@ -37,6 +37,20 @@ class DiscogsService: ThirdPartyService, AuthenticatedService, ImportableService
     /// Called when Discogs authentication is in progress.
     var authenticationDelegate: AuthenticatedServiceDelegate?
 
+    var importableItemCount: Int? {
+        return userProfile?.numCollection
+    }
+
+    var importedItemCount: Int = 0 {
+        didSet {
+            if importedItemCount % 5 == 0 {
+                importDelegate?.update(importedItemCount: importedItemCount,
+                                       totalCount: importableItemCount,
+                                       forService: self)
+            }
+        }
+    }
+
     /// Indicates whether sign in was successful, or if the user is already
     /// signed in.
     var isSignedIn: Bool = false
@@ -49,10 +63,6 @@ class DiscogsService: ThirdPartyService, AuthenticatedService, ImportableService
     }
 
     var userProfile: UserProfile?
-
-    var collectionTotal: Int {
-        return userProfile?.numCollection ?? 0
-    }
 
     // MARK: Functions
 
@@ -151,11 +161,19 @@ class DiscogsService: ThirdPartyService, AuthenticatedService, ImportableService
 
     func importAllItems(forUserName userName: String,
                         inContext context: NSManagedObjectContext) throws {
+        guard let importableItemCount = importableItemCount else {
+            return
+        }
+
         let folder = try fetchOrCreateFolder(folderID: 0,
                                              inContext: context)
         folder.name = "Everything"
         let pageSize = 100
-        let totalPages = (collectionTotal) / pageSize + 1
+        let totalPages = (importableItemCount / pageSize) + 1
+
+//        let allItemsRequest: NSFetchRequest<FolderItem> = FolderItem.fetchRequest()
+//        allItemsRequest.sortDescriptors = [(\FolderItem.releaseVersionID).sortDescriptor()]
+//        let allItems: [FolderItem] = try context.fetch(allItemsRequest)
 
         (1..<totalPages).forEach { (pageNumber) in
             DiscogsManager.discogs.collectionItems(inFolderID: 0,
@@ -167,7 +185,7 @@ class DiscogsService: ThirdPartyService, AuthenticatedService, ImportableService
                                                         self.importCollectionItems(collectionItems,
                                                                                    inFolder: folder,
                                                                                    intoContext: context,
-                                                                                   totalItems: self.collectionTotal)
+                                                                                   totalItems: self.importableItemCount)
                                                     }
 
                                                     try context.save()
@@ -183,19 +201,13 @@ class DiscogsService: ThirdPartyService, AuthenticatedService, ImportableService
         importDelegate?.didFinishImporting(fromService: self)
     }
 
-    @discardableResult
     private func importCollectionItems(_ items: [CollectionFolderItem],
                                        inFolder folder: Folder,
                                        intoContext context: NSManagedObjectContext,
-                                       totalItems: Int) -> Int {
-        var importedItemsInThisBatch = 0
-
+                                       totalItems: Int?) {
         items.forEach { (item) in
             importItem(item, inFolder: folder, intoContext: context)
-            importedItemsInThisBatch += 1
         }
-
-        return importedItemsInThisBatch
     }
 
     private func importItem(_ item: CollectionFolderItem,
@@ -208,6 +220,7 @@ class DiscogsService: ThirdPartyService, AuthenticatedService, ImportableService
                                                      inContext: context)
             coreDataItem.rating = Int64(item.rating)
             folder.addToItems(coreDataItem)
+            importedItemCount += 1
         } catch {
             print("Failed to import Discogs collection folder item", item, error)
         }

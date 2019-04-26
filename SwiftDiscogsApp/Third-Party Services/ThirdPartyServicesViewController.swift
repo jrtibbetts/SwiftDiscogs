@@ -138,7 +138,7 @@ extension ThirdPartyServicesViewController: ImportableServiceDelegate {
     }
 
     func update(importedItemCount: Int,
-                totalCount: Int,
+                totalCount: Int?,
                 forService service: ImportableService?) {
         reloadCell(forService: service)
     }

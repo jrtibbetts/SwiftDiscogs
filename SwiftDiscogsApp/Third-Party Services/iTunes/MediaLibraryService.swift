@@ -6,17 +6,19 @@ import UIKit
 
 final class MediaLibraryService: ThirdPartyService, ImportableService {
 
-    var importDelegate: ImportableServiceDelegate?
+    var importableItemCount: Int?
 
-    var importer: MPMediaItemCollectionImporter?
-
-    var importProgress: (Int, Int) = (0, 0) {
+    var importedItemCount: Int = 0{
         didSet {
-            importDelegate?.update(importedItemCount: importProgress.0,
-                                   totalCount: importProgress.1,
+            importDelegate?.update(importedItemCount: importedItemCount,
+                                   totalCount: importableItemCount,
                                    forService: self)
         }
     }
+
+    var importDelegate: ImportableServiceDelegate?
+
+    var importer: MPMediaItemCollectionImporter?
 
     var isImporting: Bool = false
 

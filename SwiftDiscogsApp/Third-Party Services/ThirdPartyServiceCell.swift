@@ -41,10 +41,14 @@ class ThirdPartyServiceCell: UITableViewCell {
             if let service = service as? ImportableService {
                 if service.isImporting {
                     importButton.setTitle("Stop Importing", for: .normal)
-                    let progressCounts = service.importProgress
-                    let progress = progressCounts.1 > 0 ? (progressCounts.0 / progressCounts.1) : 0
-                    importProgressBar.setProgress(Float(progress), animated: true)
-                    importStatusLabel.text = "\(progressCounts.0) of \(progressCounts.1)"
+
+                    if let importableItemCount = service.importableItemCount {
+                        let progress = service.importedItemCount / importableItemCount
+                        importProgressBar.setProgress(Float(progress), animated: true)
+                        importStatusLabel.text = "Imported \(service.importedItemCount) of \(importableItemCount)"
+                    } else {
+                        importStatusLabel.text = "Imported \(service.importedItemCount)"
+                    }
                 } else {
                     importButton.setTitle("Import", for: .normal)
                     importProgressBar.progress = 0.0
