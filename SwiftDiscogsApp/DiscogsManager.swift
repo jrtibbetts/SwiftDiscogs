@@ -8,11 +8,16 @@
 
 import SwiftDiscogs
 
+/// Holds the app-wide `Discogs` instance (called `discogs`) that should be
+/// used.
 public struct DiscogsManager {
 
+    /// The app-wide `Discogs` instance to use. By default, this is a
+    /// `DiscogsClient`, but you can set it to something else (like the mock
+    /// client) for testing or other purposes.
     public static var discogs: Discogs = discogsClient
 
-    /// A global instance of the `DiscogsClient`. It's initialized with
+    /// A global-ish instance of the `DiscogsClient`. It's initialized with
     /// consumer key, consumer secret, and userAgent properties in a file
     /// named `Discogs.plist`.
     private static let discogsClient: DiscogsClient = {
@@ -23,5 +28,11 @@ public struct DiscogsManager {
 
         return client
     }()
+
+    /// You shouldn't instantiate a `DiscogsManager`. It exists just to hold a
+    /// reference to the app-wide `Discogs` instance.
+    private init() {
+
+    }
 
 }
