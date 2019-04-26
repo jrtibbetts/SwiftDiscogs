@@ -240,20 +240,3 @@ class DiscogsService: ThirdPartyService, AuthenticatedService, ImportableService
     }
 
 }
-
-private extension NSManagedObject {
-
-    class func fetchRequest<T: NSManagedObject>(sortDescriptors: [NSSortDescriptor],
-                                                predicate: NSPredicate) -> NSFetchRequest<T> {
-        let request = self.fetchRequest() as! NSFetchRequest<T>
-        request.sortDescriptors = sortDescriptors
-        request.predicate = predicate
-
-        return request
-    }
-
-}
-
-func + (predicateA: NSPredicate, predicateB: NSPredicate) -> NSCompoundPredicate {
-    return NSCompoundPredicate(andPredicateWithSubpredicates: [predicateA, predicateB])
-}
