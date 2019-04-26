@@ -30,9 +30,7 @@ final class ThirdPartyServicesViewController: UITableViewController{
             if service.isImporting {
                 service.stopImportingData()
             } else {
-                if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
-                    service.importData()
-                }
+                service.importData()
             }
         }
     }
