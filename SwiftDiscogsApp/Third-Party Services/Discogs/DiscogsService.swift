@@ -2,6 +2,7 @@
 
 import CoreData
 import PromiseKit
+import Stylobate
 import SwiftDiscogs
 
 /// Encapsulates interactions with the Discogs service. Many Discogs server
@@ -115,11 +116,36 @@ class DiscogsService: ThirdPartyService, AuthenticatedService, ImportableService
             importDelegate?.didBeginImporting(fromService: self)
 
             do {
+                try importCustomFields(inContext: context)
                 try importAllItems(forUserName: username, inContext: context)
             } catch {
                 isImporting = false
                 importDelegate?.importFailed(fromService: self, withError: error)
             }
+        }
+    }
+
+    func importCustomFields(inContext context: NSManagedObjectContext) throws {
+        guard let userName = userName else {
+            return
+        }
+
+        DiscogsManager.discogs.customCollectionFields(forUserName: userName).done { (fields) in
+
+            fields.fields?.forEach { (field) in
+            }
+        }.cauterize()
+    }
+
+    private func fetchOrCreateCustomField(forCollectionField: CollectionCustomField,
+                                          inContext context: NSManagedObjectContext) throws -> CustomField {
+        let request: NSFetchRequest<CustomField> = CustomField.fetchRequest(sortDescriptors: [(\CustomField.id).sortDescriptor()],
+                                                                            predicate: NSPredicate(format: "name = \(name)"))
+
+        return try context.fetchOrCreateManagedObject(with: request) { (context) -> CustomField in
+            let field = CustomField(context: context)
+
+            return field
         }
     }
 
@@ -189,9 +215,8 @@ class DiscogsService: ThirdPartyService, AuthenticatedService, ImportableService
 
     private func fetchOrCreateFolder(folderID: Int,
                                      inContext context: NSManagedObjectContext) throws -> Folder {
-        let request: NSFetchRequest<NSFetchRequestResult> = Folder.fetchRequest()
-        request.sortDescriptors = [(\Folder.folderID).sortDescriptor()]
-        request.predicate = NSPredicate(format: "folderID == %d", folderID)
+        let request: NSFetchRequest<Folder> = Folder.fetchRequest(sortDescriptors: [(\Folder.folderID).sortDescriptor()],
+                                          predicate: NSPredicate(format: "folderID = \(folderID)"))
 
         return try context.fetchOrCreateManagedObject(with: request) { (context) -> Folder in
             let folder = Folder(context: context)
@@ -203,9 +228,8 @@ class DiscogsService: ThirdPartyService, AuthenticatedService, ImportableService
 
     private func fetchOrCreateItem(releaseVersionID: Int,
                                    inContext context: NSManagedObjectContext) throws -> FolderItem {
-        let request: NSFetchRequest<NSFetchRequestResult> = FolderItem.fetchRequest()
-        request.sortDescriptors = [(\FolderItem.releaseVersionID).sortDescriptor()]
-        request.predicate = NSPredicate(format: "releaseVersionID == %d", releaseVersionID)
+        let request: NSFetchRequest<FolderItem> = FolderItem.fetchRequest(sortDescriptors: [(\FolderItem.releaseVersionID).sortDescriptor()],
+                                              predicate: NSPredicate(format: "releaseVersionID = \(releaseVersionID)"))
 
         return try context.fetchOrCreateManagedObject(with: request) { (context) -> FolderItem in
             let item = FolderItem(context: context)
@@ -215,4 +239,21 @@ class DiscogsService: ThirdPartyService, AuthenticatedService, ImportableService
         }
     }
 
+}
+
+private extension NSManagedObject {
+
+    class func fetchRequest<T: NSManagedObject>(sortDescriptors: [NSSortDescriptor],
+                                                predicate: NSPredicate) -> NSFetchRequest<T> {
+        let request = self.fetchRequest() as! NSFetchRequest<T>
+        request.sortDescriptors = sortDescriptors
+        request.predicate = predicate
+
+        return request
+    }
+
+}
+
+func + (predicateA: NSPredicate, predicateB: NSPredicate) -> NSCompoundPredicate {
+    return NSCompoundPredicate(andPredicateWithSubpredicates: [predicateA, predicateB])
 }
