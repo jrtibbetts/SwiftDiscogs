@@ -19,9 +19,6 @@
 		960368E4205A012C00D24CE7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 960368E3205A012C00D24CE7 /* Assets.xcassets */; };
 		960368E7205A012C00D24CE7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 960368E5205A012C00D24CE7 /* LaunchScreen.storyboard */; };
 		960368FD205A012C00D24CE7 /* SwiftDiscogsAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960368FC205A012C00D24CE7 /* SwiftDiscogsAppUITests.swift */; };
-		96036919205C3BC500D24CE7 /* OAuthSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9689848A203DDA0200DE77BC /* OAuthSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		9603691B205C3BC500D24CE7 /* PromiseKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9689848B203DDA0200DE77BC /* PromiseKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		9603691E205C3BEA00D24CE7 /* JSONClient.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 96898489203DDA0200DE77BC /* JSONClient.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9610FAEB2237689F00710F43 /* SongView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9610FAEA2237689F00710F43 /* SongView.swift */; };
 		9610FAED2238846200710F43 /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9610FAEC2238846200710F43 /* Song.swift */; };
 		9610FAEF223887A100710F43 /* SongViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9610FAEE223887A100710F43 /* SongViewController.swift */; };
@@ -51,7 +48,6 @@
 		967AD9B822659656001FE440 /* DiscogsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967AD9B722659656001FE440 /* DiscogsManager.swift */; };
 		967AD9BB22691E18001FE440 /* StoryboardScenes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967AD9B922691E17001FE440 /* StoryboardScenes.swift */; };
 		967AD9BC22691E18001FE440 /* StoryboardSegues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967AD9BA22691E18001FE440 /* StoryboardSegues.swift */; };
-		967AD9C222696D05001FE440 /* Medi8.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 967AD9C022696D04001FE440 /* Medi8.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		967AD9C322696D5E001FE440 /* Medi8.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 967AD9C022696D04001FE440 /* Medi8.framework */; };
 		967AD9C8226973C0001FE440 /* MPMediaCollectionImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967AD9C6226973BF001FE440 /* MPMediaCollectionImporter.swift */; };
 		967AD9C9226973C0001FE440 /* MPMediaCollectionBrowser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967AD9C7226973BF001FE440 /* MPMediaCollectionBrowser.swift */; };
@@ -68,6 +64,8 @@
 		968101D1226C36DE003E6D82 /* MediaLibraryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968101D0226C36DE003E6D82 /* MediaLibraryService.swift */; };
 		968101D6226E21D2003E6D82 /* DiscogsCollection.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 968101D4226E21D2003E6D82 /* DiscogsCollection.xcdatamodeld */; };
 		968101D8226EC245003E6D82 /* DiscogsContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968101D7226EC245003E6D82 /* DiscogsContainer.swift */; };
+		968102072272BA20003E6D82 /* SwiftDiscogs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 968983A8203D427A00DE77BC /* SwiftDiscogs.framework */; };
+		968102082272BA20003E6D82 /* SwiftDiscogs.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 968983A8203D427A00DE77BC /* SwiftDiscogs.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		968983B2203D427B00DE77BC /* SwiftDiscogs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 968983A8203D427A00DE77BC /* SwiftDiscogs.framework */; };
 		968983B9203D427B00DE77BC /* SwiftDiscogs.h in Headers */ = {isa = PBXBuildFile; fileRef = 968983AB203D427A00DE77BC /* SwiftDiscogs.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		96898419203DD4B500DE77BC /* Release.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968983C3203DD4B200DE77BC /* Release.swift */; };
@@ -182,7 +180,6 @@
 		96A8AC9F219214EE0098BF87 /* Discogs.strings in Resources */ = {isa = PBXBuildFile; fileRef = 96A8ACA1219214EE0098BF87 /* Discogs.strings */; };
 		96BA81C8225C1ED50003D65C /* DiscogsDisambiguationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96BA81C7225C1ED50003D65C /* DiscogsDisambiguationViewController.swift */; };
 		96BB37FF2251139500806E56 /* ArtistsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96BB37FE2251139500806E56 /* ArtistsViewController.swift */; };
-		96BB3800225118CA00806E56 /* SwiftDiscogs.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 968983A8203D427A00DE77BC /* SwiftDiscogs.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		96BB380422545AA200806E56 /* MediaLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96BB380322545AA200806E56 /* MediaLibrary.swift */; };
 		96C656B12129204A0041CAD6 /* Discogs.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96C656B0212920490041CAD6 /* Discogs.xcassets */; };
 		96CA185C2081A143006FF5F0 /* DiscogsSearchResultsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CA185B2081A143006FF5F0 /* DiscogsSearchResultsModel.swift */; };
@@ -195,8 +192,6 @@
 		96E8A14420799EC800BFD508 /* PromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9689848B203DDA0200DE77BC /* PromiseKit.framework */; };
 		96E8CCE020E33396001C5381 /* DiscogsDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E8CCDF20E33396001C5381 /* DiscogsDisplay.swift */; };
 		96EA0DE0225EDF220072F09F /* ArtistBioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96EA0DDF225EDF220072F09F /* ArtistBioViewController.swift */; };
-		96EDF28C209FA905009496FA /* Stylobate.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 96EDF289209FA8EF009496FA /* Stylobate.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		96F1E59E2155F21100B17F3F /* Kingfisher.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 96A16D50214F6EA10081F610 /* Kingfisher.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AD9C68E022428AB50005D74A /* SectionedModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9C68DF22428AB50005D74A /* SectionedModelTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -215,12 +210,12 @@
 			remoteGlobalIDString = 960368D9205A012B00D24CE7;
 			remoteInfo = SwiftDiscogsApp;
 		};
-		96036908205A015000D24CE7 /* PBXContainerItemProxy */ = {
+		968102092272BA20003E6D82 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 9689839F203D427A00DE77BC /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 968983A7203D427A00DE77BC;
-			remoteInfo = SwiftDiscogsClient;
+			remoteInfo = SwiftDiscogs;
 		};
 		968983B3203D427B00DE77BC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -239,19 +234,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		9603691C205C3BC500D24CE7 /* Embed Frameworks */ = {
+		9681020B2272BA20003E6D82 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				96BB3800225118CA00806E56 /* SwiftDiscogs.framework in Embed Frameworks */,
-				96F1E59E2155F21100B17F3F /* Kingfisher.framework in Embed Frameworks */,
-				96036919205C3BC500D24CE7 /* OAuthSwift.framework in Embed Frameworks */,
-				967AD9C222696D05001FE440 /* Medi8.framework in Embed Frameworks */,
-				9603691B205C3BC500D24CE7 /* PromiseKit.framework in Embed Frameworks */,
-				96EDF28C209FA905009496FA /* Stylobate.framework in Embed Frameworks */,
-				9603691E205C3BEA00D24CE7 /* JSONClient.framework in Embed Frameworks */,
+				968102082272BA20003E6D82 /* SwiftDiscogs.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -471,6 +460,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				968102072272BA20003E6D82 /* SwiftDiscogs.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1015,12 +1005,13 @@
 				960368D6205A012B00D24CE7 /* Sources */,
 				960368D7205A012B00D24CE7 /* Frameworks */,
 				960368D8205A012B00D24CE7 /* Resources */,
-				9603691C205C3BC500D24CE7 /* Embed Frameworks */,
+				968101EA22729776003E6D82 /* ShellScript */,
+				9681020B2272BA20003E6D82 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				96036909205A015000D24CE7 /* PBXTargetDependency */,
+				9681020A2272BA20003E6D82 /* PBXTargetDependency */,
 			);
 			name = SwiftDiscogsApp;
 			productName = SwiftDiscogsApp;
@@ -1304,6 +1295,35 @@
 			shellPath = /bin/sh;
 			shellScript = "$LOCROOT/swiftgen-6/bin/swiftgen config run --config $LOCROOT/SwiftDiscogsApp/swiftgenSwiftDiscogsApp.yml\n";
 		};
+		968101EA22729776003E6D82 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Kingfisher.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/OAuthSwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Medi8.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/PromiseKit.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Stylobate.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/JSONClient.framework",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Kingfisher.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/OAuthSwift.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Medi8.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/PromiseKit.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Stylobate.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/JSONClient.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -1464,10 +1484,10 @@
 			target = 960368D9205A012B00D24CE7 /* SwiftDiscogsApp */;
 			targetProxy = 960368F9205A012C00D24CE7 /* PBXContainerItemProxy */;
 		};
-		96036909205A015000D24CE7 /* PBXTargetDependency */ = {
+		9681020A2272BA20003E6D82 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 968983A7203D427A00DE77BC /* SwiftDiscogs */;
-			targetProxy = 96036908205A015000D24CE7 /* PBXContainerItemProxy */;
+			targetProxy = 968102092272BA20003E6D82 /* PBXContainerItemProxy */;
 		};
 		968983B4203D427B00DE77BC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1532,6 +1552,7 @@
 		96036900205A012C00D24CE7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3MY7LL9G36;
@@ -1551,6 +1572,7 @@
 		96036901205A012C00D24CE7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3MY7LL9G36;
