@@ -25,7 +25,7 @@ open class DiscogsSignInViewController: UIViewController {
     @IBAction func signInToDiscogs(signInButton: UIButton?) {
         signInStatusStack.activeView = checkingStatusView
         let promise = DiscogsManager.discogs.authorize(presentingViewController: self,
-                                                       callbackUrlString: AppDelegate.callbackUrl.absoluteString)
+                                                       callbackUrlString: AppDelegate.shared.callbackUrl.absoluteString)
         promise.then { (credential) -> Promise<UserIdentity> in
             return DiscogsManager.discogs.userIdentity()
             }.done { [weak self] (userIdentity) in

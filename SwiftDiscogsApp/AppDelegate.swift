@@ -8,9 +8,13 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    // MARK: - Properties
+
+    static let shared: AppDelegate = (UIApplication.shared.delegate) as! AppDelegate
+
     var window: UIWindow?
 
-    static let callbackUrl = URL(string: "swiftdiscogsapp://oauth-callback/")!
+    // MARK: - AppDelegate
 
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -18,49 +22,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 
-    func applicationWillResignActive(_ application: UIApplication) {
-        // Sent when the application is about to move from active to inactive
-        // state. This can occur for certain types of temporary interruptions
-        // (such as an incoming phone call or SMS message) or when the user
-        // quits the application and it begins the transition to the background
-        // state.
-        // Use this method to pause ongoing tasks, disable timers, and
-        // invalidate graphics rendering callbacks. Games should use this
-        // method to pause the game.
-    }
-
     func applicationDidEnterBackground(_ application: UIApplication) {
-        // Use this method to release shared resources, save user data,
-        // invalidate timers, and store enough application state information to
-        // restore your application to its current state in case it is
-        // terminated later.
-        // If your application supports background execution, this method is
-        // called instead of applicationWillTerminate: when the user quits.
+        saveMedi8Context()
     }
 
-    func applicationWillEnterForeground(_ application: UIApplication) {
-        // Called as part of the transition from the background to the active
-        // state; here you can undo many of the changes made on entering the
-        // background.
-    }
+    // MARK: - OAuth URL callback handling
 
-    func applicationDidBecomeActive(_ application: UIApplication) {
-        // Restart any tasks that were paused (or not yet started) while the
-        // application was inactive. If the application was previously in the
-        // background, optionally refresh the user interface.
-    }
-
-    func applicationWillTerminate(_ application: UIApplication) {
-        // Called when the application is about to terminate. Save data if
-        // appropriate. See also applicationDidEnterBackground:.
-    }
+    let callbackUrl = URL(string: "swiftdiscogsapp://oauth-callback/")!
 
     func application(_ app: UIApplication,
                      open url: URL,
                      options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-        // The callback URL that was used when the OAuth app was created. In
-        // this case, the custom URL is "jsonclientdemo://oauth-callback/github".
-        if url.host! == AppDelegate.callbackUrl.host! && url.scheme! == AppDelegate.callbackUrl.scheme! {
+        if url.host! == callbackUrl.host! && url.scheme! == callbackUrl.scheme! {
             OAuthSwift.handle(url: url)
 
             return true
@@ -74,17 +47,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var medi8Context: NSManagedObjectContext {
         return medi8Container.viewContext
     }
-    
+
+    /// A persistent container whose model combines the Medi8 and Discogs
+    /// models.
     lazy var medi8Container: NSPersistentContainer = {
-        /*
-         The persistent container for the application. This implementation
-         creates and returns a container, having loaded the store for the
-         application to it. This property is optional since there are legitimate
-         error conditions that could cause the creation of the store to fail.
-         */
-        let medi8Bundle = Bundle(identifier: "net.poikile.Medi8")
-        let modelURL = medi8Bundle!.url(forResource: "Medi8", withExtension: "momd")!
-        let model = NSManagedObjectModel(contentsOf: modelURL)!
+        let medi8Bundle = Bundle(for: Medi8.self)
+        let discogsBundle = Bundle(for: type(of: self))
+        let model = NSManagedObjectModel.mergedModel(from: [medi8Bundle, discogsBundle])!
         let container = NSPersistentContainer(name: "Medi8", managedObjectModel: model)
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
@@ -106,7 +75,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return container
     }()
 
-    // MARK: - Core Data Saving support
     func saveMedi8Context () {
         let context = medi8Container.viewContext
         if context.hasChanges {

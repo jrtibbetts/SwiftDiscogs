@@ -76,7 +76,7 @@ class DiscogsService: ThirdPartyService, AuthenticatedService, ImportableService
         authenticationDelegate?.willSignIn(toService: self)
 
         let promise = DiscogsManager.discogs.authorize(presentingViewController: viewController,
-                                                       callbackUrlString: AppDelegate.callbackUrl.absoluteString)
+                                                       callbackUrlString: AppDelegate.shared.callbackUrl.absoluteString)
         promise.then { (credential) -> Promise<UserIdentity> in
             return DiscogsManager.discogs.userIdentity()
             }.done { [weak self] (userIdentity) in
@@ -113,7 +113,7 @@ class DiscogsService: ThirdPartyService, AuthenticatedService, ImportableService
     // MARK: Functions
 
     func importData() {
-        let context = DiscogsContainer.instance.context
+        let context = AppDelegate.shared.medi8Context
 
         if let username = userName {
             importDelegate?.willBeginImporting(fromService: self)
