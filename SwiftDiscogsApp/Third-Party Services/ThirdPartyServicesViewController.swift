@@ -85,10 +85,12 @@ final class ThirdPartyServicesViewController: UITableViewController{
     // MARK: Other Functions
 
     private func reloadCell(forService service: ThirdPartyService?) {
-        if let service = service,
-            let row = services.firstIndex(of: service) {
-            let path = IndexPath(row: row, section: 0)
-            tableView.reloadRows(at: [path], with: .fade)
+        DispatchQueue.main.async { [weak self] in
+            if let service = service,
+                let row = self?.services.firstIndex(of: service) {
+                let path = IndexPath(row: row, section: 0)
+                self?.tableView.reloadRows(at: [path], with: .fade)
+            }
         }
     }
 
