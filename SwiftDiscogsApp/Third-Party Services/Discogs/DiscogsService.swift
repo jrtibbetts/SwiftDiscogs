@@ -107,12 +107,6 @@ class DiscogsService: ThirdPartyService, AuthenticatedService, ImportableService
 
     /// Called when the user's Discogs collection is being imported.
     var importDelegate: ImportableServiceDelegate?
-
-    var importProgress: (Int, Int) = (0, 0) {
-        didSet {
-            importDelegate?.update(importedItemCount: importProgress.0, totalCount: importProgress.1, forService: self)
-        }
-    }
     
     var isImporting: Bool = false
 
