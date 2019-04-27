@@ -114,19 +114,26 @@ class DiscogsService: ThirdPartyService, AuthenticatedService, ImportableService
 
     func importData() {
         let context = DiscogsContainer.instance.context
+
         if let username = userName {
             importDelegate?.willBeginImporting(fromService: self)
             isImporting = true
             importDelegate?.didBeginImporting(fromService: self)
 
-            do {
-                try importCustomFields(inContext: context)
-                let customFields = try CustomField.all(inContext: context)
-                print("There are \(customFields.count) custom fields")
-                try importAllItems(forUserName: username, inContext: context)
-            } catch {
-                isImporting = false
-                importDelegate?.importFailed(fromService: self, withError: error)
+            let subcontext = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
+            subcontext.parent = context
+            subcontext.perform { [weak self] in
+                do {
+                    try self?.importCustomFields(inContext: subcontext)
+                    let customFields = try CustomField.all(inContext: subcontext)
+                    print("There are \(customFields.count) custom fields")
+                    try self?.importAllItems(forUserName: username, inContext: subcontext)
+                } catch {
+                    DispatchQueue.main.async { [weak self] in
+                        self?.isImporting = false
+                        self?.importDelegate?.importFailed(fromService: self, withError: error)
+                    }
+                }
             }
         }
     }
@@ -164,6 +171,10 @@ class DiscogsService: ThirdPartyService, AuthenticatedService, ImportableService
 //        let allItems: [FolderItem] = try context.fetch(allItemsRequest)
 
         (1..<totalPages).forEach { (pageNumber) in
+            guard isImporting else {
+                return
+            }
+
             DiscogsManager.discogs.collectionItems(inFolderID: 0,
                                                    userName: userName,
                                                    pageNumber: pageNumber,
@@ -180,7 +191,7 @@ class DiscogsService: ThirdPartyService, AuthenticatedService, ImportableService
                 }.cauterize()
         }
 
-        stopImportingData()
+//        stopImportingData()
     }
 
     func stopImportingData() {
@@ -193,6 +204,10 @@ class DiscogsService: ThirdPartyService, AuthenticatedService, ImportableService
                                        inFolder folder: Folder,
                                        intoContext context: NSManagedObjectContext,
                                        totalItems: Int?) {
+        guard isImporting else {
+            return
+        }
+
         items.forEach { (item) in
             importItem(item, inFolder: folder, intoContext: context)
         }
@@ -201,6 +216,10 @@ class DiscogsService: ThirdPartyService, AuthenticatedService, ImportableService
     private func importItem(_ item: CollectionFolderItem,
                             inFolder folder: Folder,
                             intoContext context: NSManagedObjectContext) {
+        guard isImporting else {
+            return
+        }
+
         print("Importing ", item)
 
         do {
