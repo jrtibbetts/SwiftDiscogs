@@ -322,7 +322,7 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="AEE-l6-SN7" userLabel="Import Stack">
                                                     <rect key="frame" x="0.0" y="116.33333333333333" width="343" height="46.666666666666671"/>
                                                     <subviews>
-                                                        <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="11c-bk-PpU">
+                                                        <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="11c-bk-PpU">
                                                             <rect key="frame" x="0.0" y="10.000000000000014" width="38" height="27"/>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                                             <state key="normal" title="Import"/>
@@ -331,19 +331,23 @@
                                                             </connections>
                                                         </button>
                                                         <progressView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="750" horizontalCompressionResistancePriority="500" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="x4F-UO-Kdz">
-                                                            <rect key="frame" x="84.333333333333329" y="22.333333333333329" width="171.33333333333337" height="2"/>
+                                                            <rect key="frame" x="68.666666666666671" y="22.333333333333329" width="205.66666666666663" height="2"/>
                                                         </progressView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="35/1983" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AiR-QV-zgu">
-                                                            <rect key="frame" x="299" y="16.666666666666671" width="44" height="13.333333333333336"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" horizontalCompressionResistancePriority="740" text="35/1983" textAlignment="right" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AiR-QV-zgu">
+                                                            <rect key="frame" x="305" y="10.333333333333327" width="38" height="26.333333333333329"/>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleCaption2"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="x4F-UO-Kdz" firstAttribute="width" secondItem="AEE-l6-SN7" secondAttribute="width" multiplier="0.6" id="8Cg-VC-wTb"/>
+                                                        <constraint firstItem="11c-bk-PpU" firstAttribute="width" secondItem="AiR-QV-zgu" secondAttribute="width" id="d5J-gU-VDg"/>
+                                                    </constraints>
                                                 </stackView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="x4F-UO-Kdz" firstAttribute="width" secondItem="Efc-ru-h2A" secondAttribute="width" multiplier="0.5" id="oZc-v4-036"/>
+                                                <constraint firstItem="AEE-l6-SN7" firstAttribute="width" secondItem="Efc-ru-h2A" secondAttribute="width" id="ga8-nz-Ucl"/>
                                             </constraints>
                                         </stackView>
                                     </subviews>
