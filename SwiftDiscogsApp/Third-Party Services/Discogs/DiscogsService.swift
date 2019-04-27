@@ -247,17 +247,3 @@ class DiscogsService: ThirdPartyService, AuthenticatedService, ImportableService
     }
 
 }
-
-public extension NSManagedObject {
-
-    static func all<T: NSManagedObject>(inContext context: NSManagedObjectContext,
-                                        sortedBy: [NSSortDescriptor] = []) throws -> [T] {
-        let entityName = String(describing: self)
-        let request: NSFetchRequest<T> = NSFetchRequest(entityName: entityName)
-        request.sortDescriptors = sortedBy
-        request.predicate = nil
-
-        return try context.fetch(request)
-    }
-
-}
