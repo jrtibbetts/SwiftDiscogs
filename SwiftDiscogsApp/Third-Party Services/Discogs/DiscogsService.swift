@@ -225,7 +225,7 @@ class DiscogsService: ThirdPartyService, AuthenticatedService, ImportableService
         let request: NSFetchRequest<Folder> = Folder.fetchRequest(sortDescriptors: [(\Folder.folderID).sortDescriptor()],
                                           predicate: NSPredicate(format: "folderID = \(folderID)"))
 
-        return try context.fetchOrCreateManagedObject(with: request) { (context) -> Folder in
+        return try context.fetchOrCreate(with: request) { (context) -> Folder in
             let folder = Folder(context: context)
             folder.folderID = Int64(folderID)
 
@@ -238,7 +238,7 @@ class DiscogsService: ThirdPartyService, AuthenticatedService, ImportableService
         let request: NSFetchRequest<FolderItem> = FolderItem.fetchRequest(sortDescriptors: [(\FolderItem.releaseVersionID).sortDescriptor()],
                                               predicate: NSPredicate(format: "releaseVersionID = \(releaseVersionID)"))
 
-        return try context.fetchOrCreateManagedObject(with: request) { (context) -> FolderItem in
+        return try context.fetchOrCreate(with: request) { (context) -> FolderItem in
             let item = FolderItem(context: context)
             item.releaseVersionID = Int64(releaseVersionID)
 
