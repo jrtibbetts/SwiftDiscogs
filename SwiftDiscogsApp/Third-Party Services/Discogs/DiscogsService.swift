@@ -127,6 +127,8 @@ class DiscogsService: ThirdPartyService, AuthenticatedService, ImportableService
 
             do {
                 try importCustomFields(inContext: context)
+                let customFields = try CustomField.all(inContext: context)
+                print("There are \(customFields.count) custom fields")
                 try importAllItems(forUserName: username, inContext: context)
             } catch {
                 isImporting = false
@@ -141,22 +143,14 @@ class DiscogsService: ThirdPartyService, AuthenticatedService, ImportableService
         }
 
         DiscogsManager.discogs.customCollectionFields(forUserName: userName).done { (fields) in
-
-            fields.fields?.forEach { (field) in
+            fields.fields?.forEach { (discogsField) in
+                do {
+                    _ = try discogsField.fetchOrCreateEntity(inContext: context)
+                } catch {
+                    print("Failed to create a custom field for \(discogsField)", error)
+                }
             }
         }.cauterize()
-    }
-
-    private func fetchOrCreateCustomField(forCollectionField: CollectionCustomField,
-                                          inContext context: NSManagedObjectContext) throws -> CustomField {
-        let request: NSFetchRequest<CustomField> = CustomField.fetchRequest(sortDescriptors: [(\CustomField.id).sortDescriptor()],
-                                                                            predicate: NSPredicate(format: "name = \(name)"))
-
-        return try context.fetchOrCreateManagedObject(with: request) { (context) -> CustomField in
-            let field = CustomField(context: context)
-
-            return field
-        }
     }
 
     func importAllItems(forUserName userName: String,
@@ -250,6 +244,20 @@ class DiscogsService: ThirdPartyService, AuthenticatedService, ImportableService
 
             return item
         }
+    }
+
+}
+
+public extension NSManagedObject {
+
+    static func all<T: NSManagedObject>(inContext context: NSManagedObjectContext,
+                                        sortedBy: [NSSortDescriptor] = []) throws -> [T] {
+        let entityName = String(describing: self)
+        let request: NSFetchRequest<T> = NSFetchRequest(entityName: entityName)
+        request.sortDescriptors = sortedBy
+        request.predicate = nil
+
+        return try context.fetch(request)
     }
 
 }
