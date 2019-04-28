@@ -111,7 +111,6 @@
 		96898441203DD4B500DE77BC /* get-artist-200.header in Resources */ = {isa = PBXBuildFile; fileRef = 968983EE203DD4B300DE77BC /* get-artist-200.header */; };
 		96898442203DD4B500DE77BC /* get-artist-404.header in Resources */ = {isa = PBXBuildFile; fileRef = 968983EF203DD4B300DE77BC /* get-artist-404.header */; };
 		96898443203DD4B500DE77BC /* get-release-rating-200.json in Resources */ = {isa = PBXBuildFile; fileRef = 968983F0203DD4B300DE77BC /* get-release-rating-200.json */; };
-		96898444203DD4B500DE77BC /* get-items-in-folder-200.json in Resources */ = {isa = PBXBuildFile; fileRef = 968983F2203DD4B300DE77BC /* get-items-in-folder-200.json */; };
 		96898445203DD4B500DE77BC /* get-folders-for-release-200.json in Resources */ = {isa = PBXBuildFile; fileRef = 968983F3203DD4B300DE77BC /* get-folders-for-release-200.json */; };
 		96898446203DD4B500DE77BC /* get-custom-fields-200.json in Resources */ = {isa = PBXBuildFile; fileRef = 968983F4203DD4B300DE77BC /* get-custom-fields-200.json */; };
 		96898447203DD4B500DE77BC /* post-create-folder-201.json in Resources */ = {isa = PBXBuildFile; fileRef = 968983F5203DD4B300DE77BC /* post-create-folder-201.json */; };
@@ -362,7 +361,6 @@
 		968983EE203DD4B300DE77BC /* get-artist-200.header */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "get-artist-200.header"; sourceTree = "<group>"; };
 		968983EF203DD4B300DE77BC /* get-artist-404.header */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "get-artist-404.header"; sourceTree = "<group>"; };
 		968983F0203DD4B300DE77BC /* get-release-rating-200.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "get-release-rating-200.json"; sourceTree = "<group>"; };
-		968983F2203DD4B300DE77BC /* get-items-in-folder-200.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "get-items-in-folder-200.json"; sourceTree = "<group>"; };
 		968983F3203DD4B300DE77BC /* get-folders-for-release-200.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "get-folders-for-release-200.json"; sourceTree = "<group>"; };
 		968983F4203DD4B300DE77BC /* get-custom-fields-200.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "get-custom-fields-200.json"; sourceTree = "<group>"; };
 		968983F5203DD4B300DE77BC /* post-create-folder-201.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "post-create-folder-201.json"; sourceTree = "<group>"; };
@@ -841,7 +839,6 @@
 				968983FA203DD4B300DE77BC /* get-folders-200.json */,
 				968983F3203DD4B300DE77BC /* get-folders-for-release-200.json */,
 				968983FF203DD4B300DE77BC /* get-items-in-folder-200.header */,
-				968983F2203DD4B300DE77BC /* get-items-in-folder-200.json */,
 				968983FE203DD4B300DE77BC /* post-add-item-to-folder-201.json */,
 				968983F5203DD4B300DE77BC /* post-create-folder-201.json */,
 				968983FD203DD4B300DE77BC /* post-edit-folder-metadata-200.json */,
@@ -1250,7 +1247,6 @@
 				9689844E203DD4B500DE77BC /* add-item-to-collection-folder-200.json in Resources */,
 				96898457203DD4B500DE77BC /* get-user-profile-200.header in Resources */,
 				9689842B203DD4B500DE77BC /* get-label-releases-200.header in Resources */,
-				96898444203DD4B500DE77BC /* get-items-in-folder-200.json in Resources */,
 				9689844C203DD4B500DE77BC /* get-folders-200.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
