@@ -225,7 +225,7 @@ class DiscogsService: ThirdPartyService, AuthenticatedService, ImportableService
         do {
             let coreDataItem = try fetchOrCreateItem(releaseVersionID: item.id,
                                                      inContext: context)
-            coreDataItem.rating = Int64(item.rating)
+            coreDataItem.rating = Int16(item.rating)
             folder.addToItems(coreDataItem)
             importedItemCount += 1
         } catch {
