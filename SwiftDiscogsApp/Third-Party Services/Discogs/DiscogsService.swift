@@ -166,9 +166,9 @@ class DiscogsService: ThirdPartyService, AuthenticatedService, ImportableService
         let pageSize = 100
         let totalPages = (importableItemCount / pageSize) + 1
 
-//        let allItemsRequest: NSFetchRequest<FolderItem> = FolderItem.fetchRequest()
-//        allItemsRequest.sortDescriptors = [(\FolderItem.releaseVersionID).sortDescriptor()]
-//        let allItems: [FolderItem] = try context.fetch(allItemsRequest)
+//        let allItemsRequest: NSFetchRequest<CollectionItem> = CollectionItem.fetchRequest()
+//        allItemsRequest.sortDescriptors = [(\CollectionItem.releaseVersionID).sortDescriptor()]
+//        let allItems: [CollectionItem] = try context.fetch(allItemsRequest)
 
         (1..<totalPages).forEach { (pageNumber) in
             guard isImporting else {
@@ -188,6 +188,7 @@ class DiscogsService: ThirdPartyService, AuthenticatedService, ImportableService
                                                     }
 
                                                     try context.save()
+                                                    try context.parent?.save()
                 }.cauterize()
         }
 
@@ -247,12 +248,12 @@ class DiscogsService: ThirdPartyService, AuthenticatedService, ImportableService
     }
 
     private func fetchOrCreateItem(releaseVersionID: Int,
-                                   inContext context: NSManagedObjectContext) throws -> FolderItem {
-        let request: NSFetchRequest<FolderItem> = FolderItem.fetchRequest(sortDescriptors: [(\FolderItem.releaseVersionID).sortDescriptor()],
+                                   inContext context: NSManagedObjectContext) throws -> CollectionItem {
+        let request: NSFetchRequest<CollectionItem> = CollectionItem.fetchRequest(sortDescriptors: [(\CollectionItem.releaseVersionID).sortDescriptor()],
                                               predicate: NSPredicate(format: "releaseVersionID = \(releaseVersionID)"))
 
-        return try context.fetchOrCreate(with: request) { (context) -> FolderItem in
-            let item = FolderItem(context: context)
+        return try context.fetchOrCreate(with: request) { (context) -> CollectionItem in
+            let item = CollectionItem(context: context)
             item.releaseVersionID = Int64(releaseVersionID)
 
             return item

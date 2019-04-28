@@ -3,7 +3,7 @@
 import CoreData
 import SwiftDiscogs
 
-public extension FolderItem {
+public extension CollectionItem {
 
     convenience init(fromDiscogsItem discogsItem: SwiftDiscogs.CollectionFolderItem,
                      inContext context: NSManagedObjectContext) {
