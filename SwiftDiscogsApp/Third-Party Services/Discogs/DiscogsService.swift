@@ -9,9 +9,13 @@ import SwiftDiscogs
 /// calls require authentication, so this is an `AuthenticatedService`.
 class DiscogsService: ThirdPartyService, AuthenticatedService, ImportableService {
 
+    // MARK: - Singleton
+
+    static let instance = DiscogsService()
+
     // MARK: - Initialization
 
-    init() {
+    private init() {
         super.init(name: "Discogs")
         image = #imageLiteral(resourceName: "Discogs")
         serviceDescription = """

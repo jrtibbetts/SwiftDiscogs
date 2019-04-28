@@ -7,7 +7,7 @@ final class ThirdPartyServicesViewController: UITableViewController{
 
     // MARK: - Properties
 
-    lazy var discogsService = DiscogsService()
+    lazy var discogsService = DiscogsService.instance
 
     lazy var iTunesService = MediaLibraryService()
 
