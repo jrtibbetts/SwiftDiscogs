@@ -125,8 +125,6 @@ class DiscogsService: ThirdPartyService, AuthenticatedService, ImportableService
             subcontext.perform { [weak self] in
                 do {
                     try self?.importCustomFields(inContext: subcontext)
-                    let customFields = try CustomField.all(inContext: subcontext)
-                    print("There are \(customFields.count) custom fields")
                     try self?.importAllItems(forUserName: username, inContext: subcontext)
                 } catch {
                     DispatchQueue.main.async { [weak self] in
