@@ -224,9 +224,8 @@ class DiscogsService: ThirdPartyService, AuthenticatedService, ImportableService
         print("Importing ", item)
 
         do {
-            let coreDataItem = try fetchOrCreateItem(releaseVersionID: item.id,
+            let coreDataItem = try fetchOrCreateItem(forDiscogsCollectionItem: item,
                                                      inContext: context)
-            coreDataItem.rating = Int16(item.rating)
             folder.addToItems(coreDataItem)
             importedItemCount += 1
         } catch {
@@ -247,16 +246,14 @@ class DiscogsService: ThirdPartyService, AuthenticatedService, ImportableService
         }
     }
 
-    private func fetchOrCreateItem(releaseVersionID: Int,
+    private func fetchOrCreateItem(forDiscogsCollectionItem discogsCollectionItem: SwiftDiscogs.CollectionFolderItem,
                                    inContext context: NSManagedObjectContext) throws -> CollectionItem {
+        let releaseVersionID = discogsCollectionItem.id
         let request: NSFetchRequest<CollectionItem> = CollectionItem.fetchRequest(sortDescriptors: [(\CollectionItem.releaseVersionID).sortDescriptor()],
                                               predicate: NSPredicate(format: "releaseVersionID = \(releaseVersionID)"))
 
         return try context.fetchOrCreate(with: request) { (context) -> CollectionItem in
-            let item = CollectionItem(context: context)
-            item.releaseVersionID = Int64(releaseVersionID)
-
-            return item
+            return CollectionItem(fromDiscogsItem: discogsCollectionItem, inContext: context)
         }
     }
 
