@@ -6,7 +6,7 @@ import XCTest
 class CollectionFolderItemsTests: DiscogsTestBase {
     
     func testDecodeCollectionValueJson() throws {
-        assert(try discogsObject(inLocalJsonFileNamed: "collection-folder-items-200"))
+        assert(try discogsObject(inLocalJsonFileNamed: "get-items-in-folder-200"))
     }
     
     fileprivate func assert(_ items: CollectionFolderItems) {

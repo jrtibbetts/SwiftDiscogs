@@ -124,7 +124,7 @@ public class MockDiscogs: MockClient, Discogs {
                                 userName: String,
                                 pageNumber: Int = 1,
                                 resultsPerPage: Int = 50) -> Promise<CollectionFolderItems> {
-        return apply(toJsonObjectIn: "collection-folder-items-200",
+        return apply(toJsonObjectIn: "get-items-in-folder-200",
                      error: DiscogsError.unknownUser(username: userName))
     }
     
