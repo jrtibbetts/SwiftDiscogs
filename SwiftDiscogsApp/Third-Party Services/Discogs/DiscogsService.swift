@@ -172,7 +172,7 @@ class DiscogsService: ThirdPartyService, AuthenticatedService, ImportableService
 
     func importFolder(fromDiscogsFolder discogsFolder: SwiftDiscogs.CollectionFolder,
                       inContext context: NSManagedObjectContext) throws {
-        let folder = try fetchOrCreateFolder(forDiscogsFolder: discogsFolder, inContext: context)
+        /* let folder */ _ = try fetchOrCreateFolder(forDiscogsFolder: discogsFolder, inContext: context)
 //        folder.items?.map { $0 as! SwiftDiscogs.CollectionFolderItem }.forEach { (discogsItem) in
 //            let discogsItemID = Int64(discogsItem.id)
 //            let item = context.fetch(NSFetchRequest)
