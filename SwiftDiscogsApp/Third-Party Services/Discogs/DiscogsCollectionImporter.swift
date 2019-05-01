@@ -7,7 +7,7 @@ import SwiftDiscogs
 
 public class DiscogsCollectionImporter: NSManagedObjectContext {
 
-    typealias CoreDataFieldsByID = [Int16: CollectionItemField]
+    typealias CoreDataFieldsByID = [Int16: CustomField]
 
     typealias CoreDataFoldersByID = [Int64: Folder]
 
@@ -35,10 +35,6 @@ public class DiscogsCollectionImporter: NSManagedObjectContext {
         }.cauterize()
     }
 
-    func importCollectionItem(fromDiscogsItem discogsItem: SwiftDiscogs.CollectionFolderItem) throws {
-
-    }
-
     /// Import the custom fields that the user has defined. The
     /// `CustomCollectionField.fetchOrCreateEntity()` is a bit different from
     /// the other managed objects' `fetchOrCreate()`s because there are two
@@ -49,16 +45,16 @@ public class DiscogsCollectionImporter: NSManagedObjectContext {
             return Promise<CoreDataFieldsByID> { (seal) in
                 var coreDataCustomFields = CoreDataFieldsByID()
 
-//            discogsFieldsResponse.fields?.forEach { [weak self] (discogsField) in
-//                guard let self = self else {
-//                    seal.fulfill(CoreDataFieldsByID())
-//                }
-//
-//                if let coreDataField = try CustomField.fetchOrCreateEntity(fromDiscogsField: discogsField,
-//                                                                           inContext: self) {
-//                    coreDataCustomFields[coreDataField.position] = coreDataField
-//                }
-//            }
+                try discogsFieldsResponse.fields?.forEach { [weak self] (discogsField) in
+                    guard let self = self else {
+                        seal.fulfill(CoreDataFieldsByID())
+                        return
+                    }
+
+                    if let coreDataField = try CustomField.fetchOrCreateEntity(fromDiscogsField: discogsField, inContext: self) {
+                        coreDataCustomFields[coreDataField.id] = coreDataField
+                    }
+                }
 
                 seal.fulfill(coreDataCustomFields)
             }
@@ -84,7 +80,7 @@ public class DiscogsCollectionImporter: NSManagedObjectContext {
     }
 
     func buildListOfDiscogsItems(inMasterFolder masterFolder: Folder,
-                                        fromDiscogsFolder discogsFolder: SwiftDiscogs.CollectionFolder) {
+                                 fromDiscogsFolder discogsFolder: SwiftDiscogs.CollectionFolder) {
         let count = discogsFolder.count
         let pageSize = 100
         let pageCount = (count / pageSize) + 1
@@ -131,14 +127,14 @@ public extension SwiftDiscogsApp.CollectionItemField {
         return NSPredicate(format: "collectionItem.releaseVersionID == \(releaseVersionID)")
             + NSPredicate(format: "customField.id == \(Int64(fieldID))")
     }
-//
-//    func update(withDiscogsNote discogsNote: SwiftDiscogs.CollectionFolderItem.Note,
-//                discogsField: SwiftDiscogs.,
-//                collectionItem: SwiftDiscogsApp.CollectionItem) {
-//        self.value = discogsNote.value
-//        self.customField = discogsField
-//        self.collectionItem = collectionItem
-//    }
+
+    func update(withDiscogsNote discogsNote: SwiftDiscogs.CollectionFolderItem.Note,
+                customField: SwiftDiscogsApp.CustomField,
+                collectionItem: SwiftDiscogsApp.CollectionItem) {
+        self.value = discogsNote.value
+        self.customField = customField
+        self.collectionItem = collectionItem
+    }
 
 }
 
