@@ -26,6 +26,7 @@
         <attribute name="lines" attributeType="Integer 16" minValueString="1" defaultValueString="1" usesScalarValueType="YES" syncable="YES"/>
     </entity>
     <entity name="Folder" representedClassName="Folder" syncable="YES" codeGenerationType="class">
+        <attribute name="expectedItemCount" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="folderID" attributeType="Integer 64" minValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="name" attributeType="String" syncable="YES"/>
         <relationship name="items" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CollectionItem" inverseName="folders" inverseEntity="CollectionItem" syncable="YES"/>
@@ -39,6 +40,6 @@
         <element name="CustomDropdownField" positionX="-144" positionY="27" width="128" height="60"/>
         <element name="CustomField" positionX="-162" positionY="-9" width="128" height="120"/>
         <element name="CustomTextAreaField" positionX="-153" positionY="18" width="128" height="60"/>
-        <element name="Folder" positionX="-313.21484375" positionY="-72.5" width="128" height="119"/>
+        <element name="Folder" positionX="-313.21484375" positionY="-72.5" width="128" height="134"/>
     </elements>
 </model>
