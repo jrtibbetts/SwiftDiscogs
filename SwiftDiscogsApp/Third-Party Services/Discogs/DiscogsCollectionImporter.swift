@@ -8,7 +8,17 @@ import SwiftDiscogs
 public class DiscogsCollectionImporter: NSManagedObjectContext {
 
     public enum ImportError: Error {
+
+        /// If no Discogs folder with an ID of `0` was retrieved. Since *every*
+        /// user's collection has a `0` folder, this probably indicates that
+        /// `Discogs.collectionFolders()` failed.
+        case noAllFolderWasFound
+
+        /// If a `weak self` in a block became `nil` before the block was
+        /// executed. This is theoretically possible if the block operation
+        /// was queued for a long time.
         case selfWentOutOfScope
+
     }
 
     typealias CoreDataFieldsByID = [Int16: CustomField]
