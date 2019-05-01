@@ -27,12 +27,14 @@ public class DiscogsCollectionImporter: NSManagedObjectContext {
 
     // MARK: - Import Functions
 
-    public func importDiscogsCollection() {
-        importDiscogsCustomFields().then { (coreDataFields) -> Promise<CoreDataFoldersByID> in
+    public func importDiscogsCollection(forUserName userName: String) -> Promise<Void> {
+        self.userName = userName
+
+        return importDiscogsCustomFields().then { (coreDataFields) -> Promise<CoreDataFoldersByID> in
             self.importDiscogsFolders()
         }.done { (coreDataFolders) in
             self.importDiscogsItems()
-        }.cauterize()
+        }
     }
 
     /// Import the custom fields that the user has defined. The
