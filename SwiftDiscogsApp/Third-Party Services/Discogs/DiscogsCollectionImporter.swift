@@ -7,6 +7,10 @@ import SwiftDiscogs
 
 public class DiscogsCollectionImporter: NSManagedObjectContext {
 
+    public enum ImportError: Error {
+        case selfWentOutOfScope
+    }
+
     typealias CoreDataFieldsByID = [Int16: CustomField]
 
     typealias CoreDataFoldersByID = [Int64: Folder]
@@ -23,17 +27,13 @@ public class DiscogsCollectionImporter: NSManagedObjectContext {
     /// IDs.
     private var discogsItems: [Int: SwiftDiscogs.CollectionFolderItem] = [:]
 
-    private var userName: String = ""
-
     // MARK: - Import Functions
 
     public func importDiscogsCollection(forUserName userName: String) -> Promise<Void> {
-        self.userName = userName
-
-        return importDiscogsCustomFields().then { (coreDataFields) -> Promise<CoreDataFoldersByID> in
-            self.importDiscogsFolders()
+        return importDiscogsCustomFields(forUserName: userName).then { (coreDataFields) -> Promise<CoreDataFoldersByID> in
+            self.importDiscogsFolders(forUserName: userName)
         }.done { (coreDataFolders) in
-            self.importDiscogsItems()
+            self.importDiscogsItems(forUserName: userName)
         }
     }
 
@@ -42,14 +42,14 @@ public class DiscogsCollectionImporter: NSManagedObjectContext {
     /// the other managed objects' `fetchOrCreate()`s because there are two
     /// custom field types (dropdown and textarea), and the appropriate one has
     /// to be created.
-    func importDiscogsCustomFields() -> Promise<CoreDataFieldsByID> {
+    private func importDiscogsCustomFields(forUserName userName: String) -> Promise<CoreDataFieldsByID> {
         return DiscogsManager.discogs.customCollectionFields(forUserName: userName).then { (discogsFieldsResponse) -> Promise<CoreDataFieldsByID> in
             return Promise<CoreDataFieldsByID> { (seal) in
                 var coreDataCustomFields = CoreDataFieldsByID()
 
                 try discogsFieldsResponse.fields?.forEach { [weak self] (discogsField) in
                     guard let self = self else {
-                        seal.fulfill(CoreDataFieldsByID())
+                        seal.reject(ImportError.selfWentOutOfScope)
                         return
                     }
 
@@ -63,12 +63,15 @@ public class DiscogsCollectionImporter: NSManagedObjectContext {
         }
     }
 
-    func importDiscogsFolders() -> Promise<CoreDataFoldersByID> {
+    private func importDiscogsFolders(forUserName userName: String) -> Promise<CoreDataFoldersByID> {
         return DiscogsManager.discogs.collectionFolders(forUserName: userName).then { [weak self] (discogsFoldersResponse) -> Promise<CoreDataFoldersByID> in
             return Promise<CoreDataFoldersByID> { (seal) in
                 var coreDataFolders = CoreDataFoldersByID()
 
-                guard let self = self else { return }
+                guard let self = self else {
+                    seal.reject(ImportError.selfWentOutOfScope)
+                    return
+                }
 
                 try discogsFoldersResponse.folders.forEach { (discogsFolder) in
                     let request: NSFetchRequest<Folder> = Folder.fetchRequest(sortDescriptors: [(\Folder.folderID).sortDescriptor()],
@@ -85,8 +88,9 @@ public class DiscogsCollectionImporter: NSManagedObjectContext {
         }
     }
 
-    func buildListOfDiscogsItems(inMasterFolder masterFolder: Folder,
-                                 fromDiscogsFolder discogsFolder: SwiftDiscogs.CollectionFolder) {
+    private func buildListOfDiscogsItems(forUserName userName: String,
+                                         inMasterFolder masterFolder: Folder,
+                                         fromDiscogsFolder discogsFolder: SwiftDiscogs.CollectionFolder) {
         let count = discogsFolder.count
         let pageSize = 100
         let pageCount = (count / pageSize) + 1
@@ -100,7 +104,7 @@ public class DiscogsCollectionImporter: NSManagedObjectContext {
         }
     }
 
-    func importDiscogsItems() {
+    private func importDiscogsItems(forUserName userName: String) {
 
     }
 
