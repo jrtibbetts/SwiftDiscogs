@@ -68,6 +68,7 @@
 		968102072272BA20003E6D82 /* SwiftDiscogs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 968983A8203D427A00DE77BC /* SwiftDiscogs.framework */; };
 		968102082272BA20003E6D82 /* SwiftDiscogs.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 968983A8203D427A00DE77BC /* SwiftDiscogs.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9681021122737CAC003E6D82 /* CollectionCustomField+CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9681021022737CAC003E6D82 /* CollectionCustomField+CoreData.swift */; };
+		9686788622794EDB00929755 /* DiscogsCollectionImporterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9686788522794EDB00929755 /* DiscogsCollectionImporterTests.swift */; };
 		968983B2203D427B00DE77BC /* SwiftDiscogs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 968983A8203D427A00DE77BC /* SwiftDiscogs.framework */; };
 		968983B9203D427B00DE77BC /* SwiftDiscogs.h in Headers */ = {isa = PBXBuildFile; fileRef = 968983AB203D427A00DE77BC /* SwiftDiscogs.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		96898419203DD4B500DE77BC /* Release.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968983C3203DD4B200DE77BC /* Release.swift */; };
@@ -315,6 +316,7 @@
 		968101D5226E21D2003E6D82 /* DiscogsCollection.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DiscogsCollection.xcdatamodel; sourceTree = "<group>"; };
 		968101D7226EC245003E6D82 /* DiscogsContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscogsContainer.swift; sourceTree = "<group>"; };
 		9681021022737CAC003E6D82 /* CollectionCustomField+CoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CollectionCustomField+CoreData.swift"; sourceTree = "<group>"; };
+		9686788522794EDB00929755 /* DiscogsCollectionImporterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscogsCollectionImporterTests.swift; sourceTree = "<group>"; };
 		968983A8203D427A00DE77BC /* SwiftDiscogs.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftDiscogs.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		968983AB203D427A00DE77BC /* SwiftDiscogs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftDiscogs.h; sourceTree = "<group>"; };
 		968983AC203D427A00DE77BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -546,6 +548,7 @@
 				96CA186C2082F19C006FF5F0 /* Search */,
 				AD9C68DF22428AB50005D74A /* SectionedModelTests.swift */,
 				9610FAF2223B378C00710F43 /* Song */,
+				9686788322794CB500929755 /* Third-Party Services */,
 				968101C4226AB47A003E6D82 /* Views */,
 			);
 			path = SwiftDiscogsAppTests;
@@ -669,6 +672,22 @@
 				968101D0226C36DE003E6D82 /* MediaLibraryService.swift */,
 			);
 			path = iTunes;
+			sourceTree = "<group>";
+		};
+		9686788322794CB500929755 /* Third-Party Services */ = {
+			isa = PBXGroup;
+			children = (
+				9686788422794EC600929755 /* Discogs */,
+			);
+			path = "Third-Party Services";
+			sourceTree = "<group>";
+		};
+		9686788422794EC600929755 /* Discogs */ = {
+			isa = PBXGroup;
+			children = (
+				9686788522794EDB00929755 /* DiscogsCollectionImporterTests.swift */,
+			);
+			path = Discogs;
 			sourceTree = "<group>";
 		};
 		9689839E203D427A00DE77BC = {
@@ -1392,6 +1411,7 @@
 				9610FB0722431ED100710F43 /* ArtistSearchResultCellTests.swift in Sources */,
 				9610FB0B22433EC100710F43 /* MediaSourcesModelTests.swift in Sources */,
 				AD9C68E022428AB50005D74A /* SectionedModelTests.swift in Sources */,
+				9686788622794EDB00929755 /* DiscogsCollectionImporterTests.swift in Sources */,
 				968101C6226AB499003E6D82 /* ImportStatusViewTests.swift in Sources */,
 				9610FAF4223B37B100710F43 /* SongModelTests.swift in Sources */,
 				96CA187020845375006FF5F0 /* DiscogsArtistViewControllerTests.swift in Sources */,
