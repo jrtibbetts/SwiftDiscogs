@@ -3,6 +3,7 @@
 @testable import SwiftDiscogs
 @testable import SwiftDiscogsApp
 import CoreData
+import Stylobate
 import XCTest
 
 class DiscogsCollectionImporterTests: XCTestCase {
@@ -25,9 +26,19 @@ class DiscogsCollectionImporterTests: XCTestCase {
     }
 
     func testImportDiscogsCollectionWithValidUserNameOk() throws {
-        let exp = expectation(description: "Importing")
-        importer.importDiscogsCollection(forUserName: "doesn't matter").done {
-            exp.fulfill()
+        let exp = expectation(description: "Importing 3 fields")
+        importer.importDiscogsCollection(forUserName: "doesn't matter").done { [unowned self] in
+            let fieldsRequest: NSFetchRequest<CustomField> = CustomField.fetchRequest()
+            fieldsRequest.sortDescriptors = [(\CustomField.name).sortDescriptor()]
+            let fields = try self.importer.fetch(fieldsRequest)
+
+            let foldersRequest: NSFetchRequest<Folder> = Folder.fetchRequest()
+            foldersRequest.sortDescriptors = [(\Folder.folderID).sortDescriptor()]
+            let folders = try self.importer.fetch(foldersRequest)
+
+            if fields.count == 3 && folders.count == 2 && folders[0].name == "All" {
+                exp.fulfill()
+            }
         }.cauterize()
 
         wait(for: [exp], timeout: 20.0)

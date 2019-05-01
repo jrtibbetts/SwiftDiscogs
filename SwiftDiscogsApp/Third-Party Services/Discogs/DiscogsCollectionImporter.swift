@@ -64,20 +64,24 @@ public class DiscogsCollectionImporter: NSManagedObjectContext {
     }
 
     func importDiscogsFolders() -> Promise<CoreDataFoldersByID> {
-        return DiscogsManager.discogs.collectionFolders(forUserName: userName).then { (discogsFoldersResponse) -> Promise<CoreDataFoldersByID> in
+        return DiscogsManager.discogs.collectionFolders(forUserName: userName).then { [weak self] (discogsFoldersResponse) -> Promise<CoreDataFoldersByID> in
             return Promise<CoreDataFoldersByID> { (seal) in
-                seal.fulfill(CoreDataFoldersByID())
-            }
-//            guard let self = self else { return }
+                var coreDataFolders = CoreDataFoldersByID()
 
-//            try discogsFoldersResponse.folders.forEach { (discogsFolder) in
-//                let request: NSFetchRequest<Folder> = Folder.fetchRequest(sortDescriptors: [(\Folder.folderID).sortDescriptor()])
-//                let coreDataFolder: Folder = try self.fetchOrCreate(withRequest: request) { (folder) in
-//                    folder.update(withDiscogsFolder: discogsFolder)
-//                }
-//
-//                self.coreDataFolders[coreDataFolder.folderID] = coreDataFolder
-//            }
+                guard let self = self else { return }
+
+                try discogsFoldersResponse.folders.forEach { (discogsFolder) in
+                    let request: NSFetchRequest<Folder> = Folder.fetchRequest(sortDescriptors: [(\Folder.folderID).sortDescriptor()],
+                                                                              predicate: NSPredicate(format: "folderID == \(discogsFolder.id)"))
+                    let coreDataFolder: Folder = try self.fetchOrCreate(withRequest: request) { (folder) in
+                        folder.update(withDiscogsFolder: discogsFolder)
+                    }
+
+                    coreDataFolders[coreDataFolder.folderID] = coreDataFolder
+                }
+
+                seal.fulfill(coreDataFolders)
+            }
         }
     }
 
