@@ -43,7 +43,11 @@ public class DiscogsCollectionImporter: NSManagedObjectContext {
         return importDiscogsCustomFields(forUserName: userName).then { (coreDataFields) -> Promise<CoreDataFoldersByID> in
             self.importDiscogsFolders(forUserName: userName)
         }.done { (coreDataFolders) in
-            self.importDiscogsItems(forUserName: userName)
+            guard let masterFolder = coreDataFolders[Int64(0)] else {
+                throw ImportError.noAllFolderWasFound
+            }
+
+            self.importDiscogsItems(forUserName: userName, inMasterFolder: masterFolder)
         }
     }
 
@@ -98,24 +102,20 @@ public class DiscogsCollectionImporter: NSManagedObjectContext {
         }
     }
 
-    private func buildListOfDiscogsItems(forUserName userName: String,
-                                         inMasterFolder masterFolder: Folder,
-                                         fromDiscogsFolder discogsFolder: SwiftDiscogs.CollectionFolder) {
-        let count = discogsFolder.count
+    private func importDiscogsItems(forUserName userName: String,
+                                    inMasterFolder masterFolder: Folder) {
+        let count = Int(masterFolder.expectedItemCount)
         let pageSize = 100
         let pageCount = (count / pageSize) + 1
+        let folderID = Int(masterFolder.folderID)
 
         (1..<pageCount).forEach { (pageNumber) in
-            DiscogsManager.discogs.collectionItems(inFolderID: discogsFolder.id,
+            DiscogsManager.discogs.collectionItems(inFolderID: folderID,
                                                    userName: userName,
                                                    pageNumber: pageNumber,
                                                    resultsPerPage: pageSize).done { (itemsResult) in
-            }.cauterize()
+                }.cauterize()
         }
-    }
-
-    private func importDiscogsItems(forUserName userName: String) {
-
     }
 
 }
@@ -163,6 +163,7 @@ public extension SwiftDiscogsApp.Folder {
     func update(withDiscogsFolder discogsFolder: SwiftDiscogs.CollectionFolder) {
         self.folderID = Int64(discogsFolder.id)
         self.name = discogsFolder.name
+        self.expectedItemCount = Int64(discogsFolder.count)
     }
 
 }
