@@ -148,7 +148,7 @@ class DiscogsService: ThirdPartyService, AuthenticatedService, ImportableService
         DiscogsManager.discogs.customCollectionFields(forUserName: userName).done { (fields) in
             fields.fields?.forEach { (discogsField) in
                 do {
-                    _ = try discogsField.fetchOrCreateEntity(inContext: context)
+                    _ = try CustomField.fetchOrCreateEntity(fromDiscogsField: discogsField, inContext: context)
                 } catch {
                     print("Failed to create a custom field for \(discogsField)", error)
                 }
@@ -158,19 +158,36 @@ class DiscogsService: ThirdPartyService, AuthenticatedService, ImportableService
 
     func importAllItems(forUserName userName: String,
                         inContext context: NSManagedObjectContext) throws {
-        guard let importableItemCount = importableItemCount else {
+        guard importableItemCount != nil else {
             return
         }
 
-        let folder = try fetchOrCreateFolder(folderID: 0,
-                                             inContext: context)
-        folder.name = "Everything"
-        let pageSize = 100
-        let totalPages = (importableItemCount / pageSize) + 1
+        DiscogsManager.discogs.collectionFolders(forUserName: userName).done { [weak self] (discogsFoldersResult) in
+            try discogsFoldersResult.folders.forEach { (discogsFolder) in
+                try self?.importFolder(fromDiscogsFolder: discogsFolder, inContext: context)
+            }
+            }.catch { (error) in
+        }
+    }
 
-//        let allItemsRequest: NSFetchRequest<CollectionItem> = CollectionItem.fetchRequest()
-//        allItemsRequest.sortDescriptors = [(\CollectionItem.releaseVersionID).sortDescriptor()]
-//        let allItems: [CollectionItem] = try context.fetch(allItemsRequest)
+    func importFolder(fromDiscogsFolder discogsFolder: SwiftDiscogs.CollectionFolder,
+                      inContext context: NSManagedObjectContext) throws {
+        let folder = try fetchOrCreateFolder(forDiscogsFolder: discogsFolder, inContext: context)
+//        folder.items?.map { $0 as! SwiftDiscogs.CollectionFolderItem }.forEach { (discogsItem) in
+//            let discogsItemID = Int64(discogsItem.id)
+//            let item = context.fetch(NSFetchRequest)
+//        }
+    }
+
+    func importMasterFolder(fromDiscogsFolder discogsFolder: SwiftDiscogs.CollectionFolder,
+                            inContext context: NSManagedObjectContext) throws {
+        guard let userName = userName else {
+            return
+        }
+
+        let folder = try fetchOrCreateFolder(forDiscogsFolder: discogsFolder, inContext: context)
+        let pageSize = 100
+        let totalPages = (discogsFolder.count / pageSize) + 1
 
         (1..<totalPages).forEach { (pageNumber) in
             guard isImporting else {
@@ -223,7 +240,7 @@ class DiscogsService: ThirdPartyService, AuthenticatedService, ImportableService
             return
         }
 
-        print("Importing ", item)
+        print("Importing ", String(describing: item.basicInformation?.title))
 
         do {
             let coreDataItem = try fetchOrCreateItem(forDiscogsCollectionItem: item,
@@ -235,16 +252,14 @@ class DiscogsService: ThirdPartyService, AuthenticatedService, ImportableService
         }
     }
 
-    private func fetchOrCreateFolder(folderID: Int,
+    private func fetchOrCreateFolder(forDiscogsFolder discogsFolder: SwiftDiscogs.CollectionFolder,
                                      inContext context: NSManagedObjectContext) throws -> Folder {
+        let folderID = discogsFolder.id
         let request: NSFetchRequest<Folder> = Folder.fetchRequest(sortDescriptors: [(\Folder.folderID).sortDescriptor()],
                                           predicate: NSPredicate(format: "folderID = \(folderID)"))
 
-        return try context.fetchOrCreate(with: request) { (context) -> Folder in
-            let folder = Folder(context: context)
-            folder.folderID = Int64(folderID)
-
-            return folder
+        return try context.fetchOrCreate(withRequest: request) { (folder) in
+            folder.update(withDiscogsFolder: discogsFolder)
         }
     }
 
@@ -254,9 +269,50 @@ class DiscogsService: ThirdPartyService, AuthenticatedService, ImportableService
         let request: NSFetchRequest<CollectionItem> = CollectionItem.fetchRequest(sortDescriptors: [(\CollectionItem.releaseVersionID).sortDescriptor()],
                                               predicate: NSPredicate(format: "releaseVersionID = \(releaseVersionID)"))
 
-        return try context.fetchOrCreate(with: request) { (context) -> CollectionItem in
-            return CollectionItem(fromDiscogsItem: discogsCollectionItem, inContext: context)
+        return try context.fetchOrCreate(withRequest: request) { (collectionItem) in
+//            collectionItem.update(withDiscogsItem: discogsCollectionItem)
         }
+    }
+
+}
+
+public extension NSManagedObjectContext {
+
+    /// Fetch the first existing object that matches the request, or create a
+    /// new one, then update the object with the block that's passed in. Note
+    /// that this will apply the block _even if_ the object already existed.
+    /// Call `hasChanges` on the returned object to see whether the update
+    /// block did anything meaningful.
+    ///
+    /// - parameter request: The fetch request. This should be constructed in
+    ///             such a way that a single object (or `nil`) is returned,
+    ///             because only the first matched object will be updated and
+    ///             returned.
+    /// - parameter update: The block to apply to the fetched or created
+    ///             managed object. This will be applied to _every_ object,
+    ///             even if it already exists, so it shouldn't be overly
+    ///             complex. If you don't want the update to be applied to
+    ///             everything, call
+    ///             `NSManagedObjectContext.fetchOrCreate(with:initializer:)`
+    ///             instead.
+    ///
+    /// - returns:  An existing or new instance of `T`, updated by passing it
+    ///             into the `update` block.
+    func fetchOrCreate<T: NSManagedObject>(withRequest request: NSFetchRequest<T>,
+                                           updatedWith update: (T) -> Void) throws -> T {
+        // This could all be a one-liner, but breaking it out like this makes
+        // it easier to debug or add logging later.
+        let object: T
+
+        if let fetchedObject = try self.fetch(request).first {
+            object = fetchedObject
+        } else {
+            object = T(context: self)
+        }
+
+        update(object)
+
+        return object
     }
 
 }

@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14490.99" systemVersion="18E226" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="CollectionItem" representedClassName="CollectionItem" syncable="YES" codeGenerationType="class">
+        <attribute name="notes" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="rating" optional="YES" attributeType="Integer 16" minValueString="0" maxValueString="5" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="releaseVersionID" attributeType="Integer 64" minValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <relationship name="customFieldValues" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="CollectionItemField" inverseName="collectionItems" inverseEntity="CollectionItemField" syncable="YES"/>
+        <relationship name="customFieldValues" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="CollectionItemField" inverseName="collectionItem" inverseEntity="CollectionItemField" syncable="YES"/>
         <relationship name="folders" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Folder" inverseName="items" inverseEntity="Folder" syncable="YES"/>
     </entity>
     <entity name="CollectionItemField" representedClassName="CollectionItemField" syncable="YES" codeGenerationType="class">
         <attribute name="value" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="collectionItems" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CollectionItem" inverseName="customFieldValues" inverseEntity="CollectionItem" syncable="YES"/>
-        <relationship name="customFields" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CustomField" inverseName="collectionItemFields" inverseEntity="CustomField" syncable="YES"/>
+        <relationship name="collectionItem" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CollectionItem" inverseName="customFieldValues" inverseEntity="CollectionItem" syncable="YES"/>
+        <relationship name="customField" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CustomField" inverseName="collectionItemFields" inverseEntity="CustomField" syncable="YES"/>
     </entity>
     <entity name="CustomDropdownField" representedClassName="CustomDropdownField" parentEntity="CustomField" syncable="YES" codeGenerationType="class">
         <attribute name="values" attributeType="String" syncable="YES"/>
@@ -19,7 +20,7 @@
         <attribute name="isPublic" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="name" attributeType="String" syncable="YES"/>
         <attribute name="position" attributeType="Integer 16" usesScalarValueType="YES" syncable="YES"/>
-        <relationship name="collectionItemFields" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="CollectionItemField" inverseName="customFields" inverseEntity="CollectionItemField" syncable="YES"/>
+        <relationship name="collectionItemFields" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="CollectionItemField" inverseName="customField" inverseEntity="CollectionItemField" syncable="YES"/>
     </entity>
     <entity name="CustomTextAreaField" representedClassName="CustomTextAreaField" parentEntity="CustomField" syncable="YES" codeGenerationType="class">
         <attribute name="lines" attributeType="Integer 16" minValueString="1" defaultValueString="1" usesScalarValueType="YES" syncable="YES"/>
@@ -33,11 +34,11 @@
         </fetchedProperty>
     </entity>
     <elements>
+        <element name="CollectionItem" positionX="-40.59765625" positionY="-42.48828125" width="128" height="30"/>
+        <element name="CollectionItemField" positionX="-180" positionY="-9" width="128" height="90"/>
         <element name="CustomDropdownField" positionX="-144" positionY="27" width="128" height="60"/>
         <element name="CustomField" positionX="-162" positionY="-9" width="128" height="120"/>
         <element name="CustomTextAreaField" positionX="-153" positionY="18" width="128" height="60"/>
         <element name="Folder" positionX="-313.21484375" positionY="-72.5" width="128" height="119"/>
-        <element name="CollectionItem" positionX="-40.59765625" positionY="-42.48828125" width="128" height="105"/>
-        <element name="CollectionItemField" positionX="-180" positionY="-9" width="128" height="90"/>
     </elements>
 </model>
