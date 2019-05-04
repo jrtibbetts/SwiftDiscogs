@@ -27,29 +27,38 @@ public class DiscogsCollectionImporter: NSManagedObjectContext {
 
     // MARK: - Properties
 
-    /// The mapping of the fetched or created `CollectionItem`s, keyed by their
-    /// `CollectionItem.releaseVersionID`s.
-    private var coreDataItems: [Int64: CollectionItem] = [:]
-
     private var discogs: Discogs = DiscogsManager.discogs
 
     // MARK: - Import Functions
 
     public func importDiscogsCollection(forUserName userName: String) -> Promise<Void> {
-        return importDiscogsCustomFields(forUserName: userName).then { (coreDataFields) -> Promise<CoreDataFoldersByID> in
-            self.importDiscogsFolders(forUserName: userName)
-            }.then { (coreDataFolders) -> Promise<Void> in
-                guard let masterFolder = coreDataFolders[Int64(0)] else {
-                    throw ImportError.noAllFolderWasFound
-                }
+        return discogs.customCollectionFields(forUserName: userName).then { (discogsFieldsResult) in
+            self.createCoreDataFields(discogsFieldsResult.fields ?? [])
+        }.then { (coreDataFields) in
+            self.discogs.collectionFolders(forUserName: userName)
+        }.then { (discogsFoldersResult) in
+            self.createCoreDataFolders(forDiscogsFolders: discogsFoldersResult.folders)
+        }.then { (coreDataFoldersByID) -> Promise<Void> in
+            return Promise<Void>()
+        }
 
-                return self.importDiscogsItems(forUserName: userName,
-                                        inMasterFolder: masterFolder).done { (discogsItemsResults) in
-//                    discogsItemsResults.forEach { (result) in
-//                        result
-//                    }
-                }
-          }
+//        return importDiscogsCustomFields(forUserName: userName).then { (coreDataFields) -> Promise<CoreDataFoldersByID> in
+//            self.discogsFolders(forUserName: userName).then { (discogsFolders) in
+//                se
+//            })
+//            self.importDiscogsFolders(forUserName: userName)
+//            }.then { (coreDataFolders) -> Promise<Void> in
+//                guard let masterFolder = coreDataFolders[Int64(0)] else {
+//                    throw ImportError.noAllFolderWasFound
+//                }
+//
+//                return self.downloadDiscogsItems(forUserName: userName,
+//                                                 inDiscogsFolder: masterFolder).done { (discogsItemsResults) in
+////                    discogsItemsResults.forEach { (result) in
+////                        result
+////                    }
+//                }
+//          }
     }
 
     /// Import the custom fields that the user has defined. The
@@ -57,30 +66,27 @@ public class DiscogsCollectionImporter: NSManagedObjectContext {
     /// the other managed objects' `fetchOrCreate()`s because there are two
     /// custom field types (dropdown and textarea), and the appropriate one has
     /// to be created.
-    public func importDiscogsCustomFields(forUserName userName: String) -> Promise<CoreDataFieldsByID> {
-        return discogs.customCollectionFields(forUserName: userName).then { (discogsFieldsResponse) -> Promise<CoreDataFieldsByID> in
-            return Promise<CoreDataFieldsByID> { (seal) in
-                var coreDataCustomFields = CoreDataFieldsByID()
-
-                try discogsFieldsResponse.fields?.forEach { [weak self] (discogsField) in
-                    guard let self = self else {
-                        seal.reject(ImportError.selfWentOutOfScope)
-                        return
-                    }
-
-                    if let coreDataField = try CustomField.fetchOrCreateEntity(fromDiscogsField: discogsField, inContext: self) {
-                        coreDataCustomFields[coreDataField.id] = coreDataField
-                    }
+    public func createCoreDataFields(_ discogsFields: [CollectionCustomField]) -> Promise<[CustomField]> {
+        return Promise<[CustomField]> { (seal) in
+            let coreDataFields: [CustomField] = try discogsFields.compactMap { [weak self] (discogsField) in
+                guard let self = self else {
+                    throw ImportError.selfWentOutOfScope
                 }
 
-                seal.fulfill(coreDataCustomFields)
+                return try CustomField.fetchOrCreateEntity(fromDiscogsField: discogsField, inContext: self)
             }
+
+            seal.fulfill(coreDataFields)
         }
     }
 
-    public func importDiscogsFolders(forUserName userName: String) -> Promise<CoreDataFoldersByID> {
-        return discogs.collectionFolders(forUserName: userName).then { [unowned self] (discogsFoldersResponse) -> Promise<CoreDataFoldersByID> in
-            return self.createCoreDataFolders(forDiscogsFolders: discogsFoldersResponse.folders)
+    public func discogsFolders(forUserName userName: String) -> Promise<[CollectionFolder]> {
+        return Promise<[CollectionFolder]> { (seal) in
+            discogs.collectionFolders(forUserName: userName).done { (foldersResult) in
+                seal.fulfill(foldersResult.folders)
+                }.catch { (error) in
+                    seal.reject(error)
+                }
         }
     }
 
@@ -89,8 +95,7 @@ public class DiscogsCollectionImporter: NSManagedObjectContext {
             var coreDataFolders = CoreDataFoldersByID()
 
             guard let self = self else {
-                seal.reject(ImportError.selfWentOutOfScope)
-                return
+                throw ImportError.selfWentOutOfScope
             }
 
             try discogsFolders.forEach { (discogsFolder) in
@@ -107,12 +112,12 @@ public class DiscogsCollectionImporter: NSManagedObjectContext {
         }
     }
 
-    public func importDiscogsItems(forUserName userName: String,
-                                    inMasterFolder masterFolder: Folder) -> Guarantee<[Result<CollectionFolderItems>]> {
-        let count = Int(masterFolder.expectedItemCount)
+    public func downloadDiscogsItems(forUserName userName: String,
+                                     inDiscogsFolder discogsFolder: CollectionFolder) -> Guarantee<[Result<CollectionFolderItems>]> {
+        let count = discogsFolder.count
         let pageSize = 100
         let pageCount = (count / pageSize) + 1
-        let folderID = Int(masterFolder.folderID)
+        let folderID = discogsFolder.id
 
         let pagePromises: [Promise<CollectionFolderItems>] = (1..<pageCount).map { (pageNumber) -> Promise<CollectionFolderItems> in
             return discogs.collectionItems(inFolderID: folderID,
