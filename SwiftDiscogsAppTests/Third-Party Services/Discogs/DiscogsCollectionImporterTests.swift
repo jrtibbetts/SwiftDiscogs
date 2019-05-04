@@ -41,7 +41,7 @@ class DiscogsCollectionImporterTests: XCTestCase {
             }
         }.cauterize()
 
-        wait(for: [exp], timeout: 5.0)
+        wait(for: [exp], timeout: 20.0)
     }
 
     /// An `NSManagedObjectContext` backed by an in-memory store to make it
