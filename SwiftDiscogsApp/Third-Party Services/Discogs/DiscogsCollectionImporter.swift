@@ -47,7 +47,6 @@ public class DiscogsCollectionImporter: NSManagedObjectContext {
         }.then { (discogsFoldersResult) in
             self.createCoreDataFolders(forDiscogsFolders: discogsFoldersResult.folders)
         }.then { (coreDataFoldersByID) -> Guarantee<[Result<CollectionFolderItems>]> in
-            self.coreDataFoldersByID = coreDataFoldersByID
             guard let masterFolder = coreDataFoldersByID[Int64(0)] else {
                 throw ImportError.noAllFolderWasFound
             }
@@ -67,7 +66,6 @@ public class DiscogsCollectionImporter: NSManagedObjectContext {
 
             return self.createCoreDataItems(forDiscogsItems: discogsItems)
         }.then { (coreDataItemsByID) -> Promise<Void> in
-            self.coreDataItemsByID = coreDataItemsByID
             return Promise<Void>()
         }
     }
@@ -77,19 +75,20 @@ public class DiscogsCollectionImporter: NSManagedObjectContext {
     /// the other managed objects' `fetchOrCreate()`s because there are two
     /// custom field types (dropdown and textarea), and the appropriate one has
     /// to be created.
-    public func createCoreDataFields(_ discogsFields: [CollectionCustomField]) -> Promise<[CustomField]> {
-        return Promise<[CustomField]> { (seal) in
-            let coreDataFields: [CustomField] = try discogsFields.compactMap { [weak self] (discogsField) in
+    public func createCoreDataFields(_ discogsFields: [CollectionCustomField]) -> Promise<CoreDataFieldsByID> {
+        return Promise<CoreDataFieldsByID> { (seal) in
+            coreDataFieldsByID = [:]
+
+            try discogsFields.forEach { [weak self] (discogsField) in
                 guard let self = self else {
                     throw ImportError.selfWentOutOfScope
                 }
 
-                return try CustomField.fetchOrCreateEntity(fromDiscogsField: discogsField, inContext: self)
+                let coreDataField = try CustomField.fetchOrCreateEntity(fromDiscogsField: discogsField, inContext: self)
+                coreDataFieldsByID[Int16(discogsField.id)] = coreDataField
             }
 
-            //            self.coreDataFieldsByID = coreDataFields
-
-            seal.fulfill(coreDataFields)
+            seal.fulfill(coreDataFieldsByID)
         }
     }
 
@@ -105,7 +104,7 @@ public class DiscogsCollectionImporter: NSManagedObjectContext {
 
     public func createCoreDataFolders(forDiscogsFolders discogsFolders: [CollectionFolder]) -> Promise<CoreDataFoldersByID> {
         return Promise<CoreDataFoldersByID> { [weak self] (seal) in
-            var coreDataFolders = CoreDataFoldersByID()
+            coreDataFoldersByID = [:]
 
             guard let self = self else {
                 throw ImportError.selfWentOutOfScope
@@ -118,10 +117,10 @@ public class DiscogsCollectionImporter: NSManagedObjectContext {
                     folder.update(withDiscogsFolder: discogsFolder)
                 }
 
-                coreDataFolders[coreDataFolder.folderID] = coreDataFolder
+                coreDataFoldersByID[coreDataFolder.folderID] = coreDataFolder
             }
 
-            seal.fulfill(coreDataFolders)
+            seal.fulfill(coreDataFoldersByID)
         }
     }
 
@@ -144,7 +143,7 @@ public class DiscogsCollectionImporter: NSManagedObjectContext {
 
     public func createCoreDataItems(forDiscogsItems discogsItems: [SwiftDiscogs.CollectionFolderItem]) -> Promise<CoreDataItemsByID> {
         return Promise<CoreDataItemsByID> { (seal) in
-            var coreDataItems = CoreDataItemsByID()
+            coreDataItemsByID = [:]
 
             try discogsItems.forEach { (discogsItem) in
                 let request: NSFetchRequest<CollectionItem> = CollectionItem.fetchRequest(sortDescriptors: [],
@@ -153,10 +152,10 @@ public class DiscogsCollectionImporter: NSManagedObjectContext {
                     collectionItem.update(withDiscogsItem: discogsItem, inContext: self)
                 }
 
-                coreDataItems[Int64(discogsItem.id)] = collectionItem
+                coreDataItemsByID[Int64(discogsItem.id)] = collectionItem
             }
 
-            seal.fulfill(coreDataItems)
+            seal.fulfill(coreDataItemsByID)
         }
     }
 
