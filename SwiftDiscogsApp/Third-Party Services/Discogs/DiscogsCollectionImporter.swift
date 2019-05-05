@@ -25,7 +25,15 @@ public class DiscogsCollectionImporter: NSManagedObjectContext {
 
     public typealias CoreDataFoldersByID = [Int64: Folder]
 
+    public typealias CoreDataItemsByID = [Int64: CollectionItem]
+
     // MARK: - Properties
+
+    private var coreDataFieldsByID: CoreDataFieldsByID = [:]
+
+    private var coreDataFoldersByID: CoreDataFoldersByID = [:]
+
+    private var coreDataItemsByID: CoreDataItemsByID = [:]
 
     private var discogs: Discogs = DiscogsManager.discogs
 
@@ -34,17 +42,18 @@ public class DiscogsCollectionImporter: NSManagedObjectContext {
     public func importDiscogsCollection(forUserName userName: String) -> Promise<Void> {
         return discogs.customCollectionFields(forUserName: userName).then { (discogsFieldsResult) in
             self.createCoreDataFields(discogsFieldsResult.fields ?? [])
-        }.then { (coreDataFields) in
-            self.discogs.collectionFolders(forUserName: userName)
+        }.then { (coreDataFields) -> Promise<CollectionFolders> in
+            return self.discogs.collectionFolders(forUserName: userName)
         }.then { (discogsFoldersResult) in
             self.createCoreDataFolders(forDiscogsFolders: discogsFoldersResult.folders)
         }.then { (coreDataFoldersByID) -> Guarantee<[Result<CollectionFolderItems>]> in
+            self.coreDataFoldersByID = coreDataFoldersByID
             guard let masterFolder = coreDataFoldersByID[Int64(0)] else {
                 throw ImportError.noAllFolderWasFound
             }
 
             return self.downloadDiscogsItems(forUserName: userName, inCoreDataFolder: masterFolder)
-        }.then { (discogsItemsResultsGuarantee) -> Promise<Void> in
+        }.then { (discogsItemsResultsGuarantee) -> Promise<CoreDataItemsByID> in
             let discogsItems = discogsItemsResultsGuarantee.reduce([CollectionFolderItem]()) { (allItems, result)  in
                 switch result {
                 case .fulfilled(let discogsCollectionItems):
@@ -56,6 +65,9 @@ public class DiscogsCollectionImporter: NSManagedObjectContext {
 
             print("Importing \(discogsItems.count) Discogs collection items.")
 
+            return self.createCoreDataItems(forDiscogsItems: discogsItems)
+        }.then { (coreDataItemsByID) -> Promise<Void> in
+            self.coreDataItemsByID = coreDataItemsByID
             return Promise<Void>()
         }
     }
@@ -74,6 +86,8 @@ public class DiscogsCollectionImporter: NSManagedObjectContext {
 
                 return try CustomField.fetchOrCreateEntity(fromDiscogsField: discogsField, inContext: self)
             }
+
+            //            self.coreDataFieldsByID = coreDataFields
 
             seal.fulfill(coreDataFields)
         }
@@ -118,26 +132,73 @@ public class DiscogsCollectionImporter: NSManagedObjectContext {
         let pageCount = (count / pageSize) + 1
         let folderID = Int(coreDataFolder.folderID)
 
-        let pagePromises: [Promise<CollectionFolderItems>] = (1..<pageCount).map { (pageNumber) -> Promise<CollectionFolderItems> in
+        let pagePromises: [Promise<CollectionFolderItems>] = pageCount.times.map { (pageNumber) -> Promise<CollectionFolderItems> in
             return discogs.collectionItems(inFolderID: folderID,
                                            userName: userName,
-                                           pageNumber: pageNumber,
+                                           pageNumber: pageNumber + 1,
                                            resultsPerPage: pageSize)
-
         }
 
         return when(resolved: pagePromises)
+    }
+
+    public func createCoreDataItems(forDiscogsItems discogsItems: [SwiftDiscogs.CollectionFolderItem]) -> Promise<CoreDataItemsByID> {
+        return Promise<CoreDataItemsByID> { (seal) in
+            var coreDataItems = CoreDataItemsByID()
+
+            try discogsItems.forEach { (discogsItem) in
+                let request: NSFetchRequest<CollectionItem> = CollectionItem.fetchRequest(sortDescriptors: [],
+                                                                                          predicate: CollectionItem.uniquePredicate(forReleaseVersionID: discogsItem.id))
+                let collectionItem = try self.fetchOrCreate(withRequest: request) { (collectionItem) in
+                    collectionItem.update(withDiscogsItem: discogsItem, inContext: self)
+                }
+
+                coreDataItems[Int64(discogsItem.id)] = collectionItem
+            }
+
+            seal.fulfill(coreDataItems)
+        }
+    }
+
+}
+
+public extension Int {
+
+    /// Get a range from 0 to `self`, unless `self` is negative, in which case
+    /// the range is empty. This is inspired by Ruby's `Numeric.times` function.
+    /// Call it like `30.times.map { (number) ... }`.
+    var times: Range<Int> {
+        if self < 0 {
+            return (0..<0)
+        } else {
+            return (0..<self)
+        }
+    }
+
+    /// Call a block `self` number of times. If `self` is negative, then
+    /// `block` will never be called.
+    ///
+    /// - parameter block: A block that's called repeatedly. It takes a single
+    ///             argument, which is the *n*th time the block is being
+    ///             called, from `0` to `(self - 1)`, inclusive.
+    func times(block: (Int) -> Void) {
+        times.forEach { block($0) }
     }
 
 }
 
 public extension SwiftDiscogsApp.CollectionItem {
 
+    static func uniquePredicate(forReleaseVersionID releaseVersionID: Int) -> NSPredicate {
+        return NSPredicate(format: "collectionItem.releaseVersionID == \(releaseVersionID)")
+    }
+
     func update(withDiscogsItem discogsItem: SwiftDiscogs.CollectionFolderItem,
-                inContext context: NSManagedObjectContext) throws {
+                inContext context: NSManagedObjectContext) {
         self.rating = Int16(discogsItem.rating)
         self.releaseVersionID = Int64(discogsItem.id)
 
+        // Import the custom fields.
     }
 
 }
@@ -146,7 +207,7 @@ public extension SwiftDiscogsApp.CollectionItemField {
 
     static func uniquePredicate(forReleaseVersionID releaseVersionID: Int,
                                 fieldID: Int) -> NSPredicate {
-        return NSPredicate(format: "collectionItem.releaseVersionID == \(releaseVersionID)")
+        return SwiftDiscogsApp.CollectionItem.uniquePredicate(forReleaseVersionID: releaseVersionID)
             + NSPredicate(format: "customField.id == \(Int64(fieldID))")
     }
 

@@ -6,7 +6,7 @@ import SwiftDiscogs
 public extension CustomField {
 
     class func fetchOrCreateEntity(fromDiscogsField discogsField: CollectionCustomField,
-                             inContext context: NSManagedObjectContext) throws -> CustomField? {
+                                   inContext context: NSManagedObjectContext) throws -> CustomField? {
         let predicate = NSPredicate(format: "id = \(discogsField.id)")
         let sortByID = (\CustomField.id).sortDescriptor()
         var entity: CustomField? = nil
