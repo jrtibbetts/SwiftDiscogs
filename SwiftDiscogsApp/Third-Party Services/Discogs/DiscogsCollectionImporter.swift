@@ -29,29 +29,39 @@ public class DiscogsCollectionImporter: NSManagedObjectContext {
 
     // MARK: - Properties
 
-    private var coreDataFieldsByID: CoreDataFieldsByID = [:]
+    private var coreDataFieldsByID = CoreDataFieldsByID()
 
-    private var coreDataFoldersByID: CoreDataFoldersByID = [:]
+    private var coreDataFoldersByID = CoreDataFoldersByID()
 
-    private var coreDataItemsByID: CoreDataItemsByID = [:]
+    private var coreDataItemsByID = CoreDataItemsByID()
 
     private var discogs: Discogs = DiscogsManager.discogs
+
+    private var discogsFields = [SwiftDiscogs.CollectionCustomField]()
+
+    private var discogsFolders = [SwiftDiscogs.CollectionFolder]()
 
     // MARK: - Import Functions
 
     public func importDiscogsCollection(forUserName userName: String) -> Promise<Void> {
-        return discogs.customCollectionFields(forUserName: userName).then { (discogsFieldsResult) in
-            self.createCoreDataFields(discogsFieldsResult.fields ?? [])
-        }.then { (coreDataFields) -> Promise<CollectionFolders> in
-            return self.discogs.collectionFolders(forUserName: userName)
-        }.then { (discogsFoldersResult) in
-            self.createCoreDataFolders(forDiscogsFolders: discogsFoldersResult.folders)
+        return discogs.customCollectionFields(forUserName: userName).then { (discogsFieldsResult) -> Promise<CoreDataFieldsByID> in
+            self.discogsFields = discogsFieldsResult.fields ?? []
+
+            return self.createCoreDataFields(self.discogsFields)
+        }.then { (coreDataFields) /* -> Promise<CollectionFolders> */ in
+            self.discogs.collectionFolders(forUserName: userName)
+        }.then { (discogsFoldersResult) -> Promise<CoreDataFoldersByID> in
+            self.discogsFolders = discogsFoldersResult.folders
+
+            return self.createCoreDataFolders(forDiscogsFolders: discogsFoldersResult.folders)
         }.then { (coreDataFoldersByID) -> Guarantee<[Result<CollectionFolderItems>]> in
             guard let masterFolder = coreDataFoldersByID[Int64(0)] else {
                 throw ImportError.noAllFolderWasFound
             }
 
-            return self.downloadDiscogsItems(forUserName: userName, inCoreDataFolder: masterFolder)
+            return self.downloadDiscogsItems(forUserName: userName,
+                                             inFolderWithID: 0,
+                                             expectedItemCount: Int(masterFolder.expectedItemCount))
         }.then { (discogsItemsResultsGuarantee) -> Promise<CoreDataItemsByID> in
             let discogsItems = discogsItemsResultsGuarantee.reduce([CollectionFolderItem]()) { (allItems, result)  in
                 switch result {
@@ -66,6 +76,8 @@ public class DiscogsCollectionImporter: NSManagedObjectContext {
 
             return self.createCoreDataItems(forDiscogsItems: discogsItems)
         }.then { (coreDataItemsByID) -> Promise<Void> in
+            self.addCoreDataItemsToOtherFolders(forUserName: userName)
+
             return Promise<Void>()
         }
     }
@@ -125,11 +137,10 @@ public class DiscogsCollectionImporter: NSManagedObjectContext {
     }
 
     public func downloadDiscogsItems(forUserName userName: String,
-                                     inCoreDataFolder coreDataFolder: Folder) -> Guarantee<[Result<CollectionFolderItems>]> {
-        let count = Int(coreDataFolder.expectedItemCount)
+                                     inFolderWithID folderID: Int,
+                                     expectedItemCount: Int) -> Guarantee<[Result<CollectionFolderItems>]> {
         let pageSize = 100
-        let pageCount = (count / pageSize) + 1
-        let folderID = Int(coreDataFolder.folderID)
+        let pageCount = (expectedItemCount / pageSize) + 1
 
         let pagePromises: [Promise<CollectionFolderItems>] = pageCount.times.map { (pageNumber) -> Promise<CollectionFolderItems> in
             return discogs.collectionItems(inFolderID: folderID,
@@ -145,43 +156,30 @@ public class DiscogsCollectionImporter: NSManagedObjectContext {
         return Promise<CoreDataItemsByID> { (seal) in
             coreDataItemsByID = [:]
 
-            try discogsItems.forEach { (discogsItem) in
-                let request: NSFetchRequest<CollectionItem> = CollectionItem.fetchRequest(sortDescriptors: [],
-                                                                                          predicate: CollectionItem.uniquePredicate(forReleaseVersionID: discogsItem.id))
-                let collectionItem = try self.fetchOrCreate(withRequest: request) { (collectionItem) in
-                    collectionItem.update(withDiscogsItem: discogsItem, inContext: self)
-                }
-
-                coreDataItemsByID[Int64(discogsItem.id)] = collectionItem
-            }
+//            try discogsItems.forEach { (discogsItem) in
+//                let request: NSFetchRequest<CollectionItem> = CollectionItem.fetchRequest(sortDescriptors: [],
+//                                                                                          predicate: CollectionItem.uniquePredicate(forReleaseVersionID: discogsItem.id))
+//                let coreDataItem = try self.fetchOrCreate(withRequest: request) { (item) in
+//                    item.update(withDiscogsItem: discogsItem, inContext: self)
+//                }
+//
+//                coreDataItemsByID[Int64(discogsItem.id)] = coreDataItem
+//            }
 
             seal.fulfill(coreDataItemsByID)
         }
     }
 
-}
+    func addCoreDataItemsToOtherFolders(forUserName userName: String) {
+        discogsFolders.filter { $0.id != 0 }.forEach { (discogsFolder) in
+            downloadDiscogsItems(forUserName: userName,
+                                 inFolderWithID: discogsFolder.id,
+                                 expectedItemCount: discogsFolder.count).done { (downloadResults) in
+                                    downloadResults.forEach { (downloadResult) in
 
-public extension Int {
-
-    /// Get a range from 0 to `self`, unless `self` is negative, in which case
-    /// the range is empty. This is inspired by Ruby's `Numeric.times` function.
-    /// Call it like `30.times.map { (number) ... }`.
-    var times: Range<Int> {
-        if self < 0 {
-            return (0..<0)
-        } else {
-            return (0..<self)
+                                     }
+                                 }
         }
-    }
-
-    /// Call a block `self` number of times. If `self` is negative, then
-    /// `block` will never be called.
-    ///
-    /// - parameter block: A block that's called repeatedly. It takes a single
-    ///             argument, which is the *n*th time the block is being
-    ///             called, from `0` to `(self - 1)`, inclusive.
-    func times(block: (Int) -> Void) {
-        times.forEach { block($0) }
     }
 
 }
@@ -229,4 +227,3 @@ public extension SwiftDiscogsApp.Folder {
     }
 
 }
-
