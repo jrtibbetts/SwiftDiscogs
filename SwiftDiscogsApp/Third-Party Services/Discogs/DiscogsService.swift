@@ -124,13 +124,12 @@ class DiscogsService: ThirdPartyService, AuthenticatedService, ImportableService
             isImporting = true
             importDelegate?.didBeginImporting(fromService: self)
 
-            let subcontext = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
+            let subcontext = DiscogsCollectionImporter(concurrencyType: .privateQueueConcurrencyType)
             subcontext.parent = context
             subcontext.perform { [weak self] in
-                do {
-                    try self?.importCustomFields(inContext: subcontext)
-                    try self?.importAllItems(forUserName: username, inContext: subcontext)
-                } catch {
+                subcontext.importDiscogsCollection(forUserName: username).done {
+                    try context.save()
+                }.catch { (error) in
                     DispatchQueue.main.async { [weak self] in
                         self?.isImporting = false
                         self?.importDelegate?.importFailed(fromService: self, withError: error)
@@ -140,138 +139,10 @@ class DiscogsService: ThirdPartyService, AuthenticatedService, ImportableService
         }
     }
 
-    func importCustomFields(inContext context: NSManagedObjectContext) throws {
-        guard let userName = userName else {
-            return
-        }
-
-        DiscogsManager.discogs.customCollectionFields(forUserName: userName).done { (fields) in
-            fields.fields?.forEach { (discogsField) in
-                do {
-                    _ = try CustomField.fetchOrCreateEntity(fromDiscogsField: discogsField, inContext: context)
-                } catch {
-                    print("Failed to create a custom field for \(discogsField)", error)
-                }
-            }
-        }.cauterize()
-    }
-
-    func importAllItems(forUserName userName: String,
-                        inContext context: NSManagedObjectContext) throws {
-        guard importableItemCount != nil else {
-            return
-        }
-
-        DiscogsManager.discogs.collectionFolders(forUserName: userName).done { [weak self] (discogsFoldersResult) in
-            try discogsFoldersResult.folders.forEach { (discogsFolder) in
-                try self?.importFolder(fromDiscogsFolder: discogsFolder, inContext: context)
-            }
-            }.catch { (error) in
-        }
-    }
-
-    func importFolder(fromDiscogsFolder discogsFolder: SwiftDiscogs.CollectionFolder,
-                      inContext context: NSManagedObjectContext) throws {
-        /* let folder */ _ = try fetchOrCreateFolder(forDiscogsFolder: discogsFolder, inContext: context)
-//        folder.items?.map { $0 as! SwiftDiscogs.CollectionFolderItem }.forEach { (discogsItem) in
-//            let discogsItemID = Int64(discogsItem.id)
-//            let item = context.fetch(NSFetchRequest)
-//        }
-    }
-
-    func importMasterFolder(fromDiscogsFolder discogsFolder: SwiftDiscogs.CollectionFolder,
-                            inContext context: NSManagedObjectContext) throws {
-        guard let userName = userName else {
-            return
-        }
-
-        let folder = try fetchOrCreateFolder(forDiscogsFolder: discogsFolder, inContext: context)
-        let pageSize = 100
-        let totalPages = (discogsFolder.count / pageSize) + 1
-
-        (1..<totalPages).forEach { (pageNumber) in
-            guard isImporting else {
-                return
-            }
-
-            DiscogsManager.discogs.collectionItems(inFolderID: 0,
-                                                   userName: userName,
-                                                   pageNumber: pageNumber,
-                                                   resultsPerPage: pageSize).done { [weak self] (folderItems) in
-                                                    if let self = self,
-                                                        let collectionItems = folderItems.releases {
-                                                        self.importCollectionItems(collectionItems,
-                                                                                   inFolder: folder,
-                                                                                   intoContext: context,
-                                                                                   totalItems: self.importableItemCount)
-                                                    }
-
-                                                    try context.save()
-                                                    try context.parent?.save()
-                }.cauterize()
-        }
-
-//        stopImportingData()
-    }
-
     func stopImportingData() {
         importDelegate?.willFinishImporting(fromService: self)
         isImporting = false
         importDelegate?.didFinishImporting(fromService: self)
     }
-
-    private func importCollectionItems(_ items: [CollectionFolderItem],
-                                       inFolder folder: Folder,
-                                       intoContext context: NSManagedObjectContext,
-                                       totalItems: Int?) {
-        guard isImporting else {
-            return
-        }
-
-        items.forEach { (item) in
-            importItem(item, inFolder: folder, intoContext: context)
-        }
-    }
-
-    private func importItem(_ item: CollectionFolderItem,
-                            inFolder folder: Folder,
-                            intoContext context: NSManagedObjectContext) {
-        guard isImporting else {
-            return
-        }
-
-        print("Importing ", String(describing: item.basicInformation?.title))
-
-        do {
-            let coreDataItem = try fetchOrCreateItem(forDiscogsCollectionItem: item,
-                                                     inContext: context)
-            folder.addToItems(coreDataItem)
-            importedItemCount += 1
-        } catch {
-            print("Failed to import Discogs collection folder item", item, error)
-        }
-    }
-
-    private func fetchOrCreateFolder(forDiscogsFolder discogsFolder: SwiftDiscogs.CollectionFolder,
-                                     inContext context: NSManagedObjectContext) throws -> Folder {
-        let folderID = discogsFolder.id
-        let request: NSFetchRequest<Folder> = Folder.fetchRequest(sortDescriptors: [(\Folder.folderID).sortDescriptor()],
-                                          predicate: NSPredicate(format: "folderID = \(folderID)"))
-
-        return try context.fetchOrCreate(withRequest: request) { (folder) in
-            folder.update(withDiscogsFolder: discogsFolder)
-        }
-    }
-
-    private func fetchOrCreateItem(forDiscogsCollectionItem discogsCollectionItem: SwiftDiscogs.CollectionFolderItem,
-                                   inContext context: NSManagedObjectContext) throws -> CollectionItem {
-        let releaseVersionID = discogsCollectionItem.id
-        let request: NSFetchRequest<CollectionItem> = CollectionItem.fetchRequest(sortDescriptors: [(\CollectionItem.releaseVersionID).sortDescriptor()],
-                                              predicate: NSPredicate(format: "releaseVersionID = \(releaseVersionID)"))
-
-        return try context.fetchOrCreate(withRequest: request) { (collectionItem) in
-//            collectionItem.update(withDiscogsItem: discogsCollectionItem)
-        }
-    }
-
+    
 }
