@@ -156,15 +156,15 @@ public class DiscogsCollectionImporter: NSManagedObjectContext {
         return Promise<CoreDataItemsByID> { (seal) in
             coreDataItemsByID = [:]
 
-//            try discogsItems.forEach { (discogsItem) in
-//                let request: NSFetchRequest<CollectionItem> = CollectionItem.fetchRequest(sortDescriptors: [],
-//                                                                                          predicate: CollectionItem.uniquePredicate(forReleaseVersionID: discogsItem.id))
-//                let coreDataItem = try self.fetchOrCreate(withRequest: request) { (item) in
-//                    item.update(withDiscogsItem: discogsItem, inContext: self)
-//                }
-//
-//                coreDataItemsByID[Int64(discogsItem.id)] = coreDataItem
-//            }
+            try discogsItems.forEach { (discogsItem) in
+                let request: NSFetchRequest<CollectionItem> = CollectionItem.fetchRequest(sortDescriptors: [],
+                                                                                          predicate: CollectionItem.uniquePredicate(forReleaseVersionID: discogsItem.id))
+                let coreDataItem = try self.fetchOrCreate(withRequest: request) { (item) in
+                    item.update(withDiscogsItem: discogsItem, inContext: self)
+                }
+
+                coreDataItemsByID[Int64(discogsItem.id)] = coreDataItem
+            }
 
             seal.fulfill(coreDataItemsByID)
         }
@@ -187,7 +187,7 @@ public class DiscogsCollectionImporter: NSManagedObjectContext {
 public extension SwiftDiscogsApp.CollectionItem {
 
     static func uniquePredicate(forReleaseVersionID releaseVersionID: Int) -> NSPredicate {
-        return NSPredicate(format: "collectionItem.releaseVersionID == \(releaseVersionID)")
+        return NSPredicate(format: "releaseVersionID == \(releaseVersionID)")
     }
 
     func update(withDiscogsItem discogsItem: SwiftDiscogs.CollectionFolderItem,

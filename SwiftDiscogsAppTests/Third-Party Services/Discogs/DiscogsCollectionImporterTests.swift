@@ -28,15 +28,14 @@ class DiscogsCollectionImporterTests: XCTestCase {
     func testImportDiscogsCollectionWithValidUserNameOk() throws {
         let exp = expectation(description: "Importing 3 fields")
         importer.importDiscogsCollection(forUserName: "doesn't matter").done { [unowned self] in
-            let fieldsRequest: NSFetchRequest<CustomField> = CustomField.fetchRequest()
-            fieldsRequest.sortDescriptors = [(\CustomField.name).sortDescriptor()]
-            let fields = try self.importer.fetch(fieldsRequest)
+            let fields: [CustomField] = try CustomField.all(inContext: self.importer)
+            let folders: [Folder] = try Folder.all(inContext: self.importer)
+            let items: [CollectionItem] = try CollectionItem.all(inContext: self.importer,
+                                                                 sortedBy: [(\CollectionItem.releaseVersionID).sortDescriptor()])
 
-            let foldersRequest: NSFetchRequest<Folder> = Folder.fetchRequest()
-            foldersRequest.sortDescriptors = [(\Folder.folderID).sortDescriptor()]
-            let folders = try self.importer.fetch(foldersRequest)
-
-            if fields.count == 3 && folders.count == 2 && folders[0].name == "All" {
+            if fields.count == 3
+                && folders.count == 2 && folders[0].name == "All"
+                && items.count == 2 && items[0].releaseVersionID == Int64(4275843) {
                 exp.fulfill()
             }
         }.cauterize()
