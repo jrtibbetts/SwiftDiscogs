@@ -29,6 +29,10 @@ public class DiscogsCollectionImporter: NSManagedObjectContext {
 
     // MARK: - Properties
 
+    public var importerDelegate: ImportableServiceDelegate?
+
+    public weak var service: ImportableService?
+
     private var coreDataFieldsByID = CoreDataFieldsByID()
 
     private var coreDataFoldersByID = CoreDataFoldersByID()
@@ -44,6 +48,8 @@ public class DiscogsCollectionImporter: NSManagedObjectContext {
     // MARK: - Import Functions
 
     public func importDiscogsCollection(forUserName userName: String) -> Promise<Void> {
+        importerDelegate?.willBeginImporting(fromService: service)
+
         return discogs.customCollectionFields(forUserName: userName).then { (discogsFieldsResult) -> Promise<CoreDataFieldsByID> in
             self.discogsFields = discogsFieldsResult.fields ?? []
 
@@ -75,9 +81,11 @@ public class DiscogsCollectionImporter: NSManagedObjectContext {
             print("Importing \(discogsItems.count) Discogs collection items.")
 
             return self.createCoreDataItems(forDiscogsItems: discogsItems)
-        }.then { (coreDataItemsByID) -> Promise<Void> in
-            self.addCoreDataItemsToOtherFolders(forUserName: userName)
-
+        }.then { [weak self] (coreDataItemsByID) -> Promise<Void> in
+            self?.addCoreDataItemsToOtherFolders(forUserName: userName)
+            self?.importerDelegate?.willFinishImporting(fromService: self?.service)
+            try self?.save()
+            
             return Promise<Void>()
         }
     }
@@ -172,12 +180,27 @@ public class DiscogsCollectionImporter: NSManagedObjectContext {
 
     func addCoreDataItemsToOtherFolders(forUserName userName: String) {
         discogsFolders.filter { $0.id != 0 }.forEach { (discogsFolder) in
+            guard let coreDataFolder = self.coreDataFoldersByID[Int64(discogsFolder.id)] else {
+                return
+            }
+
             downloadDiscogsItems(forUserName: userName,
                                  inFolderWithID: discogsFolder.id,
                                  expectedItemCount: discogsFolder.count).done { (downloadResults) in
+                                    print("Downloaded \(downloadResults.count) results in folder \(discogsFolder.id)")
                                     downloadResults.forEach { (downloadResult) in
-
-                                     }
+                                        switch downloadResult {
+                                        case .fulfilled(let discogsItems):
+                                            discogsItems.releases?.forEach { (discogsItem) in
+                                                if let coreDataItem = self.coreDataItemsByID[Int64(discogsItem.id)] {
+                                                    print("Adding item \(discogsItem.id) to folder \(discogsFolder.id)")
+                                                    coreDataItem.addToFolders(coreDataFolder)
+                                                }
+                                            }
+                                        default:
+                                            break
+                                        }
+                                    }
                                  }
         }
     }

@@ -125,10 +125,16 @@ class DiscogsService: ThirdPartyService, AuthenticatedService, ImportableService
             importDelegate?.didBeginImporting(fromService: self)
 
             let subcontext = DiscogsCollectionImporter(concurrencyType: .privateQueueConcurrencyType)
+            subcontext.service = self
+            subcontext.importerDelegate = importDelegate
             subcontext.parent = context
             subcontext.perform { [weak self] in
                 subcontext.importDiscogsCollection(forUserName: username).done {
                     try context.save()
+                    print("Imported")
+                    print("\(try CustomField.all(inContext: context).count) fields")
+                    print("\(try CollectionItem.all(inContext: context).count) items")
+                    print("\(try Folder.all(inContext: context).count) folders")
                 }.catch { (error) in
                     DispatchQueue.main.async { [weak self] in
                         self?.isImporting = false
