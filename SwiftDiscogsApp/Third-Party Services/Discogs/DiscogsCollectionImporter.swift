@@ -29,10 +29,6 @@ public class DiscogsCollectionImporter: NSManagedObjectContext {
 
     // MARK: - Properties
 
-    public var importerDelegate: ImportableServiceDelegate?
-
-    public weak var service: ImportableService?
-
     private var coreDataFieldsByID = CoreDataFieldsByID()
 
     private var coreDataFoldersByID = CoreDataFoldersByID()
@@ -44,6 +40,10 @@ public class DiscogsCollectionImporter: NSManagedObjectContext {
     private var discogsFields = [SwiftDiscogs.CollectionCustomField]()
 
     private var discogsFolders = [SwiftDiscogs.CollectionFolder]()
+
+    public var importerDelegate: ImportableServiceDelegate?
+
+    public weak var service: ImportableService?
 
     // MARK: - Import Functions
 
@@ -102,16 +102,6 @@ public class DiscogsCollectionImporter: NSManagedObjectContext {
             }
 
             seal.fulfill(coreDataFieldsByID)
-        }
-    }
-
-    public func discogsFolders(forUserName userName: String) -> Promise<[CollectionFolder]> {
-        return Promise<[CollectionFolder]> { (seal) in
-            discogs.collectionFolders(forUserName: userName).done { (foldersResult) in
-                seal.fulfill(foldersResult.folders)
-                }.catch { (error) in
-                    seal.reject(error)
-                }
         }
     }
 
