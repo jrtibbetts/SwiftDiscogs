@@ -54,28 +54,26 @@ public class DiscogsCollectionImporter: NSManagedObjectContext {
             self.discogsFields = discogsFieldsResult.fields ?? []
 
             return self.createCoreDataFields(self.discogsFields)
-        }.then { (coreDataFields) /* -> Promise<CollectionFolders> */ in
+        }.then { (coreDataFields) in
             self.discogs.collectionFolders(forUserName: userName)
         }.then { (discogsFoldersResult) -> Promise<CoreDataFoldersByID> in
             self.discogsFolders = discogsFoldersResult.folders
 
             return self.createCoreDataFolders(forDiscogsFolders: discogsFoldersResult.folders)
-        }.then { (coreDataFoldersByID) -> Guarantee<[Result<CollectionFolderItems>]> in
-            guard let masterFolder = coreDataFoldersByID[Int64(0)] else {
+        }.then { (coreDataFoldersByID) -> Promise<CollectionFolderItems> in
+            let masterFolderID = 0
+
+            guard let masterFolder = coreDataFoldersByID[Int64(masterFolderID)] else {
                 throw ImportError.noAllFolderWasFound
             }
 
-            return self.downloadDiscogsItems(forUserName: userName,
-                                             inFolderWithID: 0,
-                                             expectedItemCount: Int(masterFolder.expectedItemCount))
-        }.then { (discogsItemsResultsGuarantee) -> Promise<CoreDataItemsByID> in
-            let discogsItems = discogsItemsResultsGuarantee.reduce([CollectionFolderItem]()) { (allItems, result)  in
-                switch result {
-                case .fulfilled(let discogsCollectionItems):
-                    return allItems + (discogsCollectionItems.releases ?? [])
-                default:
-                    return allItems
-                }
+            return self.discogs.collectionItems(inFolderID: masterFolderID,
+                                                userName: userName,
+                                                pageNumber: 1,
+                                                resultsPerPage: Int(masterFolder.expectedItemCount))
+        }.then { (discogsItemsResult) -> Promise<CoreDataItemsByID> in
+            guard let discogsItems = discogsItemsResult.releases else {
+                return Promise<CoreDataItemsByID> { $0.fulfill(CoreDataItemsByID()) }
             }
 
             print("Importing \(discogsItems.count) Discogs collection items.")
@@ -144,22 +142,6 @@ public class DiscogsCollectionImporter: NSManagedObjectContext {
         }
     }
 
-    public func downloadDiscogsItems(forUserName userName: String,
-                                     inFolderWithID folderID: Int,
-                                     expectedItemCount: Int) -> Guarantee<[Result<CollectionFolderItems>]> {
-        let pageSize = 100
-        let pageCount = (expectedItemCount / pageSize) + 1
-
-        let pagePromises: [Promise<CollectionFolderItems>] = pageCount.times.map { (pageNumber) -> Promise<CollectionFolderItems> in
-            return discogs.collectionItems(inFolderID: folderID,
-                                           userName: userName,
-                                           pageNumber: pageNumber + 1,
-                                           resultsPerPage: pageSize)
-        }
-
-        return when(resolved: pagePromises)
-    }
-
     public func createCoreDataItems(forDiscogsItems discogsItems: [SwiftDiscogs.CollectionFolderItem]) -> Promise<CoreDataItemsByID> {
         return Promise<CoreDataItemsByID> { (seal) in
             coreDataItemsByID = [:]
@@ -180,29 +162,30 @@ public class DiscogsCollectionImporter: NSManagedObjectContext {
 
     func addCoreDataItemsToOtherFolders(forUserName userName: String) {
         discogsFolders.filter { $0.id != 0 }.forEach { (discogsFolder) in
-            guard let coreDataFolder = self.coreDataFoldersByID[Int64(discogsFolder.id)] else {
-                return
-            }
+            addCoreDataItemsToFolder(discogsFolder.id,
+                                     folderItemCount: discogsFolder.count,
+                                     userName: userName)
+        }
+    }
 
-            downloadDiscogsItems(forUserName: userName,
-                                 inFolderWithID: discogsFolder.id,
-                                 expectedItemCount: discogsFolder.count).done { (downloadResults) in
-                                    print("Downloaded \(downloadResults.count) results in folder \(discogsFolder.id)")
-                                    downloadResults.forEach { (downloadResult) in
-                                        switch downloadResult {
-                                        case .fulfilled(let discogsItems):
-                                            discogsItems.releases?.forEach { (discogsItem) in
-                                                if let coreDataItem = self.coreDataItemsByID[Int64(discogsItem.id)] {
-                                                    print("Adding item \(discogsItem.id) to folder \(discogsFolder.id)")
-                                                    coreDataItem.addToFolders(coreDataFolder)
-                                                }
-                                            }
-                                        default:
-                                            break
+    func addCoreDataItemsToFolder(_ folderID: Int,
+                                  folderItemCount: Int,
+                                  userName: String) {
+        guard let coreDataFolder = self.coreDataFoldersByID[Int64(folderID)] else {
+            return
+        }
+
+        discogs.collectionItems(inFolderID: folderID,
+                                userName: userName,
+                                pageNumber: 1,
+                                resultsPerPage: folderItemCount).done { (discogsItemsResult) in
+                                    discogsItemsResult.releases?.forEach { (discogsItem) in
+                                        if let coreDataItem = self.coreDataItemsByID[Int64(folderID)] {
+                                            print("Adding item \(discogsItem.id) to folder \(folderID)")
+                                            coreDataItem.addToFolders(coreDataFolder)
                                         }
                                     }
-                                 }
-        }
+        }.cauterize()
     }
 
 }
