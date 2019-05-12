@@ -82,7 +82,8 @@ public class DiscogsCollectionImporter: NSManagedObjectContext {
             return self.createCoreDataItems(forDiscogsItems: discogsItems)
         }.then { (coreDataItemsByID) -> Promise<Void> in
             self.importerDelegate?.update(importedItemCount: 6, totalCount: 6, forService: self.service)
-            self.addCoreDataItemsToOtherFolders(forUserName: userName)
+            return self.addCoreDataItemsToOtherFolders(forUserName: userName)
+        }.then { (emptyPromise) -> Promise<Void> in
             self.importerDelegate?.willFinishImporting(fromService: self.service)
             try self.save()
             
@@ -181,13 +182,13 @@ public class DiscogsCollectionImporter: NSManagedObjectContext {
         }
     }
 
-    func addCoreDataItemsToOtherFolders(forUserName userName: String) {
-        discogsFolders.filter { $0.id != 0 }.forEach { (discogsFolder) in
+    func addCoreDataItemsToOtherFolders(forUserName userName: String) -> Promise<Void> {
+        let folderPromises: [Promise<Void>] = discogsFolders.filter { $0.id != 0 }.map { (discogsFolder) -> Promise<Void> in
             guard let coreDataFolder = self.coreDataFoldersByID[Int64(discogsFolder.id)] else {
-                return
+                return Promise<Void>()
             }
 
-            downloadDiscogsItems(forUserName: userName,
+            return downloadDiscogsItems(forUserName: userName,
                                  inFolderWithID: discogsFolder.id,
                                  expectedItemCount: discogsFolder.count).done { (discogsItems) in
                                     print("Discogs folder \"\(discogsFolder.name)\" should have \(discogsItems.count) items:")
@@ -202,7 +203,21 @@ public class DiscogsCollectionImporter: NSManagedObjectContext {
                                             print("Failed to find or create a Core Data item for Discogs item \(discogsItem.id)!")
                                         }
                                     }
-                                 }.cauterize()
+                                 }
+        }
+
+        return when(resolved: folderPromises).then { (results) in
+            return Promise<Void> { (seal) in
+                results.forEach { (result) in
+                    switch result {
+                    case .rejected(let error):
+                        seal.reject(error)
+                    default:
+                        break
+//                        seal.fulfill()
+                    }
+                }
+            }
         }
     }
 
