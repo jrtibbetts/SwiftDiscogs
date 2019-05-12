@@ -52,12 +52,16 @@ public class DiscogsCollectionImporter: NSManagedObjectContext {
 
         return discogs.customCollectionFields(forUserName: userName).then { (discogsFieldsResult) -> Promise<CoreDataFieldsByID> in
             self.discogsFields = discogsFieldsResult.fields ?? []
+            self.importerDelegate?.update(importedItemCount: 1, totalCount: 6, forService: self.service)
 
             return self.createCoreDataFields(self.discogsFields)
-        }.then { (coreDataFields) in
-            self.discogs.collectionFolders(forUserName: userName)
+        }.then { (coreDataFields) -> Promise<CollectionFolders> in
+            self.importerDelegate?.update(importedItemCount: 2, totalCount: 6, forService: self.service)
+
+            return self.discogs.collectionFolders(forUserName: userName)
         }.then { (discogsFoldersResult) -> Promise<CoreDataFoldersByID> in
             self.discogsFolders = discogsFoldersResult.folders
+            self.importerDelegate?.update(importedItemCount: 3, totalCount: 6, forService: self.service)
 
             return self.createCoreDataFolders(forDiscogsFolders: discogsFoldersResult.folders)
         }.then { (coreDataFoldersByID) -> Promise<[CollectionFolderItem]> in
@@ -66,18 +70,21 @@ public class DiscogsCollectionImporter: NSManagedObjectContext {
             guard let masterFolder = coreDataFoldersByID[Int64(masterFolderID)] else {
                 throw ImportError.noAllFolderWasFound
             }
+            self.importerDelegate?.update(importedItemCount: 4, totalCount: 6, forService: self.service)
 
             return self.downloadDiscogsItems(forUserName: userName,
                                              inFolderWithID: 0,
                                              expectedItemCount: Int(masterFolder.expectedItemCount))
         }.then { (discogsItems) -> Promise<CoreDataItemsByID> in
             print("Importing \(discogsItems.count) Discogs collection items.")
+            self.importerDelegate?.update(importedItemCount: 5, totalCount: 6, forService: self.service)
 
             return self.createCoreDataItems(forDiscogsItems: discogsItems)
-        }.then { [weak self] (coreDataItemsByID) -> Promise<Void> in
-            self?.addCoreDataItemsToOtherFolders(forUserName: userName)
-            self?.importerDelegate?.willFinishImporting(fromService: self?.service)
-            try self?.save()
+        }.then { (coreDataItemsByID) -> Promise<Void> in
+            self.importerDelegate?.update(importedItemCount: 6, totalCount: 6, forService: self.service)
+            self.addCoreDataItemsToOtherFolders(forUserName: userName)
+            self.importerDelegate?.willFinishImporting(fromService: self.service)
+            try self.save()
             
             return Promise<Void>()
         }
@@ -183,11 +190,16 @@ public class DiscogsCollectionImporter: NSManagedObjectContext {
             downloadDiscogsItems(forUserName: userName,
                                  inFolderWithID: discogsFolder.id,
                                  expectedItemCount: discogsFolder.count).done { (discogsItems) in
-                                    print("Downloaded \(discogsItems.count) results in folder \(discogsFolder.id)")
+                                    print("Discogs folder \"\(discogsFolder.name)\" should have \(discogsItems.count) items:")
+                                    var coreDataItemCount = 0
+
                                     discogsItems.forEach { (discogsItem) in
                                         if let coreDataItem = self.coreDataItemsByID[Int64(discogsItem.id)] {
-                                            print("Adding item \(discogsItem.id) to folder \(discogsFolder.id)")
+                                            print(" [\(coreDataItemCount + 1)] \(discogsItem.basicInformation!.title) (\(discogsItem.id))")
                                             coreDataItem.addToFolders(coreDataFolder)
+                                            coreDataItemCount += 1
+                                        } else {
+                                            print("Failed to find or create a Core Data item for Discogs item \(discogsItem.id)!")
                                         }
                                     }
                                  }.cauterize()
