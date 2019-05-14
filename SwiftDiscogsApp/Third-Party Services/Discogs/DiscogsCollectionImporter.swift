@@ -21,11 +21,11 @@ public class DiscogsCollectionImporter: NSManagedObjectContext {
 
     }
 
-    public typealias CoreDataFieldsByID = [Int16: CustomField]
+    public typealias CoreDataFieldsByID = [Int: CustomField]
 
-    public typealias CoreDataFoldersByID = [Int64: Folder]
+    public typealias CoreDataFoldersByID = [Int: Folder]
 
-    public typealias CoreDataItemsByID = [Int64: CollectionItem]
+    public typealias CoreDataItemsByID = [Int: CollectionItem]
 
     // MARK: - Properties
 
@@ -67,7 +67,7 @@ public class DiscogsCollectionImporter: NSManagedObjectContext {
         }.then { (coreDataFoldersByID) -> Promise<[CollectionFolderItem]> in
             let masterFolderID = 0
 
-            guard let masterFolder = coreDataFoldersByID[Int64(masterFolderID)] else {
+            guard let masterFolder = coreDataFoldersByID[masterFolderID] else {
                 throw ImportError.noAllFolderWasFound
             }
             self.importerDelegate?.update(importedItemCount: 4, totalCount: 6, forService: self.service)
@@ -106,7 +106,7 @@ public class DiscogsCollectionImporter: NSManagedObjectContext {
                 }
 
                 let coreDataField = try CustomField.fetchOrCreateEntity(fromDiscogsField: discogsField, inContext: self)
-                coreDataFieldsByID[Int16(discogsField.id)] = coreDataField
+                coreDataFieldsByID[discogsField.id] = coreDataField
             }
 
             seal.fulfill(coreDataFieldsByID)
@@ -128,7 +128,7 @@ public class DiscogsCollectionImporter: NSManagedObjectContext {
                     folder.update(withDiscogsFolder: discogsFolder)
                 }
 
-                coreDataFoldersByID[coreDataFolder.folderID] = coreDataFolder
+                coreDataFoldersByID[discogsFolder.id] = coreDataFolder
             }
 
             seal.fulfill(coreDataFoldersByID)
@@ -175,7 +175,7 @@ public class DiscogsCollectionImporter: NSManagedObjectContext {
                     item.update(withDiscogsItem: discogsItem, inContext: self)
                 }
 
-                coreDataItemsByID[Int64(discogsItem.id)] = coreDataItem
+                coreDataItemsByID[discogsItem.id] = coreDataItem
             }
 
             seal.fulfill(coreDataItemsByID)
@@ -184,7 +184,7 @@ public class DiscogsCollectionImporter: NSManagedObjectContext {
 
     func addCoreDataItemsToOtherFolders(forUserName userName: String) -> Promise<Void> {
         let folderPromises: [Promise<Void>] = discogsFolders.filter { $0.id != 0 }.map { (discogsFolder) -> Promise<Void> in
-            guard let coreDataFolder = self.coreDataFoldersByID[Int64(discogsFolder.id)] else {
+            guard let coreDataFolder = self.coreDataFoldersByID[discogsFolder.id] else {
                 return Promise<Void>()
             }
 
@@ -195,7 +195,7 @@ public class DiscogsCollectionImporter: NSManagedObjectContext {
                                     var coreDataItemCount = 0
 
                                     discogsItems.forEach { (discogsItem) in
-                                        if let coreDataItem = self.coreDataItemsByID[Int64(discogsItem.id)] {
+                                        if let coreDataItem = self.coreDataItemsByID[discogsItem.id] {
                                             print(" [\(coreDataItemCount + 1)] \(discogsItem.basicInformation!.title) (\(discogsItem.id))")
                                             coreDataItem.addToFolders(coreDataFolder)
                                             coreDataItemCount += 1
