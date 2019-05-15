@@ -1,6 +1,7 @@
 //  Copyright © 2019 Poikile Creations. All rights reserved.
 
 import CoreData
+import os
 import PromiseKit
 import Stylobate
 import SwiftDiscogs
@@ -72,6 +73,7 @@ public class DiscogsCollectionImporter: NSManagedObjectContext {
             guard let masterFolder = coreDataFoldersByID[masterFolderID] else {
                 throw ImportError.noAllFolderWasFound
             }
+
             self.importerDelegate?.update(importedItemCount: 4, totalCount: 6, forService: self.service)
 
             return self.downloadDiscogsItems(forUserName: userName,
@@ -174,7 +176,13 @@ public class DiscogsCollectionImporter: NSManagedObjectContext {
                 let request: NSFetchRequest<CollectionItem> = CollectionItem.fetchRequest(sortDescriptors: [],
                                                                                           predicate: CollectionItem.uniquePredicate(forReleaseVersionID: discogsItem.id))
                 let coreDataItem = try self.fetchOrCreate(withRequest: request) { (item) in
-                    item.update(withDiscogsItem: discogsItem, inContext: self)
+                    do {
+                        try item.update(withDiscogsItem: discogsItem,
+                                        coreDataFields: coreDataFieldsByID,
+                                        inContext: self)
+                    } catch {
+                        os_log(.debug, "Failed to update CoreData fields for Discogs item %d", discogsItem.id)
+                    }
                 }
 
                 coreDataItemsByID[discogsItem.id] = coreDataItem
@@ -232,11 +240,28 @@ public extension SwiftDiscogsApp.CollectionItem {
     }
 
     func update(withDiscogsItem discogsItem: SwiftDiscogs.CollectionFolderItem,
-                inContext context: NSManagedObjectContext) {
+                coreDataFields: DiscogsCollectionImporter.CoreDataFieldsByID,
+                inContext context: NSManagedObjectContext) throws {
         self.rating = Int16(discogsItem.rating)
         self.releaseVersionID = Int64(discogsItem.id)
 
         // Import the custom fields.
+        try discogsItem.notes?.forEach { (discogsNote) in
+            guard let discogsItemID = discogsItem.basicInformation?.id,
+                let coreDataField = coreDataFields[discogsNote.fieldId] else {
+                return
+            }
+
+            let fieldPredicate = CollectionItemField.uniquePredicate(forReleaseVersionID: discogsItemID,
+                                                                     fieldID: discogsNote.fieldId)
+            let request: NSFetchRequest<CollectionItemField> = CollectionItemField.fetchRequest(sortDescriptors: [],
+                                                                                                predicate: fieldPredicate)
+            _ = try context.fetchOrCreate(withRequest: request) { (field) in
+                field.update(withDiscogsNote: discogsNote,
+                            customField: coreDataField,
+                            collectionItem: self)
+            }
+        }
     }
 
 }
@@ -245,7 +270,7 @@ public extension SwiftDiscogsApp.CollectionItemField {
 
     static func uniquePredicate(forReleaseVersionID releaseVersionID: Int,
                                 fieldID: Int) -> NSPredicate {
-        return SwiftDiscogsApp.CollectionItem.uniquePredicate(forReleaseVersionID: releaseVersionID)
+        return NSPredicate(format: "collectionItem.releaseVersionID == \(Int64(releaseVersionID))")
             + NSPredicate(format: "customField.id == \(Int64(fieldID))")
     }
 
