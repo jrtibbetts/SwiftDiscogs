@@ -4,6 +4,14 @@ import MediaPlayer
 
 public struct iTunesMediaLibrary: MediaLibrary {
 
+    public func albums(byArtistNamed artistName: String?) -> [MPMediaItemCollection]? {
+        let query = MPMediaQuery.artists()
+        query.groupingType = .album
+
+        return query.filteredBy(MPMediaItemPropertyArtist.predicate(containing: artistName))
+            .collections
+    }
+
     public func artists(named artistName: String? = nil) -> [MPMediaItem]? {
         return MPMediaQuery.artists()
             .filteredBy(MPMediaItemPropertyArtist.predicate(containing: artistName))

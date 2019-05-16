@@ -21,6 +21,10 @@ class MockMediaLibrary: NSObject, MediaLibrary {
         self.emptyMode = emptyMode
     }
 
+    func albums(byArtistNamed: String?) -> [MPMediaItemCollection]? {
+        return (emptyMode ? nil : [MPMediaItemCollection(items: items)])
+    }
+
     func artists(named: String?) -> [MPMediaItem]? {
         return (emptyMode ? nil : items)
     }
