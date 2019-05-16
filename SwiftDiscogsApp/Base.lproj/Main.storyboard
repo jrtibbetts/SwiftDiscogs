@@ -196,21 +196,48 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Oc2-Cg-6Ds" customClass="ImportStatusView" customModule="SwiftDiscogsApp" customModuleProvider="target">
-                                                    <rect key="frame" x="190" y="11" width="170" height="22"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </view>
+                                                <stackView opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="K2L-H6-XJt">
+                                                    <rect key="frame" x="303.33333333333331" y="16" width="56" height="14.333333333333336"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DQB-l5-kSA" userLabel="Collection Count Label" customClass="HidingLabel" customModule="SwiftDiscogsApp" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="0.0" width="13.333333333333334" height="14.333333333333334"/>
+                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                                            <color key="textColor" red="0.0" green="0.56031829119999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b4w-QG-R52" userLabel="Wantlist Count Label" customClass="HidingLabel" customModule="SwiftDiscogsApp" customModuleProvider="target">
+                                                            <rect key="frame" x="21.333333333333371" y="0.0" width="13.333333333333336" height="14.333333333333334"/>
+                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                                            <color key="textColor" red="0.58072251080000004" green="0.066734083" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B3a-eM-Ugz">
+                                                            <rect key="frame" x="42.666666666666686" y="0.0" width="13.333333333333336" height="14.333333333333334"/>
+                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="B3a-eM-Ugz" firstAttribute="firstBaseline" secondItem="b4w-QG-R52" secondAttribute="firstBaseline" id="ZWq-xx-Teq"/>
+                                                        <constraint firstItem="b4w-QG-R52" firstAttribute="firstBaseline" secondItem="DQB-l5-kSA" secondAttribute="firstBaseline" id="cvJ-QX-Rhb"/>
+                                                    </constraints>
+                                                </stackView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="S6k-SG-YfC" secondAttribute="trailing" id="C5X-TU-pac"/>
+                                                <constraint firstAttribute="trailing" secondItem="K2L-H6-XJt" secondAttribute="trailing" constant="15.666666666666686" id="Cju-Nn-UJw"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="S6k-SG-YfC" secondAttribute="bottom" id="KA4-Q3-39t"/>
                                                 <constraint firstItem="S6k-SG-YfC" firstAttribute="leading" secondItem="1mm-bv-BS5" secondAttribute="leadingMargin" id="nhb-zs-TCz"/>
                                                 <constraint firstAttribute="topMargin" secondItem="S6k-SG-YfC" secondAttribute="top" id="pNa-5M-GAu"/>
+                                                <constraint firstItem="DQB-l5-kSA" firstAttribute="firstBaseline" secondItem="S6k-SG-YfC" secondAttribute="firstBaseline" id="uKZ-ve-HUI"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="artistNameLabel" destination="S6k-SG-YfC" id="4Oq-Ey-a4Q"/>
+                                            <outlet property="collectionCountLabel" destination="DQB-l5-kSA" id="cwh-Fw-oo0"/>
+                                            <outlet property="libraryCountLabel" destination="B3a-eM-Ugz" id="RXP-Dy-4Zg"/>
+                                            <outlet property="wantlistCountLabel" destination="b4w-QG-R52" id="eK4-a9-X9y"/>
                                             <segue destination="cvK-7F-nVP" kind="show" identifier="showDiscogsArtist" id="XEp-8Q-M5i"/>
                                         </connections>
                                     </tableViewCell>
@@ -1508,12 +1535,6 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                             <constraint firstItem="4gc-te-Nk4" firstAttribute="leading" secondItem="W2d-Ag-24U" secondAttribute="leading" id="mEE-le-sEw"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="W2d-Ag-24U"/>
-                        <connections>
-                            <outlet property="coverArtView" destination="2LP-y1-iYJ" id="Oed-1y-0Hf"/>
-                            <outlet property="navigationItem" destination="z7v-ur-Q0u" id="FKV-3a-gdC"/>
-                            <outlet property="sortOrFilterHeaderView" destination="gfl-02-eBY" id="W9E-eJ-azx"/>
-                            <outlet property="tableView" destination="4gc-te-Nk4" id="9TW-mG-OO7"/>
-                        </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Master Release" id="z7v-ur-Q0u"/>
                     <connections>

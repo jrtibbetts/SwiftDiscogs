@@ -960,12 +960,12 @@
 		96CA18592081A0B6006FF5F0 /* Artist */ = {
 			isa = PBXGroup;
 			children = (
+				96EA0DDF225EDF220072F09F /* ArtistBioViewController.swift */,
 				96BB37FE2251139500806E56 /* ArtistsViewController.swift */,
 				969ADA6D2068A7D300A8BDD0 /* DiscogsArtistModel.swift */,
 				969FBD49207AB29300C32471 /* DiscogsArtistView.swift */,
 				96226AF62069F578000EEC50 /* DiscogsArtistViewController.swift */,
 				96BA81C7225C1ED50003D65C /* DiscogsDisambiguationViewController.swift */,
-				96EA0DDF225EDF220072F09F /* ArtistBioViewController.swift */,
 			);
 			path = Artist;
 			sourceTree = "<group>";

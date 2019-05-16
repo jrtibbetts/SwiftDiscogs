@@ -21,8 +21,9 @@ class ArtistsViewController: CollectionAndTableViewController, UISearchResultsUp
     // MARK: - UIViewController
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let selectedIndex = artistsDisplay.indexPathForSelectedItem,
-            let selectedArtistName = artistsModel.artists?[selectedIndex.row] {
+        if let selectedIndex = artistsDisplay.indexPathForSelectedItem {
+            let selectedArtistName = artistsModel.artists[selectedIndex.row]
+
             if segue.identifier == "showDiscogsArtist",
                 let destination = segue.destination as? DiscogsArtistViewController {
                 destination.artistName = selectedArtistName
@@ -53,13 +54,19 @@ class ArtistsViewController: CollectionAndTableViewController, UISearchResultsUp
         artistsDisplay.start()
 
         DispatchQueue.global().async(.promise) { [weak self] in
-            let artists = MediaLibraryManager.mediaLibrary.artists(named: artistName)
-            self?.artistsModel.artistMediaItems = artists
-            }.done { [weak self] in
-                self?.artistsDisplay.refresh()
-            }.ensure { [weak self] in
-                self?.artistsDisplay.stop()
-            }.cauterize()
+            let mediaLibrary = MediaLibraryManager.mediaLibrary
+            let artists = mediaLibrary.artists(named: artistName)
+            self?.artistsModel.artistMediaItems = artists ?? []
+
+            artists?.forEach { (artist) in
+                let artistName = artist.albumArtist ?? "(unknown)"
+                self?.artistsModel.artistAlbumCounts[artistName] = mediaLibrary.albums(byArtistNamed: artistName)?.count ?? 0
+            }
+        }.done { [weak self] in
+            self?.artistsDisplay.refresh()
+        }.ensure { [weak self] in
+            self?.artistsDisplay.stop()
+        }.cauterize()
     }
 
     func updateSearchResults(for searchController: UISearchController) {
@@ -116,18 +123,16 @@ class ArtistsModel: CollectionAndTableModel {
 
     // MARK: - Properties
 
-    var artistMediaItems: [MPMediaItem]? {
+    var artistMediaItems: [MPMediaItem] = [] {
         didSet {
-            if let artistNames = artistMediaItems?.map({ $0.albumArtist ?? "(unknown)" }) {
-                artists = Array<String>(Set<String>(artistNames)).sorted()
-            }
+            let artistNames = artistMediaItems.map { $0.albumArtist ?? "(unknown)" }
+            artists = Array<String>(Set<String>(artistNames)).sorted()
         }
     }
 
-    var artists: [String]? {
-        didSet {
-        }
-    }
+    var artists: [String] = []
+
+    var artistAlbumCounts: [String: Int] = [:]
 
     // MARK: - CollectionAndTableModel
 
@@ -136,7 +141,7 @@ class ArtistsModel: CollectionAndTableModel {
     }
 
     override func numberOfItems(inSection section: Int) -> Int {
-        return artists?.count ?? 0
+        return artists.count
     }
 
     override func tableView(_ tableView: UITableView,
@@ -145,7 +150,11 @@ class ArtistsModel: CollectionAndTableModel {
                                                  for: indexPath)
 
         if let cell = cell as? ArtistTableViewCell {
-            cell.artistNameLabel.text = artists?[indexPath.row]
+            let artistName = artists[indexPath.row]
+            cell.artistName = artistName
+            cell.libraryCount = artistAlbumCounts[artistName]
+            cell.collectionCountLabel.text = nil
+            cell.wantlistCountLabel.text = nil
         }
 
         return cell
@@ -155,6 +164,28 @@ class ArtistsModel: CollectionAndTableModel {
 
 class ArtistTableViewCell: UITableViewCell {
 
+    // MARK: - Outlets
+
     @IBOutlet weak var artistNameLabel: UILabel!
+
+    @IBOutlet weak var collectionCountLabel: UILabel!
+
+    @IBOutlet weak var wantlistCountLabel: UILabel!
+
+    @IBOutlet weak var libraryCountLabel: UILabel!
+
+    // MARK: - Properties
+
+    var artistName: String? {
+        didSet {
+            artistNameLabel.text = artistName
+        }
+    }
+
+    var libraryCount: Int? {
+        didSet {
+            libraryCountLabel.text = "\(libraryCount ?? 0)"
+        }
+    }
 
 }
