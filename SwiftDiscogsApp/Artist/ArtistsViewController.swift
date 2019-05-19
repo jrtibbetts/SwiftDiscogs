@@ -184,7 +184,7 @@ class ArtistTableViewCell: UITableViewCell {
         }
     }
 
-    var collectiontCount: Int? {
+    var collectionCount: Int? {
         didSet {
             collectionCountLabel.text = (collectionCount != nil ? "\(collectionCount!)" : nil)
         }
