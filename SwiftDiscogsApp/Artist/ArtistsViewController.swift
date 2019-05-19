@@ -134,6 +134,8 @@ class ArtistsModel: CollectionAndTableModel {
 
     var artistAlbumCounts: [String: Int] = [:]
 
+    var medi8Context = AppDelegate.shared.medi8Context
+
     // MARK: - CollectionAndTableModel
 
     override func numberOfSections() -> Int {
@@ -182,9 +184,21 @@ class ArtistTableViewCell: UITableViewCell {
         }
     }
 
+    var collectiontCount: Int? {
+        didSet {
+            collectionCountLabel.text = (collectionCount != nil ? "\(collectionCount!)" : nil)
+        }
+    }
+
     var libraryCount: Int? {
         didSet {
             libraryCountLabel.text = "\(libraryCount ?? 0)"
+        }
+    }
+
+    var wantlistCount: Int? {
+        didSet {
+            wantlistCountLabel.text = (wantlistCount != nil ? "\(wantlistCount!)" : nil)
         }
     }
 
