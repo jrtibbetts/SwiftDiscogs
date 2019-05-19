@@ -1322,7 +1322,7 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
         <scene sceneID="Xlf-ou-lRd">
             <objects>
                 <viewController id="k8J-Ec-M2T" userLabel="Master Release" customClass="MasterReleaseViewController" customModule="SwiftDiscogsApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="dGD-xz-B36" customClass="MasterReleaseView" customModule="SwiftDiscogsApp" customModuleProvider="target">
+                    <view key="view" contentMode="scaleToFill" id="dGD-xz-B36" customClass="CoverArtAndTableView" customModule="SwiftDiscogsApp" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -1533,6 +1533,10 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                             <constraint firstItem="4gc-te-Nk4" firstAttribute="leading" secondItem="W2d-Ag-24U" secondAttribute="leading" id="mEE-le-sEw"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="W2d-Ag-24U"/>
+                        <connections>
+                            <outlet property="navigationItem" destination="z7v-ur-Q0u" id="vRZ-Nx-Rvh"/>
+                            <outlet property="tableView" destination="4gc-te-Nk4" id="FB1-r4-ByG"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Master Release" id="z7v-ur-Q0u"/>
                     <connections>
