@@ -18,13 +18,7 @@ public class DiscogsArtistViewController: UIViewController {
 
             // Now go get the artist's release summaries.
             fetchReleases()
-            let albumsQuery = MPMediaQuery.albums()
-            let predicate = MPMediaPropertyPredicate(value: artist?.name,
-                                                     forProperty: MPMediaItemPropertyArtist,
-                                                     comparisonType: .contains)
-            albumsQuery.addFilterPredicate(predicate)
-            albumsQuery.groupingType = .album
-            artistModel.mediaCollections = albumsQuery.collections
+            artistModel.mediaCollections = iTunesMediaLibrary().albums(byArtistNamed: artist?.name)
         }
     }
 
