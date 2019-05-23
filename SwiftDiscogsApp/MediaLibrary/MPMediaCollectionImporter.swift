@@ -56,10 +56,8 @@ public class MPMediaItemCollectionImporter: MediaImporter, MPMediaCollectionBrow
                 $0.notes = mediaItem.comments
             }
 
-//        let trackNumber = mediaItem.albumTrackNumber
-
-            masterRelease.versions?.forEach { (v) in
-                if let version = v as? ReleaseVersion {
+            masterRelease.versions?.forEach { (version) in
+                if let version = version as? ReleaseVersion {
                     version.trackListing?.addToSongVersions(songVersion)
                 }
             }

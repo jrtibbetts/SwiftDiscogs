@@ -29,6 +29,7 @@ public class DiscogsContainer: NSPersistentContainer {
     }
 
     // MARK: - Core Data Saving support
+
     func saveContext() {
         if viewContext.hasChanges {
             do {
@@ -41,5 +42,7 @@ public class DiscogsContainer: NSPersistentContainer {
             }
         }
     }
+
+    // MARK: - Entities
 
 }
