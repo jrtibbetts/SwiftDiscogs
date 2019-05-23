@@ -164,7 +164,7 @@
                 <exit id="PBB-1J-cN0" userLabel="Exit" sceneMemberID="exit"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4006" y="-573"/>
+            <point key="canvasLocation" x="4033" y="-573"/>
         </scene>
         <!--Artists-->
         <scene sceneID="e41-lK-rKG">
@@ -178,7 +178,7 @@
                                 <rect key="frame" x="0.0" y="140" width="375" height="638"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="VDu-XY-FOY" userLabel="Zero-height footer to suppress empty rows">
-                                    <rect key="frame" x="0.0" y="72" width="375" height="0.0"/>
+                                    <rect key="frame" x="0.0" y="142" width="375" height="0.0"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </view>
@@ -239,6 +239,38 @@
                                             <segue destination="cvK-7F-nVP" kind="show" identifier="showDiscogsArtist" id="XEp-8Q-M5i"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="songCell" rowHeight="70" id="aP3-3F-rpk" userLabel="Song Cell">
+                                        <rect key="frame" x="0.0" y="72" width="375" height="70"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aP3-3F-rpk" id="ues-eh-dhU">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="aHe-iD-zs4">
+                                                    <rect key="frame" x="15" y="12.000000000000004" width="140.66666666666666" height="46.333333333333343"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="“Come Together”" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gif-kN-pOA" userLabel="Song Name">
+                                                            <rect key="frame" x="0.0" y="0.0" width="140.66666666666666" height="20.333333333333332"/>
+                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Beatles" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gy7-RC-9tV" userLabel="Artist Name">
+                                                            <rect key="frame" x="0.0" y="28.333333333333336" width="140.66666666666666" height="18"/>
+                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="aHe-iD-zs4" firstAttribute="top" secondItem="ues-eh-dhU" secondAttribute="topMargin" constant="0.99999999999999822" id="J6Y-fy-LxZ"/>
+                                                <constraint firstAttribute="leadingMargin" secondItem="aHe-iD-zs4" secondAttribute="leading" id="Lch-aY-F2t"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="aHe-iD-zs4" secondAttribute="bottom" constant="0.6666666666666714" id="atf-Xk-coF"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                 </prototypes>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nhX-fS-HdP" userLabel="Spinner View">
@@ -284,7 +316,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8b8-bl-UVE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3104.8000000000002" y="224.6305418719212"/>
+            <point key="canvasLocation" x="4047.1999999999998" y="224.6305418719212"/>
         </scene>
         <!--Third-Party Services-->
         <scene sceneID="0oe-Yh-xtV">
@@ -405,7 +437,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XtI-7M-OzK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3104.8000000000002" y="1014.5320197044335"/>
+            <point key="canvasLocation" x="4047" y="1015"/>
         </scene>
         <!--Artist Details-->
         <scene sceneID="Ah8-cD-mNe">
@@ -643,7 +675,7 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lOY-hj-4oC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4032.8000000000002" y="224.6305418719212"/>
+            <point key="canvasLocation" x="4975.1999999999998" y="224.6305418719212"/>
         </scene>
         <!--Discogs Artist Images-->
         <scene sceneID="wuE-Xr-dVS">
@@ -759,7 +791,7 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L5g-dc-psQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4952" y="226"/>
+            <point key="canvasLocation" x="5969" y="225"/>
         </scene>
         <!--Media Sources-->
         <scene sceneID="Dna-Lq-o6f">
@@ -1551,7 +1583,7 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                     <viewLayoutGuide key="safeArea" id="pUb-lh-gpc"/>
                 </view>
             </objects>
-            <point key="canvasLocation" x="4951" y="1015"/>
+            <point key="canvasLocation" x="4975" y="1015"/>
         </scene>
         <!--Table View Controller-->
         <scene sceneID="7Cf-hG-5X3">
@@ -1811,7 +1843,7 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uRr-0L-oTN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4952" y="-573"/>
+            <point key="canvasLocation" x="4974" y="-573"/>
         </scene>
         <!--Sign In-->
         <scene sceneID="dIO-4P-uw5">
@@ -1883,7 +1915,7 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jgh-5s-jk5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3105" y="-573"/>
+            <point key="canvasLocation" x="3063" y="-573"/>
         </scene>
         <!--Artists-->
         <scene sceneID="KCJ-Fu-5fu">
@@ -1902,7 +1934,7 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HIG-D1-HTA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2121" y="225"/>
+            <point key="canvasLocation" x="3063.1999999999998" y="224.6305418719212"/>
         </scene>
     </scenes>
     <resources>
