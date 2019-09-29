@@ -23,12 +23,15 @@ open class DiscogsClient: OAuth1JSONClient, Discogs {
                 consumerSecret: String,
                 userAgent: String) {
         self.userAgent = userAgent
+        let jsonDecoder = JSONDecoder()
+        
         super.init(consumerKey: consumerKey,
                    consumerSecret: consumerSecret,
                    requestTokenUrl: "https://api.discogs.com/oauth/request_token",
                    authorizeUrl: "https://www.discogs.com/oauth/authorize",
                    accessTokenUrl: "https://api.discogs.com/oauth/access_token",
-                   baseUrl: URL(string: "https://api.discogs.com")!)
+                   baseUrl: URL(string: "https://api.discogs.com")!,
+                   jsonDecoder: jsonDecoder)
         /// Discogs requires all API calls to include a custom `User-Agent`
         /// header.
         headers["User-Agent"] = self.userAgent
