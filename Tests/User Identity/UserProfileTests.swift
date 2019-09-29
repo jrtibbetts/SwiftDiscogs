@@ -9,10 +9,12 @@ class UserProfileTests: DiscogsTestBase {
         assert(try discogsObject(inLocalJsonFileNamed: "get-user-profile-200"))
     }
     
-    fileprivate func assert(_ userProfile: UserProfile) {
-        XCTAssertEqual(1578108, userProfile.id)
-        XCTAssertEqual("2012-08-15T21:13:36-07:00", userProfile.registered)
-        XCTAssertEqual(100, userProfile.buyerRating)
+    func assert(_ userProfile: UserProfile,
+                file: StaticString = #file,
+                line: UInt = #line) {
+        XCTAssertEqual(1578108, userProfile.id, file: file, line: line)
+        XCTAssertEqual("2012-08-15T21:13:36-07:00", userProfile.registered, file: file, line: line)
+        XCTAssertEqual(100, userProfile.buyerRating, file: file, line: line)
     }
     
 }

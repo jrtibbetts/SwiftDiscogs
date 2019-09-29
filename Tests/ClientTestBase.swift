@@ -9,7 +9,9 @@ class ClientTestBase: JSONTestBase {
 
     @discardableResult
     func assert<T>(validPromise promise: Promise<T>,
-                   description: String = "valid \(type(of: T.self))") -> T? {
+                   description: String = "valid \(type(of: T.self))",
+                   file: StaticString = #file,
+                   line: UInt = #line) -> T? {
         let exp = expectation(description: description)
         var returnableObject: T?
 
@@ -17,7 +19,7 @@ class ClientTestBase: JSONTestBase {
             returnableObject = fetchedObject
             exp.fulfill()
         }.catch { (error) in
-            XCTFail(error.localizedDescription)
+            XCTFail(error.localizedDescription, file: file, line: line)
         }
 
         wait(for: [exp], timeout: timeoutSeconds)
@@ -27,12 +29,14 @@ class ClientTestBase: JSONTestBase {
 
     @discardableResult
     func assert<T>(invalidPromise promise: Promise<T>,
-                   description: String = "invalid \(type(of: T.self))") -> Error? {
+                   description: String = "invalid \(type(of: T.self))",
+                   file: StaticString = #file,
+                   line: UInt = #line) -> Error? {
         let exp = expectation(description: description)
         var returnableError: Error?
 
         promise.done { (fetchedObject) in
-            XCTFail("Expected an error to be thrown.")
+            XCTFail("Expected an error to be thrown.", file: file, line: line)
         }.catch { (error) -> Void in
             returnableError = error
             exp.fulfill()

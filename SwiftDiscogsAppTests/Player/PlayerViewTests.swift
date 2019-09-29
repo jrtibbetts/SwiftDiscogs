@@ -121,10 +121,12 @@ class PlayerViewTests: XCTestCase {
 
     func assert(elapsedTimeText: String,
                 remainingTimeText: String,
-                scrubberValue: Float) {
-        XCTAssertEqual(scrubberView.elapsedTimeLabel?.text, elapsedTimeText)
-        XCTAssertEqual(scrubberView.remainingTimeLabel?.text, remainingTimeText)
-        XCTAssertEqual(scrubberView.scrubber?.value, scrubberValue)
+                scrubberValue: Float,
+                file: StaticString = #file,
+                line: UInt = #line) {
+        XCTAssertEqual(scrubberView.elapsedTimeLabel?.text, elapsedTimeText, file: file, line: line)
+        XCTAssertEqual(scrubberView.remainingTimeLabel?.text, remainingTimeText, file: file, line: line)
+        XCTAssertEqual(scrubberView.scrubber?.value, scrubberValue, file: file, line: line)
     }
 }
 

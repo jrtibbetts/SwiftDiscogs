@@ -9,9 +9,11 @@ class CollectionFolderItemsTests: DiscogsTestBase {
         assert(try discogsObject(inLocalJsonFileNamed: "get-items-in-folder-200"))
     }
     
-    fileprivate func assert(_ items: CollectionFolderItems) {
+    func assert(_ items: CollectionFolderItems,
+                file: StaticString = #file,
+                line: UInt = #line) {
         guard let releases = items.releases else {
-            XCTFail("The folder item's releases array shouldn't be nil.")
+            XCTFail("The folder item's releases array shouldn't be nil.", file: file, line: line)
             return
         }
         

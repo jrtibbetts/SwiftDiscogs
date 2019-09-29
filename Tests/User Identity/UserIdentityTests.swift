@@ -11,10 +11,12 @@ class UserIdentityTests: DiscogsTestBase {
         assertDiscogsErrorMessage(in: "get-user-identity-401", is: "You must authenticate to access this resource.")
     }
     
-    fileprivate func assert(_ userIdentity: UserIdentity) {
-        XCTAssertEqual(1, userIdentity.id)
-        XCTAssertEqual("example", userIdentity.username)
-        XCTAssertEqual("Your Application Name", userIdentity.consumerName)
+    func assert(_ userIdentity: UserIdentity,
+                file: StaticString = #file,
+                line: UInt = #line) {
+        XCTAssertEqual(1, userIdentity.id, file: file, line: line)
+        XCTAssertEqual("example", userIdentity.username, file: file, line: line)
+        XCTAssertEqual("Your Application Name", userIdentity.consumerName, file: file, line: line)
     }
     
 }

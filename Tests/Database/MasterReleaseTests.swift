@@ -13,9 +13,11 @@ class MasterReleaseTests: DiscogsTestBase {
         assertDiscogsErrorMessage(in: "get-master-404", is: "Master Release not found.")
     }
     
-    fileprivate func assert(_ masterRelease: MasterRelease) {
-        XCTAssertEqual(masterRelease.title, "Stardiver")
-        XCTAssertEqual(masterRelease.year, 1997)
+    func assert(_ masterRelease: MasterRelease,
+                file: StaticString = #file,
+                line: UInt = #line) {
+        XCTAssertEqual(masterRelease.title, "Stardiver", file: file, line: line)
+        XCTAssertEqual(masterRelease.year, 1997, file: file, line: line)
     }
     
 }

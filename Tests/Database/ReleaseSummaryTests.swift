@@ -30,9 +30,11 @@ class ReleaseSummaryTests: DiscogsTestBase {
         assertDiscogsErrorMessage(in: "get-release-summaries-404", is: "Artist not found.")
     }
 
-    fileprivate func assert(_ artistReleases: ReleaseSummaries) {
+    func assert(_ artistReleases: ReleaseSummaries,
+                file: StaticString = #file,
+                line: UInt = #line) {
         guard let releases = artistReleases.releases else {
-            XCTFail("There should be releases in the file.")
+            XCTFail("There should be releases in the file.", file: file, line: line)
 
             return
         }
@@ -40,20 +42,20 @@ class ReleaseSummaryTests: DiscogsTestBase {
         XCTAssertEqual(releases.count, 3)
 
         let release = releases[0]
-        XCTAssertEqual(release.artist, "Nickelback", "artist name")
-        XCTAssertEqual(release.id, 173765, "release ID")
-        XCTAssertEqual(release.role, "Main", "release role")
-        XCTAssertEqual(release.title, "Curb", "release title")
-        XCTAssertEqual(release.type, "master", "release type")
-        XCTAssertEqual(release.year, 1996, "release year")
+        XCTAssertEqual(release.artist, "Nickelback", "artist name", file: file, line: line)
+        XCTAssertEqual(release.id, 173765, "release ID", file: file, line: line)
+        XCTAssertEqual(release.role, "Main", "release role", file: file, line: line)
+        XCTAssertEqual(release.title, "Curb", "release title", file: file, line: line)
+        XCTAssertEqual(release.type, "master", "release type", file: file, line: line)
+        XCTAssertEqual(release.year, 1996, "release year", file: file, line: line)
 
         let hesher = releases[1]
 
         if let formats = hesher.formats {
-            XCTAssertTrue(formats.contains("CD"), "CD format")
-            XCTAssertTrue(formats.contains("EP"), "EP format")
+            XCTAssertTrue(formats.contains("CD"), "CD format", file: file, line: line)
+            XCTAssertTrue(formats.contains("EP"), "EP format", file: file, line: line)
         } else {
-            XCTFail("Release 2 should have CD & EP formats")
+            XCTFail("Release 2 should have CD & EP formats", file: file, line: line)
         }
     }
     

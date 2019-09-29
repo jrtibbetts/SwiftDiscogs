@@ -9,9 +9,14 @@ class CollectionItemInfoTests: DiscogsTestBase {
         assert(try discogsObject(inLocalJsonFileNamed: "add-item-to-collection-folder-200"))
     }
     
-    fileprivate func assert(_ item: CollectionItemInfo) {
-        XCTAssertEqual(item.instanceId, 3)
-        XCTAssertEqual(item.resourceUrl, "https://api.discogs.com/users/example/collection/folders/1/release/1/instance/3")
+    func assert(_ item: CollectionItemInfo,
+                file: StaticString = #file,
+                line: UInt = #line) {
+        XCTAssertEqual(item.instanceId, 3, file: file, line: line)
+        XCTAssertEqual(item.resourceUrl,
+                       "https://api.discogs.com/users/example/collection/folders/1/release/1/instance/3",
+                       file: file,
+                       line: line)
     }
     
 }

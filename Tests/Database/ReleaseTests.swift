@@ -13,10 +13,15 @@ class ReleaseTests: DiscogsTestBase {
         assertDiscogsErrorMessage(in: "get-release-404", is: "Release not found.")
     }
     
-    fileprivate func assert(_ releaseVersion: Release) {
-        XCTAssertEqual(releaseVersion.title, "Never Gonna Give You Up")
-        XCTAssertEqual(releaseVersion.dataQuality, "Correct")
-        XCTAssertEqual(releaseVersion.community?.contributors[0].username, "memory", "Username")
+    func assert(_ releaseVersion: Release,
+                file: StaticString = #file,
+                line: UInt = #line) {
+        XCTAssertEqual(releaseVersion.title, "Never Gonna Give You Up", file: file, line: line)
+        XCTAssertEqual(releaseVersion.dataQuality, "Correct", file: file, line: line)
+        XCTAssertEqual(releaseVersion.community?.contributors[0].username,
+                       "memory", "Username",
+                       file: file,
+                       line: line)
     }
     
 }
