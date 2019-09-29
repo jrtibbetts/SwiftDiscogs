@@ -97,7 +97,6 @@ class ArtistsDisplay: CollectionAndTableDisplay {
 
         if let searchController = navigationItem?.searchController {
             searchController.hidesNavigationBarDuringPresentation = true
-            searchController.dimsBackgroundDuringPresentation = false
             searchController.obscuresBackgroundDuringPresentation = false
 
             searchController.searchBar.enablesReturnKeyAutomatically = true

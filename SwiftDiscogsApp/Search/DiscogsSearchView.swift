@@ -42,7 +42,6 @@ open class DiscogsSearchView: DiscogsDisplay, SpinnerBusyView,  UISearchBarDeleg
 
         if let searchController = navigationItem.searchController {
             searchController.hidesNavigationBarDuringPresentation = true
-            searchController.dimsBackgroundDuringPresentation = false
             searchController.obscuresBackgroundDuringPresentation = false
             searchController.searchBar.delegate = self
         }
