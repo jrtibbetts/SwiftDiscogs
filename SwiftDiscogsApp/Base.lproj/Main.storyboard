@@ -247,7 +247,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="aHe-iD-zs4">
-                                                    <rect key="frame" x="15" y="12.000000000000004" width="140.66666666666666" height="46.333333333333343"/>
+                                                    <rect key="frame" x="15" y="12" width="140.66666666666666" height="46.333333333333343"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="“Come Together”" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gif-kN-pOA" userLabel="Song Name">
                                                             <rect key="frame" x="0.0" y="0.0" width="140.66666666666666" height="20.333333333333332"/>
@@ -956,13 +956,13 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ppH-We-6On" userLabel="Artwork">
-                                <rect key="frame" x="16" y="88" width="343" height="343"/>
+                                <rect key="frame" x="16" y="44" width="343" height="343"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="ppH-We-6On" secondAttribute="height" multiplier="1:1" id="i94-Wn-ufB"/>
                                 </constraints>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cJ8-J0-ZW3">
-                                <rect key="frame" x="16" y="88" width="343" height="690"/>
+                                <rect key="frame" x="16" y="44" width="343" height="734"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="FVq-tL-bdN" userLabel="Clear Header">
                                     <rect key="frame" x="0.0" y="0.0" width="343" height="343"/>
@@ -1942,8 +1942,8 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="5co-na-vdy"/>
-        <segue reference="IBF-35-jpA"/>
-        <segue reference="XEp-8Q-M5i"/>
+        <segue reference="Vih-4t-rKA"/>
+        <segue reference="UNb-dt-M4w"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
 </document>

@@ -102,6 +102,23 @@
             ReferencedContainer = "container:SwiftDiscogs.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
+      <EnvironmentVariables>
+         <EnvironmentVariable
+            key = "discogsConsumerSecret"
+            value = "PQFRdNKCVHmYRpaItyihXMXHbdXUMBQw"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+         <EnvironmentVariable
+            key = "discogsConsumerKey"
+            value = "SZybzzXDqBcOSbVnjtSu"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+         <EnvironmentVariable
+            key = "discogsUserAgent"
+            value = "Mozilla/5.0; SwiftDiscogsApp (https://github.com/jrtibbetts/SwiftDiscogs)"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+      </EnvironmentVariables>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
