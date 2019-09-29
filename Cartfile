@@ -1,7 +1,7 @@
 github "OAuthSwift/OAuthSwift" ~> 1.3
-github "mxcl/PromiseKit" ~> 6.8
-github "jrtibbetts/JSONClient" ~> 1.6
+github "mxcl/PromiseKit"
+github "jrtibbetts/JSONClient"
 # git "file:///Users/jason/Developer/poikile/Medi8" "master"
-github "jrtibbetts/Medi8" ~> 0.2
-github "jrtibbetts/Stylobate" ~> 0.20
-github "onevcat/Kingfisher" ~> 5.3
+github "jrtibbetts/Medi8"
+github "jrtibbetts/Stylobate"
+github "onevcat/Kingfisher"
