@@ -24,6 +24,7 @@ open class DiscogsClient: OAuth1JSONClient, Discogs {
                 userAgent: String) {
         self.userAgent = userAgent
         let jsonDecoder = JSONDecoder()
+        jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
         
         super.init(consumerKey: consumerKey,
                    consumerSecret: consumerSecret,
