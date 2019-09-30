@@ -11,11 +11,16 @@ public class MockDiscogs: MockClient, Discogs {
     
     public init(errorMode: Bool = false) {
         let bundle = Bundle(for: MockDiscogs.self)
-        
+        let jsonDecoder = JSONDecoder()
+        jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
+
         if errorMode {
-            super.init(errorDomain: "net.immediate.MockDiscogs", bundle: bundle)
+            super.init(errorDomain: "net.immediate.MockDiscogs",
+                       bundle: bundle,
+                       jsonDecoder: jsonDecoder)
         } else {
-            super.init(bundle: bundle)
+            super.init(bundle: bundle,
+                       jsonDecoder: jsonDecoder)
         }
     }
 
