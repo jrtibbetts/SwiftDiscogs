@@ -1,7 +1,6 @@
 github "OAuthSwift/OAuthSwift"
 github "mxcl/PromiseKit"
 github "jrtibbetts/JSONClient"
-# git "file:///Users/jason/Developer/poikile/Medi8" "master"
 github "jrtibbetts/Medi8"
 github "jrtibbetts/Stylobate"
 github "onevcat/Kingfisher"

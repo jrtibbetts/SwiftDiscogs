@@ -7,9 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		960368972056082400D24CE7 /* JSONClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96898489203DDA0200DE77BC /* JSONClient.framework */; };
 		960368A4205764E400D24CE7 /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = 9603689F205764E200D24CE7 /* Cartfile */; };
-		960368A5205764E400D24CE7 /* Cartfile.private in Resources */ = {isa = PBXBuildFile; fileRef = 960368A0205764E200D24CE7 /* Cartfile.private */; };
 		960368A6205764E400D24CE7 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 960368A1205764E300D24CE7 /* README.md */; };
 		960368A7205764E400D24CE7 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 960368A2205764E300D24CE7 /* LICENSE */; };
 		960368A8205764E400D24CE7 /* Cartfile.resolved in Resources */ = {isa = PBXBuildFile; fileRef = 960368A3205764E300D24CE7 /* Cartfile.resolved */; };
@@ -45,6 +43,11 @@
 		963282B9222CD7E40090B29F /* MasterReleaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963282B8222CD7E40090B29F /* MasterReleaseViewController.swift */; };
 		963282BD222F82A10090B29F /* TrackTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963282BC222F82A10090B29F /* TrackTableCell.swift */; };
 		963282BF222F83C00090B29F /* ReleaseVersionTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963282BE222F83C00090B29F /* ReleaseVersionTableCell.swift */; };
+		9659769B23BEEC3300FD3B98 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 9659769A23BEEC3300FD3B98 /* Kingfisher */; };
+		9659769E23BEEF1700FD3B98 /* JSONClient in Frameworks */ = {isa = PBXBuildFile; productRef = 9659769D23BEEF1700FD3B98 /* JSONClient */; };
+		965976A123BEEF5C00FD3B98 /* OAuthSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 965976A023BEEF5C00FD3B98 /* OAuthSwift */; };
+		965976A423BEEFAD00FD3B98 /* PMKFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = 965976A323BEEFAD00FD3B98 /* PMKFoundation */; };
+		965976A723BEEFD600FD3B98 /* Medi8 in Frameworks */ = {isa = PBXBuildFile; productRef = 965976A623BEEFD600FD3B98 /* Medi8 */; };
 		967AD9B62263733E001FE440 /* MockMediaLibrary.json in Resources */ = {isa = PBXBuildFile; fileRef = 967AD9B52263733E001FE440 /* MockMediaLibrary.json */; };
 		967AD9B822659656001FE440 /* DiscogsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967AD9B722659656001FE440 /* DiscogsManager.swift */; };
 		967AD9BB22691E18001FE440 /* StoryboardScenes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967AD9B922691E17001FE440 /* StoryboardScenes.swift */; };
@@ -159,8 +162,6 @@
 		96898491203DDB4A00DE77BC /* JSONTestBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9689848F203DDB4900DE77BC /* JSONTestBase.swift */; };
 		96898492203DDB4A00DE77BC /* ClientTestBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96898490203DDB4A00DE77BC /* ClientTestBase.swift */; };
 		96898494203DDBDE00DE77BC /* DiscogsTestBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96898493203DDBDE00DE77BC /* DiscogsTestBase.swift */; };
-		96898497203DDEB300DE77BC /* OAuthSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9689848A203DDA0200DE77BC /* OAuthSwift.framework */; };
-		96898498203DDEB300DE77BC /* PromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9689848B203DDA0200DE77BC /* PromiseKit.framework */; };
 		968C4AC022227514006B51EE /* CollectionRelease.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968C4ABF22227514006B51EE /* CollectionRelease.swift */; };
 		968C4AC22222758F006B51EE /* ArtistSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968C4AC12222758F006B51EE /* ArtistSummary.swift */; };
 		968C4AC422227611006B51EE /* MasterRelease.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968C4AC322227611006B51EE /* MasterRelease.swift */; };
@@ -187,15 +188,6 @@
 		96CA27A02261858200E86A6A /* iTunesMediaLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CA279F2261858200E86A6A /* iTunesMediaLibrary.swift */; };
 		96CA27A322625D0900E86A6A /* MockMediaLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CA27A222625D0900E86A6A /* MockMediaLibrary.swift */; };
 		96E044A22089A93E008F1FE4 /* CollectionAndTableViewControllerTestBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E044A12089A93E008F1FE4 /* CollectionAndTableViewControllerTestBase.swift */; };
-		96E4EB51233C57CE000F7F05 /* PromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9689848B203DDA0200DE77BC /* PromiseKit.framework */; platformFilter = ios; };
-		96E4EB52233C57CE000F7F05 /* PromiseKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9689848B203DDA0200DE77BC /* PromiseKit.framework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		96E4EB54233C57D0000F7F05 /* OAuthSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9689848A203DDA0200DE77BC /* OAuthSwift.framework */; platformFilter = ios; };
-		96E4EB55233C57D0000F7F05 /* OAuthSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9689848A203DDA0200DE77BC /* OAuthSwift.framework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		96E4EB56233C57D1000F7F05 /* Medi8.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 967AD9C022696D04001FE440 /* Medi8.framework */; platformFilter = ios; };
-		96E4EB57233C57D1000F7F05 /* Medi8.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 967AD9C022696D04001FE440 /* Medi8.framework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		96E4EB58233C57D2000F7F05 /* JSONClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96898489203DDA0200DE77BC /* JSONClient.framework */; platformFilter = ios; };
-		96E4EB59233C57D2000F7F05 /* JSONClient.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 96898489203DDA0200DE77BC /* JSONClient.framework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		96E8A14420799EC800BFD508 /* PromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9689848B203DDA0200DE77BC /* PromiseKit.framework */; };
 		96E8CCE020E33396001C5381 /* DiscogsDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E8CCDF20E33396001C5381 /* DiscogsDisplay.swift */; };
 		96EA0DE0225EDF220072F09F /* ArtistBioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96EA0DDF225EDF220072F09F /* ArtistBioViewController.swift */; };
 		AD9C68E022428AB50005D74A /* SectionedModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9C68DF22428AB50005D74A /* SectionedModelTests.swift */; };
@@ -251,25 +243,10 @@
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		96E4EB53233C57CE000F7F05 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				96E4EB55233C57D0000F7F05 /* OAuthSwift.framework in Embed Frameworks */,
-				96E4EB59233C57D2000F7F05 /* JSONClient.framework in Embed Frameworks */,
-				96E4EB52233C57CE000F7F05 /* PromiseKit.framework in Embed Frameworks */,
-				96E4EB57233C57D1000F7F05 /* Medi8.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		9603689F205764E200D24CE7 /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
-		960368A0205764E200D24CE7 /* Cartfile.private */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile.private; sourceTree = "<group>"; };
 		960368A1205764E300D24CE7 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		960368A2205764E300D24CE7 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		960368A3205764E300D24CE7 /* Cartfile.resolved */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile.resolved; sourceTree = "<group>"; };
@@ -314,7 +291,6 @@
 		967AD9B722659656001FE440 /* DiscogsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscogsManager.swift; sourceTree = "<group>"; };
 		967AD9B922691E17001FE440 /* StoryboardScenes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardScenes.swift; sourceTree = "<group>"; };
 		967AD9BA22691E18001FE440 /* StoryboardSegues.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardSegues.swift; sourceTree = "<group>"; };
-		967AD9C022696D04001FE440 /* Medi8.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Medi8.framework; path = Carthage/Build/iOS/Medi8.framework; sourceTree = "<group>"; };
 		967AD9C6226973BF001FE440 /* MPMediaCollectionImporter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPMediaCollectionImporter.swift; sourceTree = "<group>"; };
 		967AD9C7226973BF001FE440 /* MPMediaCollectionBrowser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPMediaCollectionBrowser.swift; sourceTree = "<group>"; };
 		967AD9CA22697D3B001FE440 /* ImportStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportStatusView.swift; sourceTree = "<group>"; };
@@ -426,9 +402,6 @@
 		96898476203DD4E500DE77BC /* CollectionFolderItemsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionFolderItemsTests.swift; sourceTree = "<group>"; };
 		96898477203DD4E500DE77BC /* CollectionValueTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionValueTests.swift; sourceTree = "<group>"; };
 		96898478203DD4E500DE77BC /* CollectionItemInfoTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionItemInfoTests.swift; sourceTree = "<group>"; };
-		96898489203DDA0200DE77BC /* JSONClient.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JSONClient.framework; path = Carthage/Build/iOS/JSONClient.framework; sourceTree = "<group>"; };
-		9689848A203DDA0200DE77BC /* OAuthSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OAuthSwift.framework; path = Carthage/Build/iOS/OAuthSwift.framework; sourceTree = "<group>"; };
-		9689848B203DDA0200DE77BC /* PromiseKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PromiseKit.framework; path = Carthage/Build/iOS/PromiseKit.framework; sourceTree = "<group>"; };
 		9689848F203DDB4900DE77BC /* JSONTestBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONTestBase.swift; sourceTree = "<group>"; };
 		96898490203DDB4A00DE77BC /* ClientTestBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClientTestBase.swift; sourceTree = "<group>"; };
 		96898493203DDBDE00DE77BC /* DiscogsTestBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscogsTestBase.swift; sourceTree = "<group>"; };
@@ -447,7 +420,6 @@
 		969ADA7F2068D87D00A8BDD0 /* Sublabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sublabel.swift; sourceTree = "<group>"; };
 		969ADA812068D8B100A8BDD0 /* BandMember.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandMember.swift; sourceTree = "<group>"; };
 		969FBD49207AB29300C32471 /* DiscogsArtistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscogsArtistView.swift; sourceTree = "<group>"; };
-		96A16D50214F6EA10081F610 /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
 		96A8AC9A2192104E0098BF87 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		96A8AC9B219210500098BF87 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Main.strings; sourceTree = "<group>"; };
 		96A8ACA0219214EE0098BF87 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Discogs.strings; sourceTree = "<group>"; };
@@ -465,7 +437,6 @@
 		96E044A12089A93E008F1FE4 /* CollectionAndTableViewControllerTestBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionAndTableViewControllerTestBase.swift; sourceTree = "<group>"; };
 		96E8CCDF20E33396001C5381 /* DiscogsDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscogsDisplay.swift; sourceTree = "<group>"; };
 		96EA0DDF225EDF220072F09F /* ArtistBioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistBioViewController.swift; sourceTree = "<group>"; };
-		96EDF289209FA8EF009496FA /* Stylobate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Stylobate.framework; path = Carthage/Build/iOS/Stylobate.framework; sourceTree = "<group>"; };
 		AD9C68DF22428AB50005D74A /* SectionedModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionedModelTests.swift; sourceTree = "<group>"; };
 		ADDDD2512232E09B00B6DA35 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		ADDDD2522232E09B00B6DA35 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
@@ -490,7 +461,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				96E8A14420799EC800BFD508 /* PromiseKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -505,10 +475,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				96E4EB54233C57D0000F7F05 /* OAuthSwift.framework in Frameworks */,
-				96E4EB58233C57D2000F7F05 /* JSONClient.framework in Frameworks */,
-				96E4EB56233C57D1000F7F05 /* Medi8.framework in Frameworks */,
-				96E4EB51233C57CE000F7F05 /* PromiseKit.framework in Frameworks */,
+				965976A423BEEFAD00FD3B98 /* PMKFoundation in Frameworks */,
+				9659769B23BEEC3300FD3B98 /* Kingfisher in Frameworks */,
+				9659769E23BEEF1700FD3B98 /* JSONClient in Frameworks */,
+				965976A723BEEFD600FD3B98 /* Medi8 in Frameworks */,
+				965976A123BEEF5C00FD3B98 /* OAuthSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -516,9 +487,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				960368972056082400D24CE7 /* JSONClient.framework in Frameworks */,
-				96898497203DDEB300DE77BC /* OAuthSwift.framework in Frameworks */,
-				96898498203DDEB300DE77BC /* PromiseKit.framework in Frameworks */,
 				968983B2203D427B00DE77BC /* SwiftDiscogs.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -711,19 +679,16 @@
 		9689839E203D427A00DE77BC = {
 			isa = PBXGroup;
 			children = (
-				967AD9C022696D04001FE440 /* Medi8.framework */,
+				9603689F205764E200D24CE7 /* Cartfile */,
+				960368A2205764E300D24CE7 /* LICENSE */,
+				960368A1205764E300D24CE7 /* README.md */,
+				960368A3205764E300D24CE7 /* Cartfile.resolved */,
+				968983A9203D427A00DE77BC /* Products */,
 				968983AA203D427A00DE77BC /* Source */,
-				968983B5203D427B00DE77BC /* Tests */,
 				960368DB205A012C00D24CE7 /* SwiftDiscogsApp */,
 				960368F0205A012C00D24CE7 /* SwiftDiscogsAppTests */,
 				960368FB205A012C00D24CE7 /* SwiftDiscogsAppUITests */,
-				968983A9203D427A00DE77BC /* Products */,
-				96898488203DDA0200DE77BC /* Frameworks */,
-				9603689F205764E200D24CE7 /* Cartfile */,
-				960368A0205764E200D24CE7 /* Cartfile.private */,
-				960368A3205764E300D24CE7 /* Cartfile.resolved */,
-				960368A2205764E300D24CE7 /* LICENSE */,
-				960368A1205764E300D24CE7 /* README.md */,
+				968983B5203D427B00DE77BC /* Tests */,
 			);
 			sourceTree = "<group>";
 		};
@@ -942,18 +907,6 @@
 			path = Collection;
 			sourceTree = "<group>";
 		};
-		96898488203DDA0200DE77BC /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				96898489203DDA0200DE77BC /* JSONClient.framework */,
-				96A16D50214F6EA10081F610 /* Kingfisher.framework */,
-				9689848A203DDA0200DE77BC /* OAuthSwift.framework */,
-				9689848B203DDA0200DE77BC /* PromiseKit.framework */,
-				96EDF289209FA8EF009496FA /* Stylobate.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		96A8AC9C219214C50098BF87 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -1103,13 +1056,19 @@
 				968983A4203D427A00DE77BC /* Frameworks */,
 				968983A5203D427A00DE77BC /* Headers */,
 				968983A6203D427A00DE77BC /* Resources */,
-				96E4EB53233C57CE000F7F05 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = SwiftDiscogs;
+			packageProductDependencies = (
+				9659769A23BEEC3300FD3B98 /* Kingfisher */,
+				9659769D23BEEF1700FD3B98 /* JSONClient */,
+				965976A023BEEF5C00FD3B98 /* OAuthSwift */,
+				965976A323BEEFAD00FD3B98 /* PMKFoundation */,
+				965976A623BEEFD600FD3B98 /* Medi8 */,
+			);
 			productName = SwiftDiscogs;
 			productReference = 968983A8203D427A00DE77BC /* SwiftDiscogs.framework */;
 			productType = "com.apple.product-type.framework";
@@ -1183,6 +1142,13 @@
 				de,
 			);
 			mainGroup = 9689839E203D427A00DE77BC;
+			packageReferences = (
+				9659769923BEEC3300FD3B98 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				9659769C23BEEF1700FD3B98 /* XCRemoteSwiftPackageReference "JSONClient" */,
+				9659769F23BEEF5C00FD3B98 /* XCRemoteSwiftPackageReference "OAuthSwift" */,
+				965976A223BEEFAD00FD3B98 /* XCRemoteSwiftPackageReference "Foundation" */,
+				965976A523BEEFD600FD3B98 /* XCRemoteSwiftPackageReference "Medi8" */,
+			);
 			productRefGroup = 968983A9203D427A00DE77BC /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -1266,7 +1232,6 @@
 				96898431203DD4B500DE77BC /* get-release-summaries-200.header in Resources */,
 				9689842F203DD4B500DE77BC /* search-500.header in Resources */,
 				96898436203DD4B500DE77BC /* get-label-releases-404.json in Resources */,
-				960368A5205764E400D24CE7 /* Cartfile.private in Resources */,
 				960368A6205764E400D24CE7 /* README.md in Resources */,
 				96898445203DD4B500DE77BC /* get-folders-for-release-200.json in Resources */,
 				960368A8205764E400D24CE7 /* Cartfile.resolved in Resources */,
@@ -1865,6 +1830,7 @@
 				);
 				INFOPLIST_FILE = Source/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1896,6 +1862,7 @@
 				);
 				INFOPLIST_FILE = Source/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -2015,6 +1982,77 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		9659769923BEEC3300FD3B98 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.12.0;
+			};
+		};
+		9659769C23BEEF1700FD3B98 /* XCRemoteSwiftPackageReference "JSONClient" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/jrtibbetts/JSONClient";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.4;
+			};
+		};
+		9659769F23BEEF5C00FD3B98 /* XCRemoteSwiftPackageReference "OAuthSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/OAuthSwift/OAuthSwift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.1.0;
+			};
+		};
+		965976A223BEEFAD00FD3B98 /* XCRemoteSwiftPackageReference "Foundation" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/PromiseKit/Foundation";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.3.4;
+			};
+		};
+		965976A523BEEFD600FD3B98 /* XCRemoteSwiftPackageReference "Medi8" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/jrtibbetts/Medi8";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.3.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		9659769A23BEEC3300FD3B98 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9659769923BEEC3300FD3B98 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+		9659769D23BEEF1700FD3B98 /* JSONClient */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9659769C23BEEF1700FD3B98 /* XCRemoteSwiftPackageReference "JSONClient" */;
+			productName = JSONClient;
+		};
+		965976A023BEEF5C00FD3B98 /* OAuthSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9659769F23BEEF5C00FD3B98 /* XCRemoteSwiftPackageReference "OAuthSwift" */;
+			productName = OAuthSwift;
+		};
+		965976A323BEEFAD00FD3B98 /* PMKFoundation */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 965976A223BEEFAD00FD3B98 /* XCRemoteSwiftPackageReference "Foundation" */;
+			productName = PMKFoundation;
+		};
+		965976A623BEEFD600FD3B98 /* Medi8 */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 965976A523BEEFD600FD3B98 /* XCRemoteSwiftPackageReference "Medi8" */;
+			productName = Medi8;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		968101D4226E21D2003E6D82 /* DiscogsCollection.xcdatamodeld */ = {
