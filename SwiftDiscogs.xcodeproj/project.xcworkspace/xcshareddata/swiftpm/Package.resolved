@@ -42,8 +42,8 @@
         "repositoryURL": "https://github.com/jrtibbetts/JSONClient",
         "state": {
           "branch": null,
-          "revision": "151203e2275174b439b3ebfb2b2ae63e91361c32",
-          "version": "2.0.5"
+          "revision": "21620d9756f8dfe72c2df42a8b94dbcf04b56a82",
+          "version": "2.0.7"
         }
       },
       {
@@ -62,15 +62,6 @@
           "branch": null,
           "revision": "2f9d171f17869768f6dbec1d039b851e2503af35",
           "version": "5.12.0"
-        }
-      },
-      {
-        "package": "Medi8",
-        "repositoryURL": "https://github.com/jrtibbetts/Medi8",
-        "state": {
-          "branch": null,
-          "revision": "0b4ce3a1475dc5e3301510644f738a714c72fbcc",
-          "version": "0.3.2"
         }
       },
       {
@@ -96,8 +87,8 @@
         "repositoryURL": "https://github.com/jrtibbetts/Stylobate.git",
         "state": {
           "branch": null,
-          "revision": "dea95d38f351591e994c63d297de4fbccf6cc89b",
-          "version": "0.27.2"
+          "revision": "c7b3a14339ef43fd34ef1b09e5ad7e306a777253",
+          "version": "0.27.3"
         }
       },
       {

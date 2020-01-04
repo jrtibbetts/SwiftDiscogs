@@ -47,7 +47,8 @@
 		9659769E23BEEF1700FD3B98 /* JSONClient in Frameworks */ = {isa = PBXBuildFile; productRef = 9659769D23BEEF1700FD3B98 /* JSONClient */; };
 		965976A123BEEF5C00FD3B98 /* OAuthSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 965976A023BEEF5C00FD3B98 /* OAuthSwift */; };
 		965976A423BEEFAD00FD3B98 /* PMKFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = 965976A323BEEFAD00FD3B98 /* PMKFoundation */; };
-		965976A723BEEFD600FD3B98 /* Medi8 in Frameworks */ = {isa = PBXBuildFile; productRef = 965976A623BEEFD600FD3B98 /* Medi8 */; };
+		965976AA23C027CB00FD3B98 /* Medi8.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 965976A923C027CB00FD3B98 /* Medi8.framework */; };
+		965976AB23C027CB00FD3B98 /* Medi8.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 965976A923C027CB00FD3B98 /* Medi8.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		967AD9B62263733E001FE440 /* MockMediaLibrary.json in Resources */ = {isa = PBXBuildFile; fileRef = 967AD9B52263733E001FE440 /* MockMediaLibrary.json */; };
 		967AD9B822659656001FE440 /* DiscogsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967AD9B722659656001FE440 /* DiscogsManager.swift */; };
 		967AD9BB22691E18001FE440 /* StoryboardScenes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967AD9B922691E17001FE440 /* StoryboardScenes.swift */; };
@@ -232,6 +233,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		965976AC23C027CB00FD3B98 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				965976AB23C027CB00FD3B98 /* Medi8.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9681020B2272BA20003E6D82 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -287,6 +299,7 @@
 		963282B8222CD7E40090B29F /* MasterReleaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterReleaseViewController.swift; sourceTree = "<group>"; };
 		963282BC222F82A10090B29F /* TrackTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackTableCell.swift; sourceTree = "<group>"; };
 		963282BE222F83C00090B29F /* ReleaseVersionTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReleaseVersionTableCell.swift; sourceTree = "<group>"; };
+		965976A923C027CB00FD3B98 /* Medi8.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Medi8.framework; path = Carthage/Build/iOS/Medi8.framework; sourceTree = "<group>"; };
 		967AD9B52263733E001FE440 /* MockMediaLibrary.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MockMediaLibrary.json; sourceTree = "<group>"; };
 		967AD9B722659656001FE440 /* DiscogsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscogsManager.swift; sourceTree = "<group>"; };
 		967AD9B922691E17001FE440 /* StoryboardScenes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardScenes.swift; sourceTree = "<group>"; };
@@ -477,8 +490,8 @@
 			files = (
 				965976A423BEEFAD00FD3B98 /* PMKFoundation in Frameworks */,
 				9659769B23BEEC3300FD3B98 /* Kingfisher in Frameworks */,
+				965976AA23C027CB00FD3B98 /* Medi8.framework in Frameworks */,
 				9659769E23BEEF1700FD3B98 /* JSONClient in Frameworks */,
-				965976A723BEEFD600FD3B98 /* Medi8 in Frameworks */,
 				965976A123BEEF5C00FD3B98 /* OAuthSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -611,6 +624,14 @@
 			path = Release;
 			sourceTree = "<group>";
 		};
+		965976A823C027CA00FD3B98 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				965976A923C027CB00FD3B98 /* Medi8.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		96800C3521921F0A00A3380F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -689,6 +710,7 @@
 				960368F0205A012C00D24CE7 /* SwiftDiscogsAppTests */,
 				960368FB205A012C00D24CE7 /* SwiftDiscogsAppUITests */,
 				968983B5203D427B00DE77BC /* Tests */,
+				965976A823C027CA00FD3B98 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1056,6 +1078,7 @@
 				968983A4203D427A00DE77BC /* Frameworks */,
 				968983A5203D427A00DE77BC /* Headers */,
 				968983A6203D427A00DE77BC /* Resources */,
+				965976AC23C027CB00FD3B98 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1067,7 +1090,6 @@
 				9659769D23BEEF1700FD3B98 /* JSONClient */,
 				965976A023BEEF5C00FD3B98 /* OAuthSwift */,
 				965976A323BEEFAD00FD3B98 /* PMKFoundation */,
-				965976A623BEEFD600FD3B98 /* Medi8 */,
 			);
 			productName = SwiftDiscogs;
 			productReference = 968983A8203D427A00DE77BC /* SwiftDiscogs.framework */;
@@ -1147,7 +1169,6 @@
 				9659769C23BEEF1700FD3B98 /* XCRemoteSwiftPackageReference "JSONClient" */,
 				9659769F23BEEF5C00FD3B98 /* XCRemoteSwiftPackageReference "OAuthSwift" */,
 				965976A223BEEFAD00FD3B98 /* XCRemoteSwiftPackageReference "Foundation" */,
-				965976A523BEEFD600FD3B98 /* XCRemoteSwiftPackageReference "Medi8" */,
 			);
 			productRefGroup = 968983A9203D427A00DE77BC /* Products */;
 			projectDirPath = "";
@@ -2016,14 +2037,6 @@
 				minimumVersion = 3.3.4;
 			};
 		};
-		965976A523BEEFD600FD3B98 /* XCRemoteSwiftPackageReference "Medi8" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/jrtibbetts/Medi8";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.3.0;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -2046,11 +2059,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 965976A223BEEFAD00FD3B98 /* XCRemoteSwiftPackageReference "Foundation" */;
 			productName = PMKFoundation;
-		};
-		965976A623BEEFD600FD3B98 /* Medi8 */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 965976A523BEEFD600FD3B98 /* XCRemoteSwiftPackageReference "Medi8" */;
-			productName = Medi8;
 		};
 /* End XCSwiftPackageProductDependency section */
 
