@@ -30,13 +30,13 @@ class DiscogsSearchResultsModel: CollectionAndTableModel {
     }
 
     override func tableView(_ tableView: UITableView,
-                                 cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+                            cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let result = results?[indexPath.row]
-        
+
         if let cell = tableView.dequeueReusableCell(withIdentifier: "artistSearchResultCell",
                                                     for: indexPath) as? ArtistSearchResultCell {
             cell.searchResult = result
-            
+
             return cell
         } else {
             return super.tableView(tableView, cellForRowAt: indexPath)
@@ -47,6 +47,6 @@ class DiscogsSearchResultsModel: CollectionAndTableModel {
 
     public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
-    }    
+    }
 
 }

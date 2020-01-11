@@ -4,7 +4,7 @@
 import XCTest
 
 class ReleaseSummaryTests: DiscogsTestBase {
-    
+
     func testDecodeArtistReleasesJson() throws {
         assert(try discogsObject(inLocalJsonFileNamed: "get-release-summaries-200"))
     }
@@ -25,7 +25,7 @@ class ReleaseSummaryTests: DiscogsTestBase {
             XCTFail("The release should have had 2 formats.")
         }
     }
-    
+
     func testGetArtistReleasesNotFoundError() {
         assertDiscogsErrorMessage(in: "get-release-summaries-404", is: "Artist not found.")
     }
@@ -58,5 +58,5 @@ class ReleaseSummaryTests: DiscogsTestBase {
             XCTFail("Release 2 should have CD & EP formats", file: file, line: line)
         }
     }
-    
+
 }

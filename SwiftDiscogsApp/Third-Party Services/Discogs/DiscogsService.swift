@@ -110,8 +110,8 @@ class DiscogsService: ThirdPartyService, AuthenticatedService, ImportableService
     // MARK: Properties
 
     /// Called when the user's Discogs collection is being imported.
-    var importDelegate: ImportableServiceDelegate?
-    
+    weak var importDelegate: ImportableServiceDelegate?
+
     var isImporting: Bool = false
 
     // MARK: Functions
@@ -150,5 +150,5 @@ class DiscogsService: ThirdPartyService, AuthenticatedService, ImportableService
         isImporting = false
         importDelegate?.didFinishImporting(fromService: self)
     }
-    
+
 }

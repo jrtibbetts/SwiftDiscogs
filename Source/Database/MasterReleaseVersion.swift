@@ -2,6 +2,8 @@
 
 import Foundation
 
+// swiftlint:disable identifier_name
+
 public struct MasterReleaseVersion: Codable, Unique {
 
     public var catalogNumber: String?
@@ -27,7 +29,7 @@ public struct MasterReleaseVersion: Codable, Unique {
             return nil
         }
     }
-    
+
     public var majorFormat: String? {
         return majorFormats?.first
     }
@@ -49,8 +51,10 @@ public struct MasterReleaseVersion: Codable, Unique {
 }
 
 public struct MasterReleaseVersions: Codable, Pageable {
-    
+
     public var pagination: Pagination?
     public var versions: [MasterReleaseVersion]
-    
+
 }
+
+// swiftlint:enable identifier_name

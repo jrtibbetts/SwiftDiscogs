@@ -3,7 +3,7 @@
 import Foundation
 
 public struct ArtistSummary: Codable, Unique {
-    
+
     public var artistNameVariation: String?
     public var id: Int
     public var join: String?
@@ -21,5 +21,5 @@ public struct ArtistSummary: Codable, Unique {
         case role
         case tracks
     }
-    
+
 }

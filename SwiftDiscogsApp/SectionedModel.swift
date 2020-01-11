@@ -11,7 +11,7 @@ import UIKit
 open class SectionedModel: CollectionAndTableModel {
 
     // MARK: - Public Properties
-    
+
     /// The sections that this model maintains. The order in which they're
     /// listed must match the order in which they'll appear in the table or
     /// collection view. Sections don't need to be unique *types*, but if
@@ -20,13 +20,13 @@ open class SectionedModel: CollectionAndTableModel {
     public var sections: [Section] = []
 
     // MARK: - Initialization
-    
+
     /// Construct a model with no sections. This do-nothing initializer is
     /// required by the compiler for some reason.
     public override init() {
         super.init()
     }
-    
+
     /// Construct a model with a list of `Section`s. These sections must be in
     /// the order in which they'll appear in the table or collection view.
     public init(sections: [Section]) {
@@ -45,7 +45,7 @@ open class SectionedModel: CollectionAndTableModel {
     }
 
     // MARK: - Section
-    
+
     /// A section of a table or collection view model. It provides the ID of
     /// cells in its section, as well as optional header text and custom header
     /// and footer views.
@@ -53,11 +53,11 @@ open class SectionedModel: CollectionAndTableModel {
 
         open var cellID: String
 
-        open var footerView: UIView? = nil
+        open var footerView: UIView?
 
-        open var headerText: String? = nil
+        open var headerText: String?
 
-        open var headerView: UIView? = nil
+        open var headerView: UIView?
 
         public init(cellID: String,
                     footerView: UIView? = nil,
@@ -76,4 +76,3 @@ open class SectionedModel: CollectionAndTableModel {
     }
 
 }
-

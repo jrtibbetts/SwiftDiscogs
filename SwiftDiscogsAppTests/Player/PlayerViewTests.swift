@@ -32,7 +32,7 @@ class PlayerViewTests: XCTestCase {
     }
 
     // MARK: - PlayerButton tests
-    
+
     func testInitialStateWithDefaultModel() {
         let model = PlayerModel()
         playerView.model = model
@@ -79,7 +79,10 @@ class PlayerViewTests: XCTestCase {
                                   next: Bool,
                                   file: StaticString = #file,
                                   line: UInt = #line) {
-        XCTAssertEqual(buttonView.previousTrackButton!.isEnabled, previous, "Previous track button", file: file, line: line)
+        XCTAssertEqual(buttonView.previousTrackButton!.isEnabled,
+                       previous, "Previous track button",
+                       file: file,
+                       line: line)
         XCTAssertEqual(buttonView.rewindButton!.isEnabled, rewind, "Rewind button", file: file, line: line)
         XCTAssertEqual(buttonView.playButton!.isEnabled, play, "Play button", file: file, line: line)
         XCTAssertEqual(buttonView.forwardButton!.isEnabled, forward, "Forward button", file: file, line: line)

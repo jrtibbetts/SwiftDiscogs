@@ -79,14 +79,14 @@ public class MasterReleaseViewController: BaseReleaseViewController {
         // MARK: - Private Properties
 
         private let versionsSection = Section(cellID: "versionCell", headerText: L10n.versions)
-        
+
         // MARK: - Initialization
-        
+
         public override init() {
             super.init()
             sections = [tracklistSection, versionsSection]
         }
-        
+
         // MARK: - UITableViewDataSource
 
         open override func tableView(_ tableView: UITableView,
@@ -119,5 +119,5 @@ public class MasterReleaseViewController: BaseReleaseViewController {
         }
 
     }
-    
+
 }

@@ -47,7 +47,7 @@ public class MediaSourceView: UIView {
     @IBOutlet public weak var nameLabel: UILabel?
 
     @IBOutlet public weak var signedInAsLabel: UILabel?
-    
+
     @IBOutlet public weak var signInButton: UIButton?
 
     @IBOutlet public weak var signOutButton: UIButton?
@@ -55,6 +55,5 @@ public class MediaSourceView: UIView {
     @IBOutlet public weak var signOutStack: UIStackView?
 
     @IBOutlet public weak var spinner: UIActivityIndicatorView?
-    
-}
 
+}

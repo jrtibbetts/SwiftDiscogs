@@ -33,7 +33,7 @@ open class DiscogsArtistModel: SectionedModel {
 
         }
     }
-    
+
     // MARK: Private Properties
 
     private var bioSection = BioSection(cellID: "artistBioCell")
@@ -99,8 +99,8 @@ open class DiscogsArtistModel: SectionedModel {
             let releaseSummary = releases?[releaseIndex]
 
             if let cell = cell as? DiscogsArtistReleaseTableCell {
-                if let summaryTitle = releaseSummary?.title.lowercased(),
-                    let albums = mediaCollections?.filter({ $0.representativeItem?.title?.lowercased() == summaryTitle }),
+                if let title = releaseSummary?.title.lowercased(),
+                    let albums = mediaCollections?.filter({ $0.representativeItem?.title?.lowercased() == title }),
                     albums.count > 0 {
                     cell.inLibrary = true
                 }

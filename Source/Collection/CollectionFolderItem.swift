@@ -10,7 +10,7 @@ public struct CollectionFolderItems: Codable, Pageable {
 }
 
 public struct CollectionFolderItem: Codable {
-    
+
     public var folderId: Int
     public var id: Int
     public var basicInformation: Info?

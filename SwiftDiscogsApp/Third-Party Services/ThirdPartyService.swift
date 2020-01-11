@@ -80,7 +80,7 @@ public protocol ImportableService: ThirdPartyService {
 
     /// `true` if the import process is currently in progress.
     var isImporting: Bool { get }
-    
+
     // MARK: Functions
 
     /// Start importing data into a specified Core Data context.
@@ -95,7 +95,7 @@ public protocol ImportableService: ThirdPartyService {
 
 /// Implemented by entities what want to keep track of an importable service's
 /// status and progress.
-public protocol ImportableServiceDelegate {
+public protocol ImportableServiceDelegate: class {
 
     // MARK: Functions
 
@@ -118,4 +118,3 @@ public protocol ImportableServiceDelegate {
     func willFinishImporting(fromService: ImportableService?)
 
 }
-

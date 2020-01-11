@@ -4,15 +4,15 @@
 import XCTest
 
 class ReleaseTests: DiscogsTestBase {
-    
+
     func testDecodeReleaseJson() throws {
         assert(try discogsObject(inLocalJsonFileNamed: "get-release-200"))
     }
-    
+
     func testGetReleaseNotFoundError() {
         assertDiscogsErrorMessage(in: "get-release-404", is: "Release not found.")
     }
-    
+
     func assert(_ releaseVersion: Release,
                 file: StaticString = #file,
                 line: UInt = #line) {
@@ -23,6 +23,5 @@ class ReleaseTests: DiscogsTestBase {
                        file: file,
                        line: line)
     }
-    
-}
 
+}

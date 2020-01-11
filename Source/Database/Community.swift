@@ -3,7 +3,7 @@
 import Foundation
 
 public struct Community: Codable {
-    
+
     public var have: Int
     public var want: Int
 

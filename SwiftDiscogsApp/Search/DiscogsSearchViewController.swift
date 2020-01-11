@@ -56,7 +56,7 @@ class DiscogsSearchViewController: CollectionAndTableViewController,
     public func search(forArtistNamed artistName: String) {
         searchController.searchBar.text = artistName
     }
-    
+
     // MARK: UIViewController
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

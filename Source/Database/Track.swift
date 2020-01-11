@@ -3,7 +3,7 @@
 import Foundation
 
 public struct Track: Codable {
-    
+
     public var duration: String
     public var position: String
     public var type: String

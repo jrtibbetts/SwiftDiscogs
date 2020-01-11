@@ -3,7 +3,7 @@
 import CoreData
 import UIKit
 
-final class ThirdPartyServicesViewController: UITableViewController{
+final class ThirdPartyServicesViewController: UITableViewController {
 
     // MARK: - Properties
 

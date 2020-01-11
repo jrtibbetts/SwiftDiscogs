@@ -4,11 +4,11 @@
 import XCTest
 
 class CollectionItemInfoTests: DiscogsTestBase {
-    
+
     func testDecodeCollectionItemInfoJson() throws {
         assert(try discogsObject(inLocalJsonFileNamed: "add-item-to-collection-folder-200"))
     }
-    
+
     func assert(_ item: CollectionItemInfo,
                 file: StaticString = #file,
                 line: UInt = #line) {
@@ -18,6 +18,5 @@ class CollectionItemInfoTests: DiscogsTestBase {
                        file: file,
                        line: line)
     }
-    
-}
 
+}

@@ -35,7 +35,7 @@ class ClientTestBase: JSONTestBase {
         let exp = expectation(description: description)
         var returnableError: Error?
 
-        promise.done { (fetchedObject) in
+        promise.done { _ in
             XCTFail("Expected an error to be thrown.", file: file, line: line)
         }.catch { (error) -> Void in
             returnableError = error

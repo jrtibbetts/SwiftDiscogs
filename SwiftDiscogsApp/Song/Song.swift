@@ -14,7 +14,7 @@ open class Song: NSObject, Codable {
     open var lyrics: String?
 
     open var personnel: [Performer]?
-    
+
     open var title: String
 
     open var versions: [Version]

@@ -3,7 +3,7 @@
 import Foundation
 
 public struct UserProfile: Codable {
-    
+
     public var avatarUrl: String
     public var bannerUrl: String
     public var buyerNumRatings: Int
@@ -35,5 +35,5 @@ public struct UserProfile: Codable {
     public var uri: String
     public var username: String
     public var wantlistUrl: URL
-    
+
 }

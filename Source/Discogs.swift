@@ -6,21 +6,21 @@ import PromiseKit
 
 /// Error types for problems retrieving data from Discogs.
 public enum DiscogsError: Error {
-    
+
     /// Thrown when no artist was found when searching by its ID.
     case artistNotFoundById(Int)
-    
+
     case discogsResponse(ErrorResponse)
-    
+
     case labelNotFoundById(Int)
-    
+
     /// Thrown when no artist was found when searching by its name.
     case masterReleaseNotFoundById(Int)
     case releaseNotFoundById(Int)
     case unauthenticatedUser
     case unknownUser(username: String)
     case unknown(Error?)
-    
+
 }
 
 /// Implemented by clients of a Discogs API server.
@@ -29,18 +29,18 @@ public protocol Discogs {
     // MARK: - User Identify
 
     var isSignedIn: Bool { get }
-    
+
     func authorize(presentingViewController: UIViewController,
                    callbackUrlString: String) -> Promise<OAuthSwiftCredential>
 
     func signOut()
-    
+
     func userIdentity() -> Promise<UserIdentity>
 
     func userProfile(userName: String) -> Promise<UserProfile>
 
     // MARK: - Database
-    
+
     /// Look up the artist with the specified ID and invoke the completion on
     /// it.
     ///
@@ -55,28 +55,28 @@ public protocol Discogs {
     /// - parameter completion: The completion block that will be applied to
     ///   all of the artist's releases, or to the error, if one was thrown.
     func releases(forArtist artistId: Int) -> Promise<ReleaseSummaries>
-    
+
     /// Look up the record label by its ID.
     ///
     /// - parameter identifier: The label's unique ID.
     /// - parameter completion: The completion block that will be applied to
     ///   the label, or to the error, if one was thrown.
     func label(identifier: Int) -> Promise<RecordLabel>
-    
+
     /// Look up the record label's releases by the label's name.
     ///
     /// - parameter labelId: The label's unique ID.
     /// - parameter completion: The completion block that will be applied to
     ///   all of the label's releases, or to the error, if one was thrown.
     func releases(forLabel labelId: Int) -> Promise<ReleaseSummaries>
-    
+
     /// Process a master release with a specified ID.
     ///
     /// - parameter identifier: The unique ID of the master release.
     /// - parameter completion: The completion block that will be applied to
     ///   the master release, or to the error, if one was thrown.
     func masterRelease(identifier: Int) -> Promise<MasterRelease>
-    
+
     /// Process all of the release versions that belong to a master release.
     ///
     /// - parameter identifier: The unique ID of the master release.
@@ -84,16 +84,16 @@ public protocol Discogs {
     func releasesForMasterRelease(_ identifier: Int,
                                   pageNumber: Int,
                                   resultsPerPage: Int) -> Promise<MasterReleaseVersions>
-    
+
     /// Process a release with a specified ID.
     ///
     /// - parameter identifier: The unique ID of the release.
     /// - parameter completion: The completion block that will be applied to
     ///   the release, or to the error, if one was thrown.
     func release(identifier: Int) -> Promise<Release>
-    
+
     // MARK: - Collections
-    
+
     func customCollectionFields(forUserName: String) -> Promise<CollectionCustomFields>
     func collectionValue(forUserName: String) -> Promise<CollectionValue>
     func collectionFolders(forUserName: String) -> Promise<CollectionFolders>

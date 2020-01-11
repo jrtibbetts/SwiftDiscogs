@@ -42,13 +42,13 @@ public extension MPMediaCollectionBrowser {
 
         if let collections = query.collections {
             let totalCount = collections.count
-            collections.enumerated().forEach({ (__val:(Int, MPMediaItemCollection)) in let (index,collection) = __val; 
+            collections.enumerated().forEach({ (_val:(Int, MPMediaItemCollection)) in let (index, collection) = __val;
                 do {
                     inspect(collection, at: index)
                     browserDelegate?.willInspect(mediaCollection: collection, at: index, outOf: totalCount)
 
                     let totalItemCount = collection.items.count
-                    collection.items.enumerated().forEach({ (__val:(Int, MPMediaItem)) in let (index,item) = __val; 
+                    collection.items.enumerated().forEach({ (_val:(Int, MPMediaItem)) in let (index, item) = __val;
                         browserDelegate?.willInspect(mediaItem: item, at: index, outOf: totalItemCount)
                         inspect(item, at: index)
                     })
@@ -89,8 +89,7 @@ open class MPMediaCollectionBrowserDelegate: MediaImporter.Delegate {
     open func willInspect(mediaItem: MPMediaItem,
                           at index: Int,
                           outOf total: Int) {
-        
+
     }
 
 }
-

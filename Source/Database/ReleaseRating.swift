@@ -3,7 +3,7 @@
 import Foundation
 
 public struct ReleaseRating: Codable {
-    
+
     public var average: Float
     public var count: Int
 

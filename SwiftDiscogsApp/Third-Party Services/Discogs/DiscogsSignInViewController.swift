@@ -19,16 +19,16 @@ open class DiscogsSignInViewController: UIViewController {
     @IBOutlet weak var signInStatusStack: ToggleStackView!
 
     // MARK: - Actions
-    
+
     /// Sign into the Discogs service, notifying the display when it's about to
     /// do so and after the user has logged in successfully.
     @IBAction func signInToDiscogs(signInButton: UIButton?) {
         signInStatusStack.activeView = checkingStatusView
         let promise = DiscogsManager.discogs.authorize(presentingViewController: self,
                                                        callbackUrlString: AppDelegate.shared.callbackUrl.absoluteString)
-        promise.then { (credential) -> Promise<UserIdentity> in
+        promise.then { _ -> Promise<UserIdentity> in
             return DiscogsManager.discogs.userIdentity()
-            }.done { [weak self] (userIdentity) in
+            }.done { [weak self] _ in
                 self?.signInStatusStack.activeView = self?.signedInLabel
                 self?.dismiss(animated: true, completion: nil)
             }.catch { (error) in    // not weak self because of Bundle(for:)

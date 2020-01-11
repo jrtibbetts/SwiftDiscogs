@@ -3,13 +3,13 @@
 import Foundation
 
 public protocol HasArtistSummaries {
-    
+
     var artists: [ArtistSummary]? { get set }
-    
+
 }
 
 extension HasArtistSummaries {
-    
+
     public var artistString: String {
         if let artists = artists {
             return artists.map { $0.name }.joined(separator: L10n.separator)
@@ -17,5 +17,5 @@ extension HasArtistSummaries {
             return L10n.unknownArtist
         }
     }
-    
+
 }

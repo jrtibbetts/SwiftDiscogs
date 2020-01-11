@@ -2,6 +2,8 @@
 
 import Foundation
 
+// swiftlint:disable identifier_name
+
 public struct SearchResult: Codable, Unique {
 
     public var catalogNumber: String?
@@ -35,11 +37,13 @@ public struct SearchResult: Codable, Unique {
         case uri
         case year
     }
-    
+
 }
 
 public struct SearchResults: Codable {
-    
+
     public var results: [SearchResult]?
-    
+
 }
+
+// swiftlint:enable identifier_name

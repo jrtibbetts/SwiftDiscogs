@@ -7,7 +7,7 @@ import MediaPlayer
 public protocol MediaLibrary {
 
     func albums(byArtistNamed: String?) -> [MPMediaItemCollection]?
-    
+
     /// Get all on-device media items by artists whose names contain the
     /// specified string.
     ///

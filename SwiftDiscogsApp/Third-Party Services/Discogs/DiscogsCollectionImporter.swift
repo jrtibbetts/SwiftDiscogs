@@ -42,11 +42,15 @@ public class DiscogsCollectionImporter: NSManagedObjectContext {
 
     private var discogsFolders = [SwiftDiscogs.CollectionFolder]()
 
-    public var importerDelegate: ImportableServiceDelegate?
+    public weak var importerDelegate: ImportableServiceDelegate?
 
     public weak var service: ImportableService?
 
-    private var importQueue = DispatchQueue(label: "DiscogsCollectionImporter", qos: .background, attributes: .concurrent, autoreleaseFrequency: .inherit, target: nil)
+    private var importQueue = DispatchQueue(label: "DiscogsCollectionImporter",
+                                            qos: .background,
+                                            attributes: .concurrent,
+                                            autoreleaseFrequency: .inherit,
+                                            target: nil)
 
     // MARK: - Import Functions
 
@@ -58,7 +62,7 @@ public class DiscogsCollectionImporter: NSManagedObjectContext {
             self.importerDelegate?.update(importedItemCount: 1, totalCount: 6, forService: self.service)
 
             return self.createCoreDataFields(self.discogsFields)
-        }.then(on: importQueue) { (coreDataFields) -> Promise<CollectionFolders> in
+        }.then(on: importQueue) { _ in
             self.importerDelegate?.update(importedItemCount: 2, totalCount: 6, forService: self.service)
 
             return self.discogs.collectionFolders(forUserName: userName)
@@ -84,13 +88,13 @@ public class DiscogsCollectionImporter: NSManagedObjectContext {
             self.importerDelegate?.update(importedItemCount: 5, totalCount: 6, forService: self.service)
 
             return self.createCoreDataItems(forDiscogsItems: discogsItems)
-        }.then(on: importQueue) { (coreDataItemsByID) -> Promise<Void> in
+        }.then(on: importQueue) { _ in
             self.importerDelegate?.update(importedItemCount: 6, totalCount: 6, forService: self.service)
             return self.addCoreDataItemsToOtherFolders(forUserName: userName)
-        }.then(on: importQueue) { (emptyPromise) -> Promise<Void> in
+        }.then(on: importQueue) { _ in
             self.importerDelegate?.willFinishImporting(fromService: self.service)
             try self.save()
-            
+
             return Promise<Void>()
         }
     }

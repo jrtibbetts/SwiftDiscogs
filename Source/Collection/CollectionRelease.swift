@@ -3,7 +3,7 @@
 import Foundation
 
 public struct CollectionRelease: Codable {
-    
+
     public var basicInformation: [Information]?
     public var folderId: Int
     public var id: Int

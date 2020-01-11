@@ -14,6 +14,6 @@ public struct Pagination: Codable {
     public var pages: Int
     public var items: Int
     public var perPage: Int
-    public var urls: [String : URL]
+    public var urls: [String: URL]
 
 }

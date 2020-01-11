@@ -3,9 +3,9 @@
 import Foundation
 
 public struct CollectionValue: Codable {
-    
+
     public var maximum: String
     public var median: String
     public var minimum: String
-    
+
 }

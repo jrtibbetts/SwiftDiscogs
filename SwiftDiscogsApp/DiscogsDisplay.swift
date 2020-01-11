@@ -22,7 +22,7 @@ open class DiscogsDisplay: CollectionAndTableDisplay {
     /// Shut down, turn off, and/or remove any UI components that need explicit
     /// removal.
     func tearDown() {
-        
+
     }
 
 }

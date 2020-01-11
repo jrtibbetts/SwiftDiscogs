@@ -10,5 +10,5 @@ public struct Image: Codable {
     public var uri: String
     public var uri150: String
     public var width: Int
-    
+
 }

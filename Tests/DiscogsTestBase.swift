@@ -35,5 +35,5 @@ class DiscogsTestBase: ClientTestBase {
             XCTFail("Failed to assert the error message; got \"\(error.localizedDescription)\" instead.")
         }
     }
-    
+
 }
