@@ -2,6 +2,9 @@
 
 import Foundation
 
+// swiftlint:disable nesting
+// swiftlint:disable identifier_name
+
 public struct CollectionFolderItems: Codable, Pageable {
 
     public var pagination: Pagination?
@@ -75,3 +78,6 @@ public struct CollectionFolderItem: Codable {
     }
 
 }
+
+// swiftlint:enable nesting
+// swiftlint:enable identifier_name

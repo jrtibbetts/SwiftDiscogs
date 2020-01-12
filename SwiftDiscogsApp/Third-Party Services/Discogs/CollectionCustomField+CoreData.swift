@@ -9,7 +9,7 @@ public extension CustomField {
                                    inContext context: NSManagedObjectContext) throws -> CustomField? {
         let predicate = NSPredicate(format: "id = \(discogsField.id)")
         let sortByID = (\CustomField.id).sortDescriptor()
-        var entity: CustomField? = nil
+        var entity: CustomField?
 
         if discogsField.type == CollectionCustomField.FieldType.dropdown.rawValue {
             let fetchRequest = CustomDropdownField.fetchRequest(sortDescriptors: [sortByID],

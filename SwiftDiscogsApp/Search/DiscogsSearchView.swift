@@ -4,7 +4,7 @@ import Stylobate
 import UIKit
 
 /// The root view of the `DiscogsSearchViewController`.
-open class DiscogsSearchView: DiscogsDisplay, SpinnerBusyView,  UISearchBarDelegate {
+open class DiscogsSearchView: DiscogsDisplay, SpinnerBusyView, UISearchBarDelegate {
 
     // MARK: - Private Outlets
 

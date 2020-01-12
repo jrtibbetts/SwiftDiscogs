@@ -44,7 +44,7 @@ public protocol AuthenticatedService: ThirdPartyService {
 
 // MARK: - AuthenticatedServiceDelegate
 
-public protocol AuthenticatedServiceDelegate {
+public protocol AuthenticatedServiceDelegate: class {
 
     // MARK: Functions
 

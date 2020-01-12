@@ -10,7 +10,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     // MARK: - Properties
 
+    // swiftlint:disable force_cast
+
     static let shared: AppDelegate = (UIApplication.shared.delegate) as! AppDelegate
+
+    // swiftlint:enable force_cast
 
     var window: UIWindow?
 
@@ -32,7 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ app: UIApplication,
                      open url: URL,
-                     options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+                     options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
         if url.host! == callbackUrl.host! && url.scheme! == callbackUrl.scheme! {
             OAuthSwift.handle(url: url)
 

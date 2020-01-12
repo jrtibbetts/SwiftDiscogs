@@ -2,6 +2,8 @@
 
 import Foundation
 
+// swiftlint:disable identifier_name
+
 public struct Sublabel: Codable, Unique {
 
     public var id: Int
@@ -9,3 +11,5 @@ public struct Sublabel: Codable, Unique {
     public var resourceUrl: String
 
 }
+
+// swiftlint:enable identifier_name

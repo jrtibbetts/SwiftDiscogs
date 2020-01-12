@@ -10,6 +10,8 @@ class ArtistsViewController: CollectionAndTableViewController, UISearchResultsUp
 
     // MARK: - Properties
 
+    // swiftlint:disable force_cast
+
     var artistsDisplay: ArtistsDisplay {
         return display as! ArtistsDisplay
     }
@@ -17,6 +19,8 @@ class ArtistsViewController: CollectionAndTableViewController, UISearchResultsUp
     var artistsModel: ArtistsModel {
         return model as! ArtistsModel
     }
+
+    // swiftlint:enable force_cast
 
     // MARK: - UIViewController
 
@@ -60,7 +64,8 @@ class ArtistsViewController: CollectionAndTableViewController, UISearchResultsUp
 
             artists?.forEach { (artist) in
                 let artistName = artist.albumArtist ?? "(unknown)"
-                self?.artistsModel.artistAlbumCounts[artistName] = mediaLibrary.albums(byArtistNamed: artistName)?.count ?? 0
+                self?.artistsModel.artistAlbumCounts[artistName]
+                    = mediaLibrary.albums(byArtistNamed: artistName)?.count ?? 0
             }
         }.done { [weak self] in
             self?.artistsDisplay.refresh()
@@ -125,7 +130,7 @@ class ArtistsModel: CollectionAndTableModel {
     var artistMediaItems: [MPMediaItem] = [] {
         didSet {
             let artistNames = artistMediaItems.map { $0.albumArtist ?? "(unknown)" }
-            artists = Array<String>(Set<String>(artistNames)).sorted()
+            artists = [String](Set<String>(artistNames)).sorted()
         }
     }
 

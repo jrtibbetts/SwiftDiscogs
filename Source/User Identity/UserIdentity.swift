@@ -2,6 +2,8 @@
 
 import Foundation
 
+// swiftlint:disable identifier_name
+
 public struct UserIdentity: Codable, Unique {
 
     public var id: Int
@@ -10,3 +12,5 @@ public struct UserIdentity: Codable, Unique {
     public var username: String
 
 }
+
+// swiftlint:enable identifier_name

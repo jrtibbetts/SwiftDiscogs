@@ -11,7 +11,14 @@ class MockMediaLibrary: NSObject, MediaLibrary {
     let items: [MockMediaItem] = {
         // the explicit variable type is needed to help the Swift compiler
         // determine what jsonObject()'s T type is.
-        let parsedItems: [MockMediaItem] = try! JSONUtils.jsonObject(forFileNamed: "MockMediaLibrary")
+        let parsedItems: [MockMediaItem]
+
+        do {
+            parsedItems = try JSONUtils.jsonObject(forFileNamed: "MockMediaLibrary")
+        } catch {
+            parsedItems = []
+            assertionFailure("The MockMediaLibrary JSON data couldn't be parsed: \(error)")
+        }
 
         return parsedItems
     }()

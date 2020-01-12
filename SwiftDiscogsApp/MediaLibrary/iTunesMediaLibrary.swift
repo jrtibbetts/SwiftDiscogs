@@ -2,6 +2,8 @@
 
 import MediaPlayer
 
+// swiftlint:disable type_name
+
 public struct iTunesMediaLibrary: MediaLibrary {
 
     public func albums(byArtistNamed artistName: String?) -> [MPMediaItemCollection]? {
@@ -86,3 +88,5 @@ private extension String {
     }
 
 }
+
+// swiftlint:enable type_name

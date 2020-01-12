@@ -8,7 +8,7 @@ final class MediaLibraryService: ThirdPartyService, ImportableService {
 
     var importableItemCount: Int?
 
-    var importedItemCount: Int = 0{
+    var importedItemCount: Int = 0 {
         didSet {
             importDelegate?.update(importedItemCount: importedItemCount,
                                    totalCount: importableItemCount,
@@ -16,7 +16,7 @@ final class MediaLibraryService: ThirdPartyService, ImportableService {
         }
     }
 
-    var importDelegate: ImportableServiceDelegate?
+    weak var importDelegate: ImportableServiceDelegate?
 
     var importer: MPMediaItemCollectionImporter?
 

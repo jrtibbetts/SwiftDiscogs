@@ -2,6 +2,8 @@
 
 import Foundation
 
+// swiftlint:disable identifier_name
+
 public struct DiscogsReleaseLabel: Codable, Unique {
 
     public var catalogNumber: String?
@@ -18,3 +20,5 @@ public struct DiscogsReleaseLabel: Codable, Unique {
         case resourceUrl
     }
 }
+
+// swiftlint:enable identifier_name

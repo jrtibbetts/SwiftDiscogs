@@ -25,7 +25,10 @@ public class MasterReleaseViewController: BaseReleaseViewController {
                     }
                 // Get the master release's versions. We don't have to wait for
                 // the actual master release itself to be retrieved.
-                DiscogsManager.discogs.releasesForMasterRelease(masterReleaseID, pageNumber: 1, resultsPerPage: 200).done { [weak self] (releaseSummaries) in
+                DiscogsManager.discogs.releasesForMasterRelease(masterReleaseID,
+                                                                pageNumber: 1,
+                                                                resultsPerPage: 200)
+                    .done { [weak self] (releaseSummaries) in
                     self?.masterReleaseModel?.releaseVersions = releaseSummaries.versions
                     self?.display?.refresh()
                     }.catch { (error) in

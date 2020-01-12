@@ -2,6 +2,8 @@
 
 import Foundation
 
+// swiftlint:disable identifier_name
+
 /// A JSON element that contains the folders array.
 public struct CollectionFolders: Codable {
 
@@ -18,3 +20,5 @@ public struct CollectionFolder: Codable, Unique {
     public var resourceUrl: String
 
 }
+
+// swiftlint:enable identifier_name

@@ -2,6 +2,8 @@
 
 import Foundation
 
+// swiftlint:disable identifier_name
+
 public struct BandMember: Codable, Unique {
 
     public var active: Bool?
@@ -10,3 +12,5 @@ public struct BandMember: Codable, Unique {
     public var resourceUrl: String
 
 }
+
+// swiftlint:enable identifier_name

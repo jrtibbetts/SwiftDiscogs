@@ -2,6 +2,8 @@
 
 import Foundation
 
+// swiftlint:disable identifier_name
+
 public struct RecordLabel: Codable, Unique {
 
     public var contactInfo: String?
@@ -17,3 +19,5 @@ public struct RecordLabel: Codable, Unique {
     public var urls: [String]?
 
 }
+
+// swiftlint:enable identifier_name

@@ -48,6 +48,8 @@ open class Song: NSObject, Codable {
 
 }
 
+// swiftlint:disable line_length
+
 let songJSON = """
 {
     "id": 99910009,
@@ -72,3 +74,5 @@ let songJSON = """
     ]
 }
 """
+
+// swiftlint:enable line_length

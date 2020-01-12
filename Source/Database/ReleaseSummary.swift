@@ -2,6 +2,8 @@
 
 import Foundation
 
+// swiftlint:disable identifier_name
+
 public struct ReleaseSummary: Codable, Unique {
 
     public var artist: String
@@ -35,3 +37,5 @@ public struct ReleaseSummaries: Codable, Pageable {
     public var releases: [ReleaseSummary]?
 
 }
+
+// swiftlint:enable identifier_name

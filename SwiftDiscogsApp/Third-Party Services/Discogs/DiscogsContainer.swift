@@ -21,7 +21,7 @@ public class DiscogsContainer: NSPersistentContainer {
         let model = NSManagedObjectModel(contentsOf: modelURL)!
         super.init(name: "DiscogsCollection", managedObjectModel: model)
 
-        loadPersistentStores { (storeDescription, error) in
+        loadPersistentStores { (_, error) in
             if let error = error as NSError? {
                 fatalError("Unresolved error \(error), \(error.userInfo)")
             }
@@ -35,8 +35,11 @@ public class DiscogsContainer: NSPersistentContainer {
             do {
                 try viewContext.save()
             } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+                // Replace this implementation with code to handle the error
+                // appropriately. `fatalError()` causes the application to
+                // generate a crash log and terminate. You should not use this
+                // function in a shipping application, although it may be
+                // useful during development.
                 let nserror = error as NSError
                 fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
             }

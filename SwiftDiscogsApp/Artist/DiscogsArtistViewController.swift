@@ -37,7 +37,7 @@ public class DiscogsArtistViewController: UIViewController {
             if let artistId = artistSearchResult?.id {
                 DiscogsManager.discogs.artist(identifier: artistId).done { (artist) in
                     self.artist = artist
-                    }.catch { (error) in
+                    }.catch { _ in
                         // HANDLE THE ERROR
                     }
             }
@@ -45,7 +45,9 @@ public class DiscogsArtistViewController: UIViewController {
     }
 
     public var artistView: DiscogsArtistView {
+        // swiftlint:disable force_cast
         return view as! DiscogsArtistView
+        // swiftlint:enable force_cast
     }
 
     public var artistModel = DiscogsArtistModel()
@@ -120,8 +122,9 @@ public class DiscogsArtistViewController: UIViewController {
 
     private func showDisambiguationList(withResults results: [SearchResult]) {
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        let viewController = storyboard.instantiateViewController(withIdentifier: "DiscogsDisambiguation")
 
-        if let disambiguationViewController = storyboard.instantiateViewController(withIdentifier: "DiscogsDisambiguation") as? DiscogsDisambiguationViewController {
+        if let disambiguationViewController = viewController as? DiscogsDisambiguationViewController {
             disambiguationViewController.searchResults = results
             disambiguationViewController.artistViewController = self
             present(disambiguationViewController, animated: true)
@@ -138,7 +141,7 @@ public class DiscogsArtistViewController: UIViewController {
                 && $0.role == "Main"
                 && $0.mainRelease != nil }
             self?.artistView.refresh()
-            }.catch { (error) in
+            }.catch { _ in
                 // HANDLE THE ERROR
         }
     }

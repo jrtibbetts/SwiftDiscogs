@@ -10,7 +10,7 @@ class SectionedModelTests: XCTestCase {
         let model = SectionedModel()
 
         XCTAssertEqual(model.tableView.numberOfSections, 0)
-        XCTAssertEqual(model.collectionView.numberOfSections , 0)
+        XCTAssertEqual(model.collectionView.numberOfSections, 0)
     }
 
     func testInitializerWith1Section() {

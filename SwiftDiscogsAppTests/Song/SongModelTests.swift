@@ -5,6 +5,8 @@
 import Stylobate
 import XCTest
 
+// swiftlint:disable force_try
+
 class SongTests: XCTestCase {
 
     func testSongModelWithNoSongHasNoSections() {
@@ -121,3 +123,5 @@ class SongTests: XCTestCase {
     }()
 
 }
+
+// swiftlint:enable force_try

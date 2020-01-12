@@ -16,7 +16,7 @@ class ReleaseVersionViewController: BaseReleaseViewController {
             if let releaseID = releaseVersion?.id {
                 _ = DiscogsManager.discogs.release(identifier: releaseID).done { [weak self] (release) in
                     self?.release = release
-                    }.catch { (error) in
+                    }.catch { _ in
                 }
             }
         }
@@ -152,7 +152,7 @@ public class ReleaseVersionView: CoverArtAndTableView {
 
     public var release: Release? {
         didSet {
-            release?.formats?.forEach { (format) in
+            release?.formats?.forEach { _ in
 
             }
         }

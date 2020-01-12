@@ -9,7 +9,7 @@ import Stylobate
 /// inspects the items in a collection.
 public class MPMediaItemCollectionImporter: MediaImporter, MPMediaCollectionBrowser {
 
-    public var browserDelegate: MPMediaCollectionBrowserDelegate?
+    public weak var browserDelegate: MPMediaCollectionBrowserDelegate?
 
     public var artistCount: Int = 0
 
@@ -41,7 +41,9 @@ public class MPMediaItemCollectionImporter: MediaImporter, MPMediaCollectionBrow
 
         do {
             let artist = try fetchOrCreateArtist(named: artistName)!
-            let masterRelease = try fetchOrCreateMasterRelease(named: releaseTitle, by: [artist], releaseDate: mediaItem.releaseDate)!
+            let masterRelease = try fetchOrCreateMasterRelease(named: releaseTitle,
+                                                               by: [artist],
+                                                               releaseDate: mediaItem.releaseDate)!
             let song = try fetchOrCreateSong(named: songName, by: artist)!
 
             if let mediaItemLyrics = mediaItem.lyrics {

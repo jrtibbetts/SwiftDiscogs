@@ -2,6 +2,9 @@
 
 import Foundation
 
+// swiftlint:disable identifier_name
+// swiftlint:disable nesting
+
 public struct CollectionRelease: Codable {
 
     public var basicInformation: [Information]?
@@ -71,3 +74,6 @@ public struct CollectionRelease: Codable {
     }
 
 }
+
+// swiftlint:enable identifier_name
+// swiftlint:enable nesting

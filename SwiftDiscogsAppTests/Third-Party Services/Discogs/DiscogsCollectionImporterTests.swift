@@ -30,8 +30,9 @@ class DiscogsCollectionImporterTests: XCTestCase {
         importer.importDiscogsCollection(forUserName: "doesn't matter").done { [unowned self] in
             let fields: [CustomField] = try CustomField.all(inContext: self.importer)
             let folders: [Folder] = try Folder.all(inContext: self.importer)
+            let sortDescriptors = [(\CollectionItem.releaseVersionID).sortDescriptor()]
             let items: [CollectionItem] = try CollectionItem.all(inContext: self.importer,
-                                                                 sortedBy: [(\CollectionItem.releaseVersionID).sortDescriptor()])
+                                                                 sortedBy: sortDescriptors)
 
             if fields.count == 3
                 && folders.count == 2 && folders[0].name == "All"

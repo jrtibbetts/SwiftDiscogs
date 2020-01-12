@@ -2,6 +2,8 @@
 
 import Foundation
 
+// swiftlint:disable identifier_name
+
 public struct ArtistSummary: Codable, Unique {
 
     public var artistNameVariation: String?
@@ -23,3 +25,5 @@ public struct ArtistSummary: Codable, Unique {
     }
 
 }
+
+// swiftlint:enable identifier_name

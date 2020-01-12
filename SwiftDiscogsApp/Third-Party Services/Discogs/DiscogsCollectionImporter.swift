@@ -57,12 +57,13 @@ public class DiscogsCollectionImporter: NSManagedObjectContext {
     public func importDiscogsCollection(forUserName userName: String) -> Promise<Void> {
         importerDelegate?.willBeginImporting(fromService: service)
 
-        return discogs.customCollectionFields(forUserName: userName).then(on: importQueue) { (discogsFieldsResult) -> Promise<CoreDataFieldsByID> in
+        return discogs.customCollectionFields(forUserName: userName)
+            .then(on: importQueue) { (discogsFieldsResult) -> Promise<CoreDataFieldsByID> in
             self.discogsFields = discogsFieldsResult.fields ?? []
             self.importerDelegate?.update(importedItemCount: 1, totalCount: 6, forService: self.service)
 
             return self.createCoreDataFields(self.discogsFields)
-        }.then(on: importQueue) { _ in
+        }.then(on: importQueue) { _ -> Promise<CollectionFolders> in
             self.importerDelegate?.update(importedItemCount: 2, totalCount: 6, forService: self.service)
 
             return self.discogs.collectionFolders(forUserName: userName)
@@ -88,10 +89,10 @@ public class DiscogsCollectionImporter: NSManagedObjectContext {
             self.importerDelegate?.update(importedItemCount: 5, totalCount: 6, forService: self.service)
 
             return self.createCoreDataItems(forDiscogsItems: discogsItems)
-        }.then(on: importQueue) { _ in
+        }.then(on: importQueue) { _ -> Promise<Void>  in
             self.importerDelegate?.update(importedItemCount: 6, totalCount: 6, forService: self.service)
             return self.addCoreDataItemsToOtherFolders(forUserName: userName)
-        }.then(on: importQueue) { _ in
+        }.then(on: importQueue) { _ -> Promise<Void>  in
             self.importerDelegate?.willFinishImporting(fromService: self.service)
             try self.save()
 

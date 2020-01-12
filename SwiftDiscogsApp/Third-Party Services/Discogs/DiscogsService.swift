@@ -39,7 +39,7 @@ class DiscogsService: ThirdPartyService, AuthenticatedService, ImportableService
     // MARK: Properties
 
     /// Called when Discogs authentication is in progress.
-    var authenticationDelegate: AuthenticatedServiceDelegate?
+    weak var authenticationDelegate: AuthenticatedServiceDelegate?
 
     var importableItemCount: Int? {
         return userProfile?.numCollection
@@ -81,7 +81,7 @@ class DiscogsService: ThirdPartyService, AuthenticatedService, ImportableService
 
         let promise = DiscogsManager.discogs.authorize(presentingViewController: viewController,
                                                        callbackUrlString: AppDelegate.shared.callbackUrl.absoluteString)
-        promise.then { (credential) -> Promise<UserIdentity> in
+        promise.then { _ in
             return DiscogsManager.discogs.userIdentity()
             }.done { [weak self] (userIdentity) in
                 self?.handle(userIdentity: userIdentity)

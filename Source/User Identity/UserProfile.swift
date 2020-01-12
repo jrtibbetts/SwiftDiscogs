@@ -2,6 +2,8 @@
 
 import Foundation
 
+// swiftlint:disable identifier_name
+
 public struct UserProfile: Codable {
 
     public var avatarUrl: String
@@ -37,3 +39,5 @@ public struct UserProfile: Codable {
     public var wantlistUrl: URL
 
 }
+
+// swiftlint:enable identifier_name

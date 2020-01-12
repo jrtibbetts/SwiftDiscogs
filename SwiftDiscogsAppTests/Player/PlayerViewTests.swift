@@ -26,7 +26,7 @@ class PlayerViewTests: XCTestCase {
 
     override func setUp() {
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle(for: PlayerView.self))
-        let playerViewController = storyboard.instantiateViewController(withIdentifier: "Player") as! PlayerViewController
+        let playerViewController = storyboard.instantiateViewController(withIdentifier: "Player")
         _ = playerViewController.view
         playerView = (playerViewController.view as? PlayerView)!
     }

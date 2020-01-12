@@ -2,6 +2,8 @@
 
 import Foundation
 
+// swiftlint:disable identifier_name
+
 /// A user-defined column in the collection database.
 public struct CollectionCustomField: Codable {
 
@@ -46,3 +48,5 @@ public struct CollectionCustomFields: Codable {
     public var fields: [CollectionCustomField]?
 
 }
+
+// swiftlint:enable identifier_name
