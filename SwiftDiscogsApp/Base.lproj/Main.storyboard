@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="otB-Xv-hGK">
-    <device id="retina5_9" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="otB-Xv-hGK">
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -16,11 +13,11 @@
             <objects>
                 <viewController storyboardIdentifier="DiscogsDisambiguation" definesPresentationContext="YES" id="BYZ-38-t0r" customClass="DiscogsDisambiguationViewController" customModule="SwiftDiscogsApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC" customClass="DiscogsSearchView" customModule="SwiftDiscogsApp" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="758"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="etX-Ie-S6K" userLabel="Close Button">
-                                <rect key="frame" x="329" y="44" width="30" height="34"/>
+                                <rect key="frame" x="329" y="0.0" width="30" height="34"/>
                                 <state key="normal" title="X">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -31,7 +28,7 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1ki-zd-j1R" userLabel="Explanatory View">
-                                <rect key="frame" x="0.0" y="86" width="375" height="58.333333333333343"/>
+                                <rect key="frame" x="0.0" y="42" width="375" height="58.333333333333343"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Multiple results were found on Discogs. Please select one." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lel-o2-P6o">
                                         <rect key="frame" x="8" y="8" width="359" height="42.333333333333336"/>
@@ -49,7 +46,7 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MQe-0X-tnP" userLabel="Search Results Table">
-                                <rect key="frame" x="0.0" y="152.33333333333331" width="375" height="625.66666666666674"/>
+                                <rect key="frame" x="0.0" y="108.33333333333331" width="375" height="615.66666666666674"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="artistSearchResultCell" textLabel="ew3-K9-FWF" style="IBUITableViewCellStyleDefault" id="QRX-0o-hil" userLabel="Artist Cell" customClass="ArtistSearchResultCell" customModule="SwiftDiscogsApp" customModuleProvider="target">
@@ -117,7 +114,7 @@
                                 </prototypes>
                             </tableView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="pEy-S7-tsb">
-                                <rect key="frame" x="177.66666666666666" y="401" width="20" height="20"/>
+                                <rect key="frame" x="177.66666666666666" y="352" width="20" height="20"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -175,23 +172,23 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kh4-yl-et3">
-                                <rect key="frame" x="0.0" y="140" width="375" height="638"/>
+                                <rect key="frame" x="0.0" y="88" width="375" height="690"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="VDu-XY-FOY" userLabel="Zero-height footer to suppress empty rows">
-                                    <rect key="frame" x="0.0" y="142" width="375" height="0.0"/>
+                                    <rect key="frame" x="0.0" y="168.33333206176758" width="375" height="0.0"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="artistCell" id="lX4-9L-TxG" userLabel="Artist Cell" customClass="ArtistTableViewCell" customModule="SwiftDiscogsApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="375" height="42.333332061767578"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="lX4-9L-TxG" id="1mm-bv-BS5">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="42.333332061767578"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Beatles" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S6k-SG-YfC" userLabel="Artist Name">
-                                                    <rect key="frame" x="15" y="11" width="94.333333333333329" height="22"/>
+                                                    <rect key="frame" x="15" y="10.999999999999998" width="94.333333333333329" height="20.333333333333329"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -240,14 +237,14 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="songCell" rowHeight="70" id="aP3-3F-rpk" userLabel="Song Cell">
-                                        <rect key="frame" x="0.0" y="72" width="375" height="70"/>
+                                        <rect key="frame" x="0.0" y="70.333332061767578" width="375" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aP3-3F-rpk" id="ues-eh-dhU">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="aHe-iD-zs4">
-                                                    <rect key="frame" x="15" y="12" width="140.66666666666666" height="46.333333333333343"/>
+                                                    <rect key="frame" x="15" y="12.000000000000004" width="140.66666666666666" height="46.333333333333343"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="“Come Together”" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gif-kN-pOA" userLabel="Song Name">
                                                             <rect key="frame" x="0.0" y="0.0" width="140.66666666666666" height="20.333333333333332"/>
@@ -274,7 +271,7 @@
                                 </prototypes>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nhX-fS-HdP" userLabel="Spinner View">
-                                <rect key="frame" x="169" y="440.66666666666669" width="37" height="37"/>
+                                <rect key="frame" x="169" y="414.66666666666669" width="37" height="37"/>
                                 <subviews>
                                     <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Fab-mR-Guz" userLabel="Spinner">
                                         <rect key="frame" x="0.0" y="0.0" width="37" height="37"/>
@@ -444,17 +441,17 @@
             <objects>
                 <viewController storyboardIdentifier="discogsArtist" id="cvK-7F-nVP" userLabel="Artist Details" customClass="DiscogsArtistViewController" customModule="SwiftDiscogsApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1SC-zu-66M" customClass="DiscogsArtistView" customModule="SwiftDiscogsApp" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="758"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SGe-5Q-QE6" userLabel="Main Image">
-                                <rect key="frame" x="0.0" y="88" width="375" height="690"/>
+                                <rect key="frame" x="0.0" y="56" width="375" height="668"/>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="50" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="iaE-Sd-FyD">
-                                <rect key="frame" x="0.0" y="88" width="375" height="690"/>
+                                <rect key="frame" x="0.0" y="56" width="375" height="668"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="oAL-9f-geB" userLabel="Empty Footer">
-                                    <rect key="frame" x="0.0" y="471" width="375" height="0.0"/>
+                                    <rect key="frame" x="0.0" y="499" width="375" height="0.0"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </view>
@@ -463,7 +460,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="153"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aa8-27-t7X" id="LGc-0O-TMd">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="152.66666666666666"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="153"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fkc-x1-Vyr">
@@ -489,7 +486,7 @@
                                         <rect key="frame" x="0.0" y="181" width="375" height="228"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="osP-EA-1iJ" id="GOt-Af-he5">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="227.66666666666666"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="228"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="v0l-LO-ZVW">
@@ -529,7 +526,7 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                                         <rect key="frame" x="0.0" y="409" width="375" height="62"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="zvy-eC-FLO" id="33Q-IZ-u8S">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="61.666666666666664"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="62"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="Here's Little Richard" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RTP-xH-Qfi" userLabel="Album Title" customClass="HidingLabel" customModule="SwiftDiscogsApp" customModuleProvider="target">
@@ -682,11 +679,11 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
             <objects>
                 <viewController title="discogsArtistBio" id="ql7-Le-MbA" userLabel="Discogs Artist Images" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="GaC-Ox-Ju8">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="758"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="4XT-m2-Z6L">
-                                <rect key="frame" x="0.0" y="88" width="375" height="690"/>
+                                <rect key="frame" x="0.0" y="56" width="375" height="668"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="FQa-Fn-V7P">
                                     <size key="itemSize" width="50" height="50"/>
@@ -706,28 +703,28 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                                 </cells>
                             </collectionView>
                             <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kRc-nM-CdG">
-                                <rect key="frame" x="0.0" y="230" width="375" height="406"/>
+                                <rect key="frame" x="0.0" y="200.66666666666663" width="375" height="379"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="nDI-xg-JK3">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="406"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="379"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BUI-B6-oDd">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="406"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="379"/>
                                             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="rsh-nf-aGu">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="406"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="379"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VkD-la-hkC" userLabel="Images View">
-                                                        <rect key="frame" x="0.0" y="0.0" width="375" height="406"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="375" height="379"/>
                                                         <subviews>
                                                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" pagingEnabled="YES" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P4T-QL-aiN">
-                                                                <rect key="frame" x="0.0" y="0.0" width="375" height="406"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="375" height="379"/>
                                                                 <subviews>
                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="N4C-c2-pVb">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="375" height="406"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="375" height="379"/>
                                                                     </imageView>
                                                                     <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="bMs-T2-eFV">
-                                                                        <rect key="frame" x="168" y="349" width="39" height="37"/>
+                                                                        <rect key="frame" x="168" y="322" width="39" height="37"/>
                                                                     </pageControl>
                                                                 </subviews>
                                                                 <constraints>
@@ -811,7 +808,7 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelectionDuringEditing="YES" allowsMultipleSelectionDuringEditing="YES" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="CL6-Bk-rtK">
-                                <rect key="frame" x="16" y="86" width="311" height="30"/>
+                                <rect key="frame" x="16" y="86" width="311" height="64"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <label key="tableHeaderView" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="H7j-am-8yf" userLabel="Instructions">
                                     <rect key="frame" x="0.0" y="0.0" width="311" height="62.333333333333343"/>
@@ -822,7 +819,7 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="es6-NG-rjY" userLabel="Zero-height footer to hide empty table cells.">
-                                    <rect key="frame" x="0.0" y="166.33333333333334" width="311" height="0.0"/>
+                                    <rect key="frame" x="0.0" y="194.33333333333334" width="311" height="0.0"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </view>
@@ -831,14 +828,14 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                                         <rect key="frame" x="0.0" y="90.333333333333343" width="311" height="76"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="w7g-R4-VGH" id="3OU-9N-Xrz" customClass="MediaSourceView" customModule="SwiftDiscogsApp" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="0.0" width="311" height="75.666666666666671"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="311" height="76"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VFm-dF-fhF" customClass="MediaSourceView" customModule="SwiftDiscogsApp" customModuleProvider="target">
+                                                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VFm-dF-fhF" customClass="MediaSourceView" customModule="SwiftDiscogsApp" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="0.0" width="311" height="76.333333333333329"/>
                                                     <subviews>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zLW-xG-zDX" customClass="ToggleStackView" customModule="Stylobate">
-                                                            <rect key="frame" x="8" y="8.3333333333333357" width="41.666666666666664" height="60.000000000000007"/>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zLW-xG-zDX" customClass="ToggleStackView" customModule="Stylobate">
+                                                            <rect key="frame" x="8" y="8.3333333333333393" width="41.666666666666664" height="60"/>
                                                             <subviews>
                                                                 <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3YP-Lj-fKg" userLabel="Service Logo">
                                                                     <rect key="frame" x="-120" y="0.0" width="120" height="60"/>
@@ -847,7 +844,7 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                                                                         <constraint firstAttribute="height" constant="60" id="WUi-bX-XHV"/>
                                                                     </constraints>
                                                                 </imageView>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yte-gM-7hI" userLabel="Service Name" customClass="HidingLabel" customModule="SwiftDiscogsApp" customModuleProvider="target">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yte-gM-7hI" userLabel="Service Name" customClass="HidingLabel" customModule="SwiftDiscogsApp" customModuleProvider="target">
                                                                     <rect key="frame" x="0.0" y="0.0" width="41.666666666666664" height="60"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <nil key="textColor"/>
@@ -855,31 +852,31 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                                                                 </label>
                                                             </subviews>
                                                         </stackView>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="VeF-zW-XY6" userLabel="Authentication Status Stack" customClass="ToggleStackView" customModule="Stylobate">
-                                                            <rect key="frame" x="173.33333333333337" y="8.3333333333333357" width="129.66666666666663" height="60.000000000000007"/>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="VeF-zW-XY6" userLabel="Authentication Status Stack" customClass="ToggleStackView" customModule="Stylobate">
+                                                            <rect key="frame" x="173.33333333333337" y="8.3333333333333393" width="129.66666666666663" height="60"/>
                                                             <subviews>
-                                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="xu5-Mu-7vj">
+                                                                <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="xu5-Mu-7vj">
                                                                     <rect key="frame" x="0.0" y="5" width="70.666666666666671" height="50"/>
                                                                     <subviews>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Signed In As" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CFM-qe-1eN" userLabel="Signed In As">
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Signed In As" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CFM-qe-1eN" userLabel="Signed In As">
                                                                             <rect key="frame" x="0.0" y="0.0" width="70.666666666666671" height="25"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
-                                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2iM-8W-tvu" userLabel="Sign Out">
+                                                                        <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2iM-8W-tvu" userLabel="Sign Out">
                                                                             <rect key="frame" x="11" y="25" width="49" height="25"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                             <state key="normal" title="Sign Out"/>
                                                                         </button>
                                                                     </subviews>
                                                                 </stackView>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4nx-1H-qpn">
+                                                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4nx-1H-qpn">
                                                                     <rect key="frame" x="70.666666666666657" y="5" width="39" height="50"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                     <state key="normal" title="Sign In"/>
                                                                 </button>
-                                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="I3b-m2-nyK">
+                                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="I3b-m2-nyK">
                                                                     <rect key="frame" x="109.66666666666666" y="16.333333333333336" width="20" height="27.333333333333336"/>
                                                                 </activityIndicatorView>
                                                             </subviews>
@@ -952,17 +949,17 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
             <objects>
                 <viewController id="ppy-e1-uy0" userLabel="Song" customClass="SongViewController" customModule="SwiftDiscogsApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gu4-jO-whc" customClass="SongView" customModule="SwiftDiscogsApp" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="758"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ppH-We-6On" userLabel="Artwork">
-                                <rect key="frame" x="16" y="44" width="343" height="343"/>
+                                <rect key="frame" x="16" y="56" width="343" height="343"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="ppH-We-6On" secondAttribute="height" multiplier="1:1" id="i94-Wn-ufB"/>
                                 </constraints>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cJ8-J0-ZW3">
-                                <rect key="frame" x="16" y="44" width="343" height="734"/>
+                                <rect key="frame" x="16" y="56" width="343" height="668"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="FVq-tL-bdN" userLabel="Clear Header">
                                     <rect key="frame" x="0.0" y="0.0" width="343" height="343"/>
@@ -981,7 +978,7 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                                                     <rect key="frame" x="15" y="11" width="313" height="108"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" verticalCompressionResistancePriority="749" text="“With a Little Luck”" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qgN-qQ-oM8" userLabel="Title">
-                                                            <rect key="frame" x="25" y="0.0" width="263.33333333333331" height="30.666666666666668"/>
+                                                            <rect key="frame" x="25" y="0.0" width="263" height="30.666666666666668"/>
                                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -1017,26 +1014,26 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="songVersionCell" id="TIs-u9-cRE" userLabel="Song Version Cell" customClass="SongVersionTableViewCell" customModule="SwiftDiscogsApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="501" width="343" height="44"/>
+                                        <rect key="frame" x="0.0" y="501" width="343" height="40"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="TIs-u9-cRE" id="iJ9-L6-jPc">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="40"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="186" translatesAutoresizingMaskIntoConstraints="NO" id="obR-wd-YgL">
-                                                    <rect key="frame" x="15" y="11" width="313" height="22"/>
+                                                    <rect key="frame" x="15" y="11" width="313" height="18"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="firstBaseline" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="aQ3-Kb-Smu" userLabel="Name Label">
-                                                            <rect key="frame" x="0.0" y="0.0" width="97.666666666666671" height="22"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="97.333333333333329" height="18"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AKA" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7OT-ym-U3D" userLabel="Also Known As Label" customClass="HidingLabel" customModule="SwiftDiscogsApp" customModuleProvider="target">
-                                                                    <rect key="frame" x="0.0" y="4" width="41" height="18"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="40.666666666666664" height="18"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DJ edit" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KE6-eh-HJg" userLabel="Disambiguation Note Label" customClass="HidingLabel" customModule="SwiftDiscogsApp" customModuleProvider="target">
-                                                                    <rect key="frame" x="49" y="4" width="48.666666666666657" height="18"/>
+                                                                    <rect key="frame" x="48.666666666666671" y="0.0" width="48.666666666666671" height="18"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -1044,7 +1041,7 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                                                             </subviews>
                                                         </stackView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3:15" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gVc-WZ-K9Q" userLabel="Duration Label" customClass="HidingLabel" customModule="SwiftDiscogsApp" customModuleProvider="target">
-                                                            <rect key="frame" x="283.66666666666669" y="0.0" width="29.333333333333314" height="22"/>
+                                                            <rect key="frame" x="283.33333333333331" y="0.0" width="29.666666666666686" height="18"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -1066,14 +1063,14 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="lyricsCell" id="O9q-Pd-725" userLabel="Lyrics Cell" customClass="SongLyricsTableViewCell" customModule="SwiftDiscogsApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="545" width="343" height="44"/>
+                                        <rect key="frame" x="0.0" y="541" width="343" height="40"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="O9q-Pd-725" id="9Bf-Ra-Axo">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="40"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lyrics" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="udw-pU-YA6">
-                                                    <rect key="frame" x="15" y="11" width="313" height="22"/>
+                                                    <rect key="frame" x="15" y="11" width="313" height="18"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -1091,7 +1088,7 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="personnelCell" id="gbd-X3-7bz" userLabel="Personnel Cell" customClass="SongCreditsTableViewCell" customModule="SwiftDiscogsApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="589" width="343" height="44"/>
+                                        <rect key="frame" x="0.0" y="581" width="343" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gbd-X3-7bz" id="MPj-5f-bIT">
                                             <rect key="frame" x="0.0" y="0.0" width="343" height="44"/>
@@ -1124,7 +1121,7 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                                 </prototypes>
                             </tableView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s47-14-jgY" userLabel="Play Controls Container">
-                                <rect key="frame" x="16" y="628" width="343" height="150"/>
+                                <rect key="frame" x="16" y="574" width="343" height="150"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="150" id="Gw0-p9-anT"/>
                                 </constraints>
@@ -1185,13 +1182,13 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                                 <rect key="frame" x="16" y="8" width="311" height="134"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uUH-Dr-Z9G" customClass="PlayerButtonView" customModule="SwiftDiscogsApp" customModuleProvider="target">
-                                        <rect key="frame" x="57" y="0.0" width="197" height="46.333333333333336"/>
+                                        <rect key="frame" x="57" y="0.0" width="197" height="50"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" alignment="lastBaseline" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="fyv-Am-mg6" userLabel="Play Button Stack">
-                                                <rect key="frame" x="0.0" y="0.0" width="197" height="46.333333333333336"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="197" height="50"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yjh-Zp-M3z" userLabel="Previous Song Button">
-                                                        <rect key="frame" x="0.0" y="10.333333333333332" width="30" height="36"/>
+                                                        <rect key="frame" x="0.0" y="14" width="30" height="36"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                         <state key="normal" title="⏮"/>
                                                         <connections>
@@ -1199,7 +1196,7 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="607-nj-9Qe" userLabel="Rewind Button">
-                                                        <rect key="frame" x="38" y="16.333333333333329" width="30" height="36"/>
+                                                        <rect key="frame" x="38" y="19" width="30" height="36"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                         <state key="normal" title="⏪"/>
                                                         <connections>
@@ -1215,7 +1212,7 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3cC-ie-QEH" userLabel="Forward Button">
-                                                        <rect key="frame" x="129" y="16.333333333333329" width="30" height="36"/>
+                                                        <rect key="frame" x="129" y="19" width="30" height="36"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                         <state key="normal" title="⏩"/>
                                                         <connections>
@@ -1223,7 +1220,7 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fmy-yL-1hz" userLabel="Next Song Button">
-                                                        <rect key="frame" x="167" y="16.333333333333329" width="30" height="36"/>
+                                                        <rect key="frame" x="167" y="19" width="30" height="36"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                         <state key="normal" title="⏭"/>
                                                         <connections>
@@ -1248,22 +1245,22 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                                         </connections>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BBl-tA-nYp" userLabel="Scrubber View" customClass="PlayerScrubberView" customModule="SwiftDiscogsApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="54.333333333333343" width="311" height="39.666666666666657"/>
+                                        <rect key="frame" x="0.0" y="58" width="311" height="36"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" alignment="firstBaseline" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="j5D-Ry-2KB" customClass="ScrubberView">
-                                                <rect key="frame" x="8" y="0.0" width="295" height="39.666666666666664"/>
+                                                <rect key="frame" x="8" y="0.0" width="295" height="36"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2:12" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WIF-vI-pTw" userLabel="Elapsed Time Label">
-                                                        <rect key="frame" x="0.0" y="0.0" width="20.333333333333332" height="12"/>
+                                                        <rect key="frame" x="0.0" y="6" width="20.333333333333332" height="12"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="UZG-I9-5y4">
-                                                        <rect key="frame" x="26.333333333333329" y="9.6666666666666643" width="240.33333333333337" height="31"/>
+                                                        <rect key="frame" x="26.333333333333329" y="6" width="240.33333333333337" height="31"/>
                                                     </slider>
                                                     <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4:24" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1TR-52-FHS" userLabel="Remaining/Total Time Label">
-                                                        <rect key="frame" x="272.66666666666669" y="0.0" width="22.333333333333314" height="12"/>
+                                                        <rect key="frame" x="272.66666666666669" y="6" width="22.333333333333314" height="12"/>
                                                         <gestureRecognizers/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1355,37 +1352,37 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
             <objects>
                 <viewController id="k8J-Ec-M2T" userLabel="Master Release" customClass="MasterReleaseViewController" customModule="SwiftDiscogsApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dGD-xz-B36" customClass="CoverArtAndTableView" customModule="SwiftDiscogsApp" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="758"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2LP-y1-iYJ" userLabel="Artwork">
-                                <rect key="frame" x="16" y="88" width="343" height="343"/>
+                                <rect key="frame" x="16" y="56" width="343" height="343"/>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" contentInsetAdjustmentBehavior="always" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4gc-te-Nk4">
-                                <rect key="frame" x="0.0" y="88" width="375" height="690"/>
+                                <rect key="frame" x="0.0" y="56" width="375" height="668"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="trackCell" id="vqQ-EN-bYt" userLabel="Tracklist Cell" customClass="TrackTableCell" customModule="SwiftDiscogsApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="375" height="42.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vqQ-EN-bYt" id="o0w-d9-RgM">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43.666666666666664"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="349" height="42.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="B2" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LNH-Y3-2Uh" userLabel="Position">
-                                                    <rect key="frame" x="15" y="16" width="30" height="14.666666666666664"/>
+                                                    <rect key="frame" x="15" y="16" width="30" height="14.333333333333336"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Because" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2xn-bn-1Cz" userLabel="Title">
-                                                    <rect key="frame" x="53.000000000000007" y="11" width="65.666666666666686" height="22"/>
+                                                    <rect key="frame" x="53.000000000000007" y="11.000000000000002" width="65.666666666666686" height="20.666666666666671"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2:46" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q07-nf-KlI" userLabel="Duration">
-                                                    <rect key="frame" x="307.66666666666669" y="16" width="26.333333333333314" height="14.666666666666664"/>
+                                                    <rect key="frame" x="314.66666666666669" y="16" width="26.333333333333314" height="14.333333333333336"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -1412,24 +1409,24 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="filterAndSortVersionsCell" id="6xT-zb-dTq" userLabel="Filter and Sort Versions Cell">
-                                        <rect key="frame" x="0.0" y="72" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="70.666667938232422" width="375" height="54"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6xT-zb-dTq" id="nL7-Oz-lOD">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="54"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" alignment="lastBaseline" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="4fi-bR-RdM">
-                                                    <rect key="frame" x="64" y="11" width="247" height="22"/>
+                                                    <rect key="frame" x="59" y="11" width="257" height="32"/>
                                                     <subviews>
                                                         <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bordered" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="gPP-He-d6d">
-                                                            <rect key="frame" x="0.0" y="0.0" width="91" height="23"/>
+                                                            <rect key="frame" x="0.0" y="0.6666666666666643" width="101" height="32"/>
                                                             <segments>
                                                                 <segment title="Filter"/>
                                                                 <segment title="Sort"/>
                                                             </segments>
                                                         </segmentedControl>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SrR-Up-u54" userLabel="Sort by Format">
-                                                            <rect key="frame" x="95" y="0.0" width="38" height="26"/>
+                                                            <rect key="frame" x="105" y="0.0" width="38" height="26"/>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleCaption2"/>
                                                             <state key="normal" title="Format"/>
                                                             <connections>
@@ -1437,7 +1434,7 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                                                             </connections>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tCX-22-Q3E" userLabel="Country">
-                                                            <rect key="frame" x="137" y="0.0" width="42" height="26"/>
+                                                            <rect key="frame" x="147" y="0.0" width="42" height="26"/>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleCaption2"/>
                                                             <state key="normal" title="Country"/>
                                                             <connections>
@@ -1445,7 +1442,7 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                                                             </connections>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B0i-5e-v0A" userLabel="Label">
-                                                            <rect key="frame" x="183" y="0.0" width="30" height="26"/>
+                                                            <rect key="frame" x="193" y="0.0" width="30" height="26"/>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleCaption2"/>
                                                             <state key="normal" title="Label"/>
                                                             <connections>
@@ -1453,7 +1450,7 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                                                             </connections>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dXH-Hq-3uv" userLabel="Year">
-                                                            <rect key="frame" x="217" y="0.0" width="30" height="26"/>
+                                                            <rect key="frame" x="227" y="0.0" width="30" height="26"/>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleCaption2"/>
                                                             <state key="normal" title="Year"/>
                                                             <connections>
@@ -1475,23 +1472,23 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="versionCell" id="scC-K9-gfw" userLabel="Version Cell" customClass="ReleaseVersionTableCell" customModule="SwiftDiscogsApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="116" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="124.66666793823242" width="375" height="42.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="scC-K9-gfw" id="gJ4-GA-KPh">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="42.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" alignment="firstBaseline" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="nhB-Ua-RyN">
-                                                    <rect key="frame" x="15" y="11" width="345" height="22"/>
+                                                    <rect key="frame" x="15" y="11.000000000000002" width="345" height="20.666666666666671"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Because" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jva-ML-VZe" userLabel="Title">
-                                                            <rect key="frame" x="0.0" y="1.6666666666666661" width="299.33333333333331" height="20.333333333333336"/>
+                                                            <rect key="frame" x="0.0" y="0.33333333333333393" width="299.33333333333331" height="20.333333333333329"/>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="1957" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SLz-RY-Vvm" userLabel="Single Year" customClass="HidingLabel" customModule="SwiftDiscogsApp" customModuleProvider="target">
-                                                            <rect key="frame" x="307.33333333333331" y="1.6666666666666661" width="37.666666666666686" height="20.333333333333336"/>
+                                                            <rect key="frame" x="307.33333333333331" y="0.33333333333333393" width="37.666666666666686" height="20.333333333333329"/>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -1513,10 +1510,10 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="haveAndWantCell" rowHeight="49" id="YPl-fT-nMy">
-                                        <rect key="frame" x="0.0" y="160" width="375" height="49"/>
+                                        <rect key="frame" x="0.0" y="167.33333587646484" width="375" height="49"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="YPl-fT-nMy" id="sGI-Ma-fzE">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="48.666666666666664"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" alignment="firstBaseline" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="hcA-GY-HfW">
@@ -1598,7 +1595,7 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                                 <rect key="frame" x="0.0" y="28" width="200" height="43"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="j4d-8t-ILx" id="L4H-Cc-uH6">
-                                    <rect key="frame" x="0.0" y="0.0" width="200" height="42.666666666666664"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="200" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="hhl-ia-YLf">
@@ -1631,11 +1628,11 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                                 <rect key="frame" x="0.0" y="71" width="200" height="43"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cfD-GO-kyd" id="ODG-EB-s9V">
-                                    <rect key="frame" x="0.0" y="0.0" width="200" height="42.666666666666664"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="200" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="96m-XR-zZS">
-                                            <rect key="frame" x="16" y="11" width="49.666666666666657" height="21"/>
+                                            <rect key="frame" x="15.999999999999996" y="11" width="49.666666666666657" height="21"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bbj-WZ-CbQ">
                                                     <rect key="frame" x="0.0" y="0.0" width="21" height="21"/>
@@ -1665,7 +1662,7 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                                 <rect key="frame" x="0.0" y="114" width="200" height="43"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8K0-0e-TcQ" id="vqf-25-38Y">
-                                    <rect key="frame" x="0.0" y="0.0" width="200" height="42.666666666666664"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="200" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1969" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KiM-Kd-ea5" userLabel="Flag Label">
@@ -1700,25 +1697,25 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
             <objects>
                 <viewController id="axZ-Et-2J0" customClass="ReleaseVersionViewController" customModule="SwiftDiscogsApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6BG-q5-iEU" customClass="ReleaseVersionView" customModule="SwiftDiscogsApp" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="758"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Sfl-LD-qU7" userLabel="Artwork">
-                                <rect key="frame" x="16" y="88" width="343" height="343"/>
+                                <rect key="frame" x="16" y="56" width="343" height="343"/>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3mj-xk-sUH">
-                                <rect key="frame" x="0.0" y="88" width="375" height="690"/>
+                                <rect key="frame" x="0.0" y="56" width="375" height="668"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="formatCell" id="mWH-eL-d9W" userLabel="Format Cell" customClass="ReleaseFormatTableCell" customModule="SwiftDiscogsApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="375" height="42.333332061767578"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mWH-eL-d9W" id="pyP-1s-MyX">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="42.333332061767578"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CDs" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Yn-3d-baE" userLabel="Format">
-                                                    <rect key="frame" x="15" y="11" width="32.666666666666664" height="22"/>
+                                                    <rect key="frame" x="15" y="10.999999999999998" width="32.666666666666664" height="20.333333333333329"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -1736,10 +1733,10 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="trackCell" id="0eV-hm-yI7" userLabel="Tracklist Cell" customClass="TrackTableCell" customModule="SwiftDiscogsApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="72" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="70.333332061767578" width="375" height="42.333332061767578"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0eV-hm-yI7" id="fvD-Nf-cJ4">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="349" height="42.333332061767578"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="B2" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YLE-r3-EhZ" userLabel="Position">
@@ -1749,13 +1746,13 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Because" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7vb-ZU-Lf8" userLabel="Title">
-                                                    <rect key="frame" x="53.000000000000007" y="11" width="65.666666666666686" height="22"/>
+                                                    <rect key="frame" x="53.000000000000007" y="10.999999999999998" width="65.666666666666686" height="20.333333333333329"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2:46" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gDm-La-zTO" userLabel="Duration">
-                                                    <rect key="frame" x="307.66666666666669" y="16" width="26.333333333333314" height="14.666666666666664"/>
+                                                    <rect key="frame" x="314.66666666666669" y="16" width="26.333333333333314" height="14.666666666666664"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -1816,11 +1813,11 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
             <objects>
                 <viewController id="jc6-dg-dfD" userLabel="Artist Bio" customClass="ArtistBioViewController" customModule="SwiftDiscogsApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="TEf-Vq-TwF">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="758"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" editable="NO" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Byp-oG-qa7">
-                                <rect key="frame" x="16" y="88" width="343" height="690"/>
+                                <rect key="frame" x="16" y="56" width="343" height="668"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
@@ -1850,11 +1847,11 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
             <objects>
                 <viewController storyboardIdentifier="DiscogsSignIn" id="LCt-rZ-gxJ" userLabel="Sign In" customClass="DiscogsSignInViewController" customModule="SwiftDiscogsApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DLB-zt-qpJ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="758"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="jaN-qu-zeV" userLabel="Main Stack View">
-                                <rect key="frame" x="56" y="312.66666666666669" width="263" height="197"/>
+                                <rect key="frame" x="56" y="263.66666666666669" width="263" height="197"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Discogs" translatesAutoresizingMaskIntoConstraints="NO" id="n59-CO-aUE">
                                         <rect key="frame" x="0.0" y="0.0" width="263" height="128"/>
@@ -1937,13 +1934,13 @@ Inducted into Songwriters Hall of Fame in 2003.</string>
             <point key="canvasLocation" x="3063.1999999999998" y="224.6305418719212"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="Discogs" width="480" height="174"/>
-    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="5co-na-vdy"/>
         <segue reference="Vih-4t-rKA"/>
         <segue reference="UNb-dt-M4w"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+    <resources>
+        <image name="Discogs" width="480" height="174"/>
+    </resources>
 </document>
