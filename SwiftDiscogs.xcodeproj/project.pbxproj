@@ -205,6 +205,10 @@
 		96D5B6F52497361700B555AC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96D5B6F32497361700B555AC /* LaunchScreen.storyboard */; };
 		96D5B7002497361700B555AC /* SwiftUIDiscogsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D5B6FF2497361700B555AC /* SwiftUIDiscogsTests.swift */; };
 		96D5B70B2497361700B555AC /* SwiftUIDiscogsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D5B70A2497361700B555AC /* SwiftUIDiscogsUITests.swift */; };
+		96D5B7162497388500B555AC /* Medi8.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 965976A923C027CB00FD3B98 /* Medi8.framework */; };
+		96D5B7172497388500B555AC /* Medi8.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 965976A923C027CB00FD3B98 /* Medi8.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		96D5B7182497388500B555AC /* Stylobate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96D5B6D12495E23300B555AC /* Stylobate.framework */; };
+		96D5B7192497388500B555AC /* Stylobate.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 96D5B6D12495E23300B555AC /* Stylobate.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		96E044A22089A93E008F1FE4 /* CollectionAndTableViewControllerTestBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E044A12089A93E008F1FE4 /* CollectionAndTableViewControllerTestBase.swift */; };
 		96E8CCE020E33396001C5381 /* DiscogsDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E8CCDF20E33396001C5381 /* DiscogsDisplay.swift */; };
 		96EA0DE0225EDF220072F09F /* ArtistBioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96EA0DDF225EDF220072F09F /* ArtistBioViewController.swift */; };
@@ -288,6 +292,18 @@
 			dstSubfolderSpec = 10;
 			files = (
 				968102082272BA20003E6D82 /* SwiftDiscogs.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		96D5B71A2497388500B555AC /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				96D5B7192497388500B555AC /* Stylobate.framework in Embed Frameworks */,
+				96D5B7172497388500B555AC /* Medi8.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -568,6 +584,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96D5B7182497388500B555AC /* Stylobate.framework in Frameworks */,
+				96D5B7162497388500B555AC /* Medi8.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1251,6 +1269,7 @@
 				96D5B6DF2497361200B555AC /* Sources */,
 				96D5B6E02497361200B555AC /* Frameworks */,
 				96D5B6E12497361200B555AC /* Resources */,
+				96D5B71A2497388500B555AC /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -2221,6 +2240,10 @@
 				DEVELOPMENT_ASSET_PATHS = "\"SwiftUIDiscogs/Preview Content\"";
 				DEVELOPMENT_TEAM = 3MY7LL9G36;
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = SwiftUIDiscogs/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -2245,6 +2268,10 @@
 				DEVELOPMENT_ASSET_PATHS = "\"SwiftUIDiscogs/Preview Content\"";
 				DEVELOPMENT_TEAM = 3MY7LL9G36;
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = SwiftUIDiscogs/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
 				LD_RUNPATH_SEARCH_PATHS = (

@@ -1,7 +1,8 @@
 //  Copyright © 2020 Poikile Creations. All rights reserved.
 
-import UIKit
 import CoreData
+import Medi8
+import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -34,7 +35,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
          application to it. This property is optional since there are legitimate
          error conditions that could cause the creation of the store to fail.
         */
-        let container = NSPersistentCloudKitContainer(name: "SwiftUIDiscogs")
+        let medi8Bundle = Bundle(for: Medi8.self)
+        let discogsBundle = Bundle(for: type(of: self))
+        let model = NSManagedObjectModel.mergedModel(from: [medi8Bundle, discogsBundle])!
+        let container = NSPersistentCloudKitContainer(name: "Medi8", managedObjectModel: model)
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
                 // Replace this implementation with code to handle the error appropriately.
