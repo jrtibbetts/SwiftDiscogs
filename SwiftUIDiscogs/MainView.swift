@@ -3,8 +3,14 @@
 import SwiftUI
 
 struct MainView: View {
+
+    @State private var searchTerms: String = ""
+
     var body: some View {
-        Text("Hello, World!")
+        VStack {
+            TextField("Search Discogs", text: $searchTerms)
+            Text("Searching for \(searchTerms)")
+        }
     }
 }
 

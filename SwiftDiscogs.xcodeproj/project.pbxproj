@@ -209,6 +209,7 @@
 		96D5B7172497388500B555AC /* Medi8.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 965976A923C027CB00FD3B98 /* Medi8.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		96D5B7182497388500B555AC /* Stylobate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96D5B6D12495E23300B555AC /* Stylobate.framework */; };
 		96D5B7192497388500B555AC /* Stylobate.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 96D5B6D12495E23300B555AC /* Stylobate.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		96D5B71C24973DB200B555AC /* DiscogsClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D5B71B24973DB200B555AC /* DiscogsClient.swift */; };
 		96E044A22089A93E008F1FE4 /* CollectionAndTableViewControllerTestBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E044A12089A93E008F1FE4 /* CollectionAndTableViewControllerTestBase.swift */; };
 		96E8CCE020E33396001C5381 /* DiscogsDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E8CCDF20E33396001C5381 /* DiscogsDisplay.swift */; };
 		96EA0DE0225EDF220072F09F /* ArtistBioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96EA0DDF225EDF220072F09F /* ArtistBioViewController.swift */; };
@@ -521,6 +522,7 @@
 		96D5B7062497361700B555AC /* SwiftUIDiscogsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftUIDiscogsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		96D5B70A2497361700B555AC /* SwiftUIDiscogsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIDiscogsUITests.swift; sourceTree = "<group>"; };
 		96D5B70C2497361700B555AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		96D5B71B24973DB200B555AC /* DiscogsClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscogsClient.swift; sourceTree = "<group>"; };
 		96E044A12089A93E008F1FE4 /* CollectionAndTableViewControllerTestBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionAndTableViewControllerTestBase.swift; sourceTree = "<group>"; };
 		96E8CCDF20E33396001C5381 /* DiscogsDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscogsDisplay.swift; sourceTree = "<group>"; };
 		96EA0DDF225EDF220072F09F /* ArtistBioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistBioViewController.swift; sourceTree = "<group>"; };
@@ -1112,14 +1114,15 @@
 		96D5B6E42497361200B555AC /* SwiftUIDiscogs */ = {
 			isa = PBXGroup;
 			children = (
+				96D5B6F62497361700B555AC /* Info.plist */,
 				96D5B6E52497361200B555AC /* AppDelegate.swift */,
-				96D5B6E72497361200B555AC /* SceneDelegate.swift */,
+				96D5B71B24973DB200B555AC /* DiscogsClient.swift */,
 				96D5B6EC2497361200B555AC /* MainView.swift */,
+				96D5B6E72497361200B555AC /* SceneDelegate.swift */,
 				96D5B6EE2497361700B555AC /* Assets.xcassets */,
 				96D5B6F32497361700B555AC /* LaunchScreen.storyboard */,
-				96D5B6F62497361700B555AC /* Info.plist */,
-				96D5B6E92497361200B555AC /* SwiftUIDiscogs.xcdatamodeld */,
 				96D5B6F02497361700B555AC /* Preview Content */,
+				96D5B6E92497361200B555AC /* SwiftUIDiscogs.xcdatamodeld */,
 			);
 			path = SwiftUIDiscogs;
 			sourceTree = "<group>";
@@ -1135,8 +1138,8 @@
 		96D5B6FE2497361700B555AC /* SwiftUIDiscogsTests */ = {
 			isa = PBXGroup;
 			children = (
-				96D5B6FF2497361700B555AC /* SwiftUIDiscogsTests.swift */,
 				96D5B7012497361700B555AC /* Info.plist */,
+				96D5B6FF2497361700B555AC /* SwiftUIDiscogsTests.swift */,
 			);
 			path = SwiftUIDiscogsTests;
 			sourceTree = "<group>";
@@ -1144,8 +1147,8 @@
 		96D5B7092497361700B555AC /* SwiftUIDiscogsUITests */ = {
 			isa = PBXGroup;
 			children = (
-				96D5B70A2497361700B555AC /* SwiftUIDiscogsUITests.swift */,
 				96D5B70C2497361700B555AC /* Info.plist */,
+				96D5B70A2497361700B555AC /* SwiftUIDiscogsUITests.swift */,
 			);
 			path = SwiftUIDiscogsUITests;
 			sourceTree = "<group>";
@@ -1741,6 +1744,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96D5B71C24973DB200B555AC /* DiscogsClient.swift in Sources */,
 				96D5B6E62497361200B555AC /* AppDelegate.swift in Sources */,
 				96D5B6EB2497361200B555AC /* SwiftUIDiscogs.xcdatamodeld in Sources */,
 				96D5B6ED2497361200B555AC /* MainView.swift in Sources */,
