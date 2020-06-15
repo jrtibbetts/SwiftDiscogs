@@ -1,10 +1,4 @@
-//
-//  DiscogsManager.swift
-//  SwiftDiscogsApp
-//
-//  Created by Jason R Tibbetts on 4/16/19.
 //  Copyright © 2019 Poikile Creations. All rights reserved.
-//
 
 import SwiftDiscogs
 

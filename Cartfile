@@ -1,1 +1,6 @@
+github "jrtibbetts/JSONClient"
 github "jrtibbetts/Medi8"
+github "onevcat/Kingfisher"
+github "OAuthSwift/OAuthSwift"
+github "PromiseKit/Foundation"
+
