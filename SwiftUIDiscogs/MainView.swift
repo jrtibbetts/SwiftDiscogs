@@ -7,7 +7,7 @@ struct MainView: View {
     @State private var searchTerms: String = ""
 
     var body: some View {
-        VStack {
+        VStack(alignment: .center, spacing: 20.0) {
             TextField("Search Discogs", text: $searchTerms)
             Text("Searching for \(searchTerms)")
         }
