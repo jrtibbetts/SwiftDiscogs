@@ -1,0 +1,3 @@
+[submodule "Frameworks/Medi8"]
+	path = Frameworks/Medi8
+	url = git@github.com:jrtibbetts/Medi8.git

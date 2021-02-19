@@ -43,8 +43,6 @@
 		963282B9222CD7E40090B29F /* MasterReleaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963282B8222CD7E40090B29F /* MasterReleaseViewController.swift */; };
 		963282BD222F82A10090B29F /* TrackTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963282BC222F82A10090B29F /* TrackTableCell.swift */; };
 		963282BF222F83C00090B29F /* ReleaseVersionTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963282BE222F83C00090B29F /* ReleaseVersionTableCell.swift */; };
-		965976AA23C027CB00FD3B98 /* Medi8.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 965976A923C027CB00FD3B98 /* Medi8.framework */; };
-		965976AB23C027CB00FD3B98 /* Medi8.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 965976A923C027CB00FD3B98 /* Medi8.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		967AD9B62263733E001FE440 /* MockMediaLibrary.json in Resources */ = {isa = PBXBuildFile; fileRef = 967AD9B52263733E001FE440 /* MockMediaLibrary.json */; };
 		967AD9B822659656001FE440 /* DiscogsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967AD9B722659656001FE440 /* DiscogsManager.swift */; };
 		967AD9BB22691E18001FE440 /* StoryboardScenes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967AD9B922691E17001FE440 /* StoryboardScenes.swift */; };
@@ -192,8 +190,6 @@
 		96D5B6D82495E23300B555AC /* Kingfisher.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 96D5B6CF2495E23300B555AC /* Kingfisher.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		96D5B6D92495E23400B555AC /* KingfisherSwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96D5B6D02495E23300B555AC /* KingfisherSwiftUI.framework */; platformFilter = ios; };
 		96D5B6DA2495E23400B555AC /* KingfisherSwiftUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 96D5B6D02495E23300B555AC /* KingfisherSwiftUI.framework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		96D5B6DB2495E23400B555AC /* Stylobate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96D5B6D12495E23300B555AC /* Stylobate.framework */; platformFilter = ios; };
-		96D5B6DC2495E23400B555AC /* Stylobate.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 96D5B6D12495E23300B555AC /* Stylobate.framework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		96D5B6DD2495E23400B555AC /* OAuthSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96D5B6D22495E23300B555AC /* OAuthSwift.framework */; };
 		96D5B6DE2495E23400B555AC /* OAuthSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 96D5B6D22495E23300B555AC /* OAuthSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		96D5B6E62497361200B555AC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D5B6E52497361200B555AC /* AppDelegate.swift */; };
@@ -279,8 +275,6 @@
 				96D5B6D62495E23300B555AC /* PromiseKit.framework in Embed Frameworks */,
 				96D5B6D42495E23300B555AC /* PMKFoundation.framework in Embed Frameworks */,
 				96D5B6D82495E23300B555AC /* Kingfisher.framework in Embed Frameworks */,
-				965976AB23C027CB00FD3B98 /* Medi8.framework in Embed Frameworks */,
-				96D5B6DC2495E23400B555AC /* Stylobate.framework in Embed Frameworks */,
 				96D5B6DA2495E23400B555AC /* KingfisherSwiftUI.framework in Embed Frameworks */,
 				96D5B6DE2495E23400B555AC /* OAuthSwift.framework in Embed Frameworks */,
 			);
@@ -569,8 +563,6 @@
 				96D5B6D52495E23300B555AC /* PromiseKit.framework in Frameworks */,
 				96D5B6D32495E23300B555AC /* PMKFoundation.framework in Frameworks */,
 				96D5B6D72495E23300B555AC /* Kingfisher.framework in Frameworks */,
-				965976AA23C027CB00FD3B98 /* Medi8.framework in Frameworks */,
-				96D5B6DB2495E23400B555AC /* Stylobate.framework in Frameworks */,
 				96D5B6D92495E23400B555AC /* KingfisherSwiftUI.framework in Frameworks */,
 				96D5B6DD2495E23400B555AC /* OAuthSwift.framework in Frameworks */,
 			);
