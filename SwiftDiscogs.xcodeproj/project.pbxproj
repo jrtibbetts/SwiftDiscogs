@@ -35,6 +35,12 @@
 		9610FB0B22433EC100710F43 /* MediaSourcesModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9610FB0A22433EC100710F43 /* MediaSourcesModelTests.swift */; };
 		9610FB0D22449FDB00710F43 /* MediaSourcesDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9610FB0C22449FDA00710F43 /* MediaSourcesDisplay.swift */; };
 		9610FB0F2244A05100710F43 /* MediaSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9610FB0E2244A05100710F43 /* MediaSource.swift */; };
+		961366E725DF6D7B009A1627 /* PromiseKit in Frameworks */ = {isa = PBXBuildFile; productRef = 961366E625DF6D7B009A1627 /* PromiseKit */; };
+		961366EF25DF6DB5009A1627 /* OAuthSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 961366EE25DF6DB5009A1627 /* OAuthSwift */; };
+		961366F725DF6DEE009A1627 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 961366F625DF6DEE009A1627 /* Kingfisher */; };
+		961368A525DF6F20009A1627 /* JSONClient in Frameworks */ = {isa = PBXBuildFile; productRef = 961368A425DF6F20009A1627 /* JSONClient */; };
+		961368A725DF6F20009A1627 /* Medi8 in Frameworks */ = {isa = PBXBuildFile; productRef = 961368A625DF6F20009A1627 /* Medi8 */; };
+		961368A925DF6F20009A1627 /* Stylobate in Frameworks */ = {isa = PBXBuildFile; productRef = 961368A825DF6F20009A1627 /* Stylobate */; };
 		9614312520FEC7BC00B49D2E /* DiscogsSignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9614312420FEC7BC00B49D2E /* DiscogsSignInViewController.swift */; };
 		96226AFB2069FF3D000EEC50 /* DiscogsArtistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96226AF62069F578000EEC50 /* DiscogsArtistViewController.swift */; };
 		96226AFD2069FF3D000EEC50 /* DiscogsArtistModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969ADA6D2068A7D300A8BDD0 /* DiscogsArtistModel.swift */; };
@@ -182,16 +188,6 @@
 		96CA18722085B5B9006FF5F0 /* DiscogsSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CA18712085B5B9006FF5F0 /* DiscogsSearchView.swift */; };
 		96CA27A02261858200E86A6A /* iTunesMediaLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CA279F2261858200E86A6A /* iTunesMediaLibrary.swift */; };
 		96CA27A322625D0900E86A6A /* MockMediaLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CA27A222625D0900E86A6A /* MockMediaLibrary.swift */; };
-		96D5B6D32495E23300B555AC /* PMKFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96D5B6CD2495E23200B555AC /* PMKFoundation.framework */; };
-		96D5B6D42495E23300B555AC /* PMKFoundation.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 96D5B6CD2495E23200B555AC /* PMKFoundation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		96D5B6D52495E23300B555AC /* PromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96D5B6CE2495E23200B555AC /* PromiseKit.framework */; };
-		96D5B6D62495E23300B555AC /* PromiseKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 96D5B6CE2495E23200B555AC /* PromiseKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		96D5B6D72495E23300B555AC /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96D5B6CF2495E23300B555AC /* Kingfisher.framework */; };
-		96D5B6D82495E23300B555AC /* Kingfisher.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 96D5B6CF2495E23300B555AC /* Kingfisher.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		96D5B6D92495E23400B555AC /* KingfisherSwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96D5B6D02495E23300B555AC /* KingfisherSwiftUI.framework */; platformFilter = ios; };
-		96D5B6DA2495E23400B555AC /* KingfisherSwiftUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 96D5B6D02495E23300B555AC /* KingfisherSwiftUI.framework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		96D5B6DD2495E23400B555AC /* OAuthSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96D5B6D22495E23300B555AC /* OAuthSwift.framework */; };
-		96D5B6DE2495E23400B555AC /* OAuthSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 96D5B6D22495E23300B555AC /* OAuthSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		96D5B6E62497361200B555AC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D5B6E52497361200B555AC /* AppDelegate.swift */; };
 		96D5B6E82497361200B555AC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D5B6E72497361200B555AC /* SceneDelegate.swift */; };
 		96D5B6EB2497361200B555AC /* SwiftUIDiscogs.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 96D5B6E92497361200B555AC /* SwiftUIDiscogs.xcdatamodeld */; };
@@ -201,10 +197,6 @@
 		96D5B6F52497361700B555AC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96D5B6F32497361700B555AC /* LaunchScreen.storyboard */; };
 		96D5B7002497361700B555AC /* SwiftUIDiscogsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D5B6FF2497361700B555AC /* SwiftUIDiscogsTests.swift */; };
 		96D5B70B2497361700B555AC /* SwiftUIDiscogsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D5B70A2497361700B555AC /* SwiftUIDiscogsUITests.swift */; };
-		96D5B7162497388500B555AC /* Medi8.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 965976A923C027CB00FD3B98 /* Medi8.framework */; };
-		96D5B7172497388500B555AC /* Medi8.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 965976A923C027CB00FD3B98 /* Medi8.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		96D5B7182497388500B555AC /* Stylobate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96D5B6D12495E23300B555AC /* Stylobate.framework */; };
-		96D5B7192497388500B555AC /* Stylobate.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 96D5B6D12495E23300B555AC /* Stylobate.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		96D5B71C24973DB200B555AC /* DiscogsClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D5B71B24973DB200B555AC /* DiscogsClient.swift */; };
 		96D5B71E2498A25900B555AC /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D5B71D2498A25900B555AC /* Service.swift */; };
 		96E044A22089A93E008F1FE4 /* CollectionAndTableViewControllerTestBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E044A12089A93E008F1FE4 /* CollectionAndTableViewControllerTestBase.swift */; };
@@ -272,11 +264,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				96D5B6D62495E23300B555AC /* PromiseKit.framework in Embed Frameworks */,
-				96D5B6D42495E23300B555AC /* PMKFoundation.framework in Embed Frameworks */,
-				96D5B6D82495E23300B555AC /* Kingfisher.framework in Embed Frameworks */,
-				96D5B6DA2495E23400B555AC /* KingfisherSwiftUI.framework in Embed Frameworks */,
-				96D5B6DE2495E23400B555AC /* OAuthSwift.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -298,8 +285,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				96D5B7192497388500B555AC /* Stylobate.framework in Embed Frameworks */,
-				96D5B7172497388500B555AC /* Medi8.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -342,13 +327,15 @@
 		9610FB0A22433EC100710F43 /* MediaSourcesModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaSourcesModelTests.swift; sourceTree = "<group>"; };
 		9610FB0C22449FDA00710F43 /* MediaSourcesDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaSourcesDisplay.swift; sourceTree = "<group>"; };
 		9610FB0E2244A05100710F43 /* MediaSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaSource.swift; sourceTree = "<group>"; };
+		9613689725DF6F0B009A1627 /* Medi8 */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Medi8; path = Frameworks/Medi8; sourceTree = "<group>"; };
+		9613689D25DF6F13009A1627 /* Stylobate */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Stylobate; path = Frameworks/Stylobate; sourceTree = "<group>"; };
+		9613689E25DF6F14009A1627 /* JSONClient */ = {isa = PBXFileReference; lastKnownFileType = folder; name = JSONClient; path = Frameworks/JSONClient; sourceTree = "<group>"; };
 		9614312420FEC7BC00B49D2E /* DiscogsSignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscogsSignInViewController.swift; sourceTree = "<group>"; };
 		96226AF62069F578000EEC50 /* DiscogsArtistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscogsArtistViewController.swift; sourceTree = "<group>"; };
 		963282B1222CBAD90090B29F /* SectionedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionedModel.swift; sourceTree = "<group>"; };
 		963282B8222CD7E40090B29F /* MasterReleaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterReleaseViewController.swift; sourceTree = "<group>"; };
 		963282BC222F82A10090B29F /* TrackTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackTableCell.swift; sourceTree = "<group>"; };
 		963282BE222F83C00090B29F /* ReleaseVersionTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReleaseVersionTableCell.swift; sourceTree = "<group>"; };
-		965976A923C027CB00FD3B98 /* Medi8.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Medi8.framework; path = Carthage/Build/iOS/Medi8.framework; sourceTree = "<group>"; };
 		967AD9B52263733E001FE440 /* MockMediaLibrary.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MockMediaLibrary.json; sourceTree = "<group>"; };
 		967AD9B722659656001FE440 /* DiscogsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscogsManager.swift; sourceTree = "<group>"; };
 		967AD9B922691E17001FE440 /* StoryboardScenes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardScenes.swift; sourceTree = "<group>"; };
@@ -496,12 +483,6 @@
 		96CA18712085B5B9006FF5F0 /* DiscogsSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscogsSearchView.swift; sourceTree = "<group>"; };
 		96CA279F2261858200E86A6A /* iTunesMediaLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iTunesMediaLibrary.swift; sourceTree = "<group>"; };
 		96CA27A222625D0900E86A6A /* MockMediaLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockMediaLibrary.swift; sourceTree = "<group>"; };
-		96D5B6CD2495E23200B555AC /* PMKFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PMKFoundation.framework; path = Carthage/Build/iOS/PMKFoundation.framework; sourceTree = "<group>"; };
-		96D5B6CE2495E23200B555AC /* PromiseKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PromiseKit.framework; path = Carthage/Build/iOS/PromiseKit.framework; sourceTree = "<group>"; };
-		96D5B6CF2495E23300B555AC /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
-		96D5B6D02495E23300B555AC /* KingfisherSwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KingfisherSwiftUI.framework; path = Carthage/Build/iOS/KingfisherSwiftUI.framework; sourceTree = "<group>"; };
-		96D5B6D12495E23300B555AC /* Stylobate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Stylobate.framework; path = Carthage/Build/iOS/Stylobate.framework; sourceTree = "<group>"; };
-		96D5B6D22495E23300B555AC /* OAuthSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OAuthSwift.framework; path = Carthage/Build/iOS/OAuthSwift.framework; sourceTree = "<group>"; };
 		96D5B6E32497361200B555AC /* SwiftUIDiscogs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUIDiscogs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		96D5B6E52497361200B555AC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		96D5B6E72497361200B555AC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -560,11 +541,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				96D5B6D52495E23300B555AC /* PromiseKit.framework in Frameworks */,
-				96D5B6D32495E23300B555AC /* PMKFoundation.framework in Frameworks */,
-				96D5B6D72495E23300B555AC /* Kingfisher.framework in Frameworks */,
-				96D5B6D92495E23400B555AC /* KingfisherSwiftUI.framework in Frameworks */,
-				96D5B6DD2495E23400B555AC /* OAuthSwift.framework in Frameworks */,
+				961366E725DF6D7B009A1627 /* PromiseKit in Frameworks */,
+				961366F725DF6DEE009A1627 /* Kingfisher in Frameworks */,
+				961368A925DF6F20009A1627 /* Stylobate in Frameworks */,
+				961366EF25DF6DB5009A1627 /* OAuthSwift in Frameworks */,
+				961368A725DF6F20009A1627 /* Medi8 in Frameworks */,
+				961368A525DF6F20009A1627 /* JSONClient in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -580,8 +562,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				96D5B7182497388500B555AC /* Stylobate.framework in Frameworks */,
-				96D5B7162497388500B555AC /* Medi8.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -722,13 +702,9 @@
 		965976A823C027CA00FD3B98 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				96D5B6CF2495E23300B555AC /* Kingfisher.framework */,
-				96D5B6D02495E23300B555AC /* KingfisherSwiftUI.framework */,
-				96D5B6D22495E23300B555AC /* OAuthSwift.framework */,
-				96D5B6CD2495E23200B555AC /* PMKFoundation.framework */,
-				96D5B6CE2495E23200B555AC /* PromiseKit.framework */,
-				96D5B6D12495E23300B555AC /* Stylobate.framework */,
-				965976A923C027CB00FD3B98 /* Medi8.framework */,
+				9613689E25DF6F14009A1627 /* JSONClient */,
+				9613689D25DF6F13009A1627 /* Stylobate */,
+				9613689725DF6F0B009A1627 /* Medi8 */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1236,6 +1212,12 @@
 			);
 			name = SwiftDiscogs;
 			packageProductDependencies = (
+				961366E625DF6D7B009A1627 /* PromiseKit */,
+				961366EE25DF6DB5009A1627 /* OAuthSwift */,
+				961366F625DF6DEE009A1627 /* Kingfisher */,
+				961368A425DF6F20009A1627 /* JSONClient */,
+				961368A625DF6F20009A1627 /* Medi8 */,
+				961368A825DF6F20009A1627 /* Stylobate */,
 			);
 			productName = SwiftDiscogs;
 			productReference = 968983A8203D427A00DE77BC /* SwiftDiscogs.framework */;
@@ -1374,9 +1356,15 @@
 				es,
 				fr,
 				de,
+				"en-GB",
+				it,
+				"en-AU",
 			);
 			mainGroup = 9689839E203D427A00DE77BC;
 			packageReferences = (
+				961366E525DF6D7B009A1627 /* XCRemoteSwiftPackageReference "PromiseKit" */,
+				961366ED25DF6DB5009A1627 /* XCRemoteSwiftPackageReference "OAuthSwift" */,
+				961366F525DF6DEE009A1627 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = 968983A9203D427A00DE77BC /* Products */;
 			projectDirPath = "";
@@ -2467,6 +2455,63 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		961366E525DF6D7B009A1627 /* XCRemoteSwiftPackageReference "PromiseKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mxcl/PromiseKit";
+			requirement = {
+				kind = exactVersion;
+				version = 6.13.2;
+			};
+		};
+		961366ED25DF6DB5009A1627 /* XCRemoteSwiftPackageReference "OAuthSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/OAuthSwift/OAuthSwift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.1.2;
+			};
+		};
+		961366F525DF6DEE009A1627 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.1.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		961366E625DF6D7B009A1627 /* PromiseKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 961366E525DF6D7B009A1627 /* XCRemoteSwiftPackageReference "PromiseKit" */;
+			productName = PromiseKit;
+		};
+		961366EE25DF6DB5009A1627 /* OAuthSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 961366ED25DF6DB5009A1627 /* XCRemoteSwiftPackageReference "OAuthSwift" */;
+			productName = OAuthSwift;
+		};
+		961366F625DF6DEE009A1627 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 961366F525DF6DEE009A1627 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+		961368A425DF6F20009A1627 /* JSONClient */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = JSONClient;
+		};
+		961368A625DF6F20009A1627 /* Medi8 */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Medi8;
+		};
+		961368A825DF6F20009A1627 /* Stylobate */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Stylobate;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		968101D4226E21D2003E6D82 /* DiscogsCollection.xcdatamodeld */ = {

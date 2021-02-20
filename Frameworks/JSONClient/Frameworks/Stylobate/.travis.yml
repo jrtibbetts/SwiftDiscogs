@@ -1,0 +1,8 @@
+install: 
+language: swift
+os: osx
+osx_image: xcode11.3
+script:
+  xcodebuild -scheme Stylobate -project Stylobate.xcodeproj -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 11,OS=13.3' test
+after_success:
+  bash <(curl -s https://codecov.io/bash)

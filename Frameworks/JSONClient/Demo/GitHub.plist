@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>consumerKey</key>
+	<string>ba0597f46e243fa91102</string>
+	<key>consumerSecret</key>
+	<string>f7f18235bda65686e2f8ce0a897abfed84caee2c</string>
+	<key>authorizeUrl</key>
+	<string>https://github.com/login/oauth/authorize</string>
+	<key>accessTokenUrl</key>
+	<string>https://github.com/login/oauth/access_token</string>
+	<key>baseUrl</key>
+	<string>https://api.github.com</string>
+</dict>
+</plist>

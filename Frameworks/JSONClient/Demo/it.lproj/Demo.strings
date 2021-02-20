@@ -1,0 +1,15 @@
+
+/* Class = "UILabel"; text = "Error Message"; ObjectID = "1yC-nD-h5K"; */
+"1yC-nD-h5K.text" = "Error Message";
+
+/* Class = "UINavigationItem"; title = "JSONClient Demo"; ObjectID = "3gy-Mr-cbf"; */
+"3gy-Mr-cbf.title" = "JSONClient Demo";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "4Pt-zU-UDo"; */
+"4Pt-zU-UDo.text" = "Title";
+
+/* Class = "UILabel"; text = "Detail"; ObjectID = "Okz-wc-p3W"; */
+"Okz-wc-p3W.text" = "Detail";
+
+/* Class = "UIButton"; normalTitle = "Get My GitHub Profile"; ObjectID = "Unr-A5-zhw"; */
+"Unr-A5-zhw.normalTitle" = "Get My GitHub Profile";
