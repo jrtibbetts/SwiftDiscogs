@@ -1,6 +1,0 @@
-{
-    "optionalInt": 9,
-    "requiredInt": 99,
-    "optionalString": "an optional string",
-    "requiredString": "a required string"
-}

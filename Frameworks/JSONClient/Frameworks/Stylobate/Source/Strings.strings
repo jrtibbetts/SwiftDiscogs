@@ -1,7 +1,0 @@
-// stringsdict links:
-// - https://www.rightpoint.com/rplabs/localized-pluralization-stringsdict-dict-format
-// - https://github.com/SwiftGen/SwiftGen/issues/184
-
-// MARK: - TextResizingPinchGestureRecognizer
-
-font_size_button_title = "%@ pt";

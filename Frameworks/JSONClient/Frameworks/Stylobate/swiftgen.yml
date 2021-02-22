@@ -1,7 +1,0 @@
-strings:
-  inputs: Resources
-  filter: .+\.strings$
-  outputs:
-    - templateName: structured-swift4
-      output: Source/Strings.swift
-
