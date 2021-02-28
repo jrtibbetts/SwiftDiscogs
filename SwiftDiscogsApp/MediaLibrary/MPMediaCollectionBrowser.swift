@@ -64,7 +64,7 @@ public extension MPMediaCollectionBrowser {
 /// Implemented by classes and structs that want to keep track of the progress
 /// of the collection browser. The browser should ensure that delegate methods
 /// are called on the main thread, but this is not guaranteed.
-open class MPMediaCollectionBrowserDelegate: MediaImporter.Delegate {
+open class MPMediaCollectionBrowserDelegate: MediaImporterDelegate {
 
     /// Called when a media collection is about to be inspected.
     ///
