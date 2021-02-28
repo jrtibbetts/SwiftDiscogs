@@ -25,11 +25,7 @@ public class MediaSourceView: UIView {
 
     public var source: MediaSource? {
         didSet {
-            if let url = source?.iconURL {
-                iconView?.kf.setImage(with: url)
-            } else {
-                nameLabel?.text = source?.name
-            }
+            nameLabel?.text = source?.name
 
 //            iconView?.isHidden = source?.iconURL == nil
             nameLabel?.isHidden = source?.iconURL != nil

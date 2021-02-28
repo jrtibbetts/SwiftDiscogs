@@ -1,6 +1,5 @@
 //  Copyright © 2019 Poikile Creations. All rights reserved.
 
-import Kingfisher
 import SwiftDiscogs
 import Stylobate
 import UIKit
@@ -10,14 +9,6 @@ public class SongView: CoverArtAndTableView {
     // MARK: - Outlets
 
     @IBOutlet public weak var playbackView: UIView!
-
-    // MARK: - Public Properties
-
-    public override var model: UITableViewDataSource? {
-        didSet {
-            coverArtView?.kf.setImage(with: (model as? SongModel)?.song?.artwork)
-        }
-    }
 
     // MARK: - UIView
 

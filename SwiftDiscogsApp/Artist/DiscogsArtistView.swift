@@ -23,12 +23,6 @@ open class DiscogsArtistView: CollectionAndTableDisplay {
         }
 
         navigationItem?.title = artist.name
-
-        if let imageUrlString = artist.images?.first?.resourceUrl,
-            let imageUrl = URL(string: imageUrlString) {
-            mainImage.kf.setImage(with: imageUrl)
-        }
-
     }
 
 }
