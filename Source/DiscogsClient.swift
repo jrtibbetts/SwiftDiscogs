@@ -3,6 +3,7 @@
 import JSONClient
 import OAuthSwift
 import PromiseKit
+import UIKit
 
 /// Swift implementation of the Discogs (https://www.discogs.com) API. Most
 /// calls return a `Promise`, which the API call will populate with either a

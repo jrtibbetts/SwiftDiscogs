@@ -1,8 +1,8 @@
 //  Copyright © 2017 Poikile Creations. All rights reserved.
 
-import Foundation
 import OAuthSwift
 import PromiseKit
+import UIKit
 
 /// Error types for problems retrieving data from Discogs.
 public enum DiscogsError: Error {

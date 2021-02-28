@@ -2,6 +2,7 @@
 
 import Stylobate
 import SwiftDiscogs
+import UIKit
 
 public class MediaSourcesViewController: CollectionAndTableViewController {
 

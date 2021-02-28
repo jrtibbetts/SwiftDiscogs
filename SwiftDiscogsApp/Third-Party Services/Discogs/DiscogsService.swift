@@ -4,6 +4,7 @@ import CoreData
 import PromiseKit
 import Stylobate
 import SwiftDiscogs
+import UIKit
 
 /// Encapsulates interactions with the Discogs service. Many Discogs server
 /// calls require authentication, so this is an `AuthenticatedService`.

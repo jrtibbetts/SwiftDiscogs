@@ -1,6 +1,7 @@
 //  Copyright © 2019 Poikile Creations. All rights reserved.
 
 import SwiftDiscogs
+import UIKit
 
 public class ReleaseModel: SectionedModel {
 

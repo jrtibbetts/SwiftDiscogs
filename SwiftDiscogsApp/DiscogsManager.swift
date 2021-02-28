@@ -1,6 +1,7 @@
 //  Copyright © 2019 Poikile Creations. All rights reserved.
 
 import SwiftDiscogs
+import UIKit
 
 /// Holds the app-wide `Discogs` instance (called `discogs`) that should be
 /// used.
