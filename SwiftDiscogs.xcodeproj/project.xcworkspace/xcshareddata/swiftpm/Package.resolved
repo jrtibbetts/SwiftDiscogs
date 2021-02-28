@@ -29,6 +29,15 @@
         }
       },
       {
+        "package": "JSONClient",
+        "repositoryURL": "https://github.com/jrtibbetts/JSONClient",
+        "state": {
+          "branch": "main",
+          "revision": "d51d5f3e172b56004fdae1b17ad612fbad193e92",
+          "version": null
+        }
+      },
+      {
         "package": "Kanna",
         "repositoryURL": "https://github.com/tid-kijyun/Kanna.git",
         "state": {
@@ -38,17 +47,17 @@
         }
       },
       {
-        "package": "Kingfisher",
-        "repositoryURL": "https://github.com/onevcat/Kingfisher",
+        "package": "Medi8",
+        "repositoryURL": "https://github.com/jrtibbetts/Medi8",
         "state": {
-          "branch": null,
-          "revision": "81dd1ce8401137637663046c7314e7c885bcc56d",
-          "version": "6.1.1"
+          "branch": "main",
+          "revision": "3f42fb801a4a7da4bcbb55032d0ef59e20379c57",
+          "version": null
         }
       },
       {
         "package": "OAuthSwift",
-        "repositoryURL": "https://github.com/OAuthSwift/OAuthSwift",
+        "repositoryURL": "https://github.com/OAuthSwift/OAuthSwift.git",
         "state": {
           "branch": null,
           "revision": "fde77955e6983fbfaabd491709d52b8a82fda4d0",
@@ -57,20 +66,20 @@
       },
       {
         "package": "PromiseKit",
-        "repositoryURL": "https://github.com/mxcl/PromiseKit",
+        "repositoryURL": "https://github.com/mxcl/PromiseKit.git",
         "state": {
           "branch": null,
-          "revision": "f6b15b7626a4399864ffa1d5ec2ed9cf0cea5556",
-          "version": "6.13.2"
+          "revision": "aea48ea1855f5d82e2dffa6027afce3aab8f3dd7",
+          "version": "6.13.3"
         }
       },
       {
         "package": "Stylobate",
         "repositoryURL": "https://github.com/jrtibbetts/Stylobate.git",
         "state": {
-          "branch": null,
-          "revision": "5bca445ae807b2028aa99bbf536a70f52027f454",
-          "version": "0.33.1"
+          "branch": "main",
+          "revision": "1102510b399a9662045d73a367b6419676ec9f75",
+          "version": null
         }
       },
       {

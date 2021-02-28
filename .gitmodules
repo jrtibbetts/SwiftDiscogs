@@ -1,9 +1,0 @@
-[submodule "Frameworks/Medi8"]
-	path = Frameworks/Medi8
-	url = git@github.com:jrtibbetts/Medi8.git
-[submodule "Stylobate"]
-	path = Frameworks/Stylobate
-	url = https://github.com/jrtibbetts/Stylobate
-[submodule "JSONClient"]
-	path = Frameworks/JSONClient
-	url = https://github.com/jrtibbetts/JSONClient
