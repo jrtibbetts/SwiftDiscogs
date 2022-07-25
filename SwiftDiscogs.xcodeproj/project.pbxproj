@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9601F87F25EB77D30008A48D /* SearchResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9601F87E25EB77D30008A48D /* SearchResults.swift */; };
 		960368A6205764E400D24CE7 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 960368A1205764E300D24CE7 /* README.md */; };
 		960368A7205764E400D24CE7 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 960368A2205764E300D24CE7 /* LICENSE */; };
 		960368AA20578EAB00D24CE7 /* DiscogsClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960368A920578EAB00D24CE7 /* DiscogsClientTests.swift */; };
@@ -15,6 +16,52 @@
 		960368E4205A012C00D24CE7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 960368E3205A012C00D24CE7 /* Assets.xcassets */; };
 		960368E7205A012C00D24CE7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 960368E5205A012C00D24CE7 /* LaunchScreen.storyboard */; };
 		960368FD205A012C00D24CE7 /* SwiftDiscogsAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960368FC205A012C00D24CE7 /* SwiftDiscogsAppUITests.swift */; };
+		960BF87C2608CC1E005075E1 /* get-folders-200.header in Resources */ = {isa = PBXBuildFile; fileRef = 968983F6203DD4B300DE77BC /* get-folders-200.header */; };
+		960BF87D2608CC1E005075E1 /* post-add-item-to-folder-201.json in Resources */ = {isa = PBXBuildFile; fileRef = 968983FE203DD4B300DE77BC /* post-add-item-to-folder-201.json */; };
+		960BF87E2608CC1E005075E1 /* get-items-in-folder-200.header in Resources */ = {isa = PBXBuildFile; fileRef = 968983FF203DD4B300DE77BC /* get-items-in-folder-200.header */; };
+		960BF87F2608CC1E005075E1 /* get-folder-metadata-200.json in Resources */ = {isa = PBXBuildFile; fileRef = 968983FB203DD4B300DE77BC /* get-folder-metadata-200.json */; };
+		960BF8802608CC1E005075E1 /* get-folder-metadata-200.header in Resources */ = {isa = PBXBuildFile; fileRef = 968983F7203DD4B300DE77BC /* get-folder-metadata-200.header */; };
+		960BF8812608CC1E005075E1 /* delete-item-from-folder-403.json in Resources */ = {isa = PBXBuildFile; fileRef = 968983F9203DD4B300DE77BC /* delete-item-from-folder-403.json */; };
+		960BF8822608CC1E005075E1 /* get-items-in-folder-200.json in Resources */ = {isa = PBXBuildFile; fileRef = 96898400203DD4B300DE77BC /* get-items-in-folder-200.json */; };
+		960BF8832608CC1E005075E1 /* add-item-to-collection-folder-200.json in Resources */ = {isa = PBXBuildFile; fileRef = 968983FC203DD4B300DE77BC /* add-item-to-collection-folder-200.json */; };
+		960BF8842608CC1E005075E1 /* get-folders-for-release-200.json in Resources */ = {isa = PBXBuildFile; fileRef = 968983F3203DD4B300DE77BC /* get-folders-for-release-200.json */; };
+		960BF8852608CC1E005075E1 /* post-edit-folder-metadata-200.json in Resources */ = {isa = PBXBuildFile; fileRef = 968983FD203DD4B300DE77BC /* post-edit-folder-metadata-200.json */; };
+		960BF8862608CC1E005075E1 /* post-create-folder-201.json in Resources */ = {isa = PBXBuildFile; fileRef = 968983F5203DD4B300DE77BC /* post-create-folder-201.json */; };
+		960BF8872608CC1E005075E1 /* get-folders-200.json in Resources */ = {isa = PBXBuildFile; fileRef = 968983FA203DD4B300DE77BC /* get-folders-200.json */; };
+		960BF8882608CC1E005075E1 /* get-custom-fields-200.json in Resources */ = {isa = PBXBuildFile; fileRef = 968983F4203DD4B300DE77BC /* get-custom-fields-200.json */; };
+		960BF8892608CC1E005075E1 /* get-collection-value-200.json in Resources */ = {isa = PBXBuildFile; fileRef = 968983F8203DD4B300DE77BC /* get-collection-value-200.json */; };
+		960BF8942608CC28005075E1 /* get-release-200.json in Resources */ = {isa = PBXBuildFile; fileRef = 968983D2203DD4B300DE77BC /* get-release-200.json */; };
+		960BF8952608CC28005075E1 /* get-artist-200.header in Resources */ = {isa = PBXBuildFile; fileRef = 968983EE203DD4B300DE77BC /* get-artist-200.header */; };
+		960BF8962608CC28005075E1 /* get-release-summaries-200.json in Resources */ = {isa = PBXBuildFile; fileRef = 968983EC203DD4B300DE77BC /* get-release-summaries-200.json */; };
+		960BF8972608CC28005075E1 /* get-artist-200.json in Resources */ = {isa = PBXBuildFile; fileRef = 968983D3203DD4B300DE77BC /* get-artist-200.json */; };
+		960BF8982608CC28005075E1 /* get-label-releases-404.json in Resources */ = {isa = PBXBuildFile; fileRef = 968983E3203DD4B300DE77BC /* get-label-releases-404.json */; };
+		960BF8992608CC28005075E1 /* get-release-200.header in Resources */ = {isa = PBXBuildFile; fileRef = 968983D9203DD4B300DE77BC /* get-release-200.header */; };
+		960BF89A2608CC28005075E1 /* get-master-200.json in Resources */ = {isa = PBXBuildFile; fileRef = 968983DB203DD4B300DE77BC /* get-master-200.json */; };
+		960BF89B2608CC28005075E1 /* get-release-404.header in Resources */ = {isa = PBXBuildFile; fileRef = 968983D5203DD4B300DE77BC /* get-release-404.header */; };
+		960BF89C2608CC28005075E1 /* get-release-summaries-200.header in Resources */ = {isa = PBXBuildFile; fileRef = 968983DE203DD4B300DE77BC /* get-release-summaries-200.header */; };
+		960BF89D2608CC28005075E1 /* search-200.json in Resources */ = {isa = PBXBuildFile; fileRef = 968983E6203DD4B300DE77BC /* search-200.json */; };
+		960BF89E2608CC28005075E1 /* get-label-releases-200.header in Resources */ = {isa = PBXBuildFile; fileRef = 968983D8203DD4B300DE77BC /* get-label-releases-200.header */; };
+		960BF89F2608CC28005075E1 /* get-release-404.json in Resources */ = {isa = PBXBuildFile; fileRef = 968983E8203DD4B300DE77BC /* get-release-404.json */; };
+		960BF8A02608CC28005075E1 /* get-release-rating-200.header in Resources */ = {isa = PBXBuildFile; fileRef = 968983E2203DD4B300DE77BC /* get-release-rating-200.header */; };
+		960BF8A12608CC28005075E1 /* get-release-rating-200.json in Resources */ = {isa = PBXBuildFile; fileRef = 968983F0203DD4B300DE77BC /* get-release-rating-200.json */; };
+		960BF8A22608CC28005075E1 /* get-release-summaries-404.json in Resources */ = {isa = PBXBuildFile; fileRef = 968983D4203DD4B300DE77BC /* get-release-summaries-404.json */; };
+		960BF8A32608CC28005075E1 /* search-500.header in Resources */ = {isa = PBXBuildFile; fileRef = 968983DC203DD4B300DE77BC /* search-500.header */; };
+		960BF8A42608CC28005075E1 /* get-master-release-versions-200.json in Resources */ = {isa = PBXBuildFile; fileRef = 968983EB203DD4B300DE77BC /* get-master-release-versions-200.json */; };
+		960BF8A52608CC28005075E1 /* get-label-200.json in Resources */ = {isa = PBXBuildFile; fileRef = 968983ED203DD4B300DE77BC /* get-label-200.json */; };
+		960BF8A62608CC28005075E1 /* get-artist-404.header in Resources */ = {isa = PBXBuildFile; fileRef = 968983EF203DD4B300DE77BC /* get-artist-404.header */; };
+		960BF8A72608CC28005075E1 /* get-release-summaries-404.header in Resources */ = {isa = PBXBuildFile; fileRef = 968983DF203DD4B300DE77BC /* get-release-summaries-404.header */; };
+		960BF8A82608CC28005075E1 /* get-label-404.header in Resources */ = {isa = PBXBuildFile; fileRef = 968983E9203DD4B300DE77BC /* get-label-404.header */; };
+		960BF8A92608CC28005075E1 /* get-master-404.header in Resources */ = {isa = PBXBuildFile; fileRef = 968983E4203DD4B300DE77BC /* get-master-404.header */; };
+		960BF8AA2608CC28005075E1 /* get-artist-404.json in Resources */ = {isa = PBXBuildFile; fileRef = 968983EA203DD4B300DE77BC /* get-artist-404.json */; };
+		960BF8AB2608CC28005075E1 /* get-label-200.header in Resources */ = {isa = PBXBuildFile; fileRef = 968983E7203DD4B300DE77BC /* get-label-200.header */; };
+		960BF8AC2608CC28005075E1 /* get-label-404.json in Resources */ = {isa = PBXBuildFile; fileRef = 968983D7203DD4B300DE77BC /* get-label-404.json */; };
+		960BF8AD2608CC28005075E1 /* search-500.json in Resources */ = {isa = PBXBuildFile; fileRef = 968983E0203DD4B300DE77BC /* search-500.json */; };
+		960BF8AE2608CC28005075E1 /* get-label-releases-404.header in Resources */ = {isa = PBXBuildFile; fileRef = 968983D6203DD4B300DE77BC /* get-label-releases-404.header */; };
+		960BF8AF2608CC28005075E1 /* get-master-404.json in Resources */ = {isa = PBXBuildFile; fileRef = 968983E1203DD4B300DE77BC /* get-master-404.json */; };
+		960BF8B02608CC28005075E1 /* get-label-releases-200.json in Resources */ = {isa = PBXBuildFile; fileRef = 968983DD203DD4B300DE77BC /* get-label-releases-200.json */; };
+		960BF8B12608CC28005075E1 /* get-master-200.header in Resources */ = {isa = PBXBuildFile; fileRef = 968983E5203DD4B300DE77BC /* get-master-200.header */; };
+		960BF8B22608CC28005075E1 /* search-200.header in Resources */ = {isa = PBXBuildFile; fileRef = 968983DA203DD4B300DE77BC /* search-200.header */; };
+		960BF8BD2608CC2D005075E1 /* MockDiscogs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96898408203DD4B300DE77BC /* MockDiscogs.swift */; };
 		960EE1482274D6F600870B7A /* DiscogsCollectionImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960EE1472274D6F600870B7A /* DiscogsCollectionImporter.swift */; };
 		9610FAEB2237689F00710F43 /* SongView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9610FAEA2237689F00710F43 /* SongView.swift */; };
 		9610FAED2238846200710F43 /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9610FAEC2238846200710F43 /* Song.swift */; };
@@ -75,58 +122,12 @@
 		96898422203DD4B500DE77BC /* SearchResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968983CC203DD4B200DE77BC /* SearchResults.swift */; };
 		96898423203DD4B500DE77BC /* UserIdentity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968983CE203DD4B200DE77BC /* UserIdentity.swift */; };
 		96898424203DD4B500DE77BC /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968983CF203DD4B200DE77BC /* UserProfile.swift */; };
-		96898425203DD4B500DE77BC /* get-release-200.json in Resources */ = {isa = PBXBuildFile; fileRef = 968983D2203DD4B300DE77BC /* get-release-200.json */; };
-		96898426203DD4B500DE77BC /* get-artist-200.json in Resources */ = {isa = PBXBuildFile; fileRef = 968983D3203DD4B300DE77BC /* get-artist-200.json */; };
-		96898427203DD4B500DE77BC /* get-release-summaries-404.json in Resources */ = {isa = PBXBuildFile; fileRef = 968983D4203DD4B300DE77BC /* get-release-summaries-404.json */; };
-		96898428203DD4B500DE77BC /* get-release-404.header in Resources */ = {isa = PBXBuildFile; fileRef = 968983D5203DD4B300DE77BC /* get-release-404.header */; };
-		96898429203DD4B500DE77BC /* get-label-releases-404.header in Resources */ = {isa = PBXBuildFile; fileRef = 968983D6203DD4B300DE77BC /* get-label-releases-404.header */; };
-		9689842A203DD4B500DE77BC /* get-label-404.json in Resources */ = {isa = PBXBuildFile; fileRef = 968983D7203DD4B300DE77BC /* get-label-404.json */; };
-		9689842B203DD4B500DE77BC /* get-label-releases-200.header in Resources */ = {isa = PBXBuildFile; fileRef = 968983D8203DD4B300DE77BC /* get-label-releases-200.header */; };
-		9689842C203DD4B500DE77BC /* get-release-200.header in Resources */ = {isa = PBXBuildFile; fileRef = 968983D9203DD4B300DE77BC /* get-release-200.header */; };
-		9689842D203DD4B500DE77BC /* search-200.header in Resources */ = {isa = PBXBuildFile; fileRef = 968983DA203DD4B300DE77BC /* search-200.header */; };
-		9689842E203DD4B500DE77BC /* get-master-200.json in Resources */ = {isa = PBXBuildFile; fileRef = 968983DB203DD4B300DE77BC /* get-master-200.json */; };
-		9689842F203DD4B500DE77BC /* search-500.header in Resources */ = {isa = PBXBuildFile; fileRef = 968983DC203DD4B300DE77BC /* search-500.header */; };
-		96898430203DD4B500DE77BC /* get-label-releases-200.json in Resources */ = {isa = PBXBuildFile; fileRef = 968983DD203DD4B300DE77BC /* get-label-releases-200.json */; };
-		96898431203DD4B500DE77BC /* get-release-summaries-200.header in Resources */ = {isa = PBXBuildFile; fileRef = 968983DE203DD4B300DE77BC /* get-release-summaries-200.header */; };
-		96898432203DD4B500DE77BC /* get-release-summaries-404.header in Resources */ = {isa = PBXBuildFile; fileRef = 968983DF203DD4B300DE77BC /* get-release-summaries-404.header */; };
-		96898433203DD4B500DE77BC /* search-500.json in Resources */ = {isa = PBXBuildFile; fileRef = 968983E0203DD4B300DE77BC /* search-500.json */; };
-		96898434203DD4B500DE77BC /* get-master-404.json in Resources */ = {isa = PBXBuildFile; fileRef = 968983E1203DD4B300DE77BC /* get-master-404.json */; };
-		96898435203DD4B500DE77BC /* get-release-rating-200.header in Resources */ = {isa = PBXBuildFile; fileRef = 968983E2203DD4B300DE77BC /* get-release-rating-200.header */; };
-		96898436203DD4B500DE77BC /* get-label-releases-404.json in Resources */ = {isa = PBXBuildFile; fileRef = 968983E3203DD4B300DE77BC /* get-label-releases-404.json */; };
-		96898437203DD4B500DE77BC /* get-master-404.header in Resources */ = {isa = PBXBuildFile; fileRef = 968983E4203DD4B300DE77BC /* get-master-404.header */; };
-		96898438203DD4B500DE77BC /* get-master-200.header in Resources */ = {isa = PBXBuildFile; fileRef = 968983E5203DD4B300DE77BC /* get-master-200.header */; };
-		96898439203DD4B500DE77BC /* search-200.json in Resources */ = {isa = PBXBuildFile; fileRef = 968983E6203DD4B300DE77BC /* search-200.json */; };
-		9689843A203DD4B500DE77BC /* get-label-200.header in Resources */ = {isa = PBXBuildFile; fileRef = 968983E7203DD4B300DE77BC /* get-label-200.header */; };
-		9689843B203DD4B500DE77BC /* get-release-404.json in Resources */ = {isa = PBXBuildFile; fileRef = 968983E8203DD4B300DE77BC /* get-release-404.json */; };
-		9689843C203DD4B500DE77BC /* get-label-404.header in Resources */ = {isa = PBXBuildFile; fileRef = 968983E9203DD4B300DE77BC /* get-label-404.header */; };
-		9689843D203DD4B500DE77BC /* get-artist-404.json in Resources */ = {isa = PBXBuildFile; fileRef = 968983EA203DD4B300DE77BC /* get-artist-404.json */; };
-		9689843E203DD4B500DE77BC /* get-master-release-versions-200.json in Resources */ = {isa = PBXBuildFile; fileRef = 968983EB203DD4B300DE77BC /* get-master-release-versions-200.json */; };
-		9689843F203DD4B500DE77BC /* get-release-summaries-200.json in Resources */ = {isa = PBXBuildFile; fileRef = 968983EC203DD4B300DE77BC /* get-release-summaries-200.json */; };
-		96898440203DD4B500DE77BC /* get-label-200.json in Resources */ = {isa = PBXBuildFile; fileRef = 968983ED203DD4B300DE77BC /* get-label-200.json */; };
-		96898441203DD4B500DE77BC /* get-artist-200.header in Resources */ = {isa = PBXBuildFile; fileRef = 968983EE203DD4B300DE77BC /* get-artist-200.header */; };
-		96898442203DD4B500DE77BC /* get-artist-404.header in Resources */ = {isa = PBXBuildFile; fileRef = 968983EF203DD4B300DE77BC /* get-artist-404.header */; };
-		96898443203DD4B500DE77BC /* get-release-rating-200.json in Resources */ = {isa = PBXBuildFile; fileRef = 968983F0203DD4B300DE77BC /* get-release-rating-200.json */; };
-		96898445203DD4B500DE77BC /* get-folders-for-release-200.json in Resources */ = {isa = PBXBuildFile; fileRef = 968983F3203DD4B300DE77BC /* get-folders-for-release-200.json */; };
-		96898446203DD4B500DE77BC /* get-custom-fields-200.json in Resources */ = {isa = PBXBuildFile; fileRef = 968983F4203DD4B300DE77BC /* get-custom-fields-200.json */; };
-		96898447203DD4B500DE77BC /* post-create-folder-201.json in Resources */ = {isa = PBXBuildFile; fileRef = 968983F5203DD4B300DE77BC /* post-create-folder-201.json */; };
-		96898448203DD4B500DE77BC /* get-folders-200.header in Resources */ = {isa = PBXBuildFile; fileRef = 968983F6203DD4B300DE77BC /* get-folders-200.header */; };
-		96898449203DD4B500DE77BC /* get-folder-metadata-200.header in Resources */ = {isa = PBXBuildFile; fileRef = 968983F7203DD4B300DE77BC /* get-folder-metadata-200.header */; };
-		9689844A203DD4B500DE77BC /* get-collection-value-200.json in Resources */ = {isa = PBXBuildFile; fileRef = 968983F8203DD4B300DE77BC /* get-collection-value-200.json */; };
-		9689844B203DD4B500DE77BC /* delete-item-from-folder-403.json in Resources */ = {isa = PBXBuildFile; fileRef = 968983F9203DD4B300DE77BC /* delete-item-from-folder-403.json */; };
-		9689844C203DD4B500DE77BC /* get-folders-200.json in Resources */ = {isa = PBXBuildFile; fileRef = 968983FA203DD4B300DE77BC /* get-folders-200.json */; };
-		9689844D203DD4B500DE77BC /* get-folder-metadata-200.json in Resources */ = {isa = PBXBuildFile; fileRef = 968983FB203DD4B300DE77BC /* get-folder-metadata-200.json */; };
-		9689844E203DD4B500DE77BC /* add-item-to-collection-folder-200.json in Resources */ = {isa = PBXBuildFile; fileRef = 968983FC203DD4B300DE77BC /* add-item-to-collection-folder-200.json */; };
-		9689844F203DD4B500DE77BC /* post-edit-folder-metadata-200.json in Resources */ = {isa = PBXBuildFile; fileRef = 968983FD203DD4B300DE77BC /* post-edit-folder-metadata-200.json */; };
-		96898450203DD4B500DE77BC /* post-add-item-to-folder-201.json in Resources */ = {isa = PBXBuildFile; fileRef = 968983FE203DD4B300DE77BC /* post-add-item-to-folder-201.json */; };
-		96898451203DD4B500DE77BC /* get-items-in-folder-200.header in Resources */ = {isa = PBXBuildFile; fileRef = 968983FF203DD4B300DE77BC /* get-items-in-folder-200.header */; };
-		96898452203DD4B500DE77BC /* get-items-in-folder-200.json in Resources */ = {isa = PBXBuildFile; fileRef = 96898400203DD4B300DE77BC /* get-items-in-folder-200.json */; };
 		96898453203DD4B500DE77BC /* get-user-identity-200.header in Resources */ = {isa = PBXBuildFile; fileRef = 96898402203DD4B300DE77BC /* get-user-identity-200.header */; };
 		96898454203DD4B500DE77BC /* get-user-profile-200.json in Resources */ = {isa = PBXBuildFile; fileRef = 96898403203DD4B300DE77BC /* get-user-profile-200.json */; };
 		96898455203DD4B500DE77BC /* get-user-identity-401.json in Resources */ = {isa = PBXBuildFile; fileRef = 96898404203DD4B300DE77BC /* get-user-identity-401.json */; };
 		96898456203DD4B500DE77BC /* get-user-identity-401.header in Resources */ = {isa = PBXBuildFile; fileRef = 96898405203DD4B300DE77BC /* get-user-identity-401.header */; };
 		96898457203DD4B500DE77BC /* get-user-profile-200.header in Resources */ = {isa = PBXBuildFile; fileRef = 96898406203DD4B300DE77BC /* get-user-profile-200.header */; };
 		96898458203DD4B500DE77BC /* get-user-identity-200.json in Resources */ = {isa = PBXBuildFile; fileRef = 96898407203DD4B300DE77BC /* get-user-identity-200.json */; };
-		96898459203DD4B500DE77BC /* MockDiscogs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96898408203DD4B300DE77BC /* MockDiscogs.swift */; };
 		9689845B203DD4B500DE77BC /* DiscogsClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9689840A203DD4B300DE77BC /* DiscogsClient.swift */; };
 		9689845C203DD4B500DE77BC /* ErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9689840B203DD4B300DE77BC /* ErrorResponse.swift */; };
 		9689845D203DD4B500DE77BC /* Pagination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9689840C203DD4B300DE77BC /* Pagination.swift */; };
@@ -297,6 +298,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		9601F87E25EB77D30008A48D /* SearchResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResults.swift; sourceTree = "<group>"; };
 		960368A1205764E300D24CE7 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		960368A2205764E300D24CE7 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		960368A920578EAB00D24CE7 /* DiscogsClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscogsClientTests.swift; sourceTree = "<group>"; };
@@ -811,7 +813,6 @@
 				96800C3121921ED100A3380F /* swiftgenDiscogs.yml */,
 				96898410203DD4B500DE77BC /* Collection */,
 				968983C2203DD4B200DE77BC /* Database */,
-				968983D0203DD4B300DE77BC /* Mock Implementation */,
 				96A8AC9C219214C50098BF87 /* Resources */,
 				968983CD203DD4B200DE77BC /* User Identity */,
 			);
@@ -821,14 +822,15 @@
 		968983B5203D427B00DE77BC /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				968983B8203D427B00DE77BC /* Info.plist */,
 				96898490203DDB4A00DE77BC /* ClientTestBase.swift */,
-				96898474203DD4E500DE77BC /* Collection */,
-				9689846D203DD4E500DE77BC /* Database */,
 				960368A920578EAB00D24CE7 /* DiscogsClientTests.swift */,
 				96898493203DDBDE00DE77BC /* DiscogsTestBase.swift */,
-				968983B8203D427B00DE77BC /* Info.plist */,
 				9689848F203DDB4900DE77BC /* JSONTestBase.swift */,
 				96898469203DD4E400DE77BC /* MockDiscogsTests.swift */,
+				96898474203DD4E500DE77BC /* Collection */,
+				9689846D203DD4E500DE77BC /* Database */,
+				968983D0203DD4B300DE77BC /* Mock Implementation */,
 				9689846A203DD4E500DE77BC /* User Identity */,
 			);
 			path = Tests;
@@ -1076,11 +1078,12 @@
 				96D5B71B24973DB200B555AC /* DiscogsClient.swift */,
 				96D5B6EC2497361200B555AC /* MainView.swift */,
 				96D5B6E72497361200B555AC /* SceneDelegate.swift */,
+				9601F87E25EB77D30008A48D /* SearchResults.swift */,
+				96D5B71D2498A25900B555AC /* Service.swift */,
 				96D5B6EE2497361700B555AC /* Assets.xcassets */,
 				96D5B6F32497361700B555AC /* LaunchScreen.storyboard */,
 				96D5B6F02497361700B555AC /* Preview Content */,
 				96D5B6E92497361200B555AC /* SwiftUIDiscogs.xcdatamodeld */,
-				96D5B71D2498A25900B555AC /* Service.swift */,
 			);
 			path = SwiftUIDiscogs;
 			sourceTree = "<group>";
@@ -1410,60 +1413,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				96898438203DD4B500DE77BC /* get-master-200.header in Resources */,
-				96898446203DD4B500DE77BC /* get-custom-fields-200.json in Resources */,
-				96898428203DD4B500DE77BC /* get-release-404.header in Resources */,
-				9689844B203DD4B500DE77BC /* delete-item-from-folder-403.json in Resources */,
-				9689844F203DD4B500DE77BC /* post-edit-folder-metadata-200.json in Resources */,
-				9689844D203DD4B500DE77BC /* get-folder-metadata-200.json in Resources */,
-				96898450203DD4B500DE77BC /* post-add-item-to-folder-201.json in Resources */,
-				9689844A203DD4B500DE77BC /* get-collection-value-200.json in Resources */,
 				96898453203DD4B500DE77BC /* get-user-identity-200.header in Resources */,
-				96898440203DD4B500DE77BC /* get-label-200.json in Resources */,
-				96898426203DD4B500DE77BC /* get-artist-200.json in Resources */,
-				9689843A203DD4B500DE77BC /* get-label-200.header in Resources */,
-				9689842D203DD4B500DE77BC /* search-200.header in Resources */,
-				96898452203DD4B500DE77BC /* get-items-in-folder-200.json in Resources */,
-				96898437203DD4B500DE77BC /* get-master-404.header in Resources */,
-				96898448203DD4B500DE77BC /* get-folders-200.header in Resources */,
-				96898432203DD4B500DE77BC /* get-release-summaries-404.header in Resources */,
-				9689842E203DD4B500DE77BC /* get-master-200.json in Resources */,
-				96898433203DD4B500DE77BC /* search-500.json in Resources */,
-				96898430203DD4B500DE77BC /* get-label-releases-200.json in Resources */,
 				96898456203DD4B500DE77BC /* get-user-identity-401.header in Resources */,
-				9689842C203DD4B500DE77BC /* get-release-200.header in Resources */,
-				96898435203DD4B500DE77BC /* get-release-rating-200.header in Resources */,
-				9689842A203DD4B500DE77BC /* get-label-404.json in Resources */,
-				9689843C203DD4B500DE77BC /* get-label-404.header in Resources */,
-				96898442203DD4B500DE77BC /* get-artist-404.header in Resources */,
-				9689843E203DD4B500DE77BC /* get-master-release-versions-200.json in Resources */,
-				96898434203DD4B500DE77BC /* get-master-404.json in Resources */,
 				960368A7205764E400D24CE7 /* LICENSE in Resources */,
-				96898425203DD4B500DE77BC /* get-release-200.json in Resources */,
-				9689843D203DD4B500DE77BC /* get-artist-404.json in Resources */,
-				96898441203DD4B500DE77BC /* get-artist-200.header in Resources */,
-				96898447203DD4B500DE77BC /* post-create-folder-201.json in Resources */,
-				96898431203DD4B500DE77BC /* get-release-summaries-200.header in Resources */,
-				9689842F203DD4B500DE77BC /* search-500.header in Resources */,
-				96898436203DD4B500DE77BC /* get-label-releases-404.json in Resources */,
 				960368A6205764E400D24CE7 /* README.md in Resources */,
-				96898445203DD4B500DE77BC /* get-folders-for-release-200.json in Resources */,
-				9689843B203DD4B500DE77BC /* get-release-404.json in Resources */,
 				96898455203DD4B500DE77BC /* get-user-identity-401.json in Resources */,
-				96898451203DD4B500DE77BC /* get-items-in-folder-200.header in Resources */,
-				9689843F203DD4B500DE77BC /* get-release-summaries-200.json in Resources */,
-				96898443203DD4B500DE77BC /* get-release-rating-200.json in Resources */,
-				96898439203DD4B500DE77BC /* search-200.json in Resources */,
-				96898429203DD4B500DE77BC /* get-label-releases-404.header in Resources */,
-				96898427203DD4B500DE77BC /* get-release-summaries-404.json in Resources */,
 				96A8AC9F219214EE0098BF87 /* Discogs.strings in Resources */,
 				96898458203DD4B500DE77BC /* get-user-identity-200.json in Resources */,
 				96898454203DD4B500DE77BC /* get-user-profile-200.json in Resources */,
-				96898449203DD4B500DE77BC /* get-folder-metadata-200.header in Resources */,
-				9689844E203DD4B500DE77BC /* add-item-to-collection-folder-200.json in Resources */,
 				96898457203DD4B500DE77BC /* get-user-profile-200.header in Resources */,
-				9689842B203DD4B500DE77BC /* get-label-releases-200.header in Resources */,
-				9689844C203DD4B500DE77BC /* get-folders-200.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1471,6 +1429,51 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				960BF8812608CC1E005075E1 /* delete-item-from-folder-403.json in Resources */,
+				960BF89E2608CC28005075E1 /* get-label-releases-200.header in Resources */,
+				960BF87D2608CC1E005075E1 /* post-add-item-to-folder-201.json in Resources */,
+				960BF8822608CC1E005075E1 /* get-items-in-folder-200.json in Resources */,
+				960BF8842608CC1E005075E1 /* get-folders-for-release-200.json in Resources */,
+				960BF8AC2608CC28005075E1 /* get-label-404.json in Resources */,
+				960BF8882608CC1E005075E1 /* get-custom-fields-200.json in Resources */,
+				960BF8A52608CC28005075E1 /* get-label-200.json in Resources */,
+				960BF8A02608CC28005075E1 /* get-release-rating-200.header in Resources */,
+				960BF8942608CC28005075E1 /* get-release-200.json in Resources */,
+				960BF8A32608CC28005075E1 /* search-500.header in Resources */,
+				960BF8B22608CC28005075E1 /* search-200.header in Resources */,
+				960BF8B02608CC28005075E1 /* get-label-releases-200.json in Resources */,
+				960BF8992608CC28005075E1 /* get-release-200.header in Resources */,
+				960BF87E2608CC1E005075E1 /* get-items-in-folder-200.header in Resources */,
+				960BF8A72608CC28005075E1 /* get-release-summaries-404.header in Resources */,
+				960BF8A12608CC28005075E1 /* get-release-rating-200.json in Resources */,
+				960BF8AD2608CC28005075E1 /* search-500.json in Resources */,
+				960BF8852608CC1E005075E1 /* post-edit-folder-metadata-200.json in Resources */,
+				960BF89A2608CC28005075E1 /* get-master-200.json in Resources */,
+				960BF8A62608CC28005075E1 /* get-artist-404.header in Resources */,
+				960BF8AB2608CC28005075E1 /* get-label-200.header in Resources */,
+				960BF8AA2608CC28005075E1 /* get-artist-404.json in Resources */,
+				960BF89B2608CC28005075E1 /* get-release-404.header in Resources */,
+				960BF8A92608CC28005075E1 /* get-master-404.header in Resources */,
+				960BF8B12608CC28005075E1 /* get-master-200.header in Resources */,
+				960BF8962608CC28005075E1 /* get-release-summaries-200.json in Resources */,
+				960BF8A42608CC28005075E1 /* get-master-release-versions-200.json in Resources */,
+				960BF8AF2608CC28005075E1 /* get-master-404.json in Resources */,
+				960BF8982608CC28005075E1 /* get-label-releases-404.json in Resources */,
+				960BF8862608CC1E005075E1 /* post-create-folder-201.json in Resources */,
+				960BF89F2608CC28005075E1 /* get-release-404.json in Resources */,
+				960BF89C2608CC28005075E1 /* get-release-summaries-200.header in Resources */,
+				960BF8872608CC1E005075E1 /* get-folders-200.json in Resources */,
+				960BF8892608CC1E005075E1 /* get-collection-value-200.json in Resources */,
+				960BF8832608CC1E005075E1 /* add-item-to-collection-folder-200.json in Resources */,
+				960BF8A82608CC28005075E1 /* get-label-404.header in Resources */,
+				960BF87F2608CC1E005075E1 /* get-folder-metadata-200.json in Resources */,
+				960BF8802608CC1E005075E1 /* get-folder-metadata-200.header in Resources */,
+				960BF89D2608CC28005075E1 /* search-200.json in Resources */,
+				960BF87C2608CC1E005075E1 /* get-folders-200.header in Resources */,
+				960BF8972608CC28005075E1 /* get-artist-200.json in Resources */,
+				960BF8AE2608CC28005075E1 /* get-label-releases-404.header in Resources */,
+				960BF8A22608CC28005075E1 /* get-release-summaries-404.json in Resources */,
+				960BF8952608CC28005075E1 /* get-artist-200.header in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1652,7 +1655,6 @@
 				96898468203DD4B500DE77BC /* Discogs.swift in Sources */,
 				969ADA7C2068D81500A8BDD0 /* ReleaseContributor.swift in Sources */,
 				969ADA7E2068D83400A8BDD0 /* ReleaseFormat.swift in Sources */,
-				96898459203DD4B500DE77BC /* MockDiscogs.swift in Sources */,
 				969ADA702068D6E200A8BDD0 /* MasterReleaseVersion.swift in Sources */,
 				96898462203DD4B500DE77BC /* CollectionFolder.swift in Sources */,
 				96898465203DD4B500DE77BC /* CollectionItemInfo.swift in Sources */,
@@ -1669,6 +1671,7 @@
 			files = (
 				96898485203DD4E500DE77BC /* CollectionValueTests.swift in Sources */,
 				960368AA20578EAB00D24CE7 /* DiscogsClientTests.swift in Sources */,
+				960BF8BD2608CC2D005075E1 /* MockDiscogs.swift in Sources */,
 				96898482203DD4E500DE77BC /* MasterReleaseTests.swift in Sources */,
 				9689847A203DD4E500DE77BC /* MockDiscogsTests.swift in Sources */,
 				96898483203DD4E500DE77BC /* CollectionCustomFieldsTests.swift in Sources */,
@@ -1695,6 +1698,7 @@
 				96D5B6E62497361200B555AC /* AppDelegate.swift in Sources */,
 				96D5B6EB2497361200B555AC /* SwiftUIDiscogs.xcdatamodeld in Sources */,
 				96D5B6ED2497361200B555AC /* MainView.swift in Sources */,
+				9601F87F25EB77D30008A48D /* SearchResults.swift in Sources */,
 				96D5B6E82497361200B555AC /* SceneDelegate.swift in Sources */,
 				96D5B71E2498A25900B555AC /* Service.swift in Sources */,
 			);
