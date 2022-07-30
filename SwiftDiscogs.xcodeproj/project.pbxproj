@@ -168,7 +168,6 @@
 		969ADA7E2068D83400A8BDD0 /* ReleaseFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969ADA7D2068D83400A8BDD0 /* ReleaseFormat.swift */; };
 		969ADA802068D87D00A8BDD0 /* Sublabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969ADA7F2068D87D00A8BDD0 /* Sublabel.swift */; };
 		969ADA822068D8B100A8BDD0 /* BandMember.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969ADA812068D8B100A8BDD0 /* BandMember.swift */; };
-		969EBFB625EA2F940008DE91 /* Medi8 in Frameworks */ = {isa = PBXBuildFile; productRef = 969EBFB525EA2F940008DE91 /* Medi8 */; };
 		969EBFB925EA2FD00008DE91 /* JSONClient in Frameworks */ = {isa = PBXBuildFile; productRef = 969EBFB825EA2FD00008DE91 /* JSONClient */; };
 		969FBD4A207AB29300C32471 /* DiscogsArtistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969FBD49207AB29300C32471 /* DiscogsArtistView.swift */; };
 		96A8AC9F219214EE0098BF87 /* Discogs.strings in Resources */ = {isa = PBXBuildFile; fileRef = 96A8ACA1219214EE0098BF87 /* Discogs.strings */; };
@@ -545,7 +544,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				969EBFB625EA2F940008DE91 /* Medi8 in Frameworks */,
 				96E7CE3B25EB406A00EBC43E /* UIKit.framework in Frameworks */,
 				969EBFB925EA2FD00008DE91 /* JSONClient in Frameworks */,
 			);
@@ -1211,7 +1209,6 @@
 			);
 			name = SwiftDiscogs;
 			packageProductDependencies = (
-				969EBFB525EA2F940008DE91 /* Medi8 */,
 				969EBFB825EA2FD00008DE91 /* JSONClient */,
 			);
 			productName = SwiftDiscogs;
@@ -2423,11 +2420,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		969EBFB525EA2F940008DE91 /* Medi8 */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 969EBFB425EA2F940008DE91 /* XCRemoteSwiftPackageReference "Medi8" */;
-			productName = Medi8;
-		};
 		969EBFB825EA2FD00008DE91 /* JSONClient */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 969EBFB725EA2FD00008DE91 /* XCRemoteSwiftPackageReference "JSONClient" */;

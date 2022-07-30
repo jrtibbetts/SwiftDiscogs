@@ -11,7 +11,7 @@ public struct DiscogsClient {
 
     private static var baseUrl = URL(string: "https://api.discogs.com")!
 
-    private var urlSession: URLSession = {
+    public var urlSession: URLSession = {
         let config = URLSessionConfiguration.default
         config.allowsCellularAccess = true
         config.httpAdditionalHeaders = ["Authorization: Discogs token": DiscogsClient.appKey]
@@ -30,7 +30,7 @@ public struct DiscogsClient {
             if (response as? HTTPURLResponse)?.statusCode == 200 {
 //                handleResult(
             }
-        }
+        }.resume()
     }
 
 }

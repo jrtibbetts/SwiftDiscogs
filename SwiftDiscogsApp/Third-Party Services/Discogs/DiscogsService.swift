@@ -27,7 +27,7 @@ class DiscogsService: ThirdPartyService, AuthenticatedService, ImportableService
         and we're getting closer every day. (www.discogs.com/about)
         """
 
-        DiscogsManager.discogs.userIdentity().then { [weak self] (userIdentity) -> Promise<UserProfile> in
+        DiscogsManager.discogs.userIdentity().then { [weak self] (userIdentity) async -> UserProfile in
             self?.handle(userIdentity: userIdentity)
             return DiscogsManager.discogs.userProfile(userName: userIdentity.username)
             }.done { [weak self] (userProfile) in

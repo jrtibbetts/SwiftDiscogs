@@ -54,25 +54,25 @@ public class DiscogsCollectionImporter: NSManagedObjectContext {
 
     // MARK: - Import Functions
 
-    public func importDiscogsCollection(forUserName userName: String) -> Promise<Void> {
+    public func importDiscogsCollection(forUserName userName: String) async -> Void {
         importerDelegate?.willBeginImporting(fromService: service)
 
         return discogs.customCollectionFields(forUserName: userName)
-            .then(on: importQueue) { (discogsFieldsResult) -> Promise<CoreDataFieldsByID> in
+            .then(on: importQueue) { (discogsFieldsResult) async -> CoreDataFieldsByID in
             self.discogsFields = discogsFieldsResult.fields ?? []
             self.importerDelegate?.update(importedItemCount: 1, totalCount: 6, forService: self.service)
 
             return self.createCoreDataFields(self.discogsFields)
-        }.then(on: importQueue) { _ -> Promise<CollectionFolders> in
+        }.then(on: importQueue) { _ async -> CollectionFolders in
             self.importerDelegate?.update(importedItemCount: 2, totalCount: 6, forService: self.service)
 
             return self.discogs.collectionFolders(forUserName: userName)
-        }.then(on: importQueue) { (discogsFoldersResult) -> Promise<CoreDataFoldersByID> in
+        }.then(on: importQueue) { (discogsFoldersResult) async -> CoreDataFoldersByID in
             self.discogsFolders = discogsFoldersResult.folders
             self.importerDelegate?.update(importedItemCount: 3, totalCount: 6, forService: self.service)
 
             return self.createCoreDataFolders(forDiscogsFolders: discogsFoldersResult.folders)
-        }.then(on: importQueue) { (coreDataFoldersByID) -> Promise<[CollectionFolderItem]> in
+        }.then(on: importQueue) { (coreDataFoldersByID) async -> [CollectionFolderItem] in
             let masterFolderID = 0
 
             guard let masterFolder = coreDataFoldersByID[masterFolderID] else {
@@ -84,15 +84,15 @@ public class DiscogsCollectionImporter: NSManagedObjectContext {
             return self.downloadDiscogsItems(forUserName: userName,
                                              inFolderWithID: 0,
                                              expectedItemCount: Int(masterFolder.expectedItemCount))
-        }.then(on: importQueue) { (discogsItems) -> Promise<CoreDataItemsByID> in
+        }.then(on: importQueue) { (discogsItems) async -> CoreDataItemsByID in
             print("Importing \(discogsItems.count) Discogs collection items.")
             self.importerDelegate?.update(importedItemCount: 5, totalCount: 6, forService: self.service)
 
             return self.createCoreDataItems(forDiscogsItems: discogsItems)
-        }.then(on: importQueue) { _ -> Promise<Void>  in
+        }.then(on: importQueue) { _ async -> Void  in
             self.importerDelegate?.update(importedItemCount: 6, totalCount: 6, forService: self.service)
             return self.addCoreDataItemsToOtherFolders(forUserName: userName)
-        }.then(on: importQueue) { _ -> Promise<Void>  in
+        }.then(on: importQueue) { _ async -> Void  in
             self.importerDelegate?.willFinishImporting(fromService: self.service)
             try self.save()
 
@@ -105,7 +105,7 @@ public class DiscogsCollectionImporter: NSManagedObjectContext {
     /// the other managed objects' `fetchOrCreate()`s because there are two
     /// custom field types (dropdown and textarea), and the appropriate one has
     /// to be created.
-    public func createCoreDataFields(_ discogsFields: [CollectionCustomField]) -> Promise<CoreDataFieldsByID> {
+    public func createCoreDataFields(_ discogsFields: [CollectionCustomField]) async -> CoreDataFieldsByID {
         return Promise<CoreDataFieldsByID> { (seal) in
             coreDataFieldsByID = [:]
 
@@ -122,7 +122,7 @@ public class DiscogsCollectionImporter: NSManagedObjectContext {
         }
     }
 
-    public func createCoreDataFolders(forDiscogsFolders discogsFolders: [CollectionFolder]) -> Promise<CoreDataFoldersByID> {
+    public func createCoreDataFolders(forDiscogsFolders discogsFolders: [CollectionFolder]) async -> CoreDataFoldersByID {
         return Promise<CoreDataFoldersByID> { [weak self] (seal) in
             coreDataFoldersByID = [:]
 
@@ -146,11 +146,11 @@ public class DiscogsCollectionImporter: NSManagedObjectContext {
 
     public func downloadDiscogsItems(forUserName userName: String,
                                      inFolderWithID folderID: Int,
-                                     expectedItemCount: Int) -> Promise<[CollectionFolderItem]> {
+                                     expectedItemCount: Int) async -> [CollectionFolderItem] {
         let pageSize = 500
         let pageCount = (expectedItemCount / pageSize) + 1
 
-        let pagePromises: [Promise<CollectionFolderItems>] = pageCount.times.map { (pageNumber) -> Promise<CollectionFolderItems> in
+        let pagePromises: [Promise<CollectionFolderItems>] = pageCount.times.map { (pageNumber) async -> CollectionFolderItems in
             return discogs.collectionItems(inFolderID: folderID,
                                            userName: userName,
                                            pageNumber: pageNumber + 1,
@@ -173,7 +173,7 @@ public class DiscogsCollectionImporter: NSManagedObjectContext {
         }
     }
 
-    public func createCoreDataItems(forDiscogsItems discogsItems: [SwiftDiscogs.CollectionFolderItem]) -> Promise<CoreDataItemsByID> {
+    public func createCoreDataItems(forDiscogsItems discogsItems: [SwiftDiscogs.CollectionFolderItem]) async -> CoreDataItemsByID {
         return Promise<CoreDataItemsByID> { (seal) in
             coreDataItemsByID = [:]
 
@@ -197,8 +197,8 @@ public class DiscogsCollectionImporter: NSManagedObjectContext {
         }
     }
 
-    func addCoreDataItemsToOtherFolders(forUserName userName: String) -> Promise<Void> {
-        let folderPromises: [Promise<Void>] = discogsFolders.filter { $0.id != 0 }.map { (discogsFolder) -> Promise<Void> in
+    func addCoreDataItemsToOtherFolders(forUserName userName: String) async -> Void {
+        let folderPromises: [Promise<Void>] = discogsFolders.filter { $0.id != 0 }.map { (discogsFolder) async -> Void in
             guard let coreDataFolder = self.coreDataFoldersByID[discogsFolder.id] else {
                 return Promise<Void>()
             }

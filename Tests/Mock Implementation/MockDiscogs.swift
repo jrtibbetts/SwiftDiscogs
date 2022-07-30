@@ -27,7 +27,7 @@ public class MockDiscogs: MockClient, Discogs {
     // MARK: - User Identity
 
     public func authorize(presentingViewController: UIViewController,
-                          callbackUrlString: String) -> Promise<OAuthSwiftCredential> {
+                          callbackUrlString: String) async -> OAuthSwiftCredential {
         return Promise<OAuthSwiftCredential> { (seal) in
             seal.fulfill(OAuthSwiftCredential.init(consumerKey: "key", consumerSecret: "secret"))
         }
@@ -41,86 +41,86 @@ public class MockDiscogs: MockClient, Discogs {
         // There's nothing to do.
     }
 
-    public func userIdentity() -> Promise<UserIdentity> {
+    public func userIdentity() async -> UserIdentity {
         return apply(toJsonObjectIn: "get-user-identity-200",
                      error: DiscogsError.unauthenticatedUser)
     }
 
-    public func userProfile(userName: String) -> Promise<UserProfile> {
+    public func userProfile(userName: String) async -> UserProfile {
         return apply(toJsonObjectIn: "get-user-profile-200",
                      error: DiscogsError.unauthenticatedUser)
     }
 
     // MARK: - Database
 
-    public func artist(identifier: Int) -> Promise<Artist> {
+    public func artist(identifier: Int) async -> Artist {
         return apply(toJsonObjectIn: "get-artist-200",
                      error: DiscogsError.artistNotFoundById(identifier))
     }
 
-    public func releases(forArtist artistId: Int) -> Promise<ReleaseSummaries> {
+    public func releases(forArtist artistId: Int) async -> ReleaseSummaries {
         return apply(toJsonObjectIn: "get-release-summaries-200",
                      error: DiscogsError.artistNotFoundById(artistId))
     }
 
-    public func label(identifier: Int) -> Promise<RecordLabel> {
+    public func label(identifier: Int) async -> RecordLabel {
         return apply(toJsonObjectIn: "get-label-200",
                      error: DiscogsError.labelNotFoundById(identifier))
     }
 
-    public func releases(forLabel labelId: Int) -> Promise<ReleaseSummaries> {
+    public func releases(forLabel labelId: Int) async -> ReleaseSummaries {
         return apply(toJsonObjectIn: "get-label-releases-200",
                      error: DiscogsError.labelNotFoundById(labelId))
     }
 
-    public func masterRelease(identifier: Int) -> Promise<MasterRelease> {
+    public func masterRelease(identifier: Int) async -> MasterRelease {
         return apply(toJsonObjectIn: "get-master-200",
                      error: DiscogsError.masterReleaseNotFoundById(identifier))
     }
 
     public func releasesForMasterRelease(_ identifier: Int,
                                          pageNumber: Int = 0,
-                                         resultsPerPage: Int = 50) -> Promise<MasterReleaseVersions> {
+                                         resultsPerPage: Int = 50) async -> MasterReleaseVersions {
         return apply(toJsonObjectIn: "get-master-release-versions-200",
                      error: DiscogsError.masterReleaseNotFoundById(identifier))
     }
 
-    public func release(identifier: Int) -> Promise<Release> {
+    public func release(identifier: Int) async -> Release {
         return apply(toJsonObjectIn: "get-release-200",
                      error: DiscogsError.masterReleaseNotFoundById(identifier))
     }
 
     // MARK: - Collections
 
-    public func customCollectionFields(forUserName userName: String) -> Promise<CollectionCustomFields> {
+    public func customCollectionFields(forUserName userName: String) async -> CollectionCustomFields {
         return apply(toJsonObjectIn: "get-custom-fields-200",
                      error: DiscogsError.unknownUser(username: userName))
     }
 
-    public func collectionValue(forUserName userName: String) -> Promise<CollectionValue> {
+    public func collectionValue(forUserName userName: String) async -> CollectionValue {
         return apply(toJsonObjectIn: "get-collection-value-200",
                      error: DiscogsError.unknownUser(username: userName))
     }
 
-    public func collectionFolders(forUserName userName: String) -> Promise<CollectionFolders> {
+    public func collectionFolders(forUserName userName: String) async -> CollectionFolders {
         return apply(toJsonObjectIn: "get-folders-200",
                      error: DiscogsError.unknownUser(username: userName))
     }
 
     public func collectionFolderInfo(forFolderID folderID: Int,
-                                     userName: String) -> Promise<CollectionFolder> {
+                                     userName: String) async -> CollectionFolder {
         return apply(toJsonObjectIn: "get-folder-metadata-200",
                      error: DiscogsError.unknownUser(username: userName))
     }
 
     public func createFolder(named folderName: String,
-                             forUserName userName: String) -> Promise<CollectionFolder> {
+                             forUserName userName: String) async -> CollectionFolder {
         return apply(toJsonObjectIn: "post-create-folder-201",
                      error: DiscogsError.unknownUser(username: userName))
     }
 
     public func edit(_ folder: CollectionFolder,
-                     forUserName userName: String) -> Promise<CollectionFolder> {
+                     forUserName userName: String) async -> CollectionFolder {
         return apply(toJsonObjectIn: "post-edit-folder-metadata-200",
                      error: DiscogsError.unknownUser(username: userName))
     }
@@ -128,21 +128,21 @@ public class MockDiscogs: MockClient, Discogs {
     public func collectionItems(inFolderID folderID: Int,
                                 userName: String,
                                 pageNumber: Int = 1,
-                                resultsPerPage: Int = 50) -> Promise<CollectionFolderItems> {
+                                resultsPerPage: Int = 50) async -> CollectionFolderItems {
         return apply(toJsonObjectIn: "get-items-in-folder-200",
                      error: DiscogsError.unknownUser(username: userName))
     }
 
     public func addItem(_ itemID: Int,
                         toFolderID folderID: Int,
-                        userName: String) -> Promise<CollectionItemInfo> {
+                        userName: String) async -> CollectionItemInfo {
         return apply(toJsonObjectIn: "add-item-to-collection-folder-200",
                      error: DiscogsError.unknownUser(username: userName))
     }
 
     // MARK: - Search
 
-    public func search(for queryString: String, type: String = "title") -> Promise<SearchResults> {
+    public func search(for queryString: String, type: String = "title") async -> SearchResults {
         return apply(toJsonObjectIn: "search-200",
                      error: DiscogsError.unknown(nil))
     }
