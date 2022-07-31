@@ -1,97 +1,95 @@
 {
-  "object": {
-    "pins": [
-      {
-        "package": "BrightFutures",
-        "repositoryURL": "https://github.com/Thomvis/BrightFutures.git",
-        "state": {
-          "branch": null,
-          "revision": "9279defa6bdc21501ce740266e5a14d0119ddc63",
-          "version": "8.0.1"
-        }
-      },
-      {
-        "package": "Erik",
-        "repositoryURL": "https://github.com/phimage/Erik.git",
-        "state": {
-          "branch": null,
-          "revision": "109a130e9cdb00789a43a7a625293eeb12d22989",
-          "version": "5.1.0"
-        }
-      },
-      {
-        "package": "FileKit",
-        "repositoryURL": "https://github.com/nvzqz/FileKit.git",
-        "state": {
-          "branch": null,
-          "revision": "826d9161b184509f80d85c28cd612d630646de98",
-          "version": "6.0.0"
-        }
-      },
-      {
-        "package": "JSONClient",
-        "repositoryURL": "https://github.com/jrtibbetts/JSONClient",
-        "state": {
-          "branch": "main",
-          "revision": "d51d5f3e172b56004fdae1b17ad612fbad193e92",
-          "version": null
-        }
-      },
-      {
-        "package": "Kanna",
-        "repositoryURL": "https://github.com/tid-kijyun/Kanna.git",
-        "state": {
-          "branch": null,
-          "revision": "c657fb9f5827ef138068215c76ad0bb62bbc92da",
-          "version": "5.2.4"
-        }
-      },
-      {
-        "package": "Medi8",
-        "repositoryURL": "https://github.com/jrtibbetts/Medi8",
-        "state": {
-          "branch": "main",
-          "revision": "3f42fb801a4a7da4bcbb55032d0ef59e20379c57",
-          "version": null
-        }
-      },
-      {
-        "package": "OAuthSwift",
-        "repositoryURL": "https://github.com/OAuthSwift/OAuthSwift.git",
-        "state": {
-          "branch": null,
-          "revision": "fde77955e6983fbfaabd491709d52b8a82fda4d0",
-          "version": "2.1.2"
-        }
-      },
-      {
-        "package": "PromiseKit",
-        "repositoryURL": "https://github.com/mxcl/PromiseKit.git",
-        "state": {
-          "branch": null,
-          "revision": "aea48ea1855f5d82e2dffa6027afce3aab8f3dd7",
-          "version": "6.13.3"
-        }
-      },
-      {
-        "package": "Stylobate",
-        "repositoryURL": "https://github.com/jrtibbetts/Stylobate.git",
-        "state": {
-          "branch": "main",
-          "revision": "1102510b399a9662045d73a367b6419676ec9f75",
-          "version": null
-        }
-      },
-      {
-        "package": "Swifter",
-        "repositoryURL": "https://github.com/httpswift/swifter.git",
-        "state": {
-          "branch": null,
-          "revision": "9483a5d459b45c3ffd059f7b55f9638e268632fd",
-          "version": "1.5.0"
-        }
+  "pins" : [
+    {
+      "identity" : "brightfutures",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Thomvis/BrightFutures.git",
+      "state" : {
+        "revision" : "9279defa6bdc21501ce740266e5a14d0119ddc63",
+        "version" : "8.0.1"
       }
-    ]
-  },
-  "version": 1
+    },
+    {
+      "identity" : "erik",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/phimage/Erik.git",
+      "state" : {
+        "revision" : "109a130e9cdb00789a43a7a625293eeb12d22989",
+        "version" : "5.1.0"
+      }
+    },
+    {
+      "identity" : "filekit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/nvzqz/FileKit.git",
+      "state" : {
+        "revision" : "826d9161b184509f80d85c28cd612d630646de98",
+        "version" : "6.0.0"
+      }
+    },
+    {
+      "identity" : "jsonclient",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/jrtibbetts/JSONClient",
+      "state" : {
+        "branch" : "28-replace-promisekit-with-async-await",
+        "revision" : "111fa2050dc17cec670445389c728183ca336f41"
+      }
+    },
+    {
+      "identity" : "kanna",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/tid-kijyun/Kanna.git",
+      "state" : {
+        "revision" : "c657fb9f5827ef138068215c76ad0bb62bbc92da",
+        "version" : "5.2.4"
+      }
+    },
+    {
+      "identity" : "medi8",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/jrtibbetts/Medi8",
+      "state" : {
+        "branch" : "main",
+        "revision" : "3f42fb801a4a7da4bcbb55032d0ef59e20379c57"
+      }
+    },
+    {
+      "identity" : "oauthswift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/OAuthSwift/OAuthSwift",
+      "state" : {
+        "branch" : "master",
+        "revision" : "73f97878d988e33cc0d5482c18db6264c37ffbcd"
+      }
+    },
+    {
+      "identity" : "oauthswiftauthenticationservices",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/raxityo/OAuthSwiftAuthenticationServices",
+      "state" : {
+        "branch" : "master",
+        "revision" : "84bc8a1215550347372e4cb0356fa91fec4a3ea4"
+      }
+    },
+    {
+      "identity" : "stylobate",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/jrtibbetts/Stylobate.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "1102510b399a9662045d73a367b6419676ec9f75"
+      }
+    },
+    {
+      "identity" : "swifter",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/httpswift/swifter.git",
+      "state" : {
+        "revision" : "9483a5d459b45c3ffd059f7b55f9638e268632fd",
+        "version" : "1.5.0"
+      }
+    }
+  ],
+  "version" : 2
 }

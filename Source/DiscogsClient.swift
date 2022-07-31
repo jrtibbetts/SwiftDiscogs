@@ -40,125 +40,127 @@ open class DiscogsClient: OAuth1JSONClient, Discogs {
 
     // MARK: - JSONClient
 
-    open override func get<T>(path: String,
-                              headers: JSONClient.Headers = Headers(),
-                              parameters: JSONClient.Parameters = Parameters())
-        async -> T where T: Decodable, T: Encodable {
+    open override func get<T: Codable>(path: String,
+                                       headers: JSONClient.Headers = Headers(),
+                                       parameters: JSONClient.Parameters = Parameters()) async throws -> T {
         print("GET for \(path); headers: \(headers); params: \(parameters)")
         debugPrint(path, headers, parameters)
-        return super.get(path: path, headers: headers, parameters: parameters)
+
+        return try await super.get(path: path, headers: headers, parameters: parameters)
     }
 
     // MARK: - AuthorizedJSONClient
 
-    open override func authorizedGet<T>(path: String,
-                                        headers: AuthorizedJSONClient.Headers = Headers(),
-                                        parameters: AuthorizedJSONClient.Parameters = Parameters())
-        async -> T where T: Decodable, T: Encodable {
+    open override func authorizedGet<T: Codable>(path: String,
+                                                 headers: AuthorizedJSONClient.Headers = Headers(),
+                                                 parameters: AuthorizedJSONClient.Parameters = Parameters()) async throws -> T {
         print("Authorized GET for \(path); headers: \(headers); params: \(parameters)")
         debugPrint(path, headers, parameters)
-        return super.authorizedGet(path: path, headers: headers, parameters: parameters)
+
+        return try await super.authorizedGet(path: path, headers: headers, parameters: parameters)
     }
 
     // MARK: - Authorization & User Identity
 
-    public func userIdentity() async -> UserIdentity {
-        return await authorizedGet(path: "/oauth/identity", headers: headers)
+    public func userIdentity() async throws -> UserIdentity {
+        return try await authorizedGet(path: "/oauth/identity", headers: headers)
     }
 
-    public func userProfile(userName: String) async -> UserProfile {
-        return await authorizedGet(path: "/users/\(userName)", headers: headers)
+    public func userProfile(userName: String) async throws -> UserProfile {
+        return try await authorizedGet(path: "/users/\(userName)", headers: headers)
     }
 
     // MARK: - Database
 
-    public func artist(identifier: Int) async -> Artist {
-        return await get(path: "/artists/\(identifier)", headers: headers)
+    public func artist(identifier: Int) async throws -> Artist {
+        return try await get(path: "/artists/\(identifier)", headers: headers)
     }
 
-    public func label(identifier: Int) async -> RecordLabel {
-        return await get(path: "/labels/\(identifier)", headers: headers)
+    public func label(identifier: Int) async throws -> RecordLabel {
+        return try await get(path: "/labels/\(identifier)", headers: headers)
     }
 
-    public func masterRelease(identifier: Int) async -> MasterRelease {
-        return await get(path: "/masters/\(identifier)", headers: headers)
+    public func masterRelease(identifier: Int) async throws -> MasterRelease {
+        return try await get(path: "/masters/\(identifier)", headers: headers)
     }
 
-    public func release(identifier: Int) async -> Release {
-        return await get(path: "/releases/\(identifier)", headers: headers)
+    public func release(identifier: Int) async throws -> Release {
+        return try await get(path: "/releases/\(identifier)", headers: headers)
     }
 
-    public func releases(forArtist artistId: Int) async -> ReleaseSummaries {
-        return await get(path: "/artists/\(artistId)/releases", headers: headers)
+    public func releases(forArtist artistId: Int) async throws -> ReleaseSummaries {
+        return try await get(path: "/artists/\(artistId)/releases", headers: headers)
     }
 
-    public func releases(forLabel labelId: Int) async -> ReleaseSummaries {
-        return await get(path: "/labels/\(labelId)/releases", headers: headers)
+    public func releases(forLabel labelId: Int) async throws -> ReleaseSummaries {
+        return try await get(path: "/labels/\(labelId)/releases", headers: headers)
     }
 
     public func releasesForMasterRelease(_ identifier: Int,
                                          pageNumber: Int = 1,
-                                         resultsPerPage: Int = 50) async -> MasterReleaseVersions {
+                                         resultsPerPage: Int = 50) async throws -> MasterReleaseVersions {
         // turn the pageNumber and resultsPerPage into query parameters
-        return await get(path: "/masters/\(identifier)/versions",
-            headers: headers,
-            parameters: ["per_page": "\(resultsPerPage)", "page": "\(pageNumber)"])
+        return try await get(path: "/masters/\(identifier)/versions",
+                             headers: headers,
+                             parameters: ["per_page": "\(resultsPerPage)", "page": "\(pageNumber)"])
     }
 
     // MARK: - Collections
 
-    public func customCollectionFields(forUserName userName: String) async -> CollectionCustomFields {
-        return await authorizedGet(path: "/users/\(userName)/collection/fields", headers: headers)
+    public func customCollectionFields(forUserName userName: String) async throws -> CollectionCustomFields {
+        return try await authorizedGet(path: "/users/\(userName)/collection/fields", headers: headers)
     }
 
-    public func collectionValue(forUserName userName: String) async -> CollectionValue {
-        return await authorizedGet(path: "/users/\(userName)/collection/value", headers: headers)
+    public func collectionValue(forUserName userName: String) async throws -> CollectionValue {
+        return try await authorizedGet(path: "/users/\(userName)/collection/value", headers: headers)
     }
 
-    public func collectionFolders(forUserName userName: String) async -> CollectionFolders {
-        return await authorizedGet(path: "/users/\(userName)/collection/folders", headers: headers)
+    public func collectionFolders(forUserName userName: String) async throws -> CollectionFolders {
+        return try await authorizedGet(path: "/users/\(userName)/collection/folders", headers: headers)
     }
 
     public func collectionFolderInfo(forFolderID folderID: Int,
-                                     userName: String) async -> CollectionFolder {
-        return await authorizedGet(path: "/users/\(userName)/collection/folders/\(folderID)", headers: headers)
+                                     userName: String) async throws -> CollectionFolder {
+        return try await authorizedGet(path: "/users/\(userName)/collection/folders/\(folderID)", headers: headers)
     }
 
     public func createFolder(named folderName: String,
-                             forUserName userName: String) async -> CollectionFolder {
-        return authorizedPost(path: "/users/\(userName)/collection/folders/\(folderName)", headers: headers)
+                             forUserName userName: String) async throws -> CollectionFolder {
+        return try await authorizedPost(path: "/users/\(userName)/collection/folders/\(folderName)", headers: headers)
     }
 
     public func edit(_ folder: CollectionFolder,
-                     forUserName userName: String) async -> CollectionFolder {
-        return Promise<CollectionFolder> { _ in
-        }
+                     forUserName userName: String) async throws -> CollectionFolder {
+        throw DiscogsError.unknown(nil)
     }
 
     public func collectionItems(inFolderID folderID: Int,
                                 userName: String,
                                 pageNumber: Int = 1,
-                                resultsPerPage: Int = 50) async -> CollectionFolderItems {
-        return await authorizedGet(path: "/users/\(userName)/collection/folders/\(folderID)/releases",
+                                resultsPerPage: Int = 50) async throws -> CollectionFolderItems {
+        return try await authorizedGet(
+            path: "/users/\(userName)/collection/folders/\(folderID)/releases",
             headers: headers,
-            parameters: ["per_page": "\(resultsPerPage)", "page": "\(pageNumber)"])
+            parameters: ["per_page": "\(resultsPerPage)", "page": "\(pageNumber)"]
+        )
     }
 
     public func addItem(_ itemID: Int,
                         toFolderID folderID: Int,
-                        userName: String) async -> CollectionItemInfo {
-        return authorizedPost(
+                        userName: String) async throws -> CollectionItemInfo {
+        return try await authorizedPost(
             path: "/users/\(userName)/collection/folders/\(folderID)/releases/{itemId}",
-            headers: headers)
+            headers: headers
+        )
     }
 
     // MARK: - Search
 
     public func search(for queryString: String,
-                       type: String) async -> SearchResults {
+                       type: String) async throws -> SearchResults {
         let params = ["q": queryString]
 
-        return await authorizedGet(path: "/database/search", headers: headers, parameters: params)
+        return try await authorizedGet(path: "/database/search", headers: headers, parameters: params)
     }
 
 }
