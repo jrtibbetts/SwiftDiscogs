@@ -1,7 +1,6 @@
 //  Copyright © 2018 Poikile Creations. All rights reserved.
 
-@testable import SwiftDiscogsApp
-import PromiseKit
+@testable import SwiftDiscogs
 import Stylobate
 import SwiftDiscogs
 import XCTest

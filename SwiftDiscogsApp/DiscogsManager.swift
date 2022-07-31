@@ -10,12 +10,10 @@ public struct DiscogsManager {
     /// The app-wide `Discogs` instance to use. By default, this is a
     /// `DiscogsClient`, but you can set it to something else (like the mock
     /// client) for testing or other purposes.
-    public static var discogs: Discogs = discogsClient
-
-    /// A global-ish instance of the `DiscogsClient`. It's initialized with
-    /// consumer key, consumer secret, and userAgent properties in a file
-    /// named `Discogs.plist`.
-    private static let discogsClient: DiscogsClient = {
+    public static var discogs: Discogs = {
+        /// A global-ish instance of the `DiscogsClient`. It's initialized with
+        /// consumer key, consumer secret, and userAgent properties in a file
+        /// named `Discogs.plist`.
         let environment = ProcessInfo.processInfo.environment
         let client = DiscogsClient(consumerKey: environment["discogsConsumerKey"]!,
                                    consumerSecret: environment["discogsConsumerSecret"]!,

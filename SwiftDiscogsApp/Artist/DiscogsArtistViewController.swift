@@ -35,11 +35,7 @@ public class DiscogsArtistViewController: UIViewController {
     public var artistSearchResult: SearchResult? {
         didSet {
             if let artistId = artistSearchResult?.id {
-                DiscogsManager.discogs.artist(identifier: artistId).done { (artist) in
-                    self.artist = artist
-                    }.catch { _ in
-                        // HANDLE THE ERROR
-                    }
+                artist = try? await DiscogsManager.discogs.artist(identifier: artistId)
             }
         }
     }
@@ -79,12 +75,15 @@ public class DiscogsArtistViewController: UIViewController {
     // MARK: - Private Functions
 
     func fetchArtist(named artistName: String) {
-        _ = DiscogsManager.discogs.search(forArtist: artistName).done { [weak self] in
-            if let results = $0.results?.filter({ $0.type == "artist" }) {
-                self?.handleArtistResults(results)
+        Task {
+            do {
+                let results = try async DiscogsManager.discogs.search(forArtist: artistName)
+                    .filter { $0.type == "artist" } {
+                        handleArtistResults(results)
+                    }
+            } catch {
+                presentAlert(for: error)
             }
-            }.catch { [weak self] (error) in
-                self?.presentAlert(for: error)
         }
     }
 

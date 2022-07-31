@@ -44,7 +44,7 @@ public protocol AuthenticatedService: ThirdPartyService {
 
 // MARK: - AuthenticatedServiceDelegate
 
-public protocol AuthenticatedServiceDelegate: class {
+public protocol AuthenticatedServiceDelegate: AnyObject {
 
     // MARK: Functions
 
@@ -95,7 +95,7 @@ public protocol ImportableService: ThirdPartyService {
 
 /// Implemented by entities what want to keep track of an importable service's
 /// status and progress.
-public protocol ImportableServiceDelegate: class {
+public protocol ImportableServiceDelegate: AnyObject {
 
     // MARK: Functions
 

@@ -1,7 +1,6 @@
 //  Copyright © 2019 Poikile Creations. All rights reserved.
 
 import MediaPlayer
-import PromiseKit
 import Stylobate
 import SwiftDiscogs
 import UIKit
@@ -57,21 +56,18 @@ class ArtistsViewController: CollectionAndTableViewController, UISearchResultsUp
     func search(forArtist artistName: String? = nil) {
         artistsDisplay.start()
 
-        DispatchQueue.global().async(.promise) { [weak self] in
-            let mediaLibrary = MediaLibraryManager.mediaLibrary
-            let artists = mediaLibrary.artists(named: artistName)
-            self?.artistsModel.artistMediaItems = artists ?? []
+        let mediaLibrary = MediaLibraryManager.mediaLibrary
+        let artists = mediaLibrary.artists(named: artistName)
+        artistsModel.artistMediaItems = artists ?? []
 
-            artists?.forEach { (artist) in
-                let artistName = artist.albumArtist ?? "(unknown)"
-                self?.artistsModel.artistAlbumCounts[artistName]
-                    = mediaLibrary.albums(byArtistNamed: artistName)?.count ?? 0
-            }
-        }.done { [weak self] in
-            self?.artistsDisplay.refresh()
-        }.ensure { [weak self] in
-            self?.artistsDisplay.stop()
-        }.cauterize()
+        artists?.forEach { (artist) in
+            let artistName = artist.albumArtist ?? "(unknown)"
+            artistsModel.artistAlbumCounts[artistName]
+            = mediaLibrary.albums(byArtistNamed: artistName)?.count ?? 0
+        }
+
+        artistsDisplay.refresh()
+        artistsDisplay.stop()
     }
 
     func updateSearchResults(for searchController: UISearchController) {

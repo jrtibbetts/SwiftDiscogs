@@ -1,6 +1,6 @@
 //  Copyright © 2018 Poikile Creations. All rights reserved.
 
-import PromiseKit
+import JSONClient
 import Stylobate
 import SwiftDiscogs
 import UIKit
@@ -25,15 +25,21 @@ open class DiscogsSignInViewController: UIViewController {
     /// do so and after the user has logged in successfully.
     @IBAction func signInToDiscogs(signInButton: UIButton?) {
         signInStatusStack.activeView = checkingStatusView
-        let promise = DiscogsManager.discogs.authorize(presentingViewController: self,
-                                                       callbackUrlString: AppDelegate.shared.callbackUrl.absoluteString)
-        promise.then { _ async -> UserIdentity in
-            return DiscogsManager.discogs.userIdentity()
-            }.done { [weak self] _ in
-                self?.signInStatusStack.activeView = self?.signedInLabel
-                self?.dismiss(animated: true, completion: nil)
-            }.catch { (error) in    // not weak self because of Bundle(for:)
+
+        Task {
+            do {
+                guard let discogs = DiscogsManager.discogs as? OAuth1JSONClient else {
+                    return
+                }
+
+                let _ = try await discogs.authorize(callbackUrl: AppDelegate.shared.callbackUrl,
+                                                    presentOver: self.view)
+
+                self.signInStatusStack.activeView = self.signedInLabel
+                self.dismiss(animated: true, completion: nil)
+            } catch {
                 self.presentAlert(for: error, title: L10n.discogsSignInFailed)
+            }
         }
     }
 

@@ -1,7 +1,6 @@
 //  Copyright © 2019 Poikile Creations. All rights reserved.
 
 import CoreData
-import PromiseKit
 import Stylobate
 import SwiftDiscogs
 import UIKit
@@ -117,39 +116,39 @@ class DiscogsService: ThirdPartyService, AuthenticatedService, ImportableService
 
     // MARK: Functions
 
-    func importData() {
-        let context = AppDelegate.shared.medi8Context
-
-        if let username = userName {
-            importDelegate?.willBeginImporting(fromService: self)
-            isImporting = true
-            importDelegate?.didBeginImporting(fromService: self)
-
-            let subcontext = DiscogsCollectionImporter(concurrencyType: .privateQueueConcurrencyType)
-            subcontext.service = self
-            subcontext.importerDelegate = importDelegate
-            subcontext.parent = context
-            subcontext.perform { [weak self] in
-                subcontext.importDiscogsCollection(forUserName: username).done {
-                    try context.save()
-                    print("Imported")
-                    print("\(try CustomField.all(inContext: context).count) fields")
-                    print("\(try CollectionItem.all(inContext: context).count) items")
-                    print("\(try Folder.all(inContext: context).count) folders")
-                }.catch { (error) in
-                    DispatchQueue.main.async { [weak self] in
-                        self?.isImporting = false
-                        self?.importDelegate?.importFailed(fromService: self, withError: error)
-                    }
-                }
-            }
-        }
-    }
-
-    func stopImportingData() {
-        importDelegate?.willFinishImporting(fromService: self)
-        isImporting = false
-        importDelegate?.didFinishImporting(fromService: self)
-    }
+//    func importData() {
+//        let context = AppDelegate.shared.medi8Context
+//
+//        if let username = userName {
+//            importDelegate?.willBeginImporting(fromService: self)
+//            isImporting = true
+//            importDelegate?.didBeginImporting(fromService: self)
+//
+//            let subcontext = DiscogsCollectionImporter(concurrencyType: .privateQueueConcurrencyType)
+//            subcontext.service = self
+//            subcontext.importerDelegate = importDelegate
+//            subcontext.parent = context
+//            subcontext.perform { [weak self] in
+//                subcontext.importDiscogsCollection(forUserName: username).done {
+//                    try context.save()
+//                    print("Imported")
+//                    print("\(try CustomField.all(inContext: context).count) fields")
+//                    print("\(try CollectionItem.all(inContext: context).count) items")
+//                    print("\(try Folder.all(inContext: context).count) folders")
+//                }.catch { (error) in
+//                    DispatchQueue.main.async { [weak self] in
+//                        self?.isImporting = false
+//                        self?.importDelegate?.importFailed(fromService: self, withError: error)
+//                    }
+//                }
+//            }
+//        }
+//    }
+//
+//    func stopImportingData() {
+//        importDelegate?.willFinishImporting(fromService: self)
+//        isImporting = false
+//        importDelegate?.didFinishImporting(fromService: self)
+//    }
 
 }

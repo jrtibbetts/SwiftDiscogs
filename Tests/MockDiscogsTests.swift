@@ -2,7 +2,6 @@
 
 @testable import SwiftDiscogs
 import JSONClient
-import PromiseKit
 import XCTest
 
 class MockDiscogsTests: DiscogsTestBase {
@@ -16,7 +15,7 @@ class MockDiscogsTests: DiscogsTestBase {
 
     func testArtistByIdInErrorMode() {
         let discogs = MockDiscogs(errorMode: true)
-        assert(invalidPromise: discogs.artist(identifier: 0))
+        XCTAssertThrowsError(try discogs.artist(identifier: 0))
     }
 
     func testLabelById() {
@@ -144,18 +143,18 @@ class MockDiscogsTests: DiscogsTestBase {
     func testEditFolder() {
         let discogs = MockDiscogs()
         let folder = CollectionFolder(id: 99,
-                                             count: 3,
-                                             name: "Junk",
-                                             resourceUrl: "https://api.discogs.com/foo")
+                                      count: 3,
+                                      name: "Junk",
+                                      resourceUrl: "https://api.discogs.com/foo")
         assert(validPromise: discogs.edit(folder, forUserName: "H. P. Lovecraft"))
     }
 
     func testEditFolderErrorMode() {
         let discogs = MockDiscogs(errorMode: true)
         let folder = CollectionFolder(id: 99,
-                                             count: 3,
-                                             name: "Junk",
-                                             resourceUrl: "https://api.discogs.com/foo")
+                                      count: 3,
+                                      name: "Junk",
+                                      resourceUrl: "https://api.discogs.com/foo")
         assert(invalidPromise: discogs.edit(folder, forUserName: "H. P. Lovecraft"))
     }
 

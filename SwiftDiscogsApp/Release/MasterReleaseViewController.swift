@@ -18,21 +18,15 @@ public class MasterReleaseViewController: BaseReleaseViewController {
         didSet {
             if let masterReleaseID = releaseSummary?.id {
                 // Get the master release itself.
-                DiscogsManager.discogs.masterRelease(identifier: masterReleaseID).done { [weak self] (masterRelease) in
-                    self?.masterRelease = masterRelease
-                    }.catch { (error) in
-                        print("Error: \(error)")
-                    }
-                // Get the master release's versions. We don't have to wait for
-                // the actual master release itself to be retrieved.
-                DiscogsManager.discogs.releasesForMasterRelease(masterReleaseID,
-                                                                pageNumber: 1,
-                                                                resultsPerPage: 200)
-                    .done { [weak self] (releaseSummaries) in
-                    self?.masterReleaseModel?.releaseVersions = releaseSummaries.versions
-                    self?.display?.refresh()
-                    }.catch { (error) in
-                        print("Error: \(error)")
+                Task {
+                    masterRelease = try await DiscogsManager.discogs.masterRelease(identifier: masterReleaseID)
+
+                    // Get the master release's versions. We don't have to wait for
+                    // the actual master release itself to be retrieved.
+                    masterReleaseModel?.releaseVersions = try await DiscogsManager.discogs.releasesForMasterRelease(masterReleaseID,
+                                                                                                                    pageNumber: 1,
+                                                                                                                    resultsPerPage: 200).versions
+                    display?.refresh()
                 }
             }
         }
