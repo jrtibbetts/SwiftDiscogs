@@ -14,9 +14,8 @@ class ReleaseVersionViewController: BaseReleaseViewController {
             releaseVersionDisplay?.releaseVersion = releaseVersion
 
             if let releaseID = releaseVersion?.id {
-                _ = DiscogsManager.discogs.release(identifier: releaseID).done { [weak self] (release) in
-                    self?.release = release
-                    }.catch { _ in
+                Task {
+                    release = try await DiscogsManager.discogs.release(identifier: releaseID)
                 }
             }
         }

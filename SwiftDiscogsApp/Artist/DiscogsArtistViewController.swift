@@ -35,7 +35,9 @@ public class DiscogsArtistViewController: UIViewController {
     public var artistSearchResult: SearchResult? {
         didSet {
             if let artistId = artistSearchResult?.id {
-                artist = try? await DiscogsManager.discogs.artist(identifier: artistId)
+                Task {
+                    artist = try await DiscogsManager.discogs.artist(identifier: artistId)
+                }
             }
         }
     }
@@ -77,9 +79,11 @@ public class DiscogsArtistViewController: UIViewController {
     func fetchArtist(named artistName: String) {
         Task {
             do {
-                let results = try async DiscogsManager.discogs.search(forArtist: artistName)
-                    .filter { $0.type == "artist" } {
-                        handleArtistResults(results)
+                try await DiscogsManager.discogs.search(forArtist: artistName)
+                    .results?
+                    .filter { $0.type == "artist" }
+                    .forEach {
+                        handleArtistResults([$0])
                     }
             } catch {
                 presentAlert(for: error)
@@ -135,13 +139,13 @@ public class DiscogsArtistViewController: UIViewController {
             return
         }
 
-        DiscogsManager.discogs.releases(forArtist: artistId).done { [weak self] (summaries) in
-            self?.artistModel.releases = summaries.releases?.filter { $0.type == "master"
+        Task {
+            let summaries = try await DiscogsManager.discogs.releases(forArtist: artistId)
+
+            artistModel.releases = summaries.releases?.filter { $0.type == "master"
                 && $0.role == "Main"
                 && $0.mainRelease != nil }
-            self?.artistView.refresh()
-            }.catch { _ in
-                // HANDLE THE ERROR
+            artistView.refresh()
         }
     }
 

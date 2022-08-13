@@ -32,8 +32,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/jrtibbetts/JSONClient",
       "state" : {
-        "branch" : "28-replace-promisekit-with-async-await",
-        "revision" : "111fa2050dc17cec670445389c728183ca336f41"
+        "branch" : "main",
+        "revision" : "ca1e1883972b85a6720bc829c86839d87553305c"
       }
     },
     {

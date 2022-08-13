@@ -82,6 +82,7 @@
 		96226AFB2069FF3D000EEC50 /* DiscogsArtistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96226AF62069F578000EEC50 /* DiscogsArtistViewController.swift */; };
 		96226AFD2069FF3D000EEC50 /* DiscogsArtistModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969ADA6D2068A7D300A8BDD0 /* DiscogsArtistModel.swift */; };
 		96226AFE2069FF3D000EEC50 /* DiscogsSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9603690E205A1C7200D24CE7 /* DiscogsSearchViewController.swift */; };
+		962833382898E33E00F7ABA2 /* Medi8 in Frameworks */ = {isa = PBXBuildFile; productRef = 962833372898E33E00F7ABA2 /* Medi8 */; };
 		963282B2222CBAD90090B29F /* SectionedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963282B1222CBAD90090B29F /* SectionedModel.swift */; };
 		963282B9222CD7E40090B29F /* MasterReleaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963282B8222CD7E40090B29F /* MasterReleaseViewController.swift */; };
 		963282BD222F82A10090B29F /* TrackTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963282BC222F82A10090B29F /* TrackTableCell.swift */; };
@@ -515,6 +516,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				962833382898E33E00F7ABA2 /* Medi8 in Frameworks */,
 				968102072272BA20003E6D82 /* SwiftDiscogs.framework in Frameworks */,
 				96E7CE4B25EB64EE00EBC43E /* UIKit.framework in Frameworks */,
 			);
@@ -1143,6 +1145,7 @@
 			);
 			name = SwiftDiscogsApp;
 			packageProductDependencies = (
+				962833372898E33E00F7ABA2 /* Medi8 */,
 			);
 			productName = SwiftDiscogsApp;
 			productReference = 960368DA205A012B00D24CE7 /* SwiftDiscogsApp.app */;
@@ -1816,6 +1819,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 3MY7LL9G36;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = SwiftDiscogsApp/Info.plist;
@@ -1837,6 +1841,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 3MY7LL9G36;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = SwiftDiscogsApp/Info.plist;
@@ -2405,13 +2410,18 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/jrtibbetts/JSONClient";
 			requirement = {
-				kind = upToNextMinorVersion;
-				minimumVersion = 3.0.0;
+				branch = main;
+				kind = branch;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		962833372898E33E00F7ABA2 /* Medi8 */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 969EBFB425EA2F940008DE91 /* XCRemoteSwiftPackageReference "Medi8" */;
+			productName = Medi8;
+		};
 		969EBFB825EA2FD00008DE91 /* JSONClient */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 969EBFB725EA2FD00008DE91 /* XCRemoteSwiftPackageReference "JSONClient" */;

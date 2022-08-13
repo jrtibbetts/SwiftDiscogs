@@ -96,20 +96,18 @@ class DiscogsSearchViewController: CollectionAndTableViewController,
                 return
         }
 
-        DiscogsManager.discogs.search(for: searchTerms, type: "Artist").done { [weak self] (searchResults) in
-            guard let self = self else {
-                return
+        Task {
+            do {
+                let searchResults = try await DiscogsManager.discogs.search(for: searchTerms, type: "Artist")
+                results = searchResults.results?.filter { $0.type == "artist" }
+
+                if results?.count == 1 {
+                    searchView?.selectItem(at: IndexPath(item: 0, section: 0))
+                }
+            } catch {
+                results = nil
+                presentAlert(for: error)
             }
-
-            self.results = searchResults.results?.filter { $0.type == "artist" }
-
-            if self.results?.count == 1 {
-                self.searchView?.selectItem(at: IndexPath(item: 0, section: 0))
-            }
-
-            }.catch { [weak self] (error) in
-                self?.results = nil
-                self?.presentAlert(for: error)
         }
     }
 

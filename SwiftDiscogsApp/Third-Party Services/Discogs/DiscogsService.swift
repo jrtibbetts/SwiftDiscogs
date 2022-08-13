@@ -1,6 +1,7 @@
 //  Copyright © 2019 Poikile Creations. All rights reserved.
 
 import CoreData
+import JSONClient
 import Stylobate
 import SwiftDiscogs
 import UIKit
@@ -26,12 +27,11 @@ class DiscogsService: ThirdPartyService, AuthenticatedService, ImportableService
         and we're getting closer every day. (www.discogs.com/about)
         """
 
-        DiscogsManager.discogs.userIdentity().then { [weak self] (userIdentity) async -> UserProfile in
-            self?.handle(userIdentity: userIdentity)
-            return DiscogsManager.discogs.userProfile(userName: userIdentity.username)
-            }.done { [weak self] (userProfile) in
-                self?.userProfile = userProfile
-            }.cauterize()
+        Task {
+            let userIdentity = try await DiscogsManager.discogs.userIdentity()
+            handle(userIdentity: userIdentity)
+            userProfile = try await DiscogsManager.discogs.userProfile(userName: userIdentity.username)
+        }
     }
 
     // MARK: - AuthenticatedService
@@ -79,16 +79,17 @@ class DiscogsService: ThirdPartyService, AuthenticatedService, ImportableService
 
         authenticationDelegate?.willSignIn(toService: self)
 
-        let promise = DiscogsManager.discogs.authorize(presentingViewController: viewController,
-                                                       callbackUrlString: AppDelegate.shared.callbackUrl.absoluteString)
-        promise.then { _ in
-            return DiscogsManager.discogs.userIdentity()
-            }.done { [weak self] (userIdentity) in
-                self?.handle(userIdentity: userIdentity)
-            }.catch { [weak self] (error) in
-                self?.isSignedIn = false
-                self?.authenticationDelegate?.signIn(toService: self, failedWithError: error)
-                viewController.presentAlert(for: error, title: L10n.discogsSignInFailed)
+        Task {
+            do {
+                _ = try await (DiscogsManager.discogs as? OAuth1JSONClient)?.authorize(callbackUrl: AppDelegate.shared.callbackUrl,
+                                                                                       presentOver: viewController.view)
+                let userIdentity = try await DiscogsManager.discogs.userIdentity()
+                handle(userIdentity: userIdentity)
+            } catch {
+                isSignedIn = false
+                authenticationDelegate?.signIn(toService: self, failedWithError: error)
+                await viewController.presentAlert(for: error, title: L10n.discogsSignInFailed)
+            }
         }
     }
 
@@ -116,7 +117,7 @@ class DiscogsService: ThirdPartyService, AuthenticatedService, ImportableService
 
     // MARK: Functions
 
-//    func importData() {
+    func importData() {
 //        let context = AppDelegate.shared.medi8Context
 //
 //        if let username = userName {
@@ -143,12 +144,12 @@ class DiscogsService: ThirdPartyService, AuthenticatedService, ImportableService
 //                }
 //            }
 //        }
-//    }
-//
-//    func stopImportingData() {
+    }
+
+    func stopImportingData() {
 //        importDelegate?.willFinishImporting(fromService: self)
 //        isImporting = false
 //        importDelegate?.didFinishImporting(fromService: self)
-//    }
+    }
 
 }
