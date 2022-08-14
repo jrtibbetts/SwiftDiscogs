@@ -9,9 +9,9 @@ class DiscogsSearch: ObservableObject {
 
     private var discogsClient = DiscogsClient()
 
-    func search(terms: String) -> Future<[SearchResult], Error> {
-        discogsClient.search(for: terms) { (artists, error) in
-            <#code#>
+    func search(terms: String) {
+        Task {
+            let artists = try await discogsClient.search(for: terms)
         }
     }
 

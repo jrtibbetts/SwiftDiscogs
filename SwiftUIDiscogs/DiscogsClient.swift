@@ -23,14 +23,11 @@ public struct DiscogsClient {
         return session
     }()
 
-    public func search(for searchTerms: String,
-                       handleResult: @escaping (Result<[Artist], Error>) -> Void) {
+    public func search(for searchTerms: String) async throws -> [Artist] {
         let url = URL(string: "/database/search?q=\(searchTerms)", relativeTo: DiscogsClient.baseUrl)!
-        urlSession.dataTask(with: url) { (data, response, error) in
-            if (response as? HTTPURLResponse)?.statusCode == 200 {
-//                handleResult(
-            }
-        }.resume()
+        let data = try await urlSession.data(from: url)
+
+        return []
     }
 
 }

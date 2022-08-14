@@ -169,6 +169,8 @@
 		969FBD4A207AB29300C32471 /* DiscogsArtistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969FBD49207AB29300C32471 /* DiscogsArtistView.swift */; };
 		96A8AC9F219214EE0098BF87 /* Discogs.strings in Resources */ = {isa = PBXBuildFile; fileRef = 96A8ACA1219214EE0098BF87 /* Discogs.strings */; };
 		96BA81C8225C1ED50003D65C /* DiscogsDisambiguationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96BA81C7225C1ED50003D65C /* DiscogsDisambiguationViewController.swift */; };
+		96BB31C628A8A5B900564F6C /* Medi8 in Frameworks */ = {isa = PBXBuildFile; productRef = 96BB31C528A8A5B900564F6C /* Medi8 */; };
+		96BB31C828A8A5BD00564F6C /* JSONClient in Frameworks */ = {isa = PBXBuildFile; productRef = 96BB31C728A8A5BD00564F6C /* JSONClient */; };
 		96BB37FF2251139500806E56 /* ArtistsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96BB37FE2251139500806E56 /* ArtistsViewController.swift */; };
 		96BB380422545AA200806E56 /* MediaLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96BB380322545AA200806E56 /* MediaLibrary.swift */; };
 		96C656B12129204A0041CAD6 /* Discogs.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96C656B0212920490041CAD6 /* Discogs.xcassets */; };
@@ -557,7 +559,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96BB31C628A8A5B900564F6C /* Medi8 in Frameworks */,
 				96E7CE4125EB646400EBC43E /* SwiftDiscogs.framework in Frameworks */,
+				96BB31C828A8A5BD00564F6C /* JSONClient in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1244,6 +1248,10 @@
 				96E7CE4425EB646400EBC43E /* PBXTargetDependency */,
 			);
 			name = SwiftUIDiscogs;
+			packageProductDependencies = (
+				96BB31C528A8A5B900564F6C /* Medi8 */,
+				96BB31C728A8A5BD00564F6C /* JSONClient */,
+			);
 			productName = SwiftUIDiscogs;
 			productReference = 96D5B6E32497361200B555AC /* SwiftUIDiscogs.app */;
 			productType = "com.apple.product-type.application";
@@ -2172,6 +2180,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SwiftUIDiscogs/Preview Content\"";
 				DEVELOPMENT_TEAM = 3MY7LL9G36;
 				ENABLE_PREVIEWS = YES;
@@ -2197,6 +2206,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SwiftUIDiscogs/Preview Content\"";
 				DEVELOPMENT_TEAM = 3MY7LL9G36;
 				ENABLE_PREVIEWS = YES;
@@ -2423,6 +2433,16 @@
 			productName = Medi8;
 		};
 		969EBFB825EA2FD00008DE91 /* JSONClient */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 969EBFB725EA2FD00008DE91 /* XCRemoteSwiftPackageReference "JSONClient" */;
+			productName = JSONClient;
+		};
+		96BB31C528A8A5B900564F6C /* Medi8 */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 969EBFB425EA2F940008DE91 /* XCRemoteSwiftPackageReference "Medi8" */;
+			productName = Medi8;
+		};
+		96BB31C728A8A5BD00564F6C /* JSONClient */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 969EBFB725EA2FD00008DE91 /* XCRemoteSwiftPackageReference "JSONClient" */;
 			productName = JSONClient;
