@@ -10,8 +10,9 @@ struct MainView: View {
     var body: some View {
         VStack(alignment: .center, spacing: 20.0) {
             TextField("Search Discogs", text: $searchTerms) {
-                searchModel.search(searchTerms)
+//                searchModel.search(searchTerms)
             }
+            
             Text("Searching for \(searchTerms)")
         }
     }
